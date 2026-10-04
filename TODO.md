@@ -16,14 +16,29 @@ mondja el a hátteret.
 Ezek nem kódolási feladatok. Amíg nincsenek eldöntve, néhány lenti tétel
 sem indítható.
 
-- **A név körüli hátralék** (a döntés megszületett, CLAUDE.md 1.):
-  GitHub repó átnevezése `zcsipler/LogMyDrink`-re (Settings → Rename, a
-  régi URL átirányít) és utána `git remote set-url`; App Store Connect
-  rekord a név lefoglalására, amint van fizetős tagság; domainek
-  (`logmydrink.com` / `.app` / `.io` — 2026. október 4-én mind szabad);
-  EU-védjegy a 9. és 42. osztályra, ha az app élesedik (TMview és USPTO
-  2026. október 4-én: nincs egyező jelölés; rokon: francia „DrinkLOG",
-  INPI 4840485, 9/42, hőmérséklet-naplózó eszközök).
+- **A név lefoglalása — Zoltán döntése (2026. október): csak az App
+  Store-ban, most; domain és védjegy az élesítés után.** Amíg nem biztos,
+  hogy az app felkerül a store-ba, egy ismeretlen név domainjét senki nem
+  viszi el, a védjegy pedig pénz; a store-név viszont ingyen van és első
+  érkezés alapján megy.
+  - **App Store Connect rekord**, amint a fizetős tagság él (az Apple ID
+    ugyanaz legyen, mint az Xcode-ban a `2GYMHK5C56` Personal Team mögött;
+    egyéni tagság, a fejlesztő neve a saját polgári név lesz). Apps → `+`
+    → New App, név „LogMyDrink", bundle ID `dev.zcsipler.logmydrink`, SKU
+    `logmydrink-ios`. Build nem kell hozzá, a rekord foglal. **180 nap után
+    az Apple felszabadíthatja a fel nem töltött nevet** — ha az első
+    feltöltés csúszik, egy TestFlight-build megtartja.
+  - **Google Play: nincs mit foglalni.** A Play-cím nem egyedi (több app is
+    viselheti), csak a package name az, és az is csak feltöltéskor
+    foglalódik. Androidon a nevet csak a védjegy védi — amikor lesz
+    Android-app.
+  - **Domain az élesítés után:** `logmydrink.app` (elsődleges, csak HTTPS)
+    és `.com` (védelem); az `.io` nem kell. 2026. október 4-én mind szabad.
+    A beküldéshez kötelező Privacy Policy és Support URL addig GitHub Pages.
+  - **EU-védjegy** a 9. és 42. osztályra, ha az app él (TMview és USPTO
+    2026. október 4-én: nincs egyező jelölés; rokon: francia „DrinkLOG",
+    INPI 4840485, 9/42, hőmérséklet-naplózó eszközök).
+  - GitHub repó átnevezve `zcsipler/LogMyDrink`-re ✔.
 - **Demo vs. in-app purchase az első feltöltésnél.** Két út: (a) egyszerre
   megy fel az ingyenes Live és a fizetős Előzmény, StoreKittel; (b) először
   csak az alap grafikon, a fizetős funkciók később, marketing mellé.
