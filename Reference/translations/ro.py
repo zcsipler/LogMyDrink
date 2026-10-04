@@ -107,9 +107,6 @@ TRANSLATIONS = {
     # --- Drinking pace ---
     "How fast": "Cât de repede",
     "In one go": "Dintr-o dată",
-    "15 min": "15 min",
-    "30 min": "30 min",
-    "1 hr": "1 h",
     "Counts as a single swallow — the steepest possible rise.":
         "Se consideră o singură înghițitură — cea mai abruptă creștere posibilă.",
     "A quick drink. The level climbs fast.": "O băutură consumată repede. Nivelul urcă rapid.",
@@ -136,11 +133,7 @@ TRANSLATIONS = {
     "%@ g alcohol": "%@ g alcool",
     "Stomach": "Stomac",
     "When": "Când",
-    "15 min ago": "acum 15 min",
-    "30 min ago": "acum 30 min",
-    "1 hr ago": "acum 1 h",
     "Done": "Gata",
-    "Set exact time": "Setează ora exactă",
     "Add": "Adaugă",
 
     # --- ProfileSheet ---

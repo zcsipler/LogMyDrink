@@ -824,9 +824,10 @@ bizonyíték, a `backdateTracking` viszi vissza a kezdetet. Volt egy kör,
 amiben a gomb az itallista alatt ült: egy valós estén a chart, a stat-sor és a
 lista a fold alá tolta, pont ott, ahol a legtöbb ital van. Múltbeli napon az
 `AddDrinkSheet` kapja a napot (`day`): az idő szekció a lap **tetejére** kerül,
-a típusválasztó elé (az 5.10 sorrendje a live esethez szól — pótlásnál a típus
-a szokásos, az idő az egyetlen, amit biztosan be kell írni), és rögtön a
-görgethető (`.wheel`) választó áll ott. **Csak óra–perc kerék, dátumoszlop
+a típusválasztó elé (pótlásnál a típus a szokásos, az idő az egyetlen, amit
+biztosan be kell írni), és rögtön a görgethető (`.wheel`) választó áll ott.
+*Azóta az idő minden módban ugyanott van, a tempó mellett, léptetővel; a
+kerék koppintásra nyílik (5.20).* **Csak óra–perc kerék, dátumoszlop
 nélkül:** a napot az oldal már kimondta, és a dátumoszlop egy 01:43-as italra
 „Today"-t írt volna a Tegnap feliratú oldalon — az ivási nap belső
 éjfél-képe, ami a felhasználót nem érdekli. A kerékről vett időt a lap maga
@@ -1067,6 +1068,109 @@ Három fajta van, és nem cserélhetők fel:
   entitlementje vagy hordoz, vagy nem. Ma: `cloudSync` (5.17). Nem `Feature`,
   mert a szinkront nem veszi meg senki; nem futásidejű, mert kapcsoló nem tud
   entitlementet előállítani, és a store egyszer nyílik meg induláskor.
+
+### 5.20 Az ital ideje és tempója: két léptető egymás mellett
+
+2026. október. Az `AddDrinkSheet`-en a leggyakrabban módosított mező nem a
+típus vagy a mennyiség — az a legtöbb embernél az alapértéken marad —,
+hanem a **kezdési idő**: az italt jellemzően húsz perccel a kezdés után
+jut eszünkbe felvinni. Addig a „When" a lap alján ült, három csúszka
+alatt, és a húsz perc beírásához a „Set exact time" dátumválasztójáig kellett
+görgetni.
+
+**A sorrend:** Type → Amount → Strength → **[When | How fast]** → Stomach.
+Elöl az ital leírása (a típus marad az első, mert másnak az az első kérdés,
+5.10), utána a két időbeli tényező **egy sorban, egymás mellett**, mert
+ugyanarról szólnak — az ital időbeli lenyomatáról —, végül a gyomorállapot,
+mert ritkán mozdul el a „moderate"-ről, és a gyors felvitel nyugtáján utólag
+is állítható. Volt egy kör, amiben a When legfelülre került: Zoltán
+visszavette, az ital leírása előrébb való, az idő a tempó mellé.
+
+**A vezérlő egy léptető (`TimeStepper`), nem chip és nem csúszka.** Két
+kör tanulsága. A chipek (*15 · 30 · 60 perce*) választásnak látszanak, pedig
+az idő folytonos, és a köztes értékekért a kerékhez kellett nyúlni. Egy
+köztes kör eltolás-chipeket próbált (*−10 · −20 …*, összeadódva): a −30 majd
+a −10 negyven perc lett volna két koppintással, de egy chipsor kijelölésnek
+olvasódik, nincs kijelölt állapota, és nem látszik rajta, hol tartasz —
+Zoltán rá is kérdezett, hogy a halmozódás szándékos-e. A csúszka pedig
+percekre túl finom, és egy egész sort visz. A léptető a becsületes vezérlő a
+„kicsit korábban"-ra: középen az érték — ez maga az állapot, nem kijelölésből
+kell visszaolvasni —, két oldalt − és +, fél sor széles, ezért fér el kettő
+egymás mellett.
+
+- **Állandó 5 perces lépés, nyomva tartásra gyorsuló ismétlés** (450 ms
+  után 200 ms-onként, lépésenként 15 %-kal gyorsulva 50 ms-ig). Nem a
+  távolsággal növekvő lépésköz: az az ujj alatt változna, és a határain
+  aszimmetrikus (55 perc kifelé elérhető, visszafelé nem). A gyorsuló
+  ismétlés a `UIStepper` saját viselkedése, nem kell megtanulni. Az első
+  ismétlés elég későn jön, hogy egy szándékos koppintás sose duplázzon.
+  `RepeatButton`: nulla távolságú `DragGesture`, mert a `Button` nem tudja
+  megmondani, mikor emelik fel az ujjat.
+- **Rácsra lép** (`TimeStep.snapped`): egy 23 perces pour cut vagy egy
+  21:28:37-es ital az első koppintásra kerek értékre kerül, nem viszi
+  magával a páratlan maradékot.
+- **A When + gombja a „most"-nál letiltva** — jövőbe nem lehet felvinni, és
+  ez mondja ki, hogy a jelen a felső határ, külön „Now" gomb nélkül. A −
+  gomb lefelé korlátlan live-on és szerkesztésnél: a hajnali ötös határ nem
+  fal, fél hat előtt egy órával még az előző este van, és a store oda is
+  irányítja. Pótlásnál a nap eleje és vége a két határ.
+- **Felirat alatta:** a mai napon „20 perce" (a `relative` formázó), mert az
+  eltolást fejben összeadni ugyanaz a munka, amit a léptető le akar venni;
+  más napon a naptári dátum, az egyetlen dolog, amit egy óra–perc nem mond
+  el. A How fast alatt a tempó magyarázata marad (5.9).
+- **A How fast-on 0 = „In one go"**, ott a − letiltva; a felső határ 180
+  perc. A típusonkénti alapérték (5.9) és a pour cut (5.13) változatlan. A
+  kedvenc-szerkesztő ugyanezt a `DrinkPaceControl`-t használja.
+- Lépésenként `.selection` haptika, hogy tartás közben érezni a tempót.
+
+**A mennyiség és az alkoholfok is léptető (`DrinkMeasureControls`), egy
+sorban, a két időmező mintájára.** Zoltán érve döntött: a mennyiség nem
+választás egy listából — otthon 220 ml bor megy a pohárba, egy hordóból
+akármekkora pohárba töltögetünk, az 5 cl-es feles háromnegyedig van —, tehát a
+chipek („ezek közül válassz") rossz vezérlők voltak rá, a csúszka pedig tíz
+milliliterre se olvasható, se eltalálható nem volt. Egy köztes javaslat a
+chipeket megtartotta volna a léptető mellett gyors ugrásnak (500 ↔ 330); nem
+kellett, mert a típus alapértéke eleve a leggyakoribb méret, a szokásos italt
+pedig a kedvenc viszi a gyors felvitelen — a lap maga a nem szokásos esetre
+van. A lépésköz a sablonból jön (`DrinkTemplate.volumeStepMl`: tömény 5 ml,
+minden más 10 ml), az alkoholfoké 0,5 %, a tartomány a sablon `abvRange`-e és
+10–1000 ml. A `volumeOptions` kikerült a sablonból. A units/gramm lábjegyzet a
+pár alatt marad, mert az az egyetlen hely, ahol a két szám alkohollá áll
+össze. A rácsra lépés közös (`StepGrid.snapped`, lebegőpontos kerekítéssel,
+különben a 4,5 / 0,5 = 9,000000000000002 egy lépést átugrana).
+
+**A pontos idő egy rövid, alulról felúszó lapon (`TimePickerSheet`).** Az
+időre koppintva jön elő, detentes `.sheet`-ként, nem a sor alatt kinyílva:
+a kerék 200 pt magas, és helyben kinyitva minden alkalommal letolta a gyomor
+szekciót és a kedvenc gombot; így a mögötte lévő form nem mozdul, a lapnak
+saját „Done"-ja van, és a megerősítő sáv úgyis rögzítve van alul, tehát az
+előrejelzés látszik. (Ez a modern alakja annak, ami UIKitben a billentyűzet
+helyén felúszó `UIDatePicker` volt; az `inputView` ma már nem idióma, a
+detent igen — az Óra és az Egészség app is így csinálja.) Rajta az
+**óra–perc kerék**, dátumoszlop nélkül, az 5.16 indoklásával, ami az időt egy
+**rögzített** ivási napra helyezi (`wheelDay`, a `place` szabályával).
+Rögzített, mert ha minden tekerésnél a `consumedAt` napjából számolnánk, egy
+határátlépő tekerés kihúzná a napot a kerék alól, és egy teljes nappal arrébb
+landolna. A nap a lap megnyitásakor dől el. Alatta egy külön **„Day" sor**
+kompakt dátumválasztóval (csak dátum): a rossz napra felvitt italt át kell
+tudni tenni anélkül, hogy törölnénk és az Előzményben megkeresnénk a jó napot.
+Külön sor, nem a kerék dátumoszlopa, mert a kettő más: a dátumválasztó a
+napot mozgatja és az óra–percet megtartja, a kerék az óra–percet mozgatja az
+ivási napon belül. Pótlásnál a „Day" sor nincs: a napot az oldal mondta ki.
+Pótlásnál és szerkesztésnél is a léptető az alapállapot, nem a kerék: egy
+17:40-es ital javítása is jellemzően pár lépés, a kerék egy koppintásra
+megvan.
+
+**A store-ban ez egy `move`-ot jelentett.** Az `update` eddig helyben írta
+át a rekordot, és a `startedAt`-ot a legkorábbi italra húzta — egy másik
+napra átdátumozott sör így a mai alkalmat nyújtotta volna vissza napokkal,
+egy folytonos görbével a köztes napok fölött: pont az, amit az `add` a
+`sessionCovering` útválasztással elkerül (vagyis a korábbi dátumválasztó
+szerkesztésnél eddig is rosszul működött más napra). Most ha a szerkesztett
+ital ivási napja változik, az `update` `remove` + `add`-ot futtat: az ital a
+jó alkalomba kerül (vagy újat nyit a `profileApplicable` profiljával), az
+üressé vált régi alkalom törlődik, és a célnapon az `add` pour cutja (5.13)
+is lefut — ott az áthelyezett ital ugyanúgy információ az előzőről.
 
 ## 6. Validáció
 

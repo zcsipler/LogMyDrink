@@ -9,7 +9,10 @@ struct DrinkTemplate: Identifiable, Hashable {
     let icon: String
     let defaultVolumeMl: Double
     let defaultAbv: Double
-    let volumeOptions: [Double]
+    /// How far one tap of the amount stepper moves. Spirits are poured in
+    /// centilitres and a glass three-quarters full is a real case, so 5 ml;
+    /// everything else in tens.
+    let volumeStepMl: Double
     let abvRange: ClosedRange<Double>
 
     /// How long this kind of drink typically takes to finish, in minutes.
@@ -49,37 +52,37 @@ enum DrinkCatalog {
         DrinkTemplate(
             id: "beer", name: "Beer", icon: "mug.fill",
             defaultVolumeMl: 500, defaultAbv: 5,
-            volumeOptions: [250, 330, 400, 500], abvRange: 0.5...12,
+            volumeStepMl: 10, abvRange: 0.5...12,
             defaultDrinkingMinutes: 30
         ),
         DrinkTemplate(
             id: "wine", name: "Wine", icon: "wineglass.fill",
             defaultVolumeMl: 150, defaultAbv: 12,
-            volumeOptions: [100, 125, 150, 200], abvRange: 5...18,
+            volumeStepMl: 10, abvRange: 5...18,
             defaultDrinkingMinutes: 25
         ),
         DrinkTemplate(
             id: "sparkling", name: "Sparkling", icon: "waterbottle.fill",
             defaultVolumeMl: 125, defaultAbv: 12,
-            volumeOptions: [100, 125, 150, 200], abvRange: 5...15,
+            volumeStepMl: 10, abvRange: 5...15,
             defaultDrinkingMinutes: 20
         ),
         DrinkTemplate(
             id: "spirit", name: "Spirit", icon: "drop.fill",
             defaultVolumeMl: 40, defaultAbv: 40,
-            volumeOptions: [20, 40, 50, 80], abvRange: 15...96,
+            volumeStepMl: 5, abvRange: 15...96,
             defaultDrinkingMinutes: 0
         ),
         DrinkTemplate(
             id: "cocktail", name: "Cocktail", icon: "cup.and.saucer.fill",
             defaultVolumeMl: 200, defaultAbv: 15,
-            volumeOptions: [150, 200, 250, 330], abvRange: 3...40,
+            volumeStepMl: 10, abvRange: 3...40,
             defaultDrinkingMinutes: 20
         ),
         DrinkTemplate(
             id: "custom", name: "Custom", icon: "slider.horizontal.3",
             defaultVolumeMl: 100, defaultAbv: 10,
-            volumeOptions: [50, 100, 200, 330], abvRange: 0.5...96,
+            volumeStepMl: 10, abvRange: 0.5...96,
             defaultDrinkingMinutes: 15
         ),
     ]

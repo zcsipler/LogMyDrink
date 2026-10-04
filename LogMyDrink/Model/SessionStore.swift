@@ -673,12 +673,25 @@ final class SessionStore {
     /// Corrects a drink. `target` defaults to the running session; the history
     /// detail passes a past one, because a mistake noticed three weeks later is
     /// still a mistake worth fixing.
+    ///
+    /// A correction that moves the drink to another drinking day is not an
+    /// edit of this session but a move between two: the drink leaves the one
+    /// it was in and goes wherever `add` would have put it in the first
+    /// place. Applied in place, the new date would only have dragged this
+    /// session's `startedAt` back across the days in between and drawn one
+    /// continuous curve over them — the very thing `add` routes around.
     func update(_ drink: Drink, in target: DrinkingSession? = nil) {
         // Named `holder`, not `owner`: the store now has an `owner` person,
         // and a shadowed name in a method that writes to the database is the
         // kind of thing that reads fine and does the wrong thing.
         let holder = target ?? session
         guard let holder, let record = (holder.drinks ?? []).first(where: { $0.id == drink.id }) else { return }
+
+        if !DrinkingDay.containing(record.consumedAt).contains(drink.consumedAt) {
+            remove(drink, from: holder)
+            add(drink)
+            return
+        }
 
         record.apply(drink)
         if let earliest = holder.sortedDrinks.first?.consumedAt {

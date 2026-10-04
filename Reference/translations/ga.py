@@ -107,9 +107,6 @@ TRANSLATIONS = {
     # --- Drinking pace ---
     "How fast": "Cé chomh tapa",
     "In one go": "D'aon iarraidh",
-    "15 min": "15 nóim",
-    "30 min": "30 nóim",
-    "1 hr": "1 uair",
     "Counts as a single swallow — the steepest possible rise.":
         "Áirítear é mar bholgam amháin — an t-ardú is géire is féidir.",
     "A quick drink. The level climbs fast.": "Deoch sciobtha. Ardaíonn an leibhéal go tapa.",
@@ -136,11 +133,7 @@ TRANSLATIONS = {
     "%@ g alcohol": "%@ g alcóil",
     "Stomach": "Goile",
     "When": "Cathain",
-    "15 min ago": "15 nóim ó shin",
-    "30 min ago": "30 nóim ó shin",
-    "1 hr ago": "1 uair ó shin",
     "Done": "Déanta",
-    "Set exact time": "Socraigh an t-am beacht",
     "Add": "Cuir leis",
 
     # --- ProfileSheet ---

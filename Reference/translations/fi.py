@@ -108,9 +108,6 @@ TRANSLATIONS = {
     # --- Drinking pace ---
     "How fast": "Kuinka nopeasti",
     "In one go": "Kerralla",
-    "15 min": "15 min",
-    "30 min": "30 min",
-    "1 hr": "1 h",
     "Counts as a single swallow — the steepest possible rise.":
         "Lasketaan yhdeksi kulaukseksi – jyrkin mahdollinen nousu.",
     "A quick drink. The level climbs fast.": "Nopea juoma. Taso nousee nopeasti.",
@@ -136,11 +133,7 @@ TRANSLATIONS = {
     "%@ g alcohol": "%@ g alkoholia",
     "Stomach": "Vatsa",
     "When": "Milloin",
-    "15 min ago": "15 min sitten",
-    "30 min ago": "30 min sitten",
-    "1 hr ago": "1 h sitten",
     "Done": "Valmis",
-    "Set exact time": "Aseta tarkka aika",
     "Add": "Lisää",
 
     # --- ProfileSheet ---

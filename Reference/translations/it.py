@@ -108,9 +108,6 @@ TRANSLATIONS = {
     # --- Drinking pace ---
     "How fast": "Quanto in fretta",
     "In one go": "Tutto d’un fiato",
-    "15 min": "15 min",
-    "30 min": "30 min",
-    "1 hr": "1 h",
     "Counts as a single swallow — the steepest possible rise.":
         "Conta come un solo sorso: la salita più ripida possibile.",
     "A quick drink. The level climbs fast.": "Un drink veloce. Il livello sale in fretta.",
@@ -136,11 +133,7 @@ TRANSLATIONS = {
     "%@ g alcohol": "%@ g di alcol",
     "Stomach": "Stomaco",
     "When": "Quando",
-    "15 min ago": "15 min fa",
-    "30 min ago": "30 min fa",
-    "1 hr ago": "1 h fa",
     "Done": "Fine",
-    "Set exact time": "Imposta l’ora esatta",
     "Add": "Aggiungi",
 
     # --- ProfileSheet ---

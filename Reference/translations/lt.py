@@ -107,9 +107,6 @@ TRANSLATIONS = {
     # --- Drinking pace ---
     "How fast": "Kaip greitai",
     "In one go": "Vienu mauku",
-    "15 min": "15 min.",
-    "30 min": "30 min.",
-    "1 hr": "1 val.",
     "Counts as a single swallow — the steepest possible rise.":
         "Skaičiuojama kaip vienas gurkšnis — sparčiausias įmanomas kilimas.",
     "A quick drink. The level climbs fast.": "Greitai išgertas gėrimas. Lygis kyla sparčiai.",
@@ -136,11 +133,7 @@ TRANSLATIONS = {
     "%@ g alcohol": "%@ g alkoholio",
     "Stomach": "Skrandis",
     "When": "Kada",
-    "15 min ago": "Prieš 15 min.",
-    "30 min ago": "Prieš 30 min.",
-    "1 hr ago": "Prieš 1 val.",
     "Done": "Atlikta",
-    "Set exact time": "Nurodyti tikslų laiką",
     "Add": "Pridėti",
 
     # --- ProfileSheet ---

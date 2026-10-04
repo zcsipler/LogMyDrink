@@ -142,8 +142,7 @@ struct FavouriteDrinkSheet: View {
                         abv = item.defaultAbv
                         drinkingMinutes = item.defaultDrinkingMinutes
                     }
-                    DrinkVolumeControl(template: template, volumeMl: $volumeMl)
-                    DrinkStrengthControl(template: template, abv: $abv, volumeMl: volumeMl)
+                    DrinkMeasureControls(template: template, volumeMl: $volumeMl, abv: $abv)
                     DrinkPaceControl(drinkingMinutes: $drinkingMinutes)
 
                     if store.favourite != nil {

@@ -109,9 +109,6 @@ TRANSLATIONS = {
     # --- Drinking pace ---
     "How fast": "Πόσο γρήγορα",
     "In one go": "Μονορούφι",
-    "15 min": "15 λεπτά",
-    "30 min": "30 λεπτά",
-    "1 hr": "1 ώρα",
     "Counts as a single swallow — the steepest possible rise.":
         "Μετράει ως μία γουλιά — η πιο απότομη δυνατή άνοδος.",
     "A quick drink. The level climbs fast.": "Γρήγορο ποτό. Το επίπεδο ανεβαίνει γρήγορα.",
@@ -138,11 +135,7 @@ TRANSLATIONS = {
     "%@ g alcohol": "%@ g αλκοόλ",
     "Stomach": "Στομάχι",
     "When": "Πότε",
-    "15 min ago": "Πριν από 15 λεπτά",
-    "30 min ago": "Πριν από 30 λεπτά",
-    "1 hr ago": "Πριν από 1 ώρα",
     "Done": "Τέλος",
-    "Set exact time": "Ορισμός ακριβούς ώρας",
     "Add": "Προσθήκη",
 
     # --- ProfileSheet ---

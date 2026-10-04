@@ -107,9 +107,18 @@ az egész app hitelességét.
 
 ### Ital felvitele
 
-- **Sokkal könnyebb legyen a dátumot és az ivás időtartamát módosítani**
-  az `AddDrinkSheet`-ben. A pótlásnál a Nap oldalon az idő már a lap
-  tetején van (5.16); a Live-on és az időtartamnál még nem.
+- **Az `AddDrinkSheet` férjen rá egy képernyőre görgetés nélkül** (a
+  2. kör; az idő és a tempó, a mennyiség és az alkoholfok már két sorban,
+  léptetővel, 5.20). Ami maradt: hat típusikon egy sorban; a gyomor egy sor,
+  a magyarázat a fejlécben.
+- **A chart x tengelye a live és a lezárt alkalmon másképp van keretezve**
+  (`BACChartModel.visibleRange`): a lezárt arra, ami történt (első ital
+  −15 perc → kiürülés +20 perc), a live legalább hat órára kihúzva, „hogy
+  legyen hova nőnie". Egy sör 2,5 óra alatt ürül ki, tehát ugyanaz az ital a
+  Nap oldalon 2,5, a Live-on 6 órás ablakban látszik — ezért tűnik a Live
+  görbéje laposabbnak. Az indok gyenge (a sáv a kiürülésig fut, tehát a
+  jövő benne van), a javaslat egy közös szabály 3 órás minimummal; Zoltán
+  még gondolkodik rajta, egyelőre nem nyúlunk hozzá.
 - **Tömeges felvitel** (5.16): „20:00-tól fél óránként 8 sör"
   jellegű sorozat egy lépésben, az itteni felvitel bővítéseként.
 

@@ -109,9 +109,6 @@ TRANSLATIONS = {
     # --- Drinking pace ---
     "How fast": "Kemm malajr",
     "In one go": "F'daqqa",
-    "15 min": "15 min",
-    "30 min": "30 min",
-    "1 hr": "1 siegħa",
     "Counts as a single swallow — the steepest possible rise.":
         "Jgħodd bħala belgħa waħda — l-aktar tlugħ qawwi possibbli.",
     "A quick drink. The level climbs fast.": "Xarba mgħaġġla. Il-livell jitla' malajr.",
@@ -138,11 +135,7 @@ TRANSLATIONS = {
     "%@ g alcohol": "%@ g alkoħol",
     "Stomach": "Stonku",
     "When": "Meta",
-    "15 min ago": "15 min ilu",
-    "30 min ago": "30 min ilu",
-    "1 hr ago": "1 siegħa ilu",
     "Done": "Lest",
-    "Set exact time": "Issettja l-ħin eżatt",
     "Add": "Żid",
 
     # --- ProfileSheet ---

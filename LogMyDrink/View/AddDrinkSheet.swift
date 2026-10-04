@@ -24,9 +24,8 @@ struct AddDrinkSheet: View {
     /// The past drinking day a new drink is being filled in for, when it is
     /// added from the History day page rather than logged as it happens.
     ///
-    /// The day is fixed and the time is the question: "15 min ago" means
-    /// nothing about last Friday, so the sheet opens on the time picker,
-    /// limited to that day, and starts where that evening left off.
+    /// The day is fixed and the time is the question: the stepper and the
+    /// wheel are limited to that day, and there is no "another day" link.
     let day: DrinkingDay?
 
     @Environment(\.dismiss) private var dismiss
@@ -37,7 +36,15 @@ struct AddDrinkSheet: View {
     @State private var stomach: StomachState
     @State private var drinkingMinutes: Double
     @State private var consumedAt: Date
+
+    /// The exact-time sheet (`TimePickerSheet`), opened by tapping the time.
     @State private var showsTimePicker = false
+
+    /// The drinking day the hour–minute wheel places its time on. Fixed while
+    /// the wheel is out: derived from `consumedAt` on every spin, a time
+    /// crossing the five o'clock boundary would move the day under the wheel
+    /// and land a whole day away from what was dialled.
+    @State private var wheelDay: DrinkingDay
 
     /// A stable identifier, so that dragging a slider does not mint a new
     /// drink-equivalent object on every redraw. When editing, this is the
@@ -63,16 +70,12 @@ struct AddDrinkSheet: View {
         _drinkingMinutes = State(
             initialValue: editing?.drinkingMinutes ?? template.defaultDrinkingMinutes
         )
-        _consumedAt = State(
-            initialValue: editing?.consumedAt
-                ?? day.map { Self.startingTime(on: $0, now: store.now) }
-                ?? .now
-        )
+        let consumedAt = editing?.consumedAt
+            ?? day.map { Self.startingTime(on: $0, now: store.now) }
+            ?? .now
+        _consumedAt = State(initialValue: consumedAt)
         _draftID = State(initialValue: editing?.id ?? UUID())
-        // "15 min ago" is meaningless when correcting a drink from hours back,
-        // or when filling in a day that is over, so both open straight on the
-        // exact-time picker.
-        _showsTimePicker = State(initialValue: editing != nil || day != nil)
+        _wheelDay = State(initialValue: day ?? DrinkingDay.containing(consumedAt))
     }
 
     private var isEditing: Bool { editing != nil }
@@ -146,23 +149,19 @@ struct AddDrinkSheet: View {
         NavigationStack {
             ScrollView {
                 VStack(spacing: 22) {
-                    // Logging as it happens, the time is "now" and the type
-                    // is the question, so the type comes first (5.10).
-                    // Filling in a past day, it is the other way round: the
-                    // drink is most likely the usual one, and the time is the
-                    // one thing that has to be typed — so it leads, instead of
-                    // sitting under four controls that will not be touched.
-                    if day != nil {
-                        timeSection
-                    }
+                    // The drink first — what, how much, how strong — then
+                    // its two time inputs side by side, then the stomach.
+                    // The type stays first because for most people it is the
+                    // first question (5.10); when and how fast are one block
+                    // because they are the same kind of fact about the drink,
+                    // and together they are the fields most often changed
+                    // from their defaults. Stomach state is last: it rarely
+                    // leaves "moderate", and the quick-add receipt lets it be
+                    // corrected afterwards.
                     typePicker
-                    volumeSection
-                    abvSection
+                    measureSection
+                    timeBlock
                     stomachSection
-                    paceSection
-                    if day == nil {
-                        timeSection
-                    }
                     setDefaultButton
                 }
                 .padding(.horizontal, 20)
@@ -273,10 +272,10 @@ struct AddDrinkSheet: View {
         projection.limitCrossedAt?.hourMinute ?? candidate.consumedAt.hourMinute
     }
 
-    // MARK: Drink type, amount, strength
+    // MARK: Drink type, amount and strength
     //
     // The controls themselves live in `DrinkControls`, because the favourite
-    // editor needs the same four and a second copy would drift.
+    // editor needs the same ones and a second copy would drift.
 
     private var typePicker: some View {
         DrinkTypePicker(template: $template) { item in
@@ -286,12 +285,8 @@ struct AddDrinkSheet: View {
         }
     }
 
-    private var volumeSection: some View {
-        DrinkVolumeControl(template: template, volumeMl: $volumeMl)
-    }
-
-    private var abvSection: some View {
-        DrinkStrengthControl(template: template, abv: $abv, volumeMl: volumeMl)
+    private var measureSection: some View {
+        DrinkMeasureControls(template: template, volumeMl: $volumeMl, abv: $abv)
     }
 
     // MARK: Stomach state
@@ -338,134 +333,146 @@ struct AddDrinkSheet: View {
         }
     }
 
-    // MARK: Pace
+    // MARK: When and how fast
+    //
+    // Side by side, because they are the same kind of fact — the drink's
+    // footprint in time — and because a stepper is half a row wide. Each is
+    // a `TimeStepper`: a tap is five minutes, holding runs. Tapping the time
+    // itself opens a small sheet from the bottom with the hour–minute wheel
+    // and, where the day is up for change, a date — rather than unfolding
+    // under the row, which pushed the stomach section and the favourite
+    // button down every time. The confirm bar is pinned, so the projection
+    // stays in view either way.
+
+    private var timeBlock: some View {
+        HStack(alignment: .top, spacing: 12) {
+            whenSection
+            paceSection
+        }
+        .sensoryFeedback(.selection, trigger: consumedAt)
+        .sheet(isPresented: $showsTimePicker) {
+            TimePickerSheet(
+                time: timeOnDay,
+                date: dateOnly,
+                canChangeDay: day == nil,
+                latest: latestStart
+            )
+        }
+    }
+
+    private var whenSection: some View {
+        ControlSection("When") {
+            VStack(alignment: .leading, spacing: 8) {
+                TimeStepper(
+                    canDecrement: canStepBack,
+                    canIncrement: canStepForward,
+                    onStep: stepTime,
+                    onTapValue: openTimePicker,
+                    value: { Text(verbatim: consumedAt.hourMinute) }
+                )
+
+                Text(verbatim: timeCaption)
+                    .font(.system(size: 11, design: .rounded))
+                    .foregroundStyle(Theme.secondaryText)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .fixedSize(horizontal: false, vertical: true)
+            }
+        }
+    }
 
     private var paceSection: some View {
         DrinkPaceControl(drinkingMinutes: $drinkingMinutes)
     }
 
-    // MARK: Time
-
-    /// Filling in a day, the header carries the calendar date the chosen time
-    /// falls on — the one thing the time wheel cannot say, and the one that
-    /// changes when the wheel crosses midnight. Otherwise nothing while the
-    /// compact picker is out, since it shows date and time itself.
-    private var timeSectionTrailing: String? {
-        if day != nil {
-            return consumedAt.formatted(.dateTime.weekday(.abbreviated).month(.abbreviated).day())
+    /// Under the time: how long ago, when it is today's — the offset is the
+    /// thing being dialled, and adding it up in one's head is the work the
+    /// stepper was meant to remove; otherwise the calendar date, the one
+    /// thing an hour–minute display cannot say. Filling in a day, always
+    /// the date, since the whole point of that page is which day it is.
+    private var timeCaption: String {
+        if day == nil, DrinkingDay.containing(consumedAt).isCurrent(at: store.now) {
+            return isNow
+                ? String(localized: "Now")
+                : consumedAt.formatted(.relative(presentation: .numeric))
         }
-        return showsTimePicker ? nil : consumedAt.hourMinute
+        return consumedAt.formatted(.dateTime.weekday(.abbreviated).month(.abbreviated).day())
     }
 
-    /// The wheel's view of `consumedAt`: a clock time, placed on the day
-    /// being filled in (`place`). So spinning to 01:43 on the page called
-    /// Yesterday lands on the morning after, without anyone having to know
-    /// that a drinking day starts at five.
+    private var isNow: Bool {
+        abs(consumedAt.timeIntervalSince(Date.now)) < 60
+    }
+
+    /// The last moment the drink could have started: the end of the day
+    /// being filled in, or now. Disabling "+" at that point is what says
+    /// "now" — no separate button needed.
+    private var latestStart: Date {
+        day.map { Self.latestTime(on: $0, now: store.now) } ?? Date.now
+    }
+
+    private var canStepForward: Bool {
+        consumedAt < latestStart.addingTimeInterval(-30)
+    }
+
+    /// Backwards is unbounded when logging live or editing: the five o'clock
+    /// boundary is not a wall, an hour before half past five in the morning
+    /// is still that night, and the store files it there. A day being filled
+    /// in is bounded by its own start.
+    private var canStepBack: Bool {
+        guard let day else { return true }
+        return consumedAt > day.start.addingTimeInterval(30)
+    }
+
+    /// Moves to the next five-minute mark that way, with the seconds dropped.
+    private func stepTime(_ direction: Int) {
+        let calendar = Calendar.current
+        let parts = calendar.dateComponents([.hour, .minute], from: consumedAt)
+        let minuteOfDay = Double((parts.hour ?? 0) * 60 + (parts.minute ?? 0))
+        let delta = StepGrid.snapped(minuteOfDay, stepping: direction) - minuteOfDay
+
+        let onTheMinute = calendar.date(bySetting: .second, value: 0, of: consumedAt) ?? consumedAt
+        var next = onTheMinute.addingTimeInterval(delta * 60)
+        next = min(next, latestStart)
+        if let day { next = max(next, day.start) }
+        consumedAt = next
+    }
+
+    /// The wheel's view of `consumedAt`: a clock time, placed on `wheelDay`.
+    /// So spinning to 01:43 on the page called Yesterday lands on the morning
+    /// after, without anyone having to know that a drinking day starts at
+    /// five.
     private var timeOnDay: Binding<Date> {
         Binding(
             get: { consumedAt },
             set: { picked in
-                guard let day else { consumedAt = picked; return }
-                consumedAt = Self.place(clockTimeOf: picked, on: day, now: store.now)
+                consumedAt = Self.place(clockTimeOf: picked, on: wheelDay, now: store.now)
             }
         )
     }
 
-    /// How far the picker may go. A day being filled in is bounded by its
-    /// own drinking day, which lets the date part move only across the
-    /// midnight inside it — a drink at half past one is still that evening's.
-    private var selectableTimes: ClosedRange<Date> {
-        if let day {
-            return day.start...Self.latestTime(on: day, now: store.now)
-        }
-        return .distantPast...Date.now
-    }
-
-    private var timeSection: some View {
-        ControlSection("When", trailing: timeSectionTrailing) {
-            VStack(spacing: 10) {
-                if day != nil {
-                    // Filling in a past day, the time is the one thing that
-                    // has to be entered, so the wheels are already out: one
-                    // spin, not a tap on a popover and then a spin. Only the
-                    // time: the day was chosen on the page behind, and a date
-                    // column would have said "Today" for a drink at 01:43 on
-                    // the page titled Yesterday — the drinking day's inside
-                    // view of midnight, which is not the user's.
-                    DatePicker(
-                        selection: timeOnDay,
-                        displayedComponents: [.hourAndMinute]
-                    ) {
-                        Text("When")
-                    }
-                    .datePickerStyle(.wheel)
-                    .labelsHidden()
-                    .frame(maxWidth: .infinity)
-                    .tint(Theme.calm)
-                } else if showsTimePicker {
-                    // Date as well as time, so a drink can be filled in days
-                    // or months later. The store routes it to the session
-                    // covering that drinking day rather than to whichever one
-                    // is open now.
-                    DatePicker(
-                        selection: $consumedAt,
-                        in: selectableTimes,
-                        displayedComponents: [.date, .hourAndMinute]
-                    ) {
-                        Text("When")
-                    }
-                    .datePickerStyle(.compact)
-                    .labelsHidden()
-                    .tint(Theme.calm)
-                } else {
-                    HStack(spacing: 8) {
-                        quickTime("Now", minutesAgo: 0)
-                        quickTime("15 min ago", minutesAgo: 15)
-                        quickTime("30 min ago", minutesAgo: 30)
-                        quickTime("1 hr ago", minutesAgo: 60)
-                    }
-                }
-
-                // The chips are relative to now, so on a day that is over
-                // there is nothing to toggle back to.
-                if day == nil {
-                    Button {
-                        withAnimation(.easeInOut(duration: 0.2)) { showsTimePicker.toggle() }
-                    } label: {
-                        if showsTimePicker {
-                            Text("Done")
-                        } else {
-                            Text("Set exact time")
-                        }
-                    }
-                    .font(.system(size: 12, weight: .medium, design: .rounded))
-                    .foregroundStyle(Theme.calm)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                }
+    /// The date part alone, for the sheet's day picker. Setting it keeps
+    /// the clock time and moves the day; the wheel then places its times on
+    /// the new day.
+    private var dateOnly: Binding<Date> {
+        Binding(
+            get: { consumedAt },
+            set: { picked in
+                let calendar = Calendar.current
+                let clock = calendar.dateComponents([.hour, .minute], from: consumedAt)
+                let moved = calendar.date(
+                    bySettingHour: clock.hour ?? 0, minute: clock.minute ?? 0, second: 0, of: picked
+                ) ?? picked
+                consumedAt = min(moved, latestStart)
+                wheelDay = DrinkingDay.containing(consumedAt)
             }
-        }
+        )
     }
 
-    private func quickTime(_ label: LocalizedStringKey, minutesAgo: Int) -> some View {
-        let target = Date.now.addingTimeInterval(-Double(minutesAgo) * 60)
-        let isSelected = abs(consumedAt.timeIntervalSince(target)) < 60
-
-        return Button {
-            withAnimation(.easeOut(duration: 0.15)) { consumedAt = target }
-        } label: {
-            Text(label)
-                .font(.system(size: 12, weight: .medium, design: .rounded))
-                .lineLimit(1)
-                .minimumScaleFactor(0.75)
-                .frame(maxWidth: .infinity)
-                .padding(.vertical, 9)
-                .background(
-                    isSelected ? Theme.calm.opacity(0.18) : Theme.surface,
-                    in: RoundedRectangle(cornerRadius: 10)
-                )
-                .foregroundStyle(isSelected ? Theme.calm : Theme.secondaryText)
-        }
-        .buttonStyle(.plain)
+    /// Opening the wheel fixes the day it spins on to the one the time is on
+    /// right now — after stepping, that may no longer be the day the sheet
+    /// opened with.
+    private func openTimePicker() {
+        wheelDay = day ?? DrinkingDay.containing(consumedAt)
+        showsTimePicker = true
     }
 
     // MARK: The usual one
@@ -559,6 +566,88 @@ struct AddDrinkSheet: View {
         .overlay(alignment: .top) {
             Rectangle().fill(Theme.hairline).frame(height: 1)
         }
+    }
+}
+
+// MARK: - Exact time
+
+/// The hour–minute wheel, and the day when it is up for change, on a short
+/// sheet from the bottom.
+///
+/// A sheet rather than unfolding in place: the wheel is 200 pt tall, and in
+/// place it pushed everything under it down each time; here the form behind
+/// stays where it was and the sheet has its own Done. The modern form of the
+/// picker that used to rise from the bottom in UIKit — a detent, not an
+/// input view.
+///
+/// The day is a separate, plain date picker under the wheel, not a date
+/// column in the wheel itself: the wheel's day is the drinking day, which
+/// starts at five in the morning, and a date column would have said "Today"
+/// for a drink at 01:43 that belongs to yesterday's evening. The two bindings
+/// keep that apart — `time` places a clock time on the drinking day, `date`
+/// moves the day and keeps the clock time.
+private struct TimePickerSheet: View {
+    @Binding var time: Date
+    @Binding var date: Date
+
+    /// False when filling in a History day, which chose the day already.
+    let canChangeDay: Bool
+
+    /// Now, or the end of the day being filled in.
+    let latest: Date
+
+    @Environment(\.dismiss) private var dismiss
+
+    var body: some View {
+        NavigationStack {
+            VStack(spacing: 16) {
+                DatePicker(selection: $time, displayedComponents: [.hourAndMinute]) {
+                    Text("When")
+                }
+                .datePickerStyle(.wheel)
+                .labelsHidden()
+                .frame(maxWidth: .infinity)
+                .tint(Theme.calm)
+
+                if canChangeDay {
+                    HStack {
+                        Text("Day")
+                            .font(.system(size: 15, design: .rounded))
+                            .foregroundStyle(Theme.primaryText)
+                        Spacer()
+                        DatePicker(
+                            selection: $date,
+                            in: .distantPast...latest,
+                            displayedComponents: [.date]
+                        ) {
+                            Text("Day")
+                        }
+                        .datePickerStyle(.compact)
+                        .labelsHidden()
+                        .tint(Theme.calm)
+                    }
+                    .padding(.horizontal, 14)
+                    .padding(.vertical, 10)
+                    .background(Theme.surface, in: RoundedRectangle(cornerRadius: 12))
+                }
+
+                Spacer(minLength: 0)
+            }
+            .padding(.horizontal, 20)
+            .padding(.top, 8)
+            .background(Theme.background)
+            .navigationTitle(Text("When"))
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .confirmationAction) {
+                    Button("Done") { dismiss() }
+                        .foregroundStyle(Theme.calm)
+                }
+            }
+        }
+        .presentationDetents([.height(canChangeDay ? 360 : 300)])
+        .presentationDragIndicator(.visible)
+        .preferredColorScheme(.dark)
     }
 }
 

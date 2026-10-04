@@ -106,9 +106,6 @@ TRANSLATIONS = {
     # --- Drinking pace ---
     "How fast": "Hur snabbt",
     "In one go": "I ett svep",
-    "15 min": "15 min",
-    "30 min": "30 min",
-    "1 hr": "1 tim",
     "Counts as a single swallow — the steepest possible rise.":
         "Räknas som en enda klunk — den brantaste möjliga stigningen.",
     "A quick drink. The level climbs fast.": "En snabb dryck. Nivån stiger snabbt.",
@@ -135,11 +132,7 @@ TRANSLATIONS = {
     "%@ g alcohol": "%@ g alkohol",
     "Stomach": "Mage",
     "When": "När",
-    "15 min ago": "för 15 min sedan",
-    "30 min ago": "för 30 min sedan",
-    "1 hr ago": "för 1 tim sedan",
     "Done": "Klar",
-    "Set exact time": "Ange exakt tid",
     "Add": "Lägg till",
 
     # --- ProfileSheet ---

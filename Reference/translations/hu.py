@@ -102,9 +102,6 @@ TRANSLATIONS = {
     # --- Drinking pace ---
     "How fast": "Milyen tempóban",
     "In one go": "Egy hajtásra",
-    "15 min": "15 perc",
-    "30 min": "30 perc",
-    "1 hr": "1 óra",
     "Counts as a single swallow — the steepest possible rise.":
         "Egyetlen kortynak számít — ez a lehető legmeredekebb emelkedés.",
     "A quick drink. The level climbs fast.":
@@ -131,11 +128,7 @@ TRANSLATIONS = {
     "%@ g alcohol": "%@ g alkohol",
     "Stomach": "Gyomor",
     "When": "Időpont",
-    "15 min ago": "15 perce",
-    "30 min ago": "30 perce",
-    "1 hr ago": "1 órája",
     "Done": "Kész",
-    "Set exact time": "Pontos idő megadása",
     "Add": "Hozzáadás",
 
     # --- ProfileSheet ---

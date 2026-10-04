@@ -106,9 +106,6 @@ TRANSLATIONS = {
     # --- Drinking pace ---
     "How fast": "Hoe snel",
     "In one go": "In één keer",
-    "15 min": "15 min",
-    "30 min": "30 min",
-    "1 hr": "1 uur",
     "Counts as a single swallow — the steepest possible rise.":
         "Telt als één slok — de steilst mogelijke stijging.",
     "A quick drink. The level climbs fast.": "Snel gedronken. Het niveau stijgt snel.",
@@ -135,11 +132,7 @@ TRANSLATIONS = {
     "%@ g alcohol": "%@ g alcohol",
     "Stomach": "Maag",
     "When": "Wanneer",
-    "15 min ago": "15 min geleden",
-    "30 min ago": "30 min geleden",
-    "1 hr ago": "1 uur geleden",
     "Done": "Gereed",
-    "Set exact time": "Exacte tijd instellen",
     "Add": "Toevoegen",
 
     # --- ProfileSheet ---

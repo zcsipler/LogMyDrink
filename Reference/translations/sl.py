@@ -105,9 +105,6 @@ TRANSLATIONS = {
     # --- Drinking pace ---
     "How fast": "Kako hitro",
     "In one go": "Na dušek",
-    "15 min": "15 min",
-    "30 min": "30 min",
-    "1 hr": "1 h",
     "Counts as a single swallow — the steepest possible rise.":
         "Šteje kot en sam požirek — najstrmejši možni vzpon.",
     "A quick drink. The level climbs fast.": "Hitro popita pijača. Raven hitro naraste.",
@@ -133,11 +130,7 @@ TRANSLATIONS = {
     "%@ g alcohol": "%@ g alkohola",
     "Stomach": "Želodec",
     "When": "Kdaj",
-    "15 min ago": "pred 15 min",
-    "30 min ago": "pred 30 min",
-    "1 hr ago": "pred 1 h",
     "Done": "Končano",
-    "Set exact time": "Nastavi točen čas",
     "Add": "Dodaj",
 
     # --- ProfileSheet ---
