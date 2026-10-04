@@ -63,12 +63,16 @@ struct LogDrinkIntent: AppIntent {
 /// The phrases Siri listens for, registered automatically on install — no
 /// setup in the Shortcuts app.
 ///
-/// Every phrase has to contain the app's name; Apple does not accept a bare
-/// word. The app is named so that this constraint costs nothing: "LogMyDrink"
-/// is both the name and the command, so the first phrase is the bare name.
-/// The rest are the ways people naturally pad it. A personal shortcut named
-/// "Drink" in the Shortcuts app still works for a shorter trigger — Siri runs
-/// any shortcut by its name.
+/// Every phrase has to contain the app's name and, per Apple, something
+/// else — the bare name is nominally the system's "open the app" command.
+/// In practice (iOS 26, October 2026) "Hey Siri, LogMyDrink" *does* run this
+/// intent: Siri matches the bare name loosely against "LogMyDrink now" /
+/// "LogMyDrink please" and our shortcut wins. That is recogniser behaviour,
+/// not a documented contract, so the padded phrases below are what the app
+/// promises; the bare name working is a bonus the name was chosen to earn.
+/// A personal shortcut in the Shortcuts app named anything else ("Drink")
+/// with this intent as its one action is the fallback if an iOS update ever
+/// takes the bonus away — Siri runs any shortcut by its name.
 ///
 /// English only: Siri has no Hungarian, and the phrases follow the app's
 /// source language (7.).
@@ -78,12 +82,12 @@ struct LogMyDrinkShortcuts: AppShortcutsProvider {
         AppShortcut(
             intent: LogDrinkIntent(),
             phrases: [
-                "\(.applicationName)",
                 "\(.applicationName) now",
+                "\(.applicationName) please",
+                "Please \(.applicationName)",
                 "Log a drink in \(.applicationName)",
-                "Log my drink in \(.applicationName)",
             ],
-            shortTitle: "Log a drink",
+            shortTitle: "Log My Drink",
             systemImageName: "wineglass"
         )
     }

@@ -24,7 +24,7 @@ struct QuickAddWidget: Widget {
             QuickAddWidgetView(icon: entry.icon)
                 .widgetURL(QuickAddWidget.link)
         }
-        .configurationDisplayName("Log a drink")
+        .configurationDisplayName("Log My Drink")
         .description("Logs your usual drink with one tap.")
         .supportedFamilies([.accessoryCircular, .accessoryRectangular, .systemSmall])
     }
@@ -90,7 +90,7 @@ struct QuickAddWidgetView: View {
                 Image(systemName: icon)
                     .font(.system(size: 20, weight: .semibold))
                 VStack(alignment: .leading, spacing: 1) {
-                    Text("Log a drink")
+                    Text(verbatim: "Log My Drink")
                         .font(.headline)
                     Text("Your usual, one tap")
                         .font(.caption)
@@ -104,7 +104,7 @@ struct QuickAddWidgetView: View {
             VStack(spacing: 10) {
                 Image(systemName: icon)
                     .font(.system(size: 30, weight: .semibold))
-                Text("Log a drink")
+                Text(verbatim: "Log My Drink")
                     .font(.system(size: 15, weight: .semibold, design: .rounded))
             }
             .foregroundStyle(.white)

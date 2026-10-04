@@ -641,12 +641,24 @@ beregisztrálja a store-t az `AppDependencyManager`-be, az intent `@Dependency`
 **Siri a vetített csúcsot mondja vissza**, nem csak „kész"-t: ez a termék
 tézise (2.), és hangnál nincs kapszula, ami a színt vinné; a három szöveg a
 `LimitOutcome` szerint ágazik (5.2). Az `AppShortcutsProvider` kifejezéseinek
-kötelezően tartalmazniuk kell az app nevét, az Apple csupasz szót nem fogad
-el — **ezért ilyen a név**: a „LogMyDrink" egyszerre az app neve és a
-parancs, így az első kifejezés maga a csupasz név, és a „Hey Siri,
-LogMyDrink" regisztráció nélkül megy (1.). A rövidebb „Hey Siri, drink" egy,
-a felhasználó által a Shortcuts appban létrehozott, „Drink" nevű parancson
-át továbbra is elérhető. Siri magyarul nem tud, a kifejezések angolok.
+kötelezően tartalmazniuk kell az app nevét, és az Apple szerint még
+valamit — a csupasz név névleg az iOS saját „nyisd meg" parancsa. A
+regisztrált kifejezések: **„LogMyDrink now"**, „LogMyDrink please" /
+„Please LogMyDrink" (Siri a szórendre érzékeny, ezért mindkettő) és „Log a
+drink in LogMyDrink". **A gyakorlatban (iOS 26, 2026. október) a puszta
+„Hey Siri, LogMyDrink" is az intentet futtatja**, nem az appot nyitja: Siri
+a csupasz nevet lazán ráilleszti a toldalékos kifejezésekre, és a mi
+parancsunk nyer. Ez a felismerő viselkedése, nem dokumentált garancia —
+amit az app *ígér*, az a toldalékos forma; a csupasz név bónusz, amit a
+névválasztás kiérdemelt (1.). (Két kör tanulsága, mindkét irányban: előbb
+azt hittük, a csupasz név regisztrálható — nem az —, aztán hogy sosem jut
+el hozzánk — de eljut. A készülék dönt, nem a feltételezés.) Ha egy
+iOS-frissítés elvenné, a Shortcuts appban egy, az app nevétől eltérő nevű
+személyes parancs („Drink") ugyanezt adja, mert Siri a parancsot a nevén
+futtatja. Siri magyarul nem tud, a kifejezések angolok. A widget felirata és a Shortcuts-csempe címe „Log My
+Drink" (`Text(verbatim:)`, márkanév, nem fordul); az intent `title`-je
+viszont „Log a drink" marad, mert az a Shortcuts appban egy *lépés* neve,
+ott az ige a helyes, nem a márka.
 
 **Widget — `LogMyDrinkWidget/`, külön target.** Egy gomb a zárolt képernyőre
 (kör, téglalap) és a kezdőképernyőre (kicsi). A koppintás **nem helyben ír,
