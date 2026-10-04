@@ -257,6 +257,7 @@ final class SessionStore {
         set {
             person.favourite = newValue
             save()
+            WidgetBridge.publish(favourite: newValue)
         }
     }
 
@@ -283,6 +284,9 @@ final class SessionStore {
         rebuild()
         reconcileTrackingStart()
         backfillStaleSummaries()
+        // Launch, foreground, a person switch, an import: every path on
+        // which the widget's idea of the favourite can have gone stale.
+        WidgetBridge.publish(favourite: person.favourite)
     }
 
     /// Moves the person's tracking start back to their earliest session if

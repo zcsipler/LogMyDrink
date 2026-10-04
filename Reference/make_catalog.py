@@ -255,7 +255,13 @@ def main() -> int:
     }
 
     out = APP / "Localizable.xcstrings"
-    out.write_text(json.dumps(catalog, ensure_ascii=False, indent=2) + "\n")
+    # Xcode's own serialisation of a String Catalog: sorted keys, two-space
+    # indent, a space before each colon. Matching it byte for byte means that
+    # if the editor ever rewrites the file, the diff is the change, not the
+    # whole file.
+    out.write_text(
+        json.dumps(catalog, ensure_ascii=False, indent=2, sort_keys=True, separators=(",", " : ")) + "\n"
+    )
     reviewed = sorted(REVIEWED & set(langs))
     print(
         f"OK - {len(keys)} keys x {len(langs) + 1} languages -> {out}\n"

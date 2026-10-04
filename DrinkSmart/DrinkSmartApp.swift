@@ -1,3 +1,4 @@
+import AppIntents
 import SwiftUI
 import SwiftData
 
@@ -14,7 +15,13 @@ struct DrinkSmartApp: App {
         // Built here rather than inside a view, so the context is available
         // immediately and the store is created exactly once.
         let settings = AppSettings()
-        _store = State(initialValue: SessionStore(context: container.mainContext, settings: settings))
+        let store = SessionStore(context: container.mainContext, settings: settings)
+        _store = State(initialValue: store)
+
+        // The same store, reachable from `LogDrinkIntent`. Registered here
+        // and not lazily, because Siri can launch the app in the background
+        // and run the intent before any view has been built.
+        AppDependencyManager.shared.add(dependency: store)
     }
 
     var body: some Scene {

@@ -18,6 +18,10 @@ struct MainTabView: View {
     /// changing on its own.
     @State private var historyRequest: HistoryRequest?
 
+    /// A widget tap. The link opens the app on Live and logs the usual drink
+    /// there, so the strip with Undo appears exactly as after the capsule.
+    @State private var quickAddRequest: QuickAddRequest?
+
     enum Tab: Hashable {
         case history, live, profile
     }
@@ -34,7 +38,7 @@ struct MainTabView: View {
                 }
                 .tag(Tab.history)
 
-            LiveView(store: store) {
+            LiveView(store: store, quickAddRequest: $quickAddRequest) {
                 historyRequest = HistoryRequest(segment: .day, offset: 1)
                 selection = .history
             }
@@ -63,6 +67,15 @@ struct MainTabView: View {
         // back, not only when the next drink is logged.
         .onChange(of: scenePhase) { _, phase in
             if phase == .active { store.refreshFromStore() }
+        }
+        // The second place a tab is steered from outside, and the same shape
+        // as the first: a request the target screen applies and clears. The
+        // add itself happens on Live, not here, because the strip that lets
+        // it be undone is Live's.
+        .onOpenURL { url in
+            guard QuickAddLink.matches(url) else { return }
+            selection = .live
+            quickAddRequest = QuickAddRequest()
         }
     }
 }

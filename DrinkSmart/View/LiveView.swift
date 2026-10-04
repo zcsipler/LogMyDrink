@@ -13,6 +13,11 @@ import BACKit
 struct LiveView: View {
     let store: SessionStore
 
+    /// A quick add asked for from a widget. Applied once and cleared, the
+    /// way History handles its requests: it may arrive before this view
+    /// exists (the app was launched by the tap) or while it is on screen.
+    @Binding var quickAddRequest: QuickAddRequest?
+
     /// Opens History on yesterday. The tab switch is the parent's to make.
     var onShowYesterday: () -> Void = {}
 
@@ -112,6 +117,8 @@ struct LiveView: View {
         }
         .onChange(of: store.drinks.count) { openRowID = nil }
         .onChange(of: editingDrink?.id) { openRowID = nil }
+        .onAppear { applyQuickAddRequest() }
+        .onChange(of: quickAddRequest?.id) { applyQuickAddRequest() }
         // A quick add is silent by design, so the phone says what the screen
         // does not have to: the user is looking at a bar, not at this. Only on
         // the way in — the strip expiring is not an event worth a buzz, and a
@@ -144,6 +151,16 @@ struct LiveView: View {
 
     private func dismissStrip() {
         withAnimation(.easeOut(duration: 0.2)) { receipt = nil }
+    }
+
+    /// A widget tap lands here. The clock is caught up first: the app may
+    /// have been in the background for hours, and the offer is timed at
+    /// `store.now`, which only the Live timer moves.
+    private func applyQuickAddRequest() {
+        guard quickAddRequest != nil else { return }
+        quickAddRequest = nil
+        store.tick()
+        quickAdd()
     }
 
     /// Which session a drink belongs to — nil means the running one.
@@ -340,5 +357,5 @@ struct LiveView: View {
 }
 
 #Preview {
-    LiveView(store: .preview)
+    LiveView(store: .preview, quickAddRequest: .constant(nil))
 }
