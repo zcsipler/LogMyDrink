@@ -313,10 +313,10 @@ TRANSLATIONS = {
 
     # --- DataArchive: why a file could not be read ---
     "Could not import": "A visszatöltés nem sikerült",
-    "This file is not a DrinkSmart backup, or it is damaged.":
-        "Ez a fájl nem a DrinkSmart mentése, vagy megsérült.",
-    "This backup was made by a newer version of DrinkSmart. Update the app and try again.":
-        "Ezt a mentést a DrinkSmart újabb verziója készítette. Frissítsd az appot, és próbáld újra.",
+    "This file is not a LogMyDrink backup, or it is damaged.":
+        "Ez a fájl nem a LogMyDrink mentése, vagy megsérült.",
+    "This backup was made by a newer version of LogMyDrink. Update the app and try again.":
+        "Ezt a mentést a LogMyDrink újabb verziója készítette. Frissítsd az appot, és próbáld újra.",
 
     # --- History: months known only by total (MonthlyTotal) ---
     'Adds %@ occasions, %@ drinks and %@ monthly totals. Nothing already here is changed or removed.':

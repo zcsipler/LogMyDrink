@@ -339,10 +339,10 @@ TRANSLATIONS = {
 
     # --- DataArchive: why a file could not be read ---
     "Could not import": "Nepavyko importuoti",
-    "This file is not a DrinkSmart backup, or it is damaged.":
-        "Šis failas nėra „DrinkSmart“ atsarginė kopija arba yra sugadintas.",
-    "This backup was made by a newer version of DrinkSmart. Update the app and try again.":
-        "Ši atsarginė kopija sukurta naujesne „DrinkSmart“ versija. Atnaujink programėlę ir "
+    "This file is not a LogMyDrink backup, or it is damaged.":
+        "Šis failas nėra „LogMyDrink“ atsarginė kopija arba yra sugadintas.",
+    "This backup was made by a newer version of LogMyDrink. Update the app and try again.":
+        "Ši atsarginė kopija sukurta naujesne „LogMyDrink“ versija. Atnaujink programėlę ir "
         "bandyk dar kartą.",
 
     # --- History: months known only by total (MonthlyTotal) ---

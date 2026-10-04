@@ -14,10 +14,10 @@ import Foundation
 /// the containing app's `onOpenURL`.
 ///
 /// The widget target compiles its own copy of this string
-/// (`DrinkSmartWidget/DrinkSmartWidget.swift`); the two must agree.
+/// (`LogMyDrinkWidget/LogMyDrinkWidget.swift`); the two must agree.
 enum QuickAddLink {
 
-    static let url = URL(string: "drinksmart://quick-add")!
+    static let url = URL(string: "logmydrink://quick-add")!
 
     static func matches(_ url: URL) -> Bool {
         url.scheme == Self.url.scheme && url.host == Self.url.host

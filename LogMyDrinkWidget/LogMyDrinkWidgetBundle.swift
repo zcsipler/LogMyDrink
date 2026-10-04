@@ -2,7 +2,7 @@ import SwiftUI
 import WidgetKit
 
 @main
-struct DrinkSmartWidgetBundle: WidgetBundle {
+struct LogMyDrinkWidgetBundle: WidgetBundle {
     var body: some Widget {
         QuickAddWidget()
     }

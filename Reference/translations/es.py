@@ -338,10 +338,10 @@ TRANSLATIONS = {
 
     # --- DataArchive: why a file could not be read ---
     "Could not import": "No se ha podido importar",
-    "This file is not a DrinkSmart backup, or it is damaged.":
-        "Este archivo no es una copia de seguridad de DrinkSmart o está dañado.",
-    "This backup was made by a newer version of DrinkSmart. Update the app and try again.":
-        "Esta copia de seguridad se creó con una versión más reciente de DrinkSmart. Actualiza "
+    "This file is not a LogMyDrink backup, or it is damaged.":
+        "Este archivo no es una copia de seguridad de LogMyDrink o está dañado.",
+    "This backup was made by a newer version of LogMyDrink. Update the app and try again.":
+        "Esta copia de seguridad se creó con una versión más reciente de LogMyDrink. Actualiza "
         "la app e inténtalo de nuevo.",
 
     # --- History: months known only by total (MonthlyTotal) ---

@@ -1,7 +1,7 @@
 import Foundation
 import Testing
 import BACKit
-@testable import DrinkSmart
+@testable import LogMyDrink
 
 /// Days and periods folded from sessions.
 ///

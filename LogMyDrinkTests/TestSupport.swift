@@ -2,7 +2,7 @@ import Foundation
 import SwiftData
 import Testing
 import BACKit
-@testable import DrinkSmart
+@testable import LogMyDrink
 
 /// An in-memory database with the app's real schema.
 ///
@@ -26,7 +26,7 @@ func makeContext() throws -> ModelContext {
 /// defaults suite so nothing leaks into the next test.
 @MainActor
 func makeStore() throws -> SessionStore {
-    let defaults = UserDefaults(suiteName: "drinksmart.tests.\(UUID().uuidString)")!
+    let defaults = UserDefaults(suiteName: "logmydrink.tests.\(UUID().uuidString)")!
     return SessionStore(context: try makeContext(), settings: AppSettings(defaults: defaults))
 }
 

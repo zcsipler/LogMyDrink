@@ -40,6 +40,6 @@ struct ArchiveDocument: FileDocument {
         let formatted = date.formatted(
             .iso8601.year().month().day().dateSeparator(.dash)
         )
-        return "DrinkSmart-\(formatted)"
+        return "LogMyDrink-\(formatted)"
     }
 }

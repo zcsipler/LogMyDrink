@@ -342,10 +342,10 @@ TRANSLATIONS = {
 
     # --- DataArchive: why a file could not be read ---
     "Could not import": "Níorbh fhéidir iompórtáil",
-    "This file is not a DrinkSmart backup, or it is damaged.":
-        "Ní cúltaca DrinkSmart é an comhad seo, nó tá sé damáistithe.",
-    "This backup was made by a newer version of DrinkSmart. Update the app and try again.":
-        "Rinneadh an cúltaca seo le leagan níos nuaí de DrinkSmart. Nuashonraigh an aip agus "
+    "This file is not a LogMyDrink backup, or it is damaged.":
+        "Ní cúltaca LogMyDrink é an comhad seo, nó tá sé damáistithe.",
+    "This backup was made by a newer version of LogMyDrink. Update the app and try again.":
+        "Rinneadh an cúltaca seo le leagan níos nuaí de LogMyDrink. Nuashonraigh an aip agus "
         "bain triail eile as.",
 
     # --- History: months known only by total (MonthlyTotal) ---

@@ -339,10 +339,10 @@ TRANSLATIONS = {
 
     # --- DataArchive: why a file could not be read ---
     "Could not import": "Importul nu a reușit",
-    "This file is not a DrinkSmart backup, or it is damaged.":
-        "Acest fișier nu este o copie de rezervă DrinkSmart sau este deteriorat.",
-    "This backup was made by a newer version of DrinkSmart. Update the app and try again.":
-        "Această copie de rezervă a fost creată cu o versiune mai nouă a DrinkSmart. "
+    "This file is not a LogMyDrink backup, or it is damaged.":
+        "Acest fișier nu este o copie de rezervă LogMyDrink sau este deteriorat.",
+    "This backup was made by a newer version of LogMyDrink. Update the app and try again.":
+        "Această copie de rezervă a fost creată cu o versiune mai nouă a LogMyDrink. "
         "Actualizează aplicația și încearcă din nou.",
 
     # --- History: months known only by total (MonthlyTotal) ---

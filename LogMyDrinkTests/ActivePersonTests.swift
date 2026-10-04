@@ -2,7 +2,7 @@ import Foundation
 import SwiftData
 import Testing
 import BACKit
-@testable import DrinkSmart
+@testable import LogMyDrink
 
 /// Who the app is recording when it is opened again.
 ///
@@ -15,7 +15,7 @@ import BACKit
 struct ActivePersonTests {
 
     private func makeSettings() -> AppSettings {
-        let defaults = UserDefaults(suiteName: "drinksmart.tests.\(UUID().uuidString)")!
+        let defaults = UserDefaults(suiteName: "logmydrink.tests.\(UUID().uuidString)")!
         return AppSettings(defaults: defaults)
     }
 

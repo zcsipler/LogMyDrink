@@ -333,10 +333,10 @@ TRANSLATIONS = {
 
     # --- DataArchive: why a file could not be read ---
     "Could not import": "Uvoz nije uspio",
-    "This file is not a DrinkSmart backup, or it is damaged.":
-        "Ova datoteka nije DrinkSmart sigurnosna kopija ili je oštećena.",
-    "This backup was made by a newer version of DrinkSmart. Update the app and try again.":
-        "Ova sigurnosna kopija napravljena je novijom verzijom aplikacije DrinkSmart. Ažuriraj "
+    "This file is not a LogMyDrink backup, or it is damaged.":
+        "Ova datoteka nije LogMyDrink sigurnosna kopija ili je oštećena.",
+    "This backup was made by a newer version of LogMyDrink. Update the app and try again.":
+        "Ova sigurnosna kopija napravljena je novijom verzijom aplikacije LogMyDrink. Ažuriraj "
         "aplikaciju i pokušaj ponovno.",
 
     # --- History: months known only by total (MonthlyTotal) ---

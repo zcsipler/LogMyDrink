@@ -1,4 +1,4 @@
-# DrinkSmart
+# LogMyDrink
 
 iOS app a saját alkoholfogyasztás tudatos követésére. A kérdés, amire válaszol:
 **hová vinné a szintemet a következő ital, és mikor.**
@@ -8,13 +8,13 @@ Nem vezetési döntéstámogató. A megjelenítés sehol nem ad verdiktet.
 ## Felépítés
 
 ```
-DrinkSmart/
-├── DrinkSmart.xcodeproj
+LogMyDrink/
+├── LogMyDrink.xcodeproj
 ├── BACKit/                    lokális Swift package — a farmakokinetikai motor
 │   ├── Sources/BACKit/        BodyProfile, Drink, BACEngine, BACBand, Projection
 │   └── Tests/BACKitTests/     38 teszt a Python referencia értékeivel
-├── DrinkSmart/                az app target
-│   ├── DrinkSmartApp.swift    ModelContainer CloudKittel, lokális visszaeséssel
+├── LogMyDrink/                az app target
+│   ├── LogMyDrinkApp.swift    ModelContainer CloudKittel, lokális visszaeséssel
 │   ├── Localizable.xcstrings  129 kulcs, angol forrás + magyar fordítás
 │   ├── Model/
 │   │   ├── BACChartModel.swift      a chart bemenete, élő vagy tárolt alkalomból
@@ -97,12 +97,12 @@ határod, akkor mikor és meddig maradnál fölötte.
 ## Futtatás
 
 ```bash
-open DrinkSmart.xcodeproj     # iOS 17+, Swift 6
+open LogMyDrink.xcodeproj     # iOS 17+, Swift 6
 cd BACKit && swift test       # a motor tesztjei külön is futnak
 cd Reference && python3 validate.py
 ```
 
-A bundle azonosító `dev.zcsipler.drinksmart`. A fejlesztői csapatot a target
+A bundle azonosító `dev.zcsipler.logmydrink`. A fejlesztői csapatot a target
 Signing beállításainál kell megadni.
 
 Az iCloud-szinkronhoz a target Signing & Capabilities fülén be kell kapcsolni

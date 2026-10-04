@@ -2,7 +2,7 @@ import Foundation
 import SwiftData
 import Testing
 import BACKit
-@testable import DrinkSmart
+@testable import LogMyDrink
 
 /// Months known only as a total, folded into days, periods and windows.
 ///

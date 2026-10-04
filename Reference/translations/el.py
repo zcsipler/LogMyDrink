@@ -342,10 +342,10 @@ TRANSLATIONS = {
 
     # --- DataArchive: why a file could not be read ---
     "Could not import": "Δεν ήταν δυνατή η εισαγωγή",
-    "This file is not a DrinkSmart backup, or it is damaged.":
-        "Αυτό το αρχείο δεν είναι αντίγραφο ασφαλείας του DrinkSmart ή είναι κατεστραμμένο.",
-    "This backup was made by a newer version of DrinkSmart. Update the app and try again.":
-        "Αυτό το αντίγραφο ασφαλείας δημιουργήθηκε από νεότερη έκδοση του DrinkSmart. "
+    "This file is not a LogMyDrink backup, or it is damaged.":
+        "Αυτό το αρχείο δεν είναι αντίγραφο ασφαλείας του LogMyDrink ή είναι κατεστραμμένο.",
+    "This backup was made by a newer version of LogMyDrink. Update the app and try again.":
+        "Αυτό το αντίγραφο ασφαλείας δημιουργήθηκε από νεότερη έκδοση του LogMyDrink. "
         "Ενημέρωσε την εφαρμογή και δοκίμασε ξανά.",
 
     # --- History: months known only by total (MonthlyTotal) ---

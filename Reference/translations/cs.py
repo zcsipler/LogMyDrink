@@ -334,10 +334,10 @@ TRANSLATIONS = {
 
     # --- DataArchive: why a file could not be read ---
     "Could not import": "Import se nezdařil",
-    "This file is not a DrinkSmart backup, or it is damaged.":
-        "Tento soubor není zálohou DrinkSmart, nebo je poškozený.",
-    "This backup was made by a newer version of DrinkSmart. Update the app and try again.":
-        "Tato záloha pochází z novější verze DrinkSmart. Aktualizuj aplikaci a zkus to znovu.",
+    "This file is not a LogMyDrink backup, or it is damaged.":
+        "Tento soubor není zálohou LogMyDrink, nebo je poškozený.",
+    "This backup was made by a newer version of LogMyDrink. Update the app and try again.":
+        "Tato záloha pochází z novější verze LogMyDrink. Aktualizuj aplikaci a zkus to znovu.",
 
     # --- History: months known only by total (MonthlyTotal) ---
     'Adds %@ occasions, %@ drinks and %@ monthly totals. Nothing already here is changed or removed.':

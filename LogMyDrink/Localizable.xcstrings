@@ -24437,300 +24437,300 @@
         }
       }
     },
-    "This backup was made by a newer version of DrinkSmart. Update the app and try again." : {
+    "This backup was made by a newer version of LogMyDrink. Update the app and try again." : {
       "extractionState" : "manual",
       "localizations" : {
         "bg" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Това резервно копие е направено с по-нова версия на DrinkSmart. Обнови приложението и опитай отново."
+            "value" : "Това резервно копие е направено с по-нова версия на LogMyDrink. Обнови приложението и опитай отново."
           }
         },
         "cs" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Tato záloha pochází z novější verze DrinkSmart. Aktualizuj aplikaci a zkus to znovu."
+            "value" : "Tato záloha pochází z novější verze LogMyDrink. Aktualizuj aplikaci a zkus to znovu."
           }
         },
         "da" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Denne sikkerhedskopi er lavet af en nyere version af DrinkSmart. Opdater appen, og prøv igen."
+            "value" : "Denne sikkerhedskopi er lavet af en nyere version af LogMyDrink. Opdater appen, og prøv igen."
           }
         },
         "de" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Dieses Backup wurde mit einer neueren Version von DrinkSmart erstellt. Aktualisiere die App und versuch es erneut."
+            "value" : "Dieses Backup wurde mit einer neueren Version von LogMyDrink erstellt. Aktualisiere die App und versuch es erneut."
           }
         },
         "el" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Αυτό το αντίγραφο ασφαλείας δημιουργήθηκε από νεότερη έκδοση του DrinkSmart. Ενημέρωσε την εφαρμογή και δοκίμασε ξανά."
+            "value" : "Αυτό το αντίγραφο ασφαλείας δημιουργήθηκε από νεότερη έκδοση του LogMyDrink. Ενημέρωσε την εφαρμογή και δοκίμασε ξανά."
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "This backup was made by a newer version of DrinkSmart. Update the app and try again."
+            "value" : "This backup was made by a newer version of LogMyDrink. Update the app and try again."
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Esta copia de seguridad se creó con una versión más reciente de DrinkSmart. Actualiza la app e inténtalo de nuevo."
+            "value" : "Esta copia de seguridad se creó con una versión más reciente de LogMyDrink. Actualiza la app e inténtalo de nuevo."
           }
         },
         "et" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "See varukoopia on tehtud DrinkSmarti uuema versiooniga. Uuenda rakendust ja proovi uuesti."
+            "value" : "See varukoopia on tehtud LogMyDrinki uuema versiooniga. Uuenda rakendust ja proovi uuesti."
           }
         },
         "fi" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Tämä varmuuskopio on tehty DrinkSmartin uudemmalla versiolla. Päivitä sovellus ja yritä uudelleen."
+            "value" : "Tämä varmuuskopio on tehty LogMyDrinkin uudemmalla versiolla. Päivitä sovellus ja yritä uudelleen."
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Cette sauvegarde a été créée avec une version plus récente de DrinkSmart. Mets l'app à jour et réessaie."
+            "value" : "Cette sauvegarde a été créée avec une version plus récente de LogMyDrink. Mets l'app à jour et réessaie."
           }
         },
         "ga" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Rinneadh an cúltaca seo le leagan níos nuaí de DrinkSmart. Nuashonraigh an aip agus bain triail eile as."
+            "value" : "Rinneadh an cúltaca seo le leagan níos nuaí de LogMyDrink. Nuashonraigh an aip agus bain triail eile as."
           }
         },
         "hr" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Ova sigurnosna kopija napravljena je novijom verzijom aplikacije DrinkSmart. Ažuriraj aplikaciju i pokušaj ponovno."
+            "value" : "Ova sigurnosna kopija napravljena je novijom verzijom aplikacije LogMyDrink. Ažuriraj aplikaciju i pokušaj ponovno."
           }
         },
         "hu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ezt a mentést a DrinkSmart újabb verziója készítette. Frissítsd az appot, és próbáld újra."
+            "value" : "Ezt a mentést a LogMyDrink újabb verziója készítette. Frissítsd az appot, és próbáld újra."
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Questo backup è stato creato da una versione più recente di DrinkSmart. Aggiorna l’app e riprova."
+            "value" : "Questo backup è stato creato da una versione più recente di LogMyDrink. Aggiorna l’app e riprova."
           }
         },
         "lt" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Ši atsarginė kopija sukurta naujesne „DrinkSmart“ versija. Atnaujink programėlę ir bandyk dar kartą."
+            "value" : "Ši atsarginė kopija sukurta naujesne „LogMyDrink“ versija. Atnaujink programėlę ir bandyk dar kartą."
           }
         },
         "lv" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Šis dublējums ir izveidots jaunākā DrinkSmart versijā. Atjaunini lietotni un mēģini vēlreiz."
+            "value" : "Šis dublējums ir izveidots jaunākā LogMyDrink versijā. Atjaunini lietotni un mēģini vēlreiz."
           }
         },
         "mt" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Dan il-backup sar b'verżjoni aktar ġdida ta' DrinkSmart. Aġġorna l-app u erġa' pprova."
+            "value" : "Dan il-backup sar b'verżjoni aktar ġdida ta' LogMyDrink. Aġġorna l-app u erġa' pprova."
           }
         },
         "nl" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Deze back-up is gemaakt met een nieuwere versie van DrinkSmart. Werk de app bij en probeer het opnieuw."
+            "value" : "Deze back-up is gemaakt met een nieuwere versie van LogMyDrink. Werk de app bij en probeer het opnieuw."
           }
         },
         "pl" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Ta kopia zapasowa została utworzona w nowszej wersji aplikacji DrinkSmart. Zaktualizuj aplikację i spróbuj ponownie."
+            "value" : "Ta kopia zapasowa została utworzona w nowszej wersji aplikacji LogMyDrink. Zaktualizuj aplikację i spróbuj ponownie."
           }
         },
         "pt" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Esta cópia de segurança foi feita por uma versão mais recente do DrinkSmart. Atualiza a app e tenta novamente."
+            "value" : "Esta cópia de segurança foi feita por uma versão mais recente do LogMyDrink. Atualiza a app e tenta novamente."
           }
         },
         "ro" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Această copie de rezervă a fost creată cu o versiune mai nouă a DrinkSmart. Actualizează aplicația și încearcă din nou."
+            "value" : "Această copie de rezervă a fost creată cu o versiune mai nouă a LogMyDrink. Actualizează aplicația și încearcă din nou."
           }
         },
         "sk" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Táto záloha pochádza z novšej verzie DrinkSmart. Aktualizuj aplikáciu a skús to znova."
+            "value" : "Táto záloha pochádza z novšej verzie LogMyDrink. Aktualizuj aplikáciu a skús to znova."
           }
         },
         "sl" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "To varnostno kopijo je ustvarila novejša različica aplikacije DrinkSmart. Posodobi aplikacijo in poskusi znova."
+            "value" : "To varnostno kopijo je ustvarila novejša različica aplikacije LogMyDrink. Posodobi aplikacijo in poskusi znova."
           }
         },
         "sv" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Den här säkerhetskopian skapades av en nyare version av DrinkSmart. Uppdatera appen och försök igen."
+            "value" : "Den här säkerhetskopian skapades av en nyare version av LogMyDrink. Uppdatera appen och försök igen."
           }
         }
       }
     },
-    "This file is not a DrinkSmart backup, or it is damaged." : {
+    "This file is not a LogMyDrink backup, or it is damaged." : {
       "extractionState" : "manual",
       "localizations" : {
         "bg" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Този файл не е резервно копие на DrinkSmart или е повреден."
+            "value" : "Този файл не е резервно копие на LogMyDrink или е повреден."
           }
         },
         "cs" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Tento soubor není zálohou DrinkSmart, nebo je poškozený."
+            "value" : "Tento soubor není zálohou LogMyDrink, nebo je poškozený."
           }
         },
         "da" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Denne fil er ikke en DrinkSmart-sikkerhedskopi, eller den er beskadiget."
+            "value" : "Denne fil er ikke en LogMyDrink-sikkerhedskopi, eller den er beskadiget."
           }
         },
         "de" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Diese Datei ist kein DrinkSmart-Backup oder sie ist beschädigt."
+            "value" : "Diese Datei ist kein LogMyDrink-Backup oder sie ist beschädigt."
           }
         },
         "el" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Αυτό το αρχείο δεν είναι αντίγραφο ασφαλείας του DrinkSmart ή είναι κατεστραμμένο."
+            "value" : "Αυτό το αρχείο δεν είναι αντίγραφο ασφαλείας του LogMyDrink ή είναι κατεστραμμένο."
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "This file is not a DrinkSmart backup, or it is damaged."
+            "value" : "This file is not a LogMyDrink backup, or it is damaged."
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Este archivo no es una copia de seguridad de DrinkSmart o está dañado."
+            "value" : "Este archivo no es una copia de seguridad de LogMyDrink o está dañado."
           }
         },
         "et" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "See fail ei ole DrinkSmarti varukoopia või on see kahjustatud."
+            "value" : "See fail ei ole LogMyDrinki varukoopia või on see kahjustatud."
           }
         },
         "fi" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Tämä tiedosto ei ole DrinkSmart-varmuuskopio tai se on vaurioitunut."
+            "value" : "Tämä tiedosto ei ole LogMyDrink-varmuuskopio tai se on vaurioitunut."
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Ce fichier n'est pas une sauvegarde DrinkSmart, ou il est endommagé."
+            "value" : "Ce fichier n'est pas une sauvegarde LogMyDrink, ou il est endommagé."
           }
         },
         "ga" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Ní cúltaca DrinkSmart é an comhad seo, nó tá sé damáistithe."
+            "value" : "Ní cúltaca LogMyDrink é an comhad seo, nó tá sé damáistithe."
           }
         },
         "hr" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Ova datoteka nije DrinkSmart sigurnosna kopija ili je oštećena."
+            "value" : "Ova datoteka nije LogMyDrink sigurnosna kopija ili je oštećena."
           }
         },
         "hu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ez a fájl nem a DrinkSmart mentése, vagy megsérült."
+            "value" : "Ez a fájl nem a LogMyDrink mentése, vagy megsérült."
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Questo file non è un backup di DrinkSmart, oppure è danneggiato."
+            "value" : "Questo file non è un backup di LogMyDrink, oppure è danneggiato."
           }
         },
         "lt" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Šis failas nėra „DrinkSmart“ atsarginė kopija arba yra sugadintas."
+            "value" : "Šis failas nėra „LogMyDrink“ atsarginė kopija arba yra sugadintas."
           }
         },
         "lv" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Šis fails nav DrinkSmart dublējums vai arī ir bojāts."
+            "value" : "Šis fails nav LogMyDrink dublējums vai arī ir bojāts."
           }
         },
         "mt" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Dan il-fajl mhuwiex backup ta' DrinkSmart, jew inkella hu korrott."
+            "value" : "Dan il-fajl mhuwiex backup ta' LogMyDrink, jew inkella hu korrott."
           }
         },
         "nl" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Dit bestand is geen DrinkSmart-back-up, of het is beschadigd."
+            "value" : "Dit bestand is geen LogMyDrink-back-up, of het is beschadigd."
           }
         },
         "pl" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Ten plik nie jest kopią zapasową DrinkSmart albo jest uszkodzony."
+            "value" : "Ten plik nie jest kopią zapasową LogMyDrink albo jest uszkodzony."
           }
         },
         "pt" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Este ficheiro não é uma cópia de segurança do DrinkSmart, ou está danificado."
+            "value" : "Este ficheiro não é uma cópia de segurança do LogMyDrink, ou está danificado."
           }
         },
         "ro" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Acest fișier nu este o copie de rezervă DrinkSmart sau este deteriorat."
+            "value" : "Acest fișier nu este o copie de rezervă LogMyDrink sau este deteriorat."
           }
         },
         "sk" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Tento súbor nie je zálohou DrinkSmart alebo je poškodený."
+            "value" : "Tento súbor nie je zálohou LogMyDrink alebo je poškodený."
           }
         },
         "sl" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Ta datoteka ni varnostna kopija aplikacije DrinkSmart ali pa je poškodovana."
+            "value" : "Ta datoteka ni varnostna kopija aplikacije LogMyDrink ali pa je poškodovana."
           }
         },
         "sv" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Den här filen är ingen säkerhetskopia från DrinkSmart, eller så är den skadad."
+            "value" : "Den här filen är ingen säkerhetskopia från LogMyDrink, eller så är den skadad."
           }
         }
       }

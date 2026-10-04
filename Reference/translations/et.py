@@ -333,10 +333,10 @@ TRANSLATIONS = {
 
     # --- DataArchive: why a file could not be read ---
     "Could not import": "Importimine ebaõnnestus",
-    "This file is not a DrinkSmart backup, or it is damaged.":
-        "See fail ei ole DrinkSmarti varukoopia või on see kahjustatud.",
-    "This backup was made by a newer version of DrinkSmart. Update the app and try again.":
-        "See varukoopia on tehtud DrinkSmarti uuema versiooniga. Uuenda rakendust ja proovi "
+    "This file is not a LogMyDrink backup, or it is damaged.":
+        "See fail ei ole LogMyDrinki varukoopia või on see kahjustatud.",
+    "This backup was made by a newer version of LogMyDrink. Update the app and try again.":
+        "See varukoopia on tehtud LogMyDrinki uuema versiooniga. Uuenda rakendust ja proovi "
         "uuesti.",
 
     # --- History: months known only by total (MonthlyTotal) ---

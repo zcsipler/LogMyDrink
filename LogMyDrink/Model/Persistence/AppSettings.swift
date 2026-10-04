@@ -91,7 +91,7 @@ final class AppSettings {
         var activePersonChosenAt: Date?
     }
 
-    private static let storageKey = "drinksmart.device.v1"
+    private static let storageKey = "logmydrink.device.v1"
 
     private func persist() {
         let snapshot = Snapshot(

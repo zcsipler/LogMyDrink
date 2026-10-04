@@ -1,7 +1,7 @@
 import Foundation
 import Testing
 import BACKit
-@testable import DrinkSmart
+@testable import LogMyDrink
 
 /// The window on screen: which days it covers, what the bars hold, how the
 /// figures above it are derived.

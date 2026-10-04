@@ -337,10 +337,10 @@ TRANSLATIONS = {
 
     # --- DataArchive: why a file could not be read ---
     "Could not import": "Tuonti ei onnistunut",
-    "This file is not a DrinkSmart backup, or it is damaged.":
-        "Tämä tiedosto ei ole DrinkSmart-varmuuskopio tai se on vaurioitunut.",
-    "This backup was made by a newer version of DrinkSmart. Update the app and try again.":
-        "Tämä varmuuskopio on tehty DrinkSmartin uudemmalla versiolla. Päivitä sovellus ja "
+    "This file is not a LogMyDrink backup, or it is damaged.":
+        "Tämä tiedosto ei ole LogMyDrink-varmuuskopio tai se on vaurioitunut.",
+    "This backup was made by a newer version of LogMyDrink. Update the app and try again.":
+        "Tämä varmuuskopio on tehty LogMyDrinkin uudemmalla versiolla. Päivitä sovellus ja "
         "yritä uudelleen.",
 
     # --- History: months known only by total (MonthlyTotal) ---

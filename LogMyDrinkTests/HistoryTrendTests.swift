@@ -1,7 +1,7 @@
 import Foundation
 import Testing
 import BACKit
-@testable import DrinkSmart
+@testable import LogMyDrink
 
 /// The two trend curves: what they run over, and how they fade.
 @Suite("History trend")

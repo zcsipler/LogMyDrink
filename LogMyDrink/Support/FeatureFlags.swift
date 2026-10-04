@@ -23,7 +23,7 @@ enum BuildCapabilities {
     ///
     /// With this off the app opens a local store and behaves exactly as it did
     /// before any of the sync work: nothing is gated, nothing is hidden, and no
-    /// code is dead — `DrinkSmartApp.makeContainer` and the remote-change
+    /// code is dead — `LogMyDrinkApp.makeContainer` and the remote-change
     /// observer in `SessionStore` are both written and waiting.
     static let cloudSync = false
 }
@@ -171,7 +171,7 @@ final class FeatureFlags {
     // features.
 
     #if DEBUG
-    private static let storageKey = "drinksmart.featureFlags.debug.v1"
+    private static let storageKey = "logmydrink.featureFlags.debug.v1"
 
     private var overrides: [Feature: Bool] = [:]
 
@@ -183,7 +183,7 @@ final class FeatureFlags {
 
     func override(for feature: Feature) -> Bool? { overrides[feature] }
 
-    private static let experimentsKey = "drinksmart.experiments.debug.v1"
+    private static let experimentsKey = "logmydrink.experiments.debug.v1"
 
     private var experiments: [Experiment: Bool] = [:]
 

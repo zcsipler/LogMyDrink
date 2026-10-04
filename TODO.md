@@ -1,4 +1,4 @@
-# DrinkSmart — teendők
+# LogMyDrink — teendők
 
 A `CLAUDE.md` azt mondja, mi *van* és miért; ez a fájl azt, mi *lesz*. Ami
 megépül, innen kikerül, és a döntése az indoklással együtt a `CLAUDE.md`
@@ -16,11 +16,23 @@ mondja el a hátteret.
 Ezek nem kódolási feladatok. Amíg nincsenek eldöntve, néhány lenti tétel
 sem indítható.
 
-- **Az app neve.** A `DrinkSmart` munkanév; felmerült a `LogMyDrink`.
-  A bundle ID (`dev.zcsipler.drinksmart`) és a CloudKit konténer neve
-  (`iCloud.dev.zcsipler.drinksmart`, 5.17) a névtől független, azokat nem
-  kell cserélni — de a Siri-kifejezésekben az app neve kötelező elem
-  (5.15), tehát a név dönti el az összes `AppShortcut` szöveget.
+- **A név körüli hátralék** (a döntés megszületett, CLAUDE.md 1.):
+  GitHub repó átnevezése `zcsipler/LogMyDrink`-re (Settings → Rename, a
+  régi URL átirányít) és utána `git remote set-url`; App Store Connect
+  rekord a név lefoglalására, amint van fizetős tagság; domainek
+  (`logmydrink.com` / `.app` / `.io` — 2026. október 4-én mind szabad);
+  EU-védjegy a 9. és 42. osztályra, ha az app élesedik (TMview és USPTO
+  2026. október 4-én: nincs egyező jelölés; rokon: francia „DrinkLOG",
+  INPI 4840485, 9/42, hőmérséklet-naplózó eszközök).
+- **A legacy import kivezetése.** A `LegacySessionImport` és a
+  `LegacyProfileSettings` a SwiftData előtti UserDefaults-blobból
+  importál. A bundle ID váltása (`dev.zcsipler.logmydrink`) új sandboxot ad,
+  tehát ilyen blob egyetlen készüléken sem lesz többé — a két fájl halott
+  kód, a kulcsaik (`logmydrink.settings.v1`, `.session.v2`,
+  `.legacyImport.completed.v1`) sosem kapnak értéket. Kivenni, és a
+  `PersonMigration` tulajdonos-létrehozását üres beállításokból indítani;
+  külön körben, mert a `PersonMigration` adatot tud veszíteni, és a diffet
+  magában kell átnézni.
 - **Demo vs. in-app purchase az első feltöltésnél.** Két út: (a) egyszerre
   megy fel az ingyenes Live és a fizetős Előzmény, StoreKittel; (b) először
   csak az alap grafikon, a fizetős funkciók később, marketing mellé.
@@ -57,7 +69,7 @@ az egész app hitelességét.
   fejezet validációja irodalmi értékekhez mér, nem az IntelliDrinkhez.
   Érdemes agentekkel párhuzamosan több profilon futtatni.
 - **Unit tesztek rendberakása**: app-szintű teszt target
-  (`DrinkSmartTests`, Xcode-ban: File → New → Target → Unit Testing
+  (`LogMyDrinkTests`, Xcode-ban: File → New → Target → Unit Testing
   Bundle), hogy a már megírt 18 perzisztencia-teszt és a 37 History-teszt
   tényleg fusson; property-based tesztek a motorra; regressziós lakat a
   motor kimenetére; határesetek (nulla hosszú ital, negatív időtartam,

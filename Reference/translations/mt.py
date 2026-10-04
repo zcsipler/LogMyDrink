@@ -340,10 +340,10 @@ TRANSLATIONS = {
 
     # --- DataArchive: why a file could not be read ---
     "Could not import": "L-importazzjoni ma rnexxietx",
-    "This file is not a DrinkSmart backup, or it is damaged.":
-        "Dan il-fajl mhuwiex backup ta' DrinkSmart, jew inkella hu korrott.",
-    "This backup was made by a newer version of DrinkSmart. Update the app and try again.":
-        "Dan il-backup sar b'verżjoni aktar ġdida ta' DrinkSmart. Aġġorna l-app u erġa' "
+    "This file is not a LogMyDrink backup, or it is damaged.":
+        "Dan il-fajl mhuwiex backup ta' LogMyDrink, jew inkella hu korrott.",
+    "This backup was made by a newer version of LogMyDrink. Update the app and try again.":
+        "Dan il-backup sar b'verżjoni aktar ġdida ta' LogMyDrink. Aġġorna l-app u erġa' "
         "pprova.",
 
     # --- History: months known only by total (MonthlyTotal) ---

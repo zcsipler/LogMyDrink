@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		78539A57306AB20B0049E4BF /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78539A56306AB20A0049E4BF /* WidgetKit.framework */; };
 		78539A59306AB20B0049E4BF /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78539A58306AB20B0049E4BF /* SwiftUI.framework */; };
-		78539A68306AB20E0049E4BF /* DrinkSmartWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 78539A54306AB20A0049E4BF /* DrinkSmartWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		78539A68306AB20E0049E4BF /* LogMyDrinkWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 78539A54306AB20A0049E4BF /* LogMyDrinkWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		AA0000000000000000000012 /* BACKit in Frameworks */ = {isa = PBXBuildFile; productRef = AA0000000000000000000011 /* BACKit */; };
 /* End PBXBuildFile section */
 
@@ -19,7 +19,7 @@
 			containerPortal = AA0000000000000000000001 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 78539A53306AB20A0049E4BF;
-			remoteInfo = DrinkSmartWidgetExtension;
+			remoteInfo = LogMyDrinkWidgetExtension;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -30,7 +30,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				78539A68306AB20E0049E4BF /* DrinkSmartWidgetExtension.appex in Embed Foundation Extensions */,
+				78539A68306AB20E0049E4BF /* LogMyDrinkWidgetExtension.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -38,35 +38,35 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		78403207307294E000AB46F6 /* DrinkSmartWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DrinkSmartWidgetExtension.entitlements; sourceTree = "<group>"; };
-		78539A54306AB20A0049E4BF /* DrinkSmartWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = DrinkSmartWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		78403207307294E000AB46F6 /* LogMyDrinkWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LogMyDrinkWidgetExtension.entitlements; sourceTree = "<group>"; };
+		78539A54306AB20A0049E4BF /* LogMyDrinkWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = LogMyDrinkWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		78539A56306AB20A0049E4BF /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		78539A58306AB20B0049E4BF /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
-		AA0000000000000000000005 /* DrinkSmart.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DrinkSmart.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA0000000000000000000005 /* LogMyDrink.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LogMyDrink.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		78539A6C306AB20E0049E4BF /* Exceptions for "DrinkSmartWidget" folder in "DrinkSmartWidgetExtension" target */ = {
+		78539A6C306AB20E0049E4BF /* Exceptions for "LogMyDrinkWidget" folder in "LogMyDrinkWidgetExtension" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Info.plist,
 			);
-			target = 78539A53306AB20A0049E4BF /* DrinkSmartWidgetExtension */;
+			target = 78539A53306AB20A0049E4BF /* LogMyDrinkWidgetExtension */;
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		78539A5A306AB20B0049E4BF /* DrinkSmartWidget */ = {
+		78539A5A306AB20B0049E4BF /* LogMyDrinkWidget */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				78539A6C306AB20E0049E4BF /* Exceptions for "DrinkSmartWidget" folder in "DrinkSmartWidgetExtension" target */,
+				78539A6C306AB20E0049E4BF /* Exceptions for "LogMyDrinkWidget" folder in "LogMyDrinkWidgetExtension" target */,
 			);
-			path = DrinkSmartWidget;
+			path = LogMyDrinkWidget;
 			sourceTree = "<group>";
 		};
-		AA0000000000000000000009 /* DrinkSmart */ = {
+		AA0000000000000000000009 /* LogMyDrink */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = DrinkSmart;
+			path = LogMyDrink;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -104,9 +104,9 @@
 		AA0000000000000000000002 = {
 			isa = PBXGroup;
 			children = (
-				78403207307294E000AB46F6 /* DrinkSmartWidgetExtension.entitlements */,
-				AA0000000000000000000009 /* DrinkSmart */,
-				78539A5A306AB20B0049E4BF /* DrinkSmartWidget */,
+				78403207307294E000AB46F6 /* LogMyDrinkWidgetExtension.entitlements */,
+				AA0000000000000000000009 /* LogMyDrink */,
+				78539A5A306AB20B0049E4BF /* LogMyDrinkWidget */,
 				78539A55306AB20A0049E4BF /* Frameworks */,
 				AA0000000000000000000003 /* Products */,
 			);
@@ -115,8 +115,8 @@
 		AA0000000000000000000003 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				AA0000000000000000000005 /* DrinkSmart.app */,
-				78539A54306AB20A0049E4BF /* DrinkSmartWidgetExtension.appex */,
+				AA0000000000000000000005 /* LogMyDrink.app */,
+				78539A54306AB20A0049E4BF /* LogMyDrinkWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -124,9 +124,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		78539A53306AB20A0049E4BF /* DrinkSmartWidgetExtension */ = {
+		78539A53306AB20A0049E4BF /* LogMyDrinkWidgetExtension */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 78539A6D306AB20E0049E4BF /* Build configuration list for PBXNativeTarget "DrinkSmartWidgetExtension" */;
+			buildConfigurationList = 78539A6D306AB20E0049E4BF /* Build configuration list for PBXNativeTarget "LogMyDrinkWidgetExtension" */;
 			buildPhases = (
 				78539A50306AB20A0049E4BF /* Sources */,
 				78539A51306AB20A0049E4BF /* Frameworks */,
@@ -137,18 +137,18 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				78539A5A306AB20B0049E4BF /* DrinkSmartWidget */,
+				78539A5A306AB20B0049E4BF /* LogMyDrinkWidget */,
 			);
-			name = DrinkSmartWidgetExtension;
+			name = LogMyDrinkWidgetExtension;
 			packageProductDependencies = (
 			);
-			productName = DrinkSmartWidgetExtension;
-			productReference = 78539A54306AB20A0049E4BF /* DrinkSmartWidgetExtension.appex */;
+			productName = LogMyDrinkWidgetExtension;
+			productReference = 78539A54306AB20A0049E4BF /* LogMyDrinkWidgetExtension.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
-		AA0000000000000000000004 /* DrinkSmart */ = {
+		AA0000000000000000000004 /* LogMyDrink */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = AA000000000000000000000B /* Build configuration list for PBXNativeTarget "DrinkSmart" */;
+			buildConfigurationList = AA000000000000000000000B /* Build configuration list for PBXNativeTarget "LogMyDrink" */;
 			buildPhases = (
 				AA0000000000000000000006 /* Sources */,
 				AA0000000000000000000007 /* Frameworks */,
@@ -161,14 +161,14 @@
 				78539A67306AB20E0049E4BF /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				AA0000000000000000000009 /* DrinkSmart */,
+				AA0000000000000000000009 /* LogMyDrink */,
 			);
-			name = DrinkSmart;
+			name = LogMyDrink;
 			packageProductDependencies = (
 				AA0000000000000000000011 /* BACKit */,
 			);
-			productName = DrinkSmart;
-			productReference = AA0000000000000000000005 /* DrinkSmart.app */;
+			productName = LogMyDrink;
+			productReference = AA0000000000000000000005 /* LogMyDrink.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -189,7 +189,7 @@
 					};
 				};
 			};
-			buildConfigurationList = AA000000000000000000000A /* Build configuration list for PBXProject "DrinkSmart" */;
+			buildConfigurationList = AA000000000000000000000A /* Build configuration list for PBXProject "LogMyDrink" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -229,8 +229,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				AA0000000000000000000004 /* DrinkSmart */,
-				78539A53306AB20A0049E4BF /* DrinkSmartWidgetExtension */,
+				AA0000000000000000000004 /* LogMyDrink */,
+				78539A53306AB20A0049E4BF /* LogMyDrinkWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -272,7 +272,7 @@
 /* Begin PBXTargetDependency section */
 		78539A67306AB20E0049E4BF /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 78539A53306AB20A0049E4BF /* DrinkSmartWidgetExtension */;
+			target = 78539A53306AB20A0049E4BF /* LogMyDrinkWidgetExtension */;
 			targetProxy = 78539A66306AB20E0049E4BF /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -303,7 +303,7 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_ENTITLEMENTS = DrinkSmartWidgetExtension.entitlements;
+				CODE_SIGN_ENTITLEMENTS = LogMyDrinkWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 2GYMHK5C56;
@@ -311,8 +311,8 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = DrinkSmartWidget/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = DrinkSmartWidget;
+				INFOPLIST_FILE = LogMyDrinkWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = LogMyDrinkWidget;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -321,7 +321,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = dev.zcsipler.drinksmart.DrinkSmartWidget;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.zcsipler.logmydrink.LogMyDrinkWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
@@ -358,7 +358,7 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_ENTITLEMENTS = DrinkSmartWidgetExtension.entitlements;
+				CODE_SIGN_ENTITLEMENTS = LogMyDrinkWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 2GYMHK5C56;
@@ -366,8 +366,8 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = DrinkSmartWidget/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = DrinkSmartWidget;
+				INFOPLIST_FILE = LogMyDrinkWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = LogMyDrinkWidget;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -376,7 +376,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = dev.zcsipler.drinksmart.DrinkSmartWidget;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.zcsipler.logmydrink.LogMyDrinkWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
@@ -466,7 +466,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = DrinkSmart/DrinkSmart.entitlements;
+				CODE_SIGN_ENTITLEMENTS = LogMyDrink/LogMyDrink.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "";
@@ -484,7 +484,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 0.1;
-				PRODUCT_BUNDLE_IDENTIFIER = dev.zcsipler.drinksmart;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.zcsipler.logmydrink;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 6.0;
@@ -497,7 +497,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = DrinkSmart/DrinkSmart.entitlements;
+				CODE_SIGN_ENTITLEMENTS = LogMyDrink/LogMyDrink.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "";
@@ -515,7 +515,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 0.1;
-				PRODUCT_BUNDLE_IDENTIFIER = dev.zcsipler.drinksmart;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.zcsipler.logmydrink;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 6.0;
@@ -526,7 +526,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		78539A6D306AB20E0049E4BF /* Build configuration list for PBXNativeTarget "DrinkSmartWidgetExtension" */ = {
+		78539A6D306AB20E0049E4BF /* Build configuration list for PBXNativeTarget "LogMyDrinkWidgetExtension" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				78539A6A306AB20E0049E4BF /* Debug */,
@@ -535,7 +535,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		AA000000000000000000000A /* Build configuration list for PBXProject "DrinkSmart" */ = {
+		AA000000000000000000000A /* Build configuration list for PBXProject "LogMyDrink" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AA000000000000000000000C /* Debug */,
@@ -544,7 +544,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		AA000000000000000000000B /* Build configuration list for PBXNativeTarget "DrinkSmart" */ = {
+		AA000000000000000000000B /* Build configuration list for PBXNativeTarget "LogMyDrink" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AA000000000000000000000E /* Debug */,

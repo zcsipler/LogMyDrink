@@ -26,7 +26,7 @@ import sys
 
 # Relative to this file, so the script runs from any checkout or sandbox.
 HERE = pathlib.Path(__file__).resolve().parent
-APP = HERE.parent / "DrinkSmart"
+APP = HERE.parent / "LogMyDrink"
 
 # The reference translation, and the ones a human has actually read.
 REFERENCE = "hu"

@@ -4,7 +4,7 @@ import SwiftData
 
 @main
 @MainActor
-struct DrinkSmartApp: App {
+struct LogMyDrinkApp: App {
     private let container: ModelContainer
     @State private var store: SessionStore
 
@@ -44,7 +44,7 @@ struct DrinkSmartApp: App {
     /// Naming the container makes the failure real. A missing entitlement, a
     /// typo here, a container the signing team does not own — all of it throws,
     /// which is what the fallback was written for.
-    private static let cloudKitContainerID = "iCloud.dev.zcsipler.drinksmart"
+    private static let cloudKitContainerID = "iCloud.dev.zcsipler.logmydrink"
 
     /// Builds the store: with CloudKit when the build is provisioned for it,
     /// local-only otherwise.

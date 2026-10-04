@@ -2,7 +2,7 @@ import Foundation
 import SwiftData
 import Testing
 import BACKit
-@testable import DrinkSmart
+@testable import LogMyDrink
 
 /// The migration that gives every session an owner.
 ///

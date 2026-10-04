@@ -14,7 +14,7 @@ struct LegacySessionSnapshot: Codable {
     var frequency: DrinkingFrequency
     var drinks: [Drink]
 
-    static let storageKey = "drinksmart.session.v2"
+    static let storageKey = "logmydrink.session.v2"
 
     static func stored(in defaults: UserDefaults = .standard) -> LegacySessionSnapshot? {
         guard let data = defaults.data(forKey: storageKey) else { return nil }
@@ -34,7 +34,7 @@ struct LegacySessionSnapshot: Codable {
 ///    tonight. Here we take everything that survived.
 enum LegacySessionImport {
 
-    private static let completionKey = "drinksmart.legacyImport.completed.v1"
+    private static let completionKey = "logmydrink.legacyImport.completed.v1"
 
     static var hasRun: Bool {
         UserDefaults.standard.bool(forKey: completionKey)

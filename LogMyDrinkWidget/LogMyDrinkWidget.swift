@@ -17,7 +17,7 @@ import WidgetKit
 /// what keeps this a prototype, and moving it is the next step, not this one.
 struct QuickAddWidget: Widget {
 
-    static let kind = "dev.zcsipler.drinksmart.quickadd"
+    static let kind = "dev.zcsipler.logmydrink.quickadd"
 
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: Self.kind, provider: Provider()) { entry in
@@ -32,7 +32,7 @@ struct QuickAddWidget: Widget {
     /// Must match `QuickAddLink.url` in the app target. Duplicated rather
     /// than shared, so that this target compiles without touching the app's
     /// file memberships.
-    static let link = URL(string: "drinksmart://quick-add")!
+    static let link = URL(string: "logmydrink://quick-add")!
 
     /// Nothing changes with time; the one thing that changes is the
     /// favourite, and the app asks for a reload when it does
@@ -58,7 +58,7 @@ struct QuickAddWidget: Widget {
         static let defaultIcon = "wineglass"
 
         /// Must match `WidgetBridge` in the app target.
-        static let appGroup = "group.dev.zcsipler.drinksmart"
+        static let appGroup = "group.dev.zcsipler.logmydrink"
         static let favouriteIconKey = "widget.favourite.icon"
 
         static var currentIcon: String {

@@ -2,7 +2,7 @@ import Foundation
 import SwiftData
 import Testing
 import BACKit
-@testable import DrinkSmart
+@testable import LogMyDrink
 
 /// Which person a drink ends up on, and which session.
 ///

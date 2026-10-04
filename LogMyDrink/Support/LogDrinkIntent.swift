@@ -16,7 +16,7 @@ import BACKit
 /// quick capsule gives VoiceOver.
 ///
 /// Performed in the app's own process (`openAppWhenRun` is false): the system
-/// launches the app in the background if it is not running, `DrinkSmartApp`
+/// launches the app in the background if it is not running, `LogMyDrinkApp`
 /// registers the store as a dependency, and `perform` is main-actor isolated,
 /// which is where the store lives.
 struct LogDrinkIntent: AppIntent {
@@ -64,24 +64,24 @@ struct LogDrinkIntent: AppIntent {
 /// setup in the Shortcuts app.
 ///
 /// Every phrase has to contain the app's name; Apple does not accept a bare
-/// word, so "Hey Siri, drink" cannot be registered from here. The way to get
-/// exactly that is a personal shortcut: in the Shortcuts app, a shortcut named
-/// "Drink" whose single action is "Log a drink" — Siri runs any shortcut by its
-/// name. That is the user's to create, once, and it is what the prototype is
-/// meant to be tried with.
+/// word. The app is named so that this constraint costs nothing: "LogMyDrink"
+/// is both the name and the command, so the first phrase is the bare name.
+/// The rest are the ways people naturally pad it. A personal shortcut named
+/// "Drink" in the Shortcuts app still works for a shorter trigger — Siri runs
+/// any shortcut by its name.
 ///
 /// English only: Siri has no Hungarian, and the phrases follow the app's
 /// source language (7.).
-struct DrinkSmartShortcuts: AppShortcutsProvider {
+struct LogMyDrinkShortcuts: AppShortcutsProvider {
 
     static var appShortcuts: [AppShortcut] {
         AppShortcut(
             intent: LogDrinkIntent(),
             phrases: [
-                "Drink in \(.applicationName)",
+                "\(.applicationName)",
+                "\(.applicationName) now",
                 "Log a drink in \(.applicationName)",
                 "Log my drink in \(.applicationName)",
-                "\(.applicationName) drink",
             ],
             shortTitle: "Log a drink",
             systemImageName: "wineglass"

@@ -17,7 +17,7 @@ struct LegacyProfileSettings: Codable {
     /// Optional so a snapshot written before this existed still decodes.
     var trackingStartedAt: Date?
 
-    static let storageKey = "drinksmart.settings.v1"
+    static let storageKey = "logmydrink.settings.v1"
 
     /// `defaults` is injectable so a test can hand over a throwaway suite
     /// instead of writing into the app's real settings.

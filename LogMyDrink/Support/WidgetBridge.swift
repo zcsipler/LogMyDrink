@@ -17,10 +17,10 @@ import WidgetKit
 /// default icon — which is how it should degrade.
 ///
 /// The widget target compiles its own copy of the group and key names
-/// (`DrinkSmartWidget/DrinkSmartWidget.swift`); the two must agree.
+/// (`LogMyDrinkWidget/LogMyDrinkWidget.swift`); the two must agree.
 enum WidgetBridge {
 
-    static let appGroup = "group.dev.zcsipler.drinksmart"
+    static let appGroup = "group.dev.zcsipler.logmydrink"
 
     /// The SF Symbol of the favourite, or absent when there is no favourite.
     static let favouriteIconKey = "widget.favourite.icon"

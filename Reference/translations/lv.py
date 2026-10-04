@@ -334,10 +334,10 @@ TRANSLATIONS = {
 
     # --- DataArchive: why a file could not be read ---
     "Could not import": "Neizdevās importēt",
-    "This file is not a DrinkSmart backup, or it is damaged.":
-        "Šis fails nav DrinkSmart dublējums vai arī ir bojāts.",
-    "This backup was made by a newer version of DrinkSmart. Update the app and try again.":
-        "Šis dublējums ir izveidots jaunākā DrinkSmart versijā. Atjaunini lietotni un mēģini "
+    "This file is not a LogMyDrink backup, or it is damaged.":
+        "Šis fails nav LogMyDrink dublējums vai arī ir bojāts.",
+    "This backup was made by a newer version of LogMyDrink. Update the app and try again.":
+        "Šis dublējums ir izveidots jaunākā LogMyDrink versijā. Atjaunini lietotni un mēģini "
         "vēlreiz.",
 
     # --- History: months known only by total (MonthlyTotal) ---

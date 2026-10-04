@@ -10,7 +10,7 @@ import Foundation
 /// - **iCloud is not a backup.** A user who clears the app's iCloud data in
 ///   Settings has cleared it everywhere. There is no bin to recover from.
 /// - **Not everyone syncs.** Signed out of iCloud, or iCloud Drive off, and the
-///   local fallback in `DrinkSmartApp.makeContainer` is the whole story. For
+///   local fallback in `LogMyDrinkApp.makeContainer` is the whole story. For
 ///   those users this file is the only way to move anything.
 /// - **Apple ID changes happen**, and CloudKit has nothing to say about them.
 /// - **A migration can go wrong**, and a CloudKit schema cannot be rolled back
@@ -215,9 +215,9 @@ enum ArchiveError: Error, Equatable {
     var message: LocalizedStringResource {
         switch self {
         case .unreadable:
-            "This file is not a DrinkSmart backup, or it is damaged."
+            "This file is not a LogMyDrink backup, or it is damaged."
         case .tooNew:
-            "This backup was made by a newer version of DrinkSmart. Update the app and try again."
+            "This backup was made by a newer version of LogMyDrink. Update the app and try again."
         }
     }
 }

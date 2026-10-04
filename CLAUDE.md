@@ -1,4 +1,4 @@
-# DrinkSmart — projektkontextus
+# LogMyDrink — projektkontextus
 
 Ez a fájl azért van, hogy egy új beszélgetés azonnal képben legyen. Azt
 mondja el, mi *van* és miért. Hogy mi *lesz* — teendők, nyitott döntések,
@@ -40,8 +40,27 @@ A központi kérdés, amire válaszol:
 
 > **Hová vinné a szintemet a következő ital, és mikor?**
 
-A tulajdonos és fejlesztő Zoltán. GitHub: `zcsipler/DrinkSmart`.
-Bundle ID: `dev.zcsipler.drinksmart`.
+A tulajdonos és fejlesztő Zoltán. GitHub: `zcsipler/LogMyDrink`.
+Bundle ID: `dev.zcsipler.logmydrink`.
+
+**A név — LogMyDrink (2026. október).** A munkanév `DrinkSmart` volt, de az
+App Store-ban már él egy „Drink Smart - Alcohol Tracker", a Playen egy
+„Drink Smart - Daily Tracker" — névütközés és kategória-ütközés egyszerre.
+A LogMyDrink Zoltán ötlete, és három okból nyert a szellemesebb jelöltek
+(Pourcast, NextPour, MyNextDrink) ellen: **alapszókincs** egy nem angol
+anyanyelvűnek is, a „pour" nem az; **a név maga a Siri-parancs** — az Apple
+megköveteli, hogy minden kifejezésben benne legyen az app neve (5.15), és
+itt ez nem ára semminek, mert „Hey Siri, LogMyDrink" egyben az utasítás;
+és **a logolás az egyetlen cselekvés, amit a felhasználó tesz** — az
+előrejelzés és az Előzmény is ebből él. A név tudatosan *nem* az
+előrejelzést mondja ki (2.); azt az alcím dolga elmondani a store-ban.
+Store-keresésnél a pontos címegyezés mindent ver, tehát a „Drink Log"
+nevű appok tömege a brandkeresést nem zavarja, csak a kategóriakeresést —
+azt viszont bármelyik név ugyanúgy. A bundle ID is átváltott, mert a
+váltás csak addig ingyenes, amíg egy felhasználó van: utána minden
+készüléken adatvesztés és új App Store-rekord. A UserDefaults-kulcsok
+előtagja is `logmydrink.`: az új bundle ID új sandboxot jelent, a régi
+kulcsok alatt sehol nincs adat, amit meg kellene őrizni.
 
 ## 2. Miért létezik — a termék tézise
 
@@ -69,8 +88,8 @@ A tézis, ami miatt ezt mégis megéri megépíteni:
 ## 3. Architektúra
 
 ```
-DrinkSmart/
-├── DrinkSmart.xcodeproj        objectVersion 77, file-system synchronized group
+LogMyDrink/
+├── LogMyDrink.xcodeproj        objectVersion 77, file-system synchronized group
 ├── BACKit/                     lokális Swift package — a farmakokinetikai motor
 │   ├── Sources/BACKit/
 │   │   ├── BodyProfile.swift   Watson TBW, eloszlási térfogat, béta + bizonytalanság
@@ -80,8 +99,8 @@ DrinkSmart/
 │   │   ├── BACBand.swift       sávos szimuláció, LimitOutcome, BandedProjection
 │   │   └── PourShortening.swift  a megkezdett ital lezárása a következővel
 │   └── Tests/BACKitTests/      56 teszt, Python referenciaértékekkel
-├── DrinkSmart/                 az app target
-│   ├── DrinkSmartApp.swift     ModelContainer, CloudKit visszaeséssel, store létrehozás
+├── LogMyDrink/                 az app target
+│   ├── LogMyDrinkApp.swift     ModelContainer, CloudKit visszaeséssel, store létrehozás
 │   ├── Localizable.xcstrings   a 24 hivatalos EU-nyelven, generált
 │   ├── Model/
 │   │   ├── BACChartModel.swift      a chart bemenete — élő store vagy tárolt alkalom
@@ -132,15 +151,15 @@ DrinkSmart/
 │       ├── PeopleView.swift         személyek listája, vendég eltávolítása
 │       ├── DataTransferSection.swift export / import a Profil alján
 │       └── ProfileView.swift        testalkat, gyakoriság, saját határ, haladó
-├── DrinkSmartWidget/           widget extension target — egy gomb, ami az appot nyitja (5.15)
-├── DrinkSmartTests/            app-szintű tesztek — fájlok megvannak, target még nincs (10.)
+├── LogMyDrinkWidget/           widget extension target — egy gomb, ami az appot nyitja (5.15)
+├── LogMyDrinkTests/            app-szintű tesztek — fájlok megvannak, target még nincs (10.)
 ├── TODO.md                     teendők, nyitott döntések, hátralék
 └── Reference/                  Python referencia, katalógusgenerátor, run_tests.sh
 ```
 
 **Rétegszabály:** a `BACKit` UI-független és `Sendable`. A SwiftUI nézetek és a
 SwiftData a motort hívják, soha nem fordítva. Ha valami élettani logika a
-`DrinkSmart/` alá kerülne, az hiba.
+`LogMyDrink/` alá kerülne, az hiba.
 
 **A nézetek nem beszélnek SwiftDatával közvetlenül**, egy kivétellel: a
 `@Query` a `HistoryView`-ban és a `LiveView`-ban, mert az listázás. Minden írás
@@ -616,7 +635,7 @@ irányítás egyik útvonalon sem kerülhető meg. Prototípus (2026. október),
 készüléken kipróbálva.
 
 **Siri — `Support/LogDrinkIntent.swift`.** Egy `AppIntent`, ami az app saját
-folyamatában fut a háttérben (`openAppWhenRun = false`): a `DrinkSmartApp.init`
+folyamatában fut a háttérben (`openAppWhenRun = false`): a `LogMyDrinkApp.init`
 beregisztrálja a store-t az `AppDependencyManager`-be, az intent `@Dependency`
 útján kapja meg. A `perform` előbb `tick()` + `refreshFromStore()` — az app
 órákig ülhetett a háttérben, a `now` csak a Live timerrel mozog, és egy
@@ -624,14 +643,16 @@ beregisztrálja a store-t az `AppDependencyManager`-be, az intent `@Dependency`
 **Siri a vetített csúcsot mondja vissza**, nem csak „kész"-t: ez a termék
 tézise (2.), és hangnál nincs kapszula, ami a színt vinné; a három szöveg a
 `LimitOutcome` szerint ágazik (5.2). Az `AppShortcutsProvider` kifejezéseinek
-kötelezően tartalmazniuk kell az app nevét („Log a drink in DrinkSmart"), az
-Apple csupasz szót nem fogad el — a puszta „Hey Siri, drink" egy, a
-felhasználó által a Shortcuts appban létrehozott, „Drink" nevű parancson át
-megy. Siri magyarul nem tud, a kifejezések angolok.
+kötelezően tartalmazniuk kell az app nevét, az Apple csupasz szót nem fogad
+el — **ezért ilyen a név**: a „LogMyDrink" egyszerre az app neve és a
+parancs, így az első kifejezés maga a csupasz név, és a „Hey Siri,
+LogMyDrink" regisztráció nélkül megy (1.). A rövidebb „Hey Siri, drink" egy,
+a felhasználó által a Shortcuts appban létrehozott, „Drink" nevű parancson
+át továbbra is elérhető. Siri magyarul nem tud, a kifejezések angolok.
 
-**Widget — `DrinkSmartWidget/`, külön target.** Egy gomb a zárolt képernyőre
+**Widget — `LogMyDrinkWidget/`, külön target.** Egy gomb a zárolt képernyőre
 (kör, téglalap) és a kezdőképernyőre (kicsi). A koppintás **nem helyben ír,
-hanem megnyitja az appot**: `widgetURL` (`drinksmart://quick-add`, URL scheme
+hanem megnyitja az appot**: `widgetURL` (`logmydrink://quick-add`, URL scheme
 regisztráció nélkül, mert a `widgetURL` közvetlenül a tartalmazó apphoz jut),
 a `MainTabView.onOpenURL` a Live-ra vált és egy `QuickAddRequest`-et ad át, a
 Live ugyanúgy hajtja végre, mint a kapszulánál — a visszavonó sávval. Ugyanaz
@@ -643,7 +664,7 @@ kér — az app megnyitása mindig kér —, és hogy a widget semmit nem mutat:
 számot, se szintet.
 
 **Amit a widget mégis tud: a kedvenc ikonját.** `Support/WidgetBridge.swift`
-az App Group közös `UserDefaults`-ába (`group.dev.zcsipler.drinksmart`) írja
+az App Group közös `UserDefaults`-ába (`group.dev.zcsipler.logmydrink`) írja
 a kedvenc SF Symbol nevét, és csak akkor tölteti újra a widgetet, ha az
 változott; a `SessionStore` a `favourite` setterében és a `refreshFromStore`
 végén hívja (indítás, előtérbe kerülés, személyváltás, import). App Group
@@ -853,7 +874,7 @@ alkoholfogyasztási adatot tárol — ennél az appnál ez termékérv is (2., 9
 egyszer kell, akkor jön a saját backend, külön fázisban.
 
 **Ami a kódban megvan:** a séma CloudKit-kompatibilis (8.);
-`DrinkSmartApp.makeContainer()` CloudKit ág `.private(cloudKitContainerID)`-vel,
+`LogMyDrinkApp.makeContainer()` CloudKit ág `.private(cloudKitContainerID)`-vel,
 lokális fallbackkel és debug-assertionnel; a kétszeres tulajdonos elleni
 dedupe (`PersonMigration.resolveOwner`, a korábbi `createdAt` nyer, a
 `merge(_:into:)` átviszi a másik alkalmait); `SessionStore.observeRemoteChanges()`
@@ -870,15 +891,15 @@ mert a provisioning profile nem tartalmazná. Kell az Apple Developer Program
 (Individual, 99 USD/év); Zoltán döntése, hogy ez vár az élesítésig. Amikor
 megvan, a sorrend:
 
-1. **Előbb mentés:** Xcode → Devices and Simulators → DrinkSmart → Download
+1. **Előbb mentés:** Xcode → Devices and Simulators → LogMyDrink → Download
    Container. A team váltása új aláírást ad, az iOS törli és újratelepíti az
    appot a helyi adatokkal együtt; ugyanez a menü tud Replace Containert.
 2. developer.apple.com → a Program License Agreement elfogadása (amíg függ,
    az Xcode nem lát capabilityket).
 3. Xcode → Settings → Accounts → Download Manual Profiles, a targeten az új
    team.
-4. + Capability → iCloud → CloudKit, konténer `iCloud.dev.zcsipler.drinksmart`
-   (ha az Xcode mást hoz létre, a `DrinkSmartApp.cloudKitContainerID`-t kell
+4. + Capability → iCloud → CloudKit, konténer `iCloud.dev.zcsipler.logmydrink`
+   (ha az Xcode mást hoz létre, a `LogMyDrinkApp.cloudKitContainerID`-t kell
    igazítani).
 5. + Capability → Background Modes → Remote notifications, különben a szinkron
    csak app-indításkor mozdul.
@@ -1009,7 +1030,7 @@ tulajdonos veszi át. Archiválás nincs: aki a vendég adatait meg akarja
 tartani, előtte exportál.
 
 **Tesztek:** `PersonMigrationTests`, `SessionRoutingTests`,
-`ActivePersonTests` a `DrinkSmartTests/` alatt — megírva, de nem futnak (10.).
+`ActivePersonTests` a `LogMyDrinkTests/` alatt — megírva, de nem futnak (10.).
 
 ### 5.19 Háromféle kapcsoló: Feature, Experiment, BuildCapability
 
@@ -1089,7 +1110,7 @@ EU-nyelvet ismeri. Alapból azt választja, amit az iOS nyelvi beállítása ké
 felhasználó ettől eltérhet a Profil fül Nyelv sorával, ami a Beállításokban az
 app saját „Előnyben részesített nyelv" sorára visz (`LanguageSection`).
 
-- `DrinkSmart/Localizable.xcstrings` — 24 nyelven. Generált fájl, kézzel nem
+- `LogMyDrink/Localizable.xcstrings` — 24 nyelven. Generált fájl, kézzel nem
   szerkesztjük. **Az Xcode sem:** a `SWIFT_EMIT_LOC_STRINGS` build beállítás
   `NO` mindkét targeten, különben a fordító minden buildnél kigyűjti a Swift
   forrásból a szövegeket, felveszi az újakat `new` állapotban, és a saját
@@ -1205,9 +1226,9 @@ mögött, személylistával és vendég-eltávolítással (5.18); 24 nyelvű lok
 
 **Tesztek:** 56 a `BACKit`-ben (Linuxon is futtatható, 6.); 54 a History
 modellre (Foundation-only, ideiglenes csomagban Linuxon futtatva, 5.16);
-18 a perzisztenciára a `DrinkSmartTests/` alatt, ami **nem fut**, mert nincs
+18 a perzisztenciára a `LogMyDrinkTests/` alatt, ami **nem fut**, mert nincs
 app teszt target — Xcode-ban: File → New → Target → Unit Testing Bundle,
-`DrinkSmartTests`, host a `DrinkSmart`; a file-system synchronized group utána
+`LogMyDrinkTests`, host a `LogMyDrink`; a file-system synchronized group utána
 magától felveszi a fájlokat. Amíg ez nincs meg, ezek a tesztek csak
 dokumentáció, és a kód, amit védenek, az, ami adatot tud veszíteni.
 
