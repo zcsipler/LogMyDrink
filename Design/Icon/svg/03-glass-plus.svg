@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+  <defs>
+  <radialGradient id="bg" cx="0.5" cy="0.2" r="0.9">
+    <stop offset="0" stop-color="#21252F"/>
+    <stop offset="1" stop-color="#0B0D12"/>
+  </radialGradient></defs>
+  <g id="Background"><rect width="1024" height="1024" fill="url(#bg)"/></g>
+  <g id="Glass">
+    <path d="M 316 470 Q 495 430 674 470 L 650 786 Q 650 816 616 816 L 374 816 Q 340 816 340 786 Z" fill="#45BFB4"/>
+    <path d="M 290 190 L 330 786 Q 330 830 374 830 L 616 830 Q 660 830 660 786 L 700 190 Z" fill="none" stroke="#EFF1F5" stroke-width="34" stroke-linejoin="round"/>
+  </g>
+  <g id="Plus">
+    <circle cx="752" cy="300" r="172" fill="#0B0D12"/>
+    <circle cx="752" cy="300" r="150" fill="#F2B64F"/>
+    <path d="M 680 300 H 824 M 752 228 V 372" stroke="#0B0D12" stroke-width="40" stroke-linecap="round"/>
+  </g>
+</svg>
