@@ -94,7 +94,10 @@ DrinkSmart/
 │   │   ├── Theme.swift         színek, a görbe színe a határhoz viszonyítva változik
 │   │   ├── FeatureFlags.swift  egy hely, ami eldönti, mi van bekapcsolva
 │   │   ├── BACUnit.swift       ‰ / % megjelenítés, tartomány-formázás
-│   │   └── AmountUnit.swift    gramm / standard egység megjelenítés, alapból gramm
+│   │   ├── AmountUnit.swift    gramm / standard egység megjelenítés, alapból gramm
+│   │   ├── LogDrinkIntent.swift  App Intent + Siri kifejezések a gyors felvitelre (5.15)
+│   │   ├── QuickAddLink.swift  a widget deep linkje és a QuickAddRequest
+│   │   └── WidgetBridge.swift  a kedvenc ikonja az App Group közös defaultsába
 │   └── View/
 │       ├── MainTabView.swift        History / Live / Profil, Live középen; HistoryRequest a tabok közt
 │       ├── LiveView.swift           élő alkalom, csak a mai nap — három nap-állapot, „Tegnap" gomb
@@ -112,6 +115,7 @@ DrinkSmart/
 │       ├── AddDrinkSheet.swift      felvitel és szerkesztés + élő előrejelzés
 │       ├── PersonSwitcher.swift     ki van kiválasztva + új személy felvitele
 │       └── ProfileView.swift        testalkat, gyakoriság, saját határ, haladó
+├── DrinkSmartWidget/           widget extension target — egy gomb, ami az appot nyitja (5.15)
 └── Reference/                  Python referencia, katalógusgenerátor, run_tests.sh
 ```
 
@@ -586,6 +590,57 @@ hónaphoz mérés (medián) egy körig élt, és azért esett ki, mert az
 egészségről semmit nem mondott. A havi összegből ismert hónapok is ezt a skálát
 kapják, az Év nézetben oszlopként, a Hét és Hónap nézetben halvány sávként.
 
+### 5.15 A gyors felvitelnek három belépési pontja van, de egy útja
+
+A kedvenc ital felvitele (`SessionStore.quickAdd`) három helyről indítható:
+a Live kapszulájáról, Siritől és egy widgetről. Mind a három ugyanazt a
+store-műveletet hívja — a kedvenc, a pour cut (5.13) és az alkalomba
+irányítás egyik útvonalon sem kerülhető meg. Prototípus (2026. október),
+készüléken kipróbálva.
+
+**Siri — `Support/LogDrinkIntent.swift`.** Egy `AppIntent`, ami az app saját
+folyamatában fut a háttérben (`openAppWhenRun = false`): a `DrinkSmartApp.init`
+beregisztrálja a store-t az `AppDependencyManager`-be, az intent `@Dependency`
+útján kapja meg. A `perform` előbb `tick()` + `refreshFromStore()` — az app
+órákig ülhetett a háttérben, a `now` csak a Live timerrel mozog, és egy
+éjszakán át nyitott alkalmat le kell zárni —, csak utána `quickAdd()`.
+**Siri a vetített csúcsot mondja vissza**, nem csak „kész"-t: ez a termék
+tézise (2.), és hangnál nincs kapszula, ami a színt vinné; a három szöveg a
+`LimitOutcome` szerint ágazik (5.2). Az `AppShortcutsProvider` kifejezéseinek
+kötelezően tartalmazniuk kell az app nevét („Log a drink in DrinkSmart"), az
+Apple csupasz szót nem fogad el — a puszta „Hey Siri, drink" egy, a
+felhasználó által a Shortcuts appban létrehozott, „Drink" nevű parancson át
+megy. Siri magyarul nem tud, a kifejezések angolok.
+
+**Widget — `DrinkSmartWidget/`, külön target.** Egy gomb a zárolt képernyőre
+(kör, téglalap) és a kezdőképernyőre (kicsi). A koppintás **nem helyben ír,
+hanem megnyitja az appot**: `widgetURL` (`drinksmart://quick-add`, URL scheme
+regisztráció nélkül, mert a `widgetURL` közvetlenül a tartalmazó apphoz jut),
+a `MainTabView.onOpenURL` a Live-ra vált és egy `QuickAddRequest`-et ad át, a
+Live ugyanúgy hajtja végre, mint a kapszulánál — a visszavonó sávval. Ugyanaz
+a minta, mint a `HistoryRequest`. Azért nem helyben: a widget extension saját
+folyamat, és ahhoz, hogy italt írjon, a SwiftData store-t App Group
+konténerbe kellene költöztetni, ami a meglévő adatokat mozgatja minden
+készüléken (12.). Ára, hogy a koppintás feloldást kér — az app megnyitása
+mindig kér —, és hogy a widget semmit nem mutat: se számot, se szintet.
+
+**Amit a widget mégis tud: a kedvenc ikonját.** `Support/WidgetBridge.swift`
+az App Group közös `UserDefaults`-ába (`group.dev.zcsipler.drinksmart`) írja
+a kedvenc SF Symbol nevét, és csak akkor tölteti újra a widgetet, ha az
+változott; a `SessionStore` a `favourite` setterében és a `refreshFromStore`
+végén hívja (indítás, előtérbe kerülés, személyváltás, import). App Group
+nélkül a `UserDefaults(suiteName:)` privát tárolót ad, nem hibát — a widget
+marad az általános pohárnál. A kör méreten plusz van, nem ital: ott az ikon
+nem olvasható, a plusz viszont megmondja, mit csinál a koppintás.
+
+**Az iOS nem enged widgetet programból kitenni** — se Lock Screenre, se Home
+Screenre, se Control Centerbe —, és a widgetgalériába mutató link sincs. A
+használható megfelelője a push kérésnek: a `WidgetCenter.getCurrentConfigurations`
+megmondja, ki van-e téve, és amíg nincs, az app egy elvethető kártyán
+elmagyarázhatja a három lépést; iOS 18-tól a `WidgetRelevance` a Smart
+Stackben előre forgatja. Ez és a `SiriTipView` a kapszula alatt **nincs
+megépítve**.
+
 ## 6. Validáció
 
 A `Reference/bac_model.py` a numerikus referencia. A Swift tesztek konkrét
@@ -645,7 +700,14 @@ felhasználó ettől eltérhet a Profil fül Nyelv sorával, ami a Beállításo
 app saját „Előnyben részesített nyelv" sorára visz (`LanguageSection`).
 
 - `DrinkSmart/Localizable.xcstrings` — 222 kulcs, 24 nyelven. Generált fájl,
-  kézzel nem szerkesztjük.
+  kézzel nem szerkesztjük. **Az Xcode sem:** a `SWIFT_EMIT_LOC_STRINGS` build
+  beállítás `NO` mindkét targeten, különben a fordító minden buildnél
+  kigyűjti a Swift forrásból a szövegeket, felveszi az újakat `new`
+  állapotban, és a saját formázásával írja vissza az egész fájlt — egyszer ez
+  egy 44 ezer soros diffet adott, amiben három kulcs volt a változás. A
+  szkript azóta az Xcode formátumában ír (rendezett kulcsok, szóköz a
+  kettőspont előtt), így ha a szerkesztő mégis hozzányúl, a diff csak a
+  tényleges változás.
 - `Reference/translations/<kód>.py` — nyelvenként egy modul, mindegyikben egy
   `TRANSLATIONS` szótár az angol forrásszövegtől az adott nyelvig.
 - **A magyar a referencia**: azt olvasta végig ember, és az ő kulcskészletéhez
@@ -750,7 +812,11 @@ Hónap / Év szegmens, chevronos lapozás, ugrás a fejléc dátumáról, mennyi
 kísérletként kapcsolható (`Experiment.trendSegment`). Több személy (11.5) a
 `FeatureFlags.multiPerson` mögött: a séma és a migráció mindenkinél fut, a
 váltó és a személy-felvitel csak bekapcsolva látszik — debug buildben a
-Profil alján, a „Developer" szekcióban.
+Profil alján, a „Developer" szekcióban. **Gyors felvitel Siritől és
+widgetről (5.15):** `LogDrinkIntent` a vetített csúcs visszamondásával, és a
+`DrinkSmartWidget` target egy Lock Screen / Home Screen gombbal, ami az appot
+nyitja a Live-on és ott visz fel; a widget a kedvenc ikonját mutatja az App
+Group közös defaultsából. Prototípus, készüléken működik.
 
 **Tesztek:** 56 a `BACKit`-ben (Linuxon is futtatható, 6.); 37 a History
 modellre (`HistoryAggregateTests`, `HistoryWindowTests`,
@@ -765,8 +831,8 @@ Kikapcsolva az app pontosan úgy viselkedik, mint a szinkron-munka előtt.
 
 Az app **fordul és fut** szimulátoron, iPhone-ra telepítve van kipróbálva.
 
-Utolsó commit: `70353a5` — „Add a Day segment to History, and a Yesterday
-button on Live that opens it". A frissebb állást a `git log` mondja meg; ez
+Utolsó commit: `94d1684` — „Add Siri and a Lock Screen widget for the quick
+add, and stop Xcode syncing the string catalog". A frissebb állást a `git log` mondja meg; ez
 a sor csak akkor frissül, ha a fejezetet is átírjuk.
 
 ## 11. Roadmap
@@ -1422,9 +1488,33 @@ Nem termékfunkciók, hanem amit rendbe kell tenni:
   `zip().map`), plusz lépésenként egy `pending.filter` és egy
   `indices.contains`; előre foglalt scratch bufferekkel nagyrészt kiirtható.
   A kimenetnek bitre azonosnak kell maradnia — `BACEngine.version` nem bumpolandó
+- **A widget második köre: a store az App Group konténerbe (5.15).** Ez
+  nyitja meg a két dolgot, amit a prototípus nem tud: a **feloldás nélküli
+  felvitelt** (interaktív `Button(intent:)` a zárolt képernyőn, az intent a
+  widget extension folyamatában fut és maga ír a store-ba — ahogy a Home app
+  kapcsolói) és a **BAC-görbét a widgeten** (a `BACKit` Foundation-only, az
+  extension is tudja futtatni a `simulateBand`-et, Swift Charts megy
+  WidgetKitben; a görbe determinisztikus, tehát a timeline 5 percenként előre
+  kiszámolható, és az app minden `save()`-nél újratölteti). Ára a **meglévő
+  adatbázis egyszeri átköltöztetése** első induláskor (sqlite + wal + shm az
+  App Group konténerébe) — ugyanaz a biztonsági lépés jár elé, mint a
+  11.4-ben: Download Container. Két további feltétel: a store adatvédelmi
+  szintje maradjon az alapértelmezett „első feloldásig zárt", különben zárolt
+  telefonon olvashatatlan; és a visszavonást újra kell gondolni, mert a Live
+  sáv ott nincs (a widget mutathat pár másodpercig „Felvéve · Visszavonás"
+  állapotot). Becslés: App Group + migráció fél nap kód plusz tesztelés valós
+  adattal — az a kockázat, nem a kód —, az intent átrakása pár óra, a görbe
+  egy–két nap rá. A zárolt képernyőn a görbének kevés értelme (monokróm,
+  apró), oda a szám és a „még emelkedik" jelzés való; a görbe a közepes Home
+  Screen méreté.
+- Az intent három `IntentDialog` szövege és a widget feliratai **nincsenek a
+  nyelvi modulokban**: a `make_catalog.py` a `Text(...)` mintát keresi, ezeket
+  nem látja, tehát nem is jelzi. Az `AppShortcut` kifejezések külön
+  `AppShortcuts.xcstrings`-be lokalizálhatók, de Siri a 24 EU-nyelvből
+  csak néhányat beszél.
 - HealthKit: testadatok beolvasása, BAC és kalória visszaírása
 - Helyi értesítések: közeledsz a határhoz / mikorra leszel tiszta
-- watchOS-kiegészítő a gyors felvitelhez
+- watchOS-kiegészítő a gyors felvitelhez — a `LogDrinkIntent` már megvan hozzá, az App Shortcut órán is fut, saját felület nélkül
 - Ital áthelyezése másik napra szerkesztéssel (most az eredeti alkalomban marad)
 - A hero kijelző **tartományos** elrendezésének élő ellenőrzése: 48pt-on egy
   tartomány kétszer olyan széles, a `minimumScaleFactor` 0,5-re megy le
