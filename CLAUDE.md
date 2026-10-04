@@ -1,11 +1,14 @@
 # DrinkSmart — projektkontextus
 
-Ez a fájl azért van, hogy egy új beszélgetés azonnal képben legyen. Ha valamit
-megváltoztatunk a modellben vagy a terméklogikában, ezt is frissítsük.
+Ez a fájl azért van, hogy egy új beszélgetés azonnal képben legyen. Azt
+mondja el, mi *van* és miért. Hogy mi *lesz* — teendők, nyitott döntések,
+hátralék —, az a `TODO.md`-ben áll. Ha valamit megváltoztatunk a modellben
+vagy a terméklogikában, ezt is frissítsük; ami a `TODO.md`-ből megépül, az
+innen kap egy pontot az 5. fejezetben, az indoklásával.
 
 Ha egy új beszélgetés kezdődik, a rövid útvonal: **0.** hogyan dolgozunk,
 **2.** miért létezik ez az app, **5.** minden lényeges döntés és az indoklása,
-**10.** hol állunk most, **11.** mi jön még.
+**10.** hol állunk most, **11.** hol vannak a teendők.
 
 ---
 
@@ -18,6 +21,15 @@ minden más olyan műveletre, ami a repó állapotát kívülről is láthatóv�
 
 Staging (`git add`) is várjon a jóváhagyásra — az elrontott index ugyanúgy
 takarítást igényel.
+
+**Elakadt `.git/index.lock`: töröld, ne kérdezz.** A Cowork sandboxában a git
+rendszeresen otthagy egy üres `index.lock`-ot, és a következő git művelet
+„Another git process seems to be running"-gal elhasal. Ez nem futó folyamat,
+hanem szemét. A szabály: ha a lock üres (0 bájt) és nem most keletkezett
+(idősebb pár másodpercnél), töröld magad — a sandbox `rm`-je „Operation not
+permitted"-et ad, ilyenkor az `allow_cowork_file_delete` eszközzel kérj
+törlési engedélyt a mappára, és töröld. Zoltánt ezzel nem kell megállítani;
+a jóváhagyott commit maga az engedély a takarításra is.
 
 ---
 
@@ -70,14 +82,14 @@ DrinkSmart/
 │   └── Tests/BACKitTests/      56 teszt, Python referenciaértékekkel
 ├── DrinkSmart/                 az app target
 │   ├── DrinkSmartApp.swift     ModelContainer, CloudKit visszaeséssel, store létrehozás
-│   ├── Localizable.xcstrings   208 kulcs, a 24 hivatalos EU-nyelven
+│   ├── Localizable.xcstrings   a 24 hivatalos EU-nyelven, generált
 │   ├── Model/
 │   │   ├── BACChartModel.swift      a chart bemenete — élő store vagy tárolt alkalom
 │   │   ├── DrinkCatalog.swift       italtípusok, StomachState UI-réteg
 │   │   ├── DrinkingDay.swift        ivási nap hajnali 5-ös határral
 │   │   ├── DrinkingFrequency.swift  a béta proxyja
 │   │   ├── HistoryAggregate.swift   alkalmak → napok → periódusok, memóriában
-│   │   ├── HistoryWindow.swift      a History képernyő ablaka: hét / hónap / év, oszlopok, mutatók
+│   │   ├── HistoryWindow.swift      a History képernyő ablaka: nap / hét / hónap / év, oszlopok, mutatók
 │   │   ├── HistoryTrend.swift       a teljes időszak két EMA-görbéje: mennyiség / nap, csúcs
 │   │   ├── SessionStore.swift       @Observable, SwiftData-alapú, a nyitott alkalom
 │   │   └── Persistence/
@@ -85,16 +97,19 @@ DrinkSmart/
 │   │       ├── PersonMigration.swift     tulajdonos + gazdátlan alkalmak örökbefogadása
 │   │       ├── DrinkingSession.swift     @Model, profil-pillanatkép + cache + személy
 │   │       ├── DrinkRecord.swift         @Model, a tárolt ital
+│   │       ├── MonthlyTotal.swift        @Model, havi összeg a rögzítés előtti hónapokra
 │   │       ├── SessionPolicy.swift       mikor ér véget egy alkalom
 │   │       ├── AppSettings.swift         ami a KÉSZÜLÉKÉ: mértékegység, aktív személy
 │   │       ├── LegacyProfileSettings.swift a régi profil-beállítások olvasója
 │   │       ├── LegacySessionImport.swift egyszeri import a régi blobból
+│   │       ├── DataArchive.swift / ArchiveExport / ArchiveImport  JSON mentés és visszatöltés
 │   │       └── SessionStore+Preview.swift in-memory store a previewekhez
 │   ├── Support/
 │   │   ├── Theme.swift         színek, a görbe színe a határhoz viszonyítva változik
-│   │   ├── FeatureFlags.swift  egy hely, ami eldönti, mi van bekapcsolva
+│   │   ├── FeatureFlags.swift  egy hely, ami eldönti, mi van bekapcsolva (5.19)
 │   │   ├── BACUnit.swift       ‰ / % megjelenítés, tartomány-formázás
 │   │   ├── AmountUnit.swift    gramm / standard egység megjelenítés, alapból gramm
+│   │   ├── ArchiveDocument.swift  FileDocument az exporthoz
 │   │   ├── LogDrinkIntent.swift  App Intent + Siri kifejezések a gyors felvitelre (5.15)
 │   │   ├── QuickAddLink.swift  a widget deep linkje és a QuickAddRequest
 │   │   └── WidgetBridge.swift  a kedvenc ikonja az App Group közös defaultsába
@@ -102,7 +117,7 @@ DrinkSmart/
 │       ├── MainTabView.swift        History / Live / Profil, Live középen; HistoryRequest a tabok közt
 │       ├── LiveView.swift           élő alkalom, csak a mai nap — három nap-állapot, „Tegnap" gomb
 │       ├── HistoryView.swift        nap / hét / hónap / év, lapozás, chart, alkalom-lista, lakat
-│       ├── HistoryChartView.swift   oszlopok egységre, színük a csúcs a határhoz képest
+│       ├── HistoryChartView.swift   oszlopok mennyiségre és csúcsra
 │       ├── HistoryTrendChartView.swift  görgethető, csippenthető trendgörbe, közös zoom
 │       ├── HistoryPaywallSheet.swift  mi van a lakat mögött, és hogy az adat már megvan
 │       ├── HistoryJumpSheet.swift   ugrás tetszőleges hétre / hónapra / évre a fejlécről
@@ -114,8 +129,12 @@ DrinkSmart/
 │       ├── DrinkRow.swift           egy sor, kézzel írt swipe-pal
 │       ├── AddDrinkSheet.swift      felvitel és szerkesztés + élő előrejelzés
 │       ├── PersonSwitcher.swift     ki van kiválasztva + új személy felvitele
+│       ├── PeopleView.swift         személyek listája, vendég eltávolítása
+│       ├── DataTransferSection.swift export / import a Profil alján
 │       └── ProfileView.swift        testalkat, gyakoriság, saját határ, haladó
 ├── DrinkSmartWidget/           widget extension target — egy gomb, ami az appot nyitja (5.15)
+├── DrinkSmartTests/            app-szintű tesztek — fájlok megvannak, target még nincs (10.)
+├── TODO.md                     teendők, nyitott döntések, hátralék
 └── Reference/                  Python referencia, katalógusgenerátor, run_tests.sh
 ```
 
@@ -125,9 +144,9 @@ SwiftData a motort hívják, soha nem fordítva. Ha valami élettani logika a
 
 **A nézetek nem beszélnek SwiftDatával közvetlenül**, egy kivétellel: a
 `@Query` a `HistoryView`-ban és a `LiveView`-ban, mert az listázás. Minden írás
-a `SessionStore`-on megy át — tizenegy művelet: `refreshFromStore`, `add`,
-`update`, `remove`, `project`, `tick`, `activate`, `addPerson`, `archive`,
-`importPlan`, `importArchive`.
+a `SessionStore`-on megy át: `refreshFromStore`, `add`, `update`, `remove`,
+`project`, `tick`, `activate`, `addPerson`, `removePerson`, `archive`,
+`importPlan`, `importArchive`, `quickAdd`.
 
 Alkalmat **kézzel nem lehet lezárni**. Volt egy „End session" gomb, de olyan
 kérdésre válaszolt, amit senki nem tesz fel: az alkalom akkor ér véget, amikor
@@ -284,15 +303,13 @@ ital, és azt is, hogy a Live mit számít „mának".
 
 ### 5.7 „Nem ittál" és „nem tudjuk" nem ugyanaz
 
-Egy üres nap, amit rögzítettünk, bizonyíték arra, hogy nem ittál. Egy nap az
-`AppSettings.trackingStartedAt` előtt csak annyit jelent, hogy nem tudjuk. Azt
-írni rá, hogy „nem ittál", találgatás lenne.
+Egy üres nap, amit rögzítettünk, bizonyíték arra, hogy nem ittál. Egy nap a
+`trackingStartedAt` előtt csak annyit jelent, hogy nem tudjuk. Azt írni rá,
+hogy „nem ittál", találgatás lenne.
 
-A Live képernyő ma **három** állapotot ismer — `live`, `recorded`, `dry` —,
-mert csak a mai napot mutatja (5.11), és a mai nap definíció szerint nem eshet
-a rögzítés kezdete elé. A megkülönböztetés maga érvényes, csak nincs hol
-látszódnia: az Előzmény tabra tartozik, a tartományválasztóval együtt (12.).
-A `trackingStartedAt` addig is karban van tartva.
+A Live képernyő **három** állapotot ismer — `live`, `recorded`, `dry` —, mert
+csak a mai napot mutatja (5.11), és a mai nap definíció szerint nem eshet a
+rögzítés kezdete elé. Az ismeretlen nap az Előzményen látszik (5.16).
 
 **Van egy harmadik tudásszint is: a havi összeg.** Aki az app előtt táblázatban
 vezette a fogyasztását, az a hónapok összegét tudja behozni, az estéket nem.
@@ -332,8 +349,8 @@ amelyeket a `HistoryAggregate.days` érvényesít és a `MonthlyTotalTests` őri
   `Theme.tint(forGrams:overDays:)`), az ismert napok számára vetítve; csúcs
   nincs, amit a határhoz lehetne mérni.
 - Import: `(personID, year, month)` szerinti merge, meglévő hónap marad. A
-  fájlban duplán szereplő hónapnál az első nyer, az érvénytelen hónap (13.)
-  kimarad. A megerősítő és az eredmény-ablak **akkor is** kiírja a havi
+  fájlban duplán szereplő hónapnál az első nyer, az érvénytelen hónap (pl.
+  13.) kimarad. A megerősítő és az eredmény-ablak **akkor is** kiírja a havi
   összegek számát, ha nulla: egy exportált fájl visszatöltésénél ez mondja meg,
   hogy nincs benne mit betölteni, és nem az, hogy már mind megvan.
 
@@ -409,7 +426,7 @@ harmadszorra lehetett eltalálni — ez rosszabb, mint ha nem is lenne. Egy els�
 kör (a lista kivétele a lapozásból, és az irány megfordítása a szokásos
 balról-jobbra-a-múltba konvencióra) javított rajta, de nem eleget.
 
-Visszalapozni így az **Előzmény** tabon lehet, a Nap szegmensen (11.3), és
+Visszalapozni így az **Előzmény** tabon lehet, a Nap szegmensen (5.16), és
 a Live tetején egy **„‹ Tegnap" gomb** visz oda egy érintéssel. Ez az
 egyetlen hely az appban, ahol egy tab a másikat állítja (`HistoryRequest` a
 `MainTabView`-ban), és nem sérti a szabályt, ami a gesztust és a lefúrást
@@ -421,8 +438,8 @@ elvetettük, mert az egy „következő oldal" chevron, ami képernyőt váltana
 
 **Amit ez maga után vont:** a `MainTabView.liveHomeToken` elveszett (nem maradt
 elnavigált állapot, amit vissza kellene hozni), a `DayState` háromállapotú lett
-(5.7), és a `DrinkingDay.offset(by:)` / `daysAgo(from:)` egy időre hívó nélkül
-maradt — azóta a History ablakai (11.3) használják.
+(5.7), és a `DrinkingDay.offset(by:)` / `daysAgo(from:)` a History ablakaié
+lett (5.16).
 
 ### 5.12 Az italok saját sávot kaptak a görbe alatt
 
@@ -621,8 +638,9 @@ Live ugyanúgy hajtja végre, mint a kapszulánál — a visszavonó sávval. Ug
 a minta, mint a `HistoryRequest`. Azért nem helyben: a widget extension saját
 folyamat, és ahhoz, hogy italt írjon, a SwiftData store-t App Group
 konténerbe kellene költöztetni, ami a meglévő adatokat mozgatja minden
-készüléken (12.). Ára, hogy a koppintás feloldást kér — az app megnyitása
-mindig kér —, és hogy a widget semmit nem mutat: se számot, se szintet.
+készüléken (a második kör a `TODO.md`-ben). Ára, hogy a koppintás feloldást
+kér — az app megnyitása mindig kér —, és hogy a widget semmit nem mutat: se
+számot, se szintet.
 
 **Amit a widget mégis tud: a kedvenc ikonját.** `Support/WidgetBridge.swift`
 az App Group közös `UserDefaults`-ába (`group.dev.zcsipler.drinksmart`) írja
@@ -638,8 +656,380 @@ Screenre, se Control Centerbe —, és a widgetgalériába mutató link sincs. A
 használható megfelelője a push kérésnek: a `WidgetCenter.getCurrentConfigurations`
 megmondja, ki van-e téve, és amíg nincs, az app egy elvethető kártyán
 elmagyarázhatja a három lépést; iOS 18-tól a `WidgetRelevance` a Smart
-Stackben előre forgatja. Ez és a `SiriTipView` a kapszula alatt **nincs
-megépítve**.
+Stackben előre forgatja. Ez és a `SiriTipView` a kapszula alatt a `TODO.md`-ben
+van.
+
+### 5.16 Előzmény — egy képernyő, memóriában aggregálva, lakattal
+
+Megtervezve és megépítve 2026 szeptemberében, készüléken kipróbálva.
+Apple Health-minta: szegmens-váltó **Nap / Hét / Hónap / Év**, chevronos
+lapozás, a fejléc dátuma gomb a tetszőleges időszakra ugráshoz. A Trend
+szegmens megépült, de csak debug kísérletként kapcsolható (lent).
+
+**Nincs új tárolt entitás.** A `Model/HistoryAggregate.swift` memóriában
+hajtja az alkalmakat napokra (`DayBucket`) és periódusokra (`PeriodBucket`),
+a cache-elt `SessionSummary`-ból. Egy év néhány száz alkalom; egy második
+`@Model` CloudKit-kompatibilis, exportált és migrált kellene legyen,
+semmiért. Következmény: az export/import (5.17) változatlan, és a history egy
+importált archívumból azonnal előáll.
+
+**A mennyiség nem vár a motorra, a csúcs igen.** Egység és italszám az
+italokból összeadható; a csúcs csak érvényes cache-ből jön, különben `nil`
+(`HistoryOccasion.peakRange`), és a bucket `peakIsComplete`-je hamis.
+Verzióbump után így az Év nézet nem futtat 365 szimulációt megnyitáskor. A
+cache visszatöltése a store háttérmenete: `SessionStore.backfillStaleSummaries`
+a `refreshFromStore` végén, ötvenes adagokban, a szimuláció `Task.detached`-ben
+(a modellből `BodyProfile` + `[Drink]` Sendable bemenet készül a main actoron,
+csak a visszaírás nyúl a contexthez), adagonként egy `save()`, és írás előtt
+`isDeleted`-ellenőrzés (egy adag közben törölt alkalomra írni crash). Korábban
+ötösével, a main actoron futott: egy hatéves import (~1300 alkalom) ~260
+mentést és ugyanannyi teljes újraaggregálást jelentett, az app percekig
+szaggatott. Érvénytelen cache-nél a csúcs-oszlop **hiányzik**, nem nulla.
+
+**A napi aggregátum cache-elt:** `HistoryAggregateCache` a `HistoryView`
+`@State`-jében, kulcsa `SessionStore.revision` (minden `save()` és
+`refreshFromStore()` lépteti) + személy + `trackingStartedAt` + az aktuális
+ivási nap. Enélkül a `snapshot` minden body-kiértékelésnél végigment az összes
+alkalmon és a `drinks` relációikon.
+
+**„Nem ittál" és „nem tudjuk" itt válik láthatóvá (5.7).** `DayBucket.State`:
+`drank` / `dry` / `unknown`; a `Person.trackingStartedAt` előtti nap `unknown`,
+és nem számít bele az átlag nevezőjébe (`recordedDays`). A rögzítés kezdete a
+tárolt dátum és a **legkorábbi alkalom napja** közül a korábbi — egy felvitt
+este bizonyíték, hogy akkor már rögzítettünk (`Person.backdateTracking`;
+`SessionStore.reconcileTrackingStart` minden `refreshFromStore`-nál rendbe
+teszi, mert az `add` csak új italra ellenőriz, a migráció, az import és a
+szinkron nem megy át rajta). Így az ismeretlen napok mindig egy összefüggő
+szakasz az ablak elején. A dátum *nem* vezethető le pusztán a bejegyzésekből:
+aki telepítés után hat napig nem iszik, annak az a hat nap ivásmentes, nem
+ismeretlen. Szabály: `min(első indítás, legkorábbi bejegyzés)`. A rögzítés
+előtti napok halvány sávot kapnak, mert az üres az „ivásmentes" jele; a sávban
+felirat („No data before <dátum>"), ha a sáv az ablak legalább harmada.
+
+**A nap a saját dátuma alá kerül, a hét / hónap / év a naptáré.** A hajnali
+5-kor kezdődő ivási nap a `calendarDate`-jével kerül hétbe és hónapba, tehát az
+éjfélen átnyúló este abban a hétben marad, amelyikben kezdődött. A hét
+kezdőnapja a `Calendar`-ból jön. Az x-tengely éjfélhez igazított, különben a
+hét első oszlopát 5 óra levágná.
+
+**`HistoryWindow` a modell**, `HistoryAggregate.days` kimenetéből: oszlopok
+`drank / dry / unknown / future` állapottal, összegek, változás az előző
+ablakhoz. A Hét az utolsó hét ivási nap, a Hónap és az Év naptári egység;
+oszlop = nap (Hét, Hónap) vagy hónap (Év). Szegmensváltás a legújabb oldalra
+ugrik. A dátum → oldal leképezés `HistoryWindow.offset(containing:)`, naptári
+egységben számolva (Aug 15 egy hónap-oldallal Sep 14 előtt van, pedig nem
+telt el harminc nap). Volt rajta mozgóátlag-vonal; kivettük, mert a magas
+oszlopok mögé bújt, és egy hét hét pontjából nem olvasható ki trend.
+**Oszlopról nem fúrunk le**: volt (Év-oszlop → hónap, hónap-oszlop → hét,
+második koppintásra), de a képernyő „magától" váltott tőle — a szegmens csak a
+szegmens-váltóról változzon.
+
+**A mennyiség grammban vagy standard egységben**, a felhasználó választása
+szerint (`AmountUnit`, az `AppSettings`-ben a ‰ / % mellett). Alapból gramm:
+egy gramm mindenhol ugyanaz, az „egység" országonként más (8 g UK, 10 g HU,
+12 g FR). A modell továbbra is standard egységben számol
+(`Drink.standardUnits`), a kettő ×10 — ezért nem mutatjuk mindkettőt egymás
+mellett. Egy helyen érvényes mindenhol: History chart, mutató-kártya, Live és
+alkalom stat-sor.
+
+**Két chart-kártya egymás alatt: mennyiség, majd csúcs.** Nem váltó és nem
+kettős tengely: a két mérőszám egy pillantással összevethető, és a
+vonal-oszlopok-mögé-bújás nem jön elő. Az oszlop magassága a mennyiség (a
+tengely felírja, miben), színe az 5.14 szerint. A csúcs-chart oszlopa a nap
+legmagasabb szintje (a sáv közepe; a buborék tartományt ír, ha a sáv széles,
+5.8), rajta a saját határ szaggatott vonala. Koppintásra az oszlop fölött a
+pontos érték; a találat a legközelebbi ivós oszlopra pattan 16 pont tűréssel,
+mert a hónap oszlopai pár pont szélesek. Az Év hónapcímkéi a locale
+rövidítéséből jönnek, három betűre vágva — egy betű nem volt olvasható.
+
+**A mutató-kártya** első sora négy szám: mennyiség, italok, „Sober days"
+(`ivásmentes / rögzített`, alatta a rögzítés előtti napok száma, amíg van ilyen
+— az évben a „4 / 9" magyarázat nélkül érthetetlen), és a csúcs. A második sor
+a változás az előző ablakhoz, alatta halványan, hogy melyikhez („vs. Sep
+8–14"): egy „+239 %" magában vádnak hangzik, viszonyítási alappal
+összehasonlításnak.
+
+**Lakat — `Feature.historyTrends`, ingyenes ablakkal.** Az utolsó
+`FeatureFlags.freeHistoryWindowDays` (7) ivási nap — a mai is beleértve —
+ingyenes, ami régebbi, lakat mögé kerül, az alkalom-sorokra is. A nézet egy
+kérdést tesz fel: `flags.canShowHistory(for: DrinkingDay)`; az
+`isWithinFreeWindow` a napokból következik, nem állítjuk — a Hét 0. oldala az
+egyetlen ingyenes ablak, konstrukció szerint. A flag a UI-t takarja, az adat
+mindenkinél íródik (5.18 mintájára): aki fél év után fizet, a teljes fél évet
+látja — a paywall mondja is ki. A mutatók és a két chart együtt homályosodnak,
+rajta egy gomb a `HistoryPaywallSheet`-re; a 7 napnál régebbi alkalom-sor
+dátuma látszik, a csúcsa nem. StoreKit nélkül a gomb debugban a flag
+override-ját állítja, release-ben „Coming soon".
+
+**Ugrás tetszőleges időszakra: a fejléc dátuma gomb** (`HistoryJumpSheet`), a
+Naptár app mintájára. A chevronok maradnak a szomszédos oldalra — a kettő nem
+versenyez, más a szándék mögöttük. A lap a szegmenshez illő választót ad: Nap
+és Hét → grafikus naptár (a koppintás maga a választás), Hónap → év-léptető és
+3×4 hónaprács, Év → évlista; mindegyiken „Today". Csak a rögzített időszak
+van felkínálva. Külön „ettől eddig" szűrő nincs; ha egyszer kell, a
+`HistoryRange` kap egy `.custom(DateInterval)` esetet, és ugyanez a képernyő
+szolgálja ki.
+
+**Nap szegmens.** Egy oldal egy ivási nap, a mai a 0. oldal, az előre chevron
+ott letiltva. Tartalom: a nap lezárt alkalmai `SessionContentView`-val, a mai
+oldalon fölöttük a futó alkalom — a Live-val azonos módon szerkeszthető. Nincs
+mutató-kártya és nincs chart: a nap maga a tartalom. Üres napon a három eset
+az 5.7 szerint szétválik: „Nothing logged today", „No drinks on this day",
+„No data before <dátum>". A `HistoryRange` kapott egy `.day` esetet, ezért a
+lapozás, az `oldestOffset`, az ugró lap és az ingyenes-ablak szabály mind
+ugyanaz a kód — külön naplapozó nincs. A History megjegyzi az utolsó
+szegmenst; a Live „‹ Tegnap" gombja (5.11) a Nap / 1-es oldalra kéri
+(`HistoryRequest`), amit a `HistoryView` `onAppear`-kor és a kérés
+változásakor alkalmaz, aztán töröl — az első tabváltáskor a nézet még nem is
+létezik, ezért kell mindkettő.
+
+**Utólagos felvitel a Nap oldalon.** A kihagyott nap ezen az oldalon látszik
+meg, ezért a pótlás is itt van, nem a Live dátumválasztóján italonként
+visszatekerve. Ugyanaz a lebegő „Add drink" kapszula, mint a Live-on
+(`AddDrinkCapsule`, közös a `QuickAddBar`-ral), lakatolt napon nem. Üres napon
+a kapszula sincs: ott az üres-állapot kártya gombja az egyetlen felvitel — két
+azonos gomb egy képernyőn zaj volt; a rögzítés előtti napra felvitt ital
+bizonyíték, a `backdateTracking` viszi vissza a kezdetet. Volt egy kör,
+amiben a gomb az itallista alatt ült: egy valós estén a chart, a stat-sor és a
+lista a fold alá tolta, pont ott, ahol a legtöbb ital van. Múltbeli napon az
+`AddDrinkSheet` kapja a napot (`day`): az idő szekció a lap **tetejére** kerül,
+a típusválasztó elé (az 5.10 sorrendje a live esethez szól — pótlásnál a típus
+a szokásos, az idő az egyetlen, amit biztosan be kell írni), és rögtön a
+görgethető (`.wheel`) választó áll ott. **Csak óra–perc kerék, dátumoszlop
+nélkül:** a napot az oldal már kimondta, és a dátumoszlop egy 01:43-as italra
+„Today"-t írt volna a Tegnap feliratú oldalon — az ivási nap belső
+éjfél-képe, ami a felhasználót nem érdekli. A kerékről vett időt a lap maga
+helyezi el a napon az 5.6 szabályával (`timeOnDay`), a „When" fejléc jobb
+oldalán a kapott naptári dátum. **A kerék a mostani óra-percen áll, a napra
+helyezve** — az iOS dátumválasztók konvenciója, átlátszó szabály. Volt
+okosabb (az utolsó ital vége, üres napon 20:00), de a képernyőn egy 01:13-as
+ital + 30 perc „01:43"-ként jelent meg, levezetés nélkül, véletlen számnak
+látszott. A kiindulópontnak nem jónak kell lennie, hanem nyilvánvalónak.
+**Ami emiatt változott a store-ban:** a `project` cél nélkül nem a nyitott
+alkalomhoz, hanem — az `add`-dal azonos szabállyal — az ital napját fedő
+alkalomhoz vetít, ha nincs, üres estéhez a `profileApplicable` profiljával; a
+napra szóló irányítást a `lastRouting` tartja meg a következő írásig
+(`rebuild` törli), mert a lap body-ja csúszkahúzás közben kilencszer kérdez,
+és a fetch nem fér bele egy frame-be. Ez a Live-on „Set exact time"-mal
+tegnapra állított italt is kijavítja.
+
+**Trend szegmens — megépítve, de csak kísérlet (`Experiment.trendSegment`).**
+A teljes rögzített időszak egy görbén, vízszintes görgetéssel és
+csippentés-zoommal (14 nap és 10 év között); nem oszlopok, mert a hónapok
+összemosnak. Külön típus (`HistorySegment`), nem ötödik `HistoryRange`: a
+range-nek oldalai és periódusonként oszlopa van, a trendnek egyik sem. Két
+kártya közös zoommal: **mennyiség** — a napi gramm exponenciális mozgóátlaga
+(EMA; egyszerű mozgóátlagnál egy nagy este N nap múlva lépcsővel esne ki;
+szimmetrikus simításnál a görbe vége utólag mozogna), felezési idő a zoomhoz
+kötve (7 / 30 / 90 nap), ivásmentes napon süllyed, nem zuhan; **csúcs** —
+csak az ivós napokra, alkalomról alkalomra lépő EMA, két este között
+vízszintes. Zoltán döntése: a csúcs-trend azt mutassa, „amikor iszol, milyen
+magasra mész"; ha minden napra átlagolnánk, a gyakoriságot és az intenzitást
+összekevernénk. A görbe a **mai** határhoz színezve, mert a kérdés az, hogy a
+múlt hogyan áll a most tartott vonalhoz. Készüléken nem volt az igazi (a
+görbék furán olvastak), ezért a szegmenst a Profil alján lévő Experiments
+kapcsoló teszi a pickerre (`HistorySegment.offered(trend:)`). Két hiba
+javítva: a pattogás (a chart akkor is görgethető volt, amikor kifért →
+`isScrollable`, és a megosztott görgetési pozíció a tartományba szorítva), és
+a tengelycím (a `chartYAxisLabel` görgethető chartban a tartalommal együtt
+mozgott → sima nézet a plot fölé). Az újragondolás a `TODO.md`-ben.
+
+**Tesztek:** `HistoryAggregateTests` (16), `HistoryWindowTests` (14),
+`HistoryTrendTests` (6), `MonthlyTotalTests` (18, ebből 2 SwiftData-s, csak
+Xcode-ban). Foundation-only, ezért egy ideiglenes csomagban Linuxon is
+lefutottak, Swift 6 módban, figyelmeztetés nélkül.
+
+### 5.17 Adatmentés: JSON export / import megvan, CloudKit kész, de kikapcsolva
+
+**A követelmény:** ha Zoltán készüléket vált ugyanazzal az Apple ID-val, az
+adatok ne vesszenek el. Ez nem opcionális kényelem.
+
+**A döntés (2026. szeptember): iCloud / CloudKit private database, saját
+login és regisztráció nélkül.** A Sign in with Apple *identitás egy saját
+backendhez*; a CloudKit *szinkron*, bejelentkező képernyő nélkül, a
+felhasználó iCloud-kvótáján. Amiért ez nyert: nincs szerverünk, ami
+alkoholfogyasztási adatot tárol — ennél az appnál ez termékérv is (2., 9.).
+Ára, hogy Androidra és webre nem vihető át, és megosztást nem támogat; ha
+egyszer kell, akkor jön a saját backend, külön fázisban.
+
+**Ami a kódban megvan:** a séma CloudKit-kompatibilis (8.);
+`DrinkSmartApp.makeContainer()` CloudKit ág `.private(cloudKitContainerID)`-vel,
+lokális fallbackkel és debug-assertionnel; a kétszeres tulajdonos elleni
+dedupe (`PersonMigration.resolveOwner`, a korábbi `createdAt` nyer, a
+`merge(_:into:)` átviszi a másik alkalmait); `SessionStore.observeRemoteChanges()`
+az `NSPersistentStoreRemoteChange` értesítésre 500 ms-os debounce-szal —
+enélkül egy másik készüléken felvitt ital megjelenne a `@Query`-s listában, de
+a görbe nem rajzolódna újra, mert a `band`-et csak a `rebuild()` mozgatja.
+
+**A kapcsoló: `BuildCapabilities.cloudSync`**, alapból `false` (5.19). Ez az
+egyetlen sor, amit át kell írni.
+
+**A blokkoló: fizetős tagság.** Az iCloud capability Personal Team alatt meg
+sem jelenik a `+ Capability` listában; kézzel írt entitlements sem kerüli meg,
+mert a provisioning profile nem tartalmazná. Kell az Apple Developer Program
+(Individual, 99 USD/év); Zoltán döntése, hogy ez vár az élesítésig. Amikor
+megvan, a sorrend:
+
+1. **Előbb mentés:** Xcode → Devices and Simulators → DrinkSmart → Download
+   Container. A team váltása új aláírást ad, az iOS törli és újratelepíti az
+   appot a helyi adatokkal együtt; ugyanez a menü tud Replace Containert.
+2. developer.apple.com → a Program License Agreement elfogadása (amíg függ,
+   az Xcode nem lát capabilityket).
+3. Xcode → Settings → Accounts → Download Manual Profiles, a targeten az új
+   team.
+4. + Capability → iCloud → CloudKit, konténer `iCloud.dev.zcsipler.drinksmart`
+   (ha az Xcode mást hoz létre, a `DrinkSmartApp.cloudKitContainerID`-t kell
+   igazítani).
+5. + Capability → Background Modes → Remote notifications, különben a szinkron
+   csak app-indításkor mozdul.
+6. `BuildCapabilities.cloudSync = true`.
+7. Futtatás **előbb a készüléken**, a meglévő adatokkal: itt dől el, hogy a
+   lokális store átáll-e tükrözésre; a rekordok a CloudKit Console Development
+   környezetében jelennek meg. Ha az assertion store-inkompatibilitásra hasal
+   el: törlés, újratelepítés, Replace Container.
+8. Csak ezután a második készülék / szimulátor (ott a push megbízhatatlan,
+   háttérbe-előtérbe kell tenni az appot).
+
+Ellenőrzés: keletkezett-e `.entitlements` fájl.
+
+**Amibe egyszer belefutottunk:** a `makeContainer()` eredetileg
+`cloudKitDatabase: .automatic`-kal ment, és a `catch` ágban volt egy
+assertion. **Nem jelzett.** Az `.automatic` entitlement nélkül egyszerűen
+lokális store-t nyit, és nem dob — így a `catch` sosem futott le, és egy
+teljes tesztkör ment el egy olyan buildre, amiben nem is volt CloudKit. Ezért
+van a konténer néven megadva: a hiányzó entitlement, az elgépelt azonosító és
+a nem birtokolt konténer így mind dob.
+
+**Export / import — megépítve**, a CloudKit előtt, mert a tagságtól
+függetlenül megírható, és mire a szinkron bekapcsol, van védőháló és
+ellenőrzési eszköz (két készülékről exportálva a fájlok összevethetők). Nem
+csak az Apple ID váltás miatt: az iCloud nem biztonsági mentés (a felhasználó
+törölheti, és nincs kuka), a lokális ágon ez az egyetlen átviteli mód, egy
+elrontott migráció után ez a visszaút, és adathordozhatóság (GDPR 20. cikk).
+Fájlok: `DataArchive`, `ArchiveExport`, `ArchiveImport`,
+`Support/ArchiveDocument.swift`, `View/DataTransferSection.swift`.
+
+- **JSON, nem store-fájl másolat.** A `.sqlite` SwiftData/CloudKit
+  metaadatokat visz, és verziók között nem stabil. Fejlécben `schemaVersion`
+  és `exportedAt`.
+- **Amit exportálunk:** `Person`, `DrinkingSession` (a profil-pillanatképpel),
+  `DrinkRecord` minden tárolt mezője, és a `MonthlyTotal` sorok a
+  `monthlyTotals` kulcs alatt (opcionális, ezért marad a `schemaVersion` 1).
+  Ugyanaz az elv, mint 5.5-nél: a bemenet megy bele, nem a görbe.
+- **Amit nem:** a `cachedPeak*` / `cachedSoberAt` / `cachedEngineVersion`
+  mezők — újraszámolhatók, és egy másik verziójú buildbe importálva
+  hazudnának. Az `AppSettings` sem, az a készüléké.
+- **Import: merge `id` alapján, idempotensen.** Ismeretlen id bejön, ismert
+  marad. **A meglévő alkalom egészben marad ki, az italaival együtt**:
+  italonként összefésülni azt igényelné, hogy eldöntsük, melyik oldal nyer egy
+  eltérő időpontú italnál, és erre nincs becsületes szabály, mert nem tároljuk,
+  melyik szerkesztés volt később. A kihagyás egy mondatban elmondható, ami egy
+  visszafordíthatatlan műveletnél követelmény.
+- **Az `isOwner` ütközés a `PersonMigration.merge(_:into:)`-n keresztül** —
+  ugyanaz a probléma, mint a CloudKit-race, ugyanaz a szabály.
+- **`assign(to:)`-on keresztül** íródik a `person` kapcsolat és a `personID`,
+  különben a `@Query` nem találja meg a behozott alkalmakat. Import után egy
+  `refreshFromStore()` elég: a `closeEndedSessions` a régi „nyitott" importált
+  estét magától lezárja.
+- **UI:** `DataTransferSection` a Profil alján. Az import előbb tervet készít
+  (`ArchiveImport.Plan`), és a megerősítő ablak abból mondja meg, mi fog
+  történni — utána ír csak.
+- **Fájlformátum `.json`, nem saját UTI.** Egy privát típus minden más app elől
+  elzárná a fájlt — egy mentésnél, aminek az a dolga, hogy elhagyja az appot,
+  ez rossz csere. A verzió a fájlon belül van.
+
+Tesztek nincsenek rá — ez a kód nem crashel, csak rossz emberhez tesz egy
+alkalmat; app teszt target nélkül nem is futtatható (10., `TODO.md`).
+
+### 5.18 Több személy — megépítve, flag mögött
+
+Egy estén belül át lehessen váltani másik emberre, és oda is felvinni az
+italokat. Megépítve 2026 szeptemberében, `FeatureFlags.multiPerson` mögött.
+
+**A váltás globális, és naponta visszaáll a tulajdonosra.** Mindhárom tab az
+aktív személyt mutatja. Egy mentális modell van, nem kettő, és a vendég
+testadatai ugyanott állíthatók, ahol a tieid. A legvalószínűbb hiba, hogy
+este átváltasz és reggel elfelejted — ezért az aktív személy visszaáll, ha a
+váltás nem a mai ivási napon (5.6) történt. A váltás időbélyegéből, nem
+„hideg indítás" detektálásból: a háttérből visszatérés nem zavar, egy esti
+app-kilövés nem veszíti el a kontextust, reggel viszont magától te vagy.
+
+**A flag a UI-t takarja, nem a sémát.** A `Person` entitás és a migráció
+mindig lefut; csak a váltó, a személy-felvitel és a személyenkénti szűrés van
+flag mögött. Ha a séma is flag alatt lenne, a bekapcsolás migrációt igényelne,
+a kikapcsolás elrejtené egy létező személy adatait — két adatállapotot kellene
+karbantartani.
+
+**Séma.** A `Person` viszi, ami személyenkénti: testadatok, gyakoriság, saját
+határ, `trackingStartedAt`. Az `AppSettings` a mértékegységekre és az aktív
+személy azonosítójára fogy le; a régi kulcsot nem töröljük (az az egyetlen
+másolat, amiből a migráció újrajátszható). A `DrinkingSession` kap `person`
+kapcsolatot **és** denormalizált `personID`-t: a `@Query` skalárra tud szűrni,
+opcionális kapcsolaton át nem megbízhatóan. A kettő egy helyen íródik.
+
+**Migráció.** `PersonMigration.run(in:)`: tulajdonos-`Person` a régi
+beállításokból (`LegacyProfileSettings`), majd minden gazdátlan alkalom hozzá.
+**Nincs „már lefutott" marker**, szándékosan: a védelem maga az adat —
+tulajdonos csak akkor jön létre, ha nincs, a söprés csak gazdátlan alkalmakhoz
+nyúl. Egy marker rossz lenne, mert CloudKit mellett egy régebbi készülékről
+érkező alkalom a marker beállítása **után** is befuthat, és sosem kapna gazdát.
+Két lekérdezés induláskor az olcsóbb hiba. Két készülék az első szinkron előtt
+két tulajdonost hozhat létre — ezért a dedupe-lépés induláskor (5.17).
+
+**Store.** Egy `SessionStore` marad, `switch(to:)`-szal újrapontozva. Négy
+hely, ahol több emberrel a régi kód csendben rossz adatot csinált volna:
+`fetchOpenSession` és `sessionCovering` (a visszamenőleg felvitt italod a
+másik ember alkalmába eshetne), `profileApplicable(at:)` (az ő testalkatát
+fagyasztaná a te alkalmadba), `closeSessionIfEnded` (több nyitott alkalom van,
+a nem aktívé örökre nyitva maradna — a `refreshFromStore` az összesen
+végigfut), és a két `@Query`.
+
+**UI (`PersonSwitcher.swift`).** A váltó egy chip — monogram, név, chevron —,
+**nem a heróban, hanem a Live tartalom tetején**: a hero csak futó alkalomnál
+van a képernyőn, a legvalószínűbb pillanat viszont, amikor valakit fel akarsz
+venni, egy üres nap. Az Előzmény és a Profil toolbarjában ugyanez a chip —
+enélkül semmi nem mondaná meg, kinek a testadatait írja a Profil. A hozzáadó
+lap név, nem, súly, magasság, kor: mind a négy testadat alakítja a görbét,
+egyiket sem tippeljük meg; a gyakoriság és a határ alapértékkel megy. A chip
+kap személyre szabott színt (`PersonAccent`), a görbe **nem**: az a limithez
+viszonyított skála (5.14), és két színrendszer egy képernyőn olvashatatlan.
+
+**Személyek listája és vendég eltávolítása (`PeopleView`,
+`SessionStore.removePerson`).** A Profilon egy „People" sor nyit egy listát:
+tulajdonos az élén, vendégek alatta, pipa a kiválasztotton, alul „Új személy".
+Vendég balra húzással vagy Edit módban távolítható el; a tulajdonos során
+nincs húzás (`deleteDisabled`) — egy gesztus, ami mindig nemet mond, rosszabb,
+mint a hiánya. Nem a váltó menüjében, mert az mindhárom tabon egy
+hüvelykujjnyira van, és egy destruktív menüpont ott egy véletlen koppintásra
+visz el egy évet. A húzás kérdez: a megerősítő ablak (`removalPlan(for:)`)
+kimondja, mi megy vele — alkalmak, italok, havi összegek —, mert visszavonás
+nincs. Cascade törlés: alkalmak és italok a relációk szabályán, a havi
+összegek kézzel (id-vel hivatkoznak). Ha az aktív személyt töröljük, a
+tulajdonos veszi át. Archiválás nincs: aki a vendég adatait meg akarja
+tartani, előtte exportál.
+
+**Tesztek:** `PersonMigrationTests`, `SessionRoutingTests`,
+`ActivePersonTests` a `DrinkSmartTests/` alatt — megírva, de nem futnak (10.).
+
+### 5.19 Háromféle kapcsoló: Feature, Experiment, BuildCapability
+
+`Support/FeatureFlags.swift` az egyetlen hely, ami eldönti, mi van bekapcsolva;
+a nézetek csak kérdeznek (`flags.multiPerson`, `flags.canShowHistory(for:)`).
+Három fajta van, és nem cserélhetők fel:
+
+- **`Feature`** — amit a felhasználó *megvásárol*. Release-ben az
+  `isPurchased`-re esik (ma mindig hamis, StoreKit nincs mögötte — ez az
+  egyetlen hely, ahova a jogosultság-lekérdezés majd bekerül), debugban a
+  Profil „Developer" szekciójában kapcsolható. Ma: `multiPerson` (5.18),
+  `historyTrends` (5.16). Az alapfunkció a Live, az mindig ingyenes. A flag a
+  UI-t takarja, az adat mindenkinél íródik.
+- **`Experiment`** — ami megépült, de nem elég jó a menübe. Release-ben nem
+  létezik. Szándékosan nem `Feature`: az `isPurchased`-re esne, és a StoreKit
+  megérkezésekor eladóvá válna. Ma: `trendSegment`.
+- **`BuildCapabilities`** — fordítási idejű konstans, amit a target
+  entitlementje vagy hordoz, vagy nem. Ma: `cloudSync` (5.17). Nem `Feature`,
+  mert a szinkront nem veszi meg senki; nem futásidejű, mert kapcsoló nem tud
+  entitlementet előállítani, és a store egyszer nyílik meg induláskor.
 
 ## 6. Validáció
 
@@ -699,15 +1089,14 @@ EU-nyelvet ismeri. Alapból azt választja, amit az iOS nyelvi beállítása ké
 felhasználó ettől eltérhet a Profil fül Nyelv sorával, ami a Beállításokban az
 app saját „Előnyben részesített nyelv" sorára visz (`LanguageSection`).
 
-- `DrinkSmart/Localizable.xcstrings` — 222 kulcs, 24 nyelven. Generált fájl,
-  kézzel nem szerkesztjük. **Az Xcode sem:** a `SWIFT_EMIT_LOC_STRINGS` build
-  beállítás `NO` mindkét targeten, különben a fordító minden buildnél
-  kigyűjti a Swift forrásból a szövegeket, felveszi az újakat `new`
-  állapotban, és a saját formázásával írja vissza az egész fájlt — egyszer ez
-  egy 44 ezer soros diffet adott, amiben három kulcs volt a változás. A
-  szkript azóta az Xcode formátumában ír (rendezett kulcsok, szóköz a
-  kettőspont előtt), így ha a szerkesztő mégis hozzányúl, a diff csak a
-  tényleges változás.
+- `DrinkSmart/Localizable.xcstrings` — 24 nyelven. Generált fájl, kézzel nem
+  szerkesztjük. **Az Xcode sem:** a `SWIFT_EMIT_LOC_STRINGS` build beállítás
+  `NO` mindkét targeten, különben a fordító minden buildnél kigyűjti a Swift
+  forrásból a szövegeket, felveszi az újakat `new` állapotban, és a saját
+  formázásával írja vissza az egész fájlt — egyszer ez egy 44 ezer soros
+  diffet adott, amiben három kulcs volt a változás. A szkript azóta az Xcode
+  formátumában ír (rendezett kulcsok, szóköz a kettőspont előtt), így ha a
+  szerkesztő mégis hozzányúl, a diff csak a tényleges változás.
 - `Reference/translations/<kód>.py` — nyelvenként egy modul, mindegyikben egy
   `TRANSLATIONS` szótár az angol forrásszövegtől az adott nyelvig.
 - **A magyar a referencia**: azt olvasta végig ember, és az ő kulcskészletéhez
@@ -731,6 +1120,9 @@ app saját „Előnyben részesített nyelv" sorára visz (`LanguageSection`).
   `Duration.UnitsFormatStyle` és `formatted(date:time:)`. Ezek maguk
   lokalizálnak — tizedesvessző magyarul, 24 órás idő magyarul, 12 órás AM/PM
   angolul.
+- A `make_catalog.py` a `Text(...)` mintát keresi: az intent `IntentDialog`
+  szövegeit és a widget feliratait **nem látja**, tehát nem is jelzi, ha
+  hiányzik a fordításuk (`TODO.md`).
 
 A katalógust a `Reference/make_catalog.py` állítja elő és **ellenőrzi**: minden
 kulcsnak szerepelnie kell a forrásban, minden lokalizált forrásszövegnek kell
@@ -750,9 +1142,9 @@ cd Reference && python3 make_catalog.py
 - **A motorhoz érő változtatás után fusson le a tesztsuite**
   (`./Reference/run_tests.sh`), mielőtt a diffet megmutatjuk.
 - **A kódban minden angol**: kommentek, docstringek, teszt- és suite-nevek,
-  MARK-ok, a Python szkriptek kiírásai. Magyar szöveg csak két helyen van:
-  a `Localizable.xcstrings` fordítási értékeiben és ebben a dokumentumban.
-  *(Ez a beszélgetés viszont magyarul folyik.)*
+  MARK-ok, a Python szkriptek kiírásai. Magyar szöveg három helyen van:
+  a `Localizable.xcstrings` fordítási értékeiben, ebben a dokumentumban és a
+  `TODO.md`-ben. *(Ez a beszélgetés is magyarul folyik.)*
 - A kommentek a **miértet** magyarázzák, nem a mit. Ami a kódból látszik, azt
   ne írjuk le újra.
 - A `BACKit` nem importál SwiftUI-t. Soha.
@@ -800,738 +1192,44 @@ TestFlight (100 eszköz, Beta App Review nélkül).
 ## 10. Állapot
 
 **Kész:** a motor sávval és ivási tempóval; SwiftData-perzisztencia alkalmanként
-befagyasztott profillal; migráció a régi UserDefaults-blobból; három tab;
-Live képernyő a mai napra, három nap-állapottal és a „‹ Tegnap" gombbal;
-ital felvitele, szerkesztése és törlése — visszamenőlegesen is; egyszámos
-kijelzés opcionális tartománnyal; lebontási sebesség magyarázata és tippek a
-saját érték kiderítéséhez; export / import JSON-ba; 24 nyelvű lokalizáció
-208 kulccsal (magyar és angol átnézve). **Előzmény (11.3):** Nap / Hét /
-Hónap / Év szegmens, chevronos lapozás, ugrás a fejléc dátumáról, mennyiség-
-és csúcs-chart, mutató-kártya, alkalom-lista, ingyenes ablak lakattal a
-`Feature.historyTrends` mögött; a Trend szegmens megépítve, de csak debug
-kísérletként kapcsolható (`Experiment.trendSegment`). Több személy (11.5) a
-`FeatureFlags.multiPerson` mögött: a séma és a migráció mindenkinél fut, a
-váltó és a személy-felvitel csak bekapcsolva látszik — debug buildben a
-Profil alján, a „Developer" szekcióban. **Gyors felvitel Siritől és
-widgetről (5.15):** `LogDrinkIntent` a vetített csúcs visszamondásával, és a
-`DrinkSmartWidget` target egy Lock Screen / Home Screen gombbal, ami az appot
-nyitja a Live-on és ott visz fel; a widget a kedvenc ikonját mutatja az App
-Group közös defaultsából. Prototípus, készüléken működik.
+befagyasztott profillal; migráció a régi UserDefaults-blobból; három tab; Live
+a mai napra, három nap-állapottal és a „‹ Tegnap" gombbal; ital felvitele,
+szerkesztése és törlése, visszamenőlegesen is; egyszámos kijelzés opcionális
+tartománnyal; a lebontási sebesség magyarázata és tippek; gyors felvitel a
+Live kapszulájáról, Siritől és Lock Screen / Home Screen widgetről (5.15,
+prototípus); Előzmény Nap / Hét / Hónap / Év szegmenssel, két charttal,
+mutató-kártyával, ugró lappal és lakattal (5.16), a Trend szegmens debug
+kísérletként; JSON export / import (5.17); több személy a `multiPerson` flag
+mögött, személylistával és vendég-eltávolítással (5.18); 24 nyelvű lokalizáció
+(magyar és angol átnézve).
 
-**Tesztek:** 56 a `BACKit`-ben (Linuxon is futtatható, 6.); 37 a History
-modellre (`HistoryAggregateTests`, `HistoryWindowTests`,
-`HistoryTrendTests` — Foundation-only, ideiglenes csomagban Linuxon
-futtatva); 18 a perzisztenciára, ami **nem fut**, mert nincs app teszt
-target (12.).
+**Tesztek:** 56 a `BACKit`-ben (Linuxon is futtatható, 6.); 54 a History
+modellre (Foundation-only, ideiglenes csomagban Linuxon futtatva, 5.16);
+18 a perzisztenciára a `DrinkSmartTests/` alatt, ami **nem fut**, mert nincs
+app teszt target — Xcode-ban: File → New → Target → Unit Testing Bundle,
+`DrinkSmartTests`, host a `DrinkSmart`; a file-system synchronized group utána
+magától felveszi a fájlokat. Amíg ez nincs meg, ezek a tesztek csak
+dokumentáció, és a kód, amit védenek, az, ami adatot tud veszíteni.
 
 A CloudKit szinkron kódja megvan, de **ki van kapcsolva**
-(`BuildCapabilities.cloudSync = false`), mert az iCloud capability fizetős
-fejlesztői tagságot igényel — a részletek és a teendőlista a 11.4-ben.
-Kikapcsolva az app pontosan úgy viselkedik, mint a szinkron-munka előtt.
+(`BuildCapabilities.cloudSync = false`), fizetős fejlesztői tagságra vár
+(5.17). Kikapcsolva az app pontosan úgy viselkedik, mint a szinkron-munka
+előtt.
 
 Az app **fordul és fut** szimulátoron, iPhone-ra telepítve van kipróbálva.
 
 Utolsó commit: `94d1684` — „Add Siri and a Lock Screen widget for the quick
-add, and stop Xcode syncing the string catalog". A frissebb állást a `git log` mondja meg; ez
-a sor csak akkor frissül, ha a fejezetet is átírjuk.
+add, and stop Xcode syncing the string catalog". A frissebb állást a `git log`
+mondja meg; ez a sor csak akkor frissül, ha a fejezetet is átírjuk.
 
-## 11. Roadmap
+## 11. Teendők
 
-Zoltán tervei, prioritási sorrend nélkül. Ami megépült, annak a fejezete
-azt mondja (11.3, 11.4 export/import, 11.5); a többi nincs elkezdve. Mielőtt
-bármelyikbe belevágnánk, kérdezzük meg, tényleg most jön-e — a sorrend
-változhat.
+A `TODO.md`-ben: nyitott döntések, az élesítés előtti és utáni teendők, a
+technikai hátralék. Mielőtt bármelyikbe belevágnánk, kérdezzük meg, tényleg
+most jön-e — a sorrend változhat. Ami onnan megépül, ide kerül az 5. fejezetbe,
+az indoklásával.
 
-### 11.1 Szondás visszatesztelés és kalibráció
-
-A cél nem az, hogy a szondát helyettesítsük, hanem hogy **felhasználjuk**. A
-`ProfileView` már leírja a módszert szövegben (5.3): két fújás a lecsengő ágon,
-legalább egy óra különbséggel, a különbség osztva az eltelt órákkal adja a bétát.
-
-Amit építeni kell: egy kis kalkulátor — két mért érték + két időpont —, ami
-kiszámolja a bétát, és felajánlja, hogy beállítja. Érdemes eltárolni a méréseket
-is, hogy több pontból lehessen átlagolni, és hogy a becslés/mérés eltérése
-látható legyen.
-
-Ez egyben **App Store-érv** is: az app nem kiváltja a hardvert, hanem pontosabb
-lesz tőle. A guideline 1.4.3 pont a szondával párosított appokat engedi (9.).
-
-### 11.2 Feature flagek és in-app payment
-
-Az **alapfunkció a Live** — ez maradjon ingyenes és mindig elérhető. Minden más
-funkció kerüljön flag alá, hogy egy későbbi in-app vásárlás mögé lehessen tenni
-őket anélkül, hogy a kódot újra kellene szabni.
-
-Tervezési megjegyzés: a flageket ne a nézetekbe szórjuk szét. Egy központi
-`FeatureFlags` (vagy `Entitlements`) típus kell, ami a StoreKit-állapotot és a
-debug-override-ot egy helyen fogja össze, és a nézetek csak kérdezik.
-
-A váz megvan: `Support/FeatureFlags.swift`, `flags.multiPerson` alakú
-lekérdezéssel, release-ben kikapcsolva, debugban a Profil alján kapcsolható.
-StoreKit még nincs mögötte — az `isPurchased` ma mindig hamis, és ez az egyetlen
-hely, ahova a jogosultság-lekérdezés majd bekerül. Az első vevő a több profil
-(11.5); ami nem flagelendő, az a séma és a migráció, csak a UI.
-
-### 11.3 Sokkal komplexebb Előzmény
-
-Havi / heti / éves bontás, line chartokkal a fogyasztásról. Nem csak
-alkalomlista: trendek. Mennyit ittam ebben a hónapban az előzőhöz képest, hány
-józan nap volt, hogy alakult a csúcsok alakulása.
-
-Az adat már megvan hozzá: a `DrinkingSession` tárol összesítőt
-(`SessionSummary`), és a `DrinkingDay` (5.6) adja a napi bontást. Aggregálásnál
-figyelni kell, hogy a cache-elt összesítő a `BACEngine.version`-höz van kötve.
-
-**Megtervezve és az alapja megépítve (2026. szeptember).** A döntések:
-
-- **Egy History képernyő, nem két menüpont.** Szegmens-váltó Nap / Hét /
-  Hónap / Év; a drill-down évtől hónapon és héten át a napig megy, a napból a
-  mostani alkalom-részletbe (`SessionDetailView`), ami így a hierarchia alja
-  marad, hozzányúlás nélkül.
-- **Nincs új tárolt entitás.** A `Model/HistoryAggregate.swift` memóriában
-  hajtja az alkalmakat napokra (`DayBucket`) és periódusokra
-  (`PeriodBucket`), a cache-elt `SessionSummary`-ból. Egy év az néhány száz
-  alkalom; egy második @Model CloudKit-kompatibilis, exportált és migrált
-  kellene legyen, semmiért. Ebből következik, hogy az export/import (11.4)
-  változatlan, és a history egy importált archívumból azonnal előáll.
-- **A mennyiség nem vár a motorra, a csúcs igen.** Egység és italszám az
-  italokból összeadható; a csúcs csak érvényes cache-ből jön, különben
-  `nil` (`HistoryOccasion.peakRange`), és a bucket `peakIsComplete`-je hamis.
-  Verzióbump után így az Év nézet nem futtat 365 szimulációt megnyitáskor —
-  a cache visszatöltése a store háttérmenete lesz (**hátravan**).
-- **„Nem ittál" és „nem tudjuk" itt válik láthatóvá (5.7).** `DayBucket.State`:
-  `drank` / `dry` / `unknown`; a `Person.trackingStartedAt` előtti nap
-  `unknown`, és nem számít bele az átlag nevezőjébe (`recordedDays`). A
-  rögzítés kezdete a tárolt dátum és a **legkorábbi alkalom napja** közül a
-  korábbi — egy felvitt este bizonyíték, hogy akkor már rögzítettünk,
-  ugyanaz a szabály, mint a `Person.backdateTracking`. Így az ismeretlen
-  napok mindig egy összefüggő szakasz az ablak elején; volt egy kör, amiben
-  két este közé is esett ismeretlen nap, és a szürke sáv egy oszlopot fedett.
-  A tárolt dátumot a `SessionStore.reconcileTrackingStart` is rendbe teszi
-  minden `refreshFromStore`-nál (a legkorábbi alkalomra tolja, ha az
-  korábbi) — az `add` csak új italra ellenőriz, a migráció, az import és a
-  szinkron nem ment át rajta. A dátum *nem* vezethető le pusztán a
-  bejegyzésekből: aki telepítés után hat napig nem iszik, annak az a hat
-  nap ivásmentes, nem ismeretlen. Szabály: `min(első indítás, legkorábbi
-  bejegyzés)`. A szürke sávban felirat: „No data before <dátum>", ha a sáv
-  az ablak legalább harmada.
-- **A nap a saját dátuma alá kerül, a hét/hónap/év a naptáré.** A hajnali
-  5-kor kezdődő ivási nap a `calendarDate`-jével kerül hétbe/hónapba, tehát
-  az éjfélen átnyúló este abban a hétben marad, amelyikben kezdődött. A hét
-  kezdőnapja a `Calendar`-ból jön (magyarul hétfő).
-- **Flag: `Feature.historyTrends`, ingyenes ablakkal.** Az utolsó
-  `FeatureFlags.freeHistoryWindowDays` (7) ivási nap — a mai is beleértve —
-  ingyenes, ami régebbi, lakat mögé kerül, az alkalom-sorokra is. A nézet
-  egy kérdést tesz fel: `flags.canShowHistory(for: DrinkingDay)`. A flag a
-  UI-t takarja, az adat mindenkinél íródik (11.5 mintájára): aki fél év után
-  fizet, a teljes fél évet látja. A paywall mondja is ki.
-- **Tesztek:** `DrinkSmartTests/HistoryAggregateTests.swift`, 15 teszt, két
-  suite (aggregátum és ingyenes ablak). Az aggregátor és a `DrinkingDay`
-  Foundation-only, ezért egy ideiglenes csomagban Linuxon is lefutottak; az
-  app teszt-targetje (12.) továbbra is hiányzik.
-
-**A képernyő megépítve (2026. szeptember), készüléken kipróbálva.**
-
-- **Ablak + finomabb oszlopok, Apple Health-minta.** Szegmens Hét / Hónap /
-  Év (`HistoryRange`); a Hét az utolsó hét ivási nap (nem naptári hét), a
-  Hónap és az Év naptári egység. Oszlop = nap (Hét, Hónap) vagy hónap (Év).
-  Chevronokkal lapozás az `oldestOffset`-ig; szegmensváltás a legújabb
-  oldalra ugrik. Nincs külön Nap szegmens: a nap szintje az alkalom-sor a
-  chart alatt (`SessionRow`), onnan `SessionDetailView`. **Oszlopról nem
-  fúrunk le**: volt (Év-oszlop → hónap, hónap-oszlop → hét, második
-  koppintásra), de a képernyő „magától" váltott tőle — a szegmens csak a
-  szegmens-váltóról változzon.
-- **`HistoryWindow` a modell**, `HistoryAggregate.days` kimenetéből épül:
-  oszlopok `drank / dry / unknown / future` állapottal, összegek, változás az
-  előző ablakhoz. Volt rajta mozgóátlag-vonal; kivettük, mert a magas
-  oszlopok mögé bújt és egy hét hét pontjából nem olvasható ki trend — ha
-  egyszer visszajön, az Év nézetbe való, nem a napi bontásba. Az `isWithinFreeWindow` a napokból
-  következik, nem állítjuk — így a Hét 0. oldala az egyetlen ingyenes ablak,
-  konstrukció szerint.
-- **A mennyiség grammban vagy standard egységben, a felhasználó választása
-  szerint** (`AmountUnit`, az `AppSettings`-ben a ‰ / % mellett, a Profil
-  Display szekciójában). Alapból gramm: egy gramm mindenhol ugyanaz, az
-  „egység" országonként más (8 g UK, 10 g HU, 12 g FR). A modell továbbra is
-  standard egységben számol (`Drink.standardUnits`), a kettő ×10 — ezért
-  nem mutatjuk mindkettőt egymás mellett. Egy helyen érvényes mindenhol:
-  History chart, mutató-kártya, Live és alkalom stat-sor.
-- **Az oszlop magassága a mennyiség (a tengely felírja, miben), a színe a
-  csúcs** a nap saját határához képest (5.14). Koppintásra
-  az oszlop fölött megjelenik a pontos érték; a találat a legközelebbi ivós
-  oszlopra pattan 16 pont tűréssel, mert a hónap oszlopai pár pont
-  szélesek. Az Év hónapcímkéi a locale rövidítéséből
-  jönnek, három betűre vágva, ha hosszabb — egy betű nem volt olvasható. Érvényes cache nélkül semleges türkiz; a rögzítés előtti
-  napok halvány sávot kapnak, mert az üres az „ivásmentes" jele (5.7).
-  Az x-tengely éjfélhez igazított, különben a hét első oszlopát 5 óra levágná.
-- **Két chart-kártya egymás alatt: mennyiség, majd csúcs.** A csúcs-chart
-  oszlopa a nap legmagasabb szintje (a sáv közepe; a buborék tartományt ír,
-  ha a sáv széles, 5.8), rajta a saját határ szaggatott vonala, ahogy a
-  Live charton. Nem váltó és nem kettős tengely: a két mérőszám egymás
-  alatt egy pillantással összevethető, és a vonal-oszlopok-mögé-bújás
-  problémája (mozgóátlag) nem jön elő. Érvénytelen cache-nél a csúcs-oszlop
-  hiányzik, nem nulla. A mutató-kártya első sora négy szám:
-  mennyiség, italok, „Sober days" (`ivásmentes / rögzített`, alatta a
-  rögzítés előtti napok száma, amíg van ilyen — az évben a „4 / 9"
-  magyarázat nélkül érthetetlen), és a csúcs. A második sor egyedül a
-  változás az előző ablakhoz, alatta halványan, hogy melyikhez („vs. Sep
-  8–14"): egy „+239 %" magában vádnak hangzik, viszonyítási alappal
-  összehasonlításnak.
-- **Lakat:** a mutatók és a két chart együtt homályosodnak, rajta egy gomb a
-  `HistoryPaywallSheet`-re; a 7 napnál régebbi alkalom-sor dátuma látszik,
-  a csúcsa nem. A lap három dolgot mond: mi van mögötte, hogy az adat már
-  megvan, és hogy hogyan nyílik. StoreKit nélkül a gomb debugban a flag
-  override-ját állítja, release-ben „Coming soon".
-- **A cache háttérben töltődik vissza:** `SessionStore.backfillStaleSummaries`
-  a `refreshFromStore` végén, ötvenes adagokban. A szimuláció maga
-  `Task.detached`-ben fut (a modellből `BodyProfile` + `[Drink]` Sendable
-  bemenet készül a main actoron, csak a visszaírás nyúl a contexthez), egy
-  adag után egy `save()`. Korábban ötösével, a main actoron futott: egy
-  hatéves import (~1300 alkalom) ~260 mentést és ugyanannyi teljes
-  History-újraaggregálást jelentett, az app percekig szaggatott.
-- **A History napi aggregátuma cache-elt:** `HistoryAggregateCache` a
-  `HistoryView` `@State`-jében, kulcsa `SessionStore.revision` (minden
-  `save()` és `refreshFromStore()` lépteti) + személy + `trackingStartedAt`
-  + az aktuális ivási nap. A `snapshot` korábban minden body-kiértékelésnél
-  végigment az összes alkalmon és azok `drinks` relációján — pár száz
-  alkalomnál észrevétlen, importált évekkel görgetésenként újraszámolt.
-- Tesztek: `HistoryWindowTests` (11) a `HistoryAggregateTests` (16) mellett,
-  és `MonthlyTotalTests` (18, ebből 2 SwiftData-s: az import merge és az
-  archívum körbejárás, ezek csak Xcode-ban futnak); Linuxon futtatva egy
-  ideiglenes csomagban (`HistoryAggregate`, `HistoryWindow`, `HistoryTrend`,
-  `DrinkingDay`, `KnownMonth`, `FeatureFlags` + a BACKit, egy
-  `LocalizedStringResource` és `ClosedRange.midpoint` shimmel), Swift 6
-  módban, figyelmeztetés nélkül.
-
-- **Ugrás tetszőleges időszakra: a fejléc dátuma gomb** (`HistoryJumpSheet`),
-  a Naptár app mintájára. A chevronok maradnak a szomszédos oldalra — a
-  kettő nem versenyez, más a szándék mögöttük. A lap a szegmenshez illő
-  választót ad: Hét → grafikus naptár (a kiválasztott napot tartalmazó
-  oldalra ugrik, a koppintás maga a választás), Hónap → év-léptető és 3×4
-  hónaprács, Év → évlista; mindegyiken „Today" gomb a visszaútra. Csak a
-  rögzített időszak van felkínálva. A dátum → oldal leképezés a
-  `HistoryWindow.offset(containing:)`, naptári egységben számolva (Aug 15
-  egy hónap-oldallal Sep 14 előtt van, pedig nem telt el harminc nap).
-  Külön „ettől eddig" szűrő nincs; ha egyszer kell, a `HistoryRange` kap egy
-  `.custom(DateInterval)` esetet, és ugyanez a képernyő szolgálja ki.
-
-**Trend szegmens (negyedik) — megépítve (2026. szeptember), de csak
-kísérletként, debugban kapcsolható.** Készüléken kipróbálva nem volt az
-igazi: a görgethető chart pattogott (bounce), a bal felső tengelycím
-(„Grams / day") csak húzás közben látszott és elengedéskor eltűnt, és a
-görbék furán olvastak. Zoltán a koncepciót újra akarja gondolni; addig az
-`Experiment.trendSegment` kapcsoló (Profil alja, „Experiments" szekció,
-csak debug) teszi a pickerre — `HistorySegment.offered(trend:)`. Az
-`Experiment` szándékosan nem `Feature`: az `isPurchased`-re esne, és a
-StoreKit megérkezésekor eladóvá válna; egy kísérlet release-ben nem
-létezik. Két hiba javítva a kipróbálás után: a pattogás oka az volt, hogy
-a chart akkor is görgethető volt, amikor az egész rögzített időszak kifért
-(pár hét adatnál minden húzás gumiszalagként visszaugrott) — most csak
-akkor görgethető, ha van hova (`isScrollable`), és a megosztott
-görgetési pozíció a tartományba van szorítva, hogy az egyik kártya
-túlhúzása ne ugrassa a másikat; a tengelycím pedig a `chartYAxisLabel`-ből
-(ami görgethető chartban a görgetett tartalomban ült) sima nézetként a
-plot fölé került. A görbék olvashatósága nyitott kérdés.
-
-A teljes rögzített időszak egy görbén, lapozás nélkül,
-vízszintes görgetéssel és csippentés-zoommal (`chartScrollableAxes` +
-`chartXVisibleDomain`, a csippentés `MagnifyGesture`-rel a látható
-tartomány hosszát állítja, a középpont körül, 14 nap és 10 év között). Nem
-oszlopok: a hónapok összemosnak, és a zoom értelmét vesztené. A szegmens
-külön típus (`HistorySegment`), nem negyedik `HistoryRange`: a range-nek
-oldalai, oldalcíme és periódusonként oszlopa van, a trendnek egyik sem —
-egy közös enum minden `switch`-ben hagyott volna egy semmit nem jelentő
-esetet. Belépéskor a zoom az utolsó negyedév (vagy a teljes időszak, ha
-rövidebb), a jobb szélre görgetve. Két kártya, közös zoommal és
-görgetéssel (két `@Binding` a `HistoryView` state-jére):
-
-- **Mennyiség:** a napi gramm exponenciális mozgóátlaga (EMA), y = gramm/nap.
-  Egyszerű mozgóátlag helyett, mert annál egy nagy este N nap múlva egy
-  „lépcsővel" esik ki a görbéből, amikor semmi nem történt; az EMA-nál
-  simán lecseng. Szimmetrikus simítás (Gauss, LOESS) helyett, mert az a
-  jövő napjait is használná, és a görbe vége utólag mozogna. A felezési idő
-  a zoomhoz kötött: < 3 hónap látható → 7 nap, < 2 év → 30 nap, fölötte 90.
-  Ivásmentes napon a görbe süllyed, nem zuhan nullára — ezt jelenti a
-  szokás. Kitöltött terület, türkiz: itt nincs határ, amihez színezni.
-- **Csúcs:** csak az ivós napokra, alkalomról alkalomra lépő EMA, két este
-  között vízszintes; a határ szaggatott vonala rajta. Zoltán döntése: a
-  csúcs-trend azt mutassa, „amikor iszol, milyen magasra mész" — hogy
-  romlik-e vagy javul-e a kontroll —, és ebbe nem számít bele, hány
-  ivásmentes nap volt két este között. Ha minden napra átlagolnánk, a
-  gyakoriságot és az intenzitást összekevernénk. Ugyanaz a felezési szám,
-  csak alkalomban számolva (7 / 30 / 90 alkalom) — egy szám, két görbe, és
-  a kártya alatti felirat mondja, melyik miben („Simítás · 7 nap" /
-  „Simítás · 7 alkalom"). A lépcső az utolsó estétől máig kitart: a trend
-  az, amit a következő estébe viszel. A nyers csúcsok halvány pontok a
-  görbe alatt, a határhoz színezve; a görbe függőleges gradienst kap az
-  5.14-es öt megállóval, a **mai** határhoz mérve — a kérdés az, hogy a
-  múlt hogyan áll a most tartott vonalhoz. Elavult cache-ű nap nincs a
-  görbén (nem nulla, nem tudjuk).
-- Alkalom-lista ebben a nézetben nincs; a mutató-kártya a teljes időszakra
-  (`HistoryFigures`, ugyanaz a típus, amit az ablak is ad), Change sor
-  nélkül. A lakat automatikusan érvényes rá, mert kilóg a 7 napból.
-- Tesztek: `HistoryTrendTests` (6) — EMA felezési idő és konstans bemenet,
-  a mennyiség minden rögzített napra, a csúcs csak ismert csúcsú ivós
-  napokra, a rögzítés előtti napok kimaradnak, a zoom-sávok.
-
-**Nap szegmens — megépítve (2026. szeptember).** A picker eleje: Nap / Hét
-/ Hónap / Év. Egy oldal egy ivási nap, a mai a 0. oldal; az előre chevron
-ott letiltva. Tartalom: a nap lezárt alkalmai `SessionContentView`-val
-(ahogy a Live is rajzolja a már lezárt mai estét), a mai oldalon fölöttük a
-futó alkalom görbéje és itallistája — a Live-val azonos módon szerkeszthető
-(`AddDrinkSheet`, a lezárt alkalomé a saját alkalmával). Nincs mutató-kártya
-és nincs chart: a nap maga a tartalom. Üres napon a három eset a 5.7 szerint
-szétválik: „Nothing logged today", „No drinks on this day", vagy „No data
-before <dátum>" a rögzítés előtt. A `HistoryRange` kapott egy `.day`
-esetet, ezért a lapozás, az `oldestOffset`, a naptáras ugró lap és az
-ingyenes-ablak szabály (a mai és az előző hat nap szabad) mind ugyanaz a
-kód, mint a többi ablaknál — külön naplapozó nincs. A fejléc címe „Today" /
-„Yesterday", régebben a dátum. A History megjegyzi az utolsó szegmenst; a
-Live „‹ Tegnap" gombja (5.11) a Nap / 1-es oldalra kéri, `HistoryRequest`
-értékkel, amit a `HistoryView` `onAppear`-kor és a kérés változásakor
-alkalmaz, aztán töröl — az első tabváltáskor a nézet még nem is létezik,
-ezért kell mindkettő. A `SessionRow` → `SessionDetailView` út a Hét listából
-megmaradt. Teszt: `dayIsOneDrinkingDay` a `HistoryWindowTests`-ben (14).
-
-**Utólagos felvitel a Nap oldalon (2026. szeptember).** A kihagyott nap
-ezen az oldalon látszik meg — egy héttel később, üres napként —, ezért a
-pótlás is itt van, nem a Live dátumválasztóján italonként visszatekerve.
-Ugyanaz a lebegő „Add drink" kapszula, mint a Live-on, ugyanott
-(`AddDrinkCapsule`, közös nézet a `QuickAddBar`-ral), csak a Nap
-szegmensen, lakatolt napon nem. Üres napon a kapszula sincs: ott az
-üres-állapot kártya gombja az egyetlen felvitel (a rögzítés előtti napon
-is: az oda felvitt ital bizonyíték, hogy akkor már rögzítettünk, a
-`backdateTracking` viszi vissza a kezdetet) — két azonos gomb egy
-képernyőn zaj volt. Volt egy
-kör, amiben a gomb az itallista alatt ült, egy sornak rajzolva — egy valós
-estén a chart, a stat-sor és a lista a fold alá tolta, pont ott, ahol a
-legtöbb ital van. A mai oldalon ugyanúgy viselkedik, mint a Live-on. Múltbeli napon az `AddDrinkSheet` kapja a
-napot (`day`) és a nap legutóbb indult alkalmát: az idő szekció a lap
-**tetejére** kerül, a típusválasztó elé (az 5.10 sorrendje a live esethez
-szól — pótlásnál a típus a szokásos, az idő az egyetlen, amit biztosan be
-kell írni, és négy vezérlő alatt kellett érte görgetni), és rögtön a
-**görgethető** (`.wheel`) választó áll ott, nem a kompakt — az egy
-koppintás a popoverre és utána tekerés, itt egy tekerés. **Csak óra–perc
-kerék, dátumoszlop nélkül:** a napot a mögötte lévő oldal már kimondta, és
-a dátumoszlop egy 01:43-as italra „Today"-t írt volna a Tegnap feliratú
-oldalon — az ivási nap belső éjfél-képe, ami a felhasználót nem érdekli.
-A kerékről vett időt a lap maga helyezi el a napon az 5.6 szabályával
-(`timeOnDay`: 5:00-tól a nap estéje, 5:00 előtt az éjfél utáni rész), a
-„When" fejléc jobb oldalán pedig a kapott naptári dátum áll, ami éjfélen
-át tekerve átvált. A chipek („15 min ago") nincsenek. **A kerék a mostani
-óra-percen áll, a napra helyezve** (tegnap 22:06, ha most 22:06 van) — az
-iOS dátumválasztók konvenciója, és átlátszó szabály. Volt okosabb: az
-utolsó ital vége, üres napon 20:00 — a képernyőn viszont egy 01:13-as
-ital + 30 perc „01:43"-ként jelent meg, levezetés nélkül, és véletlen
-számnak látszott. A kiindulópontnak nem jónak kell lennie, hanem
-nyilvánvalónak. A mentés a
-sima `add`, ami eddig is dátum szerint irányított. **Ami emiatt
-változott a store-ban:** a `project` cél nélkül nem a nyitott alkalomhoz,
-hanem — az `add`-dal azonos szabállyal — az ital napját fedő alkalomhoz
-vetít, ha nincs, üres estéhez a `profileApplicable` profiljával; a
-napra szóló irányítást a `lastRouting` tartja meg a következő írásig
-(`rebuild` törli), mert a lap body-ja csúszkahúzás közben kilencszer
-kérdez, és a fetch nem fér bele egy frame-be. Ez a Live-on „Set exact
-time"-mal tegnapra állított italt is kijavítja: eddig a mai este tetejére
-vetített, a gomb viszont a tegnapi alkalomba tette.
-
-**Hátravan:** tömeges felvitel — nem csak pótlásra, a Live-on is: „20:00-tól
-fél óránként 8 sör" jellegű, előre megadott sorozat egy lépésben. Külön
-szerkesztő képernyő helyett az itteni felvitel bővítéseként, ha a
-használat igazolja; a Trend szegmens újragondolása és élesítése (fent); az Év → hónap, hónap → hét ugrás
-visszahozása *látható* vezérlővel (pl. az érték-buborékban egy „Megnyitás"
-gomb), nem rejtett gesztussal; hogy a szegmensváltás megtartsa-e az ablak
-helyét a nulladik oldalra ugrás helyett; és hogy az ital nélkül maradt
-alkalmat (visszavont gyors felvitel, utolsó ital törlése) a `SessionStore`
-törölje-e — ma az aggregátor szűri ki (`drinkCount > 0`), az adatbázisban
-ott marad.
-
-### 11.4 Adatmentés és készülékváltás
-
-**A követelmény:** ha Zoltán készüléket vált ugyanazzal az Apple ID-val, az
-adatok ne vesszenek el. Ez nem opcionális kényelem.
-
-**A döntés megszületett (2026. szeptember): iCloud / CloudKit private database,
-saját login és regisztráció nélkül.** Nincs se e-mail/jelszó, se Sign in with
-Apple. A kettő nem ugyanaz, és ezt könnyű összekeverni: a Sign in with Apple
-*identitás egy saját backendhez* — bejelentkező képernyő, stabil user ID, és egy
-szerver, amin az adat áll. A CloudKit *szinkron*: nincs bejelentkező képernyő,
-mert a felhasználó már be van jelentkezve, és az adat az ő iCloud-kvótáján ül.
-
-Amiért ez az ág nyert: nincs szerverünk, ami alkoholfogyasztási adatot tárol —
-ez ennél az appnál nem mellékes adatvédelmi érv, hanem termékérv is (2., 9.).
-Ára, hogy Androidra és webre nem vihető át, és megosztást nem támogat. Ha
-egyszer kell web- vagy Android-kliens, akkor jön a Sign in with Apple és egy
-saját backend — de az külön fázis, és semmit nem rontunk el azzal, hogy most
-CloudKitre építünk.
-
-#### Ami a kódban már megvan
-
-- A séma **CloudKit-kompatibilis** (8.): minden mezőnek van alapértéke vagy
-  opcionális, nincs `@Attribute(.unique)`, a kapcsolatok inverzzel mennek.
-- `DrinkSmartApp.makeContainer()` — CloudKit ág `.private(cloudKitContainerID)`-vel,
-  lokális fallbackkel és debug-assertionnel.
-- A kétszeres tulajdonos elleni dedupe: `PersonMigration.resolveOwner` a korábbi
-  `createdAt`-ot tartja meg, és a `merge(_:into:)` átviszi a másik alkalmait.
-- `SessionStore.observeRemoteChanges()` — feliratkozás a
-  `NSPersistentStoreRemoteChange` értesítésre, 500 ms-os debounce-szal. E nélkül
-  egy másik készüléken felvitt ital megjelenne a `@Query`-s itallistában, de a
-  görbe alatta nem rajzolódna újra, mert a `band`-et csak a `rebuild()` mozgatja.
-  A `MainTabView` scenePhase hookja az előtérbe kerülést fedi; ez azt, amikor az
-  app már ott van.
-
-#### A kapcsoló
-
-`BuildCapabilities.cloudSync` a `Support/FeatureFlags.swift`-ben, **alapból
-`false`**. Ez az egyetlen sor, amit át kell írni.
-
-Szándékosan **nem** `Feature`, és nem debugban kapcsolgatható. A `FeatureFlags`
-a végén `isPurchased`-re esik, vagyis azt modellezi, mit *vásárolt* a
-felhasználó — a szinkron nem ilyen, azt nem veszi meg senki, azt a target
-entitlementje vagy hordozza, vagy nem. Ha `Feature` lenne, a StoreKit
-megérkezésekor csendben fizetős funkcióvá válna. Fordítási idejű konstans, mert
-futásidejű kapcsoló nem tud entitlementet előállítani, a store pedig egyszer
-nyílik meg induláskor, még mielőtt bármilyen kapcsolót ki lehetne olvasni.
-
-#### A blokkoló: fizetős tagság
-
-**Az iCloud capability nem adható hozzá Personal Team alatt.** Az Xcode a
-capability-listát a team jogosultságai szerint szűri, tehát nem hibaüzenetet ad,
-hanem az iCloud meg sem jelenik a `+ Capability` listában. Kézzel írt
-entitlements fájl sem kerüli meg: a provisioning profile nem tartalmazná az
-entitlementet, és az aláírás bukna.
-
-Kell hozzá **Apple Developer Program, Individual, 99 USD/év**. Zoltán döntése
-(2026. szeptember): **ez várhat, amíg az app élesedik.** Addig `cloudSync =
-false`, és az app pontosan úgy viselkedik, mint a szinkron-munka előtt.
-
-#### Teendők, amikor a tagság megvan — sorrendben
-
-1. **Előbb mentés.** Xcode → Window → Devices and Simulators → a készülék →
-   DrinkSmart → **Download Container**. A signing team váltása megváltoztatja az
-   app aláírását, az iOS pedig nem engedi rátelepíteni a régire ugyanazzal a
-   bundle ID-val: az Xcode törli és újratelepíti, **a helyi adatokkal együtt**.
-   Ugyanez a menü tud Replace Containert, tehát ez a visszaút.
-2. developer.apple.com → Account → a **Program License Agreement** elfogadása.
-   Amíg ez függőben van, az Xcode ugyanúgy nem lát capabilityket, mint fizetős
-   tagság nélkül.
-3. Xcode → Settings → Accounts → **Download Manual Profiles**, és a targeten az
-   új team kiválasztása (a „Personal Team" felirat eltűnik mellőle).
-4. **+ Capability → iCloud** → CloudKit pipa → konténer:
-   `iCloud.dev.zcsipler.drinksmart`. Ha az Xcode mást hoz létre, a
-   `DrinkSmartApp.cloudKitContainerID` konstanst kell hozzáigazítani.
-5. **+ Capability → Background Modes** → Remote notifications. E nélkül a
-   szinkron csak app-indításkor mozdul, push nem érkezik.
-6. `BuildCapabilities.cloudSync = true`.
-7. Futtatás **előbb a készüléken**, a meglévő adatokkal: itt dől el, hogy a
-   meglévő lokális store átáll-e tükrözésre. Siker esetén a `CD_Person` /
-   `CD_DrinkingSession` / `CD_DrinkRecord` rekordok megjelennek a CloudKit
-   Console Development környezetében. Ha az assertion store-inkompatibilitásra
-   hasal el, a kiút az app törlése és újratelepítése, majd Replace Container.
-8. Csak ezután a második pont (szimulátor ugyanazzal az Apple ID-val, iCloud
-   Drive bekapcsolva). A szimulátorra a push megbízhatatlan, ezért ott
-   háttérbe-előtérbe kell tenni az appot.
-
-Ellenőrzés, hogy a 4–5. pont tényleg megtörtént: keletkezett-e `.entitlements`
-fájl a projektben.
-
-#### Amibe egyszer már belefutottunk
-
-A `makeContainer()` eredetileg `cloudKitDatabase: .automatic`-kal próbálkozott,
-és a `catch` ágban volt egy assertion, ami elvileg jelezte volna, ha nincs
-CloudKit. **Nem jelezte.** Az `.automatic` azt jelenti: „tükrözz arra a
-konténerre, amit az entitlement megad — *ha* megad egyet"; entitlement nélkül
-egyszerűen lokális store-t nyit, és **nem dob hibát**. Így a `catch` soha nem
-futott le, az app pedig sikert jelentett, miközben semmit nem szinkronizált.
-Egy teljes tesztkör ment el arra, hogy egy olyan buildet vizsgáltunk, amiben
-nem is volt CloudKit.
-
-Ezért van a konténer néven megadva (`.private(...)`) és nem `.automatic`-kal: a
-hiányzó entitlement, az elgépelt azonosító és a nem birtokolt konténer így mind
-dob, vagyis a fallback végre azt csinálja, amire írva lett.
-
-#### Export / import — megépítve
-
-Nem csak az Apple ID váltás miatt: **az iCloud nem biztonsági mentés** (a
-felhasználó törölheti az app iCloud-adatát, és nincs kuka), a lokális fallback
-ágon futóknak ez az egyetlen átviteli mód, egy elrontott séma-migráció után ez a
-visszaút, és adathordozhatóság (GDPR 20. cikk) is. Azért készült el a CloudKit
-előtt, mert a tagságtól függetlenül megírható, és mire a szinkron bekapcsol,
-addigra védőháló is van meg ellenőrzési eszköz is: két készülékről exportálva a
-két fájl összevethető.
-
-Fájlok: `DataArchive` (Codable értéktípusok), `ArchiveExport`, `ArchiveImport`,
-`Support/ArchiveDocument.swift` (`FileDocument` az exporthoz),
-`View/DataTransferSection.swift` (a Profil alján).
-
-A megvalósítás:
-
-- **JSON, nem store-fájl másolat.** A `.sqlite` viszi a SwiftData/CloudKit
-  metaadatokat, és verziók között nem stabil. A fájl fejlécében `schemaVersion`
-  és `exportedAt`.
-- **Amit exportálunk:** `Person`, `DrinkingSession` (a profil-pillanatképpel) és
-  `DrinkRecord` minden tárolt mezője, továbbá a `MonthlyTotal` sorok a
-  `monthlyTotals` kulcs alatt (5.7). Ugyanaz az elv, mint 5.5-nél: a bemenet
-  megy bele, nem a görbe. A `monthlyTotals` opcionális: régi fájlból nil-re
-  dekódolódik, régi build a kulcsot átlépi — ezért maradhat a `schemaVersion` 1.
-- **Amit nem:** a `cachedPeak*` / `cachedSoberAt` / `cachedEngineVersion` mezők.
-  Újraszámolhatók, és a `BACEngine.version`-höz kötöttek — egy másik verziójú
-  buildbe importálva hazudnának. Az `AppSettings` sem, az a készüléké.
-- **Import: merge `id` alapján, idempotensen.** Ismeretlen id bejön, ismert id
-  marad. Készülékváltásnál üres adatbázisba tölt, tehát ott mindegy — de egy
-  régi export visszatöltése egy használt appra így nem veszít adatot.
-- **Az `isOwner` ütközés a `PersonMigration.merge(_:into:)`-n keresztül.** A
-  célkészüléken a migráció már létrehozott egy tulajdonost, mielőtt bármi
-  importálna; a fájlban is van egy. Ez ugyanaz a probléma, mint a CloudKit-race,
-  tehát ugyanaz a szabály oldja meg — egy szabály, két hívó.
-- **`assign(to:)`-on keresztül** kell beírni a `person` kapcsolatot és a
-  `personID`-t, különben a `@Query` nem találja meg a behozott alkalmakat.
-  Import után egy `refreshFromStore()` elég: a `closeEndedSessions` minden
-  nyitott alkalmon végigmegy, tehát egy régi „nyitott" importált este magától
-  rendbe jön.
-- **A meglévő alkalom egészben marad ki, az italaival együtt.** Italonként
-  összefésülni azt igényelné, hogy eldöntsük, melyik oldal nyer egy mindkét
-  helyen meglévő, de eltérő időpontú italnál — és erre nincs becsületes szabály,
-  mert nem tároljuk, melyik szerkesztés volt később. A kihagyás kiszámítható és
-  egy mondatban elmondható, ami egy visszafordíthatatlan műveletnél követelmény.
-- **UI:** `DataTransferSection` a `ProfileView` alján, nem a főfolyamatban. Az
-  import előbb tervet készít (`ArchiveImport.Plan`), és a megerősítő ablak abból
-  mondja meg, mi fog történni — utána ír csak bármit.
-- **Fájlformátum `.json`, nem saját UTI.** Egy privát típus rendezettebb lenne a
-  megosztó lapon, de Info.plistben kellene deklarálni, és minden más app elől
-  elzárná a fájlt — egy mentésnél, aminek pont az a dolga, hogy elhagyja az
-  appot, ez rossz csere. A verzió a fájlon belül van (`schemaVersion`), ott, ahol
-  ellenőrizni is lehet.
-
-**Hátravan:** tesztek. Ez a kód pontosan az a fajta, amit a 11.8 és a 12. leír —
-nem crashel és nem logol, csak rossz emberhez tesz egy alkalmat vagy kihagy
-egyet. App-szintű teszt target nélkül nem is futtatható teszt rá.
-
-### 11.5 Több profil — megépítve, flag mögött, tesztek nélkül
-
-Egy estén belül át lehessen váltani másik emberre — pl. a barátnő profiljára —,
-és oda is felvinni az italokat, gyorsan, a helyszínen.
-
-Ez a legmélyebb séma-változás a listán. A `DrinkingSession` ma a profilt
-*pillanatképként* tárolja (5.5), de nincs fogalma arról, hogy *kié*.
-
-Megbeszélve és megépítve 2026 szeptemberében, a `FeatureFlags.multiPerson`
-mögött. Ami itt áll, az működő viselkedés, nem terv — a tesztek kivételével.
-Amikor a flag élesedik, az alábbi döntések átköltöznek az 5. fejezetbe.
-
-**A váltás globális, és naponta visszaáll a tulajdonosra.** Mindhárom tab az
-aktív személyt mutatja: az Előzmény az ő alkalmait, a Profil az ő testadatait
-szerkeszti. Egy mentális modell van, nem kettő, és a vendég testadatai
-ugyanott állíthatók, ahol a tieid. A legvalószínűbb hiba az, hogy este átváltasz
-és másnap reggel elfelejted — ezért az aktív személy visszaáll a tulajdonosra,
-ha a váltás nem a mai ivási napon (5.6) történt. Nem „hideg indítás"
-detektálással, hanem a váltás időbélyegéből: a háttérből visszatérés így nem
-zavar, egy esti app-kilövés nem veszíti el a kontextust, reggel viszont
-magától te vagy.
-
-**A feature flag a UI-t takarja, nem a sémát.** A `Person` entitás és a
-migráció a flagtől függetlenül mindig lefut, mindenki a tulajdonoshoz tartozik,
-és csak a váltó, a személy-felvitel és a személyenkénti szűrés van
-`FeatureFlags.multiPerson` mögött (11.2). Ha a séma is flag alatt lenne, a flag
-bekapcsolása egy meglévő installon ugyanúgy migrációt igényelne, a kikapcsolása
-pedig elrejtené egy létező személy adatait — vagyis két adatállapotot kellene
-karbantartani. Flag nélkül az app pontosan úgy viselkedik, mint korábban, és a
-kódban egy ág van, nem kettő.
-
-**Séma.** A `Person` viszi mindazt, ami személyenkénti: a testadatokat, a
-gyakoriságot, a saját határt és a `trackingStartedAt`-ot — vagyis a mai
-`AppSettings` nagy részét. Az `AppSettings` a `unit`-ra és az aktív személy
-azonosítójára fogy le; a régi kulcsot **nem töröljük**, ugyanazon az alapon,
-amiért a `LegacySessionImport` sem törli a sajátját (az az egyetlen másolat,
-amiből a migráció újrajátszható). A `DrinkingSession` kap egy `person`
-kapcsolatot **és** egy denormalizált `personID`-t: a `@Query` a `LiveView`-ban
-és a `HistoryView`-ban skalárra tud szűrni, opcionális kapcsolaton keresztül
-nem megbízhatóan. A kettő egy helyen íródik.
-
-**Migráció.** `PersonMigration.run(in:)`, a `LegacySessionImport` mintájára:
-tulajdonos-`Person` a régi beállításokból (`LegacyProfileSettings`, ami a
-`drinksmart.settings.v1` kulcsot olvassa, és soha többé nem írja), majd minden
-gazdátlan alkalom hozzá. **Nincs „már lefutott" UserDefaults-kulcs**, és ez
-szándékos: a védelem maga az adat — tulajdonos csak akkor jön létre, ha nincs,
-és a söprés csak a gazdátlan alkalmakhoz nyúl. Egy marker itt kifejezetten
-rossz lenne, mert CloudKit mellett egy régebbi verziójú készülékről érkező
-alkalom a marker beállítása **után** is befuthat, és akkor sosem kapna gazdát.
-Két lekérdezés induláskor az olcsóbb hiba. CloudKit mellett két készülék az első szinkron
-előtt két tulajdonost hozhat létre — ugyanaz a probléma, ami miatt az
-`AppSettings` ma nincs SwiftDatában (lásd ott). Olcsó védelem a dedupe-lépés
-indításkor: a korábbi `createdAt` nyer, a másik alkalmai átkerülnek hozzá.
-
-**Store.** Egy `SessionStore` marad, `switch(to:)`-szal újrapontozva — a sáv
-újraszámolása váltáskor pár ezredmásodperc, cserébe nincs párhuzamos állapot a
-memóriában. Négy hely, ahol több emberrel a mai kód csendben rossz adatot
-csinálna:
-
-- `fetchOpenSession` és `sessionCovering` — szűrés nélkül a visszamenőleg
-  felvitt italod beleeshet a másik ember aznapi alkalmába
-- `profileApplicable(at:)` — a „legközelebbi alkalom profilja" fallback (5.5)
-  az ő testalkatát fagyasztaná be a te alkalmadba
-- `closeSessionIfEnded` — ma csak az aktív nyitott alkalmat zárja; több emberrel
-  egyszerre több nyitott alkalom van, és a nem aktívé örökre nyitva maradna, ezért
-  a `refreshFromStore` az összesen végigfuttatja a szabályt
-- a `LiveView` és a `HistoryView` `@Query`-je, ami közvetlenül listáz
-
-**UI (`PersonSwitcher.swift`).** A váltó egy chip — monogram, név, chevron —,
-és **nem a heróban ül, hanem a Live tartalom tetején**, a nap-állapoton kívül.
-A hero csak akkor van a képernyőn, ha fut alkalom; a legvalószínűbb pillanat
-viszont, amikor valakit fel akarsz venni, pont egy üres nap. Ott ült eddig az
-„End session", ami nem átkerült, hanem **megszűnt** (3.). Az Előzmény és a Profil `NavigationStack`-jében ugyanez a chip
-a toolbarban van — a Profil mezői a *kiválasztott* ember testadatait írják, és
-enélkül semmi nem mondaná meg, kiét. A hozzáadó lap név, nem, testsúly,
-magasság, kor: mind a négy testadat alakítja a görbét, ezért egyiket sem
-tippeljük meg (4.). A gyakoriság és a határ alapértékkel megy, mert utólag
-állítható és nem a görbe alakját szabja. A chip kap személyre szabott színt
-(`PersonAccent`, a soron következő szabad szín automatikusan), a görbe **nem**:
-az a limithez viszonyított skála (5.14), és két színrendszer egy képernyőn
-olvashatatlan.
-
-**Fázisok.** 1. `FeatureFlags` váz ✔ — 2. `Person`, migráció, store-szűrés ✔ —
-3. váltó, hozzáadó lap, a kézi lezárás kivezetése ✔ — 4. Előzmény és Profil a
-kontextusra kötve ✔ — 5. tesztek: **hátravan**. A 2. fázis pont az a kód, ami a
-11.8 és a 12. szerint **adatot tud veszíteni**, és ma nincs rá app-szintű teszt
-target.
-
-**Személyek listája és vendég eltávolítása (`PeopleView`,
-`SessionStore.removePerson`).** A Profil fülön egy „Személyek" sor (a
-létszámmal) nyit egy listát: a tulajdonos az élén, „Tulajdonos" felirattal,
-alatta a vendégek, pipa a kiválasztotton; koppintásra vált, a lista alján
-„Új személy". Egy vendég **balra húzással vagy Edit módban** távolítható el; a
-tulajdonos során nincs húzás (`deleteDisabled`), mert egy gesztus, ami mindig
-nemet mond, rosszabb, mint a hiánya. Nem a váltó menüjében: az mindhárom tabon
-ott van, egy hüvelykujjnyira a nevektől, és egy destruktív menüpont ott egy
-véletlen koppintásra visz el egy évet. Egy első változat egy sor volt a
-Profil alján a kiválasztott vendégre — elvetve, mert több vendégnél nem
-skálázik, és a lista a Kontaktok-féle törlés ismert távolsága. A húzás nem
-töröl, hanem kérdez: a megerősítő ablak (`removalPlan(for:)`) kimondja, mi
-megy vele — alkalmak, italok, havi összegek —, mert „Eltávolítod: Nada?"
-önmagában olyan következményt kérne elfogadni, amit senki nem mutatott meg,
-és visszavonás nincs. A törlés **cascade**: alkalmak és italok a relációk
-szabályán, a havi összegek kézzel (azok id-vel hivatkoznak, nem relációval).
-Ha az aktív személyt töröljük, a tulajdonos veszi át, ugyanoda érkezünk, mint
-minden más módon elvesztett aktív személynél. A háttérben futó backfill
-`isDeleted`-et ellenőriz írás előtt, mert egy adag közben törölt alkalomra
-írni nem no-op, hanem crash. Külön archiválás nem készült: aki a vendég
-adatait meg akarja tartani, előtte exportál — a mentés minden személyt visz.
-Tesztek: `ActivePersonTests` (3 új).
-
-**Nyitva maradt:** a vendég határa app-alapértelmezés legyen-e vagy a tiéd
-másolva (az első a javaslat — a határ személyes döntés, nem háztartási
-beállítás).
-
-### 11.6 Józan napok streak
-
-Duolingo-szerű: jól látható helyen, a headerben a józan napok száma, és
-gratuláció bizonyos mérföldköveknél.
-
-Vigyázni kell vele: a streak **motiváló**, de egy megszakadt sorozat tud
-büntetésként hatni, ami pont ellentétes azzal, amit ez az app akar. Legyen benne
-visszafogott — ne piros, ne „elvesztetted", inkább „eddig eljutottál". A számítás
-alapja a `DrinkingDay` (5.6) és az `AppSettings.trackingStartedAt`: nem
-rögzített nap nem józan nap, csak ismeretlen (5.7).
-
-### 11.7 Tudományos magyarázó képernyő
-
-A kíváncsiaknak: mi alapján és hogyan számol az app — Widmark, Watson,
-Michaelis–Menten, a felszívódási állandók. A tartalom nagyrészt már megvan
-ebben a dokumentumban (4. fejezet) és a kód kommentjeiben.
-
-Ez is **App Store-érv**: az átláthatóság azt támasztja alá, hogy ez egy
-tudatosságnövelő eszköz, nem egy „megvezethetsz-e" kalkulátor.
-
-### 11.8 Tesztlefedettség a fő számolásra
-
-Zoltán kérése, és a lista legfontosabb pontja: a **Widmark/farmakokinetikai
-számolás ne tudjon észrevétlenül elromlani**. Ami ma van, az jó alap — 56 teszt,
-konkrét számokkal a Python referenciából —, de nem teljes:
-
-- **Jellemzőalapú (property-based) tesztek** a konkrét értékek mellé:
-  a görbe sosem negatív, a tömeg megmarad, több ital monoton magasabb csúcsot ad,
-  a sáv alsó vége sosem megy a felső fölé. Ezeket véletlen bemenetek százain
-  kell futtatni, nem három fixture-ön.
-- **Regressziós lakat a modellre.** Egy tesztfájl, ami a jelenlegi motor
-  kimenetét rögzíti több profilra és italsorozatra. Ha bármelyik szám mozdul,
-  a teszt elhasal — és akkor vagy szándékos volt (`BACEngine.version` bumpolása),
-  vagy elrontottunk valamit. Ez az a védelem, ami ma hiányzik.
-- **App-szintű teszt target** a `SessionPolicy`, a `DrinkingDay` és a migráció
-  köré. Ez a kód tud **adatot veszíteni**, és ma egyáltalán nincs tesztelve.
-- **Határesetek:** nulla hosszú ital, negatív időtartam, éjfélen átnyúló alkalom,
-  a bétahatárokra szorított sáv, üres profil.
-
-A `Reference/run_tests.sh` óta ez nem csak elvárás: minden kör végén lefuttatható
-(6.).
-
-## 12. Technikai hátralék
-
-Nem termékfunkciók, hanem amit rendbe kell tenni:
-
-- **iCloud capability bekapcsolása Xcode-ban — fizetős Apple Developer Program
-  tagságra vár, lásd a 11.4 teendőlistáját.** A kód készen áll, a
-  `BuildCapabilities.cloudSync` konstans kapcsolja. Az export / import ettől
-  függetlenül **megvan** (11.4), tesztek nélkül.
-- **App-szintű teszt target — a tesztek már megvannak, a target nincs.** A
-  `DrinkSmartTests/` mappában ott a 18 teszt (`PersonMigrationTests`,
-  `SessionRoutingTests`, `ActivePersonTests`, `TestSupport`), de **egyik sem
-  fut**, mert nincs mibe fordulniuk. Xcode-ban: File → New → Target → Unit
-  Testing Bundle, neve `DrinkSmartTests`, host application a `DrinkSmart`. A
-  file-system synchronized group (objectVersion 77) utána magától felveszi a
-  meglévő fájlokat. Amíg ez nincs meg, a teszt csak dokumentáció.
-  A kód, amit védenek, az, ami **adatot tud veszíteni** — nem crashel és nem
-  logol, csak rossz emberhez tesz egy italt vagy elérhetetlenné tesz egy
-  alkalmat. A `SessionPolicy` és a `DrinkingDay` ugyanide tartozik.
-- Az `AddDrinkSheet` élő előrejelzése minden lépésköznél `projectBand`-et hív
-  (egy hosszú estén 12 ms release, 167 ms debug; 6 szimuláció). Itt a
-  késleltetés nem járható út, mert pont az élő előreszimuláció a termék tézise
-  (2., 5.10) — ezt a motor gyorsításával kell megoldani. A belső ciklus RK4-lépésenként ~7 tömböt allokál (`dGut`, három
-  `zip().map`), plusz lépésenként egy `pending.filter` és egy
-  `indices.contains`; előre foglalt scratch bufferekkel nagyrészt kiirtható.
-  A kimenetnek bitre azonosnak kell maradnia — `BACEngine.version` nem bumpolandó
-- **A widget második köre: a store az App Group konténerbe (5.15).** Ez
-  nyitja meg a két dolgot, amit a prototípus nem tud: a **feloldás nélküli
-  felvitelt** (interaktív `Button(intent:)` a zárolt képernyőn, az intent a
-  widget extension folyamatában fut és maga ír a store-ba — ahogy a Home app
-  kapcsolói) és a **BAC-görbét a widgeten** (a `BACKit` Foundation-only, az
-  extension is tudja futtatni a `simulateBand`-et, Swift Charts megy
-  WidgetKitben; a görbe determinisztikus, tehát a timeline 5 percenként előre
-  kiszámolható, és az app minden `save()`-nél újratölteti). Ára a **meglévő
-  adatbázis egyszeri átköltöztetése** első induláskor (sqlite + wal + shm az
-  App Group konténerébe) — ugyanaz a biztonsági lépés jár elé, mint a
-  11.4-ben: Download Container. Két további feltétel: a store adatvédelmi
-  szintje maradjon az alapértelmezett „első feloldásig zárt", különben zárolt
-  telefonon olvashatatlan; és a visszavonást újra kell gondolni, mert a Live
-  sáv ott nincs (a widget mutathat pár másodpercig „Felvéve · Visszavonás"
-  állapotot). Becslés: App Group + migráció fél nap kód plusz tesztelés valós
-  adattal — az a kockázat, nem a kód —, az intent átrakása pár óra, a görbe
-  egy–két nap rá. A zárolt képernyőn a görbének kevés értelme (monokróm,
-  apró), oda a szám és a „még emelkedik" jelzés való; a görbe a közepes Home
-  Screen méreté.
-- Az intent három `IntentDialog` szövege és a widget feliratai **nincsenek a
-  nyelvi modulokban**: a `make_catalog.py` a `Text(...)` mintát keresi, ezeket
-  nem látja, tehát nem is jelzi. Az `AppShortcut` kifejezések külön
-  `AppShortcuts.xcstrings`-be lokalizálhatók, de Siri a 24 EU-nyelvből
-  csak néhányat beszél.
-- HealthKit: testadatok beolvasása, BAC és kalória visszaírása
-- Helyi értesítések: közeledsz a határhoz / mikorra leszel tiszta
-- watchOS-kiegészítő a gyors felvitelhez — a `LogDrinkIntent` már megvan hozzá, az App Shortcut órán is fut, saját felület nélkül
-- Ital áthelyezése másik napra szerkesztéssel (most az eredeti alkalomban marad)
-- A hero kijelző **tartományos** elrendezésének élő ellenőrzése: 48pt-on egy
-  tartomány kétszer olyan széles, a `minimumScaleFactor` 0,5-re megy le
-- Az angol locale 12 órás AM/PM időformátuma szélesebb címkéket ad a charton;
-  a `strideHours` már ritkít, de élőben ellenőrizni kell
-- **A rövid címkék helyét az angol és a magyar szabta meg, de most 24 nyelv
-  fér beléjük.** A generálás után kilógónak látszik a litván „Išplėstiniai
-  nustatymai" (`Advanced`) és „Atšaukti veiksmą" (`Undo`), a holland „Ongedaan
-  maken" (`Undo`), valamint a román „Eliminare completă" (`Clears`) — ez
-  utóbbi egy szűk stat-sorban ül. Kettő közül kell választani: vagy rövidebb
-  fordítás kell, vagy a sornak kell engednie. Amíg egy nyelv `needs_review`,
-  a fordítás szabadon rövidíthető; ha a sor a szűk keresztmetszet, az minden
-  nyelvre kihat, tehát a felület a rendes megoldás. Élőben kell végignézni,
-  és nem csak ezt a négyet — a generálás csak azt méri, hány karakter, nem
-  azt, hova fér
-
-## 13. Megjegyzés a hangnemhez
+## 12. Megjegyzés a hangnemhez
 
 Zoltán iOS fejlesztő, a technikai mélységet bírja és igényli. A termékdöntéseket
 érvekkel vitatja — ha valami rossz UX vagy rossz modellezés, mondjuk ki, és
