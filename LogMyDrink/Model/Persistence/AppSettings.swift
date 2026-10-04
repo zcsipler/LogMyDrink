@@ -64,8 +64,7 @@ final class AppSettings {
         return activePersonID
     }
 
-    /// `defaults` is injectable for the same reason `LegacyProfileSettings`
-    /// takes one: a test must be able to run against a throwaway suite, and
+    /// `defaults` is injectable so a test can run against a throwaway suite:
     /// one test leaking its active person into the next is exactly the kind of
     /// flake that gets a whole suite disabled.
     private let defaults: UserDefaults
@@ -77,10 +76,6 @@ final class AppSettings {
     }
 
     // MARK: Storage
-    //
-    // A new key. The old one (`LegacyProfileSettings.storageKey`) still holds
-    // the profile that `PersonMigration` reads, and writing over it with a
-    // slimmer shape would destroy the only copy that predates the database.
 
     private struct Snapshot: Codable {
         var unit: BACUnit
@@ -105,21 +100,13 @@ final class AppSettings {
     }
 
     private func load() {
-        if let data = defaults.data(forKey: Self.storageKey),
-           let snapshot = try? JSONDecoder().decode(Snapshot.self, from: data) {
-            unit = snapshot.unit
-            amountUnit = snapshot.amountUnit ?? .grams
-            activePersonID = snapshot.activePersonID
-            activePersonChosenAt = snapshot.activePersonChosenAt
+        guard let data = defaults.data(forKey: Self.storageKey),
+              let snapshot = try? JSONDecoder().decode(Snapshot.self, from: data) else {
             return
         }
-
-        // First launch after the split: the unit is the one setting here that
-        // the user had already chosen, so it is carried over rather than reset.
-        if let legacy = LegacyProfileSettings.stored(in: defaults) {
-            unit = legacy.unit
-        } else if let blob = LegacySessionSnapshot.stored(in: defaults) {
-            unit = blob.unit
-        }
+        unit = snapshot.unit
+        amountUnit = snapshot.amountUnit ?? .grams
+        activePersonID = snapshot.activePersonID
+        activePersonChosenAt = snapshot.activePersonChosenAt
     }
 }

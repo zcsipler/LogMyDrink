@@ -52,7 +52,6 @@ final class SessionStore {
     init(context: ModelContext, settings: AppSettings) {
         self.context = context
         self.settings = settings
-        LegacySessionImport.run(in: context)
 
         // Before anything reads a session: until this has run, sessions exist
         // that belong to nobody, and every query below filters on a person.

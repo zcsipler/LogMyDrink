@@ -24,15 +24,6 @@ sem indítható.
   EU-védjegy a 9. és 42. osztályra, ha az app élesedik (TMview és USPTO
   2026. október 4-én: nincs egyező jelölés; rokon: francia „DrinkLOG",
   INPI 4840485, 9/42, hőmérséklet-naplózó eszközök).
-- **A legacy import kivezetése.** A `LegacySessionImport` és a
-  `LegacyProfileSettings` a SwiftData előtti UserDefaults-blobból
-  importál. A bundle ID váltása (`dev.zcsipler.logmydrink`) új sandboxot ad,
-  tehát ilyen blob egyetlen készüléken sem lesz többé — a két fájl halott
-  kód, a kulcsaik (`logmydrink.settings.v1`, `.session.v2`,
-  `.legacyImport.completed.v1`) sosem kapnak értéket. Kivenni, és a
-  `PersonMigration` tulajdonos-létrehozását üres beállításokból indítani;
-  külön körben, mert a `PersonMigration` adatot tud veszíteni, és a diffet
-  magában kell átnézni.
 - **Demo vs. in-app purchase az első feltöltésnél.** Két út: (a) egyszerre
   megy fel az ingyenes Live és a fizetős Előzmény, StoreKittel; (b) először
   csak az alap grafikon, a fizetős funkciók később, marketing mellé.

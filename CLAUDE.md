@@ -119,8 +119,6 @@ LogMyDrink/
 │   │       ├── MonthlyTotal.swift        @Model, havi összeg a rögzítés előtti hónapokra
 │   │       ├── SessionPolicy.swift       mikor ér véget egy alkalom
 │   │       ├── AppSettings.swift         ami a KÉSZÜLÉKÉ: mértékegység, aktív személy
-│   │       ├── LegacyProfileSettings.swift a régi profil-beállítások olvasója
-│   │       ├── LegacySessionImport.swift egyszeri import a régi blobból
 │   │       ├── DataArchive.swift / ArchiveExport / ArchiveImport  JSON mentés és visszatöltés
 │   │       └── SessionStore+Preview.swift in-memory store a previewekhez
 │   ├── Support/
@@ -983,13 +981,19 @@ karbantartani.
 
 **Séma.** A `Person` viszi, ami személyenkénti: testadatok, gyakoriság, saját
 határ, `trackingStartedAt`. Az `AppSettings` a mértékegységekre és az aktív
-személy azonosítójára fogy le; a régi kulcsot nem töröljük (az az egyetlen
-másolat, amiből a migráció újrajátszható). A `DrinkingSession` kap `person`
+személy azonosítójára fogy le. A `DrinkingSession` kap `person`
 kapcsolatot **és** denormalizált `personID`-t: a `@Query` skalárra tud szűrni,
 opcionális kapcsolaton át nem megbízhatóan. A kettő egy helyen íródik.
 
-**Migráció.** `PersonMigration.run(in:)`: tulajdonos-`Person` a régi
-beállításokból (`LegacyProfileSettings`), majd minden gazdátlan alkalom hozzá.
+**Migráció.** `PersonMigration.run(in:)`: ha nincs tulajdonos, létrehoz egyet
+referencia-testalkattal (`makeOwner`, 80 kg / 180 cm / 35 év férfi, a
+gyakoriság a béta alapértékéhez igazítva), majd minden gazdátlan alkalmat
+hozzá rendel. **Volt két régebbi forrás is** — a SwiftData előtti app
+`UserDefaults`-beállításai és este-blobja (`LegacyProfileSettings`,
+`LegacySessionImport`), amikből a tulajdonos a felhasználó tényleges
+testadatait örökölte —, de a névváltással a bundle ID is változott (1.), és
+az új sandboxban ezek a kulcsok sehol nem létezhetnek. A két olvasó 2026
+októberében kikerült; a kivett kód a `c780601` commitban még megvan.
 **Nincs „már lefutott" marker**, szándékosan: a védelem maga az adat —
 tulajdonos csak akkor jön létre, ha nincs, a söprés csak gazdátlan alkalmakhoz
 nyúl. Egy marker rossz lenne, mert CloudKit mellett egy régebbi készülékről
@@ -1213,7 +1217,7 @@ TestFlight (100 eszköz, Beta App Review nélkül).
 ## 10. Állapot
 
 **Kész:** a motor sávval és ivási tempóval; SwiftData-perzisztencia alkalmanként
-befagyasztott profillal; migráció a régi UserDefaults-blobból; három tab; Live
+befagyasztott profillal; három tab; Live
 a mai napra, három nap-állapottal és a „‹ Tegnap" gombbal; ital felvitele,
 szerkesztése és törlése, visszamenőlegesen is; egyszámos kijelzés opcionális
 tartománnyal; a lebontási sebesség magyarázata és tippek; gyors felvitel a
@@ -1239,9 +1243,9 @@ előtt.
 
 Az app **fordul és fut** szimulátoron, iPhone-ra telepítve van kipróbálva.
 
-Utolsó commit: `94d1684` — „Add Siri and a Lock Screen widget for the quick
-add, and stop Xcode syncing the string catalog". A frissebb állást a `git log`
-mondja meg; ez a sor csak akkor frissül, ha a fejezetet is átírjuk.
+Utolsó commit: `c780601` — „Rename the app to LogMyDrink, with a new bundle
+ID, App Group and URL scheme". A frissebb állást a `git log` mondja meg; ez a
+sor csak akkor frissül, ha a fejezetet is átírjuk.
 
 ## 11. Teendők
 

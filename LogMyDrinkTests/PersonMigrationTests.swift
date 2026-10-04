@@ -39,46 +39,18 @@ struct PersonMigrationTests {
         #expect(try context.fetch(FetchDescriptor<Person>()).count == 1)
     }
 
-    @Test("The owner inherits the profile the app had before")
-    func takesLegacyProfile() {
-        let legacy = LegacyProfileSettings(
-            profile: BodyProfile(sex: .female, age: 29, heightCm: 166, weightKg: 58),
-            limit: 0.4,
-            unit: .percent,
-            frequency: .rarely,
-            trackingStartedAt: Date(timeIntervalSince1970: 1_700_000_000)
-        )
+    @Test("A fresh owner starts tracking now, with a frequency that matches its beta")
+    func freshOwnerIsConsistent() {
+        let before = Date.now
+        let owner = PersonMigration.makeOwner()
 
-        let owner = PersonMigration.makeOwner(from: legacy, or: nil)
-
-        // Silently defaulting here would leave every curve wrong, with nothing
-        // on screen to say so.
-        #expect(owner.profile.sex == .female)
-        #expect(owner.profile.weightKg == 58)
-        #expect(owner.profile.heightCm == 166)
-        #expect(owner.profile.age == 29)
-        #expect(owner.limit == 0.4)
-        #expect(owner.frequency == .rarely)
-        #expect(owner.trackingStartedAt == Date(timeIntervalSince1970: 1_700_000_000))
-    }
-
-    @Test("With no settings at all it falls back to the older session blob")
-    func fallsBackToLegacyBlob() {
-        let firstDrink = Date(timeIntervalSince1970: 1_600_000_000)
-        let blob = LegacySessionSnapshot(
-            profile: BodyProfile(sex: .male, age: 44, heightCm: 191, weightKg: 96),
-            limit: 0.6,
-            unit: .perMille,
-            frequency: .daily,
-            drinks: [Drink(consumedAt: firstDrink, volumeMl: 500, abvPercent: 5)]
-        )
-
-        let owner = PersonMigration.makeOwner(from: nil, or: blob)
-
-        #expect(owner.profile.weightKg == 96)
-        #expect(owner.frequency == .daily)
-        // Records demonstrably start no later than the oldest drink we hold.
-        #expect(owner.trackingStartedAt == firstDrink)
+        // The body is a placeholder the user will replace; what must hold is
+        // that nothing about the new person contradicts itself — a frequency
+        // that implies a different beta than the profile carries would make
+        // the Profile screen disagree with the curve on first launch.
+        #expect(owner.isOwner)
+        #expect(owner.frequency == .closest(toBeta: owner.profile.beta))
+        #expect(owner.trackingStartedAt >= before)
     }
 
     // MARK: Adopting sessions

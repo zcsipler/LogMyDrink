@@ -59,42 +59,18 @@ enum PersonMigration {
             return oldest
         }
 
-        let owner = makeOwner(from: LegacyProfileSettings.stored(), or: LegacySessionSnapshot.stored())
+        let owner = makeOwner()
         context.insert(owner)
         return owner
     }
 
-    /// The owner is built from whatever the pre-`Person` app knew: first the
-    /// settings it wrote, then the even older session blob, then defaults.
-    /// Losing a carefully set weight to a silent default would be a bad first
-    /// impression of a migration.
-    ///
-    /// Takes its sources as arguments rather than reading `UserDefaults`, so
-    /// the fallback chain is testable without a global side effect.
-    static func makeOwner(
-        from legacy: LegacyProfileSettings?,
-        or blob: LegacySessionSnapshot?
-    ) -> Person {
-        if let legacy {
-            return Person(
-                isOwner: true,
-                profile: legacy.profile,
-                frequency: legacy.frequency,
-                limit: legacy.limit,
-                trackingStartedAt: legacy.trackingStartedAt ?? .now
-            )
-        }
-
-        if let blob {
-            return Person(
-                isOwner: true,
-                profile: blob.profile,
-                frequency: blob.frequency,
-                limit: blob.limit,
-                trackingStartedAt: blob.drinks.map(\.consumedAt).min() ?? .now
-            )
-        }
-
+    /// A first owner with a reference-size body. There used to be two earlier
+    /// sources to draw on — the settings and the session blob the pre-SwiftData
+    /// app kept in `UserDefaults` — but the bundle ID changed with the rename,
+    /// and a new bundle ID is a new sandbox: no install can hold those keys any
+    /// more. The profile is the user's to set; this only has to be a sane place
+    /// to start from.
+    static func makeOwner() -> Person {
         let profile = BodyProfile(sex: .male, age: 35, heightCm: 180, weightKg: 80)
         return Person(
             isOwner: true,
@@ -115,8 +91,8 @@ enum PersonMigration {
 
     // MARK: Sessions without a person
 
-    /// Everything recorded before this version, plus anything the legacy
-    /// import just created, plus late arrivals from another device.
+    /// Everything recorded before this version, plus late arrivals from
+    /// another device.
     private static func adoptOrphanedSessions(by owner: Person, in context: ModelContext) {
         let unassigned = Person.unassignedID
         let descriptor = FetchDescriptor<DrinkingSession>(
