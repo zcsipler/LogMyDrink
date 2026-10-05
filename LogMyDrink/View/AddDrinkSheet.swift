@@ -299,16 +299,21 @@ struct AddDrinkSheet: View {
                         Button {
                             withAnimation(.easeOut(duration: 0.15)) { stomach = state }
                         } label: {
-                            VStack(spacing: 6) {
+                            // Icon beside the label, not above it: three
+                            // chips of one line each fit the row in every
+                            // language, and the section drops to the height
+                            // of the steppers around it.
+                            HStack(spacing: 6) {
                                 Image(systemName: state.icon)
-                                    .font(.system(size: 15))
+                                    .font(.system(size: 13))
                                 Text(state.shortLabel)
-                                    .font(.system(size: 11, weight: .medium, design: .rounded))
+                                    .font(.system(size: 12, weight: .medium, design: .rounded))
                                     .lineLimit(1)
-                                    .minimumScaleFactor(0.8)
+                                    .minimumScaleFactor(0.75)
                             }
                             .frame(maxWidth: .infinity)
-                            .padding(.vertical, 12)
+                            .padding(.vertical, 11)
+                            .padding(.horizontal, 4)
                             .background(
                                 stomach == state ? Theme.calm.opacity(0.18) : Theme.surface,
                                 in: RoundedRectangle(cornerRadius: 12)

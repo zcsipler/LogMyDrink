@@ -107,10 +107,9 @@ az egész app hitelességét.
 
 ### Ital felvitele
 
-- **Az `AddDrinkSheet` férjen rá egy képernyőre görgetés nélkül** (a
-  2. kör; az idő és a tempó, a mennyiség és az alkoholfok már két sorban,
-  léptetővel, 5.20). Ami maradt: hat típusikon egy sorban; a gyomor egy sor,
-  a magyarázat a fejlécben.
+- **Típusrács egy sorban** — volt terv (hat ikon egy sorban), de a
+  léptetők (5.20) után a lap görgetés nélkül ráfér a képernyőre, ezért
+  Zoltán elengedte; ha egyszer saját italtípus jön, akkor kerül elő újra.
 - **A chart x tengelye a live és a lezárt alkalmon másképp van keretezve**
   (`BACChartModel.visibleRange`): a lezárt arra, ami történt (első ital
   −15 perc → kiürülés +20 perc), a live legalább hat órára kihúzva, „hogy
