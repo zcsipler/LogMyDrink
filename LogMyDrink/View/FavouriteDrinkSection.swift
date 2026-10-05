@@ -18,11 +18,17 @@ struct FavouriteDrinkSection: View {
             Button {
                 isEditing = true
             } label: {
-                if let favourite = store.favourite {
-                    chosen(favourite)
-                } else {
-                    unset
+                Group {
+                    if let favourite = store.favourite {
+                        chosen(favourite)
+                    } else {
+                        unset
+                    }
                 }
+                // A plain button hits only what it draws; the Spacer between
+                // the text and the chevron is nothing, so a tap there fell
+                // through. The row is the control, not its glyphs.
+                .contentShape(Rectangle())
             }
             .buttonStyle(.plain)
         } header: {
