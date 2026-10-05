@@ -74,14 +74,12 @@ az egész app hitelességét.
   összevetni. Eltérésnél el kell dönteni, melyik a referencia — a 6.
   fejezet validációja irodalmi értékekhez mér, nem az IntelliDrinkhez.
   Érdemes agentekkel párhuzamosan több profilon futtatni.
-- **Unit tesztek rendberakása**: app-szintű teszt target
-  (`LogMyDrinkTests`, Xcode-ban: File → New → Target → Unit Testing
-  Bundle), hogy a már megírt 18 perzisztencia-teszt és a 37 History-teszt
-  tényleg fusson; property-based tesztek a motorra; regressziós lakat a
-  motor kimenetére; határesetek (nulla hosszú ital, negatív időtartam,
-  éjfélen átnyúló alkalom, a bétahatárokra szorított sáv, üres profil).
-  Az export/import (5.17) és a több személy 2. fázisa (5.18) adatot tud
-  veszíteni, és ma tesztelten nincs lefedve.
+- **Tesztlefedés bővítése** (a `LogMyDrinkTests` target 2026. október óta
+  megvan és zöld, 10.): property-based tesztek a motorra; regressziós
+  lakat a motor kimenetére; határesetek (nulla hosszú ital, negatív
+  időtartam, éjfélen átnyúló alkalom, a bétahatárokra szorított sáv, üres
+  profil). Az export/import (5.17) és a több személy 2. fázisa (5.18)
+  adatot tud veszíteni, és ma tesztelten nincs lefedve.
 
 ### Live képernyő
 

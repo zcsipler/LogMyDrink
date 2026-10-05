@@ -150,7 +150,7 @@ LogMyDrink/
 │       ├── DataTransferSection.swift export / import a Profil alján
 │       └── ProfileView.swift        testalkat, gyakoriság, saját határ, haladó
 ├── LogMyDrinkWidget/           widget extension target — egy gomb, ami az appot nyitja (5.15)
-├── LogMyDrinkTests/            app-szintű tesztek — fájlok megvannak, target még nincs (10.)
+├── LogMyDrinkTests/            app-szintű tesztek, unit testing bundle a LogMyDrink hosttal (10.)
 ├── TODO.md                     teendők, nyitott döntések, hátralék
 └── Reference/                  Python referencia, katalógusgenerátor, run_tests.sh
 ```
@@ -866,10 +866,11 @@ javítva: a pattogás (a chart akkor is görgethető volt, amikor kifért →
 a tengelycím (a `chartYAxisLabel` görgethető chartban a tartalommal együtt
 mozgott → sima nézet a plot fölé). Az újragondolás a `TODO.md`-ben.
 
-**Tesztek:** `HistoryAggregateTests` (16), `HistoryWindowTests` (14),
-`HistoryTrendTests` (6), `MonthlyTotalTests` (18, ebből 2 SwiftData-s, csak
-Xcode-ban). Foundation-only, ezért egy ideiglenes csomagban Linuxon is
-lefutottak, Swift 6 módban, figyelmeztetés nélkül.
+**Tesztek:** `HistoryAggregateTests` (17), `HistoryWindowTests` (14),
+`HistoryTrendTests` (6), `MonthlyTotalTests` (20, ebből 2 SwiftData-s). A
+`LogMyDrinkTests` targetben futnak (10.); Foundation-only, ezért egy
+ideiglenes csomagban Linuxon is lefutottak, Swift 6 módban,
+figyelmeztetés nélkül.
 
 ### 5.17 Adatmentés: JSON export / import megvan, CloudKit kész, de kikapcsolva
 
@@ -971,7 +972,7 @@ Fájlok: `DataArchive`, `ArchiveExport`, `ArchiveImport`,
   ez rossz csere. A verzió a fájlon belül van.
 
 Tesztek nincsenek rá — ez a kód nem crashel, csak rossz emberhez tesz egy
-alkalmat; app teszt target nélkül nem is futtatható (10., `TODO.md`).
+alkalmat. A `LogMyDrinkTests` target már megvan (10.), a lefedés a `TODO.md`-ben.
 
 ### 5.18 Több személy — megépítve, flag mögött
 
@@ -1047,7 +1048,7 @@ tulajdonos veszi át. Archiválás nincs: aki a vendég adatait meg akarja
 tartani, előtte exportál.
 
 **Tesztek:** `PersonMigrationTests`, `SessionRoutingTests`,
-`ActivePersonTests` a `LogMyDrinkTests/` alatt — megírva, de nem futnak (10.).
+`ActivePersonTests` a `LogMyDrinkTests/` alatt — a teszt targetben futnak (10.).
 
 ### 5.19 Háromféle kapcsoló: Feature, Experiment, BuildCapability
 
@@ -1344,13 +1345,21 @@ kísérletként; JSON export / import (5.17); több személy a `multiPerson` fla
 mögött, személylistával és vendég-eltávolítással (5.18); 24 nyelvű lokalizáció
 (magyar és angol átnézve).
 
-**Tesztek:** 56 a `BACKit`-ben (Linuxon is futtatható, 6.); 54 a History
-modellre (Foundation-only, ideiglenes csomagban Linuxon futtatva, 5.16);
-18 a perzisztenciára a `LogMyDrinkTests/` alatt, ami **nem fut**, mert nincs
-app teszt target — Xcode-ban: File → New → Target → Unit Testing Bundle,
-`LogMyDrinkTests`, host a `LogMyDrink`; a file-system synchronized group utána
-magától felveszi a fájlokat. Amíg ez nincs meg, ezek a tesztek csak
-dokumentáció, és a kód, amit védenek, az, ami adatot tud veszíteni.
+**Tesztek:** 56 a `BACKit`-ben (Linuxon is futtatható, 6.); 79 a
+`LogMyDrinkTests` targetben (2026. október óta, ⌘U-val, mind zöld): 57 a
+History modellre (5.16) és 22 a perzisztenciára — migráció, útválasztás,
+aktív személy (5.18). A target unit testing bundle, host a `LogMyDrink`,
+file-system synchronized group a `LogMyDrinkTests/` mappára, tehát egy új
+tesztfájl projektfájl-módosítás nélkül bekerül. A beállításai az apphoz
+igazítva: Swift 6, iOS 17.0, bundle ID `dev.zcsipler.logmydrink.tests`. A
+BACKit-et **nem** linkeli külön — a host app linkeli, az `import BACKit` a
+build-könyvtárból oldódik fel; duplán linkelve a statikus könyvtár
+típusmetaadatai kétszer lennének a folyamatban. A tesztek memóriában
+futnak (`TestSupport.makeContext`, `cloudKitDatabase: .none`, eldobható
+defaults-suite), a fejlesztő saját adatához nem nyúlnak. Csak Xcode-ban
+futtathatók, mert SwiftData kell hozzájuk (12.). A `LogMyDrink` scheme
+**megosztott** (`xcshareddata/xcschemes`), és a Test actionje viszi a
+targetet — egy friss klónon a ⌘U beállítás nélkül megy.
 
 A CloudKit szinkron kódja megvan, de **ki van kapcsolva**
 (`BuildCapabilities.cloudSync = false`), fizetős fejlesztői tagságra vár

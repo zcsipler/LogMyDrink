@@ -21,6 +21,13 @@
 			remoteGlobalIDString = 78539A53306AB20A0049E4BF;
 			remoteInfo = LogMyDrinkWidgetExtension;
 		};
+		78ACBAF43074419C00D2B7EA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AA0000000000000000000001 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AA0000000000000000000004;
+			remoteInfo = LogMyDrink;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -42,6 +49,7 @@
 		78539A54306AB20A0049E4BF /* LogMyDrinkWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = LogMyDrinkWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		78539A56306AB20A0049E4BF /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		78539A58306AB20B0049E4BF /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		78ACBAF03074419C00D2B7EA /* LogMyDrinkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LogMyDrinkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA0000000000000000000005 /* LogMyDrink.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LogMyDrink.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -64,6 +72,11 @@
 			path = LogMyDrinkWidget;
 			sourceTree = "<group>";
 		};
+		78ACBAF13074419C00D2B7EA /* LogMyDrinkTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = LogMyDrinkTests;
+			sourceTree = "<group>";
+		};
 		AA0000000000000000000009 /* LogMyDrink */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = LogMyDrink;
@@ -78,6 +91,13 @@
 			files = (
 				78539A59306AB20B0049E4BF /* SwiftUI.framework in Frameworks */,
 				78539A57306AB20B0049E4BF /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		78ACBAED3074419C00D2B7EA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -107,6 +127,7 @@
 				78403207307294E000AB46F6 /* LogMyDrinkWidgetExtension.entitlements */,
 				AA0000000000000000000009 /* LogMyDrink */,
 				78539A5A306AB20B0049E4BF /* LogMyDrinkWidget */,
+				78ACBAF13074419C00D2B7EA /* LogMyDrinkTests */,
 				78539A55306AB20A0049E4BF /* Frameworks */,
 				AA0000000000000000000003 /* Products */,
 			);
@@ -117,6 +138,7 @@
 			children = (
 				AA0000000000000000000005 /* LogMyDrink.app */,
 				78539A54306AB20A0049E4BF /* LogMyDrinkWidgetExtension.appex */,
+				78ACBAF03074419C00D2B7EA /* LogMyDrinkTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -145,6 +167,29 @@
 			productName = LogMyDrinkWidgetExtension;
 			productReference = 78539A54306AB20A0049E4BF /* LogMyDrinkWidgetExtension.appex */;
 			productType = "com.apple.product-type.app-extension";
+		};
+		78ACBAEF3074419C00D2B7EA /* LogMyDrinkTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 78ACBAF83074419C00D2B7EA /* Build configuration list for PBXNativeTarget "LogMyDrinkTests" */;
+			buildPhases = (
+				78ACBAEC3074419C00D2B7EA /* Sources */,
+				78ACBAED3074419C00D2B7EA /* Frameworks */,
+				78ACBAEE3074419C00D2B7EA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				78ACBAF53074419C00D2B7EA /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				78ACBAF13074419C00D2B7EA /* LogMyDrinkTests */,
+			);
+			name = LogMyDrinkTests;
+			packageProductDependencies = (
+			);
+			productName = LogMyDrinkTests;
+			productReference = 78ACBAF03074419C00D2B7EA /* LogMyDrinkTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		AA0000000000000000000004 /* LogMyDrink */ = {
 			isa = PBXNativeTarget;
@@ -183,6 +228,10 @@
 				TargetAttributes = {
 					78539A53306AB20A0049E4BF = {
 						CreatedOnToolsVersion = 26.0.1;
+					};
+					78ACBAEF3074419C00D2B7EA = {
+						CreatedOnToolsVersion = 26.0.1;
+						TestTargetID = AA0000000000000000000004;
 					};
 					AA0000000000000000000004 = {
 						CreatedOnToolsVersion = 16.0;
@@ -231,12 +280,20 @@
 			targets = (
 				AA0000000000000000000004 /* LogMyDrink */,
 				78539A53306AB20A0049E4BF /* LogMyDrinkWidgetExtension */,
+				78ACBAEF3074419C00D2B7EA /* LogMyDrinkTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		78539A52306AB20A0049E4BF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		78ACBAEE3074419C00D2B7EA /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -260,6 +317,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		78ACBAEC3074419C00D2B7EA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		AA0000000000000000000006 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -274,6 +338,11 @@
 			isa = PBXTargetDependency;
 			target = 78539A53306AB20A0049E4BF /* LogMyDrinkWidgetExtension */;
 			targetProxy = 78539A66306AB20E0049E4BF /* PBXContainerItemProxy */;
+		};
+		78ACBAF53074419C00D2B7EA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AA0000000000000000000004 /* LogMyDrink */;
+			targetProxy = 78ACBAF43074419C00D2B7EA /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -385,6 +454,96 @@
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		78ACBAF63074419C00D2B7EA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 3C3MJRX6PP;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.zcsipler.logmydrink.tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LogMyDrink.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/LogMyDrink";
+			};
+			name = Debug;
+		};
+		78ACBAF73074419C00D2B7EA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 3C3MJRX6PP;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.zcsipler.logmydrink.tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LogMyDrink.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/LogMyDrink";
 			};
 			name = Release;
 		};
@@ -531,6 +690,15 @@
 			buildConfigurations = (
 				78539A6A306AB20E0049E4BF /* Debug */,
 				78539A6B306AB20E0049E4BF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		78ACBAF83074419C00D2B7EA /* Build configuration list for PBXNativeTarget "LogMyDrinkTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				78ACBAF63074419C00D2B7EA /* Debug */,
+				78ACBAF73074419C00D2B7EA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
