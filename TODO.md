@@ -102,8 +102,6 @@ az egész app hitelességét.
 - **A gyors-felvitel gomb a Profil szövege szerint a vetített csúcsot
   mutatja** („with the projected peak on the button") — a képen csak „Beer
   500 ml" áll. Vagy a szöveg ígér többet, vagy a toast idejére tűnik el.
-- **Az italikonra koppintás a chart alatt nyissa a szerkesztést**, ugyanúgy,
-  mint a sor koppintása. Ma a badge csak jelöl.
 
 ### Ital felvitele
 
@@ -228,6 +226,23 @@ az egész app hitelességét.
 - **Szondás kalibráció**: két mért érték + két időpont → béta,
   felajánlva beállításra; a mérések tárolva.
 - **Helyi értesítések**: közeledsz a határhoz / mikorra leszel tiszta.
+- **Az italikonra koppintás a chart alatt nyissa a szerkesztést**, ugyanúgy,
+  mint a sor koppintása. Ma a badge csak jelöl. Nice to have; két kör
+  elment rá 2026 októberében, és egyik sem volt az igazi, ezért félretéve.
+  Amit tudunk: (1) a badge annotation nézetre tett `onTapGesture` sosem
+  fut le — a `chartXSelection` gesztusa a teljes plotot fedi, és a Chart
+  elnyeli az érintést az annotation előtt; (2) a `chartXSelection`
+  lecserélése saját `chartOverlay`-re, amin a kezdőpont dönt (nulla vonal
+  fölött scrub, alatta badge-találat `proxy.position(forX:forY:)`-ból, 32 ×
+  24 pt dobozzal) technikailag működik, de a 18 pt-os badge ujjal nehezen
+  eltalálható, és két szomszédos badge-nél a második gyakorlatilag nem.
+  Ha újra elővesszük, a találati méret a kérdés, nem a gesztus: vagy
+  nagyobb badge (a sor 24 pt-ja ehhez kevés), vagy a koppintás nem a
+  badge-et, hanem a sort / az oszlopot (`pourWindows`) találja — az ital
+  oszlopa a teljes chart-magasságon fut, szélessége a tempó, és ritkán
+  fed át a szomszédjával. A sávot a Charton kívülre vinni (az x-tengely
+  alá) nem éri meg: elveszne a közös időtengely és az átfutó oszlop
+  (CLAUDE.md 5.12), a plot bal széle pedig a tengelyfeliratoktól függ.
 
 ---
 
