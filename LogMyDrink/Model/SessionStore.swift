@@ -712,8 +712,14 @@ final class SessionStore {
         context.delete(record)
         holder.invalidateSummary()
 
-        // An empty session is not history worth keeping.
-        if holder.sortedDrinks.isEmpty {
+        // An empty session is not history worth keeping. Decided by id, not
+        // by reading `holder.drinks` back: SwiftData takes a deleted record
+        // out of the inverse relationship only at `save()`, so right here the
+        // array still holds it, the test was never true, and a backdated
+        // drink added and then deleted left a drinkless closed session behind
+        // — which the day page then drew as an empty chart.
+        let remaining = (holder.drinks ?? []).filter { $0.id != record.id && !$0.isDeleted }
+        if remaining.isEmpty {
             context.delete(holder)
             if holder === session { session = nil }
         }

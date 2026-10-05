@@ -141,7 +141,14 @@ struct HistoryView: View {
                   session.startedAt >= roughStart, session.startedAt < roughEnd
             else { return false }
             let filedUnder = DrinkingDay.containing(session.startedAt).calendarDate
-            return filedUnder >= window.interval.start && filedUnder < window.interval.end
+            guard filedUnder >= window.interval.start && filedUnder < window.interval.end else { return false }
+            // A closed session with no drinks is not an evening, it is a
+            // leftover: `remove` used to leave one behind (see there), and
+            // a sync can deliver a session before its drinks. Neither is
+            // something to draw — the day page would show an empty chart
+            // instead of its empty state. Not swept from the store, because
+            // the second case is real data that is still arriving.
+            return !(session.drinks ?? []).isEmpty
         }
         return Snapshot(
             days: days,
