@@ -9,22 +9,32 @@ public enum StomachState: String, Codable, Sendable, CaseIterable {
 
     /// First-order absorption rate constant, per hour.
     /// Absorption half-life is roughly 7 minutes on an empty stomach and
-    /// around 35 minutes on a full one.
+    /// around 21 minutes on a full one.
+    ///
+    /// The full-stomach value was 1.2 (35 min half-life) until model version 2.
+    /// Together with the old bioavailability spread it took 43 % off the peak
+    /// of three beers, which no reference app came close to; see the
+    /// IntelliDrink comparison in CLAUDE.md.
     public var absorptionRatePerHour: Double {
         switch self {
         case .empty: 6.0
         case .light: 2.5
-        case .full:  1.2
+        case .full:  2.0
         }
     }
 
     /// Bioavailability. Slower gastric emptying means a longer residence time
     /// in the stomach, and therefore greater first-pass loss to gastric ADH.
+    ///
+    /// This is why a full stomach clears *earlier* in this model: less ethanol
+    /// reaches the blood, and elimination is zero-order. The literature agrees
+    /// (Jones & Jönsson 1994: lower AUC and faster elimination after a meal),
+    /// even though the folk intuition runs the other way.
     public var bioavailability: Double {
         switch self {
         case .empty: 0.95
-        case .light: 0.88
-        case .full:  0.80
+        case .light: 0.90
+        case .full:  0.85
         }
     }
 
@@ -49,7 +59,7 @@ public struct Drink: Identifiable, Codable, Hashable, Sendable {
     /// Across a whole evening this barely moves the peak — around 2 % for four
     /// beers, because first-order absorption already spreads each dose over
     /// 20–30 minutes. What it moves is the **rate of rise**: those same four
-    /// beers go from 0.81 to 0.36 g/L/h at the steepest point when each is
+    /// beers go from 0.83 to 0.37 g/L/h at the steepest point when each is
     /// sipped over half an hour. Memory impairment tracks the rate rather than
     /// the peak, so that is what this exists for.
     public var drinkingMinutes: Double

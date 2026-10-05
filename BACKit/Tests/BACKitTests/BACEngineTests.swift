@@ -97,12 +97,12 @@ struct BACEngineTests {
         let curve = engine.simulate(profile: reference, drinks: drinks)
 
         let peak = try #require(curve.peak)
-        #expect(abs(peak.bac - 0.565699) < 1e-4)
-        #expect(abs(peak.date.timeIntervalSince(t0) / 60 - 138) < 1.5)
+        #expect(abs(peak.bac - 0.601601) < 1e-4)
+        #expect(abs(peak.date.timeIntervalSince(t0) / 60 - 136) < 1.5)
 
-        #expect(abs(curve.value(at: minute(60)) - 0.243508) < 1e-4)
-        #expect(abs(curve.value(at: minute(180)) - 0.515553) < 1e-4)
-        #expect(abs(curve.value(at: minute(240)) - 0.385413) < 1e-4)
+        #expect(abs(curve.value(at: minute(60)) - 0.301218) < 1e-4)
+        #expect(abs(curve.value(at: minute(180)) - 0.543657) < 1e-4)
+        #expect(abs(curve.value(at: minute(240)) - 0.408397) < 1e-4)
     }
 
     @Test("Stomach contents monotonically lower and delay the peak")

@@ -81,12 +81,12 @@ struct BACBandTests {
         let band = engine.simulateBand(profile: reference, drinks: series)
         let peak = try #require(band.peakRange)
 
-        #expect(abs(peak.lowerBound - 0.510401) < 1e-4)
-        #expect(abs(peak.upperBound - 0.624922) < 1e-4)
+        #expect(abs(peak.lowerBound - 0.543722) < 1e-4)
+        #expect(abs(peak.upperBound - 0.662719) < 1e-4)
 
         // The centre curve's peak lies inside the band.
         let center = try #require(band.peak)
-        #expect(abs(center.bac - 0.565699) < 1e-4)
+        #expect(abs(center.bac - 0.601601) < 1e-4)
         #expect(peak.contains(center.bac))
     }
 
@@ -95,10 +95,10 @@ struct BACBandTests {
         let band = engine.simulateBand(profile: reference, drinks: series)
 
         let expected: [(Double, Double, Double)] = [
-            (60, 0.223210, 0.264858),
-            (120, 0.498367, 0.595574),
-            (180, 0.439481, 0.593382),
-            (240, 0.282494, 0.491116),
+            (60, 0.277599, 0.325409),
+            (120, 0.534750, 0.638677),
+            (180, 0.463865, 0.624669),
+            (240, 0.301571, 0.517402),
         ]
         for (m, low, high) in expected {
             let range = band.range(at: minute(m))
@@ -155,7 +155,7 @@ struct BACBandTests {
 @Suite("Three-state limit crossing")
 struct LimitOutcomeTests {
 
-    /// The reference peak band is 0.510–0.625 g/L.
+    /// The reference peak band is 0.544–0.663 g/L.
     @Test("below / uncertain / above depending on where the limit sits")
     func outcomeBoundaries() {
         let candidate = Drink(consumedAt: minute(90), volumeMl: 200, abvPercent: 12, stomach: .light)

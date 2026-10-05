@@ -17,19 +17,20 @@ Sex = Literal["male", "female"]
 StomachState = Literal["empty", "light", "full"]
 
 # First-order absorption rate constants (1/h) by stomach contents.
-# Absorption half-life is ~7 minutes on an empty stomach, ~35 minutes on a full one.
+# Absorption half-life is ~7 minutes on an empty stomach, ~21 minutes on a full one.
+# (Model v2: full was 1.2/h; see CLAUDE.md on the IntelliDrink comparison.)
 KA_BY_STOMACH = {
     "empty": 6.0,
     "light": 2.5,
-    "full": 1.2,
+    "full": 2.0,
 }
 
 # Bioavailability after gastric (ADH) first-pass metabolism. Slower absorption
 # means a longer gastric residence time, and therefore greater first-pass loss.
 BIOAVAILABILITY_BY_STOMACH = {
     "empty": 0.95,
-    "light": 0.88,
-    "full": 0.80,
+    "light": 0.90,
+    "full": 0.85,
 }
 
 # Michaelis constant. At this value elimination is effectively zero-order above

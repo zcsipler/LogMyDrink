@@ -217,8 +217,8 @@ tartományban van.
 |---|---|---|
 | etanol sűrűsége | 0,789 g/mL | |
 | vérvíz-frakció | 0,85 L/L | 80,6 % w/w × 1,055 g/mL |
-| ka — éhgyomor / közepes / teli | 6,0 / 2,5 / 1,2 h⁻¹ | felszívódási t½ ~7 perc vs ~35 perc |
-| biohasznosulás | 0,95 / 0,88 / 0,80 | gyomri ADH first-pass |
+| ka — éhgyomor / közepes / teli | 6,0 / 2,5 / 2,0 h⁻¹ | felszívódási t½ ~7 perc vs ~21 perc — lásd 5.21 |
+| biohasznosulás | 0,95 / 0,90 / 0,85 | gyomri ADH first-pass — lásd 5.21 |
 | Michaelis Km | 0,02 g/L | |
 | béta alapérték | 0,15 g/L/h | irodalmi tartomány 0,10–0,25 |
 | béta bizonytalanság alapból | 0 | egy szám, nem tartomány — lásd 5.8 |
@@ -1173,6 +1173,40 @@ jó alkalomba kerül (vagy újat nyit a `profileApplicable` profiljával), az
 üressé vált régi alkalom törlődik, és a célnapon az `add` pour cutja (5.13)
 is lefut — ott az áthelyezett ital ugyanúgy információ az előzőről.
 
+### 5.21 A gyomorállapot szórása szűkítve — a teli gyomor hamarabb ürül, és ez így helyes
+
+**Előzmény (2026. október).** Zoltán az IntelliDrink régi screenshotjaival
+mérte vissza a motort: 3 × 500 ml 5 %-os sör, félóránként, 30 perces
+kortyolással, mindhárom gyomorállapottal. Két eltérés volt. (1) Nálunk a
+gyomorállapot sokkal többet mozgatott a csúcson (üres → teli: −43 %,
+az IntelliDrinknél −11 %). (2) Nálunk a teli gyomor *korábbi* kiürülést
+adott (≈25 perc állapotonként), az IntelliDrinknél későbbit (≈8 perc).
+
+**A (2) nem hiba, és nem fordítjuk meg.** Az IntelliDrink a gyomorállapottal
+csak a felszívódást lassítja; nálunk a `StomachState` a biohasznosulást is
+csökkenti (gyomri ADH first-pass), és mivel az elimináció nulladrendű, a
+kevesebb bejutott alkohol egy az egyben korábbi nullát jelent — ez a hatás
+nagyobb, mint amennyit a lassabb felszívódás kitol. A forenzikus irodalom
+ugyanezt méri: Jones és Jönsson (1994, J Forensic Sci 39:1084) étkezés után
+alacsonyabb csúcsot, ~39 %-kal kisebb görbe alatti területet és gyorsabb
+eliminációt talált. A közkeletű „teli gyomor → tovább tart" intuíció a
+görbe alakjáról szól, nem a nulláról.
+
+**Az (1)-ben viszont igaza volt.** A régi 0,95 / 0,88 / 0,80 biohasznosulás
+és a teli gyomor 1,2 h⁻¹ ka-ja (35 perces felezési idő) egyszerre mozgott a
+szélső érték felé, és a kettő összeszorzódott; ráadásul a 30 perces
+kortyolás már önmagában simít. Ezért **motorverzió 2**: biohasznosulás
+0,95 / 0,90 / 0,85, teli gyomor ka 2,0 h⁻¹ (~21 perc). A 3 sörös
+forgatókönyvön (80 kg referenciaprofil) a csúcs üres → teli 0,80 → 0,59 g/L
+(−26 %), a kiürülés 7,8 → 7,2 óra; a sorrend és az irány marad. A Widmark-
+alap önmagában nem ismer gyomorállapotot — az IntelliDrinknél és nálunk is
+a felszívódási réteg utólagos, modellezett kiegészítése; ami tőlünk jön,
+az a két paraméter és a hozzájuk tartozó irodalmi horgony.
+
+A verziólépés miatt minden mentett alkalom összesítője újraszámolódik
+(`DrinkingSession.cachedEngineVersion`). A tesztek rögzített számai és a
+`Reference/fixtures.py` kimenete ehhez igazodnak.
+
 ## 6. Validáció
 
 A `Reference/bac_model.py` a numerikus referencia. A Swift tesztek konkrét
@@ -1184,7 +1218,7 @@ teszt rossz.**
 | 0,6 g/kg éhgyomorra | csúcs 0,75 g/L @ 36 perc (irodalom: 0,7–0,9, 30–60 perc) |
 | leszálló ág meredeksége | 0,145 g/L/h a beállított 0,150-nel szemben |
 | tömegmegmaradás | 0,094 % eltérés bevitt vs. eliminált |
-| gyomortartalom | monoton alacsonyabb és későbbi csúcs |
+| gyomortartalom | monoton alacsonyabb és későbbi csúcs; 3 sör / 90 perc: teli gyomor −26 % csúcs, ~35 perccel korábbi kiürülés (5.21) |
 | Widmark-faktor | 0,667 / 0,589 — a klasszikus tartományban |
 
 **Futásidő** (sandbox, ARM Linux — készüléken vélhetően 2–4× gyorsabb, de a
@@ -1203,8 +1237,8 @@ húsz frame. Az utolsó oszlop a képernyőn is látott este: hét sör 14:55-t�
 (1074 mintapont).
 
 Referencia-fixture a sávhoz (80 kg férfi, 3 ital, béta 0,12/0,15/0,18):
-csúcssáv `0,510401 … 0,624922`, középcsúcs `0,565699` @ 138 perc,
-kiürülés `355 … 522` perc.
+csúcssáv `0,543722 … 0,662719`, középcsúcs `0,601601` @ 136 perc,
+kiürülés `361 … 534` perc (motorverzió 2, 5.21).
 
 ```bash
 ./Reference/run_tests.sh                 # 56 teszt, BACKit

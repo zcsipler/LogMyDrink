@@ -34,18 +34,18 @@ struct DrinkingPaceTests {
         let b = try #require(engine.simulate(profile: reference, drinks: [explicit]).peak)
 
         #expect(a.bac == b.bac)
-        #expect(abs(a.bac - 0.181692) < 1e-4)
+        #expect(abs(a.bac - 0.187511) < 1e-4)
     }
 
     @Test("A single beer matches the reference at every pace")
     func singleDrinkMatchesReference() throws {
         let expected: [(Double, Double, Double)] = [
             //  minutes,  peak,      peak time
-            (0,   0.181692, 43),
-            (15,  0.175823, 51),
-            (30,  0.166818, 60),
-            (60,  0.142792, 80),
-            (120, 0.087770, 127),
+            (0,   0.187511, 44),
+            (15,  0.181534, 51),
+            (30,  0.172418, 60),
+            (60,  0.148072, 80),
+            (120, 0.091994, 127),
         ]
 
         for (minutes, peakBAC, peakMinute) in expected {
@@ -101,11 +101,11 @@ struct DrinkingPaceTests {
         let thrown = evening(pace: 0)
         let sipped = evening(pace: 30)
 
-        // Python reference: 0.725 vs 0.710 g/L, and 0.81 vs 0.36 g/L/h.
-        #expect(abs(thrown.peak - 0.725) < 0.01)
-        #expect(abs(sipped.peak - 0.710) < 0.01)
-        #expect(abs(thrown.rise - 0.81) < 0.03)
-        #expect(abs(sipped.rise - 0.36) < 0.03)
+        // Python reference: 0.752 vs 0.737 g/L, and 0.83 vs 0.37 g/L/h.
+        #expect(abs(thrown.peak - 0.752) < 0.01)
+        #expect(abs(sipped.peak - 0.737) < 0.01)
+        #expect(abs(thrown.rise - 0.83) < 0.03)
+        #expect(abs(sipped.rise - 0.37) < 0.03)
 
         let peakDrop = (thrown.peak - sipped.peak) / thrown.peak
         let riseDrop = (thrown.rise - sipped.rise) / thrown.rise
@@ -120,10 +120,10 @@ struct DrinkingPaceTests {
         let curve = engine.simulate(profile: reference, drinks: [beer(at: 0, over: 180)])
         let peak = try #require(curve.peak)
 
-        // Python reference: 0.044 g/L at 181 minutes — essentially the moment
+        // Python reference: 0.047 g/L at 181 minutes — essentially the moment
         // the last sip lands, because elimination keeps pace with such a slow
         // intake.
-        #expect(abs(peak.bac - 0.044) < 0.005)
+        #expect(abs(peak.bac - 0.047) < 0.005)
         #expect(abs(peak.date.timeIntervalSince(t0) / 60 - 181) < 3)
         #expect(curve.samples.last!.date.timeIntervalSince(t0) / 60 > 180)
     }

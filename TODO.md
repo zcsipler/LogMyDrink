@@ -69,11 +69,10 @@ az egész app hitelességét.
 
 ### A modell hitelessége
 
-- **Widmark-formula visszamérése.** Az IntelliDrink régi screenshotjaiból
-  ugyanazokra a bemenetekre kiszámolni a mostani motor értékét, és
-  összevetni. Eltérésnél el kell dönteni, melyik a referencia — a 6.
-  fejezet validációja irodalmi értékekhez mér, nem az IntelliDrinkhez.
-  Érdemes agentekkel párhuzamosan több profilon futtatni.
+- **Widmark-formula visszamérése — első kör kész (5.21).** A 3 sörös
+  gyomorállapot-összevetés megvolt, a paraméterek szűkültek, motorverzió 2.
+  Hátra van: más profilokon (nő, 60 kg; 100 kg férfi) és más italmixeken
+  (rövid + sör) ugyanez, agentekkel párhuzamosan.
 - **Tesztlefedés bővítése** (a `LogMyDrinkTests` target 2026. október óta
   megvan és zöld, 10.): property-based tesztek a motorra; regressziós
   lakat a motor kimenetére; határesetek (nulla hosszú ital, negatív
@@ -135,6 +134,20 @@ az egész app hitelességét.
   (nem verdikt, 2.), és a tudományos magyarázó képernyő (Widmark,
   Watson, Michaelis–Menten, felszívódási állandók; a tartalom a `CLAUDE.md`
   4. fejezetében már megvan). App Store-érv is (9.).
+- **A számítást bemutató, sok információt megosztó képernyő** — Zoltán
+  kérése (2026. október, külön szálon). Legyen benne, miért hoz a teli
+  gyomor alacsonyabb csúcsot *és* korábbi kiürülést (5.21): ez az, amit a
+  felhasználó magától fordítva vár, és ha nincs elmagyarázva, hibának
+  látja.
+- **A három gyomorállapot definíciója a választóban vagy a súgójában.**
+  A bemenet értéke ezen múlik, és sehol nincs leírva. Zoltán
+  megfogalmazása (2026. október): *üres* — reggel, evés előtt, vagy az
+  elmúlt kb. hat órában nem ettem (az ivás előtti étkezés elmaradt);
+  *közepes* — átlagos, nem kiemelkedő étkezés után; *teli* — zsíros
+  ételből annyit ettem, hogy az utolsó falatokat erőltetni kellett. Ez
+  pont a kísérleti irodalom két szélsőségét fedi le (éjszakai koplalás
+  vs. teljes étkezés), tehát a paraméterek erre az értelmezésre vannak
+  belőve (5.21).
 - **Widget és Siri felfedezhetősége** (5.15): a `WidgetCenter.
   getCurrentConfigurations` alapján elvethető kártya a három lépéssel, amíg
   a widget nincs kitéve; `SiriTipView` a kapszula alatt.

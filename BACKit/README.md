@@ -24,9 +24,9 @@ Minden koncentráció **g/L**, azaz ezrelék. `1,0 g/L = 0,1 g/dL = 0,10 % BAC`.
 |---|---|---|
 | Teljes testvíz | Watson (1980) antropometriai egyenletek | a forenzikus irodalom ma ezt részesíti előnyben az eloszlási térfogat közvetlen becslésével szemben |
 | Vérvíz-frakció | 0,85 L/L | 80,6 % w/w × 1,055 g/mL vérsűrűség |
-| ka (éhgyomor / könnyű / teli) | 6,0 / 2,5 / 1,2 h⁻¹ | felszívódási felezési idő ~7 perc éhgyomorra, ~35 perc teli gyomorra |
+| ka (éhgyomor / könnyű / teli) | 6,0 / 2,5 / 2,0 h⁻¹ | felszívódási felezési idő ~7 perc éhgyomorra, ~21 perc teli gyomorra |
 | β elimináció | 0,15 g/L/h alapérték | „mild to moderate drinker” átlag; egyéni tartomány 0,10–0,25 |
-| Biohasznosulás | 0,95 / 0,88 / 0,80 | gyomri ADH first-pass, lassabb ürülésnél nagyobb veszteség |
+| Biohasznosulás | 0,95 / 0,90 / 0,85 | gyomri ADH first-pass, lassabb ürülésnél nagyobb veszteség |
 
 A levezetett Widmark-faktor 80 kg / 180 cm / 35 éves férfira **0,667**, 62 kg / 167 cm nőre
 **0,589** — mindkettő a klasszikus 0,68 / 0,55 tartományban, ami jó sanity check a levezetésre.
@@ -38,7 +38,7 @@ A levezetett Widmark-faktor 80 kg / 180 cm / 35 éves férfira **0,667**, 62 kg 
 | 0,6 g/kg éhgyomorra | csúcs 0,75 g/L @ 36 perc (irodalom: 0,7–0,9 g/L, 30–60 perc) |
 | Leszálló ág meredeksége | 0,145 g/L/h a beállított 0,150-nel szemben |
 | Tömegmegmaradás | 0,094 % eltérés a bevitt és az eliminált mennyiség közt |
-| Gyomortartalom | monoton alacsonyabb és későbbi csúcs |
+| Gyomortartalom | monoton alacsonyabb és későbbi csúcs; 3 sör / 90 perc: teli gyomor −26 % csúcs, ~35 perccel korábbi kiürülés (v2; v1-ben −43 % / ~55 perc volt) |
 
 A `bac_model.py` a numerikus referencia-implementáció. A Swift unit tesztek konkrét
 számokat ellenőriznek belőle — ha eltérnek, az algoritmus csúszott el, nem a teszt rossz.

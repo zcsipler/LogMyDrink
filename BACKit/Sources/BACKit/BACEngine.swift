@@ -91,7 +91,7 @@ public struct BACEngine: Sendable {
     /// improvement invalidates them instead of silently leaving stale figures
     /// in the history. Do not bump it for refactors that keep the output
     /// identical — that would needlessly recompute every past session.
-    public static let version = 1
+    public static let version = 2
 
     /// Integration step in minutes.
     public var stepMinutes: Double
