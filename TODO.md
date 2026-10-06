@@ -21,13 +21,17 @@ sem indítható.
   hogy az app felkerül a store-ba, egy ismeretlen név domainjét senki nem
   viszi el, a védjegy pedig pénz; a store-név viszont ingyen van és első
   érkezés alapján megy.
-  - **App Store Connect rekord**, amint a fizetős tagság él (az Apple ID
-    ugyanaz legyen, mint az Xcode-ban a `2GYMHK5C56` Personal Team mögött;
-    egyéni tagság, a fejlesztő neve a saját polgári név lesz). Apps → `+`
-    → New App, név „LogMyDrink", bundle ID `dev.zcsipler.logmydrink`, SKU
-    `logmydrink-ios`. Build nem kell hozzá, a rekord foglal. **180 nap után
-    az Apple felszabadíthatja a fel nem töltött nevet** — ha az első
-    feltöltés csúszik, egy TestFlight-build megtartja.
+  - **App Store Connect rekord ✔ (2026. október 6.).** Egyéni Apple
+    Developer Program tagság a `csipi17@gmail.com` Apple ID-n (ugyanaz a
+    team, mint az Xcode-ban), az app-rekord „LogMyDrink" néven, bundle ID
+    `dev.zcsipler.logmydrink`, SKU `logmydrink-ios`. **A 180 napos óra
+    ettől a naptól fut:** ha 2027. április elejéig nincs feltöltött build,
+    az Apple felszabadíthatja a nevet — egy TestFlight-build megtartja.
+    Kitöltetlen még: Subtitle (30 karakter, ez mondja ki, hogy nem
+    tracker, hanem előrejelzés), kategória (javaslat: Health & Fitness,
+    másodlagos Lifestyle), Privacy Policy és Support URL.
+  - **A tagsággal kinyílt a CloudKit-kör** (CLAUDE.md 5.17 lista, 1–8).
+    Előtte Download Container; a lista 1. lépése nem opcionális.
   - **Google Play: nincs mit foglalni.** A Play-cím nem egyedi (több app is
     viselheti), csak a package name az, és az is csak feltöltéskor
     foglalódik. Androidon a nevet csak a védjegy védi — amikor lesz
