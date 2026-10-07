@@ -947,6 +947,27 @@ teamen ugyanez a sorrend:
 
 Ellenőrzés: keletkezett-e `.entitlements` fájl.
 
+**9. — és ez elment egy délutánra: a widget extension profilja.** A team
+váltása után a `LogMyDrinkWidgetExtension` **eltűnt a widgetgalériából**
+(kezdőképernyő és zárolt képernyő egyaránt, a kereső sem találta),
+miközben a szimulátorban ott volt, crash-log nem keletkezett, a projekt és a
+`codesign` is rendben volt. Az ok: az app target az iCloud miatt új profilt
+kapott, a widget targeté viszont **a Personal Team idejéből származó
+7 napos profil maradt** — az iOS egy fizetős teammel aláírt appban az
+ingyenes profillal aláírt kiterjesztést csendben nem regisztrálja. A
+nyom: `security cms -D -i …appex/embedded.mobileprovision | grep -A1
+ExpirationDate` — egy Xcode-kezelt fizetős profil egy évig él, a 7 nap az
+ingyenes tier jele. Két csapda, ami késleltette: az Xcode-kezelt profilok
+**nem látszanak** a developer.apple.com Profiles listáján, tehát ott nincs
+mit törölni; és az Xcode 16 óta a lokális cache **nem**
+`~/Library/MobileDevice/Provisioning Profiles/`, hanem
+`~/Library/Developer/Xcode/UserData/Provisioning Profiles/` — a régi helyen
+törölni semmit nem csinál. A javítás: az új mappából a `.mobileprovision`
+fájlok törlése, Clean Build Folder, ⌘R az **app** scheme-mel; az Xcode
+mindkét targetre újat generál. Tanulság: team-váltás után **minden**
+target profiljának lejáratát ellenőrizni, nem csak azét, amelyik
+capabilityt kapott.
+
 **Amibe egyszer belefutottunk:** a `makeContainer()` eredetileg
 `cloudKitDatabase: .automatic`-kal ment, és a `catch` ágban volt egy
 assertion. **Nem jelzett.** Az `.automatic` entitlement nélkül egyszerűen
