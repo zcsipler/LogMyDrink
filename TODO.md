@@ -30,8 +30,13 @@ sem indítható.
     Kitöltetlen még: Subtitle (30 karakter, ez mondja ki, hogy nem
     tracker, hanem előrejelzés), kategória (javaslat: Health & Fitness,
     másodlagos Lifestyle), Privacy Policy és Support URL.
-  - **A tagsággal kinyílt a CloudKit-kör** (CLAUDE.md 5.17 lista, 1–8).
-    Előtte Download Container; a lista 1. lépése nem opcionális.
+  - **CloudKit-szinkron bekapcsolva ✔ (2026. október 7.)**, készüléken
+    visszatesztelve törlés-újratelepítéssel (CLAUDE.md 5.17). Hátravan a
+    kétkészülékes élő próba (szimulátor ugyanazzal az Apple ID-val: push,
+    `observeRemoteChanges`), és a Production környezet: az első
+    TestFlight/App Store build előtt a Console-ban **Deploy Schema
+    Changes** Development → Production, különben a store-ból telepített
+    app üres konténert lát.
   - **Google Play: nincs mit foglalni.** A Play-cím nem egyedi (több app is
     viselheti), csak a package name az, és az is csak feltöltéskor
     foglalódik. Androidon a nevet csak a védjegy védi — amikor lesz

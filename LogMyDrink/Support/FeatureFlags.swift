@@ -16,16 +16,15 @@ enum BuildCapabilities {
 
     /// Whether to open the store with CloudKit mirroring.
     ///
-    /// **Off, and this is the only line to change.** Turning it on requires the
-    /// iCloud capability on the target, which requires a paid Apple Developer
-    /// Program membership — a Personal Team cannot add it, and Xcode does not
-    /// even list it. See 11.4 in CLAUDE.md for the full checklist.
-    ///
-    /// With this off the app opens a local store and behaves exactly as it did
-    /// before any of the sync work: nothing is gated, nothing is hidden, and no
-    /// code is dead — `LogMyDrinkApp.makeContainer` and the remote-change
-    /// observer in `SessionStore` are both written and waiting.
-    static let cloudSync = false
+    /// **On since October 2026**, when the paid Apple Developer Program
+    /// membership arrived and the target got its iCloud capability. This is
+    /// the only line to change: with it off the app opens a local store and
+    /// behaves exactly as it did before any of the sync work — nothing gated,
+    /// nothing hidden, `LogMyDrinkApp.makeContainer` and the remote-change
+    /// observer in `SessionStore` simply idle. Turning it on requires the
+    /// iCloud capability on the target (a Personal Team cannot add it, and
+    /// Xcode does not even list it). See 5.17 in CLAUDE.md for the checklist.
+    static let cloudSync = true
 }
 
 /// A feature that can be switched off.

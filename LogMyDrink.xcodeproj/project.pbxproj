@@ -61,6 +61,13 @@
 			);
 			target = 78539A53306AB20A0049E4BF /* LogMyDrinkWidgetExtension */;
 		};
+		78F8CE643076749E001585B8 /* Exceptions for "LogMyDrink" folder in "LogMyDrink" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = AA0000000000000000000004 /* LogMyDrink */;
+		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -79,6 +86,9 @@
 		};
 		AA0000000000000000000009 /* LogMyDrink */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				78F8CE643076749E001585B8 /* Exceptions for "LogMyDrink" folder in "LogMyDrink" target */,
+			);
 			path = LogMyDrink;
 			sourceTree = "<group>";
 		};
@@ -632,6 +642,7 @@
 				DEVELOPMENT_TEAM = 2GYMHK5C56;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = LogMyDrink/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UIPrefersShowingLanguageSettings = YES;
@@ -663,6 +674,7 @@
 				DEVELOPMENT_TEAM = 2GYMHK5C56;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = LogMyDrink/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UIPrefersShowingLanguageSettings = YES;

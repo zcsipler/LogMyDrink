@@ -679,8 +679,15 @@ a kedvenc SF Symbol nevét, és csak akkor tölteti újra a widgetet, ha az
 változott; a `SessionStore` a `favourite` setterében és a `refreshFromStore`
 végén hívja (indítás, előtérbe kerülés, személyváltás, import). App Group
 nélkül a `UserDefaults(suiteName:)` privát tárolót ad, nem hibát — a widget
-marad az általános pohárnál. A kör méreten plusz van, nem ital: ott az ikon
-nem olvasható, a plusz viszont megmondja, mit csinál a koppintás.
+marad az általános pohárnál. **A logban minden indításkor ott egy
+`Couldn't read values in CFPrefsPlistSource … group.dev.zcsipler.logmydrink
+… kCFPreferencesAnyUser … detaching from cfprefsd` sor — ez ártalmatlan
+iOS-zaj**, nem a hiányzó entitlement jele: a `cfprefsd` a csoport-konténerhez
+egy rendszerszintű forrást is próbál felvenni, amit nem kap meg, és ezt
+logolja; a felhasználói szintű forrás, amit használunk, rendben megy. A
+bizonyíték az, hogy a kedvenc váltásakor a widget ikonja is vált. Egy kör
+elment arra, hogy ezt hibának néztük. A kör méreten plusz van, nem ital: ott
+az ikon nem olvasható, a plusz viszont megmondja, mit csinál a koppintás.
 
 **Az iOS nem enged widgetet programból kitenni** — se Lock Screenre, se Home
 Screenre, se Control Centerbe —, és a widgetgalériába mutató link sincs. A
@@ -872,7 +879,7 @@ mozgott → sima nézet a plot fölé). Az újragondolás a `TODO.md`-ben.
 ideiglenes csomagban Linuxon is lefutottak, Swift 6 módban,
 figyelmeztetés nélkül.
 
-### 5.17 Adatmentés: JSON export / import megvan, CloudKit kész, de kikapcsolva
+### 5.17 Adatmentés: JSON export / import, és CloudKit-szinkron — bekapcsolva
 
 **A követelmény:** ha Zoltán készüléket vált ugyanazzal az Apple ID-val, az
 adatok ne vesszenek el. Ez nem opcionális kényelem.
@@ -894,14 +901,29 @@ az `NSPersistentStoreRemoteChange` értesítésre 500 ms-os debounce-szal —
 enélkül egy másik készüléken felvitt ital megjelenne a `@Query`-s listában, de
 a görbe nem rajzolódna újra, mert a `band`-et csak a `rebuild()` mozgatja.
 
-**A kapcsoló: `BuildCapabilities.cloudSync`**, alapból `false` (5.19). Ez az
-egyetlen sor, amit át kell írni.
+**A kapcsoló: `BuildCapabilities.cloudSync`** (5.19) — **`true` 2026.
+október 7. óta.** Az egyéni Apple Developer Program tagság október 6-án
+aktiválódott; az iCloud (CloudKit, konténer `iCloud.dev.zcsipler.logmydrink`)
+és a Background Modes → Remote notifications capability a targeten van, az
+`aps-environment` és az iCloud-kulcsok a `LogMyDrink.entitlements`-ben, az
+`UIBackgroundModes` egy valódi `LogMyDrink/Info.plist`-ben (az Xcode hozta
+létre, mert a generált plist ezt a kulcsot nem tudja; a generálás mellette
+megy tovább). **Készüléken bevált:** a meglévő lokális store helyben állt át
+tükrözésre, az első export a `CD_*` rekordtípusokat létrehozta a
+Development környezetben, és az app törlése-újratelepítése után az adat a
+felhőből visszajött. A Console-ban a rekordok a
+`com.apple.coredata.cloudkit.zone` zónában vannak, és a lekérdezéshez a
+`recordName`-re kézzel kell QUERYABLE indexet tenni (Schema → Indexes) — ez
+csak a böngészéshez kell, az appot nem érinti. A logban két ártalmatlan sor
+marad: a `cfprefsd` App Group-zaja (5.15) és debugger alól futva egy
+`BGSystemTaskSchedulerErrorDomain Code=3` az exportra — az export ettől
+előtérben lefut.
 
-**A blokkoló: fizetős tagság.** Az iCloud capability Personal Team alatt meg
-sem jelenik a `+ Capability` listában; kézzel írt entitlements sem kerüli meg,
-mert a provisioning profile nem tartalmazná. Kell az Apple Developer Program
-(Individual, 99 USD/év); Zoltán döntése, hogy ez vár az élesítésig. Amikor
-megvan, a sorrend:
+**Ami ehhez kellett (Personal Team alatt lehetetlen volt):** az iCloud
+capability Personal Team alatt meg sem jelenik a `+ Capability` listában;
+kézzel írt entitlements sem kerüli meg, mert a provisioning profile nem
+tartalmazná. A lépések, ahogy végigmentünk rajtuk — egy új készüléken vagy
+teamen ugyanez a sorrend:
 
 1. **Előbb mentés:** Xcode → Devices and Simulators → LogMyDrink → Download
    Container. A team váltása új aláírást ad, az iOS törli és újratelepíti az
@@ -1395,16 +1417,15 @@ futtathatók, mert SwiftData kell hozzájuk (12.). A `LogMyDrink` scheme
 **megosztott** (`xcshareddata/xcschemes`), és a Test actionje viszi a
 targetet — egy friss klónon a ⌘U beállítás nélkül megy.
 
-A CloudKit szinkron kódja megvan, de **ki van kapcsolva**
-(`BuildCapabilities.cloudSync = false`), fizetős fejlesztői tagságra vár
-(5.17). Kikapcsolva az app pontosan úgy viselkedik, mint a szinkron-munka
-előtt.
+**A CloudKit-szinkron be van kapcsolva** (`BuildCapabilities.cloudSync =
+true`, 2026. október 7.), fizetős fejlesztői tagsággal, és készüléken
+bevált: törlés-újratelepítés után az adat a felhőből visszajött (5.17). Az
+App Store Connectben a „LogMyDrink" app-rekord lefoglalva (`TODO.md`).
 
 Az app **fordul és fut** szimulátoron, iPhone-ra telepítve van kipróbálva.
 
-Utolsó commit: `c780601` — „Rename the app to LogMyDrink, with a new bundle
-ID, App Group and URL scheme". A frissebb állást a `git log` mondja meg; ez a
-sor csak akkor frissül, ha a fejezetet is átírjuk.
+Utolsó commit: lásd `git log`; ez a fejezet 2026. október 7-én, a
+CloudKit-bekapcsolás commitjával frissült.
 
 ## 11. Teendők
 
