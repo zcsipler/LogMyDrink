@@ -129,7 +129,8 @@ LogMyDrink/
 │   │   ├── ArchiveDocument.swift  FileDocument az exporthoz
 │   │   ├── LogDrinkIntent.swift  App Intent + Siri kifejezések a gyors felvitelre (5.15)
 │   │   ├── QuickAddLink.swift  a widget deep linkje és a QuickAddRequest
-│   │   └── WidgetBridge.swift  a kedvenc ikonja az App Group közös defaultsába
+│   │   ├── WidgetBridge.swift  a kedvenc ikonja és a snapshot az App Group közös defaultsába
+│   │   └── WidgetSnapshot.swift  a nyitott alkalom lapítva a widgetnek: ritkított sáv + összegek
 │   └── View/
 │       ├── MainTabView.swift        History / Live / Profil, Live középen; HistoryRequest a tabok közt
 │       ├── LiveView.swift           élő alkalom, csak a mai nap — három nap-állapot, „Tegnap" gomb
@@ -149,7 +150,7 @@ LogMyDrink/
 │       ├── PeopleView.swift         személyek listája, vendég eltávolítása
 │       ├── DataTransferSection.swift export / import a Profil alján
 │       └── ProfileView.swift        testalkat, gyakoriság, saját határ, haladó
-├── LogMyDrinkWidget/           widget extension target — egy gomb, ami az appot nyitja (5.15)
+├── LogMyDrinkWidget/           widget extension target — gomb, nyitott alkalomnál a szint és az irány (5.15)
 ├── LogMyDrinkTests/            app-szintű tesztek, unit testing bundle a LogMyDrink hosttal (10.)
 ├── TODO.md                     teendők, nyitott döntések, hátralék
 └── Reference/                  Python referencia, katalógusgenerátor, run_tests.sh
@@ -688,6 +689,69 @@ logolja; a felhasználói szintű forrás, amit használunk, rendben megy. A
 bizonyíték az, hogy a kedvenc váltásakor a widget ikonja is vált. Egy kör
 elment arra, hogy ezt hibának néztük. A kör méreten plusz van, nem ital: ott
 az ikon nem olvasható, a plusz viszont megmondja, mit csinál a koppintás.
+
+**A widget mutatja a szintet — de nem számol, hanem olvas (2026. október).**
+Nyitott alkalomnál a téglalap és a kicsi widget **gomb marad** — ikon, „Log
+My Drink" —, és alá kerül a mostani szint a görbe ágának nyilával (fel-jobbra
+/ le-jobbra), **emelkedőn** pedig egy harmadik sor: a csúcs, ahová a görbe
+tart, és mikor (`→ 0,71 ‰ · 21:40`). Leszálló ágon nincs harmadik sor. A kör
+méret minden állapotban csak a plusz. **Két kör kellett idáig.** Az első
+italszámot és grammot is kitett, és készüléken a plusz meg a név eltűnt
+mögüle — semmi nem mondta meg, mit csinál a koppintás. A második megtartotta
+a fejlécet, de lefelé is írt egy „→ 0,00 ‰ · 03:40" sort, és a kör méreten a
+plusz alá a számot: Zoltán mindkettőt visszavette — a kiürülés ideje és a
+szám a plusz alatt nem arra a kérdésre válaszol, amit a zárolt képernyőn
+felteszel; a csúcs igen, az viszont hiányzott. Ami maradt, az a következő
+döntésre hat: hol tartok, és ha még emelkedik, hová. Az italszám és a gramm
+könyvelés, az a Live-é (a snapshot viszi őket, egy közepes widgetnek lesz
+hol). **„Emelkedik" a görbe alakjából dől el, nem tárolt meredekségből, és a
+*következő* csúcshoz képest, nem az este legmagasabb pontjához:** a mostani
+ponttól előre lépkedve az első helyi maximum (`nextCrest`), ha legalább
+0,005 g/L-rel magasabb a mostaninál — azaz más számot írna ki. Két kör
+tanulsága. Az első a ritkított minták `rate` mezőjére épült, és a
+készüléken egyszer sem mondott emelkedést. A második a globális csúcshoz
+mért, és Zoltán esete buktatta meg: 0,7-es csúcs után 0,5-nél egy új ital
+0,6-ra visz vissza — ez emelkedés, és a 0,6 az, amit tudni akarsz, de a 0,7
+alatt van, tehát a widget nem mutatta. Ezért a ritkítás minden helyi
+maximumot megtart, nem csak a legnagyobbat, hogy a második csúcs se
+kerekítődjön a rácsra. **És a görbe előbb süllyedhet:** a felvitel utáni
+első percekben az elimináció még gyorsabb, mint a felszívódás (30 perces
+kortyolásnál ~5 percig), tehát a szint még esik, mielőtt fordul. Egy kör
+azt kérte, hogy a következő minta már magasabb legyen a mostaninál — az
+csak a süllyedést látta, és a frissen felvitt italra „lefelé"-t mondott,
+miközben egy törlés után a sor mindig helyesen tűnt el. A `nextCrest` ezért
+az első helyi maximumot keresi előre, a kezdeti esést átlépve. *(A Live `upcomingPeak`-je ugyanezt a globális
+csúcsot nézi — ugyanaz a hiba, `TODO.md`.)* **Az adat útja a `WidgetSnapshot`**: a `SessionStore`
+minden `rebuild()` végén — és a határ, a ‰/% és a gramm/egység setterében,
+mert azok nem mozgatják a görbét, csak az olvasatát — kiírja az App Group
+defaultsába a már kiszámolt sávot, öt percenként ritkítva (a középgörbe
+csúcsa mindig benne marad), a csúcs- és kiürülési tartománnyal és az
+összegekkel; a `WidgetBridge` csak akkor tölteti újra a timeline-t, ha a
+bájtok változtak (rendezett kulcsú JSON, különben a kulcssorrend döntene), és
+csak a saját widgetét (`reloadTimelines(ofKind:)`). **Az újratöltés kérés,
+nem parancs:** a WidgetKit napi keretből gazdálkodik, a kéréseket összevonja,
+és a zárolt képernyőt sokszor csak a következő megjelenítéskor rajzolja újra
+— egy frissen felvitt ital után a widget másodpercekig-percekig a régi görbét
+mutathatja, alacsony energia módban és debugger alatt tovább. Ez a rendszer
+viselkedése, nem a snapshoté: az adat az `add` pillanatában kint van. A
+widget ebből interpolál, farmakokinetikát nem futtat, így nem is térhet el a
+Live-tól. Azért sáv és nem egy szám: a widget-timeline jövőbeli bejegyzések
+listája, és a sáv *maga* a jövő — a `TimelineProvider` öt percenként egy
+bejegyzést gyárt a kiürülés késői végéig, a szám egész éjjel magától csökken,
+újratöltés és app-indítás nélkül; a végén visszaáll a sima gombra. Ez tette
+feleslegessé a store átköltöztetését a kijelzéshez: a költöztetés már csak az
+*írásért* (interaktív gomb) jönne (`TODO.md`). **A nyíl iránya a teljes
+jelentése:** az accessory widgetek monokrómok, a szín ott nem él, a
+kezdőképernyőn pedig a `Theme` szintskálája (5.14) színezi a számot a saját
+határhoz — zöld nyíl nincs, mert az verdikt lenne (2.). Minden szám
+`.privacySensitive()`: a zárolt képernyőt az olvassa, aki felveszi a
+telefont, feloldásig a számok elmosódnak. A widget targetnek nincs string
+catalogja, ezért az adatsorok **szó nélkül** állnak: számok, jelek, idők,
+amiket a rendszer nyelve formáz. A típus a widgetben saját másolatként fordul
+(`LogMyDrinkWidget/WidgetSnapshot.swift`), mint a bridge többi konstansa; a
+`version` mező bump-ol, ha a mezők változnak, és a régi extension sima gombot
+mutat, nem zagyvaságot. Készüléken kipróbálva. Teszt: `WidgetSnapshotTests`
+(5).
 
 **Az iOS nem enged widgetet programból kitenni** — se Lock Screenre, se Home
 Screenre, se Control Centerbe —, és a widgetgalériába mutató link sincs. A
@@ -1415,17 +1479,17 @@ befagyasztott profillal; három tab; Live
 a mai napra, három nap-állapottal és a „‹ Tegnap" gombbal; ital felvitele,
 szerkesztése és törlése, visszamenőlegesen is; egyszámos kijelzés opcionális
 tartománnyal; a lebontási sebesség magyarázata és tippek; gyors felvitel a
-Live kapszulájáról, Siritől és Lock Screen / Home Screen widgetről (5.15,
-prototípus); Előzmény Nap / Hét / Hónap / Év szegmenssel, két charttal,
+Live kapszulájáról, Siritől és Lock Screen / Home Screen widgetről, ami
+nyitott alkalomnál a szintet és az irányt is mutatja (5.15); Előzmény Nap / Hét / Hónap / Év szegmenssel, két charttal,
 mutató-kártyával, ugró lappal és lakattal (5.16), a Trend szegmens debug
 kísérletként; JSON export / import (5.17); több személy a `multiPerson` flag
 mögött, személylistával és vendég-eltávolítással (5.18); 24 nyelvű lokalizáció
 (magyar és angol átnézve).
 
-**Tesztek:** 56 a `BACKit`-ben (Linuxon is futtatható, 6.); 79 a
+**Tesztek:** 56 a `BACKit`-ben (Linuxon is futtatható, 6.); 84 a
 `LogMyDrinkTests` targetben (2026. október óta, ⌘U-val, mind zöld): 57 a
-History modellre (5.16) és 22 a perzisztenciára — migráció, útválasztás,
-aktív személy (5.18). A target unit testing bundle, host a `LogMyDrink`,
+History modellre (5.16), 22 a perzisztenciára — migráció, útválasztás,
+aktív személy (5.18) — és 5 a widget snapshotjára (5.15). A target unit testing bundle, host a `LogMyDrink`,
 file-system synchronized group a `LogMyDrinkTests/` mappára, tehát egy új
 tesztfájl projektfájl-módosítás nélkül bekerül. A beállításai az apphoz
 igazítva: Swift 6, iOS 17.0, bundle ID `dev.zcsipler.logmydrink.tests`. A
@@ -1445,8 +1509,8 @@ App Store Connectben a „LogMyDrink" app-rekord lefoglalva (`TODO.md`).
 
 Az app **fordul és fut** szimulátoron, iPhone-ra telepítve van kipróbálva.
 
-Utolsó commit: lásd `git log`; ez a fejezet 2026. október 7-én, a
-CloudKit-bekapcsolás commitjával frissült.
+Utolsó commit: lásd `git log`; ez a fejezet 2026. október 8-án, a
+widget-snapshot commitjával frissült.
 
 ## 11. Teendők
 

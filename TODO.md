@@ -232,14 +232,19 @@ az egész app hitelességét.
 
 ### Widget második köre (5.15)
 
-- **A store az App Group konténerbe**: ez nyitja a feloldás nélküli
-  felvitelt (interaktív `Button(intent:)`) és a görbét a widgeten. Ára a
-  meglévő adatbázis egyszeri átköltöztetése — előtte Download Container.
-- **Zárolt widgeten több infó**: felszálló / leszálló ág, csúcs, „még
-  emelkedik" — oda a szám való, nem a görbe.
-- **BAC-görbe a közepes Home Screen widgeten**: a `BACKit` Foundation-only,
-  az extension is futtathatja; a timeline 5 percenként előre számolható.
-- **watchOS** gyors felvitel — a `LogDrinkIntent` már megvan hozzá.
+- **A store az App Group konténerbe**: már csak az *írásért* — a feloldás
+  nélküli felvitelért (interaktív `Button(intent:)`). A kijelzést a
+  `WidgetSnapshot` megoldotta költöztetés nélkül (5.15). Ára a meglévő
+  adatbázis egyszeri átköltöztetése minden készüléken, CloudKit-tükrözés
+  mellett — előtte Download Container.
+- **BAC-görbe a közepes Home Screen widgeten**: a snapshotban a sáv már ott
+  van, a közepes méret egy `Chart` ebből; a `BACKit`-et sem kell linkelni.
+- **A Live `upcomingPeak`-je a globális csúcsot nézi**, nem a következőt:
+  egy leszálló ágon felvitt ital alacsonyabb második csúcsát a hero nem
+  mondja ki. A widget `nextCrest` szabálya (5.15) a `BACCurve`-re is
+  átvihető.
+- **Közepes Home Screen widget**: ott van hely az italszámnak és a grammnak
+  is, amit a kicsi és a zárolt méretről levettünk — a snapshot viszi őket.
 
 ### Egyéb
 

@@ -234,17 +234,27 @@ final class SessionStore {
             person.limit = newValue
             session?.limit = newValue
             save()
+            publishWidgetSnapshot()
         }
     }
 
+    // The two display units and the limit do not move the curve, so they do
+    // not `rebuild()` — but the widget formats and colours by them, and it
+    // only ever learns anything through the snapshot.
     var unit: BACUnit {
         get { settings.unit }
-        set { settings.unit = newValue }
+        set {
+            settings.unit = newValue
+            publishWidgetSnapshot()
+        }
     }
 
     var amountUnit: AmountUnit {
         get { settings.amountUnit }
-        set { settings.amountUnit = newValue }
+        set {
+            settings.amountUnit = newValue
+            publishWidgetSnapshot()
+        }
     }
 
     /// The quick-add favourite. Nil means there is none, and the quick-add
@@ -1094,11 +1104,23 @@ final class SessionStore {
         lastRouting = nil
 
         let drinks = session?.sortedDrinks ?? []
-        guard let session, !drinks.isEmpty else {
+        if let session, !drinks.isEmpty {
+            band = engine.simulateBand(profile: session.profile, drinks: drinks)
+        } else {
             band = .empty
-            return
         }
-        band = engine.simulateBand(profile: session.profile, drinks: drinks)
+        publishWidgetSnapshot()
+    }
+
+    /// The widget sees the world through this and nothing else (5.15).
+    private func publishWidgetSnapshot() {
+        WidgetBridge.publish(snapshot: WidgetSnapshot.make(
+            band: band,
+            drinks: drinks,
+            limit: person.limit,
+            unit: settings.unit,
+            amountUnit: settings.amountUnit
+        ))
     }
 
     private func summary(for session: DrinkingSession, band: BACBand) -> SessionSummary {
