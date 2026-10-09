@@ -6,7 +6,7 @@ import BACKit
 /// A chip rather than a tab or a sheet: switching has to be reachable in one
 /// tap in a bar, and it has to be *visible* everywhere, because the app is
 /// recording someone else's evening until it is changed back. It took the
-/// corner where "End session" used to sit — see `SessionPolicy` for why that
+/// corner where "End session" used to sit — see `Occasions` for why that
 /// button is gone rather than moved.
 struct PersonSwitcher: View {
     let store: SessionStore

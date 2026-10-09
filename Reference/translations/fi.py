@@ -86,7 +86,6 @@ TRANSLATIONS = {
     "Profile": "Profiili",
     "estimated level": "arvioitu taso",
     "estimated range": "arvioitu vaihteluväli",
-    "Elapsed": "Kulunut",
     "Drinks": "Juomat",
     "Units": "Yksiköt",
     "Expected to clear": "Nollautuu arviolta",
@@ -360,4 +359,7 @@ TRANSLATIONS = {
     'People': 'Henkilöt',
     'Owner': 'Omistaja',
     'Everyone this app records. Switch, add, or remove someone.': 'Kaikki, joita tämä sovellus kirjaa. Vaihda, lisää tai poista joku.',
+    # --- Day window (5.22) ---
+    "Night before": 'Edellisiltana',
+    "Carried over from the night before": 'Siirtynyt edellisillasta',
 }

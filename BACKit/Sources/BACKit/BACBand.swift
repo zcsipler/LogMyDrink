@@ -87,6 +87,40 @@ public struct BACBand: Sendable {
         return min(early, late)...max(early, late)
     }
 
+    /// The range of peaks at or after `date` — see `BACCurve.peak(after:)`.
+    public func peakRange(after date: Date) -> ClosedRange<Double>? {
+        guard let low = lower.peak(after: date)?.bac, let high = upper.peak(after: date)?.bac else { return nil }
+        return min(low, high)...max(low, high)
+    }
+
+    /// The band inside `window` — see `BACCurve.clipped(to:)`.
+    public func clipped(to window: ClosedRange<Date>) -> BACBand {
+        BACBand(
+            center: center.clipped(to: window),
+            upper: upper.clipped(to: window),
+            lower: lower.clipped(to: window)
+        )
+    }
+
+    /// Non-overlapping bands as one — see `BACCurve.joined(_:)`.
+    public static func joined(_ bands: [BACBand]) -> BACBand {
+        BACBand(
+            center: BACCurve.joined(bands.map(\.center)),
+            upper: BACCurve.joined(bands.map(\.upper)),
+            lower: BACCurve.joined(bands.map(\.lower))
+        )
+    }
+
+    /// Whether every branch has cleared by the end of its curve. `false` means
+    /// the slow branch hit the engine's cap while still above threshold — the
+    /// level is still running, and `soberRange` is `nil` for that reason, not
+    /// because there is nothing left.
+    public func hasCleared(threshold: Double = 0.01) -> Bool {
+        lower.hasCleared(threshold: threshold)
+            && center.hasCleared(threshold: threshold)
+            && upper.hasCleared(threshold: threshold)
+    }
+
     /// The latest time any branch of the band extends to.
     public var end: Date? {
         [center.samples.last?.date, upper.samples.last?.date, lower.samples.last?.date]

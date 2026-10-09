@@ -136,6 +136,56 @@ struct BACEngineTests {
         #expect(quick < slow)
     }
 
+    /// Zoltán's 8 October: ten half-litre beers from 17:23, the last at
+    /// 23:51, on a 64 kg / 168 cm / 41-year-old profile with beta 0.18. The
+    /// reference puts the peak at 2.48 g/L and the clearing at 22 h 16 min
+    /// after the first drink — a curve a 24-hour cap cut short, which left
+    /// it without a sober time and got it closed the next morning.
+    private static func heavyEvening() -> (BodyProfile, [Drink]) {
+        let profile = BodyProfile(sex: .male, age: 41, heightCm: 168, weightKg: 64, beta: 0.18)
+        let starts: [Double] = [0, 29.5, 85.3, 107.9, 151.7, 203.9, 244, 273.9, 357, 388]
+        let drinks = starts.enumerated().map { index, start in
+            Drink(
+                consumedAt: minute(start),
+                volumeMl: index == 0 ? 330 : 500,
+                abvPercent: 5,
+                stomach: .light,
+                drinkingMinutes: 30
+            )
+        }
+        return (profile, drinks)
+    }
+
+    @Test("A heavy evening is simulated until it clears, not for a fixed day")
+    func heavyEveningClears() {
+        let (profile, drinks) = Self.heavyEvening()
+        let curve = engine.simulate(profile: profile, drinks: drinks)
+
+        #expect(abs(curve.peak!.bac - 2.48) < 0.02)
+        let sober = curve.soberDate()
+        #expect(sober != nil)
+        // Well past the old 24-hour cap? No — 22 h, which is the point: it
+        // was inside the cap by under two hours, and one more beer was not.
+        #expect(sober!.timeIntervalSince(t0) > 21 * 3600)
+        #expect(curve.hasCleared())
+
+        let heavier = drinks + [Drink(consumedAt: minute(478), volumeMl: 500, abvPercent: 5,
+                                      stomach: .light, drinkingMinutes: 30)]
+        let longer = engine.simulate(profile: profile, drinks: heavier)
+        #expect(longer.soberDate()!.timeIntervalSince(t0) > 24 * 3600)
+        #expect(longer.hasCleared())
+    }
+
+    @Test("A curve that hits the cap says so instead of pretending to be clear")
+    func capIsReported() {
+        let (profile, drinks) = Self.heavyEvening()
+        let capped = BACEngine(horizonMinutes: 12 * 60).simulate(profile: profile, drinks: drinks)
+
+        #expect(capped.soberDate() == nil)
+        #expect(!capped.hasCleared())
+        #expect(capped.samples.last!.bac > 1)
+    }
+
     @Test("Mass conservation: what is eliminated equals what went in")
     func massConservation() {
         let drink = Drink(consumedAt: t0, volumeMl: 40, abvPercent: 40, stomach: .empty)
@@ -230,13 +280,13 @@ struct ProjectionTests {
         let template = Drink(consumedAt: minute(90), volumeMl: 500, abvPercent: 5)
         let limit = 0.8
 
-        // The Python reference gives roughly 884 mL of 5 % beer.
+        // The Python reference gives roughly 818 mL of 5 % beer (engine version 2+).
         let maxVolume = try #require(
             engine.largestDrinkWithinLimit(
                 profile: reference, consumed: consumed, template: template, limit: limit
             )
         )
-        #expect(abs(maxVolume - 884) < 5)
+        #expect(abs(maxVolume - 818) < 5)
 
         var atLimit = template
         atLimit.volumeMl = maxVolume

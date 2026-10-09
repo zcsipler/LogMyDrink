@@ -36,9 +36,11 @@ struct HistoryAggregateTests {
         peak: ClosedRange<Double>? = 0.4...0.5,
         limit: Double = 0.8
     ) -> HistoryOccasion {
-        HistoryOccasion(
-            id: UUID(), startedAt: start, totalUnits: units, drinkCount: drinks,
-            peakRange: peak, limit: limit
+        let session = UUID()
+        return HistoryOccasion(
+            id: "\(session.uuidString)/\(start.timeIntervalSinceReferenceDate)",
+            sessionID: session, startedAt: start, totalUnits: units, drinkCount: drinks,
+            peakRange: peak, carryIn: nil, limit: limit
         )
     }
 

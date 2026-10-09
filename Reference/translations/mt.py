@@ -87,7 +87,6 @@ TRANSLATIONS = {
     "Profile": "Profil",
     "estimated level": "livell stmat",
     "estimated range": "firxa stmata",
-    "Elapsed": "Ħin li għadda",
     "Drinks": "Xarbiet",
     "Units": "Unitajiet",
     "Expected to clear": "Mistenni jgħaddi",
@@ -363,4 +362,7 @@ TRANSLATIONS = {
     'People': 'Persuni',
     'Owner': 'Sid',
     'Everyone this app records. Switch, add, or remove someone.': 'Kulħadd li din l-app tirreġistra. Aqleb, żid jew neħħi lil xi ħadd.',
+    # --- Day window (5.22) ---
+    "Night before": "Il-lejla ta' qabel",
+    "Carried over from the night before": "Miġjub mil-lejla ta' qabel",
 }

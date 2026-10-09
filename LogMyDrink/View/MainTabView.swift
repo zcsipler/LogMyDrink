@@ -63,10 +63,17 @@ struct MainTabView: View {
         }
         .tint(Theme.calm)
         .preferredColorScheme(.dark)
-        // A session left open overnight has to be closed when the app comes
-        // back, not only when the next drink is logged.
+        // Coming back after hours away: which occasion is running and what
+        // today is are re-read from the curve and the clock, not only when
+        // the next drink is logged.
         .onChange(of: scenePhase) { _, phase in
-            if phase == .active { store.refreshFromStore() }
+            if phase == .active {
+                // The clock first: the app may have sat in the background
+                // for hours, and everything the refresh derives — which
+                // occasion is running, which day is today — reads `now`.
+                store.tick()
+                store.refreshFromStore()
+            }
         }
         // The second place a tab is steered from outside, and the same shape
         // as the first: a request the target screen applies and clears. The

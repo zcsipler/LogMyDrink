@@ -112,8 +112,8 @@ struct BACBandTests {
         let band = engine.simulateBand(profile: reference, drinks: series)
         let sober = try #require(band.soberRange())
 
-        #expect(abs(sober.lowerBound.timeIntervalSince(t0) / 60 - 355) < 2)
-        #expect(abs(sober.upperBound.timeIntervalSince(t0) / 60 - 522) < 2)
+        #expect(abs(sober.lowerBound.timeIntervalSince(t0) / 60 - 361) < 2)
+        #expect(abs(sober.upperBound.timeIntervalSince(t0) / 60 - 534) < 2)
     }
 
     @Test("The upper branch never drops below the lower one")

@@ -84,7 +84,6 @@ TRANSLATIONS = {
     "Profile": "Profiil",
     "estimated level": "hinnanguline tase",
     "estimated range": "hinnanguline vahemik",
-    "Elapsed": "Möödunud",
     "Drinks": "Joogid",
     "Units": "Ühikud",
     "Expected to clear": "Eeldatavalt kaob",
@@ -356,4 +355,7 @@ TRANSLATIONS = {
     'People': 'Inimesed',
     'Owner': 'Omanik',
     'Everyone this app records. Switch, add, or remove someone.': 'Kõik, keda see rakendus salvestab. Vaheta, lisa või eemalda keegi.',
+    # --- Day window (5.22) ---
+    "Night before": 'Eelmine õhtu',
+    "Carried over from the night before": 'Üle kandunud eelmisest õhtust',
 }

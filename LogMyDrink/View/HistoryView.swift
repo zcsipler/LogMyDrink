@@ -35,8 +35,7 @@ struct HistoryView: View {
     @Binding var request: HistoryRequest?
 
     /// Every session, the running one included: today's bar should count the
-    /// drinks in your hand, not only the evenings that have already closed.
-    /// The list below keeps to finished ones — the open session is Live's.
+    /// drinks in your hand, not only the evenings that have already cleared.
     @Query(sort: \DrinkingSession.startedAt, order: .reverse)
     private var allSessions: [DrinkingSession]
 
@@ -137,17 +136,13 @@ struct HistoryView: View {
         let roughStart = window.interval.start - slack
         let roughEnd = window.interval.end + slack
         let inWindow = sessions.filter { session in
-            guard session.endedAt != nil,
-                  session.startedAt >= roughStart, session.startedAt < roughEnd
-            else { return false }
+            guard session.startedAt >= roughStart, session.startedAt < roughEnd else { return false }
             let filedUnder = DrinkingDay.containing(session.startedAt).calendarDate
             guard filedUnder >= window.interval.start && filedUnder < window.interval.end else { return false }
-            // A closed session with no drinks is not an evening, it is a
-            // leftover: `remove` used to leave one behind (see there), and
-            // a sync can deliver a session before its drinks. Neither is
-            // something to draw — the day page would show an empty chart
-            // instead of its empty state. Not swept from the store, because
-            // the second case is real data that is still arriving.
+            // A session with no drinks is not an evening, it is a leftover:
+            // a sync can deliver a session before its drinks. Not something
+            // to list, and not swept from the store either, because the
+            // drinks are real data that is still arriving.
             return !(session.drinks ?? []).isEmpty
         }
         return Snapshot(
@@ -227,18 +222,18 @@ struct HistoryView: View {
             }
             .sheet(isPresented: $showsPaywall) { HistoryPaywallSheet() }
             .sheet(item: $editingDrink) { drink in
-                AddDrinkSheet(store: store, editing: drink, session: sessionOwning(drink))
+                AddDrinkSheet(store: store, editing: drink, session: store.sessionOwning(drink.id))
             }
             .onChange(of: editingDrink?.id) { openRowID = nil }
             // Today's page adds the way Live does — a drink being had now.
             // A past day is filled in: the sheet gets the day, and the
-            // evening already on it, so the projection is drawn on top of
-            // those drinks with that evening's profile.
+            // store routes the projection to whichever occasion the curve
+            // puts that time in, with that occasion's profile.
             .sheet(item: $addingOn) { day in
                 if day.isCurrent(at: store.now) {
                     AddDrinkSheet(store: store)
                 } else {
-                    AddDrinkSheet(store: store, session: latestSession(on: day), day: day)
+                    AddDrinkSheet(store: store, day: day)
                 }
             }
             // The request may arrive before this view exists (the first
@@ -663,32 +658,18 @@ struct HistoryView: View {
     /// picker wound back one drink at a time.
     @ViewBuilder
     private func dayPage(_ snapshot: Snapshot, window: HistoryWindow) -> some View {
-        let sessions = snapshot.sessionsInWindow.sorted { $0.startedAt < $1.startedAt }
-        let hasLive = window.offset == 0 && !store.drinks.isEmpty
         let day = shownDay
+        let model = dayModel
 
         VStack(spacing: 26) {
-            if hasLive {
-                BACChartView(model: store.chartModel)
-                DrinkListSection(
-                    drinks: store.drinks,
-                    openRowID: $openRowID,
-                    onEdit: { editingDrink = $0 },
-                    onDelete: { drink in withAnimation { store.remove(drink) } }
-                )
-            }
-
-            ForEach(sessions) { session in
-                SessionContentView(
-                    session: session,
+            if model.hasContent {
+                DayContentView(
+                    model: model,
                     store: store,
                     editingDrink: $editingDrink,
-                    openRowID: $openRowID,
-                    showsProfileNote: false
+                    openRowID: $openRowID
                 )
-            }
-
-            if sessions.isEmpty && !hasLive {
+            } else {
                 dayEmptyState(window, recordsBegan: snapshot.recordsBegan, day: day)
             }
         }
@@ -699,11 +680,19 @@ struct HistoryView: View {
         DrinkingDay.containing(store.now).offset(by: -offset)
     }
 
-    /// Whether the day page has drinks on it — finished sessions, or the
-    /// running one on today's page. The same test `dayPage` uses to choose
-    /// between content and the empty state.
+    /// The shown day as a window onto the timeline — the same model Live
+    /// draws for today, for any day. Reads `store.revision` so a write
+    /// redraws the page; the model itself is derived from stored sessions.
+    private var dayModel: BACChartModel {
+        _ = store.revision
+        return store.chartModel(for: shownDay)
+    }
+
+    /// Whether the day page has anything on it — drinks had on the day, or
+    /// a level carried in from the night before. The same test `dayPage`
+    /// uses to choose between content and the empty state.
     private func dayHasDrinks(_ snapshot: Snapshot) -> Bool {
-        !snapshot.sessionsInWindow.isEmpty || (offset == 0 && !store.drinks.isEmpty)
+        dayModel.hasContent
     }
 
     private func showsFloatingAdd(_ snapshot: Snapshot) -> Bool {
@@ -801,20 +790,6 @@ struct HistoryView: View {
         .padding(.vertical, 44)
         .background(Theme.surface.opacity(0.5), in: RoundedRectangle(cornerRadius: 18))
         .padding(.top, 20)
-    }
-
-    /// Which session a drink belongs to — nil means the running one.
-    private func sessionOwning(_ drink: Drink) -> DrinkingSession? {
-        sessions.first { session in
-            session.endedAt != nil && (session.drinks ?? []).contains { $0.id == drink.id }
-        }
-    }
-
-    /// The session a drink filled in for this day would join — the same one
-    /// `SessionStore.add` routes to: the latest to start on that drinking
-    /// day. `sessions` is newest first, so the first match is it.
-    private func latestSession(on day: DrinkingDay) -> DrinkingSession? {
-        sessions.first { day.contains($0.startedAt) }
     }
 
     // MARK: Lock

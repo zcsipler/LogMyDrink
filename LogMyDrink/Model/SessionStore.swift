@@ -6,9 +6,10 @@ import BACKit
 
 /// State for the current drinking session.
 ///
-/// Backed by SwiftData: the open `DrinkingSession` is the source of truth, and
-/// the band is derived from it. Settings live in `AppSettings`, because they
-/// describe the user now, whereas the session records who they were then.
+/// Backed by SwiftData: the stored `DrinkingSession`s are the source of truth,
+/// the running one is whichever covers `now`, and the band is derived from
+/// it. Settings live in `AppSettings`, because they describe the user now,
+/// whereas the session records who they were then.
 ///
 /// The band is recomputed only when an input actually changes. The clock tick
 /// moves `now`, which refreshes the readout without starting a simulation.
@@ -30,10 +31,66 @@ final class SessionStore {
     /// see `AppSettings.activePersonIDIfCurrent`.
     private(set) var person: Person
 
-    /// The session currently accepting drinks. Nil until the first one.
+    /// The active person's occasion whose curve covers `now` — last night's,
+    /// if last night is still in the blood. Nil when the body is clear and
+    /// has been for the grace period. Derived, never set by a write:
+    /// `rebuild` reads it from the store each time.
     private(set) var session: DrinkingSession?
 
     private(set) var band: BACBand = .empty
+
+    /// The heavy half of `chartModel(for:)` per drinking day — the bands of
+    /// every occasion touching the day, joined and clipped. Kept until the
+    /// store next writes (`rebuild` clears it): a body evaluation asks for
+    /// today's model several times a pass, and each would otherwise be a
+    /// simulation per occasion.
+    @ObservationIgnored
+    private var dayModels: [Date: DayWindow] = [:]
+
+    /// What one day's window contains, before the clock is applied.
+    struct DayWindow {
+        let band: BACBand
+        let drinks: [Drink]
+        let limit: Double
+        let soberRange: ClosedRange<Date>?
+        let carryIn: ClosedRange<Double>?
+    }
+
+    /// The window of `day` onto the active person's timeline.
+    ///
+    /// Every occasion whose curve touches the day is simulated with its own
+    /// profile snapshot (the running one reuses `band`), the bands are joined
+    /// — occasions never overlap, by `normalize` — and clipped to the day.
+    /// The drinks are the ones had on the day; the limit is the last
+    /// occasion's, the one a past day is judged by (5.14); the clearing time
+    /// is the last occasion's too, from its unclipped curve, because a night
+    /// cut at the window's edge still clears at a real hour.
+    func dayWindow(for day: DrinkingDay) -> DayWindow {
+        if let cached = dayModels[day.start] { return cached }
+
+        var bands: [BACBand] = []
+        var drinks: [Drink] = []
+        var limit = person.limit
+        for occasion in sessions(overlapping: day.range) {
+            let all = occasion.sortedDrinks
+            guard !all.isEmpty else { continue }
+            bands.append(occasion === session ? band : engine.simulateBand(profile: occasion.profile, drinks: all))
+            drinks += all.filter { day.contains($0.consumedAt) }
+            limit = occasion.limit
+        }
+
+        let joined = BACBand.joined(bands)
+        let atStart = joined.isEmpty ? 0...0 : joined.range(at: day.start)
+        let window = DayWindow(
+            band: joined.clipped(to: day.start...day.end),
+            drinks: drinks.sorted { $0.consumedAt < $1.consumedAt },
+            limit: limit,
+            soberRange: bands.last?.soberRange(),
+            carryIn: atStart.upperBound >= Occasions.clearedThreshold ? atStart : nil
+        )
+        dayModels[day.start] = window
+        return window
+    }
 
     /// The current time. Refreshed every half minute.
     var now: Date = .now
@@ -85,8 +142,8 @@ final class SessionStore {
         }
     }
 
-    /// Switches who is being recorded. Everything else follows: the open
-    /// session, the curve, the profile the settings screen edits.
+    /// Switches who is being recorded. Everything else follows: the running
+    /// occasion, the curve, the profile the settings screen edits.
     func activate(_ next: Person) {
         guard next.id != person.id else { return }
         person = next
@@ -219,10 +276,14 @@ final class SessionStore {
         get { person.profile }
         set {
             person.apply(newValue)
-            // An open session follows the current profile: a correction made
-            // mid-evening should fix the curve you are looking at. A closed
-            // one never moves.
-            session?.applySnapshot(of: newValue)
+            // The running occasion follows the current profile: a correction
+            // made mid-evening should fix the curve you are looking at. A
+            // past one never moves. The new curve clears at another time, so
+            // the boundaries are re-derived.
+            if let session {
+                session.applySnapshot(of: newValue)
+                normalize(session)
+            }
             save()
             rebuild()
         }
@@ -274,28 +335,79 @@ final class SessionStore {
         get { person.frequency }
         set {
             person.frequency = newValue   // rewrites beta, leaves uncertainty
-            session?.applySnapshot(of: person.profile)
+            if let session {
+                session.applySnapshot(of: person.profile)
+                normalize(session)
+            }
             save()
             rebuild()
         }
     }
 
     // MARK: Session lifecycle
+    //
+    // There is no open or closed session. A session is a stretch of the
+    // curve (`Occasions`), and the store's one invariant is that every stored
+    // session equals exactly one such stretch — `normalize` restores it after
+    // every write. "Running" is a question about a moment: whether the curve
+    // covers `now` (`DrinkingSession.isRunning(at:)`), and the answer changes
+    // as the clock moves without anything being written.
+    //
+    // This replaced a stored open/closed status. The status went wrong in
+    // three ways at once on one heavy night: the engine's cap left the curve
+    // without a clearing time and the policy read that as "cleared", so the
+    // morning after showed a dry day with 1.3 ‰ in the blood; the day page
+    // listed only closed sessions, so the night vanished from it the moment a
+    // re-added drink reopened it; and the next afternoon's beer was routed
+    // by drinking day into a second session that started from zero. A
+    // derived boundary cannot get out of step with the curve it is derived
+    // from, which is the whole argument.
 
-    /// Loads the active person's open session, and closes whatever has ended.
+    /// Reloads the active person's running occasion and settles whatever
+    /// arrived unnormalized — an import, a sync, a session written by the
+    /// build before boundaries were derived.
     ///
-    /// Called on launch and when returning to the foreground, not only when a
-    /// drink is logged — otherwise a forgotten session would stay open for days.
+    /// Called on launch and when returning to the foreground.
     func refreshFromStore() {
         revision &+= 1
-        closeEndedSessions()
-        session = fetchOpenSession()
+        settleUnnormalized()
         rebuild()
         reconcileTrackingStart()
         backfillStaleSummaries()
         // Launch, foreground, a person switch, an import: every path on
         // which the widget's idea of the favourite can have gone stale.
         WidgetBridge.publish(favourite: person.favourite)
+    }
+
+    /// Normalizes every session that has never been — the ones without a
+    /// clearing time. Few at any moment: the build before this one left its
+    /// open sessions like that, and a sync can deliver one mid-way.
+    ///
+    /// Only sessions that have drinks. One without may be a sync in flight,
+    /// its drinks still on their way (HistoryView says the same about not
+    /// sweeping them); normalizing it would delete it, and the deletion
+    /// would sync back and take the drinks with it on the other device.
+    /// Refetched each round rather than iterated: normalizing one can merge
+    /// another pending one away, and a deleted model must not be read.
+    private func settleUnnormalized() {
+        let descriptor = FetchDescriptor<DrinkingSession>(
+            predicate: #Predicate { $0.endedAt == nil }
+        )
+        func pending() -> [DrinkingSession] {
+            ((try? context.fetch(descriptor)) ?? []).filter { !$0.isGone && !$0.sortedDrinks.isEmpty }
+        }
+
+        var remaining = pending()
+        guard !remaining.isEmpty else { return }
+        // A curve the cap cut short keeps a nil clearing time after
+        // normalizing; the bound keeps that from looping.
+        var rounds = remaining.count
+        while let candidate = remaining.first, rounds > 0 {
+            normalize(candidate)
+            rounds -= 1
+            remaining = pending().filter { $0 !== candidate }
+        }
+        save()
     }
 
     /// Moves the person's tracking start back to their earliest session if
@@ -335,8 +447,9 @@ final class SessionStore {
     /// the main actor anyway.
     private static let backfillBatchSize = 50
 
-    /// Recomputes the cached summary of every closed session whose cache
-    /// predates the current engine, a batch at a time.
+    /// Recomputes the cached summary of every session whose cache predates
+    /// the current engine, a batch at a time — and, since the clearing time
+    /// is derived from the same band, `endedAt` with it.
     ///
     /// After a `BACEngine.version` bump — or an import, which never carries
     /// the cache (`DataArchive`) — every session's cache is stale at once.
@@ -352,6 +465,11 @@ final class SessionStore {
     ///
     /// Sessions, not `SessionSummary` values, are what SwiftData observes, so
     /// each `store(_:)` invalidates exactly the rows that read it.
+    ///
+    /// When it is done it runs `mergeAdjacentSessions` once: sessions written
+    /// by a build that grouped by drinking day may be two halves of one
+    /// stretch of the curve, and only with every clearing time fresh is it
+    /// safe to decide that from the cache.
     private func backfillStaleSummaries() {
         guard backfill == nil else { return }
 
@@ -365,12 +483,8 @@ final class SessionStore {
             // batch below, because reading `drinks` faults the relationship,
             // and doing that for every session up front is one long stall
             // before the first batch even starts.
-            let descriptor = FetchDescriptor<DrinkingSession>(
-                predicate: #Predicate { $0.endedAt != nil }
-            )
-            let stale = ((try? context.fetch(descriptor)) ?? [])
+            let stale = ((try? context.fetch(FetchDescriptor<DrinkingSession>())) ?? [])
                 .filter { $0.summary == nil }
-            guard !stale.isEmpty else { return }
 
             let engine = self.engine
             var start = 0
@@ -379,8 +493,8 @@ final class SessionStore {
                 let batch = Array(stale[start..<min(start + Self.backfillBatchSize, stale.count)])
                 start += batch.count
 
-                // A closed session with no drinks has nothing to summarize;
-                // it is skipped here and stays out of History anyway.
+                // A session with no drinks has nothing to summarize; it is
+                // skipped here and stays out of History anyway.
                 let work: [(target: DrinkingSession, input: BackfillInput)] = batch.compactMap {
                     let drinks = $0.sortedDrinks
                     guard !drinks.isEmpty else { return nil }
@@ -397,10 +511,18 @@ final class SessionStore {
                 // person removed, its last drink taken out — and writing to
                 // a deleted model is a crash, not a no-op.
                 for (item, band) in zip(work, bands) where !item.target.isDeleted {
-                    item.target.store(summary(for: item.target, band: band))
+                    let summary = SessionSummary.make(drinks: item.input.drinks, band: band)
+                    item.target.store(summary)
+                    item.target.endedAt = summary.soberAt
                 }
                 save()
                 await Task.yield()
+            }
+
+            guard !Task.isCancelled, !stale.isEmpty else { return }
+            if mergeAdjacentSessions() {
+                save()
+                rebuild()
             }
         }
     }
@@ -412,86 +534,106 @@ final class SessionStore {
         let drinks: [Drink]
     }
 
-    private func fetchOpenSession() -> DrinkingSession? {
+    /// Joins consecutive sessions of the same person whose curves run into
+    /// each other, by their cached clearing times. Returns whether anything
+    /// changed. Cheap — dates only, no simulation until a pair actually
+    /// joins — which is why it may run over the whole store.
+    @discardableResult
+    private func mergeAdjacentSessions() -> Bool {
+        let all = (try? context.fetch(FetchDescriptor<DrinkingSession>(
+            sortBy: [SortDescriptor(\.startedAt, order: .forward)]
+        ))) ?? []
+        var changed = false
+        var byPerson: [UUID: [DrinkingSession]] = [:]
+        for candidate in all where !candidate.isDeleted {
+            byPerson[candidate.personID, default: []].append(candidate)
+        }
+        for sessions in byPerson.values {
+            guard var keeper = sessions.first(where: { !$0.sortedDrinks.isEmpty }) else { continue }
+            for next in sessions.dropFirst() where next !== keeper {
+                if keeper.isKnownToRun(at: next.startedAt), !next.sortedDrinks.isEmpty {
+                    merge(next, into: keeper)
+                    changed = true
+                } else {
+                    keeper = next
+                }
+            }
+        }
+        return changed
+    }
+
+    /// The active person's occasion whose curve covers `now`, if any.
+    ///
+    /// The newest session that has started is the only candidate: after
+    /// `normalize`, no older one can still be running behind it.
+    private func fetchRunningSession() -> DrinkingSession? {
         let personID = person.id
+        let moment = now
         var descriptor = FetchDescriptor<DrinkingSession>(
-            predicate: #Predicate { $0.endedAt == nil && $0.personID == personID },
+            predicate: #Predicate { $0.personID == personID && $0.startedAt <= moment },
             sortBy: [SortDescriptor(\.startedAt, order: .reverse)]
         )
         descriptor.fetchLimit = 1
-        return try? context.fetch(descriptor).first
+        guard let newest = try? context.fetch(descriptor).first,
+              !newest.isDeleted, newest.isRunning(at: now)
+        else { return nil }
+        return newest
     }
 
-    /// Runs the closing policy over **every** open session, not just the
-    /// active person's.
+    /// The session a drink at this time belongs to, if one exists — by the
+    /// curve, not the calendar.
     ///
-    /// With one person this was the same thing. With two it is not: a guest's
-    /// evening would stay open forever, because nothing would ever look at it
-    /// again unless somebody switched back to her — and a session that never
-    /// closes never reaches History and never gets its summary.
-    private func closeEndedSessions() {
-        let descriptor = FetchDescriptor<DrinkingSession>(
-            predicate: #Predicate { $0.endedAt == nil }
-        )
-        let open = (try? context.fetch(descriptor)) ?? []
-
-        var closedAny = false
-        for candidate in open where close(candidate) { closedAny = true }
-        if closedAny { save() }
-    }
-
-    /// Closes the active person's session if the policy says it has ended.
-    private func closeSessionIfEnded() {
-        guard let session else { return }
-        if close(session) { save() }
-    }
-
-    /// - Returns: whether the session was closed.
-    private func close(_ target: DrinkingSession) -> Bool {
-        let drinks = target.sortedDrinks
-        guard !drinks.isEmpty else { return false }
-
-        let computed = engine.simulateBand(profile: target.profile, drinks: drinks)
-        let lastDrinkAt = drinks.last?.consumedAt
-
-        guard !SessionPolicy.isStillOpen(band: computed, lastDrinkAt: lastDrinkAt, at: now) else {
-            return false
-        }
-
-        target.endedAt = SessionPolicy.closingDate(
-            lastDrinkAt: lastDrinkAt,
-            soberAt: computed.soberRange()?.upperBound
-        )
-        target.store(summary(for: target, band: computed))
-        if target === session { session = nil }
-        return true
-    }
-
-    /// The session a drink at this time belongs to, if one exists.
-    ///
-    /// Membership follows the drinking day, the same rule the Live screen uses
-    /// to group days — so a drink logged late lands where the user would look
-    /// for it, rather than wherever the open session happens to be.
+    /// The newest session started by then takes the drink if its level is
+    /// still up at that moment, or cleared less than the grace period before
+    /// (`Occasions.covers`). Otherwise, a session that starts within the grace
+    /// period *after* the drink takes it: the drink's own curve will run into
+    /// that session, and `normalize` would merge them anyway. Otherwise none,
+    /// and the caller starts a new one.
     ///
     /// Scoped to the active person: two people out on the same evening have two
-    /// sessions on the same drinking day, and without the filter a backdated
-    /// drink would land in whichever was found first.
+    /// sessions on the same night, and without the filter a backdated drink
+    /// would land in whichever was found first.
     private func sessionCovering(_ date: Date) -> DrinkingSession? {
-        let day = DrinkingDay.containing(date)
+        let mine = sessionsOfActivePerson()   // newest first
 
-        if let session, day.contains(session.startedAt) { return session }
-
-        return sessionsOfActivePerson().first { day.contains($0.startedAt) }
+        if let before = mine.first(where: { $0.startedAt <= date }), before.isKnownToRun(at: date) {
+            return before
+        }
+        if let after = mine.last(where: { $0.startedAt > date }),
+           after.startedAt.timeIntervalSince(date) < Occasions.grace {
+            return after
+        }
+        return nil
     }
 
     /// Newest first.
     private func sessionsOfActivePerson() -> [DrinkingSession] {
-        let personID = person.id
+        sessions(of: person.id)
+    }
+
+    /// Newest first, deleted ones left out.
+    private func sessions(of personID: UUID) -> [DrinkingSession] {
         let descriptor = FetchDescriptor<DrinkingSession>(
             predicate: #Predicate { $0.personID == personID },
             sortBy: [SortDescriptor(\.startedAt, order: .reverse)]
         )
-        return (try? context.fetch(descriptor)) ?? []
+        return ((try? context.fetch(descriptor)) ?? []).filter { !$0.isDeleted }
+    }
+
+    /// The active person's sessions whose curves touch `window`, oldest
+    /// first. What a day page draws.
+    func sessions(overlapping window: Range<Date>) -> [DrinkingSession] {
+        sessionsOfActivePerson()
+            .filter { $0.overlaps(window) }
+            .sorted { $0.startedAt < $1.startedAt }
+    }
+
+    /// The session holding a drink, by id. Nil when no session of the active
+    /// person has it.
+    func sessionOwning(_ drinkID: UUID) -> DrinkingSession? {
+        sessionsOfActivePerson().first { candidate in
+            (candidate.drinks ?? []).contains { $0.id == drinkID && !$0.isDeleted }
+        }
     }
 
     private func startSession(at date: Date) -> DrinkingSession {
@@ -526,29 +668,136 @@ final class SessionStore {
         return nearest?.profile ?? person.profile
     }
 
-    /// Re-decides whether a session is still running, after it has changed.
+    // MARK: Normalization
+    //
+    // After any change to a session's drinks (or its profile, which moves the
+    // curve), the stored sessions are made to equal the stretches of the
+    // curve again. Three things can be needed, in this order: the session is
+    // **split** where its own curve clears for longer than the grace period
+    // between two drinks; its first piece is **merged** into the session
+    // before it when that one's curve is still up at its start; its last
+    // piece **absorbs** the sessions after it that its curve runs into. Each
+    // resulting session gets its clearing time and its summary; the running
+    // session is then recomputed from scratch by `rebuild`.
+    //
+    // The cost is one `simulateBand` for the split test plus one per
+    // resulting piece — two in the ordinary case, the same order as the old
+    // reconcile-and-close. Everything the user feels is `save()`, and the
+    // ordinary case adds none: only a split or a merge saves on its own,
+    // because SwiftData updates the inverse of a moved record at `save()`
+    // and `finalize` reads the drinks through it.
+
+    /// Restores the invariant around `target` after its drinks changed.
+    /// Deletes it when it is empty.
     ///
-    /// A backdated drink can revive a session that had ended, or leave an
-    /// older one closed but with a later clearing time. Both go through the
-    /// same policy as everything else.
-    private func reconcile(_ target: DrinkingSession) {
-        let drinks = target.sortedDrinks
-        guard !drinks.isEmpty else { return }
-
-        let computed = engine.simulateBand(profile: target.profile, drinks: drinks)
-        let lastDrinkAt = drinks.last?.consumedAt
-
-        if SessionPolicy.isStillOpen(band: computed, lastDrinkAt: lastDrinkAt, at: now) {
-            target.endedAt = nil
-            session = target
-        } else {
-            target.endedAt = SessionPolicy.closingDate(
-                lastDrinkAt: lastDrinkAt,
-                soberAt: computed.soberRange()?.upperBound
-            )
-            target.store(summary(for: target, band: computed))
-            if session === target { session = nil }
+    /// `including` is a drink just inserted whose record may not yet show in
+    /// `target.drinks`: SwiftData reflects a new record on the to-many side
+    /// before `save()` in practice, but nothing promises it, and on a first
+    /// drink the difference is the session being deleted as empty with the
+    /// drink cascading away. So `add` passes the drink, and it is counted
+    /// whether or not the relationship already has it.
+    private func normalize(_ target: DrinkingSession, including extra: Drink? = nil) {
+        var drinks = target.sortedDrinks
+        if let extra, !drinks.contains(where: { $0.id == extra.id }) {
+            drinks.append(extra)
+            drinks.sort { $0.consumedAt < $1.consumedAt }
         }
+        guard !drinks.isEmpty else {
+            context.delete(target)
+            if session === target { session = nil }
+            return
+        }
+
+        var pieces = split(target, drinks: drinks)
+
+        // Backwards: the session before the first piece still had its level
+        // up when the piece started → one occasion.
+        if let first = pieces.first,
+           let previous = sessions(of: first.personID).first(where: { $0 !== first && $0.startedAt < first.startedAt }),
+           previous.isKnownToRun(at: first.startedAt) {
+            merge(first, into: previous)
+            pieces[0] = previous
+        }
+
+        // Forwards, over every adjacent pair: a piece absorbs the piece
+        // after it, or the stored session after it, while its curve runs
+        // into that one. Every pair, not only the last — a backward merge
+        // raises the first piece's curve, and it may now reach the second.
+        var index = 0
+        while index < pieces.count {
+            let current = pieces[index]
+            if index + 1 < pieces.count {
+                if current.isKnownToRun(at: pieces[index + 1].startedAt) {
+                    merge(pieces.remove(at: index + 1), into: current)
+                    continue
+                }
+            } else if let next = sessions(of: current.personID)
+                        .last(where: { $0 !== current && $0.startedAt > current.startedAt }),
+                      current.isKnownToRun(at: next.startedAt), !next.sortedDrinks.isEmpty {
+                merge(next, into: current)
+                continue
+            }
+            index += 1
+        }
+    }
+
+    /// Cuts `target` where its curve clears between two drinks. Returns the
+    /// resulting sessions oldest first, each finalized; the first is `target`.
+    private func split(_ target: DrinkingSession, drinks: [Drink]) -> [DrinkingSession] {
+        let groups = Occasions.split(drinks, profile: target.profile, engine: engine)
+        guard groups.count > 1 else {
+            finalize(target, drinks: drinks)
+            return [target]
+        }
+
+        var pieces = [target]
+        for group in groups.dropFirst() {
+            let piece = DrinkingSession(
+                startedAt: group[0].consumedAt,
+                person: target.person,
+                profile: target.profile,
+                limit: target.limit
+            )
+            context.insert(piece)
+            let ids = Set(group.map(\.id))
+            for record in (target.drinks ?? []) where ids.contains(record.id) {
+                record.session = piece
+            }
+            pieces.append(piece)
+        }
+        save()   // so each piece's `drinks` is its own — see the MARK above
+        for (piece, group) in zip(pieces, groups) { finalize(piece, drinks: group) }
+        return pieces
+    }
+
+    /// Moves every drink of `source` into `destination`, deletes `source`
+    /// and finalizes the result. The destination keeps its profile snapshot:
+    /// it is the one that recorded the start of the occasion.
+    private func merge(_ source: DrinkingSession, into destination: DrinkingSession) {
+        let moved = source.sortedDrinks
+        for record in (source.drinks ?? []) where !record.isDeleted {
+            record.session = destination
+        }
+        if session === source { session = nil }
+        context.delete(source)
+        save()
+        let combined = (destination.sortedDrinks + moved)
+            .reduce(into: [UUID: Drink]()) { $0[$1.id] = $1 }
+            .values.sorted { $0.consumedAt < $1.consumedAt }
+        finalize(destination, drinks: combined)
+    }
+
+    /// Recomputes what is derived from a session's drinks: its start, its
+    /// clearing time, its summary. `drinks` is passed in rather than read
+    /// back, because right after a move the relationship may not have caught
+    /// up (see the MARK above).
+    private func finalize(_ target: DrinkingSession, drinks: [Drink]) {
+        guard let first = drinks.first else { return }
+        target.startedAt = first.consumedAt
+        let band = engine.simulateBand(profile: target.profile, drinks: drinks)
+        let summary = SessionSummary.make(drinks: drinks, band: band)
+        target.endedAt = summary.soberAt
+        target.store(summary)
     }
 
     // MARK: Derived values
@@ -618,21 +867,15 @@ final class SessionStore {
 
     /// Logs a drink, including one backdated to a day long past.
     ///
-    /// The drink goes to the session covering its own drinking day, not to
-    /// whichever session happens to be open. Without that, filling in a beer
-    /// from three weeks ago would drag tonight's session back three weeks and
-    /// draw one continuous curve across it.
+    /// The drink joins the occasion whose curve covers its moment — last
+    /// night's, if last night is still in the blood — or starts a new one.
+    /// Filling in a beer from three weeks ago never touches tonight: the
+    /// curve of three weeks ago cleared three weeks ago.
     ///
     /// Logging it is also evidence about the one before it — see
     /// `Array.pourCut(by:)`.
     func add(_ drink: Drink) {
-        // A drink arriving after the occasion has ended starts the next one.
-        closeSessionIfEnded()
-
         let target = sessionCovering(drink.consumedAt) ?? startSession(at: drink.consumedAt)
-        if drink.consumedAt < target.startedAt {
-            target.startedAt = drink.consumedAt
-        }
 
         applyPourCut(of: drink, in: target)
 
@@ -643,9 +886,8 @@ final class SessionStore {
         let record = DrinkRecord(drink)
         record.session = target
         context.insert(record)
-        target.invalidateSummary()
 
-        reconcile(target)
+        normalize(target, including: drink)
         save()
         rebuild()
     }
@@ -680,22 +922,22 @@ final class SessionStore {
     @ObservationIgnored
     private var lastPourCut: PourCutRecord?
 
-    /// Corrects a drink. `target` defaults to the running session; the history
-    /// detail passes a past one, because a mistake noticed three weeks later is
-    /// still a mistake worth fixing.
+    /// Corrects a drink. `target` is the session holding it; without one, the
+    /// store looks it up by id — a mistake noticed three weeks later is still
+    /// a mistake worth fixing, wherever the drink sits.
     ///
-    /// A correction that moves the drink to another drinking day is not an
-    /// edit of this session but a move between two: the drink leaves the one
-    /// it was in and goes wherever `add` would have put it in the first
-    /// place. Applied in place, the new date would only have dragged this
-    /// session's `startedAt` back across the days in between and drawn one
-    /// continuous curve over them — the very thing `add` routes around.
+    /// A correction that moves the drink to another drinking day is a move
+    /// between occasions rather than an edit of this one: the drink leaves,
+    /// and goes wherever `add` would put it — with the profile that day would
+    /// freeze (`profileApplicable`), which an in-place edit could not give it.
+    /// Within the day, `normalize` splits or merges as the new time requires.
     func update(_ drink: Drink, in target: DrinkingSession? = nil) {
-        // Named `holder`, not `owner`: the store now has an `owner` person,
-        // and a shadowed name in a method that writes to the database is the
-        // kind of thing that reads fine and does the wrong thing.
-        let holder = target ?? session
-        guard let holder, let record = (holder.drinks ?? []).first(where: { $0.id == drink.id }) else { return }
+        // Named `holder`, not `owner`: the store has an `owner` person, and a
+        // shadowed name in a method that writes to the database is the kind
+        // of thing that reads fine and does the wrong thing.
+        guard let holder = target ?? sessionOwning(drink.id),
+              let record = (holder.drinks ?? []).first(where: { $0.id == drink.id })
+        else { return }
 
         if !DrinkingDay.containing(record.consumedAt).contains(drink.consumedAt) {
             remove(drink, from: holder)
@@ -704,36 +946,23 @@ final class SessionStore {
         }
 
         record.apply(drink)
-        if let earliest = holder.sortedDrinks.first?.consumedAt {
-            holder.startedAt = earliest
-        }
-        holder.invalidateSummary()
-        // Changing a time moves the clearing point too, which can reopen a
-        // session that had ended or close one that had not.
-        reconcile(holder)
+        normalize(holder)
         save()
         rebuild()
     }
 
     func remove(_ drink: Drink, from target: DrinkingSession? = nil) {
-        let holder = target ?? session
-        guard let holder, let record = (holder.drinks ?? []).first(where: { $0.id == drink.id }) else { return }
+        guard let holder = target ?? sessionOwning(drink.id),
+              let record = (holder.drinks ?? []).first(where: { $0.id == drink.id })
+        else { return }
 
         context.delete(record)
-        holder.invalidateSummary()
-
-        // An empty session is not history worth keeping. Decided by id, not
-        // by reading `holder.drinks` back: SwiftData takes a deleted record
-        // out of the inverse relationship only at `save()`, so right here the
-        // array still holds it, the test was never true, and a backdated
-        // drink added and then deleted left a drinkless closed session behind
-        // — which the day page then drew as an empty chart.
-        let remaining = (holder.drinks ?? []).filter { $0.id != record.id && !$0.isDeleted }
-        if remaining.isEmpty {
-            context.delete(holder)
-            if holder === session { session = nil }
-        }
-
+        // `sortedDrinks` leaves deleted records out, so `normalize` sees the
+        // session as it will be after the save: SwiftData takes a deleted
+        // record out of the inverse relationship only then, and a session
+        // emptied by this delete used to survive as a drinkless leftover —
+        // which the day page then drew as an empty chart.
+        normalize(holder)
         save()
         rebuild()
     }
@@ -799,8 +1028,8 @@ final class SessionStore {
         )
     }
 
-    /// The newest drink on record for the active person, ignoring the running
-    /// session.
+    /// The newest drink on record for the active person, from whatever
+    /// occasion that was.
     ///
     /// A fetch, so it is reached only on the path that needs it: no favourite
     /// **and** nothing logged tonight. Once either exists the checks above
@@ -843,20 +1072,18 @@ final class SessionStore {
 
     /// Takes back a quick add, including the shortening it caused.
     func undoQuickAdd(_ receipt: QuickAddReceipt) {
-        // Captured before the removal: an emptied session is deleted, and the
-        // reference would be to an object that is no longer in the store.
-        let holder = session
-
         remove(receipt.drink)
 
+        // Looked up after the removal, not before: the session the drink was
+        // in may have been merged away or emptied by it, and a reference to
+        // a deleted model is not something to read.
         guard let cut = receipt.shortened,
-              let holder,
+              let holder = sessionOwning(cut.drinkID),
               let record = (holder.drinks ?? []).first(where: { $0.id == cut.drinkID })
         else { return }
 
         record.drinkingMinutes = cut.previousMinutes
-        holder.invalidateSummary()
-        reconcile(holder)
+        normalize(holder)
         save()
         rebuild()
     }
@@ -871,11 +1098,11 @@ final class SessionStore {
         update(corrected)
     }
 
-    // A session is never ended by hand.
+    // A session is never ended by hand — there is nothing to end.
     //
     // There used to be an "End session" button. It answered a question nobody
-    // asks: a session is over when the alcohol has cleared and a few hours have
-    // passed (`SessionPolicy`), and that is a fact about the evening, not a
+    // asks: an occasion is over when the alcohol has cleared and a few hours
+    // have passed (`Occasions`), and that is a fact about the evening, not a
     // decision. Pressing it early would have written a closing time that is
     // simply wrong, and every drink after it would have opened a second session
     // on the same night. What the button looked like it was for — "I am done
@@ -972,17 +1199,17 @@ final class SessionStore {
         }
     }
 
-    /// The setting `add` would put a drink at this time into — the session
-    /// covering its drinking day, or, when there is none, an empty evening
-    /// with the profile `startSession` would freeze for it.
+    /// The setting `add` would put a drink at this time into — the occasion
+    /// whose curve covers it, or, when there is none, an empty evening with
+    /// the profile `startSession` would freeze for it.
     ///
-    /// Routing a day means a fetch whenever the open session does not cover
-    /// it, and a sheet's body asks for the projection nine times per pass
-    /// while a slider is dragged. The answer for one drinking day is kept
-    /// until the store next writes; `rebuild` clears it.
+    /// Routing means a fetch, and a sheet's body asks for the projection nine
+    /// times per pass while a slider is dragged. The answer for one moment is
+    /// kept until the store next writes; `rebuild` clears it. Keyed on the
+    /// exact moment, not the day: two times on one day can belong to
+    /// different occasions, or one to last night's and one to none.
     private func projectionSetting(for date: Date) -> ProjectionSetting {
-        let day = DrinkingDay.containing(date)
-        if let routing = lastRouting, routing.day == day { return routing.setting }
+        if let routing = lastRouting, routing.date == date { return routing.setting }
 
         let setting: ProjectionSetting
         if let holder = sessionCovering(date) {
@@ -994,16 +1221,19 @@ final class SessionStore {
                 limit: person.limit
             )
         }
-        lastRouting = (day, setting)
+        lastRouting = (date, setting)
         return setting
     }
 
     @ObservationIgnored
-    private var lastRouting: (day: DrinkingDay, setting: ProjectionSetting)?
+    private var lastRouting: (date: Date, setting: ProjectionSetting)?
 
-    func tick() {
-        now = .now
-        closeSessionIfEnded()
+    /// Moves the clock. Nothing is written: whether the running occasion is
+    /// still running is re-read from the curve, and the band is rebuilt only
+    /// when the answer changed — the moment last night finally clears.
+    func tick(to date: Date = .now) {
+        now = date
+        if fetchRunningSession() !== session { rebuild() }
     }
 
     // MARK: Export and import
@@ -1080,10 +1310,10 @@ final class SessionStore {
     /// Collapses a burst of notifications into one refresh.
     ///
     /// A sync posts one notification per batch, and a first sync posts many.
-    /// Each `refreshFromStore` runs the closing policy over every open session
-    /// and then rebuilds the band — two `simulateBand` calls in the ordinary
-    /// case, which is ~5 ms release but ~146 ms debug (6.). Answering every
-    /// notification would spend that repeatedly for one visible result.
+    /// Each `refreshFromStore` normalizes whatever arrived without a clearing
+    /// time and then rebuilds the band — a `simulateBand` or two in the
+    /// ordinary case, which is ~5 ms release but ~146 ms debug (6.). Answering
+    /// every notification would spend that repeatedly for one visible result.
     ///
     /// Half a second: longer than the gap between batches of one sync, short
     /// enough that a drink logged on the other device still lands while you are
@@ -1100,9 +1330,12 @@ final class SessionStore {
     // MARK: Plumbing
 
     private func rebuild() {
-        // Every write ends here, and a write can move a drink between days.
+        // Every write ends here, and a write can move a drink between
+        // occasions.
         lastRouting = nil
+        dayModels.removeAll()
 
+        session = fetchRunningSession()
         let drinks = session?.sortedDrinks ?? []
         if let session, !drinks.isEmpty {
             band = engine.simulateBand(profile: session.profile, drinks: drinks)
@@ -1121,15 +1354,6 @@ final class SessionStore {
             unit: settings.unit,
             amountUnit: settings.amountUnit
         ))
-    }
-
-    private func summary(for session: DrinkingSession, band: BACBand) -> SessionSummary {
-        SessionSummary(
-            peakRange: band.peakRange ?? 0...0,
-            soberAt: band.soberRange()?.upperBound,
-            totalUnits: session.totalUnits,
-            drinkCount: session.drinks?.count ?? 0
-        )
     }
 
     private func save() {

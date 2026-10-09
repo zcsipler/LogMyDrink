@@ -82,7 +82,6 @@ TRANSLATIONS = {
     "Profile": "Profil",
     "estimated level": "becsült szint",
     "estimated range": "becsült tartomány",
-    "Elapsed": "Tartam",
     "Drinks": "Italok",
     "Units": "Egység",
     "Expected to clear": "Várhatóan ekkorra ürül ki",
@@ -335,4 +334,7 @@ TRANSLATIONS = {
     'People': 'Személyek',
     'Owner': 'Tulajdonos',
     'Everyone this app records. Switch, add, or remove someone.': 'Mindenki, akit ez az app rögzít. Válts, vegyél fel vagy távolíts el valakit.',
+    # --- Day window (5.22) ---
+    "Night before": 'Előző este',
+    "Carried over from the night before": 'Áthozat az előző estéről',
 }

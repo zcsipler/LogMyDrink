@@ -83,7 +83,6 @@ TRANSLATIONS = {
     "Profile": "Profil",
     "estimated level": "odhadovaná hladina",
     "estimated range": "odhadované rozpätie",
-    "Elapsed": "Uplynulo",
     "Drinks": "Nápoje",
     "Units": "Jednotky",
     "Expected to clear": "Predpokladané vyprchanie",
@@ -356,4 +355,7 @@ TRANSLATIONS = {
     'People': 'Ľudia',
     'Owner': 'Vlastník',
     'Everyone this app records. Switch, add, or remove someone.': 'Všetci, ktorých táto aplikácia zaznamenáva. Prepni, pridaj alebo odstráň niekoho.',
+    # --- Day window (5.22) ---
+    "Night before": 'Predchádzajúci večer',
+    "Carried over from the night before": 'Prenesené z predchádzajúceho večera',
 }

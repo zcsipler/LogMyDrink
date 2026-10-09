@@ -85,7 +85,6 @@ TRANSLATIONS = {
     "Profile": "Próifíl",
     "estimated level": "leibhéal measta",
     "estimated range": "raon measta",
-    "Elapsed": "Caite",
     "Drinks": "Deochanna",
     "Units": "Aonaid",
     "Expected to clear": "Ag súil le glanadh",
@@ -365,4 +364,7 @@ TRANSLATIONS = {
     'People': 'Daoine',
     'Owner': 'Úinéir',
     'Everyone this app records. Switch, add, or remove someone.': 'Gach duine a thaifeadann an aip seo. Athraigh, cuir leis nó bain duine.',
+    # --- Day window (5.22) ---
+    "Night before": 'An oíche roimhe',
+    "Carried over from the night before": 'Tugtha anall ón oíche roimhe',
 }

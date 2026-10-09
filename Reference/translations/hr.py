@@ -84,7 +84,6 @@ TRANSLATIONS = {
     "Profile": "Profil",
     "estimated level": "procijenjena razina",
     "estimated range": "procijenjeni raspon",
-    "Elapsed": "Proteklo",
     "Drinks": "Pića",
     "Units": "Jedinice",
     "Expected to clear": "Očekivani pad na nulu",
@@ -356,4 +355,7 @@ TRANSLATIONS = {
     'People': 'Osobe',
     'Owner': 'Vlasnik',
     'Everyone this app records. Switch, add, or remove someone.': 'Svi koje ova aplikacija bilježi. Prebaci, dodaj ili ukloni nekoga.',
+    # --- Day window (5.22) ---
+    "Night before": 'Prethodna večer',
+    "Carried over from the night before": 'Preneseno iz prethodne večeri',
 }

@@ -84,7 +84,6 @@ TRANSLATIONS = {
     "Profile": "Profil",
     "estimated level": "skønnet niveau",
     "estimated range": "skønnet interval",
-    "Elapsed": "Forløbet",
     "Drinks": "Drinks",
     "Units": "Genstande",
     "Expected to clear": "Forventet alkoholfri",
@@ -358,4 +357,7 @@ TRANSLATIONS = {
     'People': 'Personer',
     'Owner': 'Ejer',
     'Everyone this app records. Switch, add, or remove someone.': 'Alle, som denne app registrerer. Skift, tilføj eller fjern nogen.',
+    # --- Day window (5.22) ---
+    "Night before": 'Aftenen før',
+    "Carried over from the night before": 'Overført fra aftenen før',
 }

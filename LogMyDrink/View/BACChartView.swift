@@ -211,6 +211,14 @@ struct BACChartView: View {
                 // A finished session is history, not a live reading.
                 tint: model.isLive ? Theme.secondaryText : nil
             )
+        } else if let carried = model.carryIn {
+            // Nothing drunk on this day, but the night before is still here:
+            // the headline says what the curve is, not that there is none.
+            labelledValue(
+                title: Text("Carried over from the night before"),
+                range: carried,
+                tint: model.isLive ? Theme.secondaryText : nil
+            )
         } else {
             labelledPlaceholder(title: Text("No active session"))
         }
@@ -311,7 +319,7 @@ struct BACChartView: View {
                 x: .value("Time", sample.date),
                 y: .value("Level", sample.mid)
             )
-            .foregroundStyle(Theme.tint(for: model.peakRange?.upperBound ?? 0, limit: model.limit))
+            .foregroundStyle(Theme.tint(for: model.highestLevel, limit: model.limit))
             .lineStyle(StrokeStyle(lineWidth: 2, lineCap: .round))
             .interpolationMethod(.monotone)
         }
@@ -324,8 +332,10 @@ struct BACChartView: View {
     /// Now that the ramp is a fraction of the limit, `yMaximum` — which is at
     /// least 1.4 times the limit by construction — would put the top of every
     /// gradient in deep crimson, on a quiet evening as much as a heavy one.
+    /// The level reached, not the day's own peak: a morning that starts at
+    /// 1.3 ‰ is coloured for 1.3 ‰, whichever night put it there.
     private var bandGradient: LinearGradient {
-        let peak = model.peakRange?.upperBound ?? 0
+        let peak = model.highestLevel
         return LinearGradient(
             stops: [
                 .init(color: Theme.tint(for: peak, limit: model.limit).opacity(0.45), location: 0),

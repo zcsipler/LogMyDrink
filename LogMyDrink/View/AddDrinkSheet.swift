@@ -16,9 +16,11 @@ struct AddDrinkSheet: View {
     /// Non-nil when correcting a drink that is already in the session.
     let editing: Drink?
 
-    /// Which session the drink belongs to. Nil means the running one; the
-    /// history detail passes a past session so the projection is made against
-    /// that evening's own profile snapshot.
+    /// Which session the drink belongs to, when the caller knows. Nil lets
+    /// the store decide by the curve: for a new drink, the occasion whose
+    /// level is still up at that time; for an edit, the session holding the
+    /// drink. The history detail passes its past session explicitly so the
+    /// projection is made against that evening's own profile snapshot.
     let session: DrinkingSession?
 
     /// The past drinking day a new drink is being filled in for, when it is

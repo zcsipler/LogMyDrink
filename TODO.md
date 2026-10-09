@@ -78,6 +78,25 @@ az egész app hitelességét.
 
 ### A modell hitelessége
 
+- **A görbe-alapú alkalom (5.22) készüléken ellenőrizendő.** Az app
+  target és a `LogMyDrinkTests` nem fordult le a sandboxban. Ellenőrzési
+  lista: ⌘U (új útválasztás-tesztek); indítás a meglévő adatbázison — a
+  tegnapi 10 sör és a mai sör egy alkalom lesz, a tegnapi oldalon a görbe a
+  jobb szélig fut, a mai 1,x ‰-ről indul; a Live reggel nem mutat nullát egy
+  nehéz este után; törlés-visszaadás a tegnapi oldalon nem tünteti el az
+  estét; a Detail bezár, ha az alkalma beolvad az előzőbe; a backfill
+  (verzió 3) lefut 1346 alkalmon és a végén a nap szerint kettévágott régi
+  esték összeolvadnak (`mergeAdjacentSessions`); CloudKit-szinkron két
+  készülékkel, hogy egy úton lévő üres alkalmat nem töröl.
+- **A nap áthozatának jelzése az Előzmény oszlopain** (5.22, Zoltán
+  döntése: a csúcs a saját italoké, az áthozat külön). Az adat megvan
+  (`DayBucket.carryIn`), a Hét / Hónap chart még nem rajzolja — egy halvány
+  jel az oszlop tövén („reggel 1,3 ‰-ről indult").
+- **`AddDrinkSheet` határa múltbeli napon**: a lap `store.limit`-tel
+  színez, a vetítés viszont a görbe szerinti alkalom határával ítél
+  (`projectionSetting`). Egy régi, más határú estén a kettő eltérhet; a
+  `project` adhatná vissza a használt határt.
+
 - **Widmark-formula visszamérése — első kör kész (5.21).** A 3 sörös
   gyomorállapot-összevetés megvolt, a paraméterek szűkültek, motorverzió 2.
   Hátra van: más profilokon (nő, 60 kg; 100 kg férfi) és más italmixeken
@@ -95,7 +114,7 @@ az egész app hitelességét.
   measurement" a tab bar mögött dereng — a 2. fejezet szerint ez a
   képernyő része, nem apró betű. Vagy a hero alá költözik, vagy a tartalom
   kap akkora alsó insetet, hogy kigördülhessen a sáv alól.
-- **A „Beer added / Undo" toast a stat-sorra ül**, az ELAPSED / DRINKS /
+- **A „Beer added / Undo" toast a stat-sorra ül**, a STARTED / DRINKS /
   GRAMS félig takarva. A toast a kapszula fölött, a tartalom *fölé*
   lebegjen, vagy a stat-sor mozduljon el.
 - **A chart y-tengelye 1,4 × határ** (5.14): 1,80-as határnál ~2,5-ig fut,
@@ -182,14 +201,32 @@ az egész app hitelességét.
 
 ### Előzmény (fizetős, `Feature.historyTrends`)
 
+- **Folytonos, görgethető, csippenthető idővonal — az IntelliDrink-út
+  (5.22 folytatása, Zoltán döntése: ez a következő kör).** Ma két vetület
+  él egymás mellett: a heti/havi lista sora az *alkalmat* mutatja
+  (`SessionDetailView`, az egész görbe, akkor is, ha okt. 9-be nyúlik), a
+  Live és a Nap-oldal az *ablakot*. Mindkettő igaz, de egy okt. 8-i sorból
+  okt. 9-i italt is látni — Zoltán szerint nem bug, mert az igazságot
+  mondja, ezért a köztes javítás (az alkalom-nézet címe „Oct 8 – Oct 9", jel
+  a hajnali 5-ös határon) kimaradt. A cél: a nap nem külön oldal, hanem
+  görgetési pozíció egy folytonos sávon; swipe arrébb visz, a csípés kinyit
+  egy estét vagy összehúz egy hetet; a stat-sor és az itallista a látható
+  ablakot követi. Meglévő alap: `HistoryTrendChartView` görgetése és közös
+  zoomja (5.16). Nyitott: a `BACChartView` italsávja, scrubja és
+  jelmagyarázata görgethetőn; a scrub kontra görgetés gesztusütközése
+  (5.11 tanulsága — a Health app mintája: húzás görget, hosszú nyomás
+  olvas le); melyik napot „nézed" (fejléc, a Hét/Hónap kijelölés); mi lesz a
+  Nap szegmenssel és a `SessionDetailView`-val.
+
 - **A Hónap és az Év „Change" sora részidőszakot hasonlít teljeshez.**
   Október 4-én „−91 % vs. September", az évnél „−27 % vs. 2025." — a −27 %
   gyanúsan 9/12. Vagy az előző időszak azonos hosszú elejét vesszük
   (Sep 1–4, 2025. jan 1–okt 4.), vagy a sor kimondja, hogy „so far".
   Javaslat: az előbbi, mert a kártya kérdése az, hogy jobban állok-e.
-- **A nyitott alkalom napjának nincs csúcs-oszlopa** a Hét nézetben, a
-  gramm-oszlopa viszont van (érvénytelen cache → hiány, 5.16). Az eddigi
-  vagy a vetített csúcs halványan jobb lenne, mint a lyuk.
+- **A futó alkalom napjának csúcs-oszlopa**: a `normalize` most minden
+  írásnál cache-eli az összesítőt, így a futó alkalom napjának is van
+  csúcsa — de az a *vetített* csúcs (a görbe a jövőbe fut). Eldöntendő,
+  hogy a Hét nézet ezt mutassa-e halványan, vagy az eddigit.
 - **Számformázás a kártyán**: „12983" csoportosítás nélkül, a tengelyen
   „2 000" csoportosítva. `.formatted()` grouping a kártyára.
 - **A napi gramm-oszlop színe havi tempóként ítél** (5.14): egy 60 g-os nap
@@ -242,7 +279,9 @@ az egész app hitelességét.
 - **A Live `upcomingPeak`-je a globális csúcsot nézi**, nem a következőt:
   egy leszálló ágon felvitt ital alacsonyabb második csúcsát a hero nem
   mondja ki. A widget `nextCrest` szabálya (5.15) a `BACCurve`-re is
-  átvihető.
+  átvihető. *(5.22 óta a chart fejléce a nap saját csúcsát írja —
+  `peak(after:)` az aznapi első italtól —, ami a másnapi sörnél jó; az
+  egy estén belüli második csúcs kérdése marad.)*
 - **Közepes Home Screen widget**: ott van hely az italszámnak és a grammnak
   is, amit a kicsi és a zárolt méretről levettünk — a snapshot viszi őket.
 

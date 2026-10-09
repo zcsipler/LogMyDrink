@@ -159,7 +159,7 @@ class Simulation:
 def simulate(
     profile: BodyProfile,
     drinks: List[Drink],
-    horizon_minutes: float = 24 * 60,
+    horizon_minutes: float = 72 * 60,   # safety cap only; the loop stops once cleared
     dt: float = 0.25,
     sample_every: float = 1.0,
 ) -> Simulation:

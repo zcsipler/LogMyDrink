@@ -5514,6 +5514,155 @@
         }
       }
     },
+    "Carried over from the night before" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "bg" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Пренесено от предната вечер"
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Přeneseno z předchozího večera"
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Overført fra aftenen før"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Übertrag vom Vorabend"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Μεταφέρθηκε από την προηγούμενη βραδιά"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Carried over from the night before"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Arrastrado de la noche anterior"
+          }
+        },
+        "et" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Üle kandunud eelmisest õhtust"
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Siirtynyt edellisillasta"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Reporté de la veille au soir"
+          }
+        },
+        "ga" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Tugtha anall ón oíche roimhe"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Preneseno iz prethodne večeri"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Áthozat az előző estéről"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Riportato dalla sera prima"
+          }
+        },
+        "lt" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Perkelta iš praėjusio vakaro"
+          }
+        },
+        "lv" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Pārnests no iepriekšējā vakara"
+          }
+        },
+        "mt" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Miġjub mil-lejla ta' qabel"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Overgedragen van de avond ervoor"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Przeniesione z poprzedniego wieczoru"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Transportado da noite anterior"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Rămas din seara precedentă"
+          }
+        },
+        "sk" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Prenesené z predchádzajúceho večera"
+          }
+        },
+        "sl" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Preneseno iz prejšnjega večera"
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Överfört från kvällen innan"
+          }
+        }
+      }
+    },
     "Change" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -8639,155 +8788,6 @@
           "stringUnit" : {
             "state" : "needs_review",
             "value" : "Redigera dryck"
-          }
-        }
-      }
-    },
-    "Elapsed" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "bg" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Изминало"
-          }
-        },
-        "cs" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Uplynulo"
-          }
-        },
-        "da" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Forløbet"
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Vergangen"
-          }
-        },
-        "el" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Έχει περάσει"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Elapsed"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Transcurrido"
-          }
-        },
-        "et" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Möödunud"
-          }
-        },
-        "fi" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Kulunut"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Écoulé"
-          }
-        },
-        "ga" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Caite"
-          }
-        },
-        "hr" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Proteklo"
-          }
-        },
-        "hu" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Tartam"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Trascorso"
-          }
-        },
-        "lt" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Praėjo"
-          }
-        },
-        "lv" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Pagājis"
-          }
-        },
-        "mt" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Ħin li għadda"
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Verstreken"
-          }
-        },
-        "pl" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Upłynęło"
-          }
-        },
-        "pt" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Decorrido"
-          }
-        },
-        "ro" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Timp scurs"
-          }
-        },
-        "sk" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Uplynulo"
-          }
-        },
-        "sl" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Preteklo"
-          }
-        },
-        "sv" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Förfluten tid"
           }
         }
       }
@@ -15344,6 +15344,155 @@
           "stringUnit" : {
             "state" : "needs_review",
             "value" : "Ny person"
+          }
+        }
+      }
+    },
+    "Night before" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "bg" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Предната вечер"
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Předchozí večer"
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Aftenen før"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Vorabend"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Προηγούμενη βραδιά"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Night before"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "La noche anterior"
+          }
+        },
+        "et" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Eelmine õhtu"
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Edellisiltana"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "La veille au soir"
+          }
+        },
+        "ga" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "An oíche roimhe"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Prethodna večer"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Előző este"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "La sera prima"
+          }
+        },
+        "lt" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Praėjęs vakaras"
+          }
+        },
+        "lv" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Iepriekšējais vakars"
+          }
+        },
+        "mt" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Il-lejla ta' qabel"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "De avond ervoor"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Poprzedni wieczór"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "A noite anterior"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Seara precedentă"
+          }
+        },
+        "sk" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Predchádzajúci večer"
+          }
+        },
+        "sl" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Prejšnji večer"
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Kvällen innan"
           }
         }
       }

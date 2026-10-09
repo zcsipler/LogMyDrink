@@ -84,7 +84,6 @@ TRANSLATIONS = {
     "Profile": "Profiel",
     "estimated level": "geschat niveau",
     "estimated range": "geschat bereik",
-    "Elapsed": "Verstreken",
     "Drinks": "Drankjes",
     "Units": "Eenheden",
     "Expected to clear": "Verwacht weer op nul",
@@ -360,4 +359,7 @@ TRANSLATIONS = {
     'People': 'Personen',
     'Owner': 'Eigenaar',
     'Everyone this app records. Switch, add, or remove someone.': 'Iedereen die deze app registreert. Wissel, voeg toe of verwijder iemand.',
+    # --- Day window (5.22) ---
+    "Night before": 'De avond ervoor',
+    "Carried over from the night before": 'Overgedragen van de avond ervoor',
 }

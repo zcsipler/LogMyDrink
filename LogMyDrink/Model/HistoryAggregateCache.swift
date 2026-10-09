@@ -64,7 +64,7 @@ final class HistoryAggregateCache {
         if key == self.key { return days }
 
         days = HistoryAggregate.days(
-            from: sessions().map(\.historyOccasion),
+            from: sessions().flatMap { $0.historyOccasions() },
             knownMonths: monthlyTotals().map(\.asKnownMonth),
             trackingStartedAt: trackingStartedAt,
             now: now,

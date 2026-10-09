@@ -85,7 +85,6 @@ TRANSLATIONS = {
     "Profile": "Profilis",
     "estimated level": "įvertintas lygis",
     "estimated range": "įvertintas intervalas",
-    "Elapsed": "Praėjo",
     "Drinks": "Gėrimai",
     "Units": "Vienetai",
     "Expected to clear": "Numatomas išnykimas",
@@ -362,4 +361,7 @@ TRANSLATIONS = {
     'People': 'Žmonės',
     'Owner': 'Savininkas',
     'Everyone this app records. Switch, add, or remove someone.': 'Visi, kuriuos fiksuoja ši programa. Perjunkite, pridėkite arba pašalinkite ką nors.',
+    # --- Day window (5.22) ---
+    "Night before": 'Praėjęs vakaras',
+    "Carried over from the night before": 'Perkelta iš praėjusio vakaro',
 }

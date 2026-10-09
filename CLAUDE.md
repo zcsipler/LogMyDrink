@@ -97,27 +97,27 @@ LogMyDrink/
 │   │   ├── BACEngine.swift     RK4 szimuláció, BACCurve lekérdezések, version
 │   │   ├── Projection.swift    egyvonalas „mi lenne, ha" (régebbi API, megmaradt)
 │   │   ├── BACBand.swift       sávos szimuláció, LimitOutcome, BandedProjection
+│   │   ├── Occasions.swift     az itallista felbontása alkalmakra a görbe alapján (5.22)
 │   │   └── PourShortening.swift  a megkezdett ital lezárása a következővel
-│   └── Tests/BACKitTests/      56 teszt, Python referenciaértékekkel
+│   └── Tests/BACKitTests/      71 teszt, Python referenciaértékekkel
 ├── LogMyDrink/                 az app target
 │   ├── LogMyDrinkApp.swift     ModelContainer, CloudKit visszaeséssel, store létrehozás
 │   ├── Localizable.xcstrings   a 24 hivatalos EU-nyelven, generált
 │   ├── Model/
-│   │   ├── BACChartModel.swift      a chart bemenete — élő store vagy tárolt alkalom
+│   │   ├── BACChartModel.swift      a chart bemenete — egy nap ablaka vagy egy tárolt alkalom (5.22)
 │   │   ├── DrinkCatalog.swift       italtípusok, StomachState UI-réteg
 │   │   ├── DrinkingDay.swift        ivási nap hajnali 5-ös határral
 │   │   ├── DrinkingFrequency.swift  a béta proxyja
 │   │   ├── HistoryAggregate.swift   alkalmak → napok → periódusok, memóriában
 │   │   ├── HistoryWindow.swift      a History képernyő ablaka: nap / hét / hónap / év, oszlopok, mutatók
 │   │   ├── HistoryTrend.swift       a teljes időszak két EMA-görbéje: mennyiség / nap, csúcs
-│   │   ├── SessionStore.swift       @Observable, SwiftData-alapú, a nyitott alkalom
+│   │   ├── SessionStore.swift       @Observable, SwiftData-alapú; a futó alkalom = ami a `now`-t fedi
 │   │   └── Persistence/
 │   │       ├── Person.swift              @Model, kinek a fogyasztása — test, béta, határ
 │   │       ├── PersonMigration.swift     tulajdonos + gazdátlan alkalmak örökbefogadása
-│   │       ├── DrinkingSession.swift     @Model, profil-pillanatkép + cache + személy
+│   │       ├── DrinkingSession.swift     @Model, a görbe egy szakasza: profil-pillanatkép + cache (napokra bontva) + személy
 │   │       ├── DrinkRecord.swift         @Model, a tárolt ital
 │   │       ├── MonthlyTotal.swift        @Model, havi összeg a rögzítés előtti hónapokra
-│   │       ├── SessionPolicy.swift       mikor ér véget egy alkalom
 │   │       ├── AppSettings.swift         ami a KÉSZÜLÉKÉ: mértékegység, aktív személy
 │   │       ├── DataArchive.swift / ArchiveExport / ArchiveImport  JSON mentés és visszatöltés
 │   │       └── SessionStore+Preview.swift in-memory store a previewekhez
@@ -133,7 +133,7 @@ LogMyDrink/
 │   │   └── WidgetSnapshot.swift  a nyitott alkalom lapítva a widgetnek: ritkított sáv + összegek
 │   └── View/
 │       ├── MainTabView.swift        History / Live / Profil, Live középen; HistoryRequest a tabok közt
-│       ├── LiveView.swift           élő alkalom, csak a mai nap — három nap-állapot, „Tegnap" gomb
+│       ├── LiveView.swift           a mai nap ablaka — a futó alkalom, a mai lezártak és a tegnapi este farka; „Tegnap" gomb
 │       ├── HistoryView.swift        nap / hét / hónap / év, lapozás, chart, alkalom-lista, lakat
 │       ├── HistoryChartView.swift   oszlopok mennyiségre és csúcsra
 │       ├── HistoryTrendChartView.swift  görgethető, csippenthető trendgörbe, közös zoom
@@ -141,7 +141,8 @@ LogMyDrink/
 │       ├── HistoryJumpSheet.swift   ugrás tetszőleges hétre / hónapra / évre a fejlécről
 │       ├── SessionRow.swift         egy alkalom sora, lakatolt változattal
 │       ├── SessionDetailView.swift  navigációs keret egy múltbeli alkalomhoz
-│       ├── SessionContentView.swift a tartalom — LiveView és Detail is ezt használja
+│       ├── SessionContentView.swift egy alkalom tartalma — csak a Detail használja
+│       ├── DayContentView.swift     egy nap tartalma: chart, mutatók, itallista — Live és Nap-oldal (5.22)
 │       ├── BACChartView.swift       a sáv, BACChartModel bemenettel
 │       ├── DrinkListSection.swift   az itallista, koppintás + húzás
 │       ├── DrinkRow.swift           egy sor, kézzel írt swipe-pal
@@ -166,11 +167,12 @@ a `SessionStore`-on megy át: `refreshFromStore`, `add`, `update`, `remove`,
 `project`, `tick`, `activate`, `addPerson`, `removePerson`, `archive`,
 `importPlan`, `importArchive`, `quickAdd`.
 
-Alkalmat **kézzel nem lehet lezárni**. Volt egy „End session" gomb, de olyan
-kérdésre válaszolt, amit senki nem tesz fel: az alkalom akkor ér véget, amikor
-az alkohol kitisztult és eltelt pár óra (`SessionPolicy`) — ez tény az estéről,
-nem döntés. Korán megnyomva hamis lezárási időt írt volna, és a következő ital
-ugyanazon az estén egy második alkalmat nyitott volna.
+Alkalmat **kézzel nem lehet lezárni**, és nincs is mit: az alkalom nem
+állapot, hanem a görbe egy összefüggő szakasza (5.22). Volt egy „End
+session" gomb, de olyan kérdésre válaszolt, amit senki nem tesz fel: az
+alkalom ott ér véget, ahol az alkohol kitisztult és eltelt pár óra — ez tény
+az estéről, nem döntés. Korán megnyomva hamis lezárási időt írt volna, és a
+következő ital ugyanazon az estén egy második alkalmat nyitott volna.
 
 A `@Query` mindkét helyen **szűretlen**, és a személyre szűrés memóriában
 történik. Nem lustaságból: a `@Query` predikátuma a nézet létrehozásakor
@@ -316,8 +318,10 @@ A **motort** viszont szándékosan nem fagyasztjuk be: a bemenet van eltárolva,
 
 A `DrinkingDay` hajnali 5-kor vált. Egy 22:00–03:00 este így egy naphoz
 tartozik; éjféli határral kettévágódna, a csúcs az egyik napon, a lecsengés a
-másikon. Ez dönti el, melyik alkalomba kerül egy visszamenőlegesen felvitt
-ital, és azt is, hogy a Live mit számít „mának".
+másikon. Ez dönti el, melyik napra könyvelődik egy ital az Előzményben, és
+azt is, hogy a Live mit számít „mának". **Azt viszont nem dönti el, melyik
+alkalomba kerül egy ital** — azt a görbe (5.22); a nap egy ablak az
+idővonalra, nem a csoportosítás egysége.
 
 ### 5.7 „Nem ittál" és „nem tudjuk" nem ugyanaz
 
@@ -808,9 +812,17 @@ ismeretlen. Szabály: `min(első indítás, legkorábbi bejegyzés)`. A rögzít
 előtti napok halvány sávot kapnak, mert az üres az „ivásmentes" jele; a sávban
 felirat („No data before <dátum>"), ha a sáv az ablak legalább harmada.
 
-**A nap a saját dátuma alá kerül, a hét / hónap / év a naptáré.** A hajnali
-5-kor kezdődő ivási nap a `calendarDate`-jével kerül hétbe és hónapba, tehát az
-éjfélen átnyúló este abban a hétben marad, amelyikben kezdődött. A hét
+**Az ital a saját napjára könyvelődik, a nap a saját dátuma alá kerül, a
+hét / hónap / év a naptáré.** Egy alkalom átnyúlhat a hajnali 5-ös határon
+(5.22): a `DrinkingSession.historyOccasions()` naponként egy
+`HistoryOccasion`-t ad, a nap italaival és **a nap saját italainak**
+csúcsával — a napi csúcs az aznapi első italtól a következő nap első italáig
+(vagy a görbe végéig) terjedő szakasz maximuma, a cache-ből
+(`DaySummary`, `cachedDaysData`). Az előző estéről áthozott szint
+(`carryIn`) külön adat, nem csúcs: egy este egyszer számít, ott, ahol ittad.
+A hajnali 5-kor kezdődő ivási nap a `calendarDate`-jével kerül hétbe és
+hónapba, tehát az éjfélen átnyúló este abban a hétben marad, amelyikben
+kezdődött. A hét
 kezdőnapja a `Calendar`-ból jön. Az x-tengely éjfélhez igazított, különben a
 hét első oszlopát 5 óra levágná.
 
@@ -873,11 +885,12 @@ van felkínálva. Külön „ettől eddig" szűrő nincs; ha egyszer kell, a
 szolgálja ki.
 
 **Nap szegmens.** Egy oldal egy ivási nap, a mai a 0. oldal, az előre chevron
-ott letiltva. Tartalom: a nap lezárt alkalmai `SessionContentView`-val, a mai
-oldalon fölöttük a futó alkalom — a Live-val azonos módon szerkeszthető. Nincs
-mutató-kártya és nincs chart: a nap maga a tartalom. Üres napon a három eset
-az 5.7 szerint szétválik: „Nothing logged today", „No drinks on this day",
-„No data before <dátum>". A `HistoryRange` kapott egy `.day` esetet, ezért a
+ott letiltva. Tartalom: a nap **ablaka** az idővonalra (`DayContentView`,
+5.22) — ugyanaz, amit a Live mutat a mai napra —, a Live-val azonos módon
+szerkeszthető. Nincs mutató-kártya: a nap maga a tartalom. Üres napon a
+három eset az 5.7 szerint szétválik: „Nothing logged today", „No drinks on
+this day", „No data before <dátum>"; egy nap, amire csak az előző este
+farka nyúlik át, nem üres, azon a lefutó görbe látszik. A `HistoryRange` kapott egy `.day` esetet, ezért a
 lapozás, az `oldestOffset`, az ugró lap és az ingyenes-ablak szabály mind
 ugyanaz a kód — külön naplapozó nincs. A History megjegyzi az utolsó
 szegmenst; a Live „‹ Tegnap" gombja (5.11) a Nap / 1-es oldalra kéri
@@ -1314,6 +1327,87 @@ A verziólépés miatt minden mentett alkalom összesítője újraszámolódik
 (`DrinkingSession.cachedEngineVersion`). A tesztek rögzített számai és a
 `Reference/fixtures.py` kimenete ehhez igazodnak.
 
+### 5.22 A görbe adja az alkalmat — a nap egy ablak
+
+2026. október 9. Egy nehéz este (10 × 0,5 l sör, csúcs 2,48 ‰) másnapján
+három hiba jött elő egyszerre, és mind ugyanabból a tőből: az alkalom
+**tárolt állapot** volt (nyitott / zárt, `SessionPolicy`), nem a görbéből
+következett.
+
+1. A motor fix 24 órát szimulált az első italtól; a nehezebb este görbéje
+   ott megszakadt, kiürülési idő nélkül, és a policy a `nil`-t „kész"-nek
+   olvasta → reggel a Live 0 ‰-t mutatott 1,3 ‰ helyett.
+2. A Nap-oldal csak lezárt alkalmat listázott; egy törölt-visszaadott ital
+   újranyitotta az estét, és az eltűnt a tegnapi oldalról („No drinks on
+   this day" — hamis állítás, 5.7).
+3. A másnap 14:26-os sört a napi útválasztás új alkalomba tette, nulláról,
+   miközben 0,16 ‰ még ott volt.
+
+**A döntés (Zoltáné, az IntelliDrink mintájára):** az idővonal az
+elsődleges, **az alkalom a görbe egy összefüggő szakasza**, és **a nap egy
+ablak** erre az idővonalra. Egy ital ahhoz az alkalomhoz tartozik, amelyik
+az ő pillanatában még nem ért nullára, vagy legfeljebb három órája ürült ki
+(`Occasions.covers`, türelmi idő 3 h, küszöb 0,01 g/L) — naptól, hajnali
+5-től függetlenül. A tegnap esti 10 sör és a ma délutáni egy sör így egy
+alkalom; két, külön-külön kiürült este két alkalom, akkor is, ha egy
+naptári napra esnek.
+
+**Megvalósítás.**
+
+- **Motor:** a horizont 72 órás *biztonsági plafon* (a szimuláció eddig is
+  magától megállt kiürüléskor); `BACCurve.hasCleared()` kimondja, ha a plafon
+  vágta le; `Occasions.split` egy szimulációból bontja fel az itallistát
+  (két ital közt csak a korábbiak számítanak, tehát a teljes görbe ott
+  azonos a korábbiak görbéjével); `clipped(to:)` / `joined(_:)` /
+  `peak(after:)` az ablakhoz. Motorverzió 3, mert a nehéz esték tárolt
+  kiürülése hamis volt.
+- **Store:** `endedAt` = a lassú ág kiürülési ideje, levezetve, soha nem
+  kapu; `isRunning(at:)` kérdés egy pillanatról. Minden írás után
+  `normalize`: szétvág, ahol a saját görbe két ital közt a türelmi időnél
+  tovább nulla, az első darabot beolvasztja az előző alkalomba, ha annak
+  görbéje még fent volt a kezdésekor, az utolsó darab elnyeli az utána
+  jövőket, amikbe belefut. Minden darab megkapja a kiürülést és az
+  összesítőt; a futó alkalom (`session`) a `rebuild`-ben mindig újraolvasott:
+  „a legújabb, ami a `now`-t fedi". **Szigorú olvasat a döntéseknél**
+  (`isKnownToRun`): kiürülési idő nélküli alkalom nem fed semmit — különben
+  egy még nem normalizált alkalom hetekig elnyelne mindent; a laza olvasat
+  csak a „fut-e most" kérdésé, mert egy plafonon levágott görbe tényleg fut.
+  A `settleUnnormalized` induláskor csak italos alkalmakat normalizál: egy
+  üres lehet szinkronban úton lévő, és a törlése a másik készülékről is
+  vinné az italokat. Az `add` a frissen beszúrt italt explicit átadja a
+  `normalize`-nak, mert a reláció a mentés előtt nem köteles mutatni —
+  első italnál a különbség az, hogy az alkalom üresként törlődne, az itallal
+  együtt.
+- **Nézetek:** `SessionStore.chartModel(for: day)` a nap ablaka — minden
+  belelógó alkalom a saját profiljával szimulálva, összefűzve (nem fednek
+  át, a `normalize` miatt), 5–5-re vágva; a nehéz része naponként
+  cache-elve a következő írásig (`DayWindow`). A Live a mai ablak, a
+  Nap-oldal bármelyik napé, egyazon `DayContentView`-val. A chart a
+  napi **saját** csúcsot írja ki (`peak(after:)` az aznapi első italtól), a
+  színezés viszont az elért szinthez megy (`highestLevel`): egy 1,3 ‰-en
+  induló reggel 1,3-ra színeződik, akármelyik este tette oda. Italtalan,
+  de áthozatos napon a fejléc „Carried over from the night before". A
+  „Expected to clear" a vágatlan görbéből jön — a határnál levágott este is
+  valós órakor ürül ki.
+- **Előzmény:** 5.16 — ital a saját napjára, csúcs a saját italoké,
+  áthozat külön (`DaySummary`). Egy este egy oszlop.
+- **Kimentek:** `SessionPolicy.swift`, a nyitott/zárt fogalom, a Live
+  háromállapotú `DayState`-je és `@Query`-je, a `HistoryView`
+  `endedAt != nil` szűrői, az `update` külön „napváltás" ága megmaradt
+  (profil-ok miatt), a `sessionsInWindow` lista a hét/hónap sorokhoz
+  maradt.
+
+**Ára és tudnivalók.** Egy sima `add` három `simulateBand` (split-teszt,
+finalize, rebuild) a korábbi kettő helyett. A `split` és a `merge` külön
+`save()`-vel jár, mert a SwiftData az áthelyezett rekord inverzét csak
+mentéskor frissíti. A régi buildből itt maradt, nap szerint kettévágott
+esték a backfill végén (`mergeAdjacentSessions`) olvadnak össze, amikor már
+minden kiürülési idő friss. A `SessionDetailView` alatt az alkalom meg is
+szűnhet (visszaolvad az előzőbe) — `isGone` esetén bezár. **Amit én nem
+tudtam ellenőrizni:** az app target fordítása és a `LogMyDrinkTests`
+(⌘U); a `BACKit` 71 tesztje zöld, és egy független átolvasás hat pontot
+talált, amiket a kód már tartalmaz.
+
 ## 6. Validáció
 
 A `Reference/bac_model.py` a numerikus referencia. A Swift tesztek konkrét
@@ -1348,7 +1442,7 @@ csúcssáv `0,543722 … 0,662719`, középcsúcs `0,601601` @ 136 perc,
 kiürülés `361 … 534` perc (motorverzió 2, 5.21).
 
 ```bash
-./Reference/run_tests.sh                 # 56 teszt, BACKit
+./Reference/run_tests.sh                 # 71 teszt, BACKit
 cd Reference && python3 validate.py && python3 check_tests.py
 ```
 
@@ -1486,10 +1580,14 @@ kísérletként; JSON export / import (5.17); több személy a `multiPerson` fla
 mögött, személylistával és vendég-eltávolítással (5.18); 24 nyelvű lokalizáció
 (magyar és angol átnézve).
 
-**Tesztek:** 56 a `BACKit`-ben (Linuxon is futtatható, 6.); 84 a
-`LogMyDrinkTests` targetben (2026. október óta, ⌘U-val, mind zöld): 57 a
-History modellre (5.16), 22 a perzisztenciára — migráció, útválasztás,
-aktív személy (5.18) — és 5 a widget snapshotjára (5.15). A target unit testing bundle, host a `LogMyDrink`,
+**Tesztek:** 71 a `BACKit`-ben (Linuxon is futtatható, 6.; két régi teszt
+várt száma az 5.21-es verziólépésnél nem frissült és azóta bukott — 2026.
+október 9-én a referenciára igazítva); 90 a `LogMyDrinkTests` targetben
+(⌘U-val): 57 a History
+modellre (5.16), 28 a perzisztenciára — migráció, útválasztás és a
+görbe-alapú csoportosítás (5.18, 5.22), aktív személy — és 5 a widget
+snapshotjára (5.15). *Az utolsó hat útválasztás-teszt (5.22) készüléken
+még nem futott.* A target unit testing bundle, host a `LogMyDrink`,
 file-system synchronized group a `LogMyDrinkTests/` mappára, tehát egy új
 tesztfájl projektfájl-módosítás nélkül bekerül. A beállításai az apphoz
 igazítva: Swift 6, iOS 17.0, bundle ID `dev.zcsipler.logmydrink.tests`. A
@@ -1509,8 +1607,8 @@ App Store Connectben a „LogMyDrink" app-rekord lefoglalva (`TODO.md`).
 
 Az app **fordul és fut** szimulátoron, iPhone-ra telepítve van kipróbálva.
 
-Utolsó commit: lásd `git log`; ez a fejezet 2026. október 8-án, a
-widget-snapshot commitjával frissült.
+Utolsó commit: lásd `git log`; ez a fejezet 2026. október 9-én, a „görbe
+adja az alkalmat" körrel (5.22) frissült.
 
 ## 11. Teendők
 

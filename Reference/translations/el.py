@@ -87,7 +87,6 @@ TRANSLATIONS = {
     "Profile": "Προφίλ",
     "estimated level": "εκτιμώμενο επίπεδο",
     "estimated range": "εκτιμώμενο εύρος",
-    "Elapsed": "Έχει περάσει",
     "Drinks": "Ποτά",
     "Units": "Μονάδες",
     "Expected to clear": "Αναμένεται μηδενισμός",
@@ -365,4 +364,7 @@ TRANSLATIONS = {
     'People': 'Άτομα',
     'Owner': 'Κάτοχος',
     'Everyone this app records. Switch, add, or remove someone.': 'Όλοι όσους καταγράφει αυτή η εφαρμογή. Άλλαξε, πρόσθεσε ή αφαίρεσε κάποιον.',
+    # --- Day window (5.22) ---
+    "Night before": 'Προηγούμενη βραδιά',
+    "Carried over from the night before": 'Μεταφέρθηκε από την προηγούμενη βραδιά',
 }

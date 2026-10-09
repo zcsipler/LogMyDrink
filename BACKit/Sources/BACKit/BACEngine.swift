@@ -52,9 +52,84 @@ public struct BACCurve: Sendable {
     }
 
     /// The first time after the peak at which the level drops below `threshold`.
+    ///
+    /// `nil` means the curve had **not** cleared when the simulation stopped —
+    /// see `hasCleared`. It never means "already clear": an empty curve has
+    /// no peak and returns `nil` too, but callers that need the distinction
+    /// check `isEmpty` first.
     public func soberDate(threshold: Double = 0.01) -> Date? {
         guard let peak else { return nil }
         return samples.first { $0.date >= peak.date && $0.bac < threshold }?.date
+    }
+
+    /// Whether the level is below `threshold` at the end of the curve.
+    ///
+    /// The engine simulates until the body has cleared or `BACEngine.horizonMinutes`
+    /// runs out, so this is `false` only for an evening the cap cut short.
+    /// It exists because a missing `soberDate` was once read as "nothing left
+    /// to clear" and closed a heavy night at breakfast with 1.3 ‰ still in
+    /// the blood. A curve still above threshold at its last sample is still
+    /// running, and the caller must treat it that way.
+    public func hasCleared(threshold: Double = 0.01) -> Bool {
+        guard let last = samples.last else { return true }
+        return last.bac < threshold
+    }
+
+    /// The highest point at or after `date`.
+    ///
+    /// A day's peak is the peak of what was drunk on that day, not the
+    /// highest level seen on it: a morning that starts at 1.3 ‰ from the
+    /// night before and adds one beer at noon peaked at the beer, and the
+    /// 1.3 is the previous evening's to report. So the caller passes the
+    /// first drink of the day and gets the maximum from there on.
+    public func peak(after date: Date) -> BACSample? {
+        samples.filter { $0.date >= date }.max { $0.bac < $1.bac }
+    }
+
+    /// The part of the curve inside `window`, with interpolated samples at
+    /// both edges so a curve that enters or leaves the window mid-way still
+    /// starts and ends at the right level.
+    ///
+    /// A day is a window onto one continuous timeline, and the chart for it
+    /// draws only this part: an evening that runs past the five o'clock
+    /// boundary is cut there and continues on the next day's page. Samples
+    /// outside the window are dropped, not zeroed — the level at the edge
+    /// is whatever the curve says it is.
+    public func clipped(to window: ClosedRange<Date>) -> BACCurve {
+        guard let first = samples.first, let last = samples.last,
+              first.date <= window.upperBound, last.date >= window.lowerBound
+        else { return BACCurve(samples: [], startedAt: window.lowerBound) }
+
+        var inside = samples.filter { window.contains($0.date) }
+        if first.date < window.lowerBound {
+            let edge = BACSample(date: window.lowerBound, bac: value(at: window.lowerBound), rate: rate(at: window.lowerBound))
+            inside.insert(edge, at: 0)
+        }
+        if last.date > window.upperBound {
+            let edge = BACSample(date: window.upperBound, bac: value(at: window.upperBound), rate: rate(at: window.upperBound))
+            inside.append(edge)
+        }
+        return BACCurve(samples: inside, startedAt: inside.first?.date ?? window.lowerBound)
+    }
+
+    /// The rate of the last sample at or before `date` — a step, not an
+    /// interpolation, which is what the rising badge reads anyway.
+    public func rate(at date: Date) -> Double {
+        samples.last { $0.date <= date }?.rate ?? 0
+    }
+
+    /// Several curves that do not overlap in time, as one.
+    ///
+    /// Occasions are cut where the body has cleared, so two of them never
+    /// overlap and the samples simply follow one another; between them the
+    /// level is zero on both sides, and interpolation across the gap stays at
+    /// zero. The caller guarantees the non-overlap — this only sorts.
+    public static func joined(_ curves: [BACCurve]) -> BACCurve {
+        let ordered = curves.filter { !$0.samples.isEmpty }.sorted { $0.startedAt < $1.startedAt }
+        guard let first = ordered.first else {
+            return BACCurve(samples: [], startedAt: curves.first?.startedAt ?? Date())
+        }
+        return BACCurve(samples: ordered.flatMap(\.samples), startedAt: first.startedAt)
     }
 
     /// The first time the curve reaches the given limit.
@@ -91,19 +166,30 @@ public struct BACEngine: Sendable {
     /// improvement invalidates them instead of silently leaving stale figures
     /// in the history. Do not bump it for refactors that keep the output
     /// identical — that would needlessly recompute every past session.
-    public static let version = 2
+    public static let version = 3
 
     /// Integration step in minutes.
     public var stepMinutes: Double
     /// Sampling interval in minutes.
     public var sampleEveryMinutes: Double
-    /// Maximum simulated span in minutes.
+    /// Safety cap on the simulated span, in minutes.
+    ///
+    /// The simulation stops on its own once the body has cleared, so this is
+    /// not how long a curve is — it is how long one is *allowed* to be before
+    /// the loop gives up. It was 24 hours from the first drink, which sounds
+    /// generous and is not: ten half-litre beers between 17:00 and midnight
+    /// clear around 16:00 the next day, and anything heavier ran past the
+    /// cap, lost its sober time, and was closed as if it had cleared. Three
+    /// days covers any evening a person survives; a curve that reaches it is
+    /// reported through `BACCurve.hasCleared`, never silently truncated.
     public var horizonMinutes: Double
+
+    public static let defaultHorizonMinutes: Double = 72 * 60
 
     public init(
         stepMinutes: Double = 0.25,
         sampleEveryMinutes: Double = 1,
-        horizonMinutes: Double = 24 * 60
+        horizonMinutes: Double = BACEngine.defaultHorizonMinutes
     ) {
         self.stepMinutes = stepMinutes
         self.sampleEveryMinutes = sampleEveryMinutes

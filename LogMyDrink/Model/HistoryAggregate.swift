@@ -58,12 +58,12 @@ enum HistoryAggregate {
         let today = DrinkingDay.containing(now, calendar: calendar)
         let trackingDay = DrinkingDay.containing(trackingStartedAt, calendar: calendar)
 
-        // A session with no drinks is not an evening out. One can exist —
-        // a quick add undone, the last drink deleted from an open session —
-        // and it must not turn a dry day into a drinking day with a
-        // zero-height bar that answers a tap with "0 g".
+        // Filed by the day's first drink — or, for a day the night before
+        // only ran through, by the day itself. The second kind has no drinks
+        // and must not turn a dry day into a drinking day: `state` below
+        // asks for drinks, not for occasions.
         var byDay: [DrinkingDay: [HistoryOccasion]] = [:]
-        for occasion in occasions where occasion.drinkCount > 0 && occasion.startedAt <= today.end {
+        for occasion in occasions where occasion.startedAt <= today.end {
             byDay[DrinkingDay.containing(occasion.startedAt, calendar: calendar), default: []]
                 .append(occasion)
         }
@@ -73,7 +73,8 @@ enum HistoryAggregate {
         // earlier of the stored start and the first occasion, and the days we
         // were not looking are always one run at the front, never a gap
         // between two evenings.
-        let recordsBegan = ([trackingDay] + byDay.keys).min { $0.start < $1.start } ?? today
+        let drinkDays = byDay.filter { $0.value.contains { $0.drinkCount > 0 } }.keys
+        let recordsBegan = ([trackingDay] + drinkDays).min { $0.start < $1.start } ?? today
 
         // Which month a drinking day is filed under, by the day's own date
         // (the 05:00 start), the same way `HistoryPeriod` files it.
@@ -131,7 +132,7 @@ enum HistoryAggregate {
             let occasions = (byDay[day] ?? []).sorted { $0.startedAt < $1.startedAt }
             let beforeRecords = day.start < recordsBegan.start
             let month = beforeRecords ? summarized[monthStart(of: day)] : nil
-            let state: DayBucket.State = if !occasions.isEmpty {
+            let state: DayBucket.State = if occasions.contains(where: { $0.drinkCount > 0 }) {
                 .drank
             } else if let month, month.isZero {
                 .dry
@@ -193,17 +194,30 @@ enum HistoryPeriod: String, CaseIterable, Identifiable, Sendable {
     }
 }
 
-/// One session, reduced to what history needs — a value, so the aggregate
-/// can be built and tested without a model context.
+/// One drinking day of one session, reduced to what history needs — a value,
+/// so the aggregate can be built and tested without a model context.
+///
+/// Per day, not per session: a session is a stretch of the curve and can run
+/// across the five o'clock boundary, but the history books each drink to the
+/// day it was had and each day's peak to the drinks had on it (5.16). A
+/// session touching two days yields two of these.
 struct HistoryOccasion: Hashable, Identifiable, Sendable {
-    let id: UUID
+    /// Unique per session and day.
+    let id: String
+    let sessionID: UUID
+    /// The first drink on the day — what the day is filed by.
     let startedAt: Date
     let totalUnits: Double
     let drinkCount: Int
 
-    /// Nil when the stored summary is missing or predates the current engine.
-    /// Never computed here: that is the store's job, in the background.
+    /// The peak of this day's drinks. Nil when the stored summary is missing
+    /// or predates the current engine — never computed here: that is the
+    /// store's job, in the background. Also nil on a day with no drinks.
     let peakRange: ClosedRange<Double>?
+
+    /// The level still there at the start of the day from the night before,
+    /// when there was one. Reported, not counted as a peak.
+    let carryIn: ClosedRange<Double>?
 
     /// The limit as it stood for this session (5.5, 5.14). A bar drawn for
     /// this occasion is coloured against *this* number, not today's.
@@ -211,19 +225,50 @@ struct HistoryOccasion: Hashable, Identifiable, Sendable {
 }
 
 extension DrinkingSession {
-    /// The session as history sees it. Units and count are summed from the
-    /// drinks when the cache is stale, because they cost nothing; the peak is
-    /// taken only from a valid cache.
-    var historyOccasion: HistoryOccasion {
-        let cached = summary
-        return HistoryOccasion(
-            id: id,
-            startedAt: startedAt,
-            totalUnits: cached?.totalUnits ?? totalUnits,
-            drinkCount: drinks?.count ?? 0,
-            peakRange: cached?.peakRange,
-            limit: limit
-        )
+    /// The session as history sees it: one entry per drinking day it
+    /// touches. Units and counts are summed from the drinks — they cost
+    /// nothing — and the per-day peaks and carried-in levels come from the
+    /// cache alone; while it is stale they are simply missing.
+    func historyOccasions(calendar: Calendar = .current) -> [HistoryOccasion] {
+        let drinks = sortedDrinks
+        guard !drinks.isEmpty else { return [] }
+
+        var firstByDay: [DrinkingDay: Date] = [:]
+        var unitsByDay: [DrinkingDay: Double] = [:]
+        var countByDay: [DrinkingDay: Int] = [:]
+        for drink in drinks {
+            let day = DrinkingDay.containing(drink.consumedAt, calendar: calendar)
+            firstByDay[day] = min(firstByDay[day] ?? drink.consumedAt, drink.consumedAt)
+            unitsByDay[day, default: 0] += drink.standardUnits
+            countByDay[day, default: 0] += 1
+        }
+
+        let cached = summary?.days ?? []
+        func cachedDay(_ day: DrinkingDay) -> DaySummary? {
+            cached.first { $0.dayStart == day.start }
+        }
+
+        // Days the curve ran through without a drink are listed too, so the
+        // morning after can say what it started at. Only from the cache: a
+        // carried-in level is the engine's to know.
+        var days = Set(firstByDay.keys)
+        for entry in cached where entry.carryIn != nil {
+            days.insert(DrinkingDay(start: entry.dayStart))
+        }
+
+        return days.sorted { $0.start < $1.start }.map { day in
+            let entry = cachedDay(day)
+            return HistoryOccasion(
+                id: "\(id.uuidString)/\(day.start.timeIntervalSinceReferenceDate)",
+                sessionID: id,
+                startedAt: firstByDay[day] ?? day.start,
+                totalUnits: unitsByDay[day] ?? 0,
+                drinkCount: countByDay[day] ?? 0,
+                peakRange: entry?.peakRange,
+                carryIn: entry?.carryIn,
+                limit: limit
+            )
+        }
     }
 }
 
@@ -231,7 +276,7 @@ extension DrinkingSession {
 struct DayBucket: Identifiable, Hashable, Sendable {
 
     enum State: Hashable, Sendable {
-        /// At least one session started on this day.
+        /// At least one drink was had on this day.
         case drank
         /// Recorded, and nothing was logged: evidence of not drinking.
         case dry
@@ -264,9 +309,15 @@ struct DayBucket: Identifiable, Hashable, Sendable {
         occasions.compactMap(\.peakRange).max { $0.upperBound < $1.upperBound }
     }
 
-    /// False while any occasion of the day is waiting for its peak.
+    /// False while any occasion of the day with drinks is waiting for its
+    /// peak. A day the night before only ran through has no peak to wait for.
     var peakIsComplete: Bool {
-        occasions.allSatisfy { $0.peakRange != nil }
+        occasions.allSatisfy { $0.drinkCount == 0 || $0.peakRange != nil }
+    }
+
+    /// The level carried in from the night before, when the cache knows it.
+    var carryIn: ClosedRange<Double>? {
+        occasions.compactMap(\.carryIn).max { $0.upperBound < $1.upperBound }
     }
 
     /// The strictest limit in force that day, for colouring the day's peak.

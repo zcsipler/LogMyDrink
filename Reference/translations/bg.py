@@ -84,7 +84,6 @@ TRANSLATIONS = {
     "Profile": "Профил",
     "estimated level": "прогнозно ниво",
     "estimated range": "прогнозен диапазон",
-    "Elapsed": "Изминало",
     "Drinks": "Напитки",
     "Units": "Единици",
     "Expected to clear": "Очаквано изчистване",
@@ -359,4 +358,7 @@ TRANSLATIONS = {
     'People': 'Хора',
     'Owner': 'Собственик',
     'Everyone this app records. Switch, add, or remove someone.': 'Всички, които това приложение записва. Превключи, добави или премахни някого.',
+    # --- Day window (5.22) ---
+    "Night before": 'Предната вечер',
+    "Carried over from the night before": 'Пренесено от предната вечер',
 }

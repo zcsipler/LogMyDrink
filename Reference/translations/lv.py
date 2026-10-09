@@ -85,7 +85,6 @@ TRANSLATIONS = {
     "Profile": "Profils",
     "estimated level": "novērtētais līmenis",
     "estimated range": "novērtētais diapazons",
-    "Elapsed": "Pagājis",
     "Drinks": "Dzērieni",
     "Units": "Vienības",
     "Expected to clear": "Izvadīšana paredzēta",
@@ -357,4 +356,7 @@ TRANSLATIONS = {
     'People': 'Personas',
     'Owner': 'Īpašnieks',
     'Everyone this app records. Switch, add, or remove someone.': 'Visi, ko šī lietotne ieraksta. Pārslēdz, pievieno vai noņem kādu.',
+    # --- Day window (5.22) ---
+    "Night before": 'Iepriekšējais vakars',
+    "Carried over from the night before": 'Pārnests no iepriekšējā vakara',
 }

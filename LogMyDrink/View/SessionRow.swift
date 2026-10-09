@@ -22,12 +22,7 @@ struct SessionRow: View {
             ? BACBand.empty
             : BACEngine().simulateBand(profile: session.profile, drinks: drinks)
 
-        return SessionSummary(
-            peakRange: band.peakRange ?? 0...0,
-            soberAt: band.soberRange()?.upperBound,
-            totalUnits: session.totalUnits,
-            drinkCount: drinks.count
-        )
+        return SessionSummary.make(drinks: drinks, band: band)
     }
 
     private var duration: TimeInterval {
