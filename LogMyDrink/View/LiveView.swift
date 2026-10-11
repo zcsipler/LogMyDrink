@@ -126,12 +126,30 @@ struct LiveView: View {
         withAnimation(.easeOut(duration: 0.2)) { receipt = nil }
     }
 
+    /// The request last carried out, and when. Two guards for two ways of
+    /// being asked twice: `onAppear` and `onChange` can both fire for the
+    /// same request (the id catches that), and the system can deliver the
+    /// same URL twice at launch as two requests (the time catches that —
+    /// nobody taps a widget twice within two seconds meaning two beers).
+    /// Prevention: no double add has been seen in the data, only suspected
+    /// once and ruled out.
+    @State private var appliedQuickAddID: UUID?
+    @State private var appliedQuickAddAt: Date?
+
+    private static let quickAddRequestDebounce: TimeInterval = 2
+
     /// A widget tap lands here. The clock is caught up first: the app may
     /// have been in the background for hours, and the offer is timed at
     /// `store.now`, which only the Live timer moves.
     private func applyQuickAddRequest() {
-        guard quickAddRequest != nil else { return }
+        guard let request = quickAddRequest else { return }
         quickAddRequest = nil
+        guard request.id != appliedQuickAddID else { return }
+        if let last = appliedQuickAddAt, Date.now.timeIntervalSince(last) < Self.quickAddRequestDebounce {
+            return
+        }
+        appliedQuickAddID = request.id
+        appliedQuickAddAt = .now
         store.tick()
         quickAdd()
     }

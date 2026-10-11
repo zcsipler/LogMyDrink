@@ -36,6 +36,7 @@ BIOAVAILABILITY_BY_STOMACH = {
 # Michaelis constant. At this value elimination is effectively zero-order above
 # 0.02 g/L but tapers off smoothly near zero - it never goes negative.
 KM = 0.02                        # g/L
+MINIMUM_POUR_MINUTES = 1.0   # below this a pour is integrated as a bolus
 DEFAULT_BETA = 0.15              # g/L/h, mild-to-moderate drinker average
 
 
@@ -179,16 +180,22 @@ def simulate(
     gut = [0.0] * len(ordered)
     ka = [d.ka_per_minute for d in ordered]
     absorbed = [d.absorbed_grams for d in ordered]
+    # A pour shorter than a minute is a bolus: the intake rate is sampled at
+    # the RK4 stages of a 0.25-minute step, and a window shorter than the
+    # step is seen by some stages and not others, so its mass is not
+    # conserved (a one-second "pour" came out at four times its dose).
+    durations = [d.drinking_minutes if d.drinking_minutes >= MINIMUM_POUR_MINUTES else 0.0
+                 for d in ordered]
     # Only instantaneous drinks wait to be deposited; the rest flow in.
-    pending = [i for i, d in enumerate(ordered) if d.drinking_minutes <= 0]
+    pending = [i for i, dur in enumerate(durations) if dur <= 0]
 
     def intake_rate(i: int, t: float) -> float:
         """Zero-order flow into the stomach while the drink is being consumed."""
         d = ordered[i]
-        if d.drinking_minutes <= 0:
+        if durations[i] <= 0:
             return 0.0                       # a bolus, deposited on arrival
-        if d.minute <= t < d.minute + d.drinking_minutes:
-            return absorbed[i] / d.drinking_minutes
+        if d.minute <= t < d.minute + durations[i]:
+            return absorbed[i] / durations[i]
         return 0.0
 
     def derivatives(gut_state: List[float], c: float, t: float) -> tuple[List[float], float]:
@@ -230,7 +237,7 @@ def simulate(
         c = max(c, 0.0)
         t += dt
 
-        still_pouring = any(t < d.minute + d.drinking_minutes for d in ordered)
+        still_pouring = any(t < d.minute + durations[i] for i, d in enumerate(ordered))
         if c <= 1e-6 and not pending and not still_pouring \
                 and all(g <= 1e-9 for g in gut) and t > 1:
             samples.append(Sample(minute=t, bac=0.0, rate=0.0))

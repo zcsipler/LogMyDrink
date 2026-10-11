@@ -99,7 +99,7 @@ LogMyDrink/
 │   │   ├── BACBand.swift       sávos szimuláció, LimitOutcome, BandedProjection
 │   │   ├── Occasions.swift     az itallista felbontása alkalmakra a görbe alapján (5.22)
 │   │   └── PourShortening.swift  a megkezdett ital lezárása a következővel
-│   └── Tests/BACKitTests/      71 teszt, Python referenciaértékekkel
+│   └── Tests/BACKitTests/      73 teszt, Python referenciaértékekkel
 ├── LogMyDrink/                 az app target
 │   ├── LogMyDrinkApp.swift     ModelContainer, CloudKit visszaeséssel, store létrehozás
 │   ├── Localizable.xcstrings   a 24 hivatalos EU-nyelven, generált
@@ -554,6 +554,19 @@ ami történt. A típus a `Drink.name`, vagyis a sablon azonosítója.
 perces lesz. Ez utólagos, tömeges felvitelnél hamis meredekséget ad (négy sör
 egymás után begépelve, mind „Most"-tal) — tudatos döntés, hogy a szabály
 kivétel nélkül érvényes, és a felvitt időpontok helyessége a felhasználón áll.
+*A motor oldalán viszont van egy küszöb (2026. október 11., motorverzió 4):
+egy percnél rövidebb kortyolást a `BACEngine` egyben lehajtottként integrál
+(`minimumPourMinutes`). Egy másodperccel egymás után felvitt két sörnél a
+pour cut 0,01 perces „kortyolást" hagyott, és az RK4 0,25 perces lépése ezt
+az ablakot egyes fokozatokban látta, másokban nem — a tömeg nem maradt meg,
+a két sör 1,73 ‰-re vitte a görbét 0,53 helyett (0,1 percnél meg alulra,
+0,33-ra). Egy perc alatt a kortyolás és a bolus a görbén megkülönböztethetetlen
+(0,52 vs 0,53), tehát a küszöb semmit nem vesz el az 5.9-ből. A Python
+referencia ugyanezt teszi (`MINIMUM_POUR_MINUTES`). És a `pourCut` sem
+tárol ilyet: egy percnél rövidebb vágásnál 0-t ír, vagyis egyben lehajtottat
+— a 0,01 perc a képernyőn sehol nem látszott volna, és a motor úgyis
+bolusként kezelte; a rekord mondja ki, amit a motor csinál. Egy percen
+felül a vágás változatlanul percre pontos.*
 
 **Amit tudni kell róla:**
 
@@ -570,7 +583,7 @@ kivétel nélkül érvényes, és a felvitt időpontok helyessége a felhasznál
 - Csendben történik; az itallistában látszik az új időtartam.
 
 A szabály a `BACKit`-ben van, nem az app rétegben: `[Drink] -> [Drink]`, tiszta
-függvény UI nélkül — és így tesztelhető (`PourShorteningTests`, 9 teszt).
+függvény UI nélkül — és így tesztelhető (`PourShorteningTests`, 10 teszt).
 
 ### 5.14 A színskála a saját határhoz van kötve, nem abszolút szintekhez
 
@@ -671,6 +684,21 @@ futtatja. Siri magyarul nem tud, a kifejezések angolok. A widget felirata és a
 Drink" (`Text(verbatim:)`, márkanév, nem fordul); az intent `title`-je
 viszont „Log a drink" marad, mert az a Shortcuts appban egy *lépés* neve,
 ott az ige a helyes, nem a márka.
+
+**A kérést a Live kétszer is megkaphatja** — az `onAppear` és az `onChange`
+ugyanarra a kérésre, vagy a rendszer ugyanazt az URL-t kétszer kézbesíti
+indításkor. Az `applyQuickAddRequest` ezért kétféle őrrel idempotens: a
+kérés azonosítójával és két másodperces debounce-szal. Megelőzés, nem
+javítás: egy kör tévesen dupla felvitelnek nézte az exportban egy másodperc
+különbséggel álló sörpárokat — azok Zoltán két koppintása voltak.
+
+**A widgetes út két `tick()`-et hoz egymás után** (a kérés feldolgozása és
+az előtérbe kerülés), ezért a widgetről felvitt sör után egy azonnali
+appbeli gyorsfelvitel *másodpercre* más időbélyeget kap — az appon belül két
+koppintás ugyanazon a 30 másodperces ticken belül ugyanazt. Ez hozta elő a
+motor egy lépésköznél rövidebb kortyolás-hibáját (5.13, `minimumPourMinutes`):
+a pour cut 0,01 perces „kortyolást" hagyott, és az appon belül sosem, a
+widgetről mindig.
 
 **Widget — `LogMyDrinkWidget/`, külön target.** Egy gomb a zárolt képernyőre
 (kör, téglalap) és a kezdőképernyőre (kicsi). A koppintás **nem helyben ír,
@@ -1408,8 +1436,12 @@ naptári napra esnek.
 finalize, rebuild) a korábbi kettő helyett. A `split` és a `merge` külön
 `save()`-vel jár, mert a SwiftData az áthelyezett rekord inverzét csak
 mentéskor frissíti. A régi buildből itt maradt, nap szerint kettévágott
-esték a backfill végén (`mergeAdjacentSessions`) olvadnak össze, amikor már
-minden kiürülési idő friss. A `SessionDetailView` alatt az alkalom meg is
+esték `mergeAdjacentSessions`-szel olvadnak össze — minden
+`refreshFromStore`-nál (csak dátumokat néz, olcsó), és a backfill végén is,
+amikor már minden kiürülési idő friss. Fontos, mert a nap chartja a belelógó
+alkalmak sávjait egymás után fűzi (`BACBand.joined`) azzal a feltevéssel, hogy
+nem fednek át; két átfedő alkalom (okt. 10-én volt ilyen, a refaktor előtti
+build maradékaként) összekevert mintákat rajzolt volna. A `SessionDetailView` alatt az alkalom meg is
 szűnhet (visszaolvad az előzőbe) — `isGone` esetén bezár. **Amit én nem
 tudtam ellenőrizni:** az app target fordítása és a `LogMyDrinkTests`
 (⌘U); a `BACKit` 71 tesztje zöld, és egy független átolvasás hat pontot
@@ -1449,7 +1481,7 @@ csúcssáv `0,543722 … 0,662719`, középcsúcs `0,601601` @ 136 perc,
 kiürülés `361 … 534` perc (motorverzió 2, 5.21).
 
 ```bash
-./Reference/run_tests.sh                 # 71 teszt, BACKit
+./Reference/run_tests.sh                 # 73 teszt, BACKit
 cd Reference && python3 validate.py && python3 check_tests.py
 ```
 
@@ -1587,7 +1619,7 @@ kísérletként; JSON export / import (5.17); több személy a `multiPerson` fla
 mögött, személylistával és vendég-eltávolítással (5.18); 24 nyelvű lokalizáció
 (magyar és angol átnézve).
 
-**Tesztek:** 71 a `BACKit`-ben (Linuxon is futtatható, 6.; két régi teszt
+**Tesztek:** 73 a `BACKit`-ben (Linuxon is futtatható, 6.; két régi teszt
 várt száma az 5.21-es verziólépésnél nem frissült és azóta bukott — 2026.
 október 9-én a referenciára igazítva); 90 a `LogMyDrinkTests` targetben
 (⌘U-val): 57 a History
@@ -1643,7 +1675,7 @@ javítja az előző kört, ismerjük el nyíltan és írjuk át (ebből lett az 
 
 **Mit tudok ellenőrizni.** A `BACKit` tesztjeit **le tudom futtatni**:
 `./Reference/run_tests.sh` letölt egy Swift toolchaint a sandboxba, és lemegy
-mind az 56 teszt (6.). Ezt minden olyan kör végén futtassuk le, ami a motorhoz
+mind a 73 teszt (6.). Ezt minden olyan kör végén futtassuk le, ami a motorhoz
 ér. Rajta kívül: zárójel- és API-egyezés-ellenőrzés, a Python referencia, a
 katalógus-ellenőrző.
 

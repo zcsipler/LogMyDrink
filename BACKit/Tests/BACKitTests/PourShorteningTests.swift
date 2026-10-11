@@ -74,6 +74,20 @@ struct PourShorteningTests {
         #expect(cut.drinkingMinutes == 15)
     }
 
+    @Test("A second beer within a minute makes the first one a drink in one go")
+    func subMinuteCutIsInstant() throws {
+        let first = drink("beer", at: 0, over: 30)
+        let second = drink("beer", at: 1.0 / 60, over: 30)
+
+        let cut = try #require([first].pourCut(by: second))
+        #expect(cut.drinkID == first.id)
+        #expect(cut.drinkingMinutes == 0)
+
+        // A minute or more is kept as the pace it was.
+        let later = drink("beer", at: 1.5, over: 30)
+        #expect(try #require([first].pourCut(by: later)).drinkingMinutes == 1.5)
+    }
+
     @Test("Applying the cut twice changes nothing the second time")
     func idempotent() {
         // The projection reruns on every keystroke, so a second pass must not

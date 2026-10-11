@@ -5,7 +5,11 @@ public struct PourCut: Equatable, Sendable {
     public let drinkID: UUID
 
     /// The duration the interrupted drink should be given, in minutes. Always
-    /// shorter than what it had, and always greater than zero.
+    /// shorter than what it had. Zero when the next drink came within a
+    /// minute: a pour that short is a drink downed in one go, and the record
+    /// says so instead of carrying "0.01 minutes" — a figure no screen can
+    /// show and the engine would treat as a bolus anyway
+    /// (`BACEngine.minimumPourMinutes`).
     public let drinkingMinutes: Double
 
     public init(drinkID: UUID, drinkingMinutes: Double) {
@@ -31,6 +35,11 @@ public extension Array where Element == Drink {
     /// Only the most recent match is returned: anything older than that was
     /// already cut short by the drink in between.
     ///
+    /// No lower bound in minutes — a beer finished in four minutes is four
+    /// minutes (5.13) — but below one minute the cut is rounded to "in one
+    /// go": the sub-minute remainder of two taps a second apart is noise,
+    /// not a pace, and once stored it read back as a 0.01-minute pour.
+    ///
     /// The operation is idempotent. Once cut, the earlier drink is no longer
     /// pouring at that instant, so a second pass over the same list finds
     /// nothing — which is what lets a projection be recomputed on every
@@ -47,9 +56,10 @@ public extension Array where Element == Drink {
 
         guard let interrupted else { return nil }
 
+        let minutes = start.timeIntervalSince(interrupted.consumedAt) / 60
         return PourCut(
             drinkID: interrupted.id,
-            drinkingMinutes: start.timeIntervalSince(interrupted.consumedAt) / 60
+            drinkingMinutes: minutes < BACEngine.minimumPourMinutes ? 0 : minutes
         )
     }
 

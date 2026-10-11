@@ -186,6 +186,31 @@ struct BACEngineTests {
         #expect(capped.samples.last!.bac > 1)
     }
 
+    /// The pour cut leaves a one-second "pour" when the next beer is logged a
+    /// second after the first (5.13 has no lower bound). Sampled at the RK4
+    /// stages of a 0.25-minute step, such a window was counted four times
+    /// over: two beers peaked at 1.73 ‰ on a 64 kg body. Below a minute a
+    /// pour is a bolus.
+    @Test("A pour shorter than a minute is a bolus, and its mass is counted once")
+    func subMinutePourIsABolus() {
+        let profile = BodyProfile(sex: .male, age: 41, heightCm: 168, weightKg: 64, beta: 0.18)
+        func peak(firstPour: Double) -> Double {
+            let drinks = [
+                Drink(consumedAt: minute(0), volumeMl: 500, abvPercent: 5, stomach: .light, drinkingMinutes: firstPour),
+                Drink(consumedAt: minute(1), volumeMl: 500, abvPercent: 5, stomach: .light, drinkingMinutes: 30),
+            ]
+            return engine.simulate(profile: profile, drinks: drinks).peak!.bac
+        }
+
+        let bolus = peak(firstPour: 0)
+        #expect(abs(peak(firstPour: 0.0100505) - bolus) < 1e-9)
+        #expect(abs(peak(firstPour: 0.5) - bolus) < 1e-9)
+        // A real pour differs from a bolus by only a few percent — the
+        // threshold costs nothing visible.
+        #expect(abs(peak(firstPour: 1) - bolus) < 0.03)
+        #expect(bolus < 0.6)
+    }
+
     @Test("Mass conservation: what is eliminated equals what went in")
     func massConservation() {
         let drink = Drink(consumedAt: t0, volumeMl: 40, abvPercent: 40, stomach: .empty)

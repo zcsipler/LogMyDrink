@@ -61,9 +61,13 @@ enum HistoryAggregate {
         // Filed by the day's first drink — or, for a day the night before
         // only ran through, by the day itself. The second kind has no drinks
         // and must not turn a dry day into a drinking day: `state` below
-        // asks for drinks, not for occasions.
+        // asks for drinks, not for occasions. One with neither drinks nor a
+        // carried-in level — a quick add undone, the last drink deleted —
+        // says nothing about its day and is dropped here, so nothing of it
+        // can reach a chart.
         var byDay: [DrinkingDay: [HistoryOccasion]] = [:]
-        for occasion in occasions where occasion.startedAt <= today.end {
+        for occasion in occasions
+        where occasion.startedAt <= today.end && (occasion.drinkCount > 0 || occasion.carryIn != nil) {
             byDay[DrinkingDay.containing(occasion.startedAt, calendar: calendar), default: []]
                 .append(occasion)
         }

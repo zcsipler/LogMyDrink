@@ -371,6 +371,12 @@ final class SessionStore {
     func refreshFromStore() {
         revision &+= 1
         settleUnnormalized()
+        // Dates only, so cheap enough for every refresh. It is what repairs
+        // two sessions that overlap in time — left behind by the build that
+        // grouped by drinking day, or by two adds racing each other — and
+        // overlapping sessions break the day chart, which joins their bands
+        // end to end on the assumption that they never overlap.
+        if mergeAdjacentSessions() { save() }
         rebuild()
         reconcileTrackingStart()
         backfillStaleSummaries()

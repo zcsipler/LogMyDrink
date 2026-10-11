@@ -166,7 +166,19 @@ public struct BACEngine: Sendable {
     /// improvement invalidates them instead of silently leaving stale figures
     /// in the history. Do not bump it for refactors that keep the output
     /// identical — that would needlessly recompute every past session.
-    public static let version = 3
+    public static let version = 4
+
+    /// Pours shorter than this are integrated as a bolus.
+    ///
+    /// The intake rate of a pour is sampled at the Runge–Kutta stages of each
+    /// 0.25-minute step; a pour window shorter than the step is seen by some
+    /// stages and not others, and the mass is not conserved — a 500 ml beer
+    /// "poured" over one second (what the pour cut leaves when the next beer
+    /// is logged a second later) came out at four times its dose, 1.7 ‰ for
+    /// two beers. Below a minute a pour and a bolus are indistinguishable on
+    /// the curve anyway (0.52 vs 0.53 ‰ on the reference), so the bolus path,
+    /// which deposits the whole dose exactly once, takes over there.
+    public static let minimumPourMinutes: Double = 1
 
     /// Integration step in minutes.
     public var stepMinutes: Double
@@ -207,7 +219,7 @@ public struct BACEngine: Sendable {
         let km = Physiology.michaelisConstant
 
         let offsets = ordered.map { $0.consumedAt.timeIntervalSince(start) / 60 }
-        let durations = ordered.map(\.drinkingMinutes)
+        let durations = ordered.map { $0.drinkingMinutes < Self.minimumPourMinutes ? 0 : $0.drinkingMinutes }
         let ka = ordered.map(\.stomach.absorptionRatePerMinute)
         let doses = ordered.map(\.absorbedGrams)
 
