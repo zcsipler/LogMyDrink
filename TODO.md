@@ -201,6 +201,19 @@ az egész app hitelességét.
 
 ### Előzmény (fizetős, `Feature.historyTrends`)
 
+- **Görgethető idővonal a Live-on — kipróbálva, elvetve (2026. október 9).**
+  Egy kör megépült (12 órás lépték konstansban, napokban betöltve, a
+  figyelt nap mutatói a chart alatt, „Today" gomb), két készülékes próbán
+  a chart nem mozdult vízszintes húzásra, laggolt és következetlen volt;
+  Zoltán visszadobta, a kód a beszélgetésben maradt, a repóba nem került.
+  Tanulságok, ha egyszer újra jön: a `chartXSelection` és a saját
+  `chartGesture` is elvitte a húzást a görgetés elől — görgethető charton
+  nem lehet kijelölés; a body minden scroll-frame-ben újraértékelődik, a
+  `laneLayout` és a `band.samples` ezt nem bírja cache nélkül; a y-tengely
+  a betöltött napok váltásakor ugrik. Ha mégis, inkább egy külön, egyszerű
+  „idővonal" nézet kell a History-ban, nem a Live chartjának átalakítása —
+  a Live a mai nap ablaka marad (5.22).
+
 - **Folytonos, görgethető, csippenthető idővonal — az IntelliDrink-út
   (5.22 folytatása, Zoltán döntése: ez a következő kör).** Ma két vetület
   él egymás mellett: a heti/havi lista sora az *alkalmat* mutatja

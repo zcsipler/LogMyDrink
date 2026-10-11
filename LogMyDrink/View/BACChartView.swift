@@ -270,13 +270,18 @@ struct BACChartView: View {
     // MARK: Chart
 
     private var chart: some View {
+        // Once per body, not once per mark: the two gradients scan the
+        // samples for their bounds, and the band is a few hundred marks.
         let lane = laneLayout
+        let samples = displaySamples
+        let fill = bandGradient(samples)
+        let stroke = lineGradient(samples)
 
         return Chart {
             laneBackground(lane)
             pourWindows(lane)
-            uncertaintyBand
-            centerLine
+            uncertaintyBand(samples, fill: fill)
+            centerLine(samples, stroke: stroke)
             limitRule
             baseline
             paceBars(lane)
@@ -300,51 +305,51 @@ struct BACChartView: View {
 
     /// The band: the area between fast and slow elimination.
     @ChartContentBuilder
-    private var uncertaintyBand: some ChartContent {
-        ForEach(displaySamples, id: \.date) { sample in
+    private func uncertaintyBand(_ samples: [BACBandSample], fill: LinearGradient) -> some ChartContent {
+        ForEach(samples, id: \.date) { sample in
             AreaMark(
                 x: .value("Time", sample.date),
                 yStart: .value("Lower estimate", sample.low),
                 yEnd: .value("Upper estimate", sample.high)
             )
-            .foregroundStyle(bandGradient)
+            .foregroundStyle(fill)
             .interpolationMethod(.monotone)
         }
     }
 
     @ChartContentBuilder
-    private var centerLine: some ChartContent {
-        ForEach(displaySamples, id: \.date) { sample in
+    private func centerLine(_ samples: [BACBandSample], stroke: LinearGradient) -> some ChartContent {
+        ForEach(samples, id: \.date) { sample in
             LineMark(
                 x: .value("Time", sample.date),
                 y: .value("Level", sample.mid)
             )
-            .foregroundStyle(Theme.tint(for: model.highestLevel, limit: model.limit))
+            .foregroundStyle(stroke)
             .lineStyle(StrokeStyle(lineWidth: 2, lineCap: .round))
             .interpolationMethod(.monotone)
         }
     }
 
-    /// The fill is a vertical gradient, so colour varies with height and the
-    /// shape of the band and the level can be read at the same time.
+    /// The fill and the line are coloured **by height**: every point of the
+    /// curve wears the colour of the level it is at (`Theme.levelGradient`).
     ///
-    /// Anchored to the level the band actually reaches, not to `yMaximum`.
-    /// Now that the ramp is a fraction of the limit, `yMaximum` — which is at
-    /// least 1.4 times the limit by construction — would put the top of every
-    /// gradient in deep crimson, on a quiet evening as much as a heavy one.
-    /// The level reached, not the day's own peak: a morning that starts at
-    /// 1.3 ‰ is coloured for 1.3 ‰, whichever night put it there.
-    private var bandGradient: LinearGradient {
-        let peak = model.highestLevel
-        return LinearGradient(
-            stops: [
-                .init(color: Theme.tint(for: peak, limit: model.limit).opacity(0.45), location: 0),
-                .init(color: Theme.tint(for: peak * 0.5, limit: model.limit).opacity(0.30), location: 0.55),
-                .init(color: Theme.calm.opacity(0.16), location: 1),
-            ],
-            startPoint: .top,
-            endPoint: .bottom
-        )
+    /// They used to be coloured by one number — the highest level the day
+    /// reached — which made a quiet afternoon after a heavy night read as
+    /// alarming from end to end: four beers at 0.3 ‰ painted red because the
+    /// morning had started at 1.3 ‰. The gradient spans the mark's own
+    /// bounds (its lowest to its highest sample), so the colour at a height
+    /// is exactly `Theme.tint` of that level, the same scale the hero's
+    /// number uses (5.14).
+    private func bandGradient(_ samples: [BACBandSample]) -> LinearGradient {
+        let low = samples.map(\.low).min() ?? 0
+        let high = samples.map(\.high).max() ?? 0
+        return Theme.levelGradient(from: low, to: high, limit: model.limit, opacity: 0.16...0.45)
+    }
+
+    private func lineGradient(_ samples: [BACBandSample]) -> LinearGradient {
+        let low = samples.map(\.mid).min() ?? 0
+        let high = samples.map(\.mid).max() ?? 0
+        return Theme.levelGradient(from: low, to: high, limit: model.limit)
     }
 
     @ChartContentBuilder

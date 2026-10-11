@@ -596,9 +596,16 @@ határ.
   paraméter — nem alapértelmezett, mert egy elfelejtett érték csendben valaki
   más skáláját adná. Az Előzmény az adott alkalom saját határát adja át, nem a
   mait, ugyanazon az alapon, mint a profil-pillanatképnél (5.5).
-- A chart sávgradiense a **csúcshoz** igazodik, nem a `yMaximum`-hoz. A
-  `yMaximum` konstrukció szerint legalább a határ 1,4-szerese, tehát minden
-  gradiens teteje sötét bíbor lett volna, egy csendes estén is.
+- **A chart sávja és vonala magasság szerint színeződik** (2026. október
+  9., `Theme.levelGradient`): a gradiens a mark saját alsó és felső szintje
+  közt fut, és minden magasság pontosan a `tint` szerinti színét kapja —
+  ugyanazt a skálát, amit a hero száma. Előtte egyetlen szám, a nap
+  legmagasabb szintje színezte az egészet, és az 5.22 után ez
+  félrevezetett: egy 1,3 ‰-en induló reggel után a délutáni négy sör
+  0,3 ‰-es dudora is vörös lett. Zoltán kérdése volt, hogy az y-koordináta
+  színezze a görbét — igen. A `yMaximum`-hoz kötni továbbra sem jó: az
+  legalább a határ 1,4-szerese, a teteje mindig bíbor lenne; a mark saját
+  határai közt viszont a leképezés pontos.
 - A `ProfileView` határcsúszkájának értéke fixen `Theme.alarm`. A saját
   szintjével színezni körkörös volna — a skála a határ törtrésze, tehát egy
   határ mindig pontosan 1,0. Így viszont szó szerint azt mondja: **ez az a
@@ -1383,9 +1390,9 @@ naptári napra esnek.
   át, a `normalize` miatt), 5–5-re vágva; a nehéz része naponként
   cache-elve a következő írásig (`DayWindow`). A Live a mai ablak, a
   Nap-oldal bármelyik napé, egyazon `DayContentView`-val. A chart a
-  napi **saját** csúcsot írja ki (`peak(after:)` az aznapi első italtól), a
-  színezés viszont az elért szinthez megy (`highestLevel`): egy 1,3 ‰-en
-  induló reggel 1,3-ra színeződik, akármelyik este tette oda. Italtalan,
+  napi **saját** csúcsot írja ki (`peak(after:)` az aznapi első italtól); a
+  színezés magasság szerint megy (5.14, `Theme.levelGradient`), így a
+  reggeli 1,3 ‰-es farok vörös, a délutáni sör dudora türkiz. Italtalan,
   de áthozatos napon a fejléc „Carried over from the night before". A
   „Expected to clear" a vágatlan görbéből jön — a határnál levágott este is
   valós órakor ürül ki.

@@ -39,6 +39,30 @@ enum Theme {
         interpolate(levelRamp, at: bac / max(limit, 0.05))
     }
 
+    /// The level ramp as a vertical gradient over a span of levels, for a
+    /// mark that reaches from `low` up to `high`: each height is painted the
+    /// colour of the level at that height, so a curve reads its own level
+    /// off its colour at every point. The top of the gradient is `high`,
+    /// the bottom `low` — the bounds of the mark it fills.
+    ///
+    /// Sampled rather than placed on the ramp's stops: a mark that never
+    /// reaches the limit has no "alarm" stop inside it, and sixteen samples
+    /// across its own span reproduce the continuous ramp closely enough.
+    /// `opacity` is applied per stop, stronger towards the top, so the fill
+    /// also has depth.
+    static func levelGradient(from low: Double, to high: Double, limit: Double,
+                              opacity: ClosedRange<Double> = 1...1) -> LinearGradient {
+        let span = max(high - low, 1e-6)
+        let steps = 16
+        let stops = (0...steps).map { index -> Gradient.Stop in
+            let fraction = Double(index) / Double(steps)          // 0 = top (high)
+            let level = high - fraction * span
+            let alpha = opacity.upperBound - fraction * (opacity.upperBound - opacity.lowerBound)
+            return Gradient.Stop(color: tint(for: level, limit: limit).opacity(alpha), location: fraction)
+        }
+        return LinearGradient(stops: stops, startPoint: .top, endPoint: .bottom)
+    }
+
     // MARK: Amount scale
 
     /// The colour of an amount on the history's amount chart — a day, a week
