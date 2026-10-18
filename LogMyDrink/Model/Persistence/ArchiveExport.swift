@@ -6,6 +6,11 @@ import SwiftData
 /// Everyone and every occasion, not just the active person: an export the user
 /// has to repeat once per person is an export that will be incomplete when it
 /// matters.
+///
+/// Everyone except the demo person (`DemoPerson`). The demo is not anybody's
+/// data — it has its own source in the repo — and carried in a backup it
+/// would come back on every restore, with its dates frozen at the week of the
+/// export.
 enum ArchiveExport {
 
     static func archive(from context: ModelContext, at date: Date = .now) -> DataArchive {
@@ -26,6 +31,7 @@ enum ArchiveExport {
         // Year and month sort in the descriptor; the person does not, being a
         // UUID, so the file's order is settled here. See `drinks(of:)`.
         return stored
+            .filter { $0.personID != DemoPerson.id }
             .sorted { lhs, rhs in
                 if lhs.personID != rhs.personID { return lhs.personID.uuidString < rhs.personID.uuidString }
                 if lhs.year != rhs.year { return lhs.year < rhs.year }
@@ -45,7 +51,7 @@ enum ArchiveExport {
         let descriptor = FetchDescriptor<Person>(sortBy: [SortDescriptor(\.createdAt)])
         let stored = (try? context.fetch(descriptor)) ?? []
 
-        return stored.map { person in
+        return stored.filter { $0.id != DemoPerson.id }.map { person in
             ArchivedPerson(
                 id: person.id,
                 name: person.name,
@@ -73,7 +79,7 @@ enum ArchiveExport {
         let descriptor = FetchDescriptor<DrinkingSession>(sortBy: [SortDescriptor(\.startedAt)])
         let stored = (try? context.fetch(descriptor)) ?? []
 
-        return stored.map { session in
+        return stored.filter { $0.personID != DemoPerson.id }.map { session in
             ArchivedSession(
                 id: session.id,
                 startedAt: session.startedAt,

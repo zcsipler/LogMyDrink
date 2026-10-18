@@ -103,6 +103,7 @@ LogMyDrink/
 ├── LogMyDrink/                 az app target
 │   ├── LogMyDrinkApp.swift     ModelContainer, CloudKit visszaeséssel, store létrehozás
 │   ├── Localizable.xcstrings   a 24 hivatalos EU-nyelven, generált
+│   ├── DemoData/demo-person.json  a demo user forrása, csak a Debug bundle-be kerül (5.23)
 │   ├── Model/
 │   │   ├── BACChartModel.swift      a chart bemenete — egy nap ablaka vagy egy tárolt alkalom (5.22)
 │   │   ├── DrinkCatalog.swift       italtípusok, StomachState UI-réteg
@@ -120,6 +121,7 @@ LogMyDrink/
 │   │       ├── MonthlyTotal.swift        @Model, havi összeg a rögzítés előtti hónapokra
 │   │       ├── AppSettings.swift         ami a KÉSZÜLÉKÉ: mértékegység, aktív személy
 │   │       ├── DataArchive.swift / ArchiveExport / ArchiveImport  JSON mentés és visszatöltés
+│   │       ├── DemoPerson.swift         a debug demo user: azonosító, heti eltolás, betöltés (5.23)
 │   │       └── SessionStore+Preview.swift in-memory store a previewekhez
 │   ├── Support/
 │   │   ├── Theme.swift         színek, a görbe színe a határhoz viszonyítva változik
@@ -1448,6 +1450,46 @@ tudtam ellenőrizni:** az app target fordítása és a `LogMyDrinkTests`
 talált, amiket a kód már tartalmaz. *(2026. október 18.: az app fordul, a
 `LogMyDrinkTests` mind a 89 tesztje zöld szimulátoron — 10.)*
 
+### 5.23 A demo user a repóból jön, nem a mentésből — és mindig friss
+
+2026. október 18. A demo user (1256 alkalom, 4756 ital, 2020 szeptemberétől)
+addig Zoltán saját exportjában élt, a saját estéi mellett: minden mentés és
+visszatöltés vitte magával. Zoltán kérése: a mentés csak az övé legyen, a demo
+pedig debug módban magától legyen ott, **friss** italokkal.
+
+- **Forrás:** `LogMyDrink/DemoData/demo-person.json`, a `DataArchive`
+  formátumában, a repóban — szerkeszthető, mint bármely fixture. A Release
+  konfiguráció `EXCLUDED_SOURCE_FILE_NAMES = demo-person.json`-nal kihagyja a
+  bundle-ből (ellenőrizve: a Release `.app`-ban nincs benne).
+- **Azonosító:** `DemoPerson.id` = `5D9BFB7E-…`, ugyanaz, ami a régi demóé
+  volt — így az első betöltés a készüléken lévő régi példányt cseréli le, nem
+  egy második demót tesz mellé. Minden buildben ismert, mert az **export
+  mindig kihagyja** (`ArchiveExport`): egy mentésben a demo minden
+  visszatöltéskor visszajönne, a mentés hetére fagyott dátumokkal.
+- **Frissesség — egész hetes eltolás** (`DemoPerson.weeksToShift` /
+  `shifted`): betöltéskor minden dátum annyi egész héttel kerül előre, hogy
+  az utolsó este a tegnapi és a hét nappal ezelőtti ivási nap közé essen.
+  Egész hét, mert így a napok a hét napjain maradnak (a péntek este péntek
+  marad), és naptári napokkal adva, nem másodpercekkel, hogy az óraátállítás
+  se tolja el az órát. Zoltán a naponkénti automatikus frissítést kérte; a
+  heti léptetés miatt a csere ténylegesen hetente történik, az ellenőrzés
+  minden indításkor.
+- **Betöltés — `DemoSeed.refreshIfNeeded`**, debug indításkor, a store
+  létrehozása után. Egy ujjlenyomatot hasonlít (`hét | exportedAt | alkalmak |
+  italok`, `logmydrink.debug.demoFingerprint`): ha egyezik és a demo megvan,
+  semmit nem csinál; ha a hét fordult, a fájl változott, vagy a demót
+  törölték, akkor `removePerson` + `importArchive` — ugyanaz az út, amit a
+  People képernyő és a mentés-visszatöltés használ, tehát a store ugyanolyan
+  konzisztens utána. Teszt-hostként (`XCTestConfigurationFilePath`) nem fut.
+- **Ára:** a csere a fő szálon fut, szimulátoron ~2–5 másodperc fekete
+  indulóképernyő hetente egyszer; a demóba tesztből felvitt italok a cserénél
+  elvesznek; minden csere ~6000 rekordot töröl és tölt fel újra a CloudKit
+  *Development* környezetében (az éles store-t nem érinti, mert a Release
+  build nem tölti be a demót); egy szándékosan törölt demo a következő
+  indításkor visszajön.
+- **Tesztek:** `DemoPersonTests` (27, ebből 21 egy paraméteres esetre: az
+  utolsó este 0–20 nappal később is az 1–7 nappal ezelőtti sávba kerül).
+
 ## 6. Validáció
 
 A `Reference/bac_model.py` a numerikus referencia. A Swift tesztek konkrét
@@ -1653,14 +1695,14 @@ mögött, személylistával és vendég-eltávolítással (5.18); 24 nyelvű lok
 
 **Tesztek:** 73 a `BACKit`-ben (Linuxon is futtatható, 6.; két régi teszt
 várt száma az 5.21-es verziólépésnél nem frissült és azóta bukott — 2026.
-október 9-én a referenciára igazítva); 89 a `LogMyDrinkTests` targetben
+október 9-én a referenciára igazítva); 116 a `LogMyDrinkTests` targetben
 (⌘U-val vagy parancssorból, 6.): 57 a History
 modellre (5.16), 27 a perzisztenciára — migráció, útválasztás és a
-görbe-alapú csoportosítás (5.18, 5.22), aktív személy — és 5 a widget
-snapshotjára (5.15). *(Korábban itt 90 állt; az `@Test`-ek tényleges száma
-89, a perzisztencia 27, nem 28.)* **2026. október 18-án mind a 89 zöld**
-szimulátoron (Xcode 27.1, iPhone 17), az 5.22-es útválasztás-tesztekkel
-együtt. A target unit testing bundle, host a `LogMyDrink`,
+görbe-alapú csoportosítás (5.18, 5.22), aktív személy —, 5 a widget
+snapshotjára (5.15) és 27 a demo userre (5.23). *(Korábban itt 90 állt; az
+`@Test`-ek tényleges száma 89 volt, a perzisztencia 27, nem 28.)* **2026.
+október 18-án mind a 116 zöld** szimulátoron (Xcode 27.1, iPhone 17), az
+5.22-es útválasztás-tesztekkel együtt. A target unit testing bundle, host a `LogMyDrink`,
 file-system synchronized group a `LogMyDrinkTests/` mappára, tehát egy új
 tesztfájl projektfájl-módosítás nélkül bekerül. A beállításai az apphoz
 igazítva: Swift 6, iOS 17.0, bundle ID `dev.zcsipler.logmydrink.tests`. A

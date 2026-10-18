@@ -18,6 +18,10 @@ struct LogMyDrinkApp: App {
         let store = SessionStore(context: container.mainContext, settings: settings)
         _store = State(initialValue: store)
 
+        #if DEBUG
+        DemoSeed.refreshIfNeeded(store)
+        #endif
+
         // The same store, reachable from `LogDrinkIntent`. Registered here
         // and not lazily, because Siri can launch the app in the background
         // and run the intent before any view has been built.

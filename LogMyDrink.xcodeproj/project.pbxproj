@@ -673,6 +673,7 @@
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 2GYMHK5C56;
 				ENABLE_PREVIEWS = YES;
+				EXCLUDED_SOURCE_FILE_NAMES = "demo-person.json";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = LogMyDrink/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
