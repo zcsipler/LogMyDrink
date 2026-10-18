@@ -345,4 +345,13 @@ TRANSLATIONS = {
     'Everyone this app records. Switch, add, or remove someone.': 'Mindenki, akit ez az app rögzít. Válts, vegyél fel vagy távolíts el valakit.',
     # --- Day window (5.22) ---
     "Carried over from the night before": 'Áthozat az előző estéről',
+    # --- History, second card (5.24) ---
+    'Calories': 'Kalória',
+    'Sessions': 'Alkalmak',
+    'Per session': 'Alkalmanként',
+    'Under the influence': 'Befolyásoltan',
+    '%@ of the time': '%@ az időből',
+    'Days over limit': 'Határ fölötti napok',
+    'Longest sober run': 'Leghosszabb józan sorozat',
+    'Favourite drink': 'Kedvenc ital',
 }

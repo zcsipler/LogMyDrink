@@ -1568,6 +1568,67 @@ pedig debug módban magától legyen ott, **friss** italokkal.
   appban felvinni — egyszer ez fordítva ment, és Zoltán más eszközön nem
   látta.
 
+### 5.24 Második statisztika-kártya: kalória, alkalmak, befolyásolt idő, kontroll
+
+2026. október 18. Zoltán az IntelliDrink régi Statistics képernyőjét hozta
+mintának (`external app screenshots/`). Az IntelliDrink tíz számot mutatott
+ott: drinks, favorite drink, alcohol, max BAC, calories, standard drinks,
+sessions, drinks per session, time intoxicated (idő és %). Az első kártyánk a
+mennyiségből, az italokból, a józan napokból, a csúcsból és a változásból áll;
+a többi egy **második kártyára** került közvetlenül alatta, 2 oszlopos
+rácsban, a chartok elé. Minden a meglévő italokból és a cache-elt
+összesítőből jön, szimuláció nélkül (`HistoryFigures`,
+`HistoryOccasion.kilocalories / servings / influence`); egyetlen új mező
+került a cache-be, a középső görbe kiürülése (lent).
+
+- **Kalória — típusonként, ahol a típus kimondja.** Az IntelliDrink tisztán
+  7 kcal/g × alkohol (1152 kcal / 165 g = 6,98). Zoltán döntése: ahol
+  magabiztosan tudjuk, a típus nem-alkoholos energiája is számítson, ahol nem,
+  csak az alkohol. `DrinkTemplate.nonAlcoholKcalPer100ml`: **sör 15, bor 10,
+  pezsgő 6** kcal/100 ml (USDA: sör 43 kcal/100 g, ebből ~27 az alkohol; bor
+  82–85, ebből ~72–74; brut pezsgő ≤12 g/l cukor), **koktél, tömény, egyedi 0**
+  — a koktél lehet gin-tonik és piña colada is, az egyedi bármi; ott az
+  alulbecslés becsületesebb a tippnél. 0,5 l 5 %-os sör így 213 kcal (138 az
+  alkohol). A havi összegből ismert hónapok az alkoholjukkal számítanak
+  (300 g → 2100 kcal): az italaik nem ismertek, a grammjaik igen.
+- **Alkalmak és átlag alkalmanként.** Az alkalom a görbe szakasza (5.22),
+  tehát a másnap délutánig tartó este egy. Az átlag mennyiségben (gramm vagy
+  egység, 5.16), nem italszámban: egy feles és egy korsó nem ugyanannyi. Egy
+  ablak szélén átnyúló alkalom mindkét oldalon számít. A havi összegek az
+  átlagból kimaradnak — alkalmaik nincsenek.
+- **Befolyásoltan töltött idő**, órában és az idő %-ában. Alkalmanként az
+  első italtól a kiürülésig (ugyanaz a szakasz, amit a stat-kártya Duration-je
+  mond, 5.22), az ivási napok 05:00-s határain felszeletelve, hogy egy hét
+  vagy hónap csak a saját részét kapja; a futó alkalom a `now`-nál vágva. A %
+  nevezője a **rögzített** napok eddig leélt ideje — az ismeretlen nap nem
+  számít bele (5.7), a mai nap csak a mostani pillanatig. Ha egy ivós nap
+  kiürülési ideje még nincs a cache-ben (verziólépés után), a cella „—": egy
+  részösszeg kisebb számnak olvasódna. Tudnivaló: a türelmi időn (3 óra)
+  belüli nullás szakasz egy alkalmon belül befolyásolt időnek számít.
+  **A kiürülés a középső görbéé**, nem a lassú ágé — ugyanaz a szám, amit a
+  stat-kártya mond (5.22). Ehhez új cache-mező kellett:
+  `DrinkingSession.cachedCenterSoberAt` (`SessionSummary.centerSoberAt`). A
+  `cachedSoberAt` marad a lassú ágé, mert az `endedAt` és az útválasztás nem
+  mondhatja egy alkalomra, hogy vége, amíg még futhat; egy kiolvasott szám
+  viszont a középső, különben bekapcsolt bizonytalanságnál (5.8) a széles sáv
+  órákkal nyújtaná. Az első kör a lassú ágat használta, Zoltán vette vissza.
+  Motorverzió-lépés nem kellett: egy régi cache, amiben lassú kiürülés van,
+  középső nincs, csak régi lehet (ha a lassú ág kiürül, a középső előbb), és a
+  `summary` ezt elavultnak olvassa, tehát a backfill a háttérben pótolja.
+- **Határ fölötti napok** — ivós napok, amelyeken a csúcs (a sáv közepe)
+  elérte az aznap érvényes határt. Ugyanaz a vonal, amit a csúcs-chart húz, és
+  ahol a szín vörösre vált (5.14); nullánál semleges, fölötte `Theme.alarm`.
+- **Leghosszabb józan sorozat** — egymást követő `.dry` napok az ablakon
+  belül; ami az ablak előtt kezdődött, az az ablak első napjától számít.
+- **Kedvenc ital** — a legtöbbször ivott *típus* (darabra, nem méretre: három
+  kis sör sörös este), és azon belül a leggyakoribb méret („Beer · 500 mL").
+  Döntetlennél determinisztikus, hogy a kártya ne villogjon.
+- **Ami szándékosan kimaradt:** a standard drinks. A gramm és az egység
+  közül egyszerre csak az egyik látszik (5.16).
+
+Tesztek: `HistoryFiguresTests` (11, ebből kettő store-on át — a középső görbe bekapcsolt bizonytalansággal, és: egy éjfélen és
+05:00-n átnyúló este két szeletre bomlik, és a szeletek összege az alkalom).
+
 ## 6. Validáció
 
 A `Reference/bac_model.py` a numerikus referencia. A Swift tesztek konkrét
@@ -1766,21 +1827,21 @@ szerkesztése és törlése, visszamenőlegesen is; egyszámos kijelzés opcion�
 tartománnyal; a lebontási sebesség magyarázata és tippek; gyors felvitel a
 Live kapszulájáról, Siritől és Lock Screen / Home Screen widgetről, ami
 nyitott alkalomnál a szintet és az irányt is mutatja (5.15); Előzmény Nap / Hét / Hónap / Év szegmenssel, két charttal,
-mutató-kártyával, ugró lappal és lakattal (5.16), a Trend szegmens debug
+mutató-kártyával, második statisztika-kártyával (5.24), ugró lappal és lakattal (5.16), a Trend szegmens debug
 kísérletként; JSON export / import (5.17); több személy a `multiPerson` flag
 mögött, személylistával és vendég-eltávolítással (5.18); 24 nyelvű lokalizáció
 (magyar és angol átnézve).
 
 **Tesztek:** 74 a `BACKit`-ben (Linuxon is futtatható, 6.; két régi teszt
 várt száma az 5.21-es verziólépésnél nem frissült és azóta bukott — 2026.
-október 9-én a referenciára igazítva); 124 a `LogMyDrinkTests` targetben
+október 9-én a referenciára igazítva); 135 a `LogMyDrinkTests` targetben
 (⌘U-val vagy parancssorból, 6.): 57 a History
 modellre (5.16), 27 a perzisztenciára — migráció, útválasztás és a
 görbe-alapú csoportosítás (5.18, 5.22), aktív személy —, 5 a widget
 snapshotjára (5.15), 28 a demo userre (5.23), 6 a mennyiség
 formázására (`AmountFormatTests`, egységméret és régió) és 1 a nap ablakára
 (`DayWindowTests`: a másnapra átcsúszó este mindkét napon az egész alkalom
-kezdetét és végső kiürülését mutatja, 5.22). *(Korábban itt 90 állt; az
+kezdetét és végső kiürülését mutatja, 5.22), 11 a második statisztika-kártyára (`HistoryFiguresTests`, 5.24). *(Korábban itt 90 állt; az
 `@Test`-ek tényleges száma 89 volt, a perzisztencia 27, nem 28.)* **2026.
 október 18-án mind a 116 zöld** szimulátoron (Xcode 27.1, iPhone 17), az
 5.22-es útválasztás-tesztekkel együtt. A target unit testing bundle, host a `LogMyDrink`,

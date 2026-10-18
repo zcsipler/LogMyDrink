@@ -226,6 +226,27 @@ struct HistoryOccasion: Hashable, Identifiable, Sendable {
     /// The limit as it stood for this session (5.5, 5.14). A bar drawn for
     /// this occasion is coloured against *this* number, not today's.
     let limit: Double
+
+    /// Food energy of this day's drinks, in kcal (5.24).
+    var kilocalories: Double = 0
+
+    /// How many of each serving this day's drinks were — what the favourite
+    /// drink is worked out from.
+    var servings: [HistoryServing: Int] = [:]
+
+    /// The part of this day spent with alcohol in the blood: from the
+    /// session's first drink to its clearing, cut to the day. Nil when the
+    /// clearing is not in the cache — like the peak, never computed here.
+    /// The clearing of a session still running lies ahead; a figure that
+    /// sums these cuts it at `now`.
+    var influence: DateInterval? = nil
+}
+
+/// A kind of drink and its size — "beer, 500 ml" — counted for the
+/// favourite drink.
+struct HistoryServing: Hashable, Sendable {
+    let templateID: String
+    let volumeMl: Double
 }
 
 extension DrinkingSession {
@@ -240,11 +261,28 @@ extension DrinkingSession {
         var firstByDay: [DrinkingDay: Date] = [:]
         var unitsByDay: [DrinkingDay: Double] = [:]
         var countByDay: [DrinkingDay: Int] = [:]
+        var kcalByDay: [DrinkingDay: Double] = [:]
+        var servingsByDay: [DrinkingDay: [HistoryServing: Int]] = [:]
         for drink in drinks {
             let day = DrinkingDay.containing(drink.consumedAt, calendar: calendar)
             firstByDay[day] = min(firstByDay[day] ?? drink.consumedAt, drink.consumedAt)
             unitsByDay[day, default: 0] += drink.standardUnits
             countByDay[day, default: 0] += 1
+            kcalByDay[day, default: 0] += DrinkCatalog.kilocalories(for: drink)
+            let serving = HistoryServing(
+                templateID: DrinkCatalog.template(for: drink).id,
+                volumeMl: drink.volumeMl
+            )
+            servingsByDay[day, default: [:]][serving, default: 0] += 1
+        }
+
+        // First drink to clearing, the whole session — the same span the
+        // stats card calls its duration (5.22), so the middle curve's
+        // clearing, not the slow branch's. Each day gets its own slice.
+        let summary = self.summary
+        let span: DateInterval? = summary?.centerSoberAt.flatMap { soberAt in
+            guard let first = drinks.first?.consumedAt, soberAt > first else { return nil }
+            return DateInterval(start: first, end: soberAt)
         }
 
         let cached = summary?.days ?? []
@@ -270,7 +308,11 @@ extension DrinkingSession {
                 drinkCount: countByDay[day] ?? 0,
                 peakRange: entry?.peakRange,
                 carryIn: entry?.carryIn,
-                limit: limit
+                limit: limit,
+                kilocalories: kcalByDay[day] ?? 0,
+                servings: servingsByDay[day] ?? [:],
+                influence: span.flatMap { $0.intersection(with: DateInterval(start: day.start, end: day.end)) }
+                    .flatMap { $0.duration > 0 ? $0 : nil }
             )
         }
     }
@@ -327,6 +369,34 @@ struct DayBucket: Identifiable, Hashable, Sendable {
     /// The strictest limit in force that day, for colouring the day's peak.
     /// With one session — the usual case — it is simply that session's limit.
     var limit: Double? { occasions.map(\.limit).min() }
+
+    var kilocalories: Double { occasions.reduce(0) { $0 + $1.kilocalories } }
+
+    /// Whether the day's peak reached the limit in force that day — the
+    /// same line the peak chart draws and the colour turns red at (5.14).
+    var reachedLimit: Bool {
+        guard let peak = peakRange, let limit else { return false }
+        return peak.midpoint >= limit
+    }
+
+    /// Time this day spent with alcohol in the blood, up to `now`. Sessions
+    /// never overlap (5.22), so the slices simply add up.
+    func influence(until now: Date) -> TimeInterval {
+        occasions.reduce(0) { sum, occasion in
+            guard let span = occasion.influence, span.start < now else { return sum }
+            return sum + min(span.end, now).timeIntervalSince(span.start)
+        }
+    }
+
+    /// False while a day with drinks is waiting for its clearing time.
+    var influenceIsComplete: Bool {
+        occasions.allSatisfy { $0.drinkCount == 0 || $0.influence != nil }
+    }
+
+    /// How much of the day has been lived so far — all of it, except today.
+    func elapsed(until now: Date) -> TimeInterval {
+        max(0, min(day.end, now).timeIntervalSince(day.start))
+    }
 }
 
 /// A month's total as it applies to the days before records began — what a

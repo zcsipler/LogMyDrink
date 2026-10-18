@@ -365,4 +365,13 @@ TRANSLATIONS = {
     'Everyone this app records. Switch, add, or remove someone.': 'Vsi, ki jih ta aplikacija beleži. Preklopi, dodaj ali odstrani koga.',
     # --- Day window (5.22) ---
     "Carried over from the night before": 'Preneseno iz prejšnjega večera',
+    # --- History, second card (5.24) ---
+    'Calories': 'Kalorije',
+    'Sessions': 'Priložnosti',
+    'Per session': 'Na priložnost',
+    'Under the influence': 'Pod vplivom',
+    '%@ of the time': '%@ časa',
+    'Days over limit': 'Dnevi nad mejo',
+    'Longest sober run': 'Najdaljši trezen niz',
+    'Favourite drink': 'Najljubša pijača',
 }

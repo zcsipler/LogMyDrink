@@ -180,6 +180,7 @@ struct HistoryView: View {
                                     dayPage(snapshot, window: window)
                                 } else {
                                     figures(snapshot)
+                                    moreFigures(snapshot.figures)
                                     if let trend = snapshot.trend {
                                         trendCard(trend, metric: .amount)
                                         trendCard(trend, metric: .peak)
@@ -534,6 +535,97 @@ struct HistoryView: View {
             }
         }
         .frame(maxWidth: .infinity)
+    }
+
+    // MARK: More figures (5.24)
+
+    /// The second card: what the window adds up to beyond how much and how
+    /// high — energy, evenings, time under the influence, and the three
+    /// numbers about control: days over the limit, the longest sober run,
+    /// the usual drink. Two columns, the favourite across both, because a
+    /// drink's name and size do not fit half a row.
+    private func moreFigures(_ window: HistoryFigures) -> some View {
+        let columns = [GridItem(.flexible(), spacing: 0), GridItem(.flexible(), spacing: 0)]
+        return VStack(spacing: 0) {
+            LazyVGrid(columns: columns, spacing: 0) {
+                cell("Calories") {
+                    Text(verbatim: "\(window.kilocalories.formatted(.number.precision(.fractionLength(0)))) kcal")
+                }
+                cell("Sessions") {
+                    Text(verbatim: window.sessions.formatted())
+                }
+                cell("Per session") {
+                    Text(verbatim: window.unitsPerSession.map { store.amountFormat.format(standardUnits: $0) } ?? "—")
+                }
+                cell("Under the influence", footnote: influenceShare(window)) {
+                    Text(verbatim: influenceText(window))
+                }
+                cell("Days over limit") {
+                    Text(verbatim: window.daysOverLimit.formatted())
+                        .foregroundStyle(window.daysOverLimit > 0 ? Theme.alarm : Theme.primaryText)
+                }
+                cell("Longest sober run") {
+                    Text(verbatim: Duration.seconds(Double(window.longestSoberRun) * 86_400)
+                        .formatted(.units(allowed: [.days], width: .abbreviated)))
+                }
+            }
+
+            Divider().overlay(Theme.hairline).padding(.horizontal, 14)
+
+            cell("Favourite drink") {
+                if let favourite = window.favourite {
+                    Text(DrinkCatalog.template(id: favourite.templateID).name)
+                        + Text(verbatim: " · " + Measurement(value: favourite.volumeMl, unit: UnitVolume.milliliters)
+                            .formatted(.measurement(width: .abbreviated, usage: .asProvided)))
+                } else {
+                    Text(verbatim: "—")
+                }
+            }
+        }
+        .padding(.vertical, 4)
+        .background(Theme.surface, in: RoundedRectangle(cornerRadius: 16))
+    }
+
+    /// Days and hours over a week or more, hours and minutes under a day.
+    /// A dash while a drinking day is still waiting for its clearing time:
+    /// a partial sum would read as a smaller one.
+    private func influenceText(_ window: HistoryFigures) -> String {
+        guard window.influenceIsComplete else { return "—" }
+        let allowed: Set<Duration.UnitsFormatStyle.Unit> = window.influence >= 86_400
+            ? [.days, .hours] : [.hours, .minutes]
+        return Duration.seconds(window.influence.rounded())
+            .formatted(.units(allowed: allowed, width: .narrow, maximumUnitCount: 2))
+    }
+
+    private func influenceShare(_ window: HistoryFigures) -> Text? {
+        guard window.influenceIsComplete, let share = window.influenceShare, window.influence > 0 else { return nil }
+        return Text("\(share.formatted(.percent.precision(.fractionLength(0)))) of the time")
+    }
+
+    private func cell<Value: View>(
+        _ title: LocalizedStringResource,
+        footnote: Text? = nil,
+        @ViewBuilder value: () -> Value
+    ) -> some View {
+        VStack(spacing: 4) {
+            value()
+                .font(.system(size: 15, weight: .medium, design: .rounded).monospacedDigit())
+                .foregroundStyle(Theme.primaryText)
+                .lineLimit(1)
+                .minimumScaleFactor(0.7)
+            Text(title)
+                .font(.system(size: 9, weight: .semibold, design: .rounded))
+                .textCase(.uppercase)
+                .foregroundStyle(Theme.secondaryText)
+            if let footnote {
+                footnote
+                    .font(.system(size: 9, design: .rounded))
+                    .foregroundStyle(Theme.secondaryText.opacity(0.8))
+                    .lineLimit(1)
+            }
+        }
+        .frame(maxWidth: .infinity)
+        .padding(.vertical, 10)
     }
 
     private var divider: some View {

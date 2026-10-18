@@ -93,6 +93,13 @@ final class DrinkingSession {
     var cachedPeakLow: Double?
     var cachedPeakHigh: Double?
     var cachedSoberAt: Date?
+    /// The clearing of the middle curve — the one number the stats card and
+    /// the history's time under the influence read (5.22, 5.24).
+    /// `cachedSoberAt` is the slow branch's, because routing and `endedAt`
+    /// must not call an occasion over while it may still run; a figure
+    /// meant to be read is the middle one, or a wide band would stretch it
+    /// by hours.
+    var cachedCenterSoberAt: Date?
     var cachedTotalUnits: Double?
     var cachedEngineVersion: Int?
 
@@ -203,13 +210,19 @@ final class DrinkingSession {
             cachedEngineVersion == BACEngine.version,
             let low = cachedPeakLow,
             let high = cachedPeakHigh,
-            let units = cachedTotalUnits
+            let units = cachedTotalUnits,
+            // A cache written before the middle clearing was stored. Every
+            // curve whose slow branch clears has a middle one that clears
+            // earlier, so this pair can only mean "old", and the backfill
+            // fills it in like any other stale summary.
+            !(cachedSoberAt != nil && cachedCenterSoberAt == nil)
         else { return nil }
 
         let days = cachedDaysData.flatMap { try? JSONDecoder().decode([DaySummary].self, from: $0) } ?? []
         return SessionSummary(
             peakRange: min(low, high)...max(low, high),
             soberAt: cachedSoberAt,
+            centerSoberAt: cachedCenterSoberAt,
             totalUnits: units,
             drinkCount: drinks?.count ?? 0,
             days: days
@@ -220,6 +233,7 @@ final class DrinkingSession {
         cachedPeakLow = summary.peakRange.lowerBound
         cachedPeakHigh = summary.peakRange.upperBound
         cachedSoberAt = summary.soberAt
+        cachedCenterSoberAt = summary.centerSoberAt
         cachedTotalUnits = summary.totalUnits
         cachedDaysData = try? JSONEncoder().encode(summary.days)
         cachedEngineVersion = BACEngine.version
@@ -233,7 +247,10 @@ final class DrinkingSession {
 /// The few numbers a history list needs, without redrawing the curve.
 struct SessionSummary: Hashable, Sendable {
     let peakRange: ClosedRange<Double>
+    /// The slow branch's clearing: when the occasion is surely over.
     let soberAt: Date?
+    /// The middle curve's clearing: what a figure shows (5.24).
+    let centerSoberAt: Date?
     let totalUnits: Double
     let drinkCount: Int
     /// One entry per drinking day the curve touches, oldest first.
@@ -249,6 +266,7 @@ extension SessionSummary {
         return SessionSummary(
             peakRange: band.peakRange ?? 0...0,
             soberAt: band.soberRange()?.upperBound,
+            centerSoberAt: band.center.soberDate(),
             totalUnits: ordered.reduce(0) { $0 + $1.standardUnits },
             drinkCount: ordered.count,
             days: daySummaries(of: ordered, band: band, calendar: calendar)

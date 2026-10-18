@@ -23,6 +23,13 @@ struct DrinkTemplate: Identifiable, Hashable {
     /// which is the number the blackout question depends on.
     let defaultDrinkingMinutes: Double
 
+    /// Food energy besides the alcohol, per 100 ml — the residual sugar and
+    /// starch, mostly (5.24). Only where the kind of drink says it with some
+    /// confidence: a beer is a beer, a cocktail can be a gin and tonic or a
+    /// piña colada, and a custom drink is anything. Those stay at zero and
+    /// are counted by their alcohol alone — an understatement, not a guess.
+    var nonAlcoholKcalPer100ml: Double = 0
+
     /// The recorded drink carries the template's **identifier**, not its name.
     /// Otherwise persisted data would be tied to a language, and English names
     /// would linger on a Hungarian interface after a language change.
@@ -53,19 +60,22 @@ enum DrinkCatalog {
             id: "beer", name: "Beer", icon: "mug.fill",
             defaultVolumeMl: 500, defaultAbv: 5,
             volumeStepMl: 10, abvRange: 0.5...12,
-            defaultDrinkingMinutes: 30
+            defaultDrinkingMinutes: 30,
+            nonAlcoholKcalPer100ml: 15
         ),
         DrinkTemplate(
             id: "wine", name: "Wine", icon: "wineglass.fill",
             defaultVolumeMl: 150, defaultAbv: 12,
             volumeStepMl: 10, abvRange: 5...18,
-            defaultDrinkingMinutes: 25
+            defaultDrinkingMinutes: 25,
+            nonAlcoholKcalPer100ml: 10
         ),
         DrinkTemplate(
             id: "sparkling", name: "Sparkling", icon: "waterbottle.fill",
             defaultVolumeMl: 125, defaultAbv: 12,
             volumeStepMl: 10, abvRange: 5...15,
-            defaultDrinkingMinutes: 20
+            defaultDrinkingMinutes: 20,
+            nonAlcoholKcalPer100ml: 6
         ),
         DrinkTemplate(
             id: "spirit", name: "Spirit", icon: "drop.fill",
@@ -106,6 +116,17 @@ enum DrinkCatalog {
     }
 
     static func icon(for drink: Drink) -> String { template(for: drink).icon }
+
+    /// Food energy of a drink, in kcal (5.24): its alcohol at 7 kcal/g, plus
+    /// what the kind of drink carries besides — beer, wine and sparkling by
+    /// a typical figure per 100 ml, everything else by its alcohol alone.
+    static func kilocalories(for drink: Drink) -> Double {
+        drink.gramsEthanol * kcalPerGramEthanol
+            + template(for: drink).nonAlcoholKcalPer100ml * drink.volumeMl / 100
+    }
+
+    /// The Atwater factor for ethanol, rounded the way food labels round it.
+    static let kcalPerGramEthanol: Double = 7
 
     static func name(for drink: Drink) -> LocalizedStringResource { template(for: drink).name }
 }

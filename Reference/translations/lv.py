@@ -367,4 +367,13 @@ TRANSLATIONS = {
     'Everyone this app records. Switch, add, or remove someone.': 'Visi, ko šī lietotne ieraksta. Pārslēdz, pievieno vai noņem kādu.',
     # --- Day window (5.22) ---
     "Carried over from the night before": 'Pārnests no iepriekšējā vakara',
+    # --- History, second card (5.24) ---
+    'Calories': 'Kalorijas',
+    'Sessions': 'Reizes',
+    'Per session': 'Uz reizi',
+    'Under the influence': 'Reibumā',
+    '%@ of the time': '%@ laika',
+    'Days over limit': 'Dienas virs robežas',
+    'Longest sober run': 'Garākā skaidrā sērija',
+    'Favourite drink': 'Iecienītākais dzēriens',
 }

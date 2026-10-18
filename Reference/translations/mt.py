@@ -373,4 +373,13 @@ TRANSLATIONS = {
     'Everyone this app records. Switch, add, or remove someone.': 'Kulħadd li din l-app tirreġistra. Aqleb, żid jew neħħi lil xi ħadd.',
     # --- Day window (5.22) ---
     "Carried over from the night before": "Miġjub mil-lejla ta' qabel",
+    # --- History, second card (5.24) ---
+    'Calories': 'Kaloriji',
+    'Sessions': 'Okkażjonijiet',
+    'Per session': 'Għal kull okkażjoni',
+    'Under the influence': 'Taħt l-influwenza',
+    '%@ of the time': '%@ tal-ħin',
+    'Days over limit': "Jiem 'il fuq mil-limitu",
+    'Longest sober run': 'L-itwal sensiela sobrija',
+    'Favourite drink': 'Xarba favorita',
 }

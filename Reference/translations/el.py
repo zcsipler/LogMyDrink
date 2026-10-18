@@ -375,4 +375,13 @@ TRANSLATIONS = {
     'Everyone this app records. Switch, add, or remove someone.': 'Όλοι όσους καταγράφει αυτή η εφαρμογή. Άλλαξε, πρόσθεσε ή αφαίρεσε κάποιον.',
     # --- Day window (5.22) ---
     "Carried over from the night before": 'Μεταφέρθηκε από την προηγούμενη βραδιά',
+    # --- History, second card (5.24) ---
+    'Calories': 'Θερμίδες',
+    'Sessions': 'Περιστάσεις',
+    'Per session': 'Ανά περίσταση',
+    'Under the influence': 'Υπό την επήρεια',
+    '%@ of the time': '%@ του χρόνου',
+    'Days over limit': 'Ημέρες πάνω από το όριο',
+    'Longest sober run': 'Μεγαλύτερο νηφάλιο διάστημα',
+    'Favourite drink': 'Αγαπημένο ποτό',
 }

@@ -375,4 +375,13 @@ TRANSLATIONS = {
     'Everyone this app records. Switch, add, or remove someone.': 'Gach duine a thaifeadann an aip seo. Athraigh, cuir leis nó bain duine.',
     # --- Day window (5.22) ---
     "Carried over from the night before": 'Tugtha anall ón oíche roimhe',
+    # --- History, second card (5.24) ---
+    'Calories': 'Calraí',
+    'Sessions': 'Ócáidí',
+    'Per session': 'In aghaidh na hócáide',
+    'Under the influence': 'Faoi thionchar',
+    '%@ of the time': '%@ den am',
+    'Days over limit': 'Laethanta os cionn na teorann',
+    'Longest sober run': 'An tréimhse stuama is faide',
+    'Favourite drink': 'An deoch is fearr leat',
 }

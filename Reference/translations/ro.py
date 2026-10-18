@@ -372,4 +372,13 @@ TRANSLATIONS = {
     'Everyone this app records. Switch, add, or remove someone.': 'Toți cei pe care îi înregistrează această aplicație. Schimbă, adaugă sau elimină pe cineva.',
     # --- Day window (5.22) ---
     "Carried over from the night before": 'Rămas din seara precedentă',
+    # --- History, second card (5.24) ---
+    'Calories': 'Calorii',
+    'Sessions': 'Ocazii',
+    'Per session': 'Pe ocazie',
+    'Under the influence': 'Sub influență',
+    '%@ of the time': '%@ din timp',
+    'Days over limit': 'Zile peste limită',
+    'Longest sober run': 'Cea mai lungă serie sobră',
+    'Favourite drink': 'Băutura preferată',
 }

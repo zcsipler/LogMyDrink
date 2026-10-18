@@ -370,4 +370,13 @@ TRANSLATIONS = {
     'Everyone this app records. Switch, add, or remove someone.': 'Iedereen die deze app registreert. Wissel, voeg toe of verwijder iemand.',
     # --- Day window (5.22) ---
     "Carried over from the night before": 'Overgedragen van de avond ervoor',
+    # --- History, second card (5.24) ---
+    'Calories': 'Calorieën',
+    'Sessions': 'Gelegenheden',
+    'Per session': 'Per gelegenheid',
+    'Under the influence': 'Onder invloed',
+    '%@ of the time': '%@ van de tijd',
+    'Days over limit': 'Dagen boven de grens',
+    'Longest sober run': 'Langste nuchtere reeks',
+    'Favourite drink': 'Favoriete drankje',
 }

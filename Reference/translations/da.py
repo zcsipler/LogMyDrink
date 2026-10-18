@@ -368,4 +368,13 @@ TRANSLATIONS = {
     'Everyone this app records. Switch, add, or remove someone.': 'Alle, som denne app registrerer. Skift, tilføj eller fjern nogen.',
     # --- Day window (5.22) ---
     "Carried over from the night before": 'Overført fra aftenen før',
+    # --- History, second card (5.24) ---
+    'Calories': 'Kalorier',
+    'Sessions': 'Anledninger',
+    'Per session': 'Pr. anledning',
+    'Under the influence': 'Påvirket',
+    '%@ of the time': '%@ af tiden',
+    'Days over limit': 'Dage over grænsen',
+    'Longest sober run': 'Længste ædru periode',
+    'Favourite drink': 'Yndlingsdrik',
 }

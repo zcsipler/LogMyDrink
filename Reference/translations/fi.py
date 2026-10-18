@@ -370,4 +370,13 @@ TRANSLATIONS = {
     'Everyone this app records. Switch, add, or remove someone.': 'Kaikki, joita tämä sovellus kirjaa. Vaihda, lisää tai poista joku.',
     # --- Day window (5.22) ---
     "Carried over from the night before": 'Siirtynyt edellisillasta',
+    # --- History, second card (5.24) ---
+    'Calories': 'Kalorit',
+    'Sessions': 'Kerrat',
+    'Per session': 'Kertaa kohden',
+    'Under the influence': 'Vaikutuksen alaisena',
+    '%@ of the time': '%@ ajasta',
+    'Days over limit': 'Päivät rajan yli',
+    'Longest sober run': 'Pisin raitis jakso',
+    'Favourite drink': 'Lempijuoma',
 }

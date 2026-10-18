@@ -1,4 +1,5 @@
 import Foundation
+import BACKit
 
 /// The paged windows the History screen can show. Not `HistoryPeriod`: a
 /// period is how days are *grouped*, a range is how much of the calendar is
@@ -147,12 +148,55 @@ struct HistoryFigures: Hashable, Sendable {
     /// concerned, but not "before records" — the card says which is which.
     let coarseDays: Int
 
+    // MARK: The second card (5.24)
+
+    /// Food energy, kcal: the drinks by kind, and months known only by total
+    /// by their alcohol — their drinks are not known, their grams are.
+    let kilocalories: Double
+
+    /// Occasions with a drink in this span — stretches of the curve (5.22),
+    /// so an evening that ran into the next afternoon is one. A session that
+    /// straddles the edge of the span counts on both sides.
+    let sessions: Int
+
+    /// Units of the drinks recorded drink by drink, per session. Monthly
+    /// totals have no sessions and are left out of both sides.
+    let unitsPerSession: Double?
+
+    /// Time with alcohol in the blood, up to now: first drink to clearing,
+    /// session by session, cut to the span.
+    let influence: TimeInterval
+
+    /// What `influence` is a share of: the recorded days, as far as they have
+    /// been lived. Unknown days are not in it, for the same reason they are
+    /// not in the sober days (5.7).
+    let recordedTime: TimeInterval
+
+    /// False while some drinking day is waiting for its clearing time.
+    let influenceIsComplete: Bool
+
+    /// Drinking days whose peak reached the limit in force that day.
+    let daysOverLimit: Int
+
+    /// The longest run of sober days inside the span. A run that began
+    /// before the span is counted from the span's first day: the figure is
+    /// about the days on screen.
+    let longestSoberRun: Int
+
+    /// The kind of drink had most often, and its most usual size. Nil when
+    /// nothing was recorded drink by drink.
+    let favourite: HistoryServing?
+
+    var influenceShare: Double? {
+        recordedTime > 0 ? influence / recordedTime : nil
+    }
+
     var recordedDays: Int { drinkingDays + dryDays }
 
     /// Unknown days that are unknown for the old reason: before records.
     var unrecordedDays: Int { unknownDays - coarseDays }
 
-    init(days: [DayBucket], previousUnits: Double? = nil) {
+    init(days: [DayBucket], previousUnits: Double? = nil, now: Date = .now) {
         totalUnits = days.totalUnits
         drinkCount = days.reduce(0) { $0 + $1.drinkCount }
         drinkingDays = days.filter { $0.state == .drank }.count
@@ -167,6 +211,48 @@ struct HistoryFigures: Hashable, Sendable {
         } else {
             unitsChange = nil
         }
+
+        let occasions = days.flatMap(\.occasions).filter { $0.drinkCount > 0 }
+        kilocalories = days.reduce(0) { $0 + $1.kilocalories }
+            + days.coarseUnits * Physiology.gramsPerStandardUnit * DrinkCatalog.kcalPerGramEthanol
+        sessions = Set(occasions.map(\.sessionID)).count
+        let recordedUnits = occasions.reduce(0) { $0 + $1.totalUnits }
+        unitsPerSession = sessions > 0 ? recordedUnits / Double(sessions) : nil
+
+        let recorded = days.filter { $0.state != .unknown }
+        influence = recorded.reduce(0) { $0 + $1.influence(until: now) }
+        recordedTime = recorded.reduce(0) { $0 + $1.elapsed(until: now) }
+        influenceIsComplete = days.allSatisfy(\.influenceIsComplete)
+
+        daysOverLimit = days.filter { $0.state == .drank && $0.reachedLimit }.count
+
+        var run = 0
+        var longest = 0
+        for day in days {
+            run = day.state == .dry ? run + 1 : 0
+            longest = max(longest, run)
+        }
+        longestSoberRun = longest
+
+        favourite = Self.favourite(among: occasions)
+    }
+
+    /// The kind had most often — by count, not by size: three small beers
+    /// are a beer evening — then the size that kind was most often had in.
+    /// Ties go the same way every time, so the card does not flicker.
+    private static func favourite(among occasions: [HistoryOccasion]) -> HistoryServing? {
+        var servings: [HistoryServing: Int] = [:]
+        for occasion in occasions {
+            servings.merge(occasion.servings, uniquingKeysWith: +)
+        }
+        var byKind: [String: Int] = [:]
+        for (serving, count) in servings { byKind[serving.templateID, default: 0] += count }
+
+        guard let kind = byKind.max(by: { ($0.value, $1.key) < ($1.value, $0.key) })?.key else { return nil }
+        return servings
+            .filter { $0.key.templateID == kind }
+            .max { ($0.value, $0.key.volumeMl) < ($1.value, $1.key.volumeMl) }?
+            .key
     }
 }
 
@@ -184,6 +270,10 @@ struct HistoryWindow: Hashable, Sendable {
     /// Total units of the window before this one, for the change figure. Nil
     /// when nothing about that window was recorded.
     let previousUnits: Double?
+
+    /// The moment the window was built for — where today's lived time, and a
+    /// running session's time under the influence, stop.
+    var now: Date = .now
 
     // MARK: Figures
 
@@ -220,7 +310,7 @@ struct HistoryWindow: Hashable, Sendable {
         return (totalUnits - previousUnits) / previousUnits
     }
 
-    var figures: HistoryFigures { HistoryFigures(days: days, previousUnits: previousUnits) }
+    var figures: HistoryFigures { HistoryFigures(days: days, previousUnits: previousUnits, now: now) }
 
     /// Whether every recorded day on screen is inside the free window. True
     /// only for the week view at offset 0, by construction — but derived from
@@ -289,7 +379,8 @@ struct HistoryWindow: Hashable, Sendable {
         let previousUnits = previousDays.isRecorded ? previousDays.totalUnits : nil
 
         return HistoryWindow(
-            range: range, offset: offset, interval: interval, bars: bars, previousUnits: previousUnits
+            range: range, offset: offset, interval: interval, bars: bars, previousUnits: previousUnits,
+            now: now
         )
     }
 
