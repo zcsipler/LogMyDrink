@@ -1,4 +1,7 @@
 import Foundation
+#if DEBUG
+import CryptoKit
+#endif
 
 /// The made-up drinker debug builds carry, so every screen has years of
 /// history to show without anyone's real evenings being involved.
@@ -16,7 +19,7 @@ import Foundation
 /// A fixture with fixed dates goes stale: a month later the Live tab, the
 /// week chart and the free history window all show an empty demo. So on load
 /// every date is moved forward by **whole weeks**, as many as it takes for the
-/// last evening to land within the past seven drinking days. Whole weeks keep
+/// last drinking day to land within the past seven, today included. Whole weeks keep
 /// the weekdays — Friday nights stay on Fridays, which is most of what makes
 /// the history look like a person's — and adding calendar days rather than
 /// seconds keeps the clock times across a daylight-saving change.
@@ -35,12 +38,19 @@ enum DemoPerson {
     /// The bundled fixture, trimmed to the demo person. Nil when the file is
     /// missing or unreadable — a debug convenience is not worth a crash.
     static func bundledArchive(in bundle: Bundle = .main) -> DataArchive? {
+        bundledSource(in: bundle)?.archive
+    }
+
+    /// The fixture and a hash of its bytes: any edit to the file, down to
+    /// one drink's time, reloads the demo on the next launch.
+    static func bundledSource(in bundle: Bundle = .main) -> (archive: DataArchive, hash: String)? {
         guard
             let url = bundle.url(forResource: resourceName, withExtension: "json"),
             let data = try? Data(contentsOf: url),
             let archive = try? DataArchive.decoded(from: data)
         else { return nil }
-        return demoOnly(archive)
+        let hash = SHA256.hash(data: data).map { String(format: "%02x", $0) }.joined()
+        return (demoOnly(archive), hash)
     }
 
     /// Only the demo's rows. A file edited by hand could pick up someone
@@ -54,20 +64,22 @@ enum DemoPerson {
     }
 
     /// Whole weeks to move the fixture so that its last drinking day falls
-    /// between seven days ago and yesterday.
+    /// between six days ago and today.
     ///
-    /// Yesterday rather than today: today is where the developer tests the
-    /// Live tab, and a demo evening already sitting there would get in the
-    /// way. Never into the future either — a drink after `now` would be one
-    /// the app itself refuses to log.
+    /// Today included: the fixture is also where a test case is written — a
+    /// heavy night "yesterday" running into a round "today" — and on the
+    /// week it was written for, the case must appear exactly as written.
+    /// (It used to stop at yesterday, so a fixture ending today was pushed a
+    /// week back.) A drink later today than `now` is held back by
+    /// `upTo(_:)` until its time has come.
     static func weeksToShift(
         lastDrinkAt last: Date,
         now: Date,
         calendar: Calendar = .current
     ) -> Int {
         let lastDay = DrinkingDay.containing(last, calendar: calendar)
-        let yesterday = DrinkingDay.containing(now, calendar: calendar).offset(by: -1, calendar: calendar)
-        let days = calendar.dateComponents([.day], from: lastDay.start, to: yesterday.start).day ?? 0
+        let today = DrinkingDay.containing(now, calendar: calendar)
+        let days = calendar.dateComponents([.day], from: lastDay.start, to: today.start).day ?? 0
         return Int((Double(days) / 7).rounded(.down))
     }
 
@@ -106,11 +118,29 @@ enum DemoPerson {
         return moved
     }
 
+    /// Only what has happened by `now`: drinks later than that are left out,
+    /// and a session left with none is dropped. A trimmed session loses its
+    /// stored end, so the store works it out again from the drinks it has.
+    static func upTo(_ now: Date, _ archive: DataArchive) -> DataArchive {
+        var trimmed = archive
+        trimmed.sessions = archive.sessions.compactMap { session in
+            let past = session.drinks.filter { $0.consumedAt <= now }
+            guard !past.isEmpty else { return nil }
+            guard past.count != session.drinks.count else { return session }
+            var session = session
+            session.drinks = past
+            session.endedAt = nil
+            return session
+        }
+        return trimmed
+    }
+
     /// What has to match for the loaded copy to still be current: the shift,
-    /// and the file itself — an edited fixture is reloaded the next launch
-    /// even inside the same week.
-    static func fingerprint(of source: DataArchive, weeks: Int) -> String {
-        "\(weeks)|\(source.exportedAt.timeIntervalSince1970)|\(source.sessions.count)|\(source.drinkCount)"
+    /// the file's bytes — any edit reloads it the next launch, even inside
+    /// the same week — and how many of its drinks have happened yet, so a
+    /// drink held back this morning appears once its time has passed.
+    static func fingerprint(hash: String, weeks: Int, drinks: Int) -> String {
+        "\(weeks)|\(hash)|\(drinks)"
     }
     #endif
 }
@@ -145,12 +175,13 @@ enum DemoSeed {
         guard ProcessInfo.processInfo.environment["XCTestConfigurationFilePath"] == nil else { return }
 
         guard
-            let source = DemoPerson.bundledArchive(),
+            let (source, hash) = DemoPerson.bundledSource(),
             let last = source.sessions.flatMap(\.drinks).map(\.consumedAt).max()
         else { return }
 
         let weeks = DemoPerson.weeksToShift(lastDrinkAt: last, now: now)
-        let fingerprint = DemoPerson.fingerprint(of: source, weeks: weeks)
+        let moved = DemoPerson.upTo(now, DemoPerson.shifted(source, byWeeks: weeks))
+        let fingerprint = DemoPerson.fingerprint(hash: hash, weeks: weeks, drinks: moved.drinkCount)
         let existing = store.people.first { $0.id == DemoPerson.id }
 
         if existing != nil, defaults.string(forKey: fingerprintKey) == fingerprint { return }
@@ -158,7 +189,6 @@ enum DemoSeed {
         let wasActive = store.person.id == DemoPerson.id
         if let existing { store.removePerson(existing) }
 
-        let moved = DemoPerson.shifted(source, byWeeks: weeks)
         store.importArchive(store.importPlan(for: moved))
         defaults.set(fingerprint, forKey: fingerprintKey)
 

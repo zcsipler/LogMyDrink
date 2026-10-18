@@ -1468,15 +1468,30 @@ pedig debug módban magától legyen ott, **friss** italokkal.
   visszatöltéskor visszajönne, a mentés hetére fagyott dátumokkal.
 - **Frissesség — egész hetes eltolás** (`DemoPerson.weeksToShift` /
   `shifted`): betöltéskor minden dátum annyi egész héttel kerül előre, hogy
-  az utolsó este a tegnapi és a hét nappal ezelőtti ivási nap közé essen.
+  az utolsó ivási nap a mai és a hat nappal ezelőtti közé essen. *(Eredetileg
+  tegnap és hét napja közé, hogy a Live ne legyen tele demóval; 2026.
+  október 18-án módosítva, mert a JSON egyben a **tesztesetek helye** is:
+  egy „tegnap este sok ital, ma délben még egy kör" eset csak akkor
+  látszik a megírása hetében úgy, ahogy írták, ha az utolsó nap lehet a
+  mai. A JSON-ban ma ez az eset áll — 10 sör 20:00-tól és 3 sör 13:00-tól
+  a demo utolsó alkalmában. A heti léptetést Zoltán megtartotta a hét
+  napjai miatt: másnaptól az eset egy nappal hátrébb látszik, egy hét múlva
+  ugrik újra a mai napra.)* Ami a mai napon a mostani pillanat után van, azt
+  a betöltés visszatartja (`DemoPerson.upTo`), és a megcsonkított alkalom
+  végét a store újraszámolja.
   Egész hét, mert így a napok a hét napjain maradnak (a péntek este péntek
   marad), és naptári napokkal adva, nem másodpercekkel, hogy az óraátállítás
   se tolja el az órát. Zoltán a naponkénti automatikus frissítést kérte; a
   heti léptetés miatt a csere ténylegesen hetente történik, az ellenőrzés
   minden indításkor.
 - **Betöltés — `DemoSeed.refreshIfNeeded`**, debug indításkor, a store
-  létrehozása után. Egy ujjlenyomatot hasonlít (`hét | exportedAt | alkalmak |
-  italok`, `logmydrink.debug.demoFingerprint`): ha egyezik és a demo megvan,
+  létrehozása után. Egy ujjlenyomatot hasonlít (`hét | a fájl SHA-256-ja |
+  a már bekövetkezett italok száma`, `logmydrink.debug.demoFingerprint`) —
+  a fájl teljes tartalma számít, tehát egyetlen ital időpontjának átírása is
+  újratöltést hoz bármelyik eszközön a következő indításkor (korábban csak a
+  darabszámok és az `exportedAt` számított, egy átírt időpontot nem vett
+  észre); a harmadik tag miatt a reggel visszatartott délutáni ital délután
+  megjelenik: ha egyezik és a demo megvan,
   semmit nem csinál; ha a hét fordult, a fájl változott, vagy a demót
   törölték, akkor `removePerson` + `importArchive` — ugyanaz az út, amit a
   People képernyő és a mentés-visszatöltés használ, tehát a store ugyanolyan
@@ -1488,7 +1503,14 @@ pedig debug módban magától legyen ott, **friss** italokkal.
   build nem tölti be a demót); egy szándékosan törölt demo a következő
   indításkor visszajön.
 - **Tesztek:** `DemoPersonTests` (27, ebből 21 egy paraméteres esetre: az
-  utolsó este 0–20 nappal később is az 1–7 nappal ezelőtti sávba kerül).
+  utolsó nap 0–20 nappal később is a 0–6 nappal ezelőtti sávba kerül), plusz
+  egy a mai napig érő fixture-re és a jövőbeli italok visszatartására.
+- **Fontos: a demo minden eszköz saját adatbázisába töltődik be**, nem a
+  JSON-ból olvasódik minden pillanatban. A JSON az igazság, de ami az appban
+  a demóhoz hozzáadódik (felvitel, törlés), az csak azon az eszközön él, a
+  következő újratöltésig. Egy esetet tehát a JSON-ba kell írni, nem az
+  appban felvinni — egyszer ez fordítva ment, és Zoltán más eszközön nem
+  látta.
 
 ## 6. Validáció
 

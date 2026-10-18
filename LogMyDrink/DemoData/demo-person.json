@@ -61651,6 +61651,24 @@
           "volumeMl": 500
         },
         {
+          "abvPercent": 5,
+          "consumedAt": "2026-10-10T18:00:00Z",
+          "drinkingMinutes": 30,
+          "id": "E113A269-C164-429B-BEB0-0752B3FA90AB",
+          "stomachRaw": "light",
+          "templateID": "beer",
+          "volumeMl": 500
+        },
+        {
+          "abvPercent": 5,
+          "consumedAt": "2026-10-10T18:30:00Z",
+          "drinkingMinutes": 30,
+          "id": "217B65AC-3626-4611-91AF-D683518DAC81",
+          "stomachRaw": "light",
+          "templateID": "beer",
+          "volumeMl": 500
+        },
+        {
           "abvPercent": 5.2,
           "consumedAt": "2026-10-10T18:35:51Z",
           "drinkingMinutes": 30,
@@ -61658,9 +61676,108 @@
           "stomachRaw": "light",
           "templateID": "beer",
           "volumeMl": 500
+        },
+        {
+          "abvPercent": 5,
+          "consumedAt": "2026-10-10T19:00:00Z",
+          "drinkingMinutes": 30,
+          "id": "FF154965-0DB8-470D-8041-05F1726F90E4",
+          "stomachRaw": "light",
+          "templateID": "beer",
+          "volumeMl": 500
+        },
+        {
+          "abvPercent": 5,
+          "consumedAt": "2026-10-10T19:30:00Z",
+          "drinkingMinutes": 30,
+          "id": "D2EB13EB-EBF2-4E60-B442-32AF9CB4EEFB",
+          "stomachRaw": "light",
+          "templateID": "beer",
+          "volumeMl": 500
+        },
+        {
+          "abvPercent": 5,
+          "consumedAt": "2026-10-10T20:00:00Z",
+          "drinkingMinutes": 30,
+          "id": "0D79BA5E-8BEA-431F-B970-CED2B3FE6AD0",
+          "stomachRaw": "light",
+          "templateID": "beer",
+          "volumeMl": 500
+        },
+        {
+          "abvPercent": 5,
+          "consumedAt": "2026-10-10T20:30:00Z",
+          "drinkingMinutes": 30,
+          "id": "EC6B1F5B-EBD5-4811-AEEE-3A957A2AAE75",
+          "stomachRaw": "light",
+          "templateID": "beer",
+          "volumeMl": 500
+        },
+        {
+          "abvPercent": 5,
+          "consumedAt": "2026-10-10T21:00:00Z",
+          "drinkingMinutes": 30,
+          "id": "FA42B6D6-0587-4554-B1F3-B84FFD8E43AB",
+          "stomachRaw": "light",
+          "templateID": "beer",
+          "volumeMl": 500
+        },
+        {
+          "abvPercent": 5,
+          "consumedAt": "2026-10-10T21:30:00Z",
+          "drinkingMinutes": 30,
+          "id": "E2685E75-BE34-46D2-94BB-36017343DE35",
+          "stomachRaw": "light",
+          "templateID": "beer",
+          "volumeMl": 500
+        },
+        {
+          "abvPercent": 5,
+          "consumedAt": "2026-10-10T22:00:00Z",
+          "drinkingMinutes": 30,
+          "id": "23C4F35F-4DA1-401F-A7C9-B86D49D552ED",
+          "stomachRaw": "light",
+          "templateID": "beer",
+          "volumeMl": 500
+        },
+        {
+          "abvPercent": 5,
+          "consumedAt": "2026-10-10T22:30:00Z",
+          "drinkingMinutes": 30,
+          "id": "28139AF3-C093-4C23-AD1E-5AB787299B41",
+          "stomachRaw": "light",
+          "templateID": "beer",
+          "volumeMl": 500
+        },
+        {
+          "abvPercent": 5,
+          "consumedAt": "2026-10-11T11:00:00Z",
+          "drinkingMinutes": 30,
+          "id": "61AB9ED5-3B2F-4DFD-A52F-15E6B517BF02",
+          "stomachRaw": "light",
+          "templateID": "beer",
+          "volumeMl": 500
+        },
+        {
+          "abvPercent": 5,
+          "consumedAt": "2026-10-11T11:30:00Z",
+          "drinkingMinutes": 30,
+          "id": "8B6804DB-2915-45EF-8228-F3424B325855",
+          "stomachRaw": "light",
+          "templateID": "beer",
+          "volumeMl": 500
+        },
+        {
+          "abvPercent": 5,
+          "consumedAt": "2026-10-11T12:00:00Z",
+          "drinkingMinutes": 30,
+          "id": "652FCF32-64B0-494A-AC5B-58EB9437A452",
+          "stomachRaw": "light",
+          "templateID": "beer",
+          "volumeMl": 500
         }
       ],
-      "endedAt": "2026-10-10T22:48:00Z",
+      "endedAt": null,
       "heightCm": 181,
       "id": "DE52B3E7-8479-4C82-97C7-F0BA074C5F10",
       "limit": 1.5,

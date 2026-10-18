@@ -22,7 +22,7 @@ struct DemoPersonTests {
 
     // MARK: How far to move
 
-    @Test("The last evening lands between seven days ago and yesterday", arguments: 0..<21)
+    @Test("The last drinking day lands between six days ago and today", arguments: 0..<21)
     func lastEveningIsRecent(daysLater: Int) {
         let last = date(2026, 10, 10, 21, 30)
         let now = calendar.date(byAdding: .day, value: daysLater, to: date(2026, 10, 11, 14))!
@@ -31,7 +31,33 @@ struct DemoPersonTests {
         let moved = calendar.date(byAdding: .day, value: 7 * weeks, to: last)!
         let ago = DrinkingDay.containing(moved, calendar: calendar).daysAgo(from: now, calendar: calendar)
 
-        #expect((1...7).contains(ago))
+        #expect((0...6).contains(ago))
+    }
+
+    @Test("A fixture ending today stays today, and later drinks wait for their time")
+    func todayStaysTodayAndWaits() throws {
+        // A night "yesterday" and a round "today" at 13:00, written for this week.
+        let night = session(drinksAt: [
+            date(2026, 10, 17, 20, 0),
+            date(2026, 10, 18, 13, 0),
+            date(2026, 10, 18, 14, 0),
+        ])
+        let archive = DataArchive(people: [person(createdAt: date(2026, 1, 1, 0, 0))], sessions: [night])
+        let last = date(2026, 10, 18, 14, 0)
+
+        let noon = date(2026, 10, 18, 12, 0)
+        #expect(DemoPerson.weeksToShift(lastDrinkAt: last, now: noon, calendar: calendar) == 0)
+
+        let morning = DemoPerson.upTo(noon, archive)
+        #expect(morning.drinkCount == 1)
+        #expect(morning.sessions.first?.endedAt == nil)
+
+        let afternoon = DemoPerson.upTo(date(2026, 10, 18, 13, 30), archive)
+        #expect(afternoon.drinkCount == 2)
+
+        let evening = DemoPerson.upTo(date(2026, 10, 18, 19, 0), archive)
+        #expect(evening.drinkCount == 3)
+        #expect(evening.sessions.first?.endedAt == night.endedAt)
     }
 
     @Test("A drink after midnight belongs to the evening it started in")
