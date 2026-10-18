@@ -99,7 +99,7 @@ LogMyDrink/
 │   │   ├── BACBand.swift       sávos szimuláció, LimitOutcome, BandedProjection
 │   │   ├── Occasions.swift     az itallista felbontása alkalmakra a görbe alapján (5.22)
 │   │   └── PourShortening.swift  a megkezdett ital lezárása a következővel
-│   └── Tests/BACKitTests/      73 teszt, Python referenciaértékekkel
+│   └── Tests/BACKitTests/      74 teszt, Python referenciaértékekkel
 ├── LogMyDrink/                 az app target
 │   ├── LogMyDrinkApp.swift     ModelContainer, CloudKit visszaeséssel, store létrehozás
 │   ├── Localizable.xcstrings   a 24 hivatalos EU-nyelven, generált
@@ -533,7 +533,13 @@ tartozik. A kortyolt italnál halvány sáv, az egyben lehajtottnál szaggatott
 vonal, mert egy pillanatnak nincs szélessége. Finomabb és halványabb, mint a
 szintén szaggatott most-vonal, aminek hangosabbnak kell maradnia.
 
-A jelmagyarázat csak azt a kettőt nevezi meg, ami épp a képernyőn van.
+**Jelmagyarázat nincs** (2026. október 18.). Volt két sor a chart alatt —
+„possible range · drag to read values", „pour time ⋮ in one go" —, de a rúd
+és a szaggatott vonal a görbéhez illesztve magáért beszél, a húzásos
+leolvasás minden chart gesztusa, a „possible range" pedig nulla
+bizonytalanságnál (az alapállapot, 5.8) olyan sávot nevezett meg, ami nincs a
+képernyőn. Csak az utóbbi maradt meg, és csak akkor látszik, ha a sávnak van
+szélessége (`showsRange`).
 
 A `LaneLayout` **egyetlen menetben** számol, és a `chart` egy lokális
 konstansba kéri le. Nem stílus kérdése: a `chartXSelection` minden húzási
@@ -875,13 +881,31 @@ oszlopok mögé bújt, és egy hét hét pontjából nem olvasható ki trend.
 második koppintásra), de a képernyő „magától" váltott tőle — a szegmens csak a
 szegmens-váltóról változzon.
 
-**A mennyiség grammban vagy standard egységben**, a felhasználó választása
-szerint (`AmountUnit`, az `AppSettings`-ben a ‰ / % mellett). Alapból gramm:
-egy gramm mindenhol ugyanaz, az „egység" országonként más (8 g UK, 10 g HU,
-12 g FR). A modell továbbra is standard egységben számol
-(`Drink.standardUnits`), a kettő ×10 — ezért nem mutatjuk mindkettőt egymás
-mellett. Egy helyen érvényes mindenhol: History chart, mutató-kártya, Live és
-alkalom stat-sor.
+**A mennyiség grammban vagy egységben**, a felhasználó választása szerint
+(`AmountUnit`, az `AppSettings`-ben a ‰ / % mellett), **soha nem egyszerre**.
+Alapból gramm: egy gramm mindenhol ugyanaz. A modell 10 g-os standard
+egységben számol (`Drink.standardUnits`), a megjelenítés az `AmountFormat`
+(egység + egységméret), amit a store épít (`store.amountFormat`), hogy egy
+nézet ne formázhasson rossz mérettel. Egy helyen érvényes mindenhol: History
+chart, mutató-kártya, Live és alkalom stat-sor.
+
+**Az egység mérete választható (2026. október 18.).** Az „egység" országonként
+más: 8 g az Egyesült Királyságban, 10 g a WHO-nál és Európa nagy részén,
+12 g az északi országokban, 14 g az amerikai „standard drink" — ugyanaz a
+20 g-os sör 2,5 / 2,0 / 1,7 / 1,4 egység. Zoltán vette észre, hogy egy másik
+app (DrinkControl) 1,4-et ír ott, ahol mi 2,0-t. Aki egységben számol, az
+abban, amit az orvosa vagy az országa használ, ezért **egység módban** a
+Profil felkínálja a méretet (8 / 10 / 12 / 14 g, `UnitSize`). Amíg nem
+választ, az **eszköz régiója dönt** (`UnitSize.regional`: GB 8, US 14,
+DK/SE/FI 12, máshol 10), és ha elköltözik, követi; amint választ, az marad
+(`AppSettings.unitGrams`, nil = régió). A belső számolás és a havi összegek
+gramm-tárolása nem változik.
+
+*Egy kör (ugyanaznap) mindkettőt kitette egymás mellé — külön Grams és Units
+oszlop a stat-kártyán, „20 g · 2,0 units" az itallistában. Zoltán
+visszavette: zavaró, a kettő ugyanaz a szám más szavakkal. A régi indoklás
+(„a kettő ×10, ezért nem mutatjuk egymás mellett") így marad érvényben,
+csak most a méret is választható.*
 
 **Két chart-kártya egymás alatt: mennyiség, majd csúcs.** Nem váltó és nem
 kettős tengely: a két mérőszám egy pillantással összevethető, és a
@@ -1424,8 +1448,40 @@ naptári napra esnek.
   színezés magasság szerint megy (5.14, `Theme.levelGradient`), így a
   reggeli 1,3 ‰-es farok vörös, a délutáni sör dudora türkiz. Italtalan,
   de áthozatos napon a fejléc „Carried over from the night before". A
-  „Expected to clear" a vágatlan görbéből jön — a határnál levágott este is
+  kiürülési idő („Sober around") a vágatlan görbéből jön — a határnál levágott este is
   valós órakor ürül ki.
+- **A stat-kártya (2026. október 18.):** első sora a **nap** könyvelése —
+  kezdés, italok, mennyiség —, a második az **alkalomé**, amelybe a nap tartozik,
+  egészben: **Started** (az alkalom első itala), **Sober around / Sober at**
+  (a végső kiürülés; múltban „at", amíg becslés, „around" — korábban
+  „Expected to clear"), **Duration** (a kettő különbsége, 24 óra fölött
+  napokkal: „1 nap 59 p", `spanDuration`) és a Live-on, amíg van alkohol,
+  **Remaining**. Ha a kezdet vagy a kiürülés másik napra esik, alatta kis
+  felirat mondja meg, melyikre („previous day", „next day", „2 days
+  later"). Zoltán elve: az igazságot kell mutatni, akármennyire fáj — ha
+  valaki tegnap este szétitta magát, ma folytatta, és csak holnap ürül ki,
+  akkor több mint egy napig nem volt józan, és ezt minden érintett nap
+  kimondja. Egy köztes kör ennek az ellenkezőjét csinálta (a nap csak a
+  saját italaiból számolt kiürülést, hogy utólag ne változzon) — Zoltán
+  visszavette, mert épp a megszakítás nélküli napokat tüntette el, amik egy
+  alkoholproblémával küzdő felhasználónak a legfontosabb adatok. **Mindig
+  egy szám**, a középső görbéből (`BACChartModel.soberAt`), akkor is, ha a
+  Profilban be van kapcsolva a bizonytalanság: tartományként („17:40–2:55",
+  „4 ó 40 p–13 ó 55 p") olvashatatlan volt; a bizonytalanságot a chart sávja
+  és a hero mutatja.
+- **A kiürülés a görbe *utolsó* nulla-átmenete (motorverzió 5, 2026.
+  október 18.).** A `BACCurve.soberDate` addig az első nulla alá esést adta
+  a csúcs után. Egy görbe viszont leérhet nullára és újra emelkedhet — a sáv
+  gyors ágán ez rendszeres: a demo userrel egy 10 sörös este a gyors ágon
+  12:36-kor ürült ki, a 13:00-s sör visszavitte, és a nap „Józan kb.
+  12:36–2:55"-öt írt, a duration pedig „—–13 ó 55 p"-t. Most az utolsó
+  küszöb fölötti minta utáni minta számít; egyhúpos görbén ez ugyanaz. A
+  verziólépés azért kell, mert a tárolt `cachedSoberAt` (és belőle az
+  `endedAt`) ugyanígy tévedhetett egy türelmi időn belül újrainduló estén.
+  A Python referencia (`sober_at`) ugyanezt csinálja; teszt:
+  `clearingIsTheLastCrossing`. Két, egymástól kiürült alkalom
+  egy napon: a duration az első italtól az utolsó kiürülésig fut, a köztes
+  józan szakasszal együtt.
 - **Előzmény:** 5.16 — ital a saját napjára, csúcs a saját italoké,
   áthozat külön (`DaySummary`). Egy este egy oszlop.
 - **Kimentek:** `SessionPolicy.swift`, a nyitott/zárt fogalom, a Live
@@ -1546,7 +1602,7 @@ csúcssáv `0,543722 … 0,662719`, középcsúcs `0,601601` @ 136 perc,
 kiürülés `361 … 534` perc (motorverzió 2, 5.21).
 
 ```bash
-./Reference/run_tests.sh                 # 73 teszt, BACKit
+./Reference/run_tests.sh                 # 74 teszt, BACKit
 cd Reference && python3 validate.py && python3 check_tests.py
 ```
 
@@ -1715,13 +1771,16 @@ kísérletként; JSON export / import (5.17); több személy a `multiPerson` fla
 mögött, személylistával és vendég-eltávolítással (5.18); 24 nyelvű lokalizáció
 (magyar és angol átnézve).
 
-**Tesztek:** 73 a `BACKit`-ben (Linuxon is futtatható, 6.; két régi teszt
+**Tesztek:** 74 a `BACKit`-ben (Linuxon is futtatható, 6.; két régi teszt
 várt száma az 5.21-es verziólépésnél nem frissült és azóta bukott — 2026.
-október 9-én a referenciára igazítva); 116 a `LogMyDrinkTests` targetben
+október 9-én a referenciára igazítva); 124 a `LogMyDrinkTests` targetben
 (⌘U-val vagy parancssorból, 6.): 57 a History
 modellre (5.16), 27 a perzisztenciára — migráció, útválasztás és a
 görbe-alapú csoportosítás (5.18, 5.22), aktív személy —, 5 a widget
-snapshotjára (5.15) és 27 a demo userre (5.23). *(Korábban itt 90 állt; az
+snapshotjára (5.15), 28 a demo userre (5.23), 6 a mennyiség
+formázására (`AmountFormatTests`, egységméret és régió) és 1 a nap ablakára
+(`DayWindowTests`: a másnapra átcsúszó este mindkét napon az egész alkalom
+kezdetét és végső kiürülését mutatja, 5.22). *(Korábban itt 90 állt; az
 `@Test`-ek tényleges száma 89 volt, a perzisztencia 27, nem 28.)* **2026.
 október 18-án mind a 116 zöld** szimulátoron (Xcode 27.1, iPhone 17), az
 5.22-es útválasztás-tesztekkel együtt. A target unit testing bundle, host a `LogMyDrink`,
@@ -1774,7 +1833,7 @@ javítja az előző kört, ismerjük el nyíltan és írjuk át (ebből lett az 
 
 **Mit tudok ellenőrizni (2026. október 18. óta).** Zoltán Macén parancsot
 futtatok (6., „Az app fordítása…"): az **app targetet lefordítom**, a
-`LogMyDrinkTests`-et és a `BACKit` 73 tesztjét lefuttatom, az appot a
+`LogMyDrinkTests`-et és a `BACKit` 74 tesztjét lefuttatom, az appot a
 szimulátoron elindítom, és **képernyőképpel nézem meg az eredményt**, mielőtt
 Zoltánnak megmutatom. Egy kör vége tehát: fordítás → tesztek → képernyőkép a
 változott képernyőről → diff. Ha a Mac épp nem érhető el, a tartalék a régi

@@ -58,10 +58,6 @@ TRANSLATIONS = {
     "Still rising": "Vis dar kyla",
     "YOUR LIMIT %@": "TAVO RIBA %@",
     "possible range": "galimas intervalas",
-    "drag to read values": "vilk, kad matytum reikšmes",
-    "release to go back": "atleisk, kad grįžtum",
-    "pour time": "gėrimo trukmė",
-    "in one go": "vienu mauku",
 
     # --- Live screen: the day with nothing on it ---
     "Live": "Tiesiogiai",
@@ -79,6 +75,14 @@ TRANSLATIONS = {
     "peak": "viršūnė",
     "Started": "Pradėta",
     "Lasted": "Truko",
+    "Duration": "Trukmė",
+    "Sober around": "Blaivus apyt.",
+    "Sober at": "Blaivus",
+    "Remaining": "Liko",
+    "next day": "kitą dieną",
+    "previous day": "ankstesnę dieną",
+    "%@ days later": "po %@ d.",
+    "%@ days earlier": "prieš %@ d.",
     "Calculated with your profile at the time": "Apskaičiuota pagal tuometinį tavo profilį",
 
     # --- TodayView ---
@@ -87,7 +91,6 @@ TRANSLATIONS = {
     "estimated range": "įvertintas intervalas",
     "Drinks": "Gėrimai",
     "Units": "Vienetai",
-    "Expected to clear": "Numatomas išnykimas",
     "Drinks this session": "Šios sesijos gėrimai",
     "This is an estimate, not a measurement.": "Tai įvertis, o ne matavimas.",
     "Actual values vary considerably between individuals. Never use this to decide whether you "
@@ -271,6 +274,12 @@ TRANSLATIONS = {
     "Grams": "Gramai",
     "Grams of alcohol": "Gramai alkoholio",
     "Standard units": "Standartiniai vienetai",
+    "Unit size": "Vieneto dydis",
+    "Automatic": "Automatiškai",
+    "UK": "Jungtinė Karalystė",
+    "Nordic countries": "Šiaurės šalys",
+    "US standard drink": "JAV standartinis gėrimas",
+    "WHO, most of Europe": "PSO, didžioji Europos dalis",
     "Period": "Laikotarpis",
     "Switch person": "Keisti žmogų",
     "Add person": "Pridėti žmogų",
@@ -362,6 +371,5 @@ TRANSLATIONS = {
     'Owner': 'Savininkas',
     'Everyone this app records. Switch, add, or remove someone.': 'Visi, kuriuos fiksuoja ši programa. Perjunkite, pridėkite arba pašalinkite ką nors.',
     # --- Day window (5.22) ---
-    "Night before": 'Praėjęs vakaras',
     "Carried over from the night before": 'Perkelta iš praėjusio vakaro',
 }

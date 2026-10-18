@@ -29,6 +29,16 @@ final class AppSettings {
         didSet { persist() }
     }
 
+    /// The size of a unit in grams, as the user chose it. Nil until they do:
+    /// then the region decides (`UnitSize.regional`), and keeps deciding if
+    /// they move. Once chosen it stays, wherever the device is.
+    var unitGrams: Double? {
+        didSet { persist() }
+    }
+
+    /// The size in force: the user's choice, or the region's.
+    var effectiveUnitGrams: Double { unitGrams ?? UnitSize.regional() }
+
     // MARK: Who is being recorded
     //
     // Two values, not one: the id, and when it was chosen. Switching to
@@ -82,6 +92,8 @@ final class AppSettings {
         /// Optional so a snapshot written before this existed still decodes;
         /// missing means the default.
         var amountUnit: AmountUnit?
+        /// Nil — and absent from older snapshots — means "the region's".
+        var unitGrams: Double?
         var activePersonID: UUID?
         var activePersonChosenAt: Date?
     }
@@ -92,6 +104,7 @@ final class AppSettings {
         let snapshot = Snapshot(
             unit: unit,
             amountUnit: amountUnit,
+            unitGrams: unitGrams,
             activePersonID: activePersonID,
             activePersonChosenAt: activePersonChosenAt
         )
@@ -106,6 +119,7 @@ final class AppSettings {
         }
         unit = snapshot.unit
         amountUnit = snapshot.amountUnit ?? .grams
+        unitGrams = snapshot.unitGrams
         activePersonID = snapshot.activePersonID
         activePersonChosenAt = snapshot.activePersonChosenAt
     }

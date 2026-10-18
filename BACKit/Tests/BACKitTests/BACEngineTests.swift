@@ -176,6 +176,28 @@ struct BACEngineTests {
         #expect(longer.hasCleared())
     }
 
+    /// One beer, cleared within three hours, and another five hours later: the
+    /// curve touches zero in between. The clearing time is the end of the
+    /// second hump — the first crossing would name a time before the second
+    /// beer was even poured.
+    @Test("A curve that clears and rises again clears at its last crossing")
+    func clearingIsTheLastCrossing() throws {
+        let drinks = [
+            Drink(consumedAt: minute(0), volumeMl: 500, abvPercent: 5, stomach: .light, drinkingMinutes: 30),
+            Drink(consumedAt: minute(300), volumeMl: 500, abvPercent: 5, stomach: .light, drinkingMinutes: 30),
+        ]
+        let curve = engine.simulate(profile: reference, drinks: drinks)
+        let single = engine.simulate(profile: reference, drinks: [drinks[0]])
+
+        let firstClear = try #require(single.soberDate())
+        #expect(firstClear < minute(300))
+        #expect(curve.value(at: minute(299)) < 0.01)
+
+        let sober = try #require(curve.soberDate())
+        #expect(sober > minute(300))
+        #expect(curve.samples.filter { $0.date >= sober }.allSatisfy { $0.bac < 0.01 })
+    }
+
     @Test("A curve that hits the cap says so instead of pretending to be clear")
     func capIsReported() {
         let (profile, drinks) = Self.heavyEvening()

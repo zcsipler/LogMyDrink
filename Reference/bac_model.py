@@ -142,12 +142,16 @@ class Simulation:
         return 0.0
 
     def sober_at(self, threshold: float = 0.01) -> float | None:
-        """First time after the peak at which BAC falls below the threshold."""
-        peak_minute = self.peak.minute
-        for s in self.samples:
-            if s.minute >= peak_minute and s.bac < threshold:
-                return s.minute
-        return None
+        """When BAC falls below the threshold for good: the first sample after
+        the last one at or above it. Not the first crossing — a curve can
+        touch zero and rise again (engine version 5)."""
+        last_above = None
+        for i, s in enumerate(self.samples):
+            if s.bac >= threshold:
+                last_above = i
+        if last_above is None or last_above + 1 >= len(self.samples):
+            return None
+        return self.samples[last_above + 1].minute
 
     def crosses(self, limit: float) -> float | None:
         """First time at which BAC reaches the given limit."""

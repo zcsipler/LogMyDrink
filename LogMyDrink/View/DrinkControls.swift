@@ -109,6 +109,8 @@ struct DrinkMeasureControls: View {
     let template: DrinkTemplate
     @Binding var volumeMl: Double
     @Binding var abv: Double
+    /// For the units in the footnote, in the size the user knows.
+    let amountFormat: AmountFormat
 
     static let volumeRange: ClosedRange<Double> = 10...1000
     static let abvStep: Double = 0.5
@@ -142,7 +144,7 @@ struct DrinkMeasureControls: View {
             }
 
             HStack {
-                Text("\((grams / Physiology.gramsPerStandardUnit).formatted(.number.precision(.fractionLength(1)))) units")
+                Text("\((grams / amountFormat.gramsPerUnit).formatted(.number.precision(.fractionLength(1)))) units")
                 Spacer()
                 Text("\(grams.formatted(.number.precision(.fractionLength(0)))) g alcohol")
             }

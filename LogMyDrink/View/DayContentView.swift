@@ -37,41 +37,69 @@ struct DayContentView: View {
 
     // MARK: Stats
 
-    /// What was drunk on the day, and when it started. A day the night
-    /// before ran into says so instead of a start time: its curve did not
-    /// start here.
+    /// The day's drinks in the first row; in the second, the occasion the
+    /// day belongs to, told whole: when it began, when it clears, how long
+    /// that is, and on a running evening how long is still to go.
+    ///
+    /// The occasion, not the day (5.22): a heavy night that runs on into the
+    /// next afternoon kept someone from being sober the whole time, and both
+    /// days say so — the start and the clearing time carry a caption when
+    /// they fall on another day ("previous day", "2 days later"), and the
+    /// duration may run past a day. The truth, however it reads. One time
+    /// each, from the centre curve: the uncertainty is the chart's band, and
+    /// as a range here it was unreadable.
     private var statRow: some View {
         VStack(spacing: 12) {
-            HStack(spacing: 0) {
-                if let first = drinks.first {
-                    stat("Started", Text(verbatim: first.consumedAt.hourMinute))
+            HStack(alignment: .center, spacing: 0) {
+                if let start = model.occasionStart {
+                    stat("Started", Text(verbatim: start.hourMinute), under: dayCaption(for: start))
                 } else {
-                    // Only reached with a carried-in level: the view is not
-                    // shown for a day with neither drinks nor a curve.
-                    stat("Started", Text("Night before"))
+                    stat("Started", Text(verbatim: "—"))
                 }
                 divider
                 stat("Drinks", Text(verbatim: drinks.count.formatted()))
                 divider
-                stat(store.amountUnit.shortLabel, Text(verbatim: store.amountUnit.format(standardUnits: totalUnits)))
+                stat(store.amountFormat.shortLabel, Text(verbatim: store.amountFormat.format(standardUnits: totalUnits)))
             }
 
-            if let sober = model.soberRange, model.isLive, model.currentBAC > 0 {
+            if let sober = model.soberAt {
                 Divider().overlay(Theme.hairline).padding(.horizontal, 14)
 
-                VStack(spacing: 3) {
-                    Text("Expected to clear")
-                        .font(.system(size: 9, weight: .semibold, design: .rounded))
-                        .textCase(.uppercase)
-                        .foregroundStyle(Theme.secondaryText)
-                    Text(verbatim: sober.hourMinuteRange)
-                        .font(.system(size: 17, weight: .medium, design: .rounded).monospacedDigit())
-                        .foregroundStyle(Theme.primaryText)
+                HStack(alignment: .center, spacing: 0) {
+                    if sober <= (model.focusDate ?? .now) {
+                        stat("Sober at", Text(verbatim: sober.hourMinute), under: dayCaption(for: sober))
+                    } else {
+                        stat("Sober around", Text(verbatim: sober.hourMinute), under: dayCaption(for: sober))
+                    }
+                    if let start = model.occasionStart {
+                        divider
+                        stat("Duration", Text(verbatim: sober.timeIntervalSince(start).spanDuration))
+                    }
+                    if model.isLive, model.currentBAC > 0, let now = model.focusDate, sober > now {
+                        divider
+                        stat("Remaining", Text(verbatim: sober.timeIntervalSince(now).spanDuration))
+                    }
                 }
             }
         }
         .padding(.vertical, 14)
         .background(Theme.surface, in: RoundedRectangle(cornerRadius: 16))
+    }
+
+    /// Which day a time falls on, said against the day on screen — nothing
+    /// when it is the same drinking day.
+    private func dayCaption(for date: Date) -> String? {
+        guard let window = model.window else { return nil }
+        let shown = DrinkingDay.containing(window.lowerBound)
+        let other = DrinkingDay.containing(date)
+        let days = Calendar.current.dateComponents([.day], from: shown.start, to: other.start).day ?? 0
+        switch days {
+        case 0: return nil
+        case 1: return String(localized: "next day")
+        case -1: return String(localized: "previous day")
+        case 2...: return String(localized: "\(days.formatted()) days later")
+        default: return String(localized: "\((-days).formatted()) days earlier")
+        }
     }
 
     private var totalUnits: Double {
@@ -84,16 +112,28 @@ struct DayContentView: View {
             .frame(width: 1, height: 26)
     }
 
-    private func stat(_ title: LocalizedStringResource, _ value: Text) -> some View {
+    private func stat(_ title: LocalizedStringResource, _ value: Text, under: String? = nil) -> some View {
         VStack(spacing: 4) {
             Text(title)
                 .font(.system(size: 9, weight: .semibold, design: .rounded))
                 .textCase(.uppercase)
                 .foregroundStyle(Theme.secondaryText)
+                .lineLimit(1)
+                .minimumScaleFactor(0.8)
             value
                 .font(.system(size: 15, weight: .medium, design: .rounded).monospacedDigit())
                 .foregroundStyle(Theme.primaryText)
+                .lineLimit(1)
+                .minimumScaleFactor(0.7)
+            if let under {
+                Text(verbatim: under)
+                    .font(.system(size: 10, design: .rounded))
+                    .foregroundStyle(Theme.calm)
+                    .lineLimit(1)
+                    .minimumScaleFactor(0.8)
+            }
         }
         .frame(maxWidth: .infinity)
+        .padding(.horizontal, 4)
     }
 }

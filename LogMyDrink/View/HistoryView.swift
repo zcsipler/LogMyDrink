@@ -482,11 +482,11 @@ struct HistoryView: View {
     /// match the drinks beside it needs the reason printed under it.
     private func amount(_ window: HistoryFigures) -> some View {
         VStack(spacing: 4) {
-            Text(store.amountUnit.shortLabel)
+            Text(store.amountFormat.shortLabel)
                 .font(.system(size: 9, weight: .semibold, design: .rounded))
                 .textCase(.uppercase)
                 .foregroundStyle(Theme.secondaryText)
-            Text(verbatim: store.amountUnit.format(standardUnits: window.totalUnits))
+            Text(verbatim: store.amountFormat.format(standardUnits: window.totalUnits))
                 .font(.system(size: 15, weight: .medium, design: .rounded).monospacedDigit())
                 .foregroundStyle(Theme.primaryText)
             if window.summarizedMonths > 0 {
@@ -565,7 +565,7 @@ struct HistoryView: View {
                 HistoryChartView(
                     window: window,
                     metric: metric,
-                    amountUnit: store.amountUnit,
+                    amountFormat: store.amountFormat,
                     unit: store.unit,
                     recordsBegan: snapshot.recordsBegan ?? store.person.trackingStartedAt
                 )
@@ -590,7 +590,7 @@ struct HistoryView: View {
             HistoryTrendChartView(
                 trend: trend,
                 metric: metric,
-                amountUnit: store.amountUnit,
+                amountFormat: store.amountFormat,
                 unit: store.unit,
                 limit: store.limit,
                 now: store.now,
@@ -746,7 +746,7 @@ struct HistoryView: View {
                     .font(.system(size: 16, weight: .medium, design: .rounded))
                     .foregroundStyle(Theme.primaryText)
                     .multilineTextAlignment(.center)
-                Text("Monthly total: \(store.amountUnit.formatted(standardUnits: summarized.month.totalUnits))")
+                Text("Monthly total: \(store.amountFormat.formatted(standardUnits: summarized.month.totalUnits))")
                     .font(.system(size: 13, design: .rounded))
                     .foregroundStyle(Theme.secondaryText)
                     .multilineTextAlignment(.center)

@@ -84,6 +84,18 @@ extension TimeInterval {
     }
 }
 
+extension TimeInterval {
+    /// A duration that may run past a day: "1d 6h 57m", or "1 n 6 ó 57 p".
+    /// Under a day it reads exactly like `compactDuration`.
+    var spanDuration: String {
+        guard self > 0 else { return "—" }
+        let minutes = Int((self / 60).rounded())
+        return Duration.seconds(minutes * 60).formatted(
+            .units(allowed: [.days, .hours, .minutes], width: .narrow, zeroValueUnits: .hide)
+        )
+    }
+}
+
 extension Date {
     /// Hours and minutes per the system settings — 24-hour in Hungarian,
     /// 12-hour with AM/PM in an English locale.

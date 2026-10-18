@@ -57,10 +57,6 @@ TRANSLATIONS = {
     "Still rising": "Még emelkedik",
     "YOUR LIMIT %@": "SAJÁT HATÁR %@",
     "possible range": "lehetséges tartomány",
-    "drag to read values": "húzd a leolvasáshoz",
-    "release to go back": "engedd el a visszatéréshez",
-    "pour time": "fogyasztási idő",
-    "in one go": "egy hajtásra",
 
     # --- Live screen: the day with nothing on it ---
     "Live": "Élő",
@@ -76,6 +72,14 @@ TRANSLATIONS = {
     "peak": "csúcs",
     "Started": "Kezdés",
     "Lasted": "Tartam",
+    "Duration": "Időtartam",
+    "Sober around": "Józan kb.",
+    "Sober at": "Józan",
+    "Remaining": "Még hátra",
+    "next day": "másnap",
+    "previous day": "előző nap",
+    "%@ days later": "%@ nappal később",
+    "%@ days earlier": "%@ nappal korábban",
     "Calculated with your profile at the time": "Az akkori profiloddal számolva",
 
     # --- TodayView ---
@@ -84,7 +88,6 @@ TRANSLATIONS = {
     "estimated range": "becsült tartomány",
     "Drinks": "Italok",
     "Units": "Egység",
-    "Expected to clear": "Várhatóan ekkorra ürül ki",
     "Drinks this session": "Az alkalom italai",
     "This is an estimate, not a measurement.": "Ez egy becslés, nem mérés.",
     "Actual values vary considerably between individuals. Never use this to decide whether you can drive.":
@@ -249,6 +252,12 @@ TRANSLATIONS = {
     "Grams": "Gramm",
     "Grams of alcohol": "Gramm tiszta alkohol",
     "Standard units": "Standard egység",
+    "Unit size": "Egység mérete",
+    "Automatic": "Automatikus",
+    "UK": "Egyesült Királyság",
+    "Nordic countries": "Északi országok",
+    "US standard drink": "Amerikai standard ital",
+    "WHO, most of Europe": "WHO, Európa nagy része",
     "Period": "Időszak",
     "Switch person": "Személyváltás",
     "Add person": "Személy hozzáadása",
@@ -335,6 +344,5 @@ TRANSLATIONS = {
     'Owner': 'Tulajdonos',
     'Everyone this app records. Switch, add, or remove someone.': 'Mindenki, akit ez az app rögzít. Válts, vegyél fel vagy távolíts el valakit.',
     # --- Day window (5.22) ---
-    "Night before": 'Előző este',
     "Carried over from the night before": 'Áthozat az előző estéről',
 }

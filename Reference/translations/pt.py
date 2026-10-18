@@ -57,10 +57,6 @@ TRANSLATIONS = {
     "Still rising": "Ainda a subir",
     "YOUR LIMIT %@": "O TEU LIMITE %@",
     "possible range": "intervalo possível",
-    "drag to read values": "arrasta para ler os valores",
-    "release to go back": "larga para voltar",
-    "pour time": "tempo de ingestão",
-    "in one go": "de uma vez",
 
     # --- Live screen: the day with nothing on it ---
     "Live": "Em direto",
@@ -78,6 +74,14 @@ TRANSLATIONS = {
     "peak": "pico",
     "Started": "Começou",
     "Lasted": "Durou",
+    "Duration": "Duração",
+    "Sober around": "Sóbrio aprox.",
+    "Sober at": "Sóbrio",
+    "Remaining": "Restante",
+    "next day": "no dia seguinte",
+    "previous day": "no dia anterior",
+    "%@ days later": "%@ dias depois",
+    "%@ days earlier": "%@ dias antes",
     "Calculated with your profile at the time": "Calculado com o teu perfil da altura",
 
     # --- TodayView ---
@@ -86,7 +90,6 @@ TRANSLATIONS = {
     "estimated range": "intervalo estimado",
     "Drinks": "Bebidas",
     "Units": "Unidades",
-    "Expected to clear": "Previsão de voltar a zero",
     "Drinks this session": "Bebidas nesta sessão",
     "This is an estimate, not a measurement.": "Isto é uma estimativa, não uma medição.",
     "Actual values vary considerably between individuals. Never use this to decide whether you "
@@ -268,6 +271,12 @@ TRANSLATIONS = {
     "Grams": "Gramas",
     "Grams of alcohol": "Gramas de álcool",
     "Standard units": "Unidades padrão",
+    "Unit size": "Tamanho da unidade",
+    "Automatic": "Automático",
+    "UK": "Reino Unido",
+    "Nordic countries": "Países nórdicos",
+    "US standard drink": "Bebida padrão dos EUA",
+    "WHO, most of Europe": "OMS, a maior parte da Europa",
     "Period": "Período",
     "Switch person": "Mudar de pessoa",
     "Add person": "Adicionar pessoa",
@@ -359,6 +368,5 @@ TRANSLATIONS = {
     'Owner': 'Titular',
     'Everyone this app records. Switch, add, or remove someone.': 'Todas as pessoas que esta app regista. Muda, adiciona ou remove alguém.',
     # --- Day window (5.22) ---
-    "Night before": 'A noite anterior',
     "Carried over from the night before": 'Transportado da noite anterior',
 }

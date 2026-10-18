@@ -177,7 +177,7 @@ struct ProfileView: View {
                 ForEach(AmountUnit.allCases) { unit in
                     HStack(spacing: 5) {
                         Text(unit.label)
-                        Text(verbatim: "(\(unit.suffix))")
+                        Text(verbatim: unit == .grams ? "(g)" : "(\(Self.grams(store.amountFormat.gramsPerUnit)))")
                             .foregroundStyle(Theme.secondaryText)
                     }
                     .tag(unit)
@@ -187,10 +187,42 @@ struct ProfileView: View {
             }
             .pickerStyle(.inline)
             .labelsHidden()
+
+            // How many grams a unit is — only a question for someone who
+            // counts in units. Automatic follows the device's region until a
+            // size is picked; a picked size then stays (UnitSize).
+            if store.amountUnit == .standardUnits {
+                Picker(selection: Binding(
+                    get: { store.unitGrams ?? 0 },
+                    set: { store.unitGrams = $0 == 0 ? nil : $0 }
+                )) {
+                    HStack(spacing: 5) {
+                        Text("Automatic")
+                        Text(verbatim: "(\(Self.grams(UnitSize.regional())))")
+                            .foregroundStyle(Theme.secondaryText)
+                    }
+                    .tag(0.0)
+                    ForEach(UnitSize.options, id: \.self) { size in
+                        HStack(spacing: 5) {
+                            Text(verbatim: Self.grams(size))
+                            Text(UnitSize.convention(size))
+                                .foregroundStyle(Theme.secondaryText)
+                        }
+                        .tag(size)
+                    }
+                } label: {
+                    Text("Unit size")
+                }
+            }
         } header: {
             Text("Display")
         }
         .listRowBackground(Theme.surface)
+    }
+
+    /// "10 g" — a symbol, not a word.
+    private static func grams(_ value: Double) -> String {
+        "\(value.formatted(.number.precision(.fractionLength(0)))) g"
     }
 
     // MARK: Derived values

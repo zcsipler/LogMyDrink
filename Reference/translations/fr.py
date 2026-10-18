@@ -58,10 +58,6 @@ TRANSLATIONS = {
     "Still rising": "Encore en hausse",
     "YOUR LIMIT %@": "TA LIMITE %@",
     "possible range": "fourchette possible",
-    "drag to read values": "fais glisser pour lire les valeurs",
-    "release to go back": "relâche pour revenir",
-    "pour time": "durée de consommation",
-    "in one go": "d'un trait",
 
     # --- Live screen: the day with nothing on it ---
     "Live": "Direct",
@@ -79,6 +75,14 @@ TRANSLATIONS = {
     "peak": "pic",
     "Started": "Début",
     "Lasted": "Durée",
+    "Duration": "Durée",
+    "Sober around": "Sobre env.",
+    "Sober at": "Sobre",
+    "Remaining": "Restant",
+    "next day": "le lendemain",
+    "previous day": "la veille",
+    "%@ days later": "%@ jours plus tard",
+    "%@ days earlier": "%@ jours plus tôt",
     "Calculated with your profile at the time": "Calculé avec le profil que tu avais alors",
 
     # --- TodayView ---
@@ -87,7 +91,6 @@ TRANSLATIONS = {
     "estimated range": "fourchette estimée",
     "Drinks": "Verres",
     "Units": "Unités",
-    "Expected to clear": "Retour à zéro prévu",
     "Drinks this session": "Verres de cette session",
     "This is an estimate, not a measurement.": "C'est une estimation, pas une mesure.",
     "Actual values vary considerably between individuals. Never use this to decide whether you "
@@ -273,6 +276,12 @@ TRANSLATIONS = {
     "Grams": "Grammes",
     "Grams of alcohol": "Grammes d’alcool",
     "Standard units": "Unités standard",
+    "Unit size": "Taille de l’unité",
+    "Automatic": "Automatique",
+    "UK": "Royaume-Uni",
+    "Nordic countries": "Pays nordiques",
+    "US standard drink": "Verre standard américain",
+    "WHO, most of Europe": "OMS, la plupart de l’Europe",
     "Period": "Période",
     "Switch person": "Changer de personne",
     "Add person": "Ajouter une personne",
@@ -367,6 +376,5 @@ TRANSLATIONS = {
     'Owner': 'Propriétaire',
     'Everyone this app records. Switch, add, or remove someone.': "Toutes les personnes que cette app enregistre. Changer, ajouter ou retirer quelqu'un.",
     # --- Day window (5.22) ---
-    "Night before": 'La veille au soir',
     "Carried over from the night before": 'Reporté de la veille au soir',
 }

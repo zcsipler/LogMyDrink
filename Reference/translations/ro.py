@@ -58,10 +58,6 @@ TRANSLATIONS = {
     "Still rising": "Încă în creștere",
     "YOUR LIMIT %@": "LIMITA TA %@",
     "possible range": "interval posibil",
-    "drag to read values": "trage pentru a citi valorile",
-    "release to go back": "eliberează pentru a reveni",
-    "pour time": "durata consumului",
-    "in one go": "dintr-o dată",
 
     # --- Live screen: the day with nothing on it ---
     "Live": "Live",
@@ -79,6 +75,14 @@ TRANSLATIONS = {
     "peak": "vârf",
     "Started": "A început",
     "Lasted": "A durat",
+    "Duration": "Durată",
+    "Sober around": "Treaz aprox.",
+    "Sober at": "Treaz",
+    "Remaining": "Rămas",
+    "next day": "a doua zi",
+    "previous day": "ziua precedentă",
+    "%@ days later": "%@ zile mai târziu",
+    "%@ days earlier": "cu %@ zile înainte",
     "Calculated with your profile at the time": "Calculat cu profilul tău de la acel moment",
 
     # --- TodayView ---
@@ -87,7 +91,6 @@ TRANSLATIONS = {
     "estimated range": "interval estimat",
     "Drinks": "Băuturi",
     "Units": "Unități",
-    "Expected to clear": "Eliminare estimată",
     "Drinks this session": "Băuturi în această sesiune",
     "This is an estimate, not a measurement.": "Aceasta este o estimare, nu o măsurătoare.",
     "Actual values vary considerably between individuals. Never use this to decide whether you "
@@ -270,6 +273,12 @@ TRANSLATIONS = {
     "Grams": "Grame",
     "Grams of alcohol": "Grame de alcool",
     "Standard units": "Unități standard",
+    "Unit size": "Mărimea unității",
+    "Automatic": "Automat",
+    "UK": "Regatul Unit",
+    "Nordic countries": "Țările nordice",
+    "US standard drink": "Băutura standard din SUA",
+    "WHO, most of Europe": "OMS, cea mai mare parte a Europei",
     "Period": "Perioadă",
     "Switch person": "Schimbă persoana",
     "Add person": "Adaugă persoană",
@@ -362,6 +371,5 @@ TRANSLATIONS = {
     'Owner': 'Proprietar',
     'Everyone this app records. Switch, add, or remove someone.': 'Toți cei pe care îi înregistrează această aplicație. Schimbă, adaugă sau elimină pe cineva.',
     # --- Day window (5.22) ---
-    "Night before": 'Seara precedentă',
     "Carried over from the night before": 'Rămas din seara precedentă',
 }

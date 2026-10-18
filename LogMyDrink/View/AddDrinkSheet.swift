@@ -288,7 +288,7 @@ struct AddDrinkSheet: View {
     }
 
     private var measureSection: some View {
-        DrinkMeasureControls(template: template, volumeMl: $volumeMl, abv: $abv)
+        DrinkMeasureControls(template: template, volumeMl: $volumeMl, abv: $abv, amountFormat: store.amountFormat)
     }
 
     // MARK: Stomach state

@@ -58,10 +58,6 @@ TRANSLATIONS = {
     "Still rising": "Ag ardú fós",
     "YOUR LIMIT %@": "DO THEORAINN %@",
     "possible range": "raon féideartha",
-    "drag to read values": "tarraing chun luachanna a léamh",
-    "release to go back": "scaoil chun dul ar ais",
-    "pour time": "fad óil",
-    "in one go": "d'aon iarraidh",
 
     # --- Live screen: the day with nothing on it ---
     "Live": "Beo",
@@ -79,6 +75,14 @@ TRANSLATIONS = {
     "peak": "buaic",
     "Started": "Thosaigh",
     "Lasted": "Mhair",
+    "Duration": "Fad",
+    "Sober around": "Stuama timpeall",
+    "Sober at": "Stuama",
+    "Remaining": "Fágtha",
+    "next day": "an lá dár gcionn",
+    "previous day": "an lá roimhe",
+    "%@ days later": "%@ lá ina dhiaidh",
+    "%@ days earlier": "%@ lá roimhe",
     "Calculated with your profile at the time": "Ríofa le do phróifíl mar a bhí ag an am",
 
     # --- TodayView ---
@@ -87,7 +91,6 @@ TRANSLATIONS = {
     "estimated range": "raon measta",
     "Drinks": "Deochanna",
     "Units": "Aonaid",
-    "Expected to clear": "Ag súil le glanadh",
     "Drinks this session": "Deochanna sa seisiún seo",
     "This is an estimate, not a measurement.": "Is meastachán é seo, ní tomhas.",
     "Actual values vary considerably between individuals. Never use this to decide whether you "
@@ -272,6 +275,12 @@ TRANSLATIONS = {
     "Grams": "Graim",
     "Grams of alcohol": "Graim alcóil",
     "Standard units": "Aonaid chaighdeánacha",
+    "Unit size": "Méid an aonaid",
+    "Automatic": "Uathoibríoch",
+    "UK": "An Ríocht Aontaithe",
+    "Nordic countries": "Tíortha Nordacha",
+    "US standard drink": "Deoch chaighdeánach SAM",
+    "WHO, most of Europe": "EDS, an chuid is mó den Eoraip",
     "Period": "Tréimhse",
     "Switch person": "Athraigh duine",
     "Add person": "Cuir duine leis",
@@ -365,6 +374,5 @@ TRANSLATIONS = {
     'Owner': 'Úinéir',
     'Everyone this app records. Switch, add, or remove someone.': 'Gach duine a thaifeadann an aip seo. Athraigh, cuir leis nó bain duine.',
     # --- Day window (5.22) ---
-    "Night before": 'An oíche roimhe',
     "Carried over from the night before": 'Tugtha anall ón oíche roimhe',
 }

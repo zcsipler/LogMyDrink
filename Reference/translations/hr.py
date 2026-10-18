@@ -57,10 +57,6 @@ TRANSLATIONS = {
     "Still rising": "Još raste",
     "YOUR LIMIT %@": "TVOJA GRANICA %@",
     "possible range": "mogući raspon",
-    "drag to read values": "povuci za očitanje vrijednosti",
-    "release to go back": "otpusti za povratak",
-    "pour time": "vrijeme pijenja",
-    "in one go": "naiskap",
 
     # --- Live screen: the day with nothing on it ---
     "Live": "Uživo",
@@ -78,6 +74,14 @@ TRANSLATIONS = {
     "peak": "vrhunac",
     "Started": "Počelo",
     "Lasted": "Trajalo",
+    "Duration": "Trajanje",
+    "Sober around": "Trijezan pribl.",
+    "Sober at": "Trijezan",
+    "Remaining": "Preostalo",
+    "next day": "sljedeći dan",
+    "previous day": "prethodni dan",
+    "%@ days later": "%@ dana kasnije",
+    "%@ days earlier": "%@ dana ranije",
     "Calculated with your profile at the time": "Izračunato s tvojim tadašnjim profilom",
 
     # --- TodayView ---
@@ -86,7 +90,6 @@ TRANSLATIONS = {
     "estimated range": "procijenjeni raspon",
     "Drinks": "Pića",
     "Units": "Jedinice",
-    "Expected to clear": "Očekivani pad na nulu",
     "Drinks this session": "Pića u ovoj sesiji",
     "This is an estimate, not a measurement.": "Ovo je procjena, a ne mjerenje.",
     "Actual values vary considerably between individuals. Never use this to decide whether you "
@@ -264,6 +267,12 @@ TRANSLATIONS = {
     "Grams": "Grami",
     "Grams of alcohol": "Grami alkohola",
     "Standard units": "Standardne jedinice",
+    "Unit size": "Veličina jedinice",
+    "Automatic": "Automatski",
+    "UK": "Ujedinjeno Kraljevstvo",
+    "Nordic countries": "Nordijske zemlje",
+    "US standard drink": "Standardno piće u SAD-u",
+    "WHO, most of Europe": "SZO, veći dio Europe",
     "Period": "Razdoblje",
     "Switch person": "Promijeni osobu",
     "Add person": "Dodaj osobu",
@@ -356,6 +365,5 @@ TRANSLATIONS = {
     'Owner': 'Vlasnik',
     'Everyone this app records. Switch, add, or remove someone.': 'Svi koje ova aplikacija bilježi. Prebaci, dodaj ili ukloni nekoga.',
     # --- Day window (5.22) ---
-    "Night before": 'Prethodna večer',
     "Carried over from the night before": 'Preneseno iz prethodne večeri',
 }

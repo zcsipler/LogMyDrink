@@ -45,7 +45,7 @@ struct HistoryChartView: View {
 
     let window: HistoryWindow
     let metric: Metric
-    let amountUnit: AmountUnit
+    let amountFormat: AmountFormat
     let unit: BACUnit
 
     /// When this person's records begin. Named in the shaded region, because
@@ -85,7 +85,7 @@ struct HistoryChartView: View {
         let tallest = window.bars.compactMap { value($0) }.max() ?? 0
         switch metric {
         case .amount:
-            let floor = amountUnit.convert(standardUnits: 3)
+            let floor = amountFormat.convert(standardUnits: 3)
             return max(floor, (tallest * 1.25).rounded(.up))
         case .peak:
             let limit = window.limit ?? 0.8
@@ -103,11 +103,11 @@ struct HistoryChartView: View {
     private func value(_ bar: HistoryBar) -> Double? {
         switch (bar.state, metric) {
         case (.drank, .amount):
-            return amountUnit.convert(standardUnits: bar.totalUnits)
+            return amountFormat.convert(standardUnits: bar.totalUnits)
         case (.drank, .peak):
             return bar.peakRange.map { unit.convert($0.midpoint) }
         case (.summarized, .amount) where bar.totalUnits > 0:
-            return amountUnit.convert(standardUnits: bar.totalUnits)
+            return amountFormat.convert(standardUnits: bar.totalUnits)
         default:
             return nil
         }
@@ -130,7 +130,7 @@ struct HistoryChartView: View {
     private func label(_ bar: HistoryBar) -> String {
         switch metric {
         case .amount:
-            return amountUnit.formatted(standardUnits: bar.totalUnits)
+            return amountFormat.formatted(standardUnits: bar.totalUnits)
         case .peak:
             return bar.peakRange.map { unit.formattedRange($0) } ?? ""
         }
@@ -188,7 +188,7 @@ struct HistoryChartView: View {
 
     private var axisTitle: LocalizedStringResource {
         switch metric {
-        case .amount: amountUnit.shortLabel
+        case .amount: amountFormat.shortLabel
         case .peak: "peak"
         }
     }
@@ -231,7 +231,7 @@ struct HistoryChartView: View {
                 .foregroundStyle(Self.summarizedTint(for: region.month).opacity(0.22))
                 .annotation(position: .overlay, alignment: .center) {
                     if Double(region.barCount) / Double(max(1, window.bars.count)) >= 0.3 {
-                        Text("Monthly total: \(amountUnit.formatted(standardUnits: region.month.month.totalUnits))")
+                        Text("Monthly total: \(amountFormat.formatted(standardUnits: region.month.month.totalUnits))")
                             .font(.system(size: 10, design: .rounded))
                             .foregroundStyle(Theme.secondaryText)
                             .multilineTextAlignment(.center)

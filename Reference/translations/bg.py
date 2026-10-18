@@ -57,10 +57,6 @@ TRANSLATIONS = {
     "Still rising": "Все още се покачва",
     "YOUR LIMIT %@": "ТВОЯТ ЛИМИТ %@",
     "possible range": "възможен диапазон",
-    "drag to read values": "плъзни, за да четеш стойности",
-    "release to go back": "пусни, за да се върнеш",
-    "pour time": "време на изпиване",
-    "in one go": "наведнъж",
 
     # --- Live screen: the day with nothing on it ---
     "Live": "На живо",
@@ -78,6 +74,14 @@ TRANSLATIONS = {
     "peak": "пик",
     "Started": "Започна",
     "Lasted": "Продължи",
+    "Duration": "Продължителност",
+    "Sober around": "Трезв прибл.",
+    "Sober at": "Трезв",
+    "Remaining": "Остават",
+    "next day": "следващия ден",
+    "previous day": "предишния ден",
+    "%@ days later": "%@ дни по-късно",
+    "%@ days earlier": "%@ дни по-рано",
     "Calculated with your profile at the time": "Изчислено с профила ти от онзи момент",
 
     # --- TodayView ---
@@ -86,7 +90,6 @@ TRANSLATIONS = {
     "estimated range": "прогнозен диапазон",
     "Drinks": "Напитки",
     "Units": "Единици",
-    "Expected to clear": "Очаквано изчистване",
     "Drinks this session": "Напитки в тази сесия",
     "This is an estimate, not a measurement.": "Това е оценка, а не измерване.",
     "Actual values vary considerably between individuals. Never use this to decide whether you "
@@ -267,6 +270,12 @@ TRANSLATIONS = {
     "Grams": "Грамове",
     "Grams of alcohol": "Грамове алкохол",
     "Standard units": "Стандартни единици",
+    "Unit size": "Размер на единицата",
+    "Automatic": "Автоматично",
+    "UK": "Великобритания",
+    "Nordic countries": "Северните страни",
+    "US standard drink": "Стандартна напитка в САЩ",
+    "WHO, most of Europe": "СЗО, по-голямата част от Европа",
     "Period": "Период",
     "Switch person": "Смени човека",
     "Add person": "Добави човек",
@@ -359,6 +368,5 @@ TRANSLATIONS = {
     'Owner': 'Собственик',
     'Everyone this app records. Switch, add, or remove someone.': 'Всички, които това приложение записва. Превключи, добави или премахни някого.',
     # --- Day window (5.22) ---
-    "Night before": 'Предната вечер',
     "Carried over from the night before": 'Пренесено от предната вечер',
 }

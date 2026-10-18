@@ -57,10 +57,6 @@ TRANSLATIONS = {
     "Still rising": "Stále stoupá",
     "YOUR LIMIT %@": "TVŮJ LIMIT %@",
     "possible range": "možné rozpětí",
-    "drag to read values": "tažením zobrazíš hodnoty",
-    "release to go back": "uvolněním se vrátíš",
-    "pour time": "doba pití",
-    "in one go": "naráz",
 
     # --- Live screen: the day with nothing on it ---
     "Live": "Aktuálně",
@@ -78,6 +74,14 @@ TRANSLATIONS = {
     "peak": "vrchol",
     "Started": "Začátek",
     "Lasted": "Trvalo",
+    "Duration": "Trvání",
+    "Sober around": "Střízlivý cca",
+    "Sober at": "Střízlivý",
+    "Remaining": "Zbývá",
+    "next day": "následující den",
+    "previous day": "předchozí den",
+    "%@ days later": "o %@ dny později",
+    "%@ days earlier": "o %@ dny dříve",
     "Calculated with your profile at the time": "Spočítáno podle tvého tehdejšího profilu",
 
     # --- TodayView ---
@@ -86,7 +90,6 @@ TRANSLATIONS = {
     "estimated range": "odhadované rozpětí",
     "Drinks": "Nápoje",
     "Units": "Jednotky",
-    "Expected to clear": "Očekávané vystřízlivění",
     "Drinks this session": "Nápoje v tomto posezení",
     "This is an estimate, not a measurement.": "Tohle je odhad, ne měření.",
     "Actual values vary considerably between individuals. Never use this to decide whether you "
@@ -267,6 +270,12 @@ TRANSLATIONS = {
     "Grams": "Gramy",
     "Grams of alcohol": "Gramy alkoholu",
     "Standard units": "Standardní jednotky",
+    "Unit size": "Velikost jednotky",
+    "Automatic": "Automaticky",
+    "UK": "Spojené království",
+    "Nordic countries": "Severské země",
+    "US standard drink": "Standardní nápoj v USA",
+    "WHO, most of Europe": "WHO, většina Evropy",
     "Period": "Období",
     "Switch person": "Přepnout osobu",
     "Add person": "Přidat osobu",
@@ -356,6 +365,5 @@ TRANSLATIONS = {
     'Owner': 'Vlastník',
     'Everyone this app records. Switch, add, or remove someone.': 'Všichni, které tato aplikace zaznamenává. Přepni, přidej nebo odeber někoho.',
     # --- Day window (5.22) ---
-    "Night before": 'Předchozí večer',
     "Carried over from the night before": 'Přeneseno z předchozího večera',
 }

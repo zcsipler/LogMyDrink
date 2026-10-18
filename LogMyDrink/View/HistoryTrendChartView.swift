@@ -25,7 +25,7 @@ struct HistoryTrendChartView: View {
 
     let trend: HistoryTrend
     let metric: Metric
-    let amountUnit: AmountUnit
+    let amountFormat: AmountFormat
     let unit: BACUnit
     /// The limit to draw across the peak card: today's, because the question
     /// the card asks is how the past measures against the line you hold now.
@@ -58,7 +58,7 @@ struct HistoryTrendChartView: View {
     /// The point's value in the unit on screen.
     private func y(_ value: Double) -> Double {
         switch metric {
-        case .amount: amountUnit.convert(standardUnits: value)
+        case .amount: amountFormat.convert(standardUnits: value)
         case .peak: unit.convert(value)
         }
     }
@@ -107,7 +107,7 @@ struct HistoryTrendChartView: View {
         switch metric {
         case .amount:
             let tallest = trend.amount.map { y($0.value) }.max() ?? 0
-            return max(amountUnit.convert(standardUnits: 1), tallest * 1.25)
+            return max(amountFormat.convert(standardUnits: 1), tallest * 1.25)
         case .peak:
             let tallest = trend.peaks.map { y($0.value) }.max() ?? 0
             return max(unit.convert(limit) * 1.3, tallest * 1.15)
@@ -263,7 +263,7 @@ struct HistoryTrendChartView: View {
 
     private var axisTitle: Text {
         switch metric {
-        case .amount: Text(amountUnit.shortLabel) + Text(verbatim: " / ") + Text("day")
+        case .amount: Text(amountFormat.shortLabel) + Text(verbatim: " / ") + Text("day")
         case .peak: Text("peak")
         }
     }

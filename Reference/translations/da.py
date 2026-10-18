@@ -57,10 +57,6 @@ TRANSLATIONS = {
     "Still rising": "Stiger stadig",
     "YOUR LIMIT %@": "DIN GRÆNSE %@",
     "possible range": "muligt interval",
-    "drag to read values": "træk for at aflæse værdier",
-    "release to go back": "slip for at gå tilbage",
-    "pour time": "drikketid",
-    "in one go": "på én gang",
 
     # --- Live screen: the day with nothing on it ---
     "Live": "Live",
@@ -78,6 +74,14 @@ TRANSLATIONS = {
     "peak": "top",
     "Started": "Startede",
     "Lasted": "Varede",
+    "Duration": "Varighed",
+    "Sober around": "Ædru ca.",
+    "Sober at": "Ædru",
+    "Remaining": "Tilbage",
+    "next day": "næste dag",
+    "previous day": "dagen før",
+    "%@ days later": "%@ dage senere",
+    "%@ days earlier": "%@ dage tidligere",
     "Calculated with your profile at the time": "Beregnet med din profil på det tidspunkt",
 
     # --- TodayView ---
@@ -86,7 +90,6 @@ TRANSLATIONS = {
     "estimated range": "skønnet interval",
     "Drinks": "Drinks",
     "Units": "Genstande",
-    "Expected to clear": "Forventet alkoholfri",
     "Drinks this session": "Drinks i denne session",
     "This is an estimate, not a measurement.": "Dette er et skøn, ikke en måling.",
     "Actual values vary considerably between individuals. Never use this to decide whether you "
@@ -268,6 +271,12 @@ TRANSLATIONS = {
     "Grams": "Gram",
     "Grams of alcohol": "Gram alkohol",
     "Standard units": "Standardenheder",
+    "Unit size": "Enhedsstørrelse",
+    "Automatic": "Automatisk",
+    "UK": "Storbritannien",
+    "Nordic countries": "Nordiske lande",
+    "US standard drink": "Amerikansk standarddrink",
+    "WHO, most of Europe": "WHO, det meste af Europa",
     "Period": "Periode",
     "Switch person": "Skift person",
     "Add person": "Tilføj person",
@@ -358,6 +367,5 @@ TRANSLATIONS = {
     'Owner': 'Ejer',
     'Everyone this app records. Switch, add, or remove someone.': 'Alle, som denne app registrerer. Skift, tilføj eller fjern nogen.',
     # --- Day window (5.22) ---
-    "Night before": 'Aftenen før',
     "Carried over from the night before": 'Overført fra aftenen før',
 }

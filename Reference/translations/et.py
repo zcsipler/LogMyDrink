@@ -57,10 +57,6 @@ TRANSLATIONS = {
     "Still rising": "Tõuseb veel",
     "YOUR LIMIT %@": "SINU PIIR %@",
     "possible range": "võimalik vahemik",
-    "drag to read values": "lohista väärtuste lugemiseks",
-    "release to go back": "tagasi minekuks lase lahti",
-    "pour time": "joomise kestus",
-    "in one go": "ühe korraga",
 
     # --- Live screen: the day with nothing on it ---
     "Live": "Hetkeseis",
@@ -78,6 +74,14 @@ TRANSLATIONS = {
     "peak": "tipp",
     "Started": "Algas",
     "Lasted": "Kestis",
+    "Duration": "Kestus",
+    "Sober around": "Kaine umbes",
+    "Sober at": "Kaine",
+    "Remaining": "Jäänud",
+    "next day": "järgmisel päeval",
+    "previous day": "eelmisel päeval",
+    "%@ days later": "%@ päeva hiljem",
+    "%@ days earlier": "%@ päeva varem",
     "Calculated with your profile at the time": "Arvutatud toonase profiiliga",
 
     # --- TodayView ---
@@ -86,7 +90,6 @@ TRANSLATIONS = {
     "estimated range": "hinnanguline vahemik",
     "Drinks": "Joogid",
     "Units": "Ühikud",
-    "Expected to clear": "Eeldatavalt kaob",
     "Drinks this session": "Selle korra joogid",
     "This is an estimate, not a measurement.": "See on hinnang, mitte mõõtmistulemus.",
     "Actual values vary considerably between individuals. Never use this to decide whether you "
@@ -267,6 +270,12 @@ TRANSLATIONS = {
     "Grams": "Grammi",
     "Grams of alcohol": "Grammi alkoholi",
     "Standard units": "Standardühikud",
+    "Unit size": "Ühiku suurus",
+    "Automatic": "Automaatne",
+    "UK": "Ühendkuningriik",
+    "Nordic countries": "Põhjamaad",
+    "US standard drink": "USA standardjook",
+    "WHO, most of Europe": "WHO, suurem osa Euroopast",
     "Period": "Periood",
     "Switch person": "Vaheta inimest",
     "Add person": "Lisa inimene",
@@ -356,6 +365,5 @@ TRANSLATIONS = {
     'Owner': 'Omanik',
     'Everyone this app records. Switch, add, or remove someone.': 'Kõik, keda see rakendus salvestab. Vaheta, lisa või eemalda keegi.',
     # --- Day window (5.22) ---
-    "Night before": 'Eelmine õhtu',
     "Carried over from the night before": 'Üle kandunud eelmisest õhtust',
 }

@@ -59,10 +59,6 @@ TRANSLATIONS = {
     "Still rising": "Nadal rośnie",
     "YOUR LIMIT %@": "TWÓJ LIMIT %@",
     "possible range": "możliwy zakres",
-    "drag to read values": "przeciągnij, aby odczytać wartości",
-    "release to go back": "puść, aby wrócić",
-    "pour time": "czas picia",
-    "in one go": "duszkiem",
 
     # --- Live screen: the day with nothing on it ---
     "Live": "Na żywo",
@@ -80,6 +76,14 @@ TRANSLATIONS = {
     "peak": "szczyt",
     "Started": "Początek",
     "Lasted": "Trwała",
+    "Duration": "Czas trwania",
+    "Sober around": "Trzeźwy ok.",
+    "Sober at": "Trzeźwy",
+    "Remaining": "Pozostało",
+    "next day": "następnego dnia",
+    "previous day": "poprzedniego dnia",
+    "%@ days later": "%@ dni później",
+    "%@ days earlier": "%@ dni wcześniej",
     "Calculated with your profile at the time":
         "Obliczone na podstawie twojego ówczesnego profilu",
 
@@ -89,7 +93,6 @@ TRANSLATIONS = {
     "estimated range": "szacowany zakres",
     "Drinks": "Drinki",
     "Units": "Jednostki",
-    "Expected to clear": "Przewidywane zejście do zera",
     "Drinks this session": "Drinki w tej sesji",
     "This is an estimate, not a measurement.": "To jest oszacowanie, nie pomiar.",
     "Actual values vary considerably between individuals. Never use this to decide whether you "
@@ -272,6 +275,12 @@ TRANSLATIONS = {
     "Grams": "Gramy",
     "Grams of alcohol": "Gramy alkoholu",
     "Standard units": "Jednostki standardowe",
+    "Unit size": "Wielkość jednostki",
+    "Automatic": "Automatycznie",
+    "UK": "Wielka Brytania",
+    "Nordic countries": "Kraje nordyckie",
+    "US standard drink": "Standardowy drink w USA",
+    "WHO, most of Europe": "WHO, większość Europy",
     "Period": "Okres",
     "Switch person": "Zmień osobę",
     "Add person": "Dodaj osobę",
@@ -364,6 +373,5 @@ TRANSLATIONS = {
     'Owner': 'Właściciel',
     'Everyone this app records. Switch, add, or remove someone.': 'Wszyscy, których zapisuje ta aplikacja. Przełącz, dodaj lub usuń kogoś.',
     # --- Day window (5.22) ---
-    "Night before": 'Poprzedni wieczór',
     "Carried over from the night before": 'Przeniesione z poprzedniego wieczoru',
 }

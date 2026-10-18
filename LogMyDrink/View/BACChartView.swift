@@ -175,7 +175,9 @@ struct BACChartView: View {
         VStack(alignment: .leading, spacing: 12) {
             header
             chart
-            legend
+            if showsRange {
+                rangeLegend
+            }
         }
     }
 
@@ -556,75 +558,26 @@ struct BACChartView: View {
 
     // MARK: Legend
 
-    private var legend: some View {
-        VStack(alignment: .leading, spacing: 5) {
-            HStack(spacing: 12) {
-                HStack(spacing: 6) {
-                    RoundedRectangle(cornerRadius: 2)
-                        .fill(Theme.calm.opacity(0.35))
-                        .frame(width: 16, height: 9)
-                    Text("possible range")
-                }
+    /// The only mark that cannot explain itself is the shaded band, and it is
+    /// only there when the user asked for a range (5.8) — at the default of
+    /// zero uncertainty the band has no width and nothing is shaded. The
+    /// drink bars and the dashed one-go line read as what they are against
+    /// the curve, and the scrub is the gesture every chart has; the legend
+    /// that named them was noise under every chart (2026 October).
+    private var showsRange: Bool {
+        guard let peak = model.band.peakRange else { return false }
+        return peak.upperBound - peak.lowerBound > 0.0005
+    }
 
-                Text(verbatim: "·")
-
-                if scrubDate == nil {
-                    Text("drag to read values")
-                } else {
-                    Text("release to go back")
-                }
-
-                Spacer()
-            }
-
-            paceLegend
+    private var rangeLegend: some View {
+        HStack(spacing: 6) {
+            RoundedRectangle(cornerRadius: 2)
+                .fill(Theme.calm.opacity(0.35))
+                .frame(width: 16, height: 9)
+            Text("possible range")
         }
         .font(.system(size: 10, design: .rounded))
         .foregroundStyle(Theme.secondaryText)
-    }
-
-    /// Only names the two marks that are actually on screen. On an evening of
-    /// shots there is no bar to explain, and vice versa.
-    @ViewBuilder
-    private var paceLegend: some View {
-        let hasPour = model.drinks.contains { $0.drinkingMinutes > 0 }
-        let hasInstant = model.drinks.contains { $0.drinkingMinutes <= 0 }
-
-        if hasPour || hasInstant {
-            HStack(spacing: 12) {
-                if hasPour {
-                    HStack(spacing: 6) {
-                        Capsule()
-                            .fill(Color.white.opacity(0.22))
-                            .frame(width: 16, height: 5)
-                        Text("pour time")
-                    }
-                }
-                if hasInstant {
-                    HStack(spacing: 6) {
-                        VerticalDash()
-                            .stroke(
-                                Color.white.opacity(0.45),
-                                style: StrokeStyle(lineWidth: 1, dash: [1.5, 2.5])
-                            )
-                            .frame(width: 2, height: 10)
-                        Text("in one go")
-                    }
-                }
-                Spacer()
-            }
-        }
-    }
-}
-
-/// The legend swatch for a drink that was downed in one go — the same dashed
-/// line the chart draws for it.
-private struct VerticalDash: Shape {
-    func path(in rect: CGRect) -> Path {
-        var path = Path()
-        path.move(to: CGPoint(x: rect.midX, y: rect.minY))
-        path.addLine(to: CGPoint(x: rect.midX, y: rect.maxY))
-        return path
     }
 }
 

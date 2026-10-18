@@ -59,10 +59,6 @@ TRANSLATIONS = {
     "Still rising": "Ακόμη ανεβαίνει",
     "YOUR LIMIT %@": "ΤΟ ΟΡΙΟ ΣΟΥ %@",
     "possible range": "πιθανό εύρος",
-    "drag to read values": "σύρε για να δεις τιμές",
-    "release to go back": "άσε για επιστροφή",
-    "pour time": "χρόνος κατανάλωσης",
-    "in one go": "μονορούφι",
 
     # --- Live screen: the day with nothing on it ---
     "Live": "Ζωντανά",
@@ -80,6 +76,14 @@ TRANSLATIONS = {
     "peak": "αιχμή",
     "Started": "Ξεκίνησε",
     "Lasted": "Διήρκεσε",
+    "Duration": "Διάρκεια",
+    "Sober around": "Νηφάλιος περίπου",
+    "Sober at": "Νηφάλιος",
+    "Remaining": "Απομένει",
+    "next day": "την επόμενη μέρα",
+    "previous day": "την προηγούμενη μέρα",
+    "%@ days later": "%@ μέρες μετά",
+    "%@ days earlier": "%@ μέρες πριν",
     "Calculated with your profile at the time":
         "Υπολογίστηκε με το προφίλ σου εκείνη τη στιγμή",
 
@@ -89,7 +93,6 @@ TRANSLATIONS = {
     "estimated range": "εκτιμώμενο εύρος",
     "Drinks": "Ποτά",
     "Units": "Μονάδες",
-    "Expected to clear": "Αναμένεται μηδενισμός",
     "Drinks this session": "Ποτά αυτή τη βραδιά",
     "This is an estimate, not a measurement.": "Αυτό είναι εκτίμηση, όχι μέτρηση.",
     "Actual values vary considerably between individuals. Never use this to decide whether you "
@@ -272,6 +275,12 @@ TRANSLATIONS = {
     "Grams": "Γραμμάρια",
     "Grams of alcohol": "Γραμμάρια αλκοόλ",
     "Standard units": "Τυπικές μονάδες",
+    "Unit size": "Μέγεθος μονάδας",
+    "Automatic": "Αυτόματα",
+    "UK": "Ηνωμένο Βασίλειο",
+    "Nordic countries": "Σκανδιναβικές χώρες",
+    "US standard drink": "Τυπικό ποτό ΗΠΑ",
+    "WHO, most of Europe": "ΠΟΥ, το μεγαλύτερο μέρος της Ευρώπης",
     "Period": "Περίοδος",
     "Switch person": "Αλλαγή ατόμου",
     "Add person": "Προσθήκη ατόμου",
@@ -365,6 +374,5 @@ TRANSLATIONS = {
     'Owner': 'Κάτοχος',
     'Everyone this app records. Switch, add, or remove someone.': 'Όλοι όσους καταγράφει αυτή η εφαρμογή. Άλλαξε, πρόσθεσε ή αφαίρεσε κάποιον.',
     # --- Day window (5.22) ---
-    "Night before": 'Προηγούμενη βραδιά',
     "Carried over from the night before": 'Μεταφέρθηκε από την προηγούμενη βραδιά',
 }

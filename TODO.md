@@ -61,11 +61,6 @@ sem indítható.
   szerverünk — 5.17 —, ez a nyilatkozat lényege), App Store 1.4.3 appeal-érvek
   (9.), és hogy egy „estimated BAC" megjelenítés hol minősül orvosi
   eszköznek (EU MDR). Ez az egyetlen tétel, ahol külső segítség kellhet.
-- **Mennyiség: gramm *és* egység egyszerre?** Zoltán kérése, hogy az italok
-  mindkettőben látsszanak. Ez ütközik egy rögzített döntéssel (5.16,
-  `AmountUnit`): a kettő ×10, „ezért nem mutatjuk egymás mellett". Előbb
-  el kell dönteni, hogy a döntés fordul-e, vagy csak egy helyen (pl. az
-  itallista sorában) kell a második szám.
 - **Vendég határa** (5.18, nyitva): app-alapértelmezés vagy a tulajdonosé
   másolva. Javaslat: az előbbi.
 
@@ -122,9 +117,6 @@ az egész app hitelességét.
   a 0,19-es csúcs lapos kukac az alján. Zoltán kérése is: legyen magasabb
   a chart, a lapos görbe is látsszon. Két fogás: a határvonal felmehet a
   chart tetejéhez (1,05 ×), és a görbe fix 200 pt-ja (5.12) nőhet.
-- **A legenda „possible range"-et ír nulla sávszélességnél is.** Az 5.12
-  szellemében (a legenda csak azt nevezze meg, ami a képernyőn van) el
-  kell tűnnie, amíg `betaUncertainty` nulla.
 - **A gyors-felvitel gomb a Profil szövege szerint a vetített csúcsot
   mutatja** („with the projected peak on the button") — a képen csak „Beer
   500 ml" áll. Vagy a szöveg ígér többet, vagy a toast idejére tűnik el.

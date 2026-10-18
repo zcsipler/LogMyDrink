@@ -57,10 +57,6 @@ TRANSLATIONS = {
     "Still rising": "Stiger fortfarande",
     "YOUR LIMIT %@": "DIN GRÄNS %@",
     "possible range": "möjligt intervall",
-    "drag to read values": "dra för att läsa av värden",
-    "release to go back": "släpp för att gå tillbaka",
-    "pour time": "dricktid",
-    "in one go": "i ett svep",
 
     # --- Live screen: the day with nothing on it ---
     "Live": "Live",
@@ -78,6 +74,14 @@ TRANSLATIONS = {
     "peak": "topp",
     "Started": "Startade",
     "Lasted": "Varade",
+    "Duration": "Varaktighet",
+    "Sober around": "Nykter ca",
+    "Sober at": "Nykter",
+    "Remaining": "Kvar",
+    "next day": "nästa dag",
+    "previous day": "dagen före",
+    "%@ days later": "%@ dagar senare",
+    "%@ days earlier": "%@ dagar tidigare",
     "Calculated with your profile at the time": "Beräknat med din profil vid det tillfället",
 
     # --- TodayView ---
@@ -86,7 +90,6 @@ TRANSLATIONS = {
     "estimated range": "uppskattat intervall",
     "Drinks": "Drycker",
     "Units": "Enheter",
-    "Expected to clear": "Förväntas nå noll",
     "Drinks this session": "Drycker under tillfället",
     "This is an estimate, not a measurement.": "Det här är en uppskattning, inte en mätning.",
     "Actual values vary considerably between individuals. Never use this to decide whether you "
@@ -268,6 +271,12 @@ TRANSLATIONS = {
     "Grams": "Gram",
     "Grams of alcohol": "Gram alkohol",
     "Standard units": "Standardenheter",
+    "Unit size": "Enhetsstorlek",
+    "Automatic": "Automatisk",
+    "UK": "Storbritannien",
+    "Nordic countries": "Nordiska länder",
+    "US standard drink": "Amerikansk standarddrink",
+    "WHO, most of Europe": "WHO, större delen av Europa",
     "Period": "Period",
     "Switch person": "Byt person",
     "Add person": "Lägg till person",
@@ -358,6 +367,5 @@ TRANSLATIONS = {
     'Owner': 'Ägare',
     'Everyone this app records. Switch, add, or remove someone.': 'Alla som den här appen registrerar. Byt, lägg till eller ta bort någon.',
     # --- Day window (5.22) ---
-    "Night before": 'Kvällen innan',
     "Carried over from the night before": 'Överfört från kvällen innan',
 }

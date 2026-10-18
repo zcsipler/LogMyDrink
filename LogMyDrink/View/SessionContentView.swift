@@ -73,7 +73,7 @@ struct SessionContentView: View {
             divider
             stat("Drinks", drinks.count.formatted())
             divider
-            stat(store.amountUnit.shortLabel, store.amountUnit.format(standardUnits: session.totalUnits))
+            stat(store.amountFormat.shortLabel, store.amountFormat.format(standardUnits: session.totalUnits))
         }
         .padding(.vertical, 14)
         .background(Theme.surface, in: RoundedRectangle(cornerRadius: 16))
@@ -99,6 +99,8 @@ struct SessionContentView: View {
             Text(verbatim: value)
                 .font(.system(size: 15, weight: .medium, design: .rounded).monospacedDigit())
                 .foregroundStyle(Theme.primaryText)
+                .lineLimit(1)
+                .minimumScaleFactor(0.7)
         }
         .frame(maxWidth: .infinity)
     }

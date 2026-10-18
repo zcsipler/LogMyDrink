@@ -150,6 +150,304 @@
         }
       }
     },
+    "%@ days earlier" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "bg" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "%@ дни по-рано"
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "o %@ dny dříve"
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "%@ dage tidligere"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "%@ Tage früher"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "%@ μέρες πριν"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ days earlier"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "%@ días antes"
+          }
+        },
+        "et" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "%@ päeva varem"
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "%@ päivää aiemmin"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "%@ jours plus tôt"
+          }
+        },
+        "ga" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "%@ lá roimhe"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "%@ dana ranije"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ nappal korábban"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "%@ giorni prima"
+          }
+        },
+        "lt" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "prieš %@ d."
+          }
+        },
+        "lv" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "pirms %@ dienām"
+          }
+        },
+        "mt" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "%@ jiem qabel"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "%@ dagen eerder"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "%@ dni wcześniej"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "%@ dias antes"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "cu %@ zile înainte"
+          }
+        },
+        "sk" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "o %@ dni skôr"
+          }
+        },
+        "sl" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "%@ dni prej"
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "%@ dagar tidigare"
+          }
+        }
+      }
+    },
+    "%@ days later" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "bg" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "%@ дни по-късно"
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "o %@ dny později"
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "%@ dage senere"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "%@ Tage später"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "%@ μέρες μετά"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ days later"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "%@ días después"
+          }
+        },
+        "et" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "%@ päeva hiljem"
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "%@ päivää myöhemmin"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "%@ jours plus tard"
+          }
+        },
+        "ga" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "%@ lá ina dhiaidh"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "%@ dana kasnije"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ nappal később"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "%@ giorni dopo"
+          }
+        },
+        "lt" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "po %@ d."
+          }
+        },
+        "lv" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "pēc %@ dienām"
+          }
+        },
+        "mt" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "%@ jiem wara"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "%@ dagen later"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "%@ dni później"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "%@ dias depois"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "%@ zile mai târziu"
+          }
+        },
+        "sk" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "o %@ dni neskôr"
+          }
+        },
+        "sl" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "%@ dni pozneje"
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "%@ dagar senare"
+          }
+        }
+      }
+    },
     "%@ drinks" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -4471,6 +4769,155 @@
         }
       }
     },
+    "Automatic" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "bg" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Автоматично"
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Automaticky"
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Automatisk"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Automatisch"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Αυτόματα"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Automatic"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Automático"
+          }
+        },
+        "et" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Automaatne"
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Automaattinen"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Automatique"
+          }
+        },
+        "ga" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Uathoibríoch"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Automatski"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Automatikus"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Automatica"
+          }
+        },
+        "lt" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Automatiškai"
+          }
+        },
+        "lv" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Automātiski"
+          }
+        },
+        "mt" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Awtomatiku"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Automatisch"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Automatycznie"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Automático"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Automat"
+          }
+        },
+        "sk" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Automaticky"
+          }
+        },
+        "sl" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Samodejno"
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Automatisk"
+          }
+        }
+      }
+    },
     "Backup" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -8643,6 +9090,155 @@
         }
       }
     },
+    "Duration" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "bg" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Продължителност"
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Trvání"
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Varighed"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Dauer"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Διάρκεια"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Duration"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Duración"
+          }
+        },
+        "et" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Kestus"
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Kesto"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Durée"
+          }
+        },
+        "ga" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Fad"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Trajanje"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Időtartam"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Durata"
+          }
+        },
+        "lt" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Trukmė"
+          }
+        },
+        "lv" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Ilgums"
+          }
+        },
+        "mt" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Tul"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Duur"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Czas trwania"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Duração"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Durată"
+          }
+        },
+        "sk" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Trvanie"
+          }
+        },
+        "sl" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Trajanje"
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Varaktighet"
+          }
+        }
+      }
+    },
     "Edit drink" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -9831,155 +10427,6 @@
           "stringUnit" : {
             "state" : "needs_review",
             "value" : "Förväntad topp omkring %@"
-          }
-        }
-      }
-    },
-    "Expected to clear" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "bg" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Очаквано изчистване"
-          }
-        },
-        "cs" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Očekávané vystřízlivění"
-          }
-        },
-        "da" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Forventet alkoholfri"
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Voraussichtlich abgebaut"
-          }
-        },
-        "el" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Αναμένεται μηδενισμός"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Expected to clear"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Eliminación prevista"
-          }
-        },
-        "et" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Eeldatavalt kaob"
-          }
-        },
-        "fi" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Nollautuu arviolta"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Retour à zéro prévu"
-          }
-        },
-        "ga" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Ag súil le glanadh"
-          }
-        },
-        "hr" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Očekivani pad na nulu"
-          }
-        },
-        "hu" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Várhatóan ekkorra ürül ki"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Smaltimento previsto"
-          }
-        },
-        "lt" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Numatomas išnykimas"
-          }
-        },
-        "lv" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Izvadīšana paredzēta"
-          }
-        },
-        "mt" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Mistenni jgħaddi"
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Verwacht weer op nul"
-          }
-        },
-        "pl" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Przewidywane zejście do zera"
-          }
-        },
-        "pt" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Previsão de voltar a zero"
-          }
-        },
-        "ro" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Eliminare estimată"
-          }
-        },
-        "sk" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Predpokladané vyprchanie"
-          }
-        },
-        "sl" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Pričakovano izločanje"
-          }
-        },
-        "sv" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Förväntas nå noll"
           }
         }
       }
@@ -15348,155 +15795,6 @@
         }
       }
     },
-    "Night before" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "bg" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Предната вечер"
-          }
-        },
-        "cs" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Předchozí večer"
-          }
-        },
-        "da" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Aftenen før"
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Vorabend"
-          }
-        },
-        "el" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Προηγούμενη βραδιά"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Night before"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "La noche anterior"
-          }
-        },
-        "et" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Eelmine õhtu"
-          }
-        },
-        "fi" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Edellisiltana"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "La veille au soir"
-          }
-        },
-        "ga" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "An oíche roimhe"
-          }
-        },
-        "hr" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Prethodna večer"
-          }
-        },
-        "hu" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Előző este"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "La sera prima"
-          }
-        },
-        "lt" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Praėjęs vakaras"
-          }
-        },
-        "lv" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Iepriekšējais vakars"
-          }
-        },
-        "mt" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Il-lejla ta' qabel"
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "De avond ervoor"
-          }
-        },
-        "pl" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Poprzedni wieczór"
-          }
-        },
-        "pt" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "A noite anterior"
-          }
-        },
-        "ro" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Seara precedentă"
-          }
-        },
-        "sk" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Predchádzajúci večer"
-          }
-        },
-        "sl" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Prejšnji večer"
-          }
-        },
-        "sv" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Kvällen innan"
-          }
-        }
-      }
-    },
     "No active session" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -16238,6 +16536,155 @@
           "stringUnit" : {
             "state" : "needs_review",
             "value" : "Inga tidigare tillfällen än"
+          }
+        }
+      }
+    },
+    "Nordic countries" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "bg" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Северните страни"
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Severské země"
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Nordiske lande"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Nordische Länder"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Σκανδιναβικές χώρες"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nordic countries"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Países nórdicos"
+          }
+        },
+        "et" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Põhjamaad"
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Pohjoismaat"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Pays nordiques"
+          }
+        },
+        "ga" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Tíortha Nordacha"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Nordijske zemlje"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Északi országok"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Paesi nordici"
+          }
+        },
+        "lt" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Šiaurės šalys"
+          }
+        },
+        "lv" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Ziemeļvalstis"
+          }
+        },
+        "mt" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Il-pajjiżi Nordiċi"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Noordse landen"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Kraje nordyckie"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Países nórdicos"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Țările nordice"
+          }
+        },
+        "sk" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Severské krajiny"
+          }
+        },
+        "sl" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Nordijske države"
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Nordiska länder"
           }
         }
       }
@@ -19669,6 +20116,155 @@
         }
       }
     },
+    "Remaining" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "bg" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Остават"
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Zbývá"
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Tilbage"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Verbleibend"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Απομένει"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Remaining"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Restante"
+          }
+        },
+        "et" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Jäänud"
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Jäljellä"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Restant"
+          }
+        },
+        "ga" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Fágtha"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Preostalo"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Még hátra"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Rimanente"
+          }
+        },
+        "lt" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Liko"
+          }
+        },
+        "lv" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Atlicis"
+          }
+        },
+        "mt" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Fadal"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Resterend"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Pozostało"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Restante"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Rămas"
+          }
+        },
+        "sk" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Zostáva"
+          }
+        },
+        "sl" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Preostane"
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Kvar"
+          }
+        }
+      }
+    },
     "Remove" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -21304,6 +21900,304 @@
           "stringUnit" : {
             "state" : "needs_review",
             "value" : "Utjämning"
+          }
+        }
+      }
+    },
+    "Sober around" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "bg" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Трезв прибл."
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Střízlivý cca"
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Ædru ca."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Nüchtern ca."
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Νηφάλιος περίπου"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sober around"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Sobrio aprox."
+          }
+        },
+        "et" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Kaine umbes"
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Selvä noin"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Sobre env."
+          }
+        },
+        "ga" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Stuama timpeall"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Trijezan pribl."
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Józan kb."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Sobrio ca."
+          }
+        },
+        "lt" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Blaivus apyt."
+          }
+        },
+        "lv" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Skaidrā apm."
+          }
+        },
+        "mt" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Sober madwar"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Nuchter ca."
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Trzeźwy ok."
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Sóbrio aprox."
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Treaz aprox."
+          }
+        },
+        "sk" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Triezvy cca"
+          }
+        },
+        "sl" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Trezen pribl."
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Nykter ca"
+          }
+        }
+      }
+    },
+    "Sober at" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "bg" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Трезв"
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Střízlivý"
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Ædru"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Nüchtern"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Νηφάλιος"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sober at"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Sobrio"
+          }
+        },
+        "et" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Kaine"
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Selvä"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Sobre"
+          }
+        },
+        "ga" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Stuama"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Trijezan"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Józan"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Sobrio"
+          }
+        },
+        "lt" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Blaivus"
+          }
+        },
+        "lv" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Skaidrā"
+          }
+        },
+        "mt" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Sober"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Nuchter"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Trzeźwy"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Sóbrio"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Treaz"
+          }
+        },
+        "sk" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Triezvy"
+          }
+        },
+        "sl" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Trezen"
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Nykter"
           }
         }
       }
@@ -25778,6 +26672,304 @@
         }
       }
     },
+    "UK" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "bg" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Великобритания"
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Spojené království"
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Storbritannien"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Vereinigtes Königreich"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Ηνωμένο Βασίλειο"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "UK"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Reino Unido"
+          }
+        },
+        "et" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Ühendkuningriik"
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Iso-Britannia"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Royaume-Uni"
+          }
+        },
+        "ga" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "An Ríocht Aontaithe"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Ujedinjeno Kraljevstvo"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Egyesült Királyság"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Regno Unito"
+          }
+        },
+        "lt" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Jungtinė Karalystė"
+          }
+        },
+        "lv" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Apvienotā Karaliste"
+          }
+        },
+        "mt" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Ir-Renju Unit"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Verenigd Koninkrijk"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Wielka Brytania"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Reino Unido"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Regatul Unit"
+          }
+        },
+        "sk" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Spojené kráľovstvo"
+          }
+        },
+        "sl" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Združeno kraljestvo"
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Storbritannien"
+          }
+        }
+      }
+    },
+    "US standard drink" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "bg" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Стандартна напитка в САЩ"
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Standardní nápoj v USA"
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Amerikansk standarddrink"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "US-Standarddrink"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Τυπικό ποτό ΗΠΑ"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "US standard drink"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Bebida estándar de EE. UU."
+          }
+        },
+        "et" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "USA standardjook"
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Yhdysvaltain vakioannos"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Verre standard américain"
+          }
+        },
+        "ga" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Deoch chaighdeánach SAM"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Standardno piće u SAD-u"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Amerikai standard ital"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Drink standard USA"
+          }
+        },
+        "lt" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "JAV standartinis gėrimas"
+          }
+        },
+        "lv" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "ASV standarta dzēriens"
+          }
+        },
+        "mt" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Xarba standard tal-Istati Uniti"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Amerikaans standaardglas"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Standardowy drink w USA"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Bebida padrão dos EUA"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Băutura standard din SUA"
+          }
+        },
+        "sk" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Štandardný nápoj v USA"
+          }
+        },
+        "sl" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Standardna pijača v ZDA"
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Amerikansk standarddrink"
+          }
+        }
+      }
+    },
     "Uncertainty" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -26374,6 +27566,155 @@
         }
       }
     },
+    "Unit size" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "bg" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Размер на единицата"
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Velikost jednotky"
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Enhedsstørrelse"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Einheitsgröße"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Μέγεθος μονάδας"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unit size"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Tamaño de la unidad"
+          }
+        },
+        "et" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Ühiku suurus"
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Annoksen koko"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Taille de l’unité"
+          }
+        },
+        "ga" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Méid an aonaid"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Veličina jedinice"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Egység mérete"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Dimensione dell’unità"
+          }
+        },
+        "lt" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Vieneto dydis"
+          }
+        },
+        "lv" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Vienības lielums"
+          }
+        },
+        "mt" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Daqs tal-unità"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Grootte van een eenheid"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Wielkość jednostki"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Tamanho da unidade"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Mărimea unității"
+          }
+        },
+        "sk" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Veľkosť jednotky"
+          }
+        },
+        "sl" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Velikost enote"
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Enhetsstorlek"
+          }
+        }
+      }
+    },
     "Units" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -26817,6 +28158,155 @@
           "stringUnit" : {
             "state" : "needs_review",
             "value" : "Övre uppskattning"
+          }
+        }
+      }
+    },
+    "WHO, most of Europe" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "bg" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "СЗО, по-голямата част от Европа"
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "WHO, většina Evropy"
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "WHO, det meste af Europa"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "WHO, der Großteil Europas"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "ΠΟΥ, το μεγαλύτερο μέρος της Ευρώπης"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "WHO, most of Europe"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "OMS, la mayor parte de Europa"
+          }
+        },
+        "et" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "WHO, suurem osa Euroopast"
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "WHO, suurin osa Eurooppaa"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "OMS, la plupart de l’Europe"
+          }
+        },
+        "ga" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "EDS, an chuid is mó den Eoraip"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "SZO, veći dio Europe"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "WHO, Európa nagy része"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "OMS, gran parte d’Europa"
+          }
+        },
+        "lt" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "PSO, didžioji Europos dalis"
+          }
+        },
+        "lv" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "PVO, lielākā daļa Eiropas"
+          }
+        },
+        "mt" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "WHO, il-biċċa l-kbira tal-Ewropa"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "WHO, het grootste deel van Europa"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "WHO, większość Europy"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "OMS, a maior parte da Europa"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "OMS, cea mai mare parte a Europei"
+          }
+        },
+        "sk" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "WHO, väčšina Európy"
+          }
+        },
+        "sl" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "SZO, večina Evrope"
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "WHO, större delen av Europa"
           }
         }
       }
@@ -30099,155 +31589,6 @@
         }
       }
     },
-    "drag to read values" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "bg" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "плъзни, за да четеш стойности"
-          }
-        },
-        "cs" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "tažením zobrazíš hodnoty"
-          }
-        },
-        "da" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "træk for at aflæse værdier"
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "ziehen, um Werte abzulesen"
-          }
-        },
-        "el" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "σύρε για να δεις τιμές"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "drag to read values"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "arrastra para leer los valores"
-          }
-        },
-        "et" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "lohista väärtuste lugemiseks"
-          }
-        },
-        "fi" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "vedä lukeaksesi arvoja"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "fais glisser pour lire les valeurs"
-          }
-        },
-        "ga" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "tarraing chun luachanna a léamh"
-          }
-        },
-        "hr" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "povuci za očitanje vrijednosti"
-          }
-        },
-        "hu" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "húzd a leolvasáshoz"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "trascina per leggere i valori"
-          }
-        },
-        "lt" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "vilk, kad matytum reikšmes"
-          }
-        },
-        "lv" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "velc, lai nolasītu vērtības"
-          }
-        },
-        "mt" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "iġbed biex taqra l-valuri"
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "sleep om waarden af te lezen"
-          }
-        },
-        "pl" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "przeciągnij, aby odczytać wartości"
-          }
-        },
-        "pt" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "arrasta para ler os valores"
-          }
-        },
-        "ro" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "trage pentru a citi valorile"
-          }
-        },
-        "sk" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "potiahnutím zobrazíš hodnoty"
-          }
-        },
-        "sl" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "povleci za odčitavanje vrednosti"
-          }
-        },
-        "sv" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "dra för att läsa av värden"
-          }
-        }
-      }
-    },
     "estimated level" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -30542,155 +31883,6 @@
           "stringUnit" : {
             "state" : "needs_review",
             "value" : "uppskattat intervall"
-          }
-        }
-      }
-    },
-    "in one go" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "bg" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "наведнъж"
-          }
-        },
-        "cs" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "naráz"
-          }
-        },
-        "da" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "på én gang"
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "in einem Zug"
-          }
-        },
-        "el" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "μονορούφι"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "in one go"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "de un trago"
-          }
-        },
-        "et" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "ühe korraga"
-          }
-        },
-        "fi" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "kerralla"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "d'un trait"
-          }
-        },
-        "ga" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "d'aon iarraidh"
-          }
-        },
-        "hr" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "naiskap"
-          }
-        },
-        "hu" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "egy hajtásra"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "tutto d’un fiato"
-          }
-        },
-        "lt" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "vienu mauku"
-          }
-        },
-        "lv" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "vienā paņēmienā"
-          }
-        },
-        "mt" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "f'daqqa"
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "in één keer"
-          }
-        },
-        "pl" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "duszkiem"
-          }
-        },
-        "pt" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "de uma vez"
-          }
-        },
-        "ro" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "dintr-o dată"
-          }
-        },
-        "sk" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "naraz"
-          }
-        },
-        "sl" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "na dušek"
-          }
-        },
-        "sv" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "i ett svep"
           }
         }
       }
@@ -31142,6 +32334,155 @@
         }
       }
     },
+    "next day" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "bg" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "следващия ден"
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "následující den"
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "næste dag"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "am nächsten Tag"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "την επόμενη μέρα"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "next day"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "al día siguiente"
+          }
+        },
+        "et" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "järgmisel päeval"
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "seuraavana päivänä"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "le lendemain"
+          }
+        },
+        "ga" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "an lá dár gcionn"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "sljedeći dan"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "másnap"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "il giorno dopo"
+          }
+        },
+        "lt" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "kitą dieną"
+          }
+        },
+        "lv" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "nākamajā dienā"
+          }
+        },
+        "mt" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "l-għada"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "de volgende dag"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "następnego dnia"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "no dia seguinte"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "a doua zi"
+          }
+        },
+        "sk" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "nasledujúci deň"
+          }
+        },
+        "sl" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "naslednji dan"
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "nästa dag"
+          }
+        }
+      }
+    },
     "peak" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -31440,300 +32781,151 @@
         }
       }
     },
-    "pour time" : {
+    "previous day" : {
       "extractionState" : "manual",
       "localizations" : {
         "bg" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "време на изпиване"
+            "value" : "предишния ден"
           }
         },
         "cs" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "doba pití"
+            "value" : "předchozí den"
           }
         },
         "da" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "drikketid"
+            "value" : "dagen før"
           }
         },
         "de" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Trinkdauer"
+            "value" : "am Vortag"
           }
         },
         "el" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "χρόνος κατανάλωσης"
+            "value" : "την προηγούμενη μέρα"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "pour time"
+            "value" : "previous day"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "tiempo de consumo"
+            "value" : "el día anterior"
           }
         },
         "et" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "joomise kestus"
+            "value" : "eelmisel päeval"
           }
         },
         "fi" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "juomisaika"
+            "value" : "edellisenä päivänä"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "durée de consommation"
+            "value" : "la veille"
           }
         },
         "ga" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "fad óil"
+            "value" : "an lá roimhe"
           }
         },
         "hr" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "vrijeme pijenja"
+            "value" : "prethodni dan"
           }
         },
         "hu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "fogyasztási idő"
+            "value" : "előző nap"
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "tempo di consumo"
+            "value" : "il giorno prima"
           }
         },
         "lt" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "gėrimo trukmė"
+            "value" : "ankstesnę dieną"
           }
         },
         "lv" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "dzeršanas ilgums"
+            "value" : "iepriekšējā dienā"
           }
         },
         "mt" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "ħin tax-xorb"
+            "value" : "il-jum ta' qabel"
           }
         },
         "nl" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "drinktijd"
+            "value" : "de dag ervoor"
           }
         },
         "pl" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "czas picia"
+            "value" : "poprzedniego dnia"
           }
         },
         "pt" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "tempo de ingestão"
+            "value" : "no dia anterior"
           }
         },
         "ro" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "durata consumului"
+            "value" : "ziua precedentă"
           }
         },
         "sk" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "čas pitia"
+            "value" : "predchádzajúci deň"
           }
         },
         "sl" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "čas pitja"
+            "value" : "prejšnji dan"
           }
         },
         "sv" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "dricktid"
-          }
-        }
-      }
-    },
-    "release to go back" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "bg" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "пусни, за да се върнеш"
-          }
-        },
-        "cs" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "uvolněním se vrátíš"
-          }
-        },
-        "da" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "slip for at gå tilbage"
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "loslassen, um zurückzugehen"
-          }
-        },
-        "el" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "άσε για επιστροφή"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "release to go back"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "suelta para volver"
-          }
-        },
-        "et" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "tagasi minekuks lase lahti"
-          }
-        },
-        "fi" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "vapauta palataksesi"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "relâche pour revenir"
-          }
-        },
-        "ga" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "scaoil chun dul ar ais"
-          }
-        },
-        "hr" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "otpusti za povratak"
-          }
-        },
-        "hu" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "engedd el a visszatéréshez"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "rilascia per tornare indietro"
-          }
-        },
-        "lt" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "atleisk, kad grįžtum"
-          }
-        },
-        "lv" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "atlaid, lai atgrieztos"
-          }
-        },
-        "mt" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "itlaq biex terġa' lura"
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "laat los om terug te gaan"
-          }
-        },
-        "pl" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "puść, aby wrócić"
-          }
-        },
-        "pt" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "larga para voltar"
-          }
-        },
-        "ro" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "eliberează pentru a reveni"
-          }
-        },
-        "sk" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "pustením sa vrátiš"
-          }
-        },
-        "sl" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "spusti za vrnitev"
-          }
-        },
-        "sv" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "släpp för att gå tillbaka"
+            "value" : "dagen före"
           }
         }
       }

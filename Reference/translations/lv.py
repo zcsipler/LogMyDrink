@@ -58,10 +58,6 @@ TRANSLATIONS = {
     "Still rising": "Vēl kāpj",
     "YOUR LIMIT %@": "TAVA ROBEŽA %@",
     "possible range": "iespējamais diapazons",
-    "drag to read values": "velc, lai nolasītu vērtības",
-    "release to go back": "atlaid, lai atgrieztos",
-    "pour time": "dzeršanas ilgums",
-    "in one go": "vienā paņēmienā",
 
     # --- Live screen: the day with nothing on it ---
     "Live": "Šobrīd",
@@ -79,6 +75,14 @@ TRANSLATIONS = {
     "peak": "maksimums",
     "Started": "Sākums",
     "Lasted": "Ilgums",
+    "Duration": "Ilgums",
+    "Sober around": "Skaidrā apm.",
+    "Sober at": "Skaidrā",
+    "Remaining": "Atlicis",
+    "next day": "nākamajā dienā",
+    "previous day": "iepriekšējā dienā",
+    "%@ days later": "pēc %@ dienām",
+    "%@ days earlier": "pirms %@ dienām",
     "Calculated with your profile at the time": "Aprēķināts pēc tā brīža profila",
 
     # --- TodayView ---
@@ -87,7 +91,6 @@ TRANSLATIONS = {
     "estimated range": "novērtētais diapazons",
     "Drinks": "Dzērieni",
     "Units": "Vienības",
-    "Expected to clear": "Izvadīšana paredzēta",
     "Drinks this session": "Šīs reizes dzērieni",
     "This is an estimate, not a measurement.": "Šis ir novērtējums, nevis mērījums.",
     "Actual values vary considerably between individuals. Never use this to decide whether you "
@@ -268,6 +271,12 @@ TRANSLATIONS = {
     "Grams": "Grami",
     "Grams of alcohol": "Grami alkohola",
     "Standard units": "Standarta vienības",
+    "Unit size": "Vienības lielums",
+    "Automatic": "Automātiski",
+    "UK": "Apvienotā Karaliste",
+    "Nordic countries": "Ziemeļvalstis",
+    "US standard drink": "ASV standarta dzēriens",
+    "WHO, most of Europe": "PVO, lielākā daļa Eiropas",
     "Period": "Periods",
     "Switch person": "Mainīt personu",
     "Add person": "Pievienot personu",
@@ -357,6 +366,5 @@ TRANSLATIONS = {
     'Owner': 'Īpašnieks',
     'Everyone this app records. Switch, add, or remove someone.': 'Visi, ko šī lietotne ieraksta. Pārslēdz, pievieno vai noņem kādu.',
     # --- Day window (5.22) ---
-    "Night before": 'Iepriekšējais vakars',
     "Carried over from the night before": 'Pārnests no iepriekšējā vakara',
 }

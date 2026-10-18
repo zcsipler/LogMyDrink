@@ -59,10 +59,6 @@ TRANSLATIONS = {
     "Still rising": "Għadu tiela'",
     "YOUR LIMIT %@": "IL-LIMITU TIEGĦEK %@",
     "possible range": "firxa possibbli",
-    "drag to read values": "iġbed biex taqra l-valuri",
-    "release to go back": "itlaq biex terġa' lura",
-    "pour time": "ħin tax-xorb",
-    "in one go": "f'daqqa",
 
     # --- Live screen: the day with nothing on it ---
     "Live": "Dirett",
@@ -80,6 +76,14 @@ TRANSLATIONS = {
     "peak": "quċċata",
     "Started": "Bdiet",
     "Lasted": "Damet",
+    "Duration": "Tul",
+    "Sober around": "Sober madwar",
+    "Sober at": "Sober",
+    "Remaining": "Fadal",
+    "next day": "l-għada",
+    "previous day": "il-jum ta' qabel",
+    "%@ days later": "%@ jiem wara",
+    "%@ days earlier": "%@ jiem qabel",
     "Calculated with your profile at the time":
         "Ikkalkulat bil-profil tiegħek ta' dak iż-żmien",
 
@@ -89,7 +93,6 @@ TRANSLATIONS = {
     "estimated range": "firxa stmata",
     "Drinks": "Xarbiet",
     "Units": "Unitajiet",
-    "Expected to clear": "Mistenni jgħaddi",
     "Drinks this session": "Xarbiet f'din is-sessjoni",
     "This is an estimate, not a measurement.": "Din hi stima, mhux kejl.",
     "Actual values vary considerably between individuals. Never use this to decide whether you "
@@ -272,6 +275,12 @@ TRANSLATIONS = {
     "Grams": "Grammi",
     "Grams of alcohol": "Grammi ta’ alkoħol",
     "Standard units": "Unitajiet standard",
+    "Unit size": "Daqs tal-unità",
+    "Automatic": "Awtomatiku",
+    "UK": "Ir-Renju Unit",
+    "Nordic countries": "Il-pajjiżi Nordiċi",
+    "US standard drink": "Xarba standard tal-Istati Uniti",
+    "WHO, most of Europe": "WHO, il-biċċa l-kbira tal-Ewropa",
     "Period": "Perjodu",
     "Switch person": "Ibdel il-persuna",
     "Add person": "Żid persuna",
@@ -363,6 +372,5 @@ TRANSLATIONS = {
     'Owner': 'Sid',
     'Everyone this app records. Switch, add, or remove someone.': 'Kulħadd li din l-app tirreġistra. Aqleb, żid jew neħħi lil xi ħadd.',
     # --- Day window (5.22) ---
-    "Night before": "Il-lejla ta' qabel",
     "Carried over from the night before": "Miġjub mil-lejla ta' qabel",
 }

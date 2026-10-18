@@ -57,10 +57,6 @@ TRANSLATIONS = {
     "Still rising": "Nog stijgend",
     "YOUR LIMIT %@": "JE LIMIET %@",
     "possible range": "mogelijk bereik",
-    "drag to read values": "sleep om waarden af te lezen",
-    "release to go back": "laat los om terug te gaan",
-    "pour time": "drinktijd",
-    "in one go": "in één keer",
 
     # --- Live screen: the day with nothing on it ---
     "Live": "Live",
@@ -78,6 +74,14 @@ TRANSLATIONS = {
     "peak": "piek",
     "Started": "Begonnen",
     "Lasted": "Duurde",
+    "Duration": "Duur",
+    "Sober around": "Nuchter ca.",
+    "Sober at": "Nuchter",
+    "Remaining": "Resterend",
+    "next day": "de volgende dag",
+    "previous day": "de dag ervoor",
+    "%@ days later": "%@ dagen later",
+    "%@ days earlier": "%@ dagen eerder",
     "Calculated with your profile at the time": "Berekend met je profiel van dat moment",
 
     # --- TodayView ---
@@ -86,7 +90,6 @@ TRANSLATIONS = {
     "estimated range": "geschat bereik",
     "Drinks": "Drankjes",
     "Units": "Eenheden",
-    "Expected to clear": "Verwacht weer op nul",
     "Drinks this session": "Drankjes deze sessie",
     "This is an estimate, not a measurement.": "Dit is een schatting, geen meting.",
     "Actual values vary considerably between individuals. Never use this to decide whether you "
@@ -270,6 +273,12 @@ TRANSLATIONS = {
     "Grams": "Gram",
     "Grams of alcohol": "Gram alcohol",
     "Standard units": "Standaardeenheden",
+    "Unit size": "Grootte van een eenheid",
+    "Automatic": "Automatisch",
+    "UK": "Verenigd Koninkrijk",
+    "Nordic countries": "Noordse landen",
+    "US standard drink": "Amerikaans standaardglas",
+    "WHO, most of Europe": "WHO, het grootste deel van Europa",
     "Period": "Periode",
     "Switch person": "Van persoon wisselen",
     "Add person": "Persoon toevoegen",
@@ -360,6 +369,5 @@ TRANSLATIONS = {
     'Owner': 'Eigenaar',
     'Everyone this app records. Switch, add, or remove someone.': 'Iedereen die deze app registreert. Wissel, voeg toe of verwijder iemand.',
     # --- Day window (5.22) ---
-    "Night before": 'De avond ervoor',
     "Carried over from the night before": 'Overgedragen van de avond ervoor',
 }

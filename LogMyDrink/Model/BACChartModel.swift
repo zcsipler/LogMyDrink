@@ -40,6 +40,16 @@ struct BACChartModel {
     /// to tell.
     let soberRange: ClosedRange<Date>?
 
+    /// When the occasion running through the window clears, on the centre
+    /// curve — the one time the stats card prints (5.8: a range there was
+    /// unreadable). The occasion's end, not this day's drinks' end: a night
+    /// that runs on into the next day was not over until it cleared.
+    let soberAt: Date?
+
+    /// When that occasion began — its first drink, which may be on an
+    /// earlier day than the window.
+    let occasionStart: Date?
+
     /// The band at the window's start, when the previous night is still
     /// there. Nil for a day that began clear, and for a single occasion.
     let carryIn: ClosedRange<Double>?
@@ -150,6 +160,8 @@ extension DrinkingSession {
             isLive: false,
             window: nil,
             soberRange: drinks.isEmpty ? nil : band.soberRange(),
+            soberAt: drinks.isEmpty ? nil : band.center.soberDate(),
+            occasionStart: drinks.first?.consumedAt,
             carryIn: nil
         )
     }
@@ -180,6 +192,8 @@ extension SessionStore {
             isLive: live,
             window: day.start...day.end,
             soberRange: window.soberRange,
+            soberAt: window.soberAt,
+            occasionStart: window.occasionStart,
             carryIn: window.carryIn
         )
     }

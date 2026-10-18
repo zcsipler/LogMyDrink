@@ -53,6 +53,8 @@ final class SessionStore {
         let drinks: [Drink]
         let limit: Double
         let soberRange: ClosedRange<Date>?
+        let soberAt: Date?
+        let occasionStart: Date?
         let carryIn: ClosedRange<Double>?
     }
 
@@ -63,20 +65,29 @@ final class SessionStore {
     /// — occasions never overlap, by `normalize` — and clipped to the day.
     /// The drinks are the ones had on the day; the limit is the last
     /// occasion's, the one a past day is judged by (5.14); the clearing time
-    /// is the last occasion's too, from its unclipped curve, because a night
-    /// cut at the window's edge still clears at a real hour.
+    /// is the last occasion's too, from its unclipped curve — the whole
+    /// occasion, including drinks on later days: a night that runs on into
+    /// the next afternoon was not over until it cleared, and every day it
+    /// touches says so. So does its start, which may be on an earlier day.
     func dayWindow(for day: DrinkingDay) -> DayWindow {
         if let cached = dayModels[day.start] { return cached }
 
         var bands: [BACBand] = []
         var drinks: [Drink] = []
         var limit = person.limit
+        var soberRange: ClosedRange<Date>?
+        var soberAt: Date?
+        var occasionStart: Date?
         for occasion in sessions(overlapping: day.range) {
             let all = occasion.sortedDrinks
             guard !all.isEmpty else { continue }
-            bands.append(occasion === session ? band : engine.simulateBand(profile: occasion.profile, drinks: all))
+            let occasionBand = occasion === session ? band : engine.simulateBand(profile: occasion.profile, drinks: all)
+            bands.append(occasionBand)
             drinks += all.filter { day.contains($0.consumedAt) }
             limit = occasion.limit
+            soberRange = occasionBand.soberRange()
+            soberAt = occasionBand.center.soberDate()
+            occasionStart = all.first?.consumedAt
         }
 
         let joined = BACBand.joined(bands)
@@ -85,7 +96,9 @@ final class SessionStore {
             band: joined.clipped(to: day.start...day.end),
             drinks: drinks.sorted { $0.consumedAt < $1.consumedAt },
             limit: limit,
-            soberRange: bands.last?.soberRange(),
+            soberRange: soberRange,
+            soberAt: soberAt,
+            occasionStart: occasionStart,
             carryIn: atStart.upperBound >= Occasions.clearedThreshold ? atStart : nil
         )
         dayModels[day.start] = window
@@ -316,6 +329,17 @@ final class SessionStore {
             settings.amountUnit = newValue
             publishWidgetSnapshot()
         }
+    }
+
+    /// The user's unit size, nil for the region's (`AppSettings.unitGrams`).
+    var unitGrams: Double? {
+        get { settings.unitGrams }
+        set { settings.unitGrams = newValue }
+    }
+
+    /// Everything a view needs to write an amount down.
+    var amountFormat: AmountFormat {
+        AmountFormat(unit: settings.amountUnit, gramsPerUnit: settings.effectiveUnitGrams)
     }
 
     /// The quick-add favourite. Nil means there is none, and the quick-add

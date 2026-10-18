@@ -59,10 +59,6 @@ TRANSLATIONS = {
     "Still rising": "Yhä nousussa",
     "YOUR LIMIT %@": "OMA RAJASI %@",
     "possible range": "mahdollinen vaihteluväli",
-    "drag to read values": "vedä lukeaksesi arvoja",
-    "release to go back": "vapauta palataksesi",
-    "pour time": "juomisaika",
-    "in one go": "kerralla",
 
     # --- Live screen: the day with nothing on it ---
     "Live": "Live",
@@ -80,6 +76,14 @@ TRANSLATIONS = {
     "peak": "huippu",
     "Started": "Alkoi",
     "Lasted": "Kesto",
+    "Duration": "Kesto",
+    "Sober around": "Selvä noin",
+    "Sober at": "Selvä",
+    "Remaining": "Jäljellä",
+    "next day": "seuraavana päivänä",
+    "previous day": "edellisenä päivänä",
+    "%@ days later": "%@ päivää myöhemmin",
+    "%@ days earlier": "%@ päivää aiemmin",
     "Calculated with your profile at the time": "Laskettu silloisella profiilillasi",
 
     # --- TodayView ---
@@ -88,7 +92,6 @@ TRANSLATIONS = {
     "estimated range": "arvioitu vaihteluväli",
     "Drinks": "Juomat",
     "Units": "Yksiköt",
-    "Expected to clear": "Nollautuu arviolta",
     "Drinks this session": "Juomat tällä juomakerralla",
     "This is an estimate, not a measurement.": "Tämä on arvio, ei mittaus.",
     "Actual values vary considerably between individuals. Never use this to decide whether you "
@@ -269,6 +272,12 @@ TRANSLATIONS = {
     "Grams": "Grammaa",
     "Grams of alcohol": "Grammaa alkoholia",
     "Standard units": "Vakioannokset",
+    "Unit size": "Annoksen koko",
+    "Automatic": "Automaattinen",
+    "UK": "Iso-Britannia",
+    "Nordic countries": "Pohjoismaat",
+    "US standard drink": "Yhdysvaltain vakioannos",
+    "WHO, most of Europe": "WHO, suurin osa Eurooppaa",
     "Period": "Jakso",
     "Switch person": "Vaihda henkilöä",
     "Add person": "Lisää henkilö",
@@ -360,6 +369,5 @@ TRANSLATIONS = {
     'Owner': 'Omistaja',
     'Everyone this app records. Switch, add, or remove someone.': 'Kaikki, joita tämä sovellus kirjaa. Vaihda, lisää tai poista joku.',
     # --- Day window (5.22) ---
-    "Night before": 'Edellisiltana',
     "Carried over from the night before": 'Siirtynyt edellisillasta',
 }

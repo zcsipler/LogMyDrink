@@ -57,10 +57,6 @@ TRANSLATIONS = {
     "Still rising": "Še narašča",
     "YOUR LIMIT %@": "TVOJA MEJA %@",
     "possible range": "možni razpon",
-    "drag to read values": "povleci za odčitavanje vrednosti",
-    "release to go back": "spusti za vrnitev",
-    "pour time": "čas pitja",
-    "in one go": "na dušek",
 
     # --- Live screen: the day with nothing on it ---
     "Live": "V živo",
@@ -77,6 +73,14 @@ TRANSLATIONS = {
     "peak": "vrh",
     "Started": "Začetek",
     "Lasted": "Trajanje",
+    "Duration": "Trajanje",
+    "Sober around": "Trezen pribl.",
+    "Sober at": "Trezen",
+    "Remaining": "Preostane",
+    "next day": "naslednji dan",
+    "previous day": "prejšnji dan",
+    "%@ days later": "%@ dni pozneje",
+    "%@ days earlier": "%@ dni prej",
     "Calculated with your profile at the time": "Izračunano s tvojim takratnim profilom",
 
     # --- TodayView ---
@@ -85,7 +89,6 @@ TRANSLATIONS = {
     "estimated range": "ocenjen razpon",
     "Drinks": "Pijače",
     "Units": "Enote",
-    "Expected to clear": "Pričakovano izločanje",
     "Drinks this session": "Pijače na tem dogodku",
     "This is an estimate, not a measurement.": "To je ocena, ne meritev.",
     "Actual values vary considerably between individuals. Never use this to decide whether you "
@@ -265,6 +268,12 @@ TRANSLATIONS = {
     "Grams": "Grami",
     "Grams of alcohol": "Grami alkohola",
     "Standard units": "Standardne enote",
+    "Unit size": "Velikost enote",
+    "Automatic": "Samodejno",
+    "UK": "Združeno kraljestvo",
+    "Nordic countries": "Nordijske države",
+    "US standard drink": "Standardna pijača v ZDA",
+    "WHO, most of Europe": "SZO, večina Evrope",
     "Period": "Obdobje",
     "Switch person": "Zamenjaj osebo",
     "Add person": "Dodaj osebo",
@@ -355,6 +364,5 @@ TRANSLATIONS = {
     'Owner': 'Lastnik',
     'Everyone this app records. Switch, add, or remove someone.': 'Vsi, ki jih ta aplikacija beleži. Preklopi, dodaj ali odstrani koga.',
     # --- Day window (5.22) ---
-    "Night before": 'Prejšnji večer',
     "Carried over from the night before": 'Preneseno iz prejšnjega večera',
 }

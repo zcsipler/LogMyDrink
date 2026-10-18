@@ -51,15 +51,26 @@ public struct BACCurve: Sendable {
         return a.bac + w * (b.bac - a.bac)
     }
 
-    /// The first time after the peak at which the level drops below `threshold`.
+    /// When the level drops below `threshold` for good: the first sample
+    /// after the **last** one at or above it.
+    ///
+    /// Not the first drop below it. A curve can touch zero and rise again —
+    /// on the fast branch of a band in particular, a heavy night clears an
+    /// hour before the next afternoon's beer brings it back — and the first
+    /// crossing then named a clearing time that came before drinks still to
+    /// be absorbed (engine version 5). For a curve with one hump the two are
+    /// the same sample.
     ///
     /// `nil` means the curve had **not** cleared when the simulation stopped —
     /// see `hasCleared`. It never means "already clear": an empty curve has
     /// no peak and returns `nil` too, but callers that need the distinction
     /// check `isEmpty` first.
     public func soberDate(threshold: Double = 0.01) -> Date? {
-        guard let peak else { return nil }
-        return samples.first { $0.date >= peak.date && $0.bac < threshold }?.date
+        guard peak != nil,
+              let lastAbove = samples.lastIndex(where: { $0.bac >= threshold }),
+              lastAbove + 1 < samples.count
+        else { return nil }
+        return samples[lastAbove + 1].date
     }
 
     /// Whether the level is below `threshold` at the end of the curve.
@@ -166,7 +177,7 @@ public struct BACEngine: Sendable {
     /// improvement invalidates them instead of silently leaving stale figures
     /// in the history. Do not bump it for refactors that keep the output
     /// identical — that would needlessly recompute every past session.
-    public static let version = 4
+    public static let version = 5
 
     /// Pours shorter than this are integrated as a bolus.
     ///
