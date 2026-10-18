@@ -471,8 +471,7 @@ struct BACChartView: View {
     /// Every badge looks the same. The pace is the bar row's job, and saying it
     /// twice would only make the badge carry meaning it cannot really hold.
     private func drinkBadge(_ drink: Drink) -> some View {
-        Image(systemName: DrinkCatalog.icon(for: drink))
-            .font(.system(size: 9, weight: .semibold))
+        DrinkIcon(name: DrinkCatalog.icon(for: drink), size: 9, weight: .semibold)
             .foregroundStyle(Theme.secondaryText)
             .frame(width: 18, height: 18)
             .background(Theme.surfaceRaised, in: Circle())

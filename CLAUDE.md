@@ -723,7 +723,7 @@ számot, se szintet.
 
 **Amit a widget mégis tud: a kedvenc ikonját.** `Support/WidgetBridge.swift`
 az App Group közös `UserDefaults`-ába (`group.dev.zcsipler.logmydrink`) írja
-a kedvenc SF Symbol nevét, és csak akkor tölteti újra a widgetet, ha az
+a kedvenc ikonjának nevét (5.25), és csak akkor tölteti újra a widgetet, ha az
 változott; a `SessionStore` a `favourite` setterében és a `refreshFromStore`
 végén hívja (indítás, előtérbe kerülés, személyváltás, import). App Group
 nélkül a `UserDefaults(suiteName:)` privát tárolót ad, nem hibát — a widget
@@ -1628,6 +1628,39 @@ került a cache-be, a középső görbe kiürülése (lent).
 
 Tesztek: `HistoryFiguresTests` (11, ebből kettő store-on át — a középső görbe bekapcsolt bizonytalansággal, és: egy éjfélen és
 05:00-n átnyúló este két szeletre bomlik, és a szeletek összege az alkalom).
+
+### 5.25 Saját, színes italikonok — és Pezsgő / Feles
+
+**Az öt ital saját, színes rajzot kapott** (2026. október). Az SF Symbolsban
+van korsó és borospohár, de **nincs pezsgőspohár, feles pohár és
+koktélpohár** (a Mac `CoreGlyphs` névlistáján ellenőrizve) — korábban emiatt
+volt a pezsgő vizespalack, a tömény csepp, a koktél kávéscsésze. Zoltán
+döntése: ha már rajzolunk, rajzoljuk meg mind az ötöt, színesen — feldobja
+a felületet. Sör: borostyán, habbal; bor: élénk cseresznyevörös (a sötét
+bordó sötét módban eltűnt, a fehérbor a pezsgővel lett egyhangú sárga);
+pezsgő: aranyló flûte buborékkal; feles: borostyán; koktél: rózsaszín
+martinipohár olívával és lime-mal. Utólag az egyedi ital is kapott egyet (`DrinkCustom`), hogy ne lógjon
+ki: türkiz pohár szívószállal és egy kis színes csúszka-jelvénnyel — a
+csúszka a régi `slider.horizontal.3` jelentését viszi tovább.
+
+- **Technika:** SVG imageset-ek, `preserves-vector-representation`,
+  `template-rendering-intent: original` (a saját színeit tartja, a
+  `foregroundStyle` nem színezi át). Neveik `DrinkBeer`, `DrinkWine`,
+  `DrinkChampagne`, `DrinkShot`, `DrinkCocktail` — **mindkét** asset
+  katalógusban (app és widget), mert a widget külön fordul.
+- **`DrinkIcon(name:size:)`** (`View/DrinkIcon.swift`, a widgetben egy
+  másolat): ha a név az asset katalógusban van, a képet rajzolja a régi
+  betűméret ~1,45-szörösére, különben `Image(systemName:)`. így a
+  régebbi SF Symbol-nevek sem törnek el, és a widget régi, App Groupban tárolt
+  symbol-neve sem tör el — a következő indítás úgyis felülírja.
+- **A lezárt képernyős widget** monokróm: ott a színes rajz a
+  világosságából kap formát. A valódi készüléken ezt Zoltán nézi meg.
+- **Nevek:** az azonosító (`sparkling`, `spirit`) **nem változott** — a mentett
+  italok azt tárolják —, csak a kiírt név. Angolul „Champagne” és „Shot”;
+  a pezsgő a többi nyelven maradt (Pezsgő, Sekt, Spumante…), a tömény
+  mindenhol a kocsmai szót kapta: Feles, Kurzer, Panák, Poldeci, Šilce,
+  Šot, Σφηνάκι, Chupito, Shotje, Shotti, Pits, Šots, Taurelė, Шот, a többi
+  nyelven „Shot” (máltai és ír: az angol a mindennapi nyelv).
 
 ## 6. Validáció
 

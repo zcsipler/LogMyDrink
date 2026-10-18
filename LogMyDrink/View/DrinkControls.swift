@@ -68,8 +68,7 @@ struct DrinkTypePicker: View {
                         }
                     } label: {
                         VStack(spacing: 7) {
-                            Image(systemName: item.icon)
-                                .font(.system(size: 18))
+                            DrinkIcon(name: item.icon, size: 18)
                             Text(item.name)
                                 .font(.system(size: 12, weight: .medium, design: .rounded))
                                 .lineLimit(1)

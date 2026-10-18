@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+<defs><clipPath id="c"><path d="M24 4h16c1.5 18-1 29-8 33-7-4-9.5-15-8-33z"/></clipPath>
+<linearGradient id="s" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFE58A"/><stop offset="1" stop-color="#E8B23A"/></linearGradient></defs>
+<path d="M24 4h16c1.5 18-1 29-8 33-7-4-9.5-15-8-33z" fill="#FFFFFF" fill-opacity=".25"/>
+<rect x="20" y="11" width="24" height="30" fill="url(#s)" clip-path="url(#c)"/>
+<circle cx="30" cy="30" r="1.4" fill="#FFFFFF"/><circle cx="34" cy="23" r="1.2" fill="#FFFFFF"/><circle cx="29.5" cy="17" r="1.1" fill="#FFFFFF"/><circle cx="34.5" cy="14" r=".9" fill="#FFFFFF"/>
+<path d="M24 4h16c1.5 18-1 29-8 33-7-4-9.5-15-8-33z" fill="none" stroke="#8C96A3" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M32 37v17" stroke="#8C96A3" stroke-width="3" stroke-linejoin="round" fill="none"/>
+<path d="M22 57c3-3 17-3 20 0z" fill="#C9D0D8" stroke="#8C96A3" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M46 6l1.2 2.8L50 10l-2.8 1.2L46 14l-1.2-2.8L42 10l2.8-1.2z" fill="#FFC93C"/>
+<path d="M51 18l.8 1.7 1.7.8-1.7.8-.8 1.7-.8-1.7-1.7-.8 1.7-.8z" fill="#FFC93C"/>
+</svg>

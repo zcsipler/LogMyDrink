@@ -134,7 +134,7 @@ struct QuickAddWidget: Widget {
         /// Matches `WidgetSnapshot.sampleStep` on the app side: five minutes.
         static let step: TimeInterval = 5 * 60
 
-        static let defaultIcon = "wineglass"
+        static let defaultIcon = "DrinkWine"
 
         /// Must match `WidgetBridge` in the app target.
         static let appGroup = "group.dev.zcsipler.logmydrink"
@@ -182,8 +182,7 @@ struct QuickAddWidgetView: View {
 
     private var rectangularButton: some View {
         HStack(spacing: 8) {
-            Image(systemName: entry.icon)
-                .font(.system(size: 20, weight: .semibold))
+            DrinkIcon(name: entry.icon, size: 20, weight: .semibold)
             VStack(alignment: .leading, spacing: 1) {
                 Text(verbatim: "Log My Drink")
                     .font(.headline)
@@ -198,8 +197,7 @@ struct QuickAddWidgetView: View {
 
     private var smallButton: some View {
         VStack(spacing: 10) {
-            Image(systemName: entry.icon)
-                .font(.system(size: 30, weight: .semibold))
+            DrinkIcon(name: entry.icon, size: 30, weight: .semibold)
             Text(verbatim: "Log My Drink")
                 .font(.system(size: 15, weight: .semibold, design: .rounded))
         }
@@ -272,8 +270,7 @@ struct QuickAddWidgetView: View {
     /// The button's own header, then the figures where its caption was.
     private func rectangularReading(_ reading: Reading) -> some View {
         HStack(spacing: 8) {
-            Image(systemName: entry.icon)
-                .font(.system(size: 20, weight: .semibold))
+            DrinkIcon(name: entry.icon, size: 20, weight: .semibold)
             VStack(alignment: .leading, spacing: 1) {
                 Text(verbatim: "Log My Drink")
                     .font(.headline)
@@ -320,5 +317,5 @@ private typealias Reading = QuickAddWidget.Provider.Reading
 #Preview("Lock Screen", as: .accessoryRectangular) {
     QuickAddWidget()
 } timeline: {
-    QuickAddWidget.Provider.Entry(date: .now, icon: "mug.fill", reading: nil)
+    QuickAddWidget.Provider.Entry(date: .now, icon: "DrinkBeer", reading: nil)
 }

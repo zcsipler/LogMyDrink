@@ -57,40 +57,40 @@ struct DrinkTemplate: Identifiable, Hashable {
 enum DrinkCatalog {
     static let all: [DrinkTemplate] = [
         DrinkTemplate(
-            id: "beer", name: "Beer", icon: "mug.fill",
+            id: "beer", name: "Beer", icon: "DrinkBeer",
             defaultVolumeMl: 500, defaultAbv: 5,
             volumeStepMl: 10, abvRange: 0.5...12,
             defaultDrinkingMinutes: 30,
             nonAlcoholKcalPer100ml: 15
         ),
         DrinkTemplate(
-            id: "wine", name: "Wine", icon: "wineglass.fill",
+            id: "wine", name: "Wine", icon: "DrinkWine",
             defaultVolumeMl: 150, defaultAbv: 12,
             volumeStepMl: 10, abvRange: 5...18,
             defaultDrinkingMinutes: 25,
             nonAlcoholKcalPer100ml: 10
         ),
         DrinkTemplate(
-            id: "sparkling", name: "Sparkling", icon: "waterbottle.fill",
+            id: "sparkling", name: "Champagne", icon: "DrinkChampagne",
             defaultVolumeMl: 125, defaultAbv: 12,
             volumeStepMl: 10, abvRange: 5...15,
             defaultDrinkingMinutes: 20,
             nonAlcoholKcalPer100ml: 6
         ),
         DrinkTemplate(
-            id: "spirit", name: "Spirit", icon: "drop.fill",
+            id: "spirit", name: "Shot", icon: "DrinkShot",
             defaultVolumeMl: 40, defaultAbv: 40,
             volumeStepMl: 5, abvRange: 15...96,
             defaultDrinkingMinutes: 0
         ),
         DrinkTemplate(
-            id: "cocktail", name: "Cocktail", icon: "cup.and.saucer.fill",
+            id: "cocktail", name: "Cocktail", icon: "DrinkCocktail",
             defaultVolumeMl: 200, defaultAbv: 15,
             volumeStepMl: 10, abvRange: 3...40,
             defaultDrinkingMinutes: 20
         ),
         DrinkTemplate(
-            id: "custom", name: "Custom", icon: "slider.horizontal.3",
+            id: "custom", name: "Custom", icon: "DrinkCustom",
             defaultVolumeMl: 100, defaultAbv: 10,
             volumeStepMl: 10, abvRange: 0.5...96,
             defaultDrinkingMinutes: 15

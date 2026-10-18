@@ -45,8 +45,7 @@ struct DrinkRow: View {
 
     private var content: some View {
         HStack(spacing: 13) {
-            Image(systemName: DrinkCatalog.icon(for: drink))
-                .font(.system(size: 15))
+            DrinkIcon(name: DrinkCatalog.icon(for: drink), size: 15)
                 .foregroundStyle(Theme.calm)
                 .frame(width: 26)
 

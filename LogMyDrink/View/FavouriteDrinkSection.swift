@@ -48,8 +48,7 @@ struct FavouriteDrinkSection: View {
 
     private func chosen(_ favourite: FavouriteDrink) -> some View {
         HStack(spacing: 12) {
-            Image(systemName: favourite.template.icon)
-                .font(.system(size: 16))
+            DrinkIcon(name: favourite.template.icon, size: 16)
                 .foregroundStyle(Theme.calm)
                 .frame(width: 24)
 

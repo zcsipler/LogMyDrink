@@ -31,7 +31,7 @@ enum WidgetBridge {
     /// asked to redraw, the sooner the one widget that matters gets its turn.
     static let widgetKind = "dev.zcsipler.logmydrink.quickadd"
 
-    /// The SF Symbol of the favourite, or absent when there is no favourite.
+    /// The icon name of the favourite (an asset or an SF Symbol), or absent when there is no favourite.
     static let favouriteIconKey = "widget.favourite.icon"
 
     /// Publishes the active person's favourite and asks the widget to redraw.

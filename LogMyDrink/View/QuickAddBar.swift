@@ -103,8 +103,7 @@ struct QuickAddBar: View {
     private func quickButton(offer: QuickAddOffer, projection: BandedProjection) -> some View {
         Button(action: onQuickAdd) {
             HStack(spacing: 9) {
-                Image(systemName: DrinkCatalog.icon(for: offer.drink))
-                    .font(.system(size: 18, weight: .semibold))
+                DrinkIcon(name: DrinkCatalog.icon(for: offer.drink), size: 18, weight: .semibold)
 
                 Text(DrinkCatalog.name(for: offer.drink))
                     .font(.system(size: 16, weight: .semibold, design: .rounded))
