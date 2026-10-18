@@ -1442,10 +1442,11 @@ amikor már minden kiürülési idő friss. Fontos, mert a nap chartja a beleló
 alkalmak sávjait egymás után fűzi (`BACBand.joined`) azzal a feltevéssel, hogy
 nem fednek át; két átfedő alkalom (okt. 10-én volt ilyen, a refaktor előtti
 build maradékaként) összekevert mintákat rajzolt volna. A `SessionDetailView` alatt az alkalom meg is
-szűnhet (visszaolvad az előzőbe) — `isGone` esetén bezár. **Amit én nem
+szűnhet (visszaolvad az előzőbe) — `isGone` esetén bezár. **Amit én akkor nem
 tudtam ellenőrizni:** az app target fordítása és a `LogMyDrinkTests`
 (⌘U); a `BACKit` 71 tesztje zöld, és egy független átolvasás hat pontot
-talált, amiket a kód már tartalmaz.
+talált, amiket a kód már tartalmaz. *(2026. október 18.: az app fordul, a
+`LogMyDrinkTests` mind a 89 tesztje zöld szimulátoron — 10.)*
 
 ## 6. Validáció
 
@@ -1490,13 +1491,44 @@ asszisztens Linux-sandboxában **nincs toolchain**, ezért a szkript letölt egy
 Swift release-t `/tmp`-be, és ugyanazt a suite-ot futtatja. Ettől a „elrontottam
 valamit?" kérdés helyben megválaszolható, nem kell visszakérdezni.
 
-Ez **csak a `BACKit`-re igaz**: a csomag a Foundationön kívül semmit nem
-importál, így bárhol fordul. Az app target SwiftUI-t és SwiftDatát használ, azt
-kizárólag Xcode tudja lefordítani — a nézetek és a perzisztencia ellenőrzése
-továbbra is Zoltáné.
+A letöltés ~800 MB, munkamenetenként egyszer, nagyjából három perc. Ma már
+csak tartalék: ha a Mac elérhető (lent), ott egyszerűbb `swift test`-et
+futtatni.
 
-A letöltés ~800 MB, munkamenetenként egyszer, nagyjából három perc. Megéri:
-utána minden kör végén lefuttatható.
+### Az app fordítása, tesztje és képernyőképe a Macen (2026. október 18. óta)
+
+Az asszisztens a Claude desktop appon keresztül **parancsot futtat Zoltán
+Macén** (Desktop Commander bővítmény; a Node.js hozzá a hivatalos `.pkg`
+telepítővel ment fel, mert a Homebrew-s `/opt/homebrew` útvonalat a grafikus
+appok nem látják). Ezzel az app target is fordítható, a `LogMyDrinkTests`
+lefuttatható, és a szimulátorról képernyőkép készül — nem kell mindent
+Zoltánnak visszaellenőriznie.
+
+- **Xcode:** `/Applications/Xcode.app` (27.1), `xcode-select` rá mutat.
+- **Szimulátor:** iPhone 17, iOS 27.x (`xcrun simctl list devices available`).
+- **Fordítás + tesztek** (tiszta buildnél pár perc, ezért háttérben, logba
+  írva, és a logot kell időnként megnézni — egy hívás nem vár ki ennyit):
+
+  ```bash
+  xcodebuild test -project LogMyDrink.xcodeproj -scheme LogMyDrink \
+    -destination 'platform=iOS Simulator,name=iPhone 17' \
+    -derivedDataPath /tmp/lmd-dd -resultBundlePath /tmp/lmd-test.xcresult \
+    > /tmp/lmd-test.log 2>&1 &
+  xcrun xcresulttool get test-results summary --path /tmp/lmd-test.xcresult
+  ```
+
+  A pontos számot az `xcresulttool` adja (`passedTests` / `failedTests`), nem
+  a log grep-elése — a log egyes sorokat kétszer ír ki.
+- **Indítás és képernyőkép:** a teszt a végén leállítja a szimulátort, ezért
+  előbb `xcrun simctl boot <id>`, aztán `simctl install` a
+  `/tmp/lmd-dd/Build/Products/Debug-iphonesimulator/LogMyDrink.app`-pal,
+  `simctl launch … dev.zcsipler.logmydrink`, és
+  `xcrun simctl io <id> screenshot .claude-screens/<név>.png`.
+- **`.claude-screens/`** a repó gyökerében, `.gitignore`-ban: munkaképek. Ami
+  végleges (pl. App Store), azt külön, követett mappába másoljuk.
+- **Ami továbbra is Zoltáné:** a valódi iPhone (CloudKit, widget a zárolt
+  képernyőn, Siri, haptika), és minden, amihez az ő Apple ID-ja kell. A
+  szimulátor ezeket nem helyettesíti.
 
 ## 7. Lokalizáció
 
@@ -1621,12 +1653,14 @@ mögött, személylistával és vendég-eltávolítással (5.18); 24 nyelvű lok
 
 **Tesztek:** 73 a `BACKit`-ben (Linuxon is futtatható, 6.; két régi teszt
 várt száma az 5.21-es verziólépésnél nem frissült és azóta bukott — 2026.
-október 9-én a referenciára igazítva); 90 a `LogMyDrinkTests` targetben
-(⌘U-val): 57 a History
-modellre (5.16), 28 a perzisztenciára — migráció, útválasztás és a
+október 9-én a referenciára igazítva); 89 a `LogMyDrinkTests` targetben
+(⌘U-val vagy parancssorból, 6.): 57 a History
+modellre (5.16), 27 a perzisztenciára — migráció, útválasztás és a
 görbe-alapú csoportosítás (5.18, 5.22), aktív személy — és 5 a widget
-snapshotjára (5.15). *Az utolsó hat útválasztás-teszt (5.22) készüléken
-még nem futott.* A target unit testing bundle, host a `LogMyDrink`,
+snapshotjára (5.15). *(Korábban itt 90 állt; az `@Test`-ek tényleges száma
+89, a perzisztencia 27, nem 28.)* **2026. október 18-án mind a 89 zöld**
+szimulátoron (Xcode 27.1, iPhone 17), az 5.22-es útválasztás-tesztekkel
+együtt. A target unit testing bundle, host a `LogMyDrink`,
 file-system synchronized group a `LogMyDrinkTests/` mappára, tehát egy új
 tesztfájl projektfájl-módosítás nélkül bekerül. A beállításai az apphoz
 igazítva: Swift 6, iOS 17.0, bundle ID `dev.zcsipler.logmydrink.tests`. A
@@ -1634,8 +1668,8 @@ BACKit-et **nem** linkeli külön — a host app linkeli, az `import BACKit` a
 build-könyvtárból oldódik fel; duplán linkelve a statikus könyvtár
 típusmetaadatai kétszer lennének a folyamatban. A tesztek memóriában
 futnak (`TestSupport.makeContext`, `cloudKitDatabase: .none`, eldobható
-defaults-suite), a fejlesztő saját adatához nem nyúlnak. Csak Xcode-ban
-futtathatók, mert SwiftData kell hozzájuk (12.). A `LogMyDrink` scheme
+defaults-suite), a fejlesztő saját adatához nem nyúlnak. Xcode kell hozzájuk, mert
+SwiftData kell — az asszisztens a Macen parancssorból futtatja (6.). A `LogMyDrink` scheme
 **megosztott** (`xcshareddata/xcschemes`), és a Test actionje viszi a
 targetet — egy friss klónon a ⌘U beállítás nélkül megy.
 
@@ -1647,7 +1681,8 @@ App Store Connectben a „LogMyDrink" app-rekord lefoglalva (`TODO.md`).
 Az app **fordul és fut** szimulátoron, iPhone-ra telepítve van kipróbálva.
 
 Utolsó commit: lásd `git log`; ez a fejezet 2026. október 9-én, a „görbe
-adja az alkalmat" körrel (5.22) frissült.
+adja az alkalmat" körrel (5.22) frissült, október 18-án pedig a Macen futó
+fordítással és tesztekkel (6.).
 
 ## 11. Teendők
 
@@ -1673,13 +1708,18 @@ két körben fordult: először kivettem a tartományt mindenhonnan, aztán kide
 hogy a kérés nem ez volt — csak az alapérték ne tartomány legyen. Ha a válasz
 javítja az előző kört, ismerjük el nyíltan és írjuk át (ebből lett az 5.8).
 
-**Mit tudok ellenőrizni.** A `BACKit` tesztjeit **le tudom futtatni**:
-`./Reference/run_tests.sh` letölt egy Swift toolchaint a sandboxba, és lemegy
-mind a 73 teszt (6.). Ezt minden olyan kör végén futtassuk le, ami a motorhoz
-ér. Rajta kívül: zárójel- és API-egyezés-ellenőrzés, a Python referencia, a
-katalógus-ellenőrző.
+**Mit tudok ellenőrizni (2026. október 18. óta).** Zoltán Macén parancsot
+futtatok (6., „Az app fordítása…"): az **app targetet lefordítom**, a
+`LogMyDrinkTests`-et és a `BACKit` 73 tesztjét lefuttatom, az appot a
+szimulátoron elindítom, és **képernyőképpel nézem meg az eredményt**, mielőtt
+Zoltánnak megmutatom. Egy kör vége tehát: fordítás → tesztek → képernyőkép a
+változott képernyőről → diff. Ha a Mac épp nem érhető el, a tartalék a régi
+út: `./Reference/run_tests.sh` a sandboxban (csak `BACKit`), plusz a Python
+referencia és a katalógus-ellenőrző.
 
-**Amit nem tudok:** az **app targetet** nem fordítom — SwiftUI és SwiftData kell
-hozzá, az Xcode dolga. A nézetek, a perzisztencia és minden, ami készüléken
-látszik, Zoltáné. Ezért érdemes minden körben kis, önmagában értelmes
+**Amit nem tudok:** a valódi iPhone-t — CloudKit két készülék közt, a widget a
+zárolt képernyőn, Siri, haptika, és minden, amihez Zoltán Apple ID-ja kell. Ezek
+Zoltáné. A szimulátoron sem tudok gesztusokat végigjátszani úgy, mint ujjal
+(húzás, hosszú nyomás): amit a képernyőkép nem mutat meg, azt kimondom, hogy
+nem láttam. Továbbra is érdemes minden körben kis, önmagában értelmes
 változást adni.

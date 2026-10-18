@@ -79,8 +79,9 @@ az egész app hitelességét.
 ### A modell hitelessége
 
 - **A görbe-alapú alkalom (5.22) készüléken ellenőrizendő.** Az app
-  target és a `LogMyDrinkTests` nem fordult le a sandboxban. Ellenőrzési
-  lista: ⌘U (új útválasztás-tesztek); indítás a meglévő adatbázison — a
+  fordul, és a `LogMyDrinkTests` (az új útválasztás-tesztekkel) 2026.
+  október 18-án szimulátoron zöld ✔. Ami hátravan, az a valódi adat:
+  indítás a meglévő adatbázison — a
   tegnapi 10 sör és a mai sör egy alkalom lesz, a tegnapi oldalon a görbe a
   jobb szélig fut, a mai 1,x ‰-ről indul; a Live reggel nem mutat nullát egy
   nehéz este után; törlés-visszaadás a tegnapi oldalon nem tünteti el az

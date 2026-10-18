@@ -9,3 +9,6 @@ build/
 Packages/
 __pycache__/
 *.pyc
+
+# Simulator screenshots taken while working with Claude; final ones get copied elsewhere and committed
+.claude-screens/
