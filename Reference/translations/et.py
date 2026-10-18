@@ -14,8 +14,8 @@ TRANSLATIONS = {
     # --- DrinkCatalog: drink types ---
     "Beer": "Õlu",
     "Wine": "Vein",
-    "Sparkling": "Vahuvein",
-    "Spirit": "Kange alkohol",
+    "Champagne": "Vahuvein",
+    "Shot": "Pits",
     "Cocktail": "Kokteil",
     "Custom": "Kohandatud",
 
@@ -159,21 +159,13 @@ TRANSLATIONS = {
         "jaotub. Naiste võrrand ei sisalda vanust, seega selle muutmine tulemust ei mõjuta.",
     "Drinking frequency": "Joomise sagedus",
     "How often do you drink?": "Kui tihti sa jood?",
-    "This is how we estimate your elimination rate. Regular drinking induces the liver's "
-    "CYP2E1 pathway, so frequent drinkers clear alcohol faster. It is the weakest point of the "
-    "model, which is why you can set under Advanced how much of that uncertainty the app shows "
-    "you.":
-        "Nii me sinu lagundamiskiirust hindamegi. Regulaarne joomine aktiveerib maksa CYP2E1 "
-        "raja, seega lagundavad sagedased joojad alkoholi kiiremini. See on mudeli nõrgim koht "
-        "ja just seepärast saad täpsemate seadete all määrata, kui palju sellest ebakindlusest "
-        "rakendus sulle näitab.",
+    "This is how we estimate your elimination rate. Regular drinking induces the liver's CYP2E1 pathway, so frequent drinkers clear alcohol faster. It is the weakest point of the model, which is why you can set under Display & language how much of that uncertainty the app shows you.":
+        "Nii me sinu lagundamiskiirust hindamegi. Regulaarne joomine aktiveerib maksa CYP2E1 raja, seega lagundavad sagedased joojad alkoholi kiiremini. See on mudeli nõrgim koht ja just seepärast saad jaotises „Kuva ja keel“ määrata, kui palju sellest ebakindlusest rakendus sulle näitab.",
     "Your limit": "Sinu piir",
     "Your own reference number, not a legal limit. The app tells you when a planned drink "
     "would take you past it, and for how long you would stay above.":
         "Sinu enda võrdlusarv, mitte seaduslik piirmäär. Rakendus ütleb, kui kavandatud jook "
         "viiks sind sellest üle ja kui kaua sa sellest kõrgemal püsiksid.",
-    "Unit": "Ühik",
-    "Display": "Kuva",
     "Calculated values": "Arvutatud väärtused",
     "Total body water": "Keha koguvesi",
     "Distribution volume": "Jaotusruumala",
@@ -237,12 +229,6 @@ TRANSLATIONS = {
     "Rate": "Kiirus",
     "Range": "Vahemik",
     "Advanced": "Täpsemad seaded",
-    "Uncertainty is a matter of taste: it decides whether figures read as one number or as a "
-    "range. The rate below is not — leave it to the frequency question unless you have a "
-    "measurement to match it against.":
-        "Ebakindlus on maitse asi: see otsustab, kas näite loetakse ühe arvuna või vahemikuna. "
-        "Allpool olev kiirus ei ole maitse asi — jäta see sageduse küsimuse hooleks, kui sul "
-        "pole mõõtmistulemust, millega seda kõrvutada.",
 
     # --- PersonSwitcher / FeatureFlags: more than one person (11.5) ---
     "Multiple people": "Mitu inimest",
@@ -375,4 +361,11 @@ TRANSLATIONS = {
     'Days over limit': 'Päevad üle piiri',
     'Longest sober run': 'Pikim kaine periood',
     'Favourite drink': 'Lemmikjook',
+
+    # --- Profile sub-pages (5.26) ---
+    "Display & language": "Kuva ja keel",
+    "Data": "Andmed",
+    "Concentration": "Kontsentratsioon",
+    "Leave the rate to the frequency question unless you have a measurement to match it against.":
+        "Jäta kiirus sageduse küsimuse hooleks, kui sul pole mõõtmist, millega seda võrrelda.",
 }

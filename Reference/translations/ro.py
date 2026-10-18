@@ -14,8 +14,8 @@ TRANSLATIONS = {
     # --- DrinkCatalog: drink types ---
     "Beer": "Bere",
     "Wine": "Vin",
-    "Sparkling": "Spumant",
-    "Spirit": "Tărie",
+    "Champagne": "Spumant",
+    "Shot": "Shot",
     "Cocktail": "Cocktail",
     "Custom": "Personalizat",
 
@@ -161,21 +161,13 @@ TRANSLATIONS = {
         "nu va afecta rezultatul.",
     "Drinking frequency": "Frecvența consumului",
     "How often do you drink?": "Cât de des bei?",
-    "This is how we estimate your elimination rate. Regular drinking induces the liver's "
-    "CYP2E1 pathway, so frequent drinkers clear alcohol faster. It is the weakest point of the "
-    "model, which is why you can set under Advanced how much of that uncertainty the app shows "
-    "you.":
-        "Așa estimăm rata ta de eliminare. Consumul regulat induce calea hepatică CYP2E1, așa "
-        "că persoanele care beau frecvent elimină alcoolul mai repede. Este punctul cel mai "
-        "slab al modelului, motiv pentru care poți stabili în secțiunea Avansat cât din "
-        "această incertitudine îți arată aplicația.",
+    "This is how we estimate your elimination rate. Regular drinking induces the liver's CYP2E1 pathway, so frequent drinkers clear alcohol faster. It is the weakest point of the model, which is why you can set under Display & language how much of that uncertainty the app shows you.":
+        "Așa estimăm rata ta de eliminare. Consumul regulat induce calea hepatică CYP2E1, așa că persoanele care beau frecvent elimină alcoolul mai repede. Este punctul cel mai slab al modelului, motiv pentru care poți stabili în secțiunea Afișare și limbă cât din această incertitudine îți arată aplicația.",
     "Your limit": "Limita ta",
     "Your own reference number, not a legal limit. The app tells you when a planned drink "
     "would take you past it, and for how long you would stay above.":
         "Un reper stabilit de tine, nu o limită legală. Aplicația îți spune când o băutură "
         "planificată te-ar duce peste el și cât timp ai rămâne deasupra.",
-    "Unit": "Unitate",
-    "Display": "Afișare",
     "Calculated values": "Valori calculate",
     "Total body water": "Apa totală din organism",
     "Distribution volume": "Volum de distribuție",
@@ -240,12 +232,6 @@ TRANSLATIONS = {
     "Rate": "Rată",
     "Range": "Interval",
     "Advanced": "Avansat",
-    "Uncertainty is a matter of taste: it decides whether figures read as one number or as a "
-    "range. The rate below is not — leave it to the frequency question unless you have a "
-    "measurement to match it against.":
-        "Incertitudinea ține de preferință: decide dacă valorile apar ca un singur număr sau "
-        "ca un interval. Rata de mai jos nu ține de preferință — las-o pe seama întrebării "
-        "despre frecvență, dacă nu ai o măsurătoare cu care să o compari.",
 
     # --- PersonSwitcher / FeatureFlags: more than one person (11.5) ---
     "Multiple people": "Mai multe persoane",
@@ -381,4 +367,11 @@ TRANSLATIONS = {
     'Days over limit': 'Zile peste limită',
     'Longest sober run': 'Cea mai lungă serie sobră',
     'Favourite drink': 'Băutura preferată',
+
+    # --- Profile sub-pages (5.26) ---
+    "Display & language": "Afișare și limbă",
+    "Data": "Date",
+    "Concentration": "Concentrație",
+    "Leave the rate to the frequency question unless you have a measurement to match it against.":
+        "Lasă rata în seama întrebării despre frecvență, dacă nu ai o măsurătoare cu care s-o compari.",
 }

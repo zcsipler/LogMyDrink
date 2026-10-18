@@ -14,8 +14,8 @@ TRANSLATIONS = {
     # --- DrinkCatalog: drink types ---
     "Beer": "Bier",
     "Wine": "Wein",
-    "Sparkling": "Sekt",
-    "Spirit": "Spirituose",
+    "Champagne": "Sekt",
+    "Shot": "Kurzer",
     "Cocktail": "Cocktail",
     "Custom": "Eigenes",
 
@@ -163,22 +163,14 @@ TRANSLATIONS = {
         "Änderung wirkt sich daher nicht auf das Ergebnis aus.",
     "Drinking frequency": "Trinkhäufigkeit",
     "How often do you drink?": "Wie oft trinkst du?",
-    "This is how we estimate your elimination rate. Regular drinking induces the liver's "
-    "CYP2E1 pathway, so frequent drinkers clear alcohol faster. It is the weakest point of the "
-    "model, which is why you can set under Advanced how much of that uncertainty the app shows "
-    "you.":
-        "So schätzen wir deine Abbaurate. Regelmäßiges Trinken induziert den "
-        "CYP2E1-Stoffwechselweg der Leber, deshalb bauen häufig Trinkende Alkohol schneller "
-        "ab. Das ist die schwächste Stelle des Modells, und deshalb kannst du unter "
-        "„Erweitert“ einstellen, wie viel von dieser Unsicherheit die App dir zeigt.",
+    "This is how we estimate your elimination rate. Regular drinking induces the liver's CYP2E1 pathway, so frequent drinkers clear alcohol faster. It is the weakest point of the model, which is why you can set under Display & language how much of that uncertainty the app shows you.":
+        "So schätzen wir deine Abbaurate. Regelmäßiges Trinken induziert den CYP2E1-Stoffwechselweg der Leber, deshalb bauen häufig Trinkende Alkohol schneller ab. Das ist die schwächste Stelle des Modells, und deshalb kannst du unter „Anzeige & Sprache“ einstellen, wie viel von dieser Unsicherheit die App dir zeigt.",
     "Your limit": "Dein Limit",
     "Your own reference number, not a legal limit. The app tells you when a planned drink "
     "would take you past it, and for how long you would stay above.":
         "Deine eigene Bezugsgröße, kein gesetzlicher Grenzwert. Die App sagt dir, wann ein "
         "geplantes Getränk dich darüber hinausbringen würde und wie lange du darüber bleiben "
         "würdest.",
-    "Unit": "Einheit",
-    "Display": "Anzeige",
     "Calculated values": "Berechnete Werte",
     "Total body water": "Gesamtkörperwasser",
     "Distribution volume": "Verteilungsvolumen",
@@ -244,12 +236,6 @@ TRANSLATIONS = {
     "Rate": "Rate",
     "Range": "Bereich",
     "Advanced": "Erweitert",
-    "Uncertainty is a matter of taste: it decides whether figures read as one number or as a "
-    "range. The rate below is not — leave it to the frequency question unless you have a "
-    "measurement to match it against.":
-        "Unsicherheit ist Geschmackssache: Sie entscheidet, ob Werte als eine Zahl oder als "
-        "Bereich erscheinen. Die Rate darunter ist es nicht — überlass sie der Frage nach der "
-        "Häufigkeit, außer du hast eine Messung, mit der du sie abgleichen kannst.",
 
     # --- PersonSwitcher / FeatureFlags: more than one person (11.5) ---
     "Multiple people": "Mehrere Personen",
@@ -386,4 +372,11 @@ TRANSLATIONS = {
     'Days over limit': 'Tage über dem Limit',
     'Longest sober run': 'Längste nüchterne Serie',
     'Favourite drink': 'Lieblingsgetränk',
+
+    # --- Profile sub-pages (5.26) ---
+    "Display & language": "Anzeige & Sprache",
+    "Data": "Daten",
+    "Concentration": "Konzentration",
+    "Leave the rate to the frequency question unless you have a measurement to match it against.":
+        "Überlass die Rate der Frage nach der Häufigkeit, es sei denn, du hast einen Messwert, an dem du sie ausrichten kannst.",
 }

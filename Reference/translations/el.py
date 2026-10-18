@@ -14,8 +14,8 @@ TRANSLATIONS = {
     # --- DrinkCatalog: drink types ---
     "Beer": "Μπίρα",
     "Wine": "Κρασί",
-    "Sparkling": "Αφρώδες",
-    "Spirit": "Απόσταγμα",
+    "Champagne": "Αφρώδες",
+    "Shot": "Σφηνάκι",
     "Cocktail": "Κοκτέιλ",
     "Custom": "Προσαρμοσμένο",
 
@@ -163,21 +163,13 @@ TRANSLATIONS = {
         "ηλικία, οπότε η αλλαγή της δεν θα επηρεάσει το αποτέλεσμα.",
     "Drinking frequency": "Συχνότητα κατανάλωσης",
     "How often do you drink?": "Πόσο συχνά πίνεις;",
-    "This is how we estimate your elimination rate. Regular drinking induces the liver's "
-    "CYP2E1 pathway, so frequent drinkers clear alcohol faster. It is the weakest point of the "
-    "model, which is why you can set under Advanced how much of that uncertainty the app shows "
-    "you.":
-        "Έτσι εκτιμούμε τον ρυθμό αποβολής σου. Η τακτική κατανάλωση επάγει το μονοπάτι CYP2E1 "
-        "του ήπατος, οπότε όσοι πίνουν συχνά αποβάλλουν το αλκοόλ γρηγορότερα. Είναι το πιο "
-        "αδύναμο σημείο του μοντέλου, γι’ αυτό μπορείς να ορίσεις στις ρυθμίσεις «Για "
-        "προχωρημένους» πόση από αυτή την αβεβαιότητα σού δείχνει η εφαρμογή.",
+    "This is how we estimate your elimination rate. Regular drinking induces the liver's CYP2E1 pathway, so frequent drinkers clear alcohol faster. It is the weakest point of the model, which is why you can set under Display & language how much of that uncertainty the app shows you.":
+        "Έτσι εκτιμούμε τον ρυθμό αποβολής σου. Η τακτική κατανάλωση επάγει το μονοπάτι CYP2E1 του ήπατος, οπότε όσοι πίνουν συχνά αποβάλλουν το αλκοόλ γρηγορότερα. Είναι το πιο αδύναμο σημείο του μοντέλου, γι’ αυτό μπορείς να ορίσεις στην ενότητα «Εμφάνιση και γλώσσα» πόση από αυτή την αβεβαιότητα σού δείχνει η εφαρμογή.",
     "Your limit": "Το όριό σου",
     "Your own reference number, not a legal limit. The app tells you when a planned drink "
     "would take you past it, and for how long you would stay above.":
         "Ο δικός σου αριθμός αναφοράς, όχι νόμιμο όριο. Η εφαρμογή σού λέει πότε ένα ποτό που "
         "σχεδιάζεις θα σε περνούσε πάνω από αυτό και για πόση ώρα θα έμενες από πάνω.",
-    "Unit": "Μονάδα",
-    "Display": "Εμφάνιση",
     "Calculated values": "Υπολογισμένες τιμές",
     "Total body water": "Ολικό σωματικό νερό",
     "Distribution volume": "Όγκος κατανομής",
@@ -242,12 +234,6 @@ TRANSLATIONS = {
     "Rate": "Ρυθμός",
     "Range": "Εύρος",
     "Advanced": "Για προχωρημένους",
-    "Uncertainty is a matter of taste: it decides whether figures read as one number or as a "
-    "range. The rate below is not — leave it to the frequency question unless you have a "
-    "measurement to match it against.":
-        "Η αβεβαιότητα είναι θέμα προτίμησης: καθορίζει αν οι τιμές διαβάζονται ως ένας "
-        "αριθμός ή ως εύρος. Ο ρυθμός παρακάτω δεν είναι — άφησέ τον στην ερώτηση για τη "
-        "συχνότητα, εκτός αν έχεις μια μέτρηση για να τον συγκρίνεις.",
 
     # --- PersonSwitcher / FeatureFlags: more than one person (11.5) ---
     "Multiple people": "Πολλά άτομα",
@@ -384,4 +370,11 @@ TRANSLATIONS = {
     'Days over limit': 'Ημέρες πάνω από το όριο',
     'Longest sober run': 'Μεγαλύτερο νηφάλιο διάστημα',
     'Favourite drink': 'Αγαπημένο ποτό',
+
+    # --- Profile sub-pages (5.26) ---
+    "Display & language": "Εμφάνιση και γλώσσα",
+    "Data": "Δεδομένα",
+    "Concentration": "Συγκέντρωση",
+    "Leave the rate to the frequency question unless you have a measurement to match it against.":
+        "Άφησε τον ρυθμό στην ερώτηση συχνότητας, εκτός αν έχεις μέτρηση για να τον συγκρίνεις.",
 }

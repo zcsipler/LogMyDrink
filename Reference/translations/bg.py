@@ -14,8 +14,8 @@ TRANSLATIONS = {
     # --- DrinkCatalog: drink types ---
     "Beer": "Бира",
     "Wine": "Вино",
-    "Sparkling": "Пенливо",
-    "Spirit": "Концентрат",
+    "Champagne": "Пенливо",
+    "Shot": "Шот",
     "Cocktail": "Коктейл",
     "Custom": "По избор",
 
@@ -159,21 +159,13 @@ TRANSLATIONS = {
         "няма да повлияе на резултата.",
     "Drinking frequency": "Честота на пиене",
     "How often do you drink?": "Колко често пиеш?",
-    "This is how we estimate your elimination rate. Regular drinking induces the liver's "
-    "CYP2E1 pathway, so frequent drinkers clear alcohol faster. It is the weakest point of the "
-    "model, which is why you can set under Advanced how much of that uncertainty the app shows "
-    "you.":
-        "Така оценяваме скоростта ти на елиминиране. Редовното пиене индуцира чернодробния път "
-        "CYP2E1, затова честите консуматори изчистват алкохола по-бързо. Това е най-слабото "
-        "място на модела и затова в „Разширени“ можеш да зададеш колко от тази несигурност да "
-        "ти показва приложението.",
+    "This is how we estimate your elimination rate. Regular drinking induces the liver's CYP2E1 pathway, so frequent drinkers clear alcohol faster. It is the weakest point of the model, which is why you can set under Display & language how much of that uncertainty the app shows you.":
+        "Така оценяваме скоростта ти на елиминиране. Редовното пиене индуцира чернодробния път CYP2E1, затова честите консуматори изчистват алкохола по-бързо. Това е най-слабото място на модела и затова в „Показване и език“ можеш да зададеш колко от тази несигурност да ти показва приложението.",
     "Your limit": "Твоят лимит",
     "Your own reference number, not a legal limit. The app tells you when a planned drink "
     "would take you past it, and for how long you would stay above.":
         "Твоя собствена отправна стойност, а не законова граница. Приложението ти казва кога "
         "планирана напитка би те извела над нея и колко време ще останеш отгоре.",
-    "Unit": "Мерна единица",
-    "Display": "Показване",
     "Calculated values": "Изчислени стойности",
     "Total body water": "Обща телесна вода",
     "Distribution volume": "Обем на разпределение",
@@ -237,12 +229,6 @@ TRANSLATIONS = {
     "Rate": "Скорост",
     "Range": "Диапазон",
     "Advanced": "Разширени",
-    "Uncertainty is a matter of taste: it decides whether figures read as one number or as a "
-    "range. The rate below is not — leave it to the frequency question unless you have a "
-    "measurement to match it against.":
-        "Несигурността е въпрос на вкус: тя решава дали стойностите се четат като едно число, "
-        "или като диапазон. Скоростта по-долу не е — остави я на въпроса за честотата, освен "
-        "ако нямаш измерване, с което да я сверяваш.",
 
     # --- PersonSwitcher / FeatureFlags: more than one person (11.5) ---
     "Multiple people": "Няколко души",
@@ -378,4 +364,11 @@ TRANSLATIONS = {
     'Days over limit': 'Дни над лимита',
     'Longest sober run': 'Най-дълга трезва серия',
     'Favourite drink': 'Любима напитка',
+
+    # --- Profile sub-pages (5.26) ---
+    "Display & language": "Показване и език",
+    "Data": "Данни",
+    "Concentration": "Концентрация",
+    "Leave the rate to the frequency question unless you have a measurement to match it against.":
+        "Остави скоростта на въпроса за честотата, освен ако нямаш измерване, с което да я сравниш.",
 }

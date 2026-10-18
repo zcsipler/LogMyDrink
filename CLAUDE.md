@@ -151,8 +151,8 @@ LogMyDrink/
 │       ├── AddDrinkSheet.swift      felvitel és szerkesztés + élő előrejelzés
 │       ├── PersonSwitcher.swift     ki van kiválasztva + új személy felvitele
 │       ├── PeopleView.swift         személyek listája, vendég eltávolítása
-│       ├── DataTransferSection.swift export / import a Profil alján
-│       └── ProfileView.swift        testalkat, gyakoriság, saját határ, haladó
+│       ├── DataTransferSection.swift export / import a Profil Data lapján
+│       └── ProfileView.swift        főlap (test, gyakoriság, határ, gyors felvitel) + három al-lap (5.26)
 ├── LogMyDrinkWidget/           widget extension target — gomb, nyitott alkalomnál a szint és az irány (5.15)
 ├── LogMyDrinkTests/            app-szintű tesztek, unit testing bundle a LogMyDrink hosttal (10.)
 ├── TODO.md                     teendők, nyitott döntések, hátralék
@@ -276,7 +276,7 @@ havonta párszor / hetente többször / szinte naponta) adja a középértéket
 **és** a bizonytalanságot is. Élettani alap: a krónikus bevitel indukálja a
 CYP2E1/MEOS útvonalat.
 
-A nyers béta-csúszka elérhető marad, de a haladó beállítások **legalján**, külön
+A nyers béta-csúszka elérhető marad, de a Haladó al-lapon (5.26), külön
 lenyitva. Egy vezérlő, ami feljebb ül, kérdésnek látszik, amire a felhasználótól
 választ várunk — erre viszont nem tud válaszolni. Egyetlen valós indoka van a
 kézi állításnak: ha van mért érték (szonda), amihez igazítani lehet.
@@ -1662,6 +1662,48 @@ csúszka a régi `slider.horizontal.3` jelentését viszi tovább.
   Šot, Σφηνάκι, Chupito, Shotje, Shotti, Pits, Šots, Taurelė, Шот, a többi
   nyelven „Shot” (máltai és ír: az angol a mindennapi nyelv).
 
+### 5.26 A Profil egy főlap és három al-lap
+
+**A Profil egyetlen `Form` volt tizenegy szekcióval** (test, gyakoriság,
+határ, gyors felvitel, megjelenítés, nyelv, számított értékek, haladó,
+személyek, mentés, fejlesztői), és ami számít, elveszett aközött, ami nem.
+Zoltán döntése (2026. október 18.), kérdésenként végigvéve:
+
+- **Főlap:** test, gyakoriság (kinyitva, a leírásokkal — a modell leggyengébb
+  pontja, a leírás segít jól választani), saját határ, gyors felvitel (a Live
+  gombját állítja, gyakran változik). Alul három sor: **Display & language ›**,
+  **Data ›**, **Advanced ›**. A szabály: a főlapon az van, amiből a becslés
+  készül, és amit az ember gyakran állít.
+- **Display & language:** a ‰ / % és a gramm / egység **két külön sor, saját
+  szegmentes kapcsolóval** — egy inline listában két pipával egy elromlott
+  rádiócsoportnak látszottak. Az egységméret csak egységnél jelenik meg. Ide
+  került a **bizonytalanság csúszkája** is, az Advancedből: a saját
+  magyarázata ízlés kérdésének nevezi (egy szám vagy tartomány, 5.8), ez tehát
+  megjelenítési döntés, a ‰ / % rokona — nem a nyers béta szomszédja, amihez
+  mérés nélkül nem kell nyúlni. Alul a Nyelv sor (7.).
+- **Data:** személyek (ha a `multiPerson` be van kapcsolva) és mentés. Ide jön
+  majd az iCloud-szinkron állapota is.
+- **Advanced:** a **számított értékek** (testvíz, eloszlási térfogat,
+  Widmark-faktor) — ellenőrzésre valók, nem napi olvasmány, ezért kerültek
+  ki a főlapról —, alattuk a nyers béta lenyitva (5.3), debugban legalul a
+  fejlesztői kapcsolók.
+- **Személyváltó** a főlapon, a Display & language és az Advanced lapon is:
+  mindhárom a kiválasztott személy adatát írja (a bizonytalanság és a béta is
+  a profilban van). A Data lapon nincs — ott a személylista maga a váltó, a
+  mentés pedig mindenkit visz.
+- A gyakoriság lábléce eddig az Advancedbe küldött a bizonytalanságért; most a
+  Display & language lapra.
+
+**Fordítás:** négy új kulcs (`Display & language`, `Data`, `Concentration`, a
+béta új lábléce) és az átírt gyakoriság-lábléc mind a 24 nyelven; a `Display`,
+`Unit` és a régi közös Advanced-lábléc kikerült. Ugyanebben a körben a nyelvi
+modulok utolérték az 5.25-öt: a `Sparkling` / `Spirit` kulcs helyett
+`Champagne` / `Shot` — a katalógust akkor kézzel írták át, a modulokat nem,
+és a `make_catalog.py` ettől elhasalt. A katalógus értékei nem változtak.
+
+**Mire figyelni:** a hosszú nyelveken (litván, görög, finn) a szegmentes
+sorok és az al-lap címek kilógása élőben nézendő (`TODO.md`, Megjelenés).
+
 ## 6. Validáció
 
 A `Reference/bac_model.py` a numerikus referencia. A Swift tesztek konkrét
@@ -1748,7 +1790,7 @@ Zoltánnak visszaellenőriznie.
 
 **Forrásnyelv angol, a fordítások String Catalogban.** Az app a 24 hivatalos
 EU-nyelvet ismeri. Alapból azt választja, amit az iOS nyelvi beállítása kér; a
-felhasználó ettől eltérhet a Profil fül Nyelv sorával, ami a Beállításokban az
+felhasználó ettől eltérhet a Profil fül „Display & language” lapjának Nyelv sorával, ami a Beállításokban az
 app saját „Előnyben részesített nyelv" sorára visz (`LanguageSection`).
 
 - `LogMyDrink/Localizable.xcstrings` — 24 nyelven. Generált fájl, kézzel nem
@@ -1863,7 +1905,7 @@ nyitott alkalomnál a szintet és az irányt is mutatja (5.15); Előzmény Nap /
 mutató-kártyával, második statisztika-kártyával (5.24), ugró lappal és lakattal (5.16), a Trend szegmens debug
 kísérletként; JSON export / import (5.17); több személy a `multiPerson` flag
 mögött, személylistával és vendég-eltávolítással (5.18); 24 nyelvű lokalizáció
-(magyar és angol átnézve).
+(magyar és angol átnézve); a Profil főlap + három al-lap (5.26).
 
 **Tesztek:** 74 a `BACKit`-ben (Linuxon is futtatható, 6.; két régi teszt
 várt száma az 5.21-es verziólépésnél nem frissült és azóta bukott — 2026.

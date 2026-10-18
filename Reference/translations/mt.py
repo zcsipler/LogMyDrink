@@ -14,8 +14,8 @@ TRANSLATIONS = {
     # --- DrinkCatalog: drink types ---
     "Beer": "Birra",
     "Wine": "Inbid",
-    "Sparkling": "Frizzanti",
-    "Spirit": "Spirtu",
+    "Champagne": "Frizzanti",
+    "Shot": "Shot",
     "Cocktail": "Kokteil",
     "Custom": "Personalizzat",
 
@@ -163,21 +163,13 @@ TRANSLATIONS = {
         "tibdilha mhux se taffettwa r-riżultat.",
     "Drinking frequency": "Frekwenza tax-xorb",
     "How often do you drink?": "Kemm-il darba tixrob?",
-    "This is how we estimate your elimination rate. Regular drinking induces the liver's "
-    "CYP2E1 pathway, so frequent drinkers clear alcohol faster. It is the weakest point of the "
-    "model, which is why you can set under Advanced how much of that uncertainty the app shows "
-    "you.":
-        "Hekk nistmaw ir-rata ta' eliminazzjoni tiegħek. Ix-xorb regolari jistimula l-mogħdija "
-        "CYP2E1 tal-fwied, għalhekk min jixrob ta' spiss ineħħi l-alkoħol aktar malajr. Dan hu "
-        "l-aktar punt dgħajjef tal-mudell, u għalhekk taħt Avvanzat tista' tissettja kemm minn "
-        "dik l-inċertezza turik l-app.",
+    "This is how we estimate your elimination rate. Regular drinking induces the liver's CYP2E1 pathway, so frequent drinkers clear alcohol faster. It is the weakest point of the model, which is why you can set under Display & language how much of that uncertainty the app shows you.":
+        "Hekk nistmaw ir-rata ta' eliminazzjoni tiegħek. Ix-xorb regolari jistimula l-mogħdija CYP2E1 tal-fwied, għalhekk min jixrob ta' spiss ineħħi l-alkoħol aktar malajr. Dan hu l-aktar punt dgħajjef tal-mudell, u għalhekk taħt Wiri u lingwa tista' tissettja kemm minn dik l-inċertezza turik l-app.",
     "Your limit": "Il-limitu tiegħek",
     "Your own reference number, not a legal limit. The app tells you when a planned drink "
     "would take you past it, and for how long you would stay above.":
         "In-numru ta' referenza tiegħek stess, mhux limitu legali. L-app tgħidlek meta xarba "
         "ppjanata tieħdok lil hinn minnu, u għal kemm żmien tibqa' 'l fuq minnu.",
-    "Unit": "Unità",
-    "Display": "Wiri",
     "Calculated values": "Valuri kkalkulati",
     "Total body water": "Ilma totali tal-ġisem",
     "Distribution volume": "Volum ta' distribuzzjoni",
@@ -242,12 +234,6 @@ TRANSLATIONS = {
     "Rate": "Rata",
     "Range": "Firxa",
     "Advanced": "Avvanzat",
-    "Uncertainty is a matter of taste: it decides whether figures read as one number or as a "
-    "range. The rate below is not — leave it to the frequency question unless you have a "
-    "measurement to match it against.":
-        "L-inċertezza hi kwistjoni ta' gost: tiddeċiedi jekk iċ-ċifri jinqrawx bħala numru "
-        "wieħed jew bħala firxa. Ir-rata t'hawn taħt mhijiex — ħalliha f'idejn il-mistoqsija "
-        "dwar il-frekwenza sakemm ma jkollokx kejl biex tqabbilha miegħu.",
 
     # --- PersonSwitcher / FeatureFlags: more than one person (11.5) ---
     "Multiple people": "Diversi persuni",
@@ -382,4 +368,11 @@ TRANSLATIONS = {
     'Days over limit': "Jiem 'il fuq mil-limitu",
     'Longest sober run': 'L-itwal sensiela sobrija',
     'Favourite drink': 'Xarba favorita',
+
+    # --- Profile sub-pages (5.26) ---
+    "Display & language": "Wiri u lingwa",
+    "Data": "Data",
+    "Concentration": "Konċentrazzjoni",
+    "Leave the rate to the frequency question unless you have a measurement to match it against.":
+        "Ħalli r-rata f'idejn il-mistoqsija dwar kemm-il darba tixrob, sakemm ma jkollokx kejl biex tqabbilha miegħu.",
 }

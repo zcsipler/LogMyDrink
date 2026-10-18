@@ -137,18 +137,6 @@ az egész app hitelességét.
 - **Tömeges felvitel** (5.16): „20:00-tól fél óránként 8 sör"
   jellegű sorozat egy lépésben, az itteni felvitel bővítéseként.
 
-### Profil
-
-- **Túl sok a menü, kategóriákra kell szedni.** Ma egy végtelen `Form`:
-  test, gyakoriság, határ, haladó, gyors felvitel, megjelenítés, nyelv,
-  számított értékek, személyek, mentés, fejlesztői. Valószínűleg al-lapok
-  kellenek (pl. „Megjelenítés", „Adatok", „Haladó").
-- **A Display blokk két független választást mutat egy listában, két
-  pipával** (‰/% és g/egység). Rádiócsoportnak néz ki, amiben valami
-  elromlott; két szekció vagy két `Picker`.
-- **A Quick add sor csak a szövegen és a nyílon fogja a koppintást**, a
-  cella üres részén nem — `contentShape(Rectangle())` hiányzik.
-
 ### Tájékoztatás
 
 - **Részletesebb tájékoztató képernyők**: első indításkor mi ez és mi nem
@@ -181,7 +169,10 @@ az egész app hitelességét.
   `Theme` minden színe két értéket kap, és a határhoz kötött skála (5.14)
   világos háttéren is olvasható kell legyen.
 - **Lokalizált címkék kilógása**: litván `Advanced` / `Undo`, holland
-  `Undo`, román `Clears` — élőben végignézni, nem csak ezt a négyet.
+  `Undo`, román `Clears` — élőben végignézni, nem csak ezt a négyet. Az
+  új Profil al-lapok (5.26) is: a „Display & language” cím és a két
+  szegmentes sor (Concentration ‰ | %, Amount Grams | Units) hosszú
+  nyelveken.
 - **Az angol 12 órás időformátum** szélesebb címkéi a charton —
   élőben ellenőrizni.
 - **A hero tartományos elrendezése** 48 pt-on — élőben ellenőrizni.

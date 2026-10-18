@@ -14,8 +14,8 @@ TRANSLATIONS = {
     # --- DrinkCatalog: drink types ---
     "Beer": "Øl",
     "Wine": "Vin",
-    "Sparkling": "Mousserende",
-    "Spirit": "Spiritus",
+    "Champagne": "Mousserende",
+    "Shot": "Shot",
     "Cocktail": "Cocktail",
     "Custom": "Egen",
 
@@ -159,21 +159,13 @@ TRANSLATIONS = {
         "påvirker ikke resultatet.",
     "Drinking frequency": "Drikkefrekvens",
     "How often do you drink?": "Hvor ofte drikker du?",
-    "This is how we estimate your elimination rate. Regular drinking induces the liver's "
-    "CYP2E1 pathway, so frequent drinkers clear alcohol faster. It is the weakest point of the "
-    "model, which is why you can set under Advanced how much of that uncertainty the app shows "
-    "you.":
-        "Sådan skønner vi din forbrændingshastighed. Regelmæssig indtagelse inducerer leverens "
-        "CYP2E1-vej, så hyppige drikkere nedbryder alkohol hurtigere. Det er modellens "
-        "svageste punkt, og derfor kan du under Avanceret bestemme, hvor meget af den "
-        "usikkerhed appen viser dig.",
+    "This is how we estimate your elimination rate. Regular drinking induces the liver's CYP2E1 pathway, so frequent drinkers clear alcohol faster. It is the weakest point of the model, which is why you can set under Display & language how much of that uncertainty the app shows you.":
+        "Sådan skønner vi din forbrændingshastighed. Regelmæssig indtagelse inducerer leverens CYP2E1-vej, så hyppige drikkere nedbryder alkohol hurtigere. Det er modellens svageste punkt, og derfor kan du under Visning og sprog bestemme, hvor meget af den usikkerhed appen viser dig.",
     "Your limit": "Din grænse",
     "Your own reference number, not a legal limit. The app tells you when a planned drink "
     "would take you past it, and for how long you would stay above.":
         "Dit eget referencetal, ikke en lovbestemt grænse. Appen fortæller dig, hvornår en "
         "planlagt drink vil føre dig over den, og hvor længe du vil ligge over.",
-    "Unit": "Genstand",
-    "Display": "Visning",
     "Calculated values": "Beregnede værdier",
     "Total body water": "Samlet kropsvand",
     "Distribution volume": "Fordelingsvolumen",
@@ -238,12 +230,6 @@ TRANSLATIONS = {
     "Rate": "Hastighed",
     "Range": "Interval",
     "Advanced": "Avanceret",
-    "Uncertainty is a matter of taste: it decides whether figures read as one number or as a "
-    "range. The rate below is not — leave it to the frequency question unless you have a "
-    "measurement to match it against.":
-        "Usikkerhed er en smagssag: den afgør, om tal vises som ét tal eller som et interval. "
-        "Hastigheden nedenfor er ikke en smagssag — overlad den til spørgsmålet om frekvens, "
-        "medmindre du har en måling at holde den op imod.",
 
     # --- PersonSwitcher / FeatureFlags: more than one person (11.5) ---
     "Multiple people": "Flere personer",
@@ -377,4 +363,11 @@ TRANSLATIONS = {
     'Days over limit': 'Dage over grænsen',
     'Longest sober run': 'Længste ædru periode',
     'Favourite drink': 'Yndlingsdrik',
+
+    # --- Profile sub-pages (5.26) ---
+    "Display & language": "Visning og sprog",
+    "Data": "Data",
+    "Concentration": "Koncentration",
+    "Leave the rate to the frequency question unless you have a measurement to match it against.":
+        "Lad hastigheden følge spørgsmålet om hyppighed, medmindre du har en måling at holde den op imod.",
 }

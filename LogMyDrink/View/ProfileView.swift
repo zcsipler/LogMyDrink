@@ -15,14 +15,18 @@ import BACKit
 /// The raw rate is still reachable, and the block that holds it explains how
 /// someone could actually arrive at their own figure — from a breathalyser, or
 /// from watching whether they clear earlier than the app predicts. But it sits
-/// folded away at the very bottom of the advanced section, below everything
-/// else, because a control placed any higher reads as a question the user is
-/// expected to answer, and most of them cannot.
+/// folded away on the Advanced page, because a control placed any higher reads
+/// as a question the user is expected to answer, and most of them cannot.
+///
+/// The screen is one page and three sub-pages (5.26). The page itself holds
+/// what the estimate is made of and what someone changes often: body,
+/// frequency, limit, quick add. How figures look (units, uncertainty,
+/// language), what moves data (people, backup) and what is only there to be
+/// checked (derived values, the raw rate) each get a page of their own — as
+/// one `Form` it had grown to eleven sections, and the ones that mattered were
+/// lost between the ones that did not.
 struct ProfileView: View {
     let store: SessionStore
-    @State private var showsAdvanced = false
-
-    private var flags: FeatureFlags { .shared }
 
     var body: some View {
         NavigationStack {
@@ -31,32 +35,34 @@ struct ProfileView: View {
                 metabolismSection
                 limitSection
                 FavouriteDrinkSection(store: store)
-                unitSection
-                LanguageSection()
-                derivedSection
-                advancedSection
-                if flags.multiPerson {
-                    PeopleSection(store: store)
-                }
-                DataTransferSection(store: store)
-                #if DEBUG
-                developerSection
-                #endif
+                pagesSection
             }
-            .scrollContentBackground(.hidden)
-            .background(Theme.background)
-            .navigationTitle(Text("Profile"))
-            .navigationBarTitleDisplayMode(.inline)
-            // These fields edit the *selected* person's body. Without the chip
-            // there would be nothing on screen saying whose.
-            .toolbar {
-                if flags.multiPerson {
-                    ToolbarItem(placement: .topBarTrailing) {
-                        PersonSwitcher(store: store)
-                    }
-                }
+            .profilePage(title: "Profile", store: store)
+        }
+    }
+
+    // MARK: Sub-pages
+
+    private var pagesSection: some View {
+        Section {
+            NavigationLink {
+                DisplaySettingsView(store: store)
+            } label: {
+                Label { Text("Display & language") } icon: { Image(systemName: "textformat.size") }
+            }
+            NavigationLink {
+                DataSettingsView(store: store)
+            } label: {
+                Label { Text("Data") } icon: { Image(systemName: "externaldrive") }
+            }
+            NavigationLink {
+                AdvancedSettingsView(store: store)
+            } label: {
+                Label { Text("Advanced") } icon: { Image(systemName: "slider.horizontal.3") }
             }
         }
+        .listRowBackground(Theme.surface)
+        .tint(Theme.calm)
     }
 
     // MARK: Body
@@ -130,7 +136,7 @@ struct ProfileView: View {
         } header: {
             Text("How often do you drink?")
         } footer: {
-            Text("This is how we estimate your elimination rate. Regular drinking induces the liver's CYP2E1 pathway, so frequent drinkers clear alcohol faster. It is the weakest point of the model, which is why you can set under Advanced how much of that uncertainty the app shows you.")
+            Text("This is how we estimate your elimination rate. Regular drinking induces the liver's CYP2E1 pathway, so frequent drinkers clear alcohol faster. It is the weakest point of the model, which is why you can set under Display & language how much of that uncertainty the app shows you.")
         }
         .listRowBackground(Theme.surface)
     }
@@ -148,45 +154,104 @@ struct ProfileView: View {
         .listRowBackground(Theme.surface)
     }
 
-    // MARK: Unit
+    // MARK: Helpers
 
+    private func stepperRow(
+        title: LocalizedStringKey,
+        value: Binding<Double>,
+        range: ClosedRange<Double>,
+        step: Double,
+        unit: LocalizedStringKey
+    ) -> some View {
+        Stepper(value: value, in: range, step: step) {
+            HStack {
+                Text(title)
+                Spacer()
+                HStack(spacing: 3) {
+                    Text(verbatim: value.wrappedValue.formatted(.number.precision(.fractionLength(0))))
+                    Text(unit)
+                }
+                .font(.system(.body, design: .rounded).monospacedDigit())
+                .foregroundStyle(Theme.calm)
+            }
+        }
+    }
+}
+
+// MARK: - Sub-pages
+
+extension View {
+    /// The look every Profile page shares, and the person chip on the pages
+    /// that edit the *selected* person. Without the chip there would be
+    /// nothing on screen saying whose body, rate or band is being changed.
+    func profilePage(title: LocalizedStringKey, store: SessionStore, showsPerson: Bool = true) -> some View {
+        self
+            .scrollContentBackground(.hidden)
+            .background(Theme.background)
+            .navigationTitle(Text(title))
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                if showsPerson && FeatureFlags.shared.multiPerson {
+                    ToolbarItem(placement: .topBarTrailing) {
+                        PersonSwitcher(store: store)
+                    }
+                }
+            }
+    }
+}
+
+/// How figures read: units, single number or range, language.
+///
+/// The uncertainty lives here, not under Advanced. Its own explainer calls it
+/// a matter of taste — whether figures read as one number or as a range — and
+/// that is a display choice, the same kind as per mille against percent. Under
+/// Advanced it sat next to the raw rate, which is the opposite: a value to
+/// leave alone unless you have measured it.
+struct DisplaySettingsView: View {
+    let store: SessionStore
+
+    var body: some View {
+        Form {
+            unitSection
+            Section {
+                UncertaintyControl(store: store)
+            }
+            .listRowBackground(Theme.surface)
+            LanguageSection()
+        }
+        .profilePage(title: "Display & language", store: store)
+    }
+
+    /// Two independent choices, so two rows with a control each. In one
+    /// inline list they read as a single radio group with two ticks — a
+    /// group that looked broken.
     private var unitSection: some View {
         Section {
-            Picker(selection: Binding(
-                get: { store.unit },
-                set: { store.unit = $0 }
-            )) {
-                ForEach(BACUnit.allCases) { unit in
-                    HStack(spacing: 5) {
-                        Text(unit.label)
-                        Text(verbatim: "(\(unit.suffix))")
-                            .foregroundStyle(Theme.secondaryText)
+            segmentedRow("Concentration") {
+                Picker(selection: Binding(
+                    get: { store.unit },
+                    set: { store.unit = $0 }
+                )) {
+                    ForEach(BACUnit.allCases) { unit in
+                        Text(verbatim: unit.suffix).tag(unit)
                     }
-                    .tag(unit)
+                } label: {
+                    Text("Concentration")
                 }
-            } label: {
-                Text("Unit")
             }
-            .pickerStyle(.inline)
-            .labelsHidden()
 
-            Picker(selection: Binding(
-                get: { store.amountUnit },
-                set: { store.amountUnit = $0 }
-            )) {
-                ForEach(AmountUnit.allCases) { unit in
-                    HStack(spacing: 5) {
-                        Text(unit.label)
-                        Text(verbatim: unit == .grams ? "(g)" : "(\(Self.grams(store.amountFormat.gramsPerUnit)))")
-                            .foregroundStyle(Theme.secondaryText)
+            segmentedRow("Amount") {
+                Picker(selection: Binding(
+                    get: { store.amountUnit },
+                    set: { store.amountUnit = $0 }
+                )) {
+                    ForEach(AmountUnit.allCases) { unit in
+                        Text(unit.shortLabel).tag(unit)
                     }
-                    .tag(unit)
+                } label: {
+                    Text("Amount")
                 }
-            } label: {
-                Text("Amount")
             }
-            .pickerStyle(.inline)
-            .labelsHidden()
 
             // How many grams a unit is — only a question for someone who
             // counts in units. Automatic follows the device's region until a
@@ -214,18 +279,67 @@ struct ProfileView: View {
                     Text("Unit size")
                 }
             }
-        } header: {
-            Text("Display")
         }
         .listRowBackground(Theme.surface)
+    }
+
+    private func segmentedRow(_ title: LocalizedStringKey, @ViewBuilder picker: () -> some View) -> some View {
+        HStack {
+            Text(title)
+            Spacer(minLength: 12)
+            picker()
+                .pickerStyle(.segmented)
+                .labelsHidden()
+                .fixedSize()
+        }
     }
 
     /// "10 g" — a symbol, not a word.
     private static func grams(_ value: Double) -> String {
         "\(value.formatted(.number.precision(.fractionLength(0)))) g"
     }
+}
 
-    // MARK: Derived values
+/// What moves data: the people the app records, and backup.
+///
+/// No person chip: the list of people is itself the switcher here, and a
+/// backup holds everyone.
+struct DataSettingsView: View {
+    let store: SessionStore
+
+    var body: some View {
+        Form {
+            if FeatureFlags.shared.multiPerson {
+                PeopleSection(store: store)
+            }
+            DataTransferSection(store: store)
+        }
+        .profilePage(title: "Data", store: store, showsPerson: false)
+    }
+}
+
+/// What is there to be checked rather than set: the values the body
+/// produces, and the raw elimination rate.
+struct AdvancedSettingsView: View {
+    let store: SessionStore
+
+    private var flags: FeatureFlags { .shared }
+
+    var body: some View {
+        Form {
+            derivedSection
+            Section {
+                EliminationRateGroup(store: store)
+            } footer: {
+                Text("Leave the rate to the frequency question unless you have a measurement to match it against.")
+            }
+            .listRowBackground(Theme.surface)
+            #if DEBUG
+            developerSection
+            #endif
+        }
+        .profilePage(title: "Advanced", store: store)
+    }
 
     private var derivedSection: some View {
         Section {
@@ -251,25 +365,9 @@ struct ProfileView: View {
         }
     }
 
-    // MARK: Advanced
-
-    private var advancedSection: some View {
-        Section {
-            DisclosureGroup(isExpanded: $showsAdvanced) {
-                UncertaintyControl(store: store)
-                EliminationRateGroup(store: store)
-            } label: {
-                Text("Advanced")
-            }
-        } footer: {
-            Text("Uncertainty is a matter of taste: it decides whether figures read as one number or as a range. The rate below is not — leave it to the frequency question unless you have a measurement to match it against.")
-        }
-        .listRowBackground(Theme.surface)
-    }
-
     // MARK: Developer
     //
-    // Debug builds only, and deliberately at the very bottom, below Advanced:
+    // Debug builds only, and deliberately at the very bottom of Advanced:
     // these switches change what the app *is*, not how it calculates. The
     // strings here are not localized — the only reader is the developer.
 
@@ -311,29 +409,6 @@ struct ProfileView: View {
         .listRowBackground(Theme.surface)
     }
     #endif
-
-    // MARK: Helpers
-
-    private func stepperRow(
-        title: LocalizedStringKey,
-        value: Binding<Double>,
-        range: ClosedRange<Double>,
-        step: Double,
-        unit: LocalizedStringKey
-    ) -> some View {
-        Stepper(value: value, in: range, step: step) {
-            HStack {
-                Text(title)
-                Spacer()
-                HStack(spacing: 3) {
-                    Text(verbatim: value.wrappedValue.formatted(.number.precision(.fractionLength(0))))
-                    Text(unit)
-                }
-                .font(.system(.body, design: .rounded).monospacedDigit())
-                .foregroundStyle(Theme.calm)
-            }
-        }
-    }
 }
 
 // MARK: - Sliders

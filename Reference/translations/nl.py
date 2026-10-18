@@ -14,8 +14,8 @@ TRANSLATIONS = {
     # --- DrinkCatalog: drink types ---
     "Beer": "Bier",
     "Wine": "Wijn",
-    "Sparkling": "Mousserend",
-    "Spirit": "Sterkedrank",
+    "Champagne": "Mousserend",
+    "Shot": "Shotje",
     "Cocktail": "Cocktail",
     "Custom": "Aangepast",
 
@@ -160,21 +160,13 @@ TRANSLATIONS = {
         "die wijzigen heeft geen invloed op het resultaat.",
     "Drinking frequency": "Drinkfrequentie",
     "How often do you drink?": "Hoe vaak drink je?",
-    "This is how we estimate your elimination rate. Regular drinking induces the liver's "
-    "CYP2E1 pathway, so frequent drinkers clear alcohol faster. It is the weakest point of the "
-    "model, which is why you can set under Advanced how much of that uncertainty the app shows "
-    "you.":
-        "Zo schatten we je afbraaksnelheid. Regelmatig drinken induceert de CYP2E1-route in de "
-        "lever, waardoor frequente drinkers alcohol sneller afbreken. Het is het zwakste punt "
-        "van het model, en daarom kun je onder Geavanceerd instellen hoeveel van die "
-        "onzekerheid de app je laat zien.",
+    "This is how we estimate your elimination rate. Regular drinking induces the liver's CYP2E1 pathway, so frequent drinkers clear alcohol faster. It is the weakest point of the model, which is why you can set under Display & language how much of that uncertainty the app shows you.":
+        "Zo schatten we je afbraaksnelheid. Regelmatig drinken induceert de CYP2E1-route in de lever, waardoor frequente drinkers alcohol sneller afbreken. Het is het zwakste punt van het model, en daarom kun je onder Weergave en taal instellen hoeveel van die onzekerheid de app je laat zien.",
     "Your limit": "Je limiet",
     "Your own reference number, not a legal limit. The app tells you when a planned drink "
     "would take you past it, and for how long you would stay above.":
         "Je eigen richtgetal, geen wettelijke limiet. De app vertelt je wanneer een gepland "
         "drankje je eroverheen zou brengen, en hoe lang je erboven zou blijven.",
-    "Unit": "Eenheid",
-    "Display": "Weergave",
     "Calculated values": "Berekende waarden",
     "Total body water": "Totaal lichaamswater",
     "Distribution volume": "Verdelingsvolume",
@@ -240,12 +232,6 @@ TRANSLATIONS = {
     "Rate": "Snelheid",
     "Range": "Bereik",
     "Advanced": "Geavanceerd",
-    "Uncertainty is a matter of taste: it decides whether figures read as one number or as a "
-    "range. The rate below is not — leave it to the frequency question unless you have a "
-    "measurement to match it against.":
-        "Onzekerheid is een kwestie van smaak: die bepaalt of cijfers als één getal of als een "
-        "bereik worden gelezen. De snelheid hieronder is dat niet — laat die over aan de vraag "
-        "over frequentie, tenzij je een meting hebt om hem aan te toetsen.",
 
     # --- PersonSwitcher / FeatureFlags: more than one person (11.5) ---
     "Multiple people": "Meerdere personen",
@@ -379,4 +365,11 @@ TRANSLATIONS = {
     'Days over limit': 'Dagen boven de grens',
     'Longest sober run': 'Langste nuchtere reeks',
     'Favourite drink': 'Favoriete drankje',
+
+    # --- Profile sub-pages (5.26) ---
+    "Display & language": "Weergave en taal",
+    "Data": "Gegevens",
+    "Concentration": "Concentratie",
+    "Leave the rate to the frequency question unless you have a measurement to match it against.":
+        "Laat de snelheid over aan de vraag hoe vaak je drinkt, tenzij je een meting hebt om hem mee te vergelijken.",
 }

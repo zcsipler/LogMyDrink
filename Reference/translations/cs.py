@@ -14,8 +14,8 @@ TRANSLATIONS = {
     # --- DrinkCatalog: drink types ---
     "Beer": "Pivo",
     "Wine": "Víno",
-    "Sparkling": "Šumivé víno",
-    "Spirit": "Destilát",
+    "Champagne": "Šumivé víno",
+    "Shot": "Panák",
     "Cocktail": "Koktejl",
     "Custom": "Vlastní",
 
@@ -159,21 +159,13 @@ TRANSLATIONS = {
         "neovlivní.",
     "Drinking frequency": "Frekvence pití",
     "How often do you drink?": "Jak často piješ?",
-    "This is how we estimate your elimination rate. Regular drinking induces the liver's "
-    "CYP2E1 pathway, so frequent drinkers clear alcohol faster. It is the weakest point of the "
-    "model, which is why you can set under Advanced how much of that uncertainty the app shows "
-    "you.":
-        "Takto odhadujeme tvoji rychlost odbourávání. Pravidelné pití indukuje jaterní dráhu "
-        "CYP2E1, takže kdo pije často, odbourává alkohol rychleji. Je to nejslabší místo "
-        "modelu — proto si můžeš v sekci Pokročilé určit, kolik z této nejistoty ti aplikace "
-        "ukáže.",
+    "This is how we estimate your elimination rate. Regular drinking induces the liver's CYP2E1 pathway, so frequent drinkers clear alcohol faster. It is the weakest point of the model, which is why you can set under Display & language how much of that uncertainty the app shows you.":
+        "Takto odhadujeme tvoji rychlost odbourávání. Pravidelné pití indukuje jaterní dráhu CYP2E1, takže kdo pije často, odbourává alkohol rychleji. Je to nejslabší místo modelu — proto si můžeš v sekci Zobrazení a jazyk určit, kolik z této nejistoty ti aplikace ukáže.",
     "Your limit": "Tvůj limit",
     "Your own reference number, not a legal limit. The app tells you when a planned drink "
     "would take you past it, and for how long you would stay above.":
         "Tvoje vlastní referenční číslo, ne zákonný limit. Aplikace ti řekne, kdy by tě "
         "plánovaný nápoj dostal nad něj a jak dlouho by hladina nad ním zůstala.",
-    "Unit": "Jednotka",
-    "Display": "Zobrazení",
     "Calculated values": "Vypočtené hodnoty",
     "Total body water": "Celková tělesná voda",
     "Distribution volume": "Distribuční objem",
@@ -237,12 +229,6 @@ TRANSLATIONS = {
     "Rate": "Rychlost",
     "Range": "Rozpětí",
     "Advanced": "Pokročilé",
-    "Uncertainty is a matter of taste: it decides whether figures read as one number or as a "
-    "range. The rate below is not — leave it to the frequency question unless you have a "
-    "measurement to match it against.":
-        "Nejistota je věc vkusu: rozhoduje, jestli se údaje čtou jako jedno číslo, nebo jako "
-        "rozpětí. Rychlost níže věc vkusu není — nech ji na otázce o frekvenci, pokud nemáš "
-        "měření, se kterým by se dala srovnat.",
 
     # --- PersonSwitcher / FeatureFlags: more than one person (11.5) ---
     "Multiple people": "Více osob",
@@ -375,4 +361,11 @@ TRANSLATIONS = {
     'Days over limit': 'Dny nad limitem',
     'Longest sober run': 'Nejdelší střízlivá série',
     'Favourite drink': 'Oblíbený nápoj',
+
+    # --- Profile sub-pages (5.26) ---
+    "Display & language": "Zobrazení a jazyk",
+    "Data": "Data",
+    "Concentration": "Koncentrace",
+    "Leave the rate to the frequency question unless you have a measurement to match it against.":
+        "Rychlost nech na otázce o četnosti, pokud nemáš měření, se kterým bys ji mohl porovnat.",
 }

@@ -14,8 +14,8 @@ TRANSLATIONS = {
     # --- DrinkCatalog: drink types ---
     "Beer": "Cerveza",
     "Wine": "Vino",
-    "Sparkling": "Espumoso",
-    "Spirit": "Licor",
+    "Champagne": "Espumoso",
+    "Shot": "Chupito",
     "Cocktail": "Cóctel",
     "Custom": "Personalizado",
 
@@ -161,21 +161,13 @@ TRANSLATIONS = {
         "cambiarla no afectará al resultado.",
     "Drinking frequency": "Frecuencia de consumo",
     "How often do you drink?": "¿Con qué frecuencia bebes?",
-    "This is how we estimate your elimination rate. Regular drinking induces the liver's "
-    "CYP2E1 pathway, so frequent drinkers clear alcohol faster. It is the weakest point of the "
-    "model, which is why you can set under Advanced how much of that uncertainty the app shows "
-    "you.":
-        "Así estimamos tu tasa de eliminación. Beber con regularidad induce la vía CYP2E1 del "
-        "hígado, por lo que quien bebe con frecuencia elimina el alcohol más rápido. Es el "
-        "punto más débil del modelo, y por eso en Avanzado puedes elegir cuánta de esa "
-        "incertidumbre te muestra la app.",
+    "This is how we estimate your elimination rate. Regular drinking induces the liver's CYP2E1 pathway, so frequent drinkers clear alcohol faster. It is the weakest point of the model, which is why you can set under Display & language how much of that uncertainty the app shows you.":
+        "Así estimamos tu tasa de eliminación. Beber con regularidad induce la vía CYP2E1 del hígado, por lo que quien bebe con frecuencia elimina el alcohol más rápido. Es el punto más débil del modelo, y por eso en Visualización e idioma puedes elegir cuánta de esa incertidumbre te muestra la app.",
     "Your limit": "Tu límite",
     "Your own reference number, not a legal limit. The app tells you when a planned drink "
     "would take you past it, and for how long you would stay above.":
         "Tu propia cifra de referencia, no un límite legal. La app te avisa cuando una bebida "
         "prevista te haría superarlo y durante cuánto tiempo estarías por encima.",
-    "Unit": "Unidad",
-    "Display": "Visualización",
     "Calculated values": "Valores calculados",
     "Total body water": "Agua corporal total",
     "Distribution volume": "Volumen de distribución",
@@ -240,12 +232,6 @@ TRANSLATIONS = {
     "Rate": "Tasa",
     "Range": "Rango",
     "Advanced": "Avanzado",
-    "Uncertainty is a matter of taste: it decides whether figures read as one number or as a "
-    "range. The rate below is not — leave it to the frequency question unless you have a "
-    "measurement to match it against.":
-        "La incertidumbre es cuestión de gustos: decide si las cifras se leen como un número o "
-        "como un rango. La tasa de abajo no lo es: déjasela a la pregunta sobre la frecuencia, "
-        "salvo que tengas una medición con la que contrastarla.",
 
     # --- PersonSwitcher / FeatureFlags: more than one person (11.5) ---
     "Multiple people": "Varias personas",
@@ -380,4 +366,11 @@ TRANSLATIONS = {
     'Days over limit': 'Días sobre el límite',
     'Longest sober run': 'Racha sobria más larga',
     'Favourite drink': 'Bebida favorita',
+
+    # --- Profile sub-pages (5.26) ---
+    "Display & language": "Visualización e idioma",
+    "Data": "Datos",
+    "Concentration": "Concentración",
+    "Leave the rate to the frequency question unless you have a measurement to match it against.":
+        "Deja la tasa a la pregunta de frecuencia, salvo que tengas una medición con la que contrastarla.",
 }

@@ -14,8 +14,8 @@ TRANSLATIONS = {
     # --- DrinkCatalog: drink types ---
     "Beer": "Alus",
     "Wine": "Vynas",
-    "Sparkling": "Putojantis",
-    "Spirit": "Stiprusis gėrimas",
+    "Champagne": "Putojantis",
+    "Shot": "Taurelė",
     "Cocktail": "Kokteilis",
     "Custom": "Pasirinktinis",
 
@@ -161,21 +161,13 @@ TRANSLATIONS = {
         "rezultato nepakeis.",
     "Drinking frequency": "Gėrimo dažnis",
     "How often do you drink?": "Kaip dažnai geri?",
-    "This is how we estimate your elimination rate. Regular drinking induces the liver's "
-    "CYP2E1 pathway, so frequent drinkers clear alcohol faster. It is the weakest point of the "
-    "model, which is why you can set under Advanced how much of that uncertainty the app shows "
-    "you.":
-        "Taip vertiname tavo šalinimo greitį. Reguliarus gėrimas suaktyvina kepenų CYP2E1 "
-        "kelią, todėl dažnai geriantieji alkoholį pašalina greičiau. Tai silpniausia modelio "
-        "vieta — todėl skiltyje „Išplėstiniai nustatymai“ gali pasirinkti, kiek to "
-        "neapibrėžtumo programėlė tau rodo.",
+    "This is how we estimate your elimination rate. Regular drinking induces the liver's CYP2E1 pathway, so frequent drinkers clear alcohol faster. It is the weakest point of the model, which is why you can set under Display & language how much of that uncertainty the app shows you.":
+        "Taip vertiname tavo šalinimo greitį. Reguliarus gėrimas suaktyvina kepenų CYP2E1 kelią, todėl dažnai geriantieji alkoholį pašalina greičiau. Tai silpniausia modelio vieta — todėl skiltyje „Rodymas ir kalba“ gali pasirinkti, kiek to neapibrėžtumo programėlė tau rodo.",
     "Your limit": "Tavo riba",
     "Your own reference number, not a legal limit. The app tells you when a planned drink "
     "would take you past it, and for how long you would stay above.":
         "Tai tavo paties orientacinis skaičius, o ne teisinė riba. Programėlė pasako, kada "
         "planuojamas gėrimas ją peržengtų ir kiek laiko liktum virš jos.",
-    "Unit": "Matavimo vienetas",
-    "Display": "Rodymas",
     "Calculated values": "Apskaičiuotos reikšmės",
     "Total body water": "Bendras kūno vandens kiekis",
     "Distribution volume": "Pasiskirstymo tūris",
@@ -241,12 +233,6 @@ TRANSLATIONS = {
     "Rate": "Greitis",
     "Range": "Intervalas",
     "Advanced": "Išplėstiniai nustatymai",
-    "Uncertainty is a matter of taste: it decides whether figures read as one number or as a "
-    "range. The rate below is not — leave it to the frequency question unless you have a "
-    "measurement to match it against.":
-        "Neapibrėžtumas yra skonio reikalas: jis lemia, ar reikšmės rodomos kaip vienas "
-        "skaičius, ar kaip intervalas. Žemiau esantis greitis — ne; palik jį nustatyti pagal "
-        "dažnio klausimą, nebent turi matavimą, su kuriuo gali jį palyginti.",
 
     # --- PersonSwitcher / FeatureFlags: more than one person (11.5) ---
     "Multiple people": "Keli žmonės",
@@ -381,4 +367,11 @@ TRANSLATIONS = {
     'Days over limit': 'Dienos virš ribos',
     'Longest sober run': 'Ilgiausia blaivi serija',
     'Favourite drink': 'Mėgstamiausias gėrimas',
+
+    # --- Profile sub-pages (5.26) ---
+    "Display & language": "Rodymas ir kalba",
+    "Data": "Duomenys",
+    "Concentration": "Koncentracija",
+    "Leave the rate to the frequency question unless you have a measurement to match it against.":
+        "Greitį palik dažnumo klausimui, nebent turi matavimą, su kuriuo jį galėtum palyginti.",
 }

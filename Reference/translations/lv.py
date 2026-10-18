@@ -14,8 +14,8 @@ TRANSLATIONS = {
     # --- DrinkCatalog: drink types ---
     "Beer": "Alus",
     "Wine": "Vīns",
-    "Sparkling": "Dzirkstošvīns",
-    "Spirit": "Stiprais",
+    "Champagne": "Dzirkstošvīns",
+    "Shot": "Šots",
     "Cocktail": "Kokteilis",
     "Custom": "Pielāgots",
 
@@ -160,21 +160,13 @@ TRANSLATIONS = {
         "maiņa rezultātu neietekmēs.",
     "Drinking frequency": "Dzeršanas biežums",
     "How often do you drink?": "Cik bieži tu dzer?",
-    "This is how we estimate your elimination rate. Regular drinking induces the liver's "
-    "CYP2E1 pathway, so frequent drinkers clear alcohol faster. It is the weakest point of the "
-    "model, which is why you can set under Advanced how much of that uncertainty the app shows "
-    "you.":
-        "Šādi mēs novērtējam tavu izvadīšanas ātrumu. Regulāra dzeršana inducē aknu CYP2E1 "
-        "ceļu, tāpēc biežiem dzērājiem alkohols tiek izvadīts ātrāk. Tas ir modeļa vājākais "
-        "punkts, un tieši tāpēc sadaļā Papildu tu vari norādīt, cik daudz no šīs nenoteiktības "
-        "lietotne tev rāda.",
+    "This is how we estimate your elimination rate. Regular drinking induces the liver's CYP2E1 pathway, so frequent drinkers clear alcohol faster. It is the weakest point of the model, which is why you can set under Display & language how much of that uncertainty the app shows you.":
+        "Šādi mēs novērtējam tavu izvadīšanas ātrumu. Regulāra dzeršana inducē aknu CYP2E1 ceļu, tāpēc biežiem dzērājiem alkohols tiek izvadīts ātrāk. Tas ir modeļa vājākais punkts, un tieši tāpēc sadaļā Attēlojums un valoda tu vari norādīt, cik daudz no šīs nenoteiktības lietotne tev rāda.",
     "Your limit": "Tava robeža",
     "Your own reference number, not a legal limit. The app tells you when a planned drink "
     "would take you past it, and for how long you would stay above.":
         "Tavs paša atskaites skaitlis, nevis likumā noteiktā robeža. Lietotne norāda, kad "
         "plānotais dzēriens to pārsniegtu un cik ilgi tu paliktu virs tās.",
-    "Unit": "Mērvienība",
-    "Display": "Attēlojums",
     "Calculated values": "Aprēķinātās vērtības",
     "Total body water": "Kopējais ķermeņa ūdens",
     "Distribution volume": "Izkliedes tilpums",
@@ -238,12 +230,6 @@ TRANSLATIONS = {
     "Rate": "Ātrums",
     "Range": "Diapazons",
     "Advanced": "Papildu",
-    "Uncertainty is a matter of taste: it decides whether figures read as one number or as a "
-    "range. The rate below is not — leave it to the frequency question unless you have a "
-    "measurement to match it against.":
-        "Nenoteiktība ir gaumes jautājums: tā nosaka, vai rādītāji tiek lasīti kā viens "
-        "skaitlis vai kā diapazons. Ātrums zemāk tāds nav — atstāj to biežuma jautājuma ziņā, "
-        "ja vien tev nav mērījuma, ar ko to salīdzināt.",
 
     # --- PersonSwitcher / FeatureFlags: more than one person (11.5) ---
     "Multiple people": "Vairākas personas",
@@ -376,4 +362,11 @@ TRANSLATIONS = {
     'Days over limit': 'Dienas virs robežas',
     'Longest sober run': 'Garākā skaidrā sērija',
     'Favourite drink': 'Iecienītākais dzēriens',
+
+    # --- Profile sub-pages (5.26) ---
+    "Display & language": "Attēlojums un valoda",
+    "Data": "Dati",
+    "Concentration": "Koncentrācija",
+    "Leave the rate to the frequency question unless you have a measurement to match it against.":
+        "Atstāj ātrumu biežuma jautājuma ziņā, ja vien tev nav mērījuma, ar ko to salīdzināt.",
 }

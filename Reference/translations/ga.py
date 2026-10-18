@@ -14,8 +14,8 @@ TRANSLATIONS = {
     # --- DrinkCatalog: drink types ---
     "Beer": "Beoir",
     "Wine": "Fíon",
-    "Sparkling": "Súilíneach",
-    "Spirit": "Biotáille",
+    "Champagne": "Súilíneach",
+    "Shot": "Shot",
     "Cocktail": "Manglam",
     "Custom": "Saincheaptha",
 
@@ -161,21 +161,13 @@ TRANSLATIONS = {
         "bheidh tionchar ag athrú uirthi ar an toradh.",
     "Drinking frequency": "Minicíocht óil",
     "How often do you drink?": "Cé chomh minic a ólann tú?",
-    "This is how we estimate your elimination rate. Regular drinking induces the liver's "
-    "CYP2E1 pathway, so frequent drinkers clear alcohol faster. It is the weakest point of the "
-    "model, which is why you can set under Advanced how much of that uncertainty the app shows "
-    "you.":
-        "Seo mar a dhéanaimid do ráta glanta a mheas. Spreagann ól rialta conair CYP2E1 an ae, "
-        "agus mar sin glanann daoine a ólann go minic alcól níos tapúla. Seo an pointe is "
-        "laige sa tsamhail, agus sin an fáth gur féidir leat a shocrú faoi Ardroghanna cé "
-        "mhéad den éiginnteacht sin a thaispeánann an aip duit.",
+    "This is how we estimate your elimination rate. Regular drinking induces the liver's CYP2E1 pathway, so frequent drinkers clear alcohol faster. It is the weakest point of the model, which is why you can set under Display & language how much of that uncertainty the app shows you.":
+        "Seo mar a dhéanaimid do ráta glanta a mheas. Spreagann ól rialta conair CYP2E1 an ae, agus mar sin glanann daoine a ólann go minic alcól níos tapúla. Seo an pointe is laige sa tsamhail, agus sin an fáth gur féidir leat a shocrú faoi Taispeáint agus teanga cé mhéad den éiginnteacht sin a thaispeánann an aip duit.",
     "Your limit": "Do theorainn",
     "Your own reference number, not a legal limit. The app tells you when a planned drink "
     "would take you past it, and for how long you would stay above.":
         "D'uimhir thagartha féin, ní teorainn dhlíthiúil. Insíonn an aip duit nuair a "
         "thabharfadh deoch bheartaithe thairsti thú, agus cé chomh fada a d'fhanfá os a cionn.",
-    "Unit": "Aonad",
-    "Display": "Taispeáint",
     "Calculated values": "Luachanna ríofa",
     "Total body water": "Uisce iomlán an choirp",
     "Distribution volume": "Toirt dáileacháin",
@@ -242,12 +234,6 @@ TRANSLATIONS = {
     "Rate": "Ráta",
     "Range": "Raon",
     "Advanced": "Ardroghanna",
-    "Uncertainty is a matter of taste: it decides whether figures read as one number or as a "
-    "range. The rate below is not — leave it to the frequency question unless you have a "
-    "measurement to match it against.":
-        "Is ceist blais í an éiginnteacht: socraíonn sí an léitear figiúirí mar uimhir amháin "
-        "nó mar raon. Ní hamhlaidh don ráta thíos — fág faoin gceist minicíochta é mura bhfuil "
-        "tomhas agat le cur i gcomparáid leis.",
 
     # --- PersonSwitcher / FeatureFlags: more than one person (11.5) ---
     "Multiple people": "Roinnt daoine",
@@ -384,4 +370,11 @@ TRANSLATIONS = {
     'Days over limit': 'Laethanta os cionn na teorann',
     'Longest sober run': 'An tréimhse stuama is faide',
     'Favourite drink': 'An deoch is fearr leat',
+
+    # --- Profile sub-pages (5.26) ---
+    "Display & language": "Taispeáint agus teanga",
+    "Data": "Sonraí",
+    "Concentration": "Tiúchan",
+    "Leave the rate to the frequency question unless you have a measurement to match it against.":
+        "Fág an ráta faoin gceist faoi mhinicíocht, mura bhfuil tomhas agat le hé a chur i gcomparáid leis.",
 }

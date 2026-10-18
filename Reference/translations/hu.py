@@ -14,8 +14,8 @@ TRANSLATIONS = {
     # --- DrinkCatalog: drink types ---
     "Beer": "Sör",
     "Wine": "Bor",
-    "Sparkling": "Pezsgő",
-    "Spirit": "Tömény",
+    "Champagne": "Pezsgő",
+    "Shot": "Feles",
     "Cocktail": "Koktél",
     "Custom": "Egyedi",
 
@@ -152,19 +152,13 @@ TRANSLATIONS = {
         "A női egyenlet nem tartalmazza az életkort, ezért annak állítása nem változtat az eredményen.",
     "Drinking frequency": "Fogyasztás gyakorisága",
     "How often do you drink?": "Milyen gyakran iszol?",
-    "This is how we estimate your elimination rate. Regular drinking induces the liver's CYP2E1 pathway, "
-    "so frequent drinkers clear alcohol faster. It is the weakest point of the model, which is why you can "
-    "set under Advanced how much of that uncertainty the app shows you.":
-        "Ebből becsüljük a lebontási sebességet. A rendszeres fogyasztás indukálja a máj CYP2E1 útvonalát, "
-        "ezért a gyakori fogyasztók gyorsabban bontják le az alkoholt. Ez a modell leggyengébb pontja, "
-        "ezért a Haladó beállításokban megadhatod, mennyit mutasson meg az app ebből a bizonytalanságból.",
+    "This is how we estimate your elimination rate. Regular drinking induces the liver's CYP2E1 pathway, so frequent drinkers clear alcohol faster. It is the weakest point of the model, which is why you can set under Display & language how much of that uncertainty the app shows you.":
+        "Ebből becsüljük a lebontási sebességet. A rendszeres fogyasztás indukálja a máj CYP2E1 útvonalát, ezért a gyakori fogyasztók gyorsabban bontják le az alkoholt. Ez a modell leggyengébb pontja, ezért a Megjelenítés és nyelv lapon megadhatod, mennyit mutasson meg az app ebből a bizonytalanságból.",
     "Your limit": "Saját határ",
     "Your own reference number, not a legal limit. The app tells you when a planned drink would take you "
     "past it, and for how long you would stay above.":
         "A te referenciaszámod, nem jogi limit. Az app jelzi, ha egy tervezett ital átvinne rajta — és azt "
         "is, mennyi ideig maradnál fölötte.",
-    "Unit": "Mértékegység",
-    "Display": "Megjelenítés",
     "Calculated values": "Számított értékek",
     "Total body water": "Teljes testvíz",
     "Distribution volume": "Eloszlási térfogat",
@@ -219,12 +213,6 @@ TRANSLATIONS = {
     "Rate": "Sebesség",
     "Range": "Sáv",
     "Advanced": "Haladó beállítások",
-    "Uncertainty is a matter of taste: it decides whether figures read as one number or as a range. "
-    "The rate below is not — leave it to the frequency question unless you have a measurement to match "
-    "it against.":
-        "A bizonytalanság ízlés kérdése: ez dönti el, hogy a számok egy értékként vagy tartományként "
-        "jelennek meg. Az alatta lévő sebesség nem az — hagyd a gyakorisági kérdésre, hacsak nincs mért "
-        "értéked, amihez igazítanád.",
 
     # --- PersonSwitcher / FeatureFlags: more than one person (11.5) ---
     "Multiple people": "Több személy",
@@ -354,4 +342,11 @@ TRANSLATIONS = {
     'Days over limit': 'Határ fölötti napok',
     'Longest sober run': 'Leghosszabb józan sorozat',
     'Favourite drink': 'Kedvenc ital',
+
+    # --- Profile sub-pages (5.26) ---
+    "Display & language": "Megjelenítés és nyelv",
+    "Data": "Adatok",
+    "Concentration": "Koncentráció",
+    "Leave the rate to the frequency question unless you have a measurement to match it against.":
+        "A sebességet hagyd a gyakorisági kérdésre, hacsak nincs mért értéked, amihez igazítanád.",
 }

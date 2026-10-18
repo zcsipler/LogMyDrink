@@ -7302,6 +7302,155 @@
         }
       }
     },
+    "Concentration" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "bg" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Концентрация"
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Koncentrace"
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Koncentration"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Konzentration"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Συγκέντρωση"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Concentration"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Concentración"
+          }
+        },
+        "et" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Kontsentratsioon"
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Pitoisuus"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Concentration"
+          }
+        },
+        "ga" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Tiúchan"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Koncentracija"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Koncentráció"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Concentrazione"
+          }
+        },
+        "lt" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Koncentracija"
+          }
+        },
+        "lv" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Koncentrācija"
+          }
+        },
+        "mt" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Konċentrazzjoni"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Concentratie"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Stężenie"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Concentração"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Concentrație"
+          }
+        },
+        "sk" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Koncentrácia"
+          }
+        },
+        "sl" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Koncentracija"
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Koncentration"
+          }
+        }
+      }
+    },
     "Could not import" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -7894,6 +8043,155 @@
           "stringUnit" : {
             "state" : "needs_review",
             "value" : "Dagligen eller nästan dagligen"
+          }
+        }
+      }
+    },
+    "Data" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "bg" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Данни"
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Data"
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Data"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Daten"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Δεδομένα"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Data"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Datos"
+          }
+        },
+        "et" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Andmed"
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Tiedot"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Données"
+          }
+        },
+        "ga" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Sonraí"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Podaci"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Adatok"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Dati"
+          }
+        },
+        "lt" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Duomenys"
+          }
+        },
+        "lv" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Dati"
+          }
+        },
+        "mt" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Data"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Gegevens"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Dane"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Dados"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Date"
+          }
+        },
+        "sk" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Údaje"
+          }
+        },
+        "sl" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Podatki"
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Data"
           }
         }
       }
@@ -8643,151 +8941,151 @@
         }
       }
     },
-    "Display" : {
+    "Display & language" : {
       "extractionState" : "manual",
       "localizations" : {
         "bg" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Показване"
+            "value" : "Показване и език"
           }
         },
         "cs" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Zobrazení"
+            "value" : "Zobrazení a jazyk"
           }
         },
         "da" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Visning"
+            "value" : "Visning og sprog"
           }
         },
         "de" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Anzeige"
+            "value" : "Anzeige & Sprache"
           }
         },
         "el" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Εμφάνιση"
+            "value" : "Εμφάνιση και γλώσσα"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Display"
+            "value" : "Display & language"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Visualización"
+            "value" : "Visualización e idioma"
           }
         },
         "et" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Kuva"
+            "value" : "Kuva ja keel"
           }
         },
         "fi" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Esitystapa"
+            "value" : "Esitystapa ja kieli"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Affichage"
+            "value" : "Affichage et langue"
           }
         },
         "ga" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Taispeáint"
+            "value" : "Taispeáint agus teanga"
           }
         },
         "hr" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Prikaz"
+            "value" : "Prikaz i jezik"
           }
         },
         "hu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Megjelenítés"
+            "value" : "Megjelenítés és nyelv"
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Visualizzazione"
+            "value" : "Visualizzazione e lingua"
           }
         },
         "lt" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Rodymas"
+            "value" : "Rodymas ir kalba"
           }
         },
         "lv" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Attēlojums"
+            "value" : "Attēlojums un valoda"
           }
         },
         "mt" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Wiri"
+            "value" : "Wiri u lingwa"
           }
         },
         "nl" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Weergave"
+            "value" : "Weergave en taal"
           }
         },
         "pl" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Wyświetlanie"
+            "value" : "Wyświetlanie i język"
           }
         },
         "pt" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Apresentação"
+            "value" : "Apresentação e idioma"
           }
         },
         "ro" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Afișare"
+            "value" : "Afișare și limbă"
           }
         },
         "sk" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Zobrazenie"
+            "value" : "Zobrazenie a jazyk"
           }
         },
         "sl" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Prikaz"
+            "value" : "Prikaz in jezik"
           }
         },
         "sv" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Visning"
+            "value" : "Visning och språk"
           }
         }
       }
@@ -14450,6 +14748,155 @@
           "stringUnit" : {
             "state" : "needs_review",
             "value" : "Varade"
+          }
+        }
+      }
+    },
+    "Leave the rate to the frequency question unless you have a measurement to match it against." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "bg" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Остави скоростта на въпроса за честотата, освен ако нямаш измерване, с което да я сравниш."
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Rychlost nech na otázce o četnosti, pokud nemáš měření, se kterým bys ji mohl porovnat."
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Lad hastigheden følge spørgsmålet om hyppighed, medmindre du har en måling at holde den op imod."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Überlass die Rate der Frage nach der Häufigkeit, es sei denn, du hast einen Messwert, an dem du sie ausrichten kannst."
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Άφησε τον ρυθμό στην ερώτηση συχνότητας, εκτός αν έχεις μέτρηση για να τον συγκρίνεις."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Leave the rate to the frequency question unless you have a measurement to match it against."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Deja la tasa a la pregunta de frecuencia, salvo que tengas una medición con la que contrastarla."
+          }
+        },
+        "et" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Jäta kiirus sageduse küsimuse hooleks, kui sul pole mõõtmist, millega seda võrrelda."
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Anna juomistiheyttä koskevan kysymyksen määrittää nopeus, ellei sinulla ole mittausta, johon sitä verrata."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Laisse la vitesse à la question sur la fréquence, sauf si tu as une mesure à laquelle la comparer."
+          }
+        },
+        "ga" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Fág an ráta faoin gceist faoi mhinicíocht, mura bhfuil tomhas agat le hé a chur i gcomparáid leis."
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Brzinu prepusti pitanju o učestalosti, osim ako imaš mjerenje s kojim je možeš usporediti."
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A sebességet hagyd a gyakorisági kérdésre, hacsak nincs mért értéked, amihez igazítanád."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Lascia la velocità alla domanda sulla frequenza, a meno che tu non abbia una misurazione con cui confrontarla."
+          }
+        },
+        "lt" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Greitį palik dažnumo klausimui, nebent turi matavimą, su kuriuo jį galėtum palyginti."
+          }
+        },
+        "lv" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Atstāj ātrumu biežuma jautājuma ziņā, ja vien tev nav mērījuma, ar ko to salīdzināt."
+          }
+        },
+        "mt" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Ħalli r-rata f'idejn il-mistoqsija dwar kemm-il darba tixrob, sakemm ma jkollokx kejl biex tqabbilha miegħu."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Laat de snelheid over aan de vraag hoe vaak je drinkt, tenzij je een meting hebt om hem mee te vergelijken."
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Zostaw tempo pytaniu o częstotliwość, chyba że masz pomiar, z którym możesz je porównać."
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Deixa a taxa à pergunta sobre a frequência, a menos que tenhas uma medição com que a comparar."
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Lasă rata în seama întrebării despre frecvență, dacă nu ai o măsurătoare cu care s-o compari."
+          }
+        },
+        "sk" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Rýchlosť nechaj na otázke o frekvencii, ak nemáš meranie, s ktorým by si ju mohol porovnať."
+          }
+        },
+        "sl" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Hitrost prepusti vprašanju o pogostosti, razen če imaš meritev, s katero jo lahko primerjaš."
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Låt frågan om hur ofta du dricker styra hastigheten, om du inte har en mätning att jämföra den med."
           }
         }
       }
@@ -22803,31 +23250,31 @@
       "localizations" : {
         "bg" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Шот"
           }
         },
         "cs" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Panák"
           }
         },
         "da" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Shot"
           }
         },
         "de" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Kurzer"
           }
         },
         "el" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Σφηνάκι"
           }
         },
@@ -22839,37 +23286,37 @@
         },
         "es" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Chupito"
           }
         },
         "et" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Pits"
           }
         },
         "fi" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Shotti"
           }
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Shot"
           }
         },
         "ga" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Shot"
           }
         },
         "hr" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Šot"
           }
         },
@@ -22881,67 +23328,67 @@
         },
         "it" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Shot"
           }
         },
         "lt" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Taurelė"
           }
         },
         "lv" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Šots"
           }
         },
         "mt" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Shot"
           }
         },
         "nl" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Shotje"
           }
         },
         "pl" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Shot"
           }
         },
         "pt" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Shot"
           }
         },
         "ro" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Shot"
           }
         },
         "sk" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Poldeci"
           }
         },
         "sl" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Šilce"
           }
         },
         "sv" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Shot"
           }
         }
@@ -25927,151 +26374,151 @@
         }
       }
     },
-    "This is how we estimate your elimination rate. Regular drinking induces the liver's CYP2E1 pathway, so frequent drinkers clear alcohol faster. It is the weakest point of the model, which is why you can set under Advanced how much of that uncertainty the app shows you." : {
+    "This is how we estimate your elimination rate. Regular drinking induces the liver's CYP2E1 pathway, so frequent drinkers clear alcohol faster. It is the weakest point of the model, which is why you can set under Display & language how much of that uncertainty the app shows you." : {
       "extractionState" : "manual",
       "localizations" : {
         "bg" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Така оценяваме скоростта ти на елиминиране. Редовното пиене индуцира чернодробния път CYP2E1, затова честите консуматори изчистват алкохола по-бързо. Това е най-слабото място на модела и затова в „Разширени“ можеш да зададеш колко от тази несигурност да ти показва приложението."
+            "value" : "Така оценяваме скоростта ти на елиминиране. Редовното пиене индуцира чернодробния път CYP2E1, затова честите консуматори изчистват алкохола по-бързо. Това е най-слабото място на модела и затова в „Показване и език“ можеш да зададеш колко от тази несигурност да ти показва приложението."
           }
         },
         "cs" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Takto odhadujeme tvoji rychlost odbourávání. Pravidelné pití indukuje jaterní dráhu CYP2E1, takže kdo pije často, odbourává alkohol rychleji. Je to nejslabší místo modelu — proto si můžeš v sekci Pokročilé určit, kolik z této nejistoty ti aplikace ukáže."
+            "value" : "Takto odhadujeme tvoji rychlost odbourávání. Pravidelné pití indukuje jaterní dráhu CYP2E1, takže kdo pije často, odbourává alkohol rychleji. Je to nejslabší místo modelu — proto si můžeš v sekci Zobrazení a jazyk určit, kolik z této nejistoty ti aplikace ukáže."
           }
         },
         "da" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Sådan skønner vi din forbrændingshastighed. Regelmæssig indtagelse inducerer leverens CYP2E1-vej, så hyppige drikkere nedbryder alkohol hurtigere. Det er modellens svageste punkt, og derfor kan du under Avanceret bestemme, hvor meget af den usikkerhed appen viser dig."
+            "value" : "Sådan skønner vi din forbrændingshastighed. Regelmæssig indtagelse inducerer leverens CYP2E1-vej, så hyppige drikkere nedbryder alkohol hurtigere. Det er modellens svageste punkt, og derfor kan du under Visning og sprog bestemme, hvor meget af den usikkerhed appen viser dig."
           }
         },
         "de" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "So schätzen wir deine Abbaurate. Regelmäßiges Trinken induziert den CYP2E1-Stoffwechselweg der Leber, deshalb bauen häufig Trinkende Alkohol schneller ab. Das ist die schwächste Stelle des Modells, und deshalb kannst du unter „Erweitert“ einstellen, wie viel von dieser Unsicherheit die App dir zeigt."
+            "value" : "So schätzen wir deine Abbaurate. Regelmäßiges Trinken induziert den CYP2E1-Stoffwechselweg der Leber, deshalb bauen häufig Trinkende Alkohol schneller ab. Das ist die schwächste Stelle des Modells, und deshalb kannst du unter „Anzeige & Sprache“ einstellen, wie viel von dieser Unsicherheit die App dir zeigt."
           }
         },
         "el" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Έτσι εκτιμούμε τον ρυθμό αποβολής σου. Η τακτική κατανάλωση επάγει το μονοπάτι CYP2E1 του ήπατος, οπότε όσοι πίνουν συχνά αποβάλλουν το αλκοόλ γρηγορότερα. Είναι το πιο αδύναμο σημείο του μοντέλου, γι’ αυτό μπορείς να ορίσεις στις ρυθμίσεις «Για προχωρημένους» πόση από αυτή την αβεβαιότητα σού δείχνει η εφαρμογή."
+            "value" : "Έτσι εκτιμούμε τον ρυθμό αποβολής σου. Η τακτική κατανάλωση επάγει το μονοπάτι CYP2E1 του ήπατος, οπότε όσοι πίνουν συχνά αποβάλλουν το αλκοόλ γρηγορότερα. Είναι το πιο αδύναμο σημείο του μοντέλου, γι’ αυτό μπορείς να ορίσεις στην ενότητα «Εμφάνιση και γλώσσα» πόση από αυτή την αβεβαιότητα σού δείχνει η εφαρμογή."
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "This is how we estimate your elimination rate. Regular drinking induces the liver's CYP2E1 pathway, so frequent drinkers clear alcohol faster. It is the weakest point of the model, which is why you can set under Advanced how much of that uncertainty the app shows you."
+            "value" : "This is how we estimate your elimination rate. Regular drinking induces the liver's CYP2E1 pathway, so frequent drinkers clear alcohol faster. It is the weakest point of the model, which is why you can set under Display & language how much of that uncertainty the app shows you."
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Así estimamos tu tasa de eliminación. Beber con regularidad induce la vía CYP2E1 del hígado, por lo que quien bebe con frecuencia elimina el alcohol más rápido. Es el punto más débil del modelo, y por eso en Avanzado puedes elegir cuánta de esa incertidumbre te muestra la app."
+            "value" : "Así estimamos tu tasa de eliminación. Beber con regularidad induce la vía CYP2E1 del hígado, por lo que quien bebe con frecuencia elimina el alcohol más rápido. Es el punto más débil del modelo, y por eso en Visualización e idioma puedes elegir cuánta de esa incertidumbre te muestra la app."
           }
         },
         "et" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Nii me sinu lagundamiskiirust hindamegi. Regulaarne joomine aktiveerib maksa CYP2E1 raja, seega lagundavad sagedased joojad alkoholi kiiremini. See on mudeli nõrgim koht ja just seepärast saad täpsemate seadete all määrata, kui palju sellest ebakindlusest rakendus sulle näitab."
+            "value" : "Nii me sinu lagundamiskiirust hindamegi. Regulaarne joomine aktiveerib maksa CYP2E1 raja, seega lagundavad sagedased joojad alkoholi kiiremini. See on mudeli nõrgim koht ja just seepärast saad jaotises „Kuva ja keel“ määrata, kui palju sellest ebakindlusest rakendus sulle näitab."
           }
         },
         "fi" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Näin arvioimme palamisnopeutesi. Säännöllinen juominen indusoi maksan CYP2E1-reittiä, joten usein juovilla alkoholi palaa nopeammin. Tämä on mallin heikoin kohta, ja siksi voit määrittää Lisäasetuksissa, kuinka paljon tästä epävarmuudesta sovellus näyttää sinulle."
+            "value" : "Näin arvioimme palamisnopeutesi. Säännöllinen juominen indusoi maksan CYP2E1-reittiä, joten usein juovilla alkoholi palaa nopeammin. Tämä on mallin heikoin kohta, ja siksi voit määrittää kohdassa Esitystapa ja kieli, kuinka paljon tästä epävarmuudesta sovellus näyttää sinulle."
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "C'est ainsi que nous estimons ta vitesse d'élimination. Une consommation régulière induit la voie CYP2E1 du foie : les buveurs fréquents éliminent donc l'alcool plus vite. C'est le point le plus faible du modèle, et c'est pourquoi tu peux régler sous Avancé la part de cette incertitude que l'app te montre."
+            "value" : "C'est ainsi que nous estimons ta vitesse d'élimination. Une consommation régulière induit la voie CYP2E1 du foie : les buveurs fréquents éliminent donc l'alcool plus vite. C'est le point le plus faible du modèle, et c'est pourquoi tu peux régler sous Affichage et langue la part de cette incertitude que l'app te montre."
           }
         },
         "ga" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Seo mar a dhéanaimid do ráta glanta a mheas. Spreagann ól rialta conair CYP2E1 an ae, agus mar sin glanann daoine a ólann go minic alcól níos tapúla. Seo an pointe is laige sa tsamhail, agus sin an fáth gur féidir leat a shocrú faoi Ardroghanna cé mhéad den éiginnteacht sin a thaispeánann an aip duit."
+            "value" : "Seo mar a dhéanaimid do ráta glanta a mheas. Spreagann ól rialta conair CYP2E1 an ae, agus mar sin glanann daoine a ólann go minic alcól níos tapúla. Seo an pointe is laige sa tsamhail, agus sin an fáth gur féidir leat a shocrú faoi Taispeáint agus teanga cé mhéad den éiginnteacht sin a thaispeánann an aip duit."
           }
         },
         "hr" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Ovako procjenjujemo tvoju brzinu eliminacije. Redovito pijenje potiče jetreni put CYP2E1, pa redoviti konzumenti brže razgrađuju alkohol. To je najslabija točka modela, zbog čega pod Napredno možeš postaviti koliko ti te neizvjesnosti aplikacija prikazuje."
+            "value" : "Ovako procjenjujemo tvoju brzinu eliminacije. Redovito pijenje potiče jetreni put CYP2E1, pa redoviti konzumenti brže razgrađuju alkohol. To je najslabija točka modela, zbog čega pod Prikaz i jezik možeš postaviti koliko ti te neizvjesnosti aplikacija prikazuje."
           }
         },
         "hu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ebből becsüljük a lebontási sebességet. A rendszeres fogyasztás indukálja a máj CYP2E1 útvonalát, ezért a gyakori fogyasztók gyorsabban bontják le az alkoholt. Ez a modell leggyengébb pontja, ezért a Haladó beállításokban megadhatod, mennyit mutasson meg az app ebből a bizonytalanságból."
+            "value" : "Ebből becsüljük a lebontási sebességet. A rendszeres fogyasztás indukálja a máj CYP2E1 útvonalát, ezért a gyakori fogyasztók gyorsabban bontják le az alkoholt. Ez a modell leggyengébb pontja, ezért a Megjelenítés és nyelv lapon megadhatod, mennyit mutasson meg az app ebből a bizonytalanságból."
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "È così che stimiamo la tua velocità di eliminazione. Bere regolarmente induce la via epatica del CYP2E1, quindi chi beve spesso smaltisce l’alcol più in fretta. È il punto più debole del modello, ed è per questo che in Avanzate puoi impostare quanta parte di quell’incertezza l’app ti mostra."
+            "value" : "È così che stimiamo la tua velocità di eliminazione. Bere regolarmente induce la via epatica del CYP2E1, quindi chi beve spesso smaltisce l’alcol più in fretta. È il punto più debole del modello, ed è per questo che in Visualizzazione e lingua puoi impostare quanta parte di quell’incertezza l’app ti mostra."
           }
         },
         "lt" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Taip vertiname tavo šalinimo greitį. Reguliarus gėrimas suaktyvina kepenų CYP2E1 kelią, todėl dažnai geriantieji alkoholį pašalina greičiau. Tai silpniausia modelio vieta — todėl skiltyje „Išplėstiniai nustatymai“ gali pasirinkti, kiek to neapibrėžtumo programėlė tau rodo."
+            "value" : "Taip vertiname tavo šalinimo greitį. Reguliarus gėrimas suaktyvina kepenų CYP2E1 kelią, todėl dažnai geriantieji alkoholį pašalina greičiau. Tai silpniausia modelio vieta — todėl skiltyje „Rodymas ir kalba“ gali pasirinkti, kiek to neapibrėžtumo programėlė tau rodo."
           }
         },
         "lv" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Šādi mēs novērtējam tavu izvadīšanas ātrumu. Regulāra dzeršana inducē aknu CYP2E1 ceļu, tāpēc biežiem dzērājiem alkohols tiek izvadīts ātrāk. Tas ir modeļa vājākais punkts, un tieši tāpēc sadaļā Papildu tu vari norādīt, cik daudz no šīs nenoteiktības lietotne tev rāda."
+            "value" : "Šādi mēs novērtējam tavu izvadīšanas ātrumu. Regulāra dzeršana inducē aknu CYP2E1 ceļu, tāpēc biežiem dzērājiem alkohols tiek izvadīts ātrāk. Tas ir modeļa vājākais punkts, un tieši tāpēc sadaļā Attēlojums un valoda tu vari norādīt, cik daudz no šīs nenoteiktības lietotne tev rāda."
           }
         },
         "mt" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Hekk nistmaw ir-rata ta' eliminazzjoni tiegħek. Ix-xorb regolari jistimula l-mogħdija CYP2E1 tal-fwied, għalhekk min jixrob ta' spiss ineħħi l-alkoħol aktar malajr. Dan hu l-aktar punt dgħajjef tal-mudell, u għalhekk taħt Avvanzat tista' tissettja kemm minn dik l-inċertezza turik l-app."
+            "value" : "Hekk nistmaw ir-rata ta' eliminazzjoni tiegħek. Ix-xorb regolari jistimula l-mogħdija CYP2E1 tal-fwied, għalhekk min jixrob ta' spiss ineħħi l-alkoħol aktar malajr. Dan hu l-aktar punt dgħajjef tal-mudell, u għalhekk taħt Wiri u lingwa tista' tissettja kemm minn dik l-inċertezza turik l-app."
           }
         },
         "nl" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Zo schatten we je afbraaksnelheid. Regelmatig drinken induceert de CYP2E1-route in de lever, waardoor frequente drinkers alcohol sneller afbreken. Het is het zwakste punt van het model, en daarom kun je onder Geavanceerd instellen hoeveel van die onzekerheid de app je laat zien."
+            "value" : "Zo schatten we je afbraaksnelheid. Regelmatig drinken induceert de CYP2E1-route in de lever, waardoor frequente drinkers alcohol sneller afbreken. Het is het zwakste punt van het model, en daarom kun je onder Weergave en taal instellen hoeveel van die onzekerheid de app je laat zien."
           }
         },
         "pl" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Tak szacujemy twoje tempo eliminacji. Regularne picie indukuje wątrobowy szlak CYP2E1, więc osoby pijące często usuwają alkohol szybciej. To najsłabszy punkt modelu i dlatego w ustawieniach zaawansowanych możesz określić, jak dużo tej niepewności aplikacja ci pokazuje."
+            "value" : "Tak szacujemy twoje tempo eliminacji. Regularne picie indukuje wątrobowy szlak CYP2E1, więc osoby pijące często usuwają alkohol szybciej. To najsłabszy punkt modelu i dlatego w sekcji Wyświetlanie i język możesz określić, jak dużo tej niepewności aplikacja ci pokazuje."
           }
         },
         "pt" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "É assim que estimamos a tua taxa de eliminação. Beber com regularidade induz a via do CYP2E1 no fígado, por isso quem bebe com frequência elimina o álcool mais depressa. É o ponto mais fraco do modelo, e é por isso que podes definir em Avançado quanto dessa incerteza a app te mostra."
+            "value" : "É assim que estimamos a tua taxa de eliminação. Beber com regularidade induz a via do CYP2E1 no fígado, por isso quem bebe com frequência elimina o álcool mais depressa. É o ponto mais fraco do modelo, e é por isso que podes definir em Apresentação e idioma quanto dessa incerteza a app te mostra."
           }
         },
         "ro" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Așa estimăm rata ta de eliminare. Consumul regulat induce calea hepatică CYP2E1, așa că persoanele care beau frecvent elimină alcoolul mai repede. Este punctul cel mai slab al modelului, motiv pentru care poți stabili în secțiunea Avansat cât din această incertitudine îți arată aplicația."
+            "value" : "Așa estimăm rata ta de eliminare. Consumul regulat induce calea hepatică CYP2E1, așa că persoanele care beau frecvent elimină alcoolul mai repede. Este punctul cel mai slab al modelului, motiv pentru care poți stabili în secțiunea Afișare și limbă cât din această incertitudine îți arată aplicația."
           }
         },
         "sk" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Takto odhadujeme tvoju rýchlosť odbúravania. Pravidelné pitie indukuje pečeňovú dráhu CYP2E1, takže kto pije často, odbúrava alkohol rýchlejšie. Je to najslabšie miesto modelu, a preto si v časti Rozšírené môžeš nastaviť, koľko z tejto neistoty ti aplikácia ukáže."
+            "value" : "Takto odhadujeme tvoju rýchlosť odbúravania. Pravidelné pitie indukuje pečeňovú dráhu CYP2E1, takže kto pije často, odbúrava alkohol rýchlejšie. Je to najslabšie miesto modelu, a preto si v časti Zobrazenie a jazyk môžeš nastaviť, koľko z tejto neistoty ti aplikácia ukáže."
           }
         },
         "sl" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Tako ocenimo tvojo hitrost izločanja. Redno pitje inducira jetrno pot CYP2E1, zato tisti, ki pijejo pogosto, izločajo alkohol hitreje. To je najšibkejša točka modela, zato lahko pod Napredno nastaviš, koliko te negotovosti ti aplikacija pokaže."
+            "value" : "Tako ocenimo tvojo hitrost izločanja. Redno pitje inducira jetrno pot CYP2E1, zato tisti, ki pijejo pogosto, izločajo alkohol hitreje. To je najšibkejša točka modela, zato lahko pod Prikaz in jezik nastaviš, koliko te negotovosti ti aplikacija pokaže."
           }
         },
         "sv" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Så här uppskattar vi din förbränningshastighet. Regelbundet drickande inducerar leverns CYP2E1-väg, så den som dricker ofta bryter ner alkohol snabbare. Det är modellens svagaste punkt, och därför kan du under Avancerat ställa in hur mycket av den osäkerheten appen visar dig."
+            "value" : "Så här uppskattar vi din förbränningshastighet. Regelbundet drickande inducerar leverns CYP2E1-väg, så den som dricker ofta bryter ner alkohol snabbare. Det är modellens svagaste punkt, och därför kan du under Visning och språk ställa in hur mycket av den osäkerheten appen visar dig."
           }
         }
       }
@@ -28162,155 +28609,6 @@
         }
       }
     },
-    "Uncertainty is a matter of taste: it decides whether figures read as one number or as a range. The rate below is not — leave it to the frequency question unless you have a measurement to match it against." : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "bg" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Несигурността е въпрос на вкус: тя решава дали стойностите се четат като едно число, или като диапазон. Скоростта по-долу не е — остави я на въпроса за честотата, освен ако нямаш измерване, с което да я сверяваш."
-          }
-        },
-        "cs" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Nejistota je věc vkusu: rozhoduje, jestli se údaje čtou jako jedno číslo, nebo jako rozpětí. Rychlost níže věc vkusu není — nech ji na otázce o frekvenci, pokud nemáš měření, se kterým by se dala srovnat."
-          }
-        },
-        "da" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Usikkerhed er en smagssag: den afgør, om tal vises som ét tal eller som et interval. Hastigheden nedenfor er ikke en smagssag — overlad den til spørgsmålet om frekvens, medmindre du har en måling at holde den op imod."
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Unsicherheit ist Geschmackssache: Sie entscheidet, ob Werte als eine Zahl oder als Bereich erscheinen. Die Rate darunter ist es nicht — überlass sie der Frage nach der Häufigkeit, außer du hast eine Messung, mit der du sie abgleichen kannst."
-          }
-        },
-        "el" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Η αβεβαιότητα είναι θέμα προτίμησης: καθορίζει αν οι τιμές διαβάζονται ως ένας αριθμός ή ως εύρος. Ο ρυθμός παρακάτω δεν είναι — άφησέ τον στην ερώτηση για τη συχνότητα, εκτός αν έχεις μια μέτρηση για να τον συγκρίνεις."
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Uncertainty is a matter of taste: it decides whether figures read as one number or as a range. The rate below is not — leave it to the frequency question unless you have a measurement to match it against."
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "La incertidumbre es cuestión de gustos: decide si las cifras se leen como un número o como un rango. La tasa de abajo no lo es: déjasela a la pregunta sobre la frecuencia, salvo que tengas una medición con la que contrastarla."
-          }
-        },
-        "et" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Ebakindlus on maitse asi: see otsustab, kas näite loetakse ühe arvuna või vahemikuna. Allpool olev kiirus ei ole maitse asi — jäta see sageduse küsimuse hooleks, kui sul pole mõõtmistulemust, millega seda kõrvutada."
-          }
-        },
-        "fi" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Epävarmuus on makuasia: se ratkaisee, näytetäänkö luvut yhtenä arvona vai vaihteluvälinä. Alla oleva nopeus ei ole makuasia – jätä se juomistiheyskysymyksen varaan, ellei sinulla ole mittausta, johon verrata sitä."
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "L'incertitude est affaire de goût : elle détermine si les valeurs se lisent comme un chiffre unique ou comme une fourchette. La vitesse ci-dessous, non — laisse-la à la question sur la fréquence, sauf si tu as une mesure à laquelle la comparer."
-          }
-        },
-        "ga" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Is ceist blais í an éiginnteacht: socraíonn sí an léitear figiúirí mar uimhir amháin nó mar raon. Ní hamhlaidh don ráta thíos — fág faoin gceist minicíochta é mura bhfuil tomhas agat le cur i gcomparáid leis."
-          }
-        },
-        "hr" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Neizvjesnost je stvar ukusa: određuje hoće li se brojke čitati kao jedan broj ili kao raspon. Brzina ispod nije — prepusti je pitanju o učestalosti, osim ako imaš mjerenje s kojim je možeš usporediti."
-          }
-        },
-        "hu" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "A bizonytalanság ízlés kérdése: ez dönti el, hogy a számok egy értékként vagy tartományként jelennek meg. Az alatta lévő sebesség nem az — hagyd a gyakorisági kérdésre, hacsak nincs mért értéked, amihez igazítanád."
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "L’incertezza è una questione di gusto: decide se i valori si leggono come un numero solo o come un intervallo. La velocità qui sotto non lo è: lasciala alla domanda sulla frequenza, a meno che tu non abbia una misurazione con cui confrontarla."
-          }
-        },
-        "lt" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Neapibrėžtumas yra skonio reikalas: jis lemia, ar reikšmės rodomos kaip vienas skaičius, ar kaip intervalas. Žemiau esantis greitis — ne; palik jį nustatyti pagal dažnio klausimą, nebent turi matavimą, su kuriuo gali jį palyginti."
-          }
-        },
-        "lv" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Nenoteiktība ir gaumes jautājums: tā nosaka, vai rādītāji tiek lasīti kā viens skaitlis vai kā diapazons. Ātrums zemāk tāds nav — atstāj to biežuma jautājuma ziņā, ja vien tev nav mērījuma, ar ko to salīdzināt."
-          }
-        },
-        "mt" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "L-inċertezza hi kwistjoni ta' gost: tiddeċiedi jekk iċ-ċifri jinqrawx bħala numru wieħed jew bħala firxa. Ir-rata t'hawn taħt mhijiex — ħalliha f'idejn il-mistoqsija dwar il-frekwenza sakemm ma jkollokx kejl biex tqabbilha miegħu."
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Onzekerheid is een kwestie van smaak: die bepaalt of cijfers als één getal of als een bereik worden gelezen. De snelheid hieronder is dat niet — laat die over aan de vraag over frequentie, tenzij je een meting hebt om hem aan te toetsen."
-          }
-        },
-        "pl" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Niepewność to kwestia gustu: decyduje o tym, czy wartości czyta się jako jedną liczbę, czy jako zakres. Tempo poniżej kwestią gustu nie jest — zostaw je pytaniu o częstotliwość, chyba że masz pomiar, z którym możesz je porównać."
-          }
-        },
-        "pt" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "A incerteza é uma questão de gosto: decide se os valores aparecem como um número ou como um intervalo. A taxa abaixo não é — deixa-a à pergunta da frequência, a não ser que tenhas uma medição com que a comparar."
-          }
-        },
-        "ro" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Incertitudinea ține de preferință: decide dacă valorile apar ca un singur număr sau ca un interval. Rata de mai jos nu ține de preferință — las-o pe seama întrebării despre frecvență, dacă nu ai o măsurătoare cu care să o compari."
-          }
-        },
-        "sk" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Neistota je vecou vkusu: rozhoduje o tom, či sa údaje čítajú ako jedno číslo alebo ako rozpätie. Rýchlosť nižšie vecou vkusu nie je — nechaj ju na otázku o frekvencii, pokiaľ nemáš meranie, s ktorým ju môžeš porovnať."
-          }
-        },
-        "sl" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Negotovost je stvar okusa: določa, ali so številke prikazane kot ena vrednost ali kot razpon. Spodnja hitrost ni stvar okusa — prepusti jo vprašanju o pogostosti, razen če imaš meritev, s katero jo lahko primerjaš."
-          }
-        },
-        "sv" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Osäkerhet är en smaksak: den avgör om siffrorna läses som ett tal eller som ett intervall. Hastigheten nedanför är det inte — låt frågan om frekvens bestämma den, om du inte har en mätning att stämma av mot."
-          }
-        }
-      }
-    },
     "Under the influence" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -28605,155 +28903,6 @@
           "stringUnit" : {
             "state" : "needs_review",
             "value" : "Ångra"
-          }
-        }
-      }
-    },
-    "Unit" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "bg" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Мерна единица"
-          }
-        },
-        "cs" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Jednotka"
-          }
-        },
-        "da" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Genstand"
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Einheit"
-          }
-        },
-        "el" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Μονάδα"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Unit"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Unidad"
-          }
-        },
-        "et" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Ühik"
-          }
-        },
-        "fi" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Yksikkö"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Unité"
-          }
-        },
-        "ga" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Aonad"
-          }
-        },
-        "hr" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Mjerna jedinica"
-          }
-        },
-        "hu" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Mértékegység"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Unità"
-          }
-        },
-        "lt" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Matavimo vienetas"
-          }
-        },
-        "lv" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Mērvienība"
-          }
-        },
-        "mt" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Unità"
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Eenheid"
-          }
-        },
-        "pl" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Jednostka"
-          }
-        },
-        "pt" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Unidade"
-          }
-        },
-        "ro" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Unitate"
-          }
-        },
-        "sk" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Jednotka"
-          }
-        },
-        "sl" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Enota"
-          }
-        },
-        "sv" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Enhet"
           }
         }
       }

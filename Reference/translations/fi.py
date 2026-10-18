@@ -14,8 +14,8 @@ TRANSLATIONS = {
     # --- DrinkCatalog: drink types ---
     "Beer": "Olut",
     "Wine": "Viini",
-    "Sparkling": "Kuohuviini",
-    "Spirit": "Väkevä",
+    "Champagne": "Kuohuviini",
+    "Shot": "Shotti",
     "Cocktail": "Cocktail",
     "Custom": "Oma",
 
@@ -161,21 +161,13 @@ TRANSLATIONS = {
         "vaikuta tulokseen.",
     "Drinking frequency": "Juomistiheys",
     "How often do you drink?": "Kuinka usein juot?",
-    "This is how we estimate your elimination rate. Regular drinking induces the liver's "
-    "CYP2E1 pathway, so frequent drinkers clear alcohol faster. It is the weakest point of the "
-    "model, which is why you can set under Advanced how much of that uncertainty the app shows "
-    "you.":
-        "Näin arvioimme palamisnopeutesi. Säännöllinen juominen indusoi maksan CYP2E1-reittiä, "
-        "joten usein juovilla alkoholi palaa nopeammin. Tämä on mallin heikoin kohta, ja siksi "
-        "voit määrittää Lisäasetuksissa, kuinka paljon tästä epävarmuudesta sovellus näyttää "
-        "sinulle.",
+    "This is how we estimate your elimination rate. Regular drinking induces the liver's CYP2E1 pathway, so frequent drinkers clear alcohol faster. It is the weakest point of the model, which is why you can set under Display & language how much of that uncertainty the app shows you.":
+        "Näin arvioimme palamisnopeutesi. Säännöllinen juominen indusoi maksan CYP2E1-reittiä, joten usein juovilla alkoholi palaa nopeammin. Tämä on mallin heikoin kohta, ja siksi voit määrittää kohdassa Esitystapa ja kieli, kuinka paljon tästä epävarmuudesta sovellus näyttää sinulle.",
     "Your limit": "Rajasi",
     "Your own reference number, not a legal limit. The app tells you when a planned drink "
     "would take you past it, and for how long you would stay above.":
         "Oma viitearvosi, ei laillinen raja. Sovellus kertoo, milloin suunniteltu juoma veisi "
         "sinut sen yli ja kuinka kauan pysyisit sen yläpuolella.",
-    "Unit": "Yksikkö",
-    "Display": "Esitystapa",
     "Calculated values": "Lasketut arvot",
     "Total body water": "Kehon kokonaisvesimäärä",
     "Distribution volume": "Jakautumistilavuus",
@@ -239,12 +231,6 @@ TRANSLATIONS = {
     "Rate": "Nopeus",
     "Range": "Vaihteluväli",
     "Advanced": "Lisäasetukset",
-    "Uncertainty is a matter of taste: it decides whether figures read as one number or as a "
-    "range. The rate below is not — leave it to the frequency question unless you have a "
-    "measurement to match it against.":
-        "Epävarmuus on makuasia: se ratkaisee, näytetäänkö luvut yhtenä arvona vai "
-        "vaihteluvälinä. Alla oleva nopeus ei ole makuasia – jätä se juomistiheyskysymyksen "
-        "varaan, ellei sinulla ole mittausta, johon verrata sitä.",
 
     # --- PersonSwitcher / FeatureFlags: more than one person (11.5) ---
     "Multiple people": "Useita henkilöitä",
@@ -379,4 +365,11 @@ TRANSLATIONS = {
     'Days over limit': 'Päivät rajan yli',
     'Longest sober run': 'Pisin raitis jakso',
     'Favourite drink': 'Lempijuoma',
+
+    # --- Profile sub-pages (5.26) ---
+    "Display & language": "Esitystapa ja kieli",
+    "Data": "Tiedot",
+    "Concentration": "Pitoisuus",
+    "Leave the rate to the frequency question unless you have a measurement to match it against.":
+        "Anna juomistiheyttä koskevan kysymyksen määrittää nopeus, ellei sinulla ole mittausta, johon sitä verrata.",
 }

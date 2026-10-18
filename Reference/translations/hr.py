@@ -14,8 +14,8 @@ TRANSLATIONS = {
     # --- DrinkCatalog: drink types ---
     "Beer": "Pivo",
     "Wine": "Vino",
-    "Sparkling": "Pjenušac",
-    "Spirit": "Žestoko piće",
+    "Champagne": "Pjenušac",
+    "Shot": "Šot",
     "Cocktail": "Koktel",
     "Custom": "Prilagođeno",
 
@@ -159,21 +159,13 @@ TRANSLATIONS = {
         "utjecati na rezultat.",
     "Drinking frequency": "Učestalost pijenja",
     "How often do you drink?": "Koliko često piješ?",
-    "This is how we estimate your elimination rate. Regular drinking induces the liver's "
-    "CYP2E1 pathway, so frequent drinkers clear alcohol faster. It is the weakest point of the "
-    "model, which is why you can set under Advanced how much of that uncertainty the app shows "
-    "you.":
-        "Ovako procjenjujemo tvoju brzinu eliminacije. Redovito pijenje potiče jetreni put "
-        "CYP2E1, pa redoviti konzumenti brže razgrađuju alkohol. To je najslabija točka "
-        "modela, zbog čega pod Napredno možeš postaviti koliko ti te neizvjesnosti aplikacija "
-        "prikazuje.",
+    "This is how we estimate your elimination rate. Regular drinking induces the liver's CYP2E1 pathway, so frequent drinkers clear alcohol faster. It is the weakest point of the model, which is why you can set under Display & language how much of that uncertainty the app shows you.":
+        "Ovako procjenjujemo tvoju brzinu eliminacije. Redovito pijenje potiče jetreni put CYP2E1, pa redoviti konzumenti brže razgrađuju alkohol. To je najslabija točka modela, zbog čega pod Prikaz i jezik možeš postaviti koliko ti te neizvjesnosti aplikacija prikazuje.",
     "Your limit": "Tvoja granica",
     "Your own reference number, not a legal limit. The app tells you when a planned drink "
     "would take you past it, and for how long you would stay above.":
         "Tvoj vlastiti orijentacijski broj, a ne zakonska granica. Aplikacija ti javlja kad bi "
         "te planirano piće odvelo preko nje i koliko dugo bi razina ostala iznad.",
-    "Unit": "Mjerna jedinica",
-    "Display": "Prikaz",
     "Calculated values": "Izračunate vrijednosti",
     "Total body water": "Ukupna tjelesna voda",
     "Distribution volume": "Volumen distribucije",
@@ -234,12 +226,6 @@ TRANSLATIONS = {
     "Rate": "Brzina",
     "Range": "Raspon",
     "Advanced": "Napredno",
-    "Uncertainty is a matter of taste: it decides whether figures read as one number or as a "
-    "range. The rate below is not — leave it to the frequency question unless you have a "
-    "measurement to match it against.":
-        "Neizvjesnost je stvar ukusa: određuje hoće li se brojke čitati kao jedan broj ili kao "
-        "raspon. Brzina ispod nije — prepusti je pitanju o učestalosti, osim ako imaš mjerenje "
-        "s kojim je možeš usporediti.",
 
     # --- PersonSwitcher / FeatureFlags: more than one person (11.5) ---
     "Multiple people": "Više osoba",
@@ -375,4 +361,11 @@ TRANSLATIONS = {
     'Days over limit': 'Dani iznad granice',
     'Longest sober run': 'Najduži trijezni niz',
     'Favourite drink': 'Omiljeno piće',
+
+    # --- Profile sub-pages (5.26) ---
+    "Display & language": "Prikaz i jezik",
+    "Data": "Podaci",
+    "Concentration": "Koncentracija",
+    "Leave the rate to the frequency question unless you have a measurement to match it against.":
+        "Brzinu prepusti pitanju o učestalosti, osim ako imaš mjerenje s kojim je možeš usporediti.",
 }
