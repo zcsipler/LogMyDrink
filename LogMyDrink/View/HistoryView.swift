@@ -239,7 +239,11 @@ struct HistoryView: View {
             }
             // The request may arrive before this view exists (the first
             // visit to the tab) or while it is already on screen.
-            .onAppear { applyRequest() }
+            .onAppear {
+                applyRequest()
+                // Found on its own: the launch tip about History can rest.
+                TipLedger().markHistoryOpened()
+            }
             .onChange(of: request?.id) { applyRequest() }
             .sheet(isPresented: $showsJump) {
                 if let range = segment.range, let window = snapshot.window {

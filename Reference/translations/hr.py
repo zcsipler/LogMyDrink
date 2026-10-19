@@ -86,16 +86,9 @@ TRANSLATIONS = {
 
     # --- TodayView ---
     "Profile": "Profil",
-    "estimated level": "procijenjena razina",
-    "estimated range": "procijenjeni raspon",
     "Drinks": "Pića",
     "Units": "Jedinice",
     "Drinks this session": "Pića u ovoj sesiji",
-    "This is an estimate, not a measurement.": "Ovo je procjena, a ne mjerenje.",
-    "Actual values vary considerably between individuals. Never use this to decide whether you "
-    "can drive.":
-        "Stvarne vrijednosti znatno se razlikuju od osobe do osobe. Nikad ne koristi ovo za "
-        "procjenu smiješ li voziti.",
     "Add drink": "Dodaj piće",
 
     # --- Editing an already logged drink ---
@@ -368,4 +361,138 @@ TRANSLATIONS = {
     "Concentration": "Koncentracija",
     "Leave the rate to the frequency question unless you have a measurement to match it against.":
         "Brzinu prepusti pitanju o učestalosti, osim ako imaš mjerenje s kojim je možeš usporediti.",
+
+    # --- How it works, estimate badge, launch tips ---
+    'Estimate, not a measurement. Never use this to decide whether you can drive.':
+        'Procjena, ne mjerenje. Nikad na temelju ovoga ne odlučuj smiješ li voziti.',
+    'Estimated range, not a measurement. Never use this to decide whether you can drive.':
+        'Procijenjeni raspon, ne mjerenje. Nikad na temelju ovoga ne odlučuj smiješ li voziti.',
+    'How does the app calculate this?':
+        'Kako aplikacija računa?',
+    'approximately %@ %@':
+        'otprilike %@ %@',
+    'How it works':
+        'Kako radi',
+    'Never use this to decide whether you can drive. The app estimates, it does not measure, and your actual level can differ considerably.':
+        'Nikad na temelju ovoga ne odlučuj smiješ li voziti. Aplikacija procjenjuje, ne mjeri, a tvoja stvarna razina može se znatno razlikovati.',
+    'Why this app exists':
+        'Čemu ova aplikacija',
+    'LogMyDrink helps you drink more mindfully and stay in control. The decision happens before the next glass, so the app shows you in advance where another drink would take your level, and when it would peak.':
+        'LogMyDrink ti pomaže piti svjesnije i zadržati kontrolu. Odluka se donosi prije sljedeće čaše, pa ti aplikacija unaprijed pokazuje kamo bi tvoju razinu odvelo još jedno piće i kada bi dosegla vrhunac.',
+    'But it is not only about tonight. Every drink you log goes into your History, so over months and years you can see how much, how often and how high you drink. Your patterns emerge from it, and so does the direction they are moving in — whether things are getting better or worse.':
+        'No ne radi se samo o večeras. Svako uneseno piće ide u povijest, pa kroz mjesece i godine vidiš koliko, koliko često i koliko visoko piješ. Iz toga se iscrtavaju tvoji obrasci, ali i smjer u kojem se mijenjaju – idu li stvari nabolje ili nagore.',
+    'How it calculates':
+        'Kako računa',
+    'The estimate builds on the Widmark method, used to estimate blood alcohol since the 1930s; the app runs a refined version of it.':
+        'Procjena se temelji na Widmarkovoj metodi kojom se alkohol u krvi procjenjuje od 1930-ih; aplikacija koristi njezinu poboljšanu inačicu.',
+    'From your weight, height, age and sex it works out how much water your body holds, because that is where alcohol spreads. It follows every drink separately: how much alcohol it had, how fast you drank it, and how much you had eaten, because that sets how quickly it is absorbed.':
+        'Iz tvoje težine, visine, dobi i spola izračunava koliko vode ima u tvom tijelu, jer se alkohol raspoređuje upravo u njoj. Svako piće prati zasebno: koliko je alkohola sadržavalo, koliko si ga brzo popio i koliko si prije toga pojeo, jer o tome ovisi brzina apsorpcije.',
+    'Meanwhile your liver breaks down a roughly constant amount every hour; how much in your case is estimated from how often you drink. The result is a curve, minute by minute: where you are now, where you are heading, and when you will be clear.':
+        'Za to vrijeme jetra svaki sat razgrade otprilike stalnu količinu; tvoja se procjenjuje prema tome koliko često piješ. Rezultat je krivulja, minutu po minutu: gdje si sada, kamo ideš i kada ćeš opet biti na nuli.',
+    'Details':
+        'Pojedinosti',
+    'Body water':
+        'Tjelesna voda',
+    'The Watson formula (1980), from weight, height, age and sex. The female formula has no age term — a property of the formula, not a bug. The distribution volume is body water divided by 0.85, the water content of blood.':
+        'Watsonova formula (1980) iz težine, visine, dobi i spola. Formula za žene ne sadrži dob – to je svojstvo formule, a ne pogreška. Volumen raspodjele je tjelesna voda podijeljena s 0,85, udjelom vode u krvi.',
+    'Absorption':
+        'Apsorpcija',
+    'Every drink has its own “stomach”. On an empty stomach half of the alcohol is absorbed in about 7 minutes, on a full one in about 21. A drink you sip enters the stomach evenly over the time you drink it.':
+        'Svako piće ima svoj „želudac”. Na prazan želudac polovica alkohola apsorbira se za oko 7 minuta, na pun za oko 21. Piće koje pijuckaš ulazi u želudac ravnomjerno tijekom cijelog pijenja.',
+    'Gives a lower peak and an earlier clear time. Surprising, but measured: with food the stomach breaks down part of the alcohol before it is absorbed (the app uses 5, 10 and 15 percent), and what never got in does not need to be broken down.':
+        'Daje niži vrhunac i raniju nulu. Iznenađujuće, ali izmjereno: uz hranu želudac razgradi dio alkohola prije apsorpcije (aplikacija računa s 5, 10 i 15 posto), a ono što nikad nije ušlo ne treba razgraditi.',
+    'Elimination':
+        'Razgradnja',
+    'About 0.15 ‰ per hour (published range 0.10–0.25), higher in regular drinkers as liver enzymes adapt. Close to zero it slows down (Michaelis–Menten kinetics), so the curve tapers off instead of stopping abruptly.':
+        'Oko 0,15 ‰ na sat (objavljeni raspon 0,10–0,25), više kod onih koji redovito piju jer se enzimi jetre prilagode. Blizu nule usporava (Michaelis-Mentenina kinetika), pa se krivulja postupno izravnava umjesto da naglo stane.',
+    'Computation':
+        'Izračun',
+    'The curve comes from a numerical simulation at one-minute resolution.':
+        'Krivulja proizlazi iz numeričke simulacije s razlučivošću od jedne minute.',
+    'Why it is only an estimate':
+        'Zašto je to samo procjena',
+    'The app measures nothing. What it shows is the output of a model using average values, and reality can differ. The biggest unknown is how fast you break alcohol down: within the plausible range, that alone can move the peak by 40 percent and the clear time by four hours on the same evening.':
+        'Aplikacija ništa ne mjeri. Prikazuje rezultat modela s prosječnim vrijednostima, a stvarnost se može razlikovati. Najveća je nepoznanica koliko brzo razgrađuješ alkohol: unutar vjerojatnog raspona samo to iste večeri može pomaknuti vrhunac za 40 posto, a nulu za četiri sata.',
+    'Genetics, liver health, medication, what you ate, sleep and tiredness matter too — the app knows none of these. Only a certified breathalyser or a blood test gives an exact value.':
+        'Važni su i geni, zdravlje jetre, lijekovi, što si jeo, san i umor – ništa od toga aplikacija ne zna. Točnu vrijednost daje samo ovjereni alkotest ili krvna pretraga.',
+    'The number is still useful. If the app reads consistently a little high or low for you, it is off in the same direction every evening, so over time you learn what a given value means for you. In Profile you can also show the uncertainty of the elimination rate: you then see a range instead of a single number.':
+        'Broj je ipak koristan. Ako ti aplikacija dosljedno pokazuje malo previše ili premalo, svake večeri griješi u istom smjeru, pa s vremenom naučiš što određena vrijednost znači za tebe. U Profilu možeš prikazati i nesigurnost brzine razgradnje: tada umjesto jednog broja vidiš raspon.',
+    'Tips':
+        'Savjeti',
+    'Favourite drink in one tap':
+        'Omiljeno piće jednim dodirom',
+    'Set a favourite in Profile and the Live button logs it with a single tap.':
+        'Postavi omiljeno piće u Profilu i gumb na zaslonu Uživo unijet će ga jednim dodirom.',
+    'Widget':
+        'Widget',
+    'Add it to your Lock Screen or Home Screen: one tap logs your favourite. While there is alcohol in your system, it also shows your level and which way it is going.':
+        'Dodaj ga na zaključani ili početni zaslon: jedan dodir unosi tvoje omiljeno piće. Dok imaš alkohola u tijelu, prikazuje i tvoju razinu i njezin smjer.',
+    'How do I add it?':
+        'Kako ga dodati?',
+    'Siri':
+        'Siri',
+    'Say “Hey Siri, LogMyDrink now” and Siri logs your favourite, then tells you where your peak is heading.':
+        'Reci „Hey Siri, LogMyDrink now” i Siri će unijeti tvoje omiljeno piće te reći kamo ide tvoj vrhunac.',
+    'Looking back':
+        'Pogled unatrag',
+    '“Yesterday” at the top of Live takes you to the previous day in one tap; the History tab shows your patterns over weeks, months and years.':
+        '„Jučer” na vrhu zaslona Uživo jednim te dodirom vodi na prethodni dan; kartica Povijest prikazuje tvoje obrasce kroz tjedne, mjesece i godine.',
+    'Logging later':
+        'Naknadni unos',
+    'If you log a drink after the fact, set the time back with the − and + buttons; a missed day can be filled in from the Day view in History.':
+        'Ako piće unosiš naknadno, vrati vrijeme gumbima − i +; propušteni dan možeš dopuniti u prikazu Dan u Povijesti.',
+    'One tap and done':
+        'Jedan dodir i gotovo',
+    'Your favourite from the Lock Screen':
+        'Omiljeno piće sa zaključanog zaslona',
+    'Say it, don’t type it':
+        'Reci, ne tipkaj',
+    'See your patterns':
+        'Pogledaj svoje obrasce',
+    'Set what you drink most often and log it with a single tap.':
+        'Postavi što najčešće piješ i unesi to jednim dodirom.',
+    'One tap on the widget logs your favourite, no searching for the app. In the evening it shows your level too.':
+        'Jedan dodir widgeta unosi tvoje omiljeno piće, bez traženja aplikacije. Navečer prikazuje i tvoju razinu.',
+    '“Hey Siri, LogMyDrink now” — Siri logs your favourite and tells you where your peak is heading.':
+        '„Hey Siri, LogMyDrink now” – Siri unosi tvoje omiljeno piće i kaže kamo ide tvoj vrhunac.',
+    'History shows how much and how high you drink over weeks, months and years, and which way it is changing.':
+        'Povijest prikazuje koliko i koliko visoko piješ kroz tjedne, mjesece i godine te u kojem se smjeru to mijenja.',
+    'Set favourite':
+        'Postavi omiljeno',
+    'Add widget':
+        'Dodaj widget',
+    'Got it':
+        'Razumijem',
+    'Open History':
+        'Otvori povijest',
+    'Later':
+        'Kasnije',
+    'Don’t show again':
+        'Ne prikazuj više',
+    'Lock Screen':
+        'Zaključani zaslon',
+    'Home Screen':
+        'Početni zaslon',
+    'Where':
+        'Gdje',
+    'Lock your phone, then touch and hold the Lock Screen.':
+        'Zaključaj iPhone pa zadrži prst na zaključanom zaslonu.',
+    'Tap Customize, then Lock Screen, then the widget row under the clock.':
+        'Dodirni Prilagodi, zatim Zaključani zaslon pa red widgeta ispod sata.',
+    'Choose LogMyDrink, then tap Done.':
+        'Odaberi LogMyDrink i dodirni Gotovo.',
+    'Touch and hold an empty area of the Home Screen until the icons jiggle.':
+        'Zadrži prst na praznom dijelu početnog zaslona dok se ikone ne počnu tresti.',
+    'Tap Edit, then Add Widget.':
+        'Dodirni Uredi pa Dodaj widget.',
+    'Search for LogMyDrink, pick a size and tap Add Widget.':
+        'Potraži LogMyDrink, odaberi veličinu i dodirni Dodaj widget.',
+    'A tap on the widget opens the app and logs your favourite drink. While there is alcohol in your system, it also shows your level and which way it is going.':
+        'Dodir widgeta otvara aplikaciju i unosi tvoje omiljeno piće. Dok imaš alkohola u tijelu, prikazuje i tvoju razinu i njezin smjer.',
+    'Add the widget':
+        'Dodaj widget',
+    'Show tips':
+        'Prikazuj savjete',
+    'One tip a day at most, when you open the app — never while there is alcohol in your system.':
+        'Najviše jedan savjet dnevno pri otvaranju aplikacije – nikad dok imaš alkohola u tijelu.',
 }

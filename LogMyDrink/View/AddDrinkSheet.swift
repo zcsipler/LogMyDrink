@@ -201,7 +201,7 @@ struct AddDrinkSheet: View {
                     .textCase(.uppercase)
                     .foregroundStyle(Theme.secondaryText)
 
-                BACReadout(projection.peakRange, unit: store.unit, limit: limit, size: 22)
+                BACReadout(projection.peakRange, unit: store.unit, limit: limit, size: 22, approximate: true)
             }
 
             Spacer(minLength: 0)

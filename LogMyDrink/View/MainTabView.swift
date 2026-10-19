@@ -1,4 +1,5 @@
 import SwiftUI
+import WidgetKit
 
 /// The app's three places: what happened before, what is happening now, and
 /// who the app thinks you are.
@@ -21,6 +22,9 @@ struct MainTabView: View {
     /// A widget tap. The link opens the app on Live and logs the usual drink
     /// there, so the strip with Undo appears exactly as after the capsule.
     @State private var quickAddRequest: QuickAddRequest?
+
+    /// The launch tip, when there is one to offer (`TipLedger`).
+    @State private var tip: FeatureTip?
 
     enum Tab: Hashable {
         case history, live, profile
@@ -73,7 +77,17 @@ struct MainTabView: View {
                 // occasion is running, which day is today — reads `now`.
                 store.tick()
                 store.refreshFromStore()
+                Task { await offerTip() }
             }
+        }
+        // A cold launch does not always pass through `onChange` above.
+        .task { await offerTip() }
+        .sheet(item: $tip) { tip in
+            TipSheet(
+                tip: tip,
+                onAction: perform,
+                onDismissForGood: { TipLedger().dismiss($0) }
+            )
         }
         // The second place a tab is steered from outside, and the same shape
         // as the first: a request the target screen applies and clears. The
@@ -83,6 +97,66 @@ struct MainTabView: View {
             guard QuickAddLink.matches(url) else { return }
             selection = .live
             quickAddRequest = QuickAddRequest()
+        }
+    }
+}
+
+// MARK: - Launch tips
+
+extension MainTabView {
+    /// Offers the day's tip, if any, a moment after the app comes forward.
+    ///
+    /// The wait is for the widget: a tap on it opens the app and logs a drink,
+    /// and the request arrives just after the foreground transition. A tip
+    /// sheet over the Undo strip would be the worst place for one, so a
+    /// pending quick add — or the alcohol it just put in the curve — ends it.
+    func offerTip() async {
+        try? await Task.sleep(for: .seconds(1.2))
+        guard tip == nil, quickAddRequest == nil, selection == .live else { return }
+
+        let ledger = TipLedger()
+        let installed = await Self.widgetIsInstalled()
+        let tracked = Calendar.current.dateComponents(
+            [.day], from: store.person.trackingStartedAt, to: .now
+        ).day ?? 0
+        let context = TipContext(
+            hasFavourite: store.favourite != nil,
+            widgetInstalled: installed,
+            siriUsed: ledger.siriUsed,
+            historyOpened: ledger.historyOpened,
+            trackedDays: tracked,
+            hasAlcohol: store.currentRange.upperBound > 0
+        )
+        guard let next = ledger.next(context, now: .now) else { return }
+        ledger.markShown(at: .now)
+        tip = next
+    }
+
+    /// Whether the quick-add widget is on any screen. The callback form,
+    /// because the async one is iOS 18 and the app targets 17. An error
+    /// reads as "not installed": the worst case is one tip too many.
+    static func widgetIsInstalled() async -> Bool {
+        await withCheckedContinuation { continuation in
+            WidgetCenter.shared.getCurrentConfigurations { result in
+                let installed = (try? result.get())?
+                    .contains { $0.kind == WidgetBridge.widgetKind } ?? false
+                continuation.resume(returning: installed)
+            }
+        }
+    }
+
+    /// The primary button of a tip whose action is somewhere else in the app.
+    func perform(_ tip: FeatureTip) {
+        switch tip {
+        case .favourite:
+            selection = .profile
+        case .history:
+            selection = .history
+        case .siri:
+            // "Got it": nothing to open, and nothing more to say.
+            TipLedger().dismiss(.siri)
+        case .widget:
+            break // handled inside the sheet
         }
     }
 }

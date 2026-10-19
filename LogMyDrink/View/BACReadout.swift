@@ -41,18 +41,26 @@ struct BACReadout: View {
     /// Colour of the figure. Defaults to the level's own tint.
     var tint: Color?
 
+    /// Prefixes the figure with "≈". For the figures that stand for *now* or
+    /// for what is coming — the Live level, the projected peak — where the
+    /// sign is part of the number rather than a footnote under it. Past peaks
+    /// in History go without: a column of signs there is noise, not honesty.
+    var approximate: Bool = false
+
     init(
         _ range: ClosedRange<Double>,
         unit: BACUnit,
         limit: Double,
         size: CGFloat = 48,
-        tint: Color? = nil
+        tint: Color? = nil,
+        approximate: Bool = false
     ) {
         self.range = range
         self.unit = unit
         self.limit = limit
         self.size = size
         self.tint = tint
+        self.approximate = approximate
     }
 
     /// A figure that is a point by construction rather than by setting.
@@ -61,9 +69,10 @@ struct BACReadout: View {
         unit: BACUnit,
         limit: Double,
         size: CGFloat = 48,
-        tint: Color? = nil
+        tint: Color? = nil,
+        approximate: Bool = false
     ) {
-        self.init(value...value, unit: unit, limit: limit, size: size, tint: tint)
+        self.init(value...value, unit: unit, limit: limit, size: size, tint: tint, approximate: approximate)
     }
 
     /// What the colour reacts to. The middle of the band, so the tint does not
@@ -78,6 +87,15 @@ struct BACReadout: View {
 
     var body: some View {
         HStack(alignment: .firstTextBaseline, spacing: size * 0.11) {
+            if approximate {
+                // Lighter and in the secondary colour: it qualifies the
+                // number, it must not compete with it.
+                Text(verbatim: "≈")
+                    .font(.system(size: size * 0.6, weight: .light, design: .rounded))
+                    .foregroundStyle(Theme.secondaryText)
+                    .accessibilityHidden(true)
+            }
+
             Text(verbatim: unit.formatRange(range))
                 .font(.readout(size))
                 .foregroundStyle(tint ?? Theme.tint(for: midpoint, limit: limit))
@@ -90,6 +108,8 @@ struct BACReadout: View {
                 .foregroundStyle(Theme.secondaryText)
         }
         .animation(.easeInOut(duration: 0.25), value: midpoint)
+        .accessibilityElement(children: .combine)
+        .accessibilityLabel(approximate ? Text("approximately \(unit.formatRange(range)) \(unit.suffix)") : Text(verbatim: "\(unit.formatRange(range)) \(unit.suffix)"))
     }
 }
 
@@ -105,7 +125,7 @@ extension ClosedRange where Bound == Double {
     ZStack {
         Theme.background.ignoresSafeArea()
         VStack(alignment: .leading, spacing: 30) {
-            BACReadout(value: 0.58, unit: .perMille, limit: 0.5, size: 48)
+            BACReadout(value: 0.58, unit: .perMille, limit: 0.5, size: 48, approximate: true)
             BACReadout(0.52...0.64, unit: .perMille, limit: 0.5, size: 48)
             BACReadout(value: 1.24, unit: .perMille, limit: 0.5, size: 26)
             BACReadout(0.52...0.64, unit: .percent, limit: 0.5, size: 22)

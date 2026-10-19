@@ -87,16 +87,9 @@ TRANSLATIONS = {
 
     # --- TodayView ---
     "Profile": "Profil",
-    "estimated level": "nivel estimat",
-    "estimated range": "interval estimat",
     "Drinks": "Băuturi",
     "Units": "Unități",
     "Drinks this session": "Băuturi în această sesiune",
-    "This is an estimate, not a measurement.": "Aceasta este o estimare, nu o măsurătoare.",
-    "Actual values vary considerably between individuals. Never use this to decide whether you "
-    "can drive.":
-        "Valorile reale variază considerabil de la o persoană la alta. Nu folosi niciodată "
-        "acest lucru pentru a decide dacă poți conduce.",
     "Add drink": "Adaugă băutură",
 
     # --- Editing an already logged drink ---
@@ -374,4 +367,138 @@ TRANSLATIONS = {
     "Concentration": "Concentrație",
     "Leave the rate to the frequency question unless you have a measurement to match it against.":
         "Lasă rata în seama întrebării despre frecvență, dacă nu ai o măsurătoare cu care s-o compari.",
+
+    # --- How it works, estimate badge, launch tips ---
+    'Estimate, not a measurement. Never use this to decide whether you can drive.':
+        'Estimare, nu măsurătoare. Nu decide niciodată pe baza acestui lucru dacă poți conduce.',
+    'Estimated range, not a measurement. Never use this to decide whether you can drive.':
+        'Interval estimat, nu măsurătoare. Nu decide niciodată pe baza acestui lucru dacă poți conduce.',
+    'How does the app calculate this?':
+        'Cum calculează aplicația?',
+    'approximately %@ %@':
+        'aproximativ %@ %@',
+    'How it works':
+        'Cum funcționează',
+    'Never use this to decide whether you can drive. The app estimates, it does not measure, and your actual level can differ considerably.':
+        'Nu decide niciodată pe baza acestui lucru dacă poți conduce. Aplicația estimează, nu măsoară, iar nivelul tău real poate fi mult diferit.',
+    'Why this app exists':
+        'De ce există această aplicație',
+    'LogMyDrink helps you drink more mindfully and stay in control. The decision happens before the next glass, so the app shows you in advance where another drink would take your level, and when it would peak.':
+        'LogMyDrink te ajută să bei mai conștient și să păstrezi controlul. Decizia se ia înainte de paharul următor, așa că aplicația îți arată dinainte unde ți-ar duce nivelul încă o băutură și când ar atinge vârful.',
+    'But it is not only about tonight. Every drink you log goes into your History, so over months and years you can see how much, how often and how high you drink. Your patterns emerge from it, and so does the direction they are moving in — whether things are getting better or worse.':
+        'Dar nu e vorba doar de seara asta. Fiecare băutură înregistrată ajunge în istoric, așa că de-a lungul lunilor și anilor vezi cât, cât de des și cât de sus bei. De aici se conturează tiparele tale, dar și direcția în care se schimbă – dacă lucrurile merg spre bine sau spre rău.',
+    'How it calculates':
+        'Cum calculează',
+    'The estimate builds on the Widmark method, used to estimate blood alcohol since the 1930s; the app runs a refined version of it.':
+        'Estimarea se bazează pe metoda Widmark, folosită din anii 1930 pentru a estima alcoolemia; aplicația folosește o versiune rafinată a ei.',
+    'From your weight, height, age and sex it works out how much water your body holds, because that is where alcohol spreads. It follows every drink separately: how much alcohol it had, how fast you drank it, and how much you had eaten, because that sets how quickly it is absorbed.':
+        'Din greutatea, înălțimea, vârsta și sexul tău calculează câtă apă conține corpul tău, pentru că acolo se distribuie alcoolul. Urmărește fiecare băutură separat: cât alcool a avut, cât de repede ai băut-o și cât mâncaseși, pentru că de asta depinde viteza de absorbție.',
+    'Meanwhile your liver breaks down a roughly constant amount every hour; how much in your case is estimated from how often you drink. The result is a curve, minute by minute: where you are now, where you are heading, and when you will be clear.':
+        'Între timp, ficatul elimină în fiecare oră o cantitate aproximativ constantă; a ta este estimată după cât de des bei. Rezultatul este o curbă, minut cu minut: unde ești acum, încotro te îndrepți și când vei fi din nou la zero.',
+    'Details':
+        'Detalii',
+    'Body water':
+        'Apa din corp',
+    'The Watson formula (1980), from weight, height, age and sex. The female formula has no age term — a property of the formula, not a bug. The distribution volume is body water divided by 0.85, the water content of blood.':
+        'Formula Watson (1980), din greutate, înălțime, vârstă și sex. Formula pentru femei nu conține vârsta – e o proprietate a formulei, nu o eroare. Volumul de distribuție este apa din corp împărțită la 0,85, conținutul de apă al sângelui.',
+    'Absorption':
+        'Absorbție',
+    'Every drink has its own “stomach”. On an empty stomach half of the alcohol is absorbed in about 7 minutes, on a full one in about 21. A drink you sip enters the stomach evenly over the time you drink it.':
+        'Fiecare băutură are propriul „stomac”. Pe stomacul gol, jumătate din alcool se absoarbe în circa 7 minute, pe stomacul plin în circa 21. O băutură pe care o sorbi ajunge în stomac uniform cât timp o bei.',
+    'Gives a lower peak and an earlier clear time. Surprising, but measured: with food the stomach breaks down part of the alcohol before it is absorbed (the app uses 5, 10 and 15 percent), and what never got in does not need to be broken down.':
+        'Dă un vârf mai mic și o revenire mai rapidă la zero. Surprinzător, dar măsurat: cu mâncare, stomacul descompune o parte din alcool înainte de absorbție (aplicația folosește 5, 10 și 15 la sută), iar ce n-a intrat niciodată nu mai trebuie eliminat.',
+    'Elimination':
+        'Eliminare',
+    'About 0.15 ‰ per hour (published range 0.10–0.25), higher in regular drinkers as liver enzymes adapt. Close to zero it slows down (Michaelis–Menten kinetics), so the curve tapers off instead of stopping abruptly.':
+        'Circa 0,15 ‰ pe oră (interval publicat 0,10–0,25), mai mult la cei care beau regulat, deoarece enzimele ficatului se adaptează. Aproape de zero încetinește (cinetică Michaelis-Menten), așa că curba se domolește treptat în loc să se oprească brusc.',
+    'Computation':
+        'Calcul',
+    'The curve comes from a numerical simulation at one-minute resolution.':
+        'Curba provine dintr-o simulare numerică cu rezoluție de un minut.',
+    'Why it is only an estimate':
+        'De ce e doar o estimare',
+    'The app measures nothing. What it shows is the output of a model using average values, and reality can differ. The biggest unknown is how fast you break alcohol down: within the plausible range, that alone can move the peak by 40 percent and the clear time by four hours on the same evening.':
+        'Aplicația nu măsoară nimic. Ce arată este rezultatul unui model cu valori medii, iar realitatea poate fi diferită. Cea mai mare necunoscută este cât de repede elimini alcoolul: în intervalul plauzibil, doar acest lucru poate muta vârful cu 40 la sută și revenirea la zero cu patru ore în aceeași seară.',
+    'Genetics, liver health, medication, what you ate, sleep and tiredness matter too — the app knows none of these. Only a certified breathalyser or a blood test gives an exact value.':
+        'Contează și genetica, sănătatea ficatului, medicamentele, ce ai mâncat, somnul și oboseala – aplicația nu știe nimic din toate astea. Doar un etilotest omologat sau o analiză de sânge dau o valoare exactă.',
+    'The number is still useful. If the app reads consistently a little high or low for you, it is off in the same direction every evening, so over time you learn what a given value means for you. In Profile you can also show the uncertainty of the elimination rate: you then see a range instead of a single number.':
+        'Cifra rămâne totuși utilă. Dacă aplicația arată la tine constant puțin prea mult sau prea puțin, greșește în aceeași direcție în fiecare seară, așa că în timp înveți ce înseamnă o anumită valoare pentru tine. În Profil poți afișa și incertitudinea vitezei de eliminare: vei vedea atunci un interval în loc de o singură cifră.',
+    'Tips':
+        'Sfaturi',
+    'Favourite drink in one tap':
+        'Băutura preferată dintr-o atingere',
+    'Set a favourite in Profile and the Live button logs it with a single tap.':
+        'Setează o băutură preferată în Profil, iar butonul din Live o înregistrează dintr-o singură atingere.',
+    'Widget':
+        'Widget',
+    'Add it to your Lock Screen or Home Screen: one tap logs your favourite. While there is alcohol in your system, it also shows your level and which way it is going.':
+        'Adaugă-l pe ecranul blocat sau pe ecranul principal: o atingere înregistrează băutura preferată. Cât timp ai alcool în organism, arată și nivelul tău și direcția lui.',
+    'How do I add it?':
+        'Cum îl adaug?',
+    'Siri':
+        'Siri',
+    'Say “Hey Siri, LogMyDrink now” and Siri logs your favourite, then tells you where your peak is heading.':
+        'Spune „Hey Siri, LogMyDrink now” și Siri înregistrează băutura preferată, apoi îți spune spre ce vârf te îndrepți.',
+    'Looking back':
+        'Privire înapoi',
+    '“Yesterday” at the top of Live takes you to the previous day in one tap; the History tab shows your patterns over weeks, months and years.':
+        '„Ieri” din partea de sus a Live te duce la ziua precedentă dintr-o atingere; fila Istoric îți arată tiparele de-a lungul săptămânilor, lunilor și anilor.',
+    'Logging later':
+        'Înregistrare ulterioară',
+    'If you log a drink after the fact, set the time back with the − and + buttons; a missed day can be filled in from the Day view in History.':
+        'Dacă înregistrezi o băutură ulterior, dă ora înapoi cu butoanele − și +; o zi omisă poate fi completată din vizualizarea Zi din Istoric.',
+    'One tap and done':
+        'O atingere și gata',
+    'Your favourite from the Lock Screen':
+        'Băutura preferată de pe ecranul blocat',
+    'Say it, don’t type it':
+        'Spune, nu scrie',
+    'See your patterns':
+        'Vezi-ți tiparele',
+    'Set what you drink most often and log it with a single tap.':
+        'Setează ce bei cel mai des și înregistrează dintr-o singură atingere.',
+    'One tap on the widget logs your favourite, no searching for the app. In the evening it shows your level too.':
+        'O atingere pe widget înregistrează băutura preferată, fără să cauți aplicația. Seara arată și nivelul tău.',
+    '“Hey Siri, LogMyDrink now” — Siri logs your favourite and tells you where your peak is heading.':
+        '„Hey Siri, LogMyDrink now” – Siri înregistrează băutura preferată și îți spune spre ce vârf te îndrepți.',
+    'History shows how much and how high you drink over weeks, months and years, and which way it is changing.':
+        'Istoricul arată cât și cât de sus bei de-a lungul săptămânilor, lunilor și anilor, și în ce direcție se schimbă.',
+    'Set favourite':
+        'Setează preferata',
+    'Add widget':
+        'Adaugă widget',
+    'Got it':
+        'Am înțeles',
+    'Open History':
+        'Deschide istoricul',
+    'Later':
+        'Mai târziu',
+    'Don’t show again':
+        'Nu mai afișa',
+    'Lock Screen':
+        'Ecran blocat',
+    'Home Screen':
+        'Ecran principal',
+    'Where':
+        'Unde',
+    'Lock your phone, then touch and hold the Lock Screen.':
+        'Blochează iPhone-ul, apoi ține apăsat pe ecranul blocat.',
+    'Tap Customize, then Lock Screen, then the widget row under the clock.':
+        'Atinge Personalizează, apoi Ecran blocat și apoi rândul de widgeturi de sub ceas.',
+    'Choose LogMyDrink, then tap Done.':
+        'Alege LogMyDrink, apoi atinge OK.',
+    'Touch and hold an empty area of the Home Screen until the icons jiggle.':
+        'Ține apăsat pe o zonă goală a ecranului principal până când pictogramele încep să tremure.',
+    'Tap Edit, then Add Widget.':
+        'Atinge Editează, apoi Adaugă un widget.',
+    'Search for LogMyDrink, pick a size and tap Add Widget.':
+        'Caută LogMyDrink, alege o dimensiune și atinge Adaugă widget.',
+    'A tap on the widget opens the app and logs your favourite drink. While there is alcohol in your system, it also shows your level and which way it is going.':
+        'O atingere pe widget deschide aplicația și înregistrează băutura preferată. Cât timp ai alcool în organism, arată și nivelul tău și direcția lui.',
+    'Add the widget':
+        'Adaugă widgetul',
+    'Show tips':
+        'Afișează sfaturi',
+    'One tip a day at most, when you open the app — never while there is alcohol in your system.':
+        'Cel mult un sfat pe zi, la deschiderea aplicației – niciodată cât timp ai alcool în organism.',
 }

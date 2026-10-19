@@ -126,6 +126,7 @@ LogMyDrink/
 │   ├── Support/
 │   │   ├── Theme.swift         színek, a görbe színe a határhoz viszonyítva változik
 │   │   ├── FeatureFlags.swift  egy hely, ami eldönti, mi van bekapcsolva (5.19)
+│   │   ├── FeatureTips.swift   az indítási tippek: melyik, mikor, és mire emlékszik (5.27)
 │   │   ├── BACUnit.swift       ‰ / % megjelenítés, tartomány-formázás
 │   │   ├── AmountUnit.swift    gramm / standard egység megjelenítés, alapból gramm
 │   │   ├── ArchiveDocument.swift  FileDocument az exporthoz
@@ -149,6 +150,8 @@ LogMyDrink/
 │       ├── DrinkListSection.swift   az itallista, koppintás + húzás
 │       ├── DrinkRow.swift           egy sor, kézzel írt swipe-pal
 │       ├── AddDrinkSheet.swift      felvitel és szerkesztés + élő előrejelzés
+│       ├── HowItWorksView.swift     „Hogyan működik” + a Live becslés-kártyája (5.27)
+│       ├── TipSheet.swift           indítási tipp, widget-útmutató, a Show tips kapcsoló (5.27)
 │       ├── PersonSwitcher.swift     ki van kiválasztva + új személy felvitele
 │       ├── PeopleView.swift         személyek listája, vendég eltávolítása
 │       ├── DataTransferSection.swift export / import a Profil Data lapján
@@ -1704,6 +1707,83 @@ modulok utolérték az 5.25-öt: a `Sparkling` / `Spirit` kulcs helyett
 **Mire figyelni:** a hosszú nyelveken (litván, görög, finn) a szegmentes
 sorok és az al-lap címek kilógása élőben nézendő (`TODO.md`, Megjelenés).
 
+### 5.27 Becslés-jelzés, „Hogyan működik” és indítási tippek
+
+2026. október 19., Zoltán döntései kérdésenként végigvéve.
+
+**A becslés a számon ül, nem alatta apró betűvel.** A Live alján két sor
+állt („This is an estimate…”, „Never use this to decide whether you can
+drive.”), és a tabsáv mögött dereng — a 2. fejezet ígéretével szemben apró
+betű volt. Helyette: **≈ a nagy szám előtt** (`BACReadout(approximate:)`,
+halványabb, kisebb jel, hogy minősítse a számot, ne versenyezzen vele), és
+alatta egy **kék kártya** (`EstimateCard`): „Becslés, nem mérés. Ne ez
+alapján döntsd el, hogy vezethetsz-e.”, alatta kék link-sor „Hogyan számol
+az app? ›”, és az egész kártya gomb. **Két kör kellett.** Az első egy
+semleges, egysoros kapszula volt a vezetési mondat nélkül; Zoltán szerint
+címkének olvasódott, nem gombnak, a színtelensége miatt elsikkadt, és a
+vezetési mondat hiányzott a főképernyőről. A vezetési mondat azért van a
+Live-on, mert App Review-nál a reviewer ezt a képernyőt nézi, és az 1.4.3
+elleni érvünk épp az, hogy ez nem vezetési eszköz (9.). **Kék**
+(`Theme.info`), nem piros és nem borostyán: ezen a képernyőn a piros azt
+jelenti, hogy elérted a határodat, a borostyán a határ felét (5.14) — egy
+piros keret egy nyugodt szám alatt ellentmondana neki. A ≈ ott van, ahol a
+szám a *mostról* vagy a *jövőről* szól — Live, az Add drink vetített csúcsa,
+a widget szintje —, az Előzmény régi csúcsain nincs: egy oszlopnyi ≈ zaj,
+nem őszinteség.
+
+**„Hogyan működik” (`View/HowItWorksView.swift`) — egy hosszú oldal.** A
+kapszula nyitja lapként (`HowItWorksSheet`), és a Profil főlapjának alján
+egy külön szekció tolja be (nem beállítás, ezért nem a három al-lap
+mellett). A Live jobb felső sarka a személyváltóé marad (5.18). Sorrend:
+vörös keretes vezetési figyelmeztetés → miért van az app (előrelátás +
+hosszú távú minták és azok iránya) → hogyan számol, közérthetően, alatta
+egy lenyitható **Részletek** (Watson, felszívódási felezési idők, a teli
+gyomor alacsonyabb csúcsa *és* korábbi nullája 5.21 alapján, lebontás és
+Michaelis–Menten, percenkénti szimuláció) → miért csak becslés (a béta
+40 % / négy óra, 5.1; a szisztematikus torzítás, 5.8) → tippek (kedvenc,
+widget az útmutatóval, Siri, Tegnap, utólagos felvitel). **A modellt nem
+„Widmark-formulának” nevezi**, hanem a Widmark-módszer továbbfejlesztett
+változatának — a 4. fejezet szerint ez a pontos állítás, és az App
+Store-nál is az erősebb. Ha a `Physiology` számai változnak, ez a lap is.
+A szövegekben nincs `%` jel (a katalógus formátumspecifikátornak olvasná):
+„40 percent”, „5, 10 and 15 percent”.
+
+**Indítási tippek (`Support/FeatureTips.swift`, `View/TipSheet.swift`).**
+Zoltán kérése egy induláskor felugró, elvethető ablak volt a widgetről;
+belőle forgó tipp lett négy funkcióra, sorrendben: **kedvenc** (ha nincs
+beállítva) → **widget** (amíg nincs kitéve) → **Siri** (amíg nem használta)
+→ **Előzmény** (legalább 7 rögzített nap, és még nem nyitotta meg). A
+`TipLedger.next` tiszta függvény egy `TipContext`-ből, a szabályai:
+
+- **legfeljebb naponta egy**, indításkor vagy előtérbe kerüléskor,
+  1,2 másodperc késleltetéssel — a widget-koppintás kérése így előbb
+  megérkezik, és függő gyorsfelvitelnél nincs tipp;
+- **soha, amíg alkohol van a vérben** (a sáv felső széle > 0) — ilyenkor
+  az app italfelvitelre nyílik, egy lap a visszavonó sáv fölött a
+  legrosszabb pillanat;
+- **az első megnyitás napján sem** — még az appot sem látta;
+- ami már használatban van, magától kiesik; a „Ne mutasd többé”
+  tippenként szól, a „Később” csak bezár; a Profil Display & language
+  lapján egy **Show tips** kapcsoló mindet leállítja.
+
+Gombok: kedvenc → Profil tab, Előzmény → Előzmény tab, Siri → „Értem”
+(lezárja), widget → **appon belüli útmutató** (`WidgetGuideView`, zárolt /
+főképernyő, három-három lépés), a lap `.large`-ra nyílik. Az iOS nem enged
+a widgetgalériába linkelni (5.15), ennél többet a gomb nem tud. A widget
+jelenlétét a `getCurrentConfigurations` callbackes formája adja, mert az
+async változat iOS 18-as, az app 17-et céloz; hiba esetén „nincs kitéve”,
+a legrosszabb eset egy fölösleges tipp. A Siri-használatot a
+`LogDrinkIntent.perform`, az Előzmény megnyitását a `HistoryView.onAppear`
+jegyzi (`logmydrink.tips.*` kulcsok, készülékenként, nem szinkronizálva —
+a widget is ezé a telefoné). Debugban az Experiments alatt „Reset launch
+tips”. Teszt: `FeatureTipsTests` (7).
+
+**Fordítás:** 66 új kulcs mind a 24 nyelven, négy régi kikerült. A magyar
+nyelvi átnézése külön körben jön (`TODO.md`); a francia és a portugál a
+már meglévő tegező hangnemet követi. Az iOS-menüpontok nevei (Testreszabás,
+Widget hozzáadása…) a rendszer fordításait próbálják követni — a
+kevésbé ismert nyelveken (máltai, ír) angolul maradtak, ahogy ott az iOS is.
+
 ## 6. Validáció
 
 A `Reference/bac_model.py` a numerikus referencia. A Swift tesztek konkrét
@@ -1905,7 +1985,7 @@ nyitott alkalomnál a szintet és az irányt is mutatja (5.15); Előzmény Nap /
 mutató-kártyával, második statisztika-kártyával (5.24), ugró lappal és lakattal (5.16), a Trend szegmens debug
 kísérletként; JSON export / import (5.17); több személy a `multiPerson` flag
 mögött, személylistával és vendég-eltávolítással (5.18); 24 nyelvű lokalizáció
-(magyar és angol átnézve); a Profil főlap + három al-lap (5.26).
+(magyar és angol átnézve); a Profil főlap + három al-lap (5.26); ≈ és becslés-kártya a Live-on, „Hogyan működik” képernyő és indítási tippek (5.27).
 
 **Tesztek:** 74 a `BACKit`-ben (Linuxon is futtatható, 6.; két régi teszt
 várt száma az 5.21-es verziólépésnél nem frissült és azóta bukott — 2026.

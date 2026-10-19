@@ -19,6 +19,11 @@ enum Theme {
     static let alarm = Color(red: 0.925, green: 0.176, blue: 0.196)     // red
     static let critical = Color(red: 0.745, green: 0.043, blue: 0.157)  // deep crimson
 
+    /// Information, not a level: the estimate card on Live (5.27). Blue
+    /// because no level on the scale above is blue — red there means "at
+    /// your limit", and a red frame under a calm figure would say otherwise.
+    static let info = Color(red: 0.400, green: 0.620, blue: 0.980)
+
     /// The colour for a level, read **against the limit that person set**.
     ///
     /// Not an absolute scale. The old one turned amber at 0.5 ‰ and topped out

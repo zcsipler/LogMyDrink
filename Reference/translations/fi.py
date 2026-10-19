@@ -88,16 +88,9 @@ TRANSLATIONS = {
 
     # --- TodayView ---
     "Profile": "Profiili",
-    "estimated level": "arvioitu taso",
-    "estimated range": "arvioitu vaihteluväli",
     "Drinks": "Juomat",
     "Units": "Yksiköt",
     "Drinks this session": "Juomat tällä juomakerralla",
-    "This is an estimate, not a measurement.": "Tämä on arvio, ei mittaus.",
-    "Actual values vary considerably between individuals. Never use this to decide whether you "
-    "can drive.":
-        "Todelliset arvot vaihtelevat huomattavasti yksilöiden välillä. Älä koskaan käytä tätä "
-        "sen ratkaisemiseen, voitko ajaa.",
     "Add drink": "Lisää juoma",
 
     # --- Editing an already logged drink ---
@@ -372,4 +365,138 @@ TRANSLATIONS = {
     "Concentration": "Pitoisuus",
     "Leave the rate to the frequency question unless you have a measurement to match it against.":
         "Anna juomistiheyttä koskevan kysymyksen määrittää nopeus, ellei sinulla ole mittausta, johon sitä verrata.",
+
+    # --- How it works, estimate badge, launch tips ---
+    'Estimate, not a measurement. Never use this to decide whether you can drive.':
+        'Arvio, ei mittaus. Älä koskaan päätä tämän perusteella, voitko ajaa.',
+    'Estimated range, not a measurement. Never use this to decide whether you can drive.':
+        'Arvioitu vaihteluväli, ei mittaus. Älä koskaan päätä tämän perusteella, voitko ajaa.',
+    'How does the app calculate this?':
+        'Miten sovellus laskee?',
+    'approximately %@ %@':
+        'noin %@ %@',
+    'How it works':
+        'Näin se toimii',
+    'Never use this to decide whether you can drive. The app estimates, it does not measure, and your actual level can differ considerably.':
+        'Älä koskaan päätä tämän perusteella, voitko ajaa. Sovellus arvioi, se ei mittaa, ja todellinen tasosi voi poiketa huomattavasti.',
+    'Why this app exists':
+        'Miksi tämä sovellus',
+    'LogMyDrink helps you drink more mindfully and stay in control. The decision happens before the next glass, so the app shows you in advance where another drink would take your level, and when it would peak.':
+        'LogMyDrink auttaa sinua juomaan tietoisemmin ja pitämään juomisen hallinnassa. Päätös tehdään ennen seuraavaa lasia, joten sovellus näyttää etukäteen, mihin uusi juoma veisi tasosi ja milloin se olisi huipussaan.',
+    'But it is not only about tonight. Every drink you log goes into your History, so over months and years you can see how much, how often and how high you drink. Your patterns emerge from it, and so does the direction they are moving in — whether things are getting better or worse.':
+        'Kyse ei ole vain tästä illasta. Jokainen kirjaamasi juoma tallentuu historiaan, joten kuukausien ja vuosien mittaan näet, kuinka paljon, kuinka usein ja kuinka korkealle juot. Siitä erottuvat tapasi – ja myös suunta, johon ne muuttuvat, paremmaksi tai huonommaksi.',
+    'How it calculates':
+        'Näin se laskee',
+    'The estimate builds on the Widmark method, used to estimate blood alcohol since the 1930s; the app runs a refined version of it.':
+        'Arvio perustuu Widmarkin menetelmään, jolla veren alkoholipitoisuutta on arvioitu 1930-luvulta lähtien; sovellus käyttää siitä hiottua versiota.',
+    'From your weight, height, age and sex it works out how much water your body holds, because that is where alcohol spreads. It follows every drink separately: how much alcohol it had, how fast you drank it, and how much you had eaten, because that sets how quickly it is absorbed.':
+        'Painostasi, pituudestasi, iästäsi ja sukupuolestasi se laskee, kuinka paljon vettä kehossasi on, sillä alkoholi jakautuu siihen. Se seuraa jokaista juomaa erikseen: kuinka paljon alkoholia siinä oli, kuinka nopeasti joit sen ja kuinka paljon olit syönyt, sillä se ratkaisee imeytymisen nopeuden.',
+    'Meanwhile your liver breaks down a roughly constant amount every hour; how much in your case is estimated from how often you drink. The result is a curve, minute by minute: where you are now, where you are heading, and when you will be clear.':
+        'Samaan aikaan maksa poistaa tunnissa suunnilleen vakiomäärän; sinun määräsi arvioidaan sen perusteella, kuinka usein juot. Tuloksena on käyrä minuutti minuutilta: missä olet nyt, mihin olet menossa ja milloin olet taas nollassa.',
+    'Details':
+        'Lisätiedot',
+    'Body water':
+        'Kehon vesi',
+    'The Watson formula (1980), from weight, height, age and sex. The female formula has no age term — a property of the formula, not a bug. The distribution volume is body water divided by 0.85, the water content of blood.':
+        'Watsonin kaava (1980) painosta, pituudesta, iästä ja sukupuolesta. Naisten kaavassa ei ole ikää – se on kaavan ominaisuus, ei virhe. Jakautumistilavuus on kehon vesi jaettuna luvulla 0,85, veren vesipitoisuudella.',
+    'Absorption':
+        'Imeytyminen',
+    'Every drink has its own “stomach”. On an empty stomach half of the alcohol is absorbed in about 7 minutes, on a full one in about 21. A drink you sip enters the stomach evenly over the time you drink it.':
+        'Jokaisella juomalla on oma ”vatsansa”. Tyhjään vatsaan puolet alkoholista imeytyy noin 7 minuutissa, täyteen vatsaan noin 21 minuutissa. Siemailtu juoma kulkeutuu vatsaan tasaisesti koko juomisen ajan.',
+    'Gives a lower peak and an earlier clear time. Surprising, but measured: with food the stomach breaks down part of the alcohol before it is absorbed (the app uses 5, 10 and 15 percent), and what never got in does not need to be broken down.':
+        'Antaa matalamman huipun ja aikaisemman nollan. Yllättävää, mutta mitattua: ruoan kanssa vatsa hajottaa osan alkoholista ennen imeytymistä (sovellus käyttää 5, 10 ja 15 prosenttia), eikä sitä, mikä ei koskaan päässyt vereen, tarvitse poistaa.',
+    'Elimination':
+        'Palaminen',
+    'About 0.15 ‰ per hour (published range 0.10–0.25), higher in regular drinkers as liver enzymes adapt. Close to zero it slows down (Michaelis–Menten kinetics), so the curve tapers off instead of stopping abruptly.':
+        'Noin 0,15 ‰ tunnissa (julkaistu vaihteluväli 0,10–0,25), säännöllisesti juovilla enemmän, koska maksan entsyymit mukautuvat. Lähellä nollaa se hidastuu (Michaelis–Menten-kinetiikka), joten käyrä loivenee eikä katkea äkisti.',
+    'Computation':
+        'Laskenta',
+    'The curve comes from a numerical simulation at one-minute resolution.':
+        'Käyrä syntyy numeerisesta simulaatiosta minuutin tarkkuudella.',
+    'Why it is only an estimate':
+        'Miksi tämä on vain arvio',
+    'The app measures nothing. What it shows is the output of a model using average values, and reality can differ. The biggest unknown is how fast you break alcohol down: within the plausible range, that alone can move the peak by 40 percent and the clear time by four hours on the same evening.':
+        'Sovellus ei mittaa mitään. Se näyttää keskiarvoihin perustuvan mallin tuloksen, ja todellisuus voi poiketa siitä. Suurin tuntematon on, kuinka nopeasti alkoholi sinulla palaa: uskottavan vaihteluvälin sisällä pelkästään se voi siirtää huippua 40 prosenttia ja nollaa neljä tuntia saman illan aikana.',
+    'Genetics, liver health, medication, what you ate, sleep and tiredness matter too — the app knows none of these. Only a certified breathalyser or a blood test gives an exact value.':
+        'Myös perimä, maksan kunto, lääkkeet, syömäsi ruoka, uni ja väsymys vaikuttavat – sovellus ei tiedä niistä mitään. Tarkan arvon antaa vain kalibroitu alkometri tai verikoe.',
+    'The number is still useful. If the app reads consistently a little high or low for you, it is off in the same direction every evening, so over time you learn what a given value means for you. In Profile you can also show the uncertainty of the elimination rate: you then see a range instead of a single number.':
+        'Luku on silti hyödyllinen. Jos sovellus näyttää sinulle johdonmukaisesti vähän liikaa tai liian vähän, se erehtyy joka ilta samaan suuntaan, joten opit ajan mittaan, mitä tietty arvo sinulle tarkoittaa. Profiilissa voit myös näyttää palamisnopeuden epävarmuuden: näet silloin vaihteluvälin yhden luvun sijaan.',
+    'Tips':
+        'Vinkit',
+    'Favourite drink in one tap':
+        'Suosikkijuoma yhdellä napautuksella',
+    'Set a favourite in Profile and the Live button logs it with a single tap.':
+        'Valitse suosikki Profiilissa, niin Live-näkymän painike kirjaa sen yhdellä napautuksella.',
+    'Widget':
+        'Widget',
+    'Add it to your Lock Screen or Home Screen: one tap logs your favourite. While there is alcohol in your system, it also shows your level and which way it is going.':
+        'Lisää se lukitusnäyttöön tai Koti-valikkoon: yksi napautus kirjaa suosikkisi. Kun kehossasi on alkoholia, se näyttää myös tasosi ja sen suunnan.',
+    'How do I add it?':
+        'Miten lisään sen?',
+    'Siri':
+        'Siri',
+    'Say “Hey Siri, LogMyDrink now” and Siri logs your favourite, then tells you where your peak is heading.':
+        'Sano ”Hei Siri, LogMyDrink now”, niin Siri kirjaa suosikkisi ja kertoo, mihin huippusi on menossa.',
+    'Looking back':
+        'Taaksepäin katsominen',
+    '“Yesterday” at the top of Live takes you to the previous day in one tap; the History tab shows your patterns over weeks, months and years.':
+        'Live-näkymän yläreunan ”Eilen” vie edelliseen päivään yhdellä napautuksella; Historia-välilehti näyttää tapasi viikkojen, kuukausien ja vuosien ajalta.',
+    'Logging later':
+        'Kirjaaminen jälkikäteen',
+    'If you log a drink after the fact, set the time back with the − and + buttons; a missed day can be filled in from the Day view in History.':
+        'Jos kirjaat juoman jälkikäteen, siirrä aikaa taaksepäin − ja + -painikkeilla; väliin jääneen päivän voit täydentää Historian päivänäkymästä.',
+    'One tap and done':
+        'Yksi napautus ja valmista',
+    'Your favourite from the Lock Screen':
+        'Suosikkisi lukitusnäytöltä',
+    'Say it, don’t type it':
+        'Sano se, älä kirjoita',
+    'See your patterns':
+        'Katso tapojasi',
+    'Set what you drink most often and log it with a single tap.':
+        'Valitse, mitä juot useimmin, ja kirjaa se yhdellä napautuksella.',
+    'One tap on the widget logs your favourite, no searching for the app. In the evening it shows your level too.':
+        'Yksi napautus widgetissä kirjaa suosikkisi etsimättä sovellusta. Illalla se näyttää myös tasosi.',
+    '“Hey Siri, LogMyDrink now” — Siri logs your favourite and tells you where your peak is heading.':
+        '”Hei Siri, LogMyDrink now” – Siri kirjaa suosikkisi ja kertoo, mihin huippusi on menossa.',
+    'History shows how much and how high you drink over weeks, months and years, and which way it is changing.':
+        'Historia näyttää, kuinka paljon ja kuinka korkealle juot viikkojen, kuukausien ja vuosien aikana, ja mihin suuntaan se muuttuu.',
+    'Set favourite':
+        'Valitse suosikki',
+    'Add widget':
+        'Lisää widget',
+    'Got it':
+        'Selvä',
+    'Open History':
+        'Avaa Historia',
+    'Later':
+        'Myöhemmin',
+    'Don’t show again':
+        'Älä näytä uudelleen',
+    'Lock Screen':
+        'Lukitusnäyttö',
+    'Home Screen':
+        'Koti-valikko',
+    'Where':
+        'Minne',
+    'Lock your phone, then touch and hold the Lock Screen.':
+        'Lukitse iPhone ja pidä sitten sormea lukitusnäytöllä.',
+    'Tap Customize, then Lock Screen, then the widget row under the clock.':
+        'Napauta Muokkaa, sitten Lukitusnäyttö ja lopuksi kellon alla olevaa widget-riviä.',
+    'Choose LogMyDrink, then tap Done.':
+        'Valitse LogMyDrink ja napauta Valmis.',
+    'Touch and hold an empty area of the Home Screen until the icons jiggle.':
+        'Pidä sormea Koti-valikon tyhjällä kohdalla, kunnes symbolit alkavat heilua.',
+    'Tap Edit, then Add Widget.':
+        'Napauta Muokkaa ja sitten Lisää widget.',
+    'Search for LogMyDrink, pick a size and tap Add Widget.':
+        'Hae LogMyDrink, valitse koko ja napauta Lisää widget.',
+    'A tap on the widget opens the app and logs your favourite drink. While there is alcohol in your system, it also shows your level and which way it is going.':
+        'Widgetin napautus avaa sovelluksen ja kirjaa suosikkijuomasi. Kun kehossasi on alkoholia, se näyttää myös tasosi ja sen suunnan.',
+    'Add the widget':
+        'Lisää widget',
+    'Show tips':
+        'Näytä vinkit',
+    'One tip a day at most, when you open the app — never while there is alcohol in your system.':
+        'Enintään yksi vinkki päivässä sovellusta avatessa – ei koskaan, kun kehossasi on alkoholia.',
 }

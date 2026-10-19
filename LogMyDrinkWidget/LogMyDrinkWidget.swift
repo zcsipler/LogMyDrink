@@ -232,9 +232,13 @@ struct QuickAddWidgetView: View {
         Image(systemName: reading.isRising ? "arrow.up.right" : "arrow.down.right")
     }
 
-    /// "0,56 ‰ ↗"
+    /// "≈ 0,56 ‰ ↗" — the sign the Live screen carries too: an estimate on
+    /// the Lock Screen is still an estimate.
     private func levelLine(_ reading: Reading, size: CGFloat) -> some View {
         HStack(alignment: .firstTextBaseline, spacing: 3) {
+            Text(verbatim: "≈")
+                .font(.system(size: size * 0.7, weight: .light, design: .rounded))
+                .opacity(0.7)
             Text(verbatim: reading.levelText)
                 .font(.system(size: size, weight: .semibold, design: .rounded).monospacedDigit())
             Text(verbatim: reading.unitSuffix)

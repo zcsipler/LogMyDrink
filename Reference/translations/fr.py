@@ -87,16 +87,9 @@ TRANSLATIONS = {
 
     # --- TodayView ---
     "Profile": "Profil",
-    "estimated level": "taux estimé",
-    "estimated range": "fourchette estimée",
     "Drinks": "Verres",
     "Units": "Unités",
     "Drinks this session": "Verres de cette session",
-    "This is an estimate, not a measurement.": "C'est une estimation, pas une mesure.",
-    "Actual values vary considerably between individuals. Never use this to decide whether you "
-    "can drive.":
-        "Les valeurs réelles varient considérablement d'une personne à l'autre. Ne t'en sers "
-        "jamais pour décider si tu peux conduire.",
     "Add drink": "Ajouter un verre",
 
     # --- Editing an already logged drink ---
@@ -379,4 +372,138 @@ TRANSLATIONS = {
     "Concentration": "Concentration",
     "Leave the rate to the frequency question unless you have a measurement to match it against.":
         "Laisse la vitesse à la question sur la fréquence, sauf si tu as une mesure à laquelle la comparer.",
+
+    # --- How it works, estimate badge, launch tips ---
+    'Estimate, not a measurement. Never use this to decide whether you can drive.':
+        'Estimation, pas une mesure. Ne te fie jamais à cette app pour décider si tu peux conduire.',
+    'Estimated range, not a measurement. Never use this to decide whether you can drive.':
+        'Plage estimée, pas une mesure. Ne te fie jamais à cette app pour décider si tu peux conduire.',
+    'How does the app calculate this?':
+        'Comment l’app calcule-t-elle ?',
+    'approximately %@ %@':
+        'environ %@ %@',
+    'How it works':
+        'Fonctionnement',
+    'Never use this to decide whether you can drive. The app estimates, it does not measure, and your actual level can differ considerably.':
+        'Ne te fie jamais à cette app pour décider si tu peux conduire. Elle estime, elle ne mesure pas, et ton taux réel peut être très différent.',
+    'Why this app exists':
+        'Pourquoi cette app',
+    'LogMyDrink helps you drink more mindfully and stay in control. The decision happens before the next glass, so the app shows you in advance where another drink would take your level, and when it would peak.':
+        'LogMyDrink t’aide à boire de façon plus consciente et à garder le contrôle. La décision se prend avant le verre suivant : l’app te montre donc à l’avance où un verre de plus mènerait ton taux, et quand il atteindrait son pic.',
+    'But it is not only about tonight. Every drink you log goes into your History, so over months and years you can see how much, how often and how high you drink. Your patterns emerge from it, and so does the direction they are moving in — whether things are getting better or worse.':
+        'Mais il ne s’agit pas seulement de ce soir. Chaque verre enregistré rejoint ton historique : sur des mois et des années, tu vois combien, à quelle fréquence et jusqu’à quel taux tu bois. Tes habitudes s’en dégagent, ainsi que leur évolution – en mieux ou en moins bien.',
+    'How it calculates':
+        'Comment elle calcule',
+    'The estimate builds on the Widmark method, used to estimate blood alcohol since the 1930s; the app runs a refined version of it.':
+        'L’estimation repose sur la méthode de Widmark, utilisée depuis les années 1930 pour estimer l’alcoolémie ; l’app en utilise une version affinée.',
+    'From your weight, height, age and sex it works out how much water your body holds, because that is where alcohol spreads. It follows every drink separately: how much alcohol it had, how fast you drank it, and how much you had eaten, because that sets how quickly it is absorbed.':
+        'À partir de ton poids, ta taille, ton âge et ton sexe, elle calcule la quantité d’eau de ton corps, car c’est là que l’alcool se répartit. Elle suit chaque verre séparément : sa teneur en alcool, la vitesse à laquelle tu l’as bu et ce que tu avais mangé, car cela détermine la vitesse d’absorption.',
+    'Meanwhile your liver breaks down a roughly constant amount every hour; how much in your case is estimated from how often you drink. The result is a curve, minute by minute: where you are now, where you are heading, and when you will be clear.':
+        'Pendant ce temps, ton foie élimine une quantité à peu près constante chaque heure ; la tienne est estimée d’après la fréquence à laquelle tu bois. Il en résulte une courbe, minute par minute : où tu en es, où tu vas et quand tu seras revenu à zéro.',
+    'Details':
+        'Détails',
+    'Body water':
+        'Eau corporelle',
+    'The Watson formula (1980), from weight, height, age and sex. The female formula has no age term — a property of the formula, not a bug. The distribution volume is body water divided by 0.85, the water content of blood.':
+        'La formule de Watson (1980), d’après le poids, la taille, l’âge et le sexe. La formule féminine ne tient pas compte de l’âge – c’est une propriété de la formule, pas un bug. Le volume de distribution est l’eau corporelle divisée par 0,85, la teneur en eau du sang.',
+    'Absorption':
+        'Absorption',
+    'Every drink has its own “stomach”. On an empty stomach half of the alcohol is absorbed in about 7 minutes, on a full one in about 21. A drink you sip enters the stomach evenly over the time you drink it.':
+        'Chaque verre a son propre « estomac ». À jeun, la moitié de l’alcool est absorbée en 7 minutes environ, l’estomac plein en 21 environ. Un verre que tu sirotes arrive dans l’estomac de façon régulière pendant que tu le bois.',
+    'Gives a lower peak and an earlier clear time. Surprising, but measured: with food the stomach breaks down part of the alcohol before it is absorbed (the app uses 5, 10 and 15 percent), and what never got in does not need to be broken down.':
+        'Donne un pic plus bas et un retour à zéro plus tôt. Surprenant, mais mesuré : avec de la nourriture, l’estomac dégrade une partie de l’alcool avant son absorption (l’app utilise 5, 10 et 15 pour cent), et ce qui n’est jamais entré n’a pas à être éliminé.',
+    'Elimination':
+        'Élimination',
+    'About 0.15 ‰ per hour (published range 0.10–0.25), higher in regular drinkers as liver enzymes adapt. Close to zero it slows down (Michaelis–Menten kinetics), so the curve tapers off instead of stopping abruptly.':
+        'Environ 0,15 ‰ par heure (fourchette publiée 0,10–0,25), davantage chez les buveurs réguliers, dont les enzymes du foie s’adaptent. Près de zéro, elle ralentit (cinétique de Michaelis-Menten) : la courbe s’adoucit au lieu de s’arrêter net.',
+    'Computation':
+        'Calcul',
+    'The curve comes from a numerical simulation at one-minute resolution.':
+        'La courbe provient d’une simulation numérique à la minute près.',
+    'Why it is only an estimate':
+        'Pourquoi ce n’est qu’une estimation',
+    'The app measures nothing. What it shows is the output of a model using average values, and reality can differ. The biggest unknown is how fast you break alcohol down: within the plausible range, that alone can move the peak by 40 percent and the clear time by four hours on the same evening.':
+        'L’app ne mesure rien. Ce qu’elle affiche est le résultat d’un modèle fondé sur des valeurs moyennes, et la réalité peut être différente. La plus grande inconnue est la vitesse à laquelle tu élimines l’alcool : dans la plage plausible, elle peut à elle seule déplacer le pic de 40 pour cent et le retour à zéro de quatre heures pour une même soirée.',
+    'Genetics, liver health, medication, what you ate, sleep and tiredness matter too — the app knows none of these. Only a certified breathalyser or a blood test gives an exact value.':
+        'La génétique, l’état du foie, les médicaments, ce que tu as mangé, le sommeil et la fatigue comptent aussi – l’app n’en connaît rien. Seul un éthylomètre homologué ou une prise de sang donne une valeur exacte.',
+    'The number is still useful. If the app reads consistently a little high or low for you, it is off in the same direction every evening, so over time you learn what a given value means for you. In Profile you can also show the uncertainty of the elimination rate: you then see a range instead of a single number.':
+        'Le chiffre reste utile. Si l’app affiche chez toi systématiquement un peu trop ou un peu trop peu, elle se trompe dans le même sens chaque soir : avec le temps, tu apprends ce qu’une valeur signifie pour toi. Dans Profil, tu peux aussi afficher l’incertitude de la vitesse d’élimination : tu vois alors une plage au lieu d’un chiffre.',
+    'Tips':
+        'Astuces',
+    'Favourite drink in one tap':
+        'Boisson favorite en un toucher',
+    'Set a favourite in Profile and the Live button logs it with a single tap.':
+        'Choisis une favorite dans Profil, et le bouton de Direct l’enregistre d’un seul toucher.',
+    'Widget':
+        'Widget',
+    'Add it to your Lock Screen or Home Screen: one tap logs your favourite. While there is alcohol in your system, it also shows your level and which way it is going.':
+        'Ajoute-le à l’écran verrouillé ou à l’écran d’accueil : un toucher enregistre ta favorite. Tant qu’il y a de l’alcool dans ton organisme, il affiche aussi ton taux et sa direction.',
+    'How do I add it?':
+        'Comment l’ajouter ?',
+    'Siri':
+        'Siri',
+    'Say “Hey Siri, LogMyDrink now” and Siri logs your favourite, then tells you where your peak is heading.':
+        'Dis « Dis Siri, LogMyDrink now » : Siri enregistre ta favorite, puis t’indique vers quel pic tu vas.',
+    'Looking back':
+        'Revenir en arrière',
+    '“Yesterday” at the top of Live takes you to the previous day in one tap; the History tab shows your patterns over weeks, months and years.':
+        '« Hier » en haut de Direct te mène à la veille d’un toucher ; l’onglet Historique montre tes habitudes sur des semaines, des mois et des années.',
+    'Logging later':
+        'Enregistrer après coup',
+    'If you log a drink after the fact, set the time back with the − and + buttons; a missed day can be filled in from the Day view in History.':
+        'Si tu enregistres un verre après coup, recule l’heure avec les boutons − et + ; une journée oubliée peut être complétée depuis la vue Jour de l’historique.',
+    'One tap and done':
+        'Un toucher et c’est fait',
+    'Your favourite from the Lock Screen':
+        'Ta favorite depuis l’écran verrouillé',
+    'Say it, don’t type it':
+        'Dis-le, ne le tape pas',
+    'See your patterns':
+        'Découvre tes habitudes',
+    'Set what you drink most often and log it with a single tap.':
+        'Indique ce que tu bois le plus souvent et enregistre-le d’un seul toucher.',
+    'One tap on the widget logs your favourite, no searching for the app. In the evening it shows your level too.':
+        'Un toucher sur le widget enregistre ta favorite, sans chercher l’app. Le soir, il affiche aussi ton taux.',
+    '“Hey Siri, LogMyDrink now” — Siri logs your favourite and tells you where your peak is heading.':
+        '« Dis Siri, LogMyDrink now » – Siri enregistre ta favorite et t’indique vers quel pic tu vas.',
+    'History shows how much and how high you drink over weeks, months and years, and which way it is changing.':
+        'L’historique montre combien et jusqu’à quel taux tu bois sur des semaines, des mois et des années, et comment cela évolue.',
+    'Set favourite':
+        'Choisir une favorite',
+    'Add widget':
+        'Ajouter le widget',
+    'Got it':
+        'Compris',
+    'Open History':
+        'Ouvrir l’historique',
+    'Later':
+        'Plus tard',
+    'Don’t show again':
+        'Ne plus afficher',
+    'Lock Screen':
+        'Écran verrouillé',
+    'Home Screen':
+        'Écran d’accueil',
+    'Where':
+        'Où',
+    'Lock your phone, then touch and hold the Lock Screen.':
+        'Verrouille ton iPhone, puis maintiens le doigt sur l’écran verrouillé.',
+    'Tap Customize, then Lock Screen, then the widget row under the clock.':
+        'Touche Personnaliser, puis Écran verrouillé, puis la rangée de widgets sous l’heure.',
+    'Choose LogMyDrink, then tap Done.':
+        'Choisis LogMyDrink, puis touche OK.',
+    'Touch and hold an empty area of the Home Screen until the icons jiggle.':
+        'Maintiens le doigt sur une zone vide de l’écran d’accueil jusqu’à ce que les icônes bougent.',
+    'Tap Edit, then Add Widget.':
+        'Touche Modifier, puis Ajouter un widget.',
+    'Search for LogMyDrink, pick a size and tap Add Widget.':
+        'Recherche LogMyDrink, choisis une taille et touche Ajouter le widget.',
+    'A tap on the widget opens the app and logs your favourite drink. While there is alcohol in your system, it also shows your level and which way it is going.':
+        'Un toucher sur le widget ouvre l’app et enregistre ta boisson favorite. Tant qu’il y a de l’alcool dans ton organisme, il affiche aussi ton taux et sa direction.',
+    'Add the widget':
+        'Ajouter le widget',
+    'Show tips':
+        'Afficher les astuces',
+    'One tip a day at most, when you open the app — never while there is alcohol in your system.':
+        'Une astuce par jour au maximum, à l’ouverture de l’app – jamais tant qu’il y a de l’alcool dans ton organisme.',
 }

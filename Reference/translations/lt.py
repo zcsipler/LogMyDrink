@@ -87,16 +87,9 @@ TRANSLATIONS = {
 
     # --- TodayView ---
     "Profile": "Profilis",
-    "estimated level": "įvertintas lygis",
-    "estimated range": "įvertintas intervalas",
     "Drinks": "Gėrimai",
     "Units": "Vienetai",
     "Drinks this session": "Šios sesijos gėrimai",
-    "This is an estimate, not a measurement.": "Tai įvertis, o ne matavimas.",
-    "Actual values vary considerably between individuals. Never use this to decide whether you "
-    "can drive.":
-        "Tikrosios reikšmės tarp žmonių labai skiriasi. Niekada nesiremk tuo spręsdamas, ar "
-        "gali vairuoti.",
     "Add drink": "Pridėti gėrimą",
 
     # --- Editing an already logged drink ---
@@ -374,4 +367,138 @@ TRANSLATIONS = {
     "Concentration": "Koncentracija",
     "Leave the rate to the frequency question unless you have a measurement to match it against.":
         "Greitį palik dažnumo klausimui, nebent turi matavimą, su kuriuo jį galėtum palyginti.",
+
+    # --- How it works, estimate badge, launch tips ---
+    'Estimate, not a measurement. Never use this to decide whether you can drive.':
+        'Įvertis, ne matavimas. Niekada pagal tai nespręsk, ar gali vairuoti.',
+    'Estimated range, not a measurement. Never use this to decide whether you can drive.':
+        'Įvertintas intervalas, ne matavimas. Niekada pagal tai nespręsk, ar gali vairuoti.',
+    'How does the app calculate this?':
+        'Kaip programėlė skaičiuoja?',
+    'approximately %@ %@':
+        'apie %@ %@',
+    'How it works':
+        'Kaip tai veikia',
+    'Never use this to decide whether you can drive. The app estimates, it does not measure, and your actual level can differ considerably.':
+        'Niekada pagal tai nespręsk, ar gali vairuoti. Programėlė vertina, o ne matuoja, ir tavo tikrasis lygis gali labai skirtis.',
+    'Why this app exists':
+        'Kam ši programėlė',
+    'LogMyDrink helps you drink more mindfully and stay in control. The decision happens before the next glass, so the app shows you in advance where another drink would take your level, and when it would peak.':
+        'LogMyDrink padeda gerti sąmoningiau ir išlaikyti kontrolę. Sprendimas priimamas prieš kitą taurę, todėl programėlė iš anksto parodo, kur dar vienas gėrimas nuvestų tavo lygį ir kada jis pasiektų piką.',
+    'But it is not only about tonight. Every drink you log goes into your History, so over months and years you can see how much, how often and how high you drink. Your patterns emerge from it, and so does the direction they are moving in — whether things are getting better or worse.':
+        'Tačiau kalba ne tik apie šį vakarą. Kiekvienas įrašytas gėrimas patenka į istoriją, tad per mėnesius ir metus matai, kiek, kaip dažnai ir kaip aukštai geri. Iš to išryškėja tavo įpročiai ir kryptis, kuria jie keičiasi – ar padėtis gerėja, ar blogėja.',
+    'How it calculates':
+        'Kaip ji skaičiuoja',
+    'The estimate builds on the Widmark method, used to estimate blood alcohol since the 1930s; the app runs a refined version of it.':
+        'Įvertis remiasi Widmarko metodu, kuriuo alkoholio koncentracija kraujyje vertinama nuo XX a. 4-ojo dešimtmečio; programėlė naudoja patobulintą jo versiją.',
+    'From your weight, height, age and sex it works out how much water your body holds, because that is where alcohol spreads. It follows every drink separately: how much alcohol it had, how fast you drank it, and how much you had eaten, because that sets how quickly it is absorbed.':
+        'Pagal tavo svorį, ūgį, amžių ir lytį ji apskaičiuoja, kiek vandens yra tavo kūne, nes būtent jame pasiskirsto alkoholis. Kiekvieną gėrimą ji seka atskirai: kiek jame buvo alkoholio, kaip greitai jį išgėrei ir kiek buvai valgęs, nes nuo to priklauso įsigėrimo greitis.',
+    'Meanwhile your liver breaks down a roughly constant amount every hour; how much in your case is estimated from how often you drink. The result is a curve, minute by minute: where you are now, where you are heading, and when you will be clear.':
+        'Tuo metu kepenys kas valandą suskaido maždaug pastovų kiekį; tavo kiekis vertinamas pagal tai, kaip dažnai geri. Rezultatas – kreivė minutė po minutės: kur esi dabar, kur link eini ir kada vėl būsi ties nuliu.',
+    'Details':
+        'Išsamiau',
+    'Body water':
+        'Kūno vanduo',
+    'The Watson formula (1980), from weight, height, age and sex. The female formula has no age term — a property of the formula, not a bug. The distribution volume is body water divided by 0.85, the water content of blood.':
+        'Watsono formulė (1980) pagal svorį, ūgį, amžių ir lytį. Moterų formulėje amžiaus nėra – tai formulės savybė, ne klaida. Pasiskirstymo tūris – kūno vanduo, padalytas iš 0,85, t. y. vandens kiekio kraujyje.',
+    'Absorption':
+        'Įsigėrimas',
+    'Every drink has its own “stomach”. On an empty stomach half of the alcohol is absorbed in about 7 minutes, on a full one in about 21. A drink you sip enters the stomach evenly over the time you drink it.':
+        'Kiekvienas gėrimas turi savo „skrandį“. Tuščiu skrandžiu pusė alkoholio įsigeria maždaug per 7 minutes, pilnu – maždaug per 21. Gurkšnojamas gėrimas į skrandį patenka tolygiai visą gėrimo laiką.',
+    'Gives a lower peak and an earlier clear time. Surprising, but measured: with food the stomach breaks down part of the alcohol before it is absorbed (the app uses 5, 10 and 15 percent), and what never got in does not need to be broken down.':
+        'Duoda žemesnį piką ir ankstesnį nulį. Stebina, bet išmatuota: su maistu skrandis dalį alkoholio suskaido dar prieš įsigėrimą (programėlė skaičiuoja 5, 10 ir 15 procentų), o to, kas niekada nepateko į kraują, skaidyti nereikia.',
+    'Elimination':
+        'Skaidymas',
+    'About 0.15 ‰ per hour (published range 0.10–0.25), higher in regular drinkers as liver enzymes adapt. Close to zero it slows down (Michaelis–Menten kinetics), so the curve tapers off instead of stopping abruptly.':
+        'Apie 0,15 ‰ per valandą (skelbiamas intervalas 0,10–0,25), reguliariai geriantiems daugiau, nes kepenų fermentai prisitaiko. Arti nulio jis sulėtėja (Michaelio–Menten kinetika), todėl kreivė palaipsniui išsilygina, o ne staiga nutrūksta.',
+    'Computation':
+        'Skaičiavimas',
+    'The curve comes from a numerical simulation at one-minute resolution.':
+        'Kreivė gaunama skaitmeniniu modeliavimu vienos minutės tikslumu.',
+    'Why it is only an estimate':
+        'Kodėl tai tik įvertis',
+    'The app measures nothing. What it shows is the output of a model using average values, and reality can differ. The biggest unknown is how fast you break alcohol down: within the plausible range, that alone can move the peak by 40 percent and the clear time by four hours on the same evening.':
+        'Programėlė nieko nematuoja. Ji rodo vidutinėmis reikšmėmis pagrįsto modelio rezultatą, o tikrovė gali skirtis. Didžiausias nežinomasis – kaip greitai skaidai alkoholį: tikėtino intervalo ribose vien tai tą patį vakarą gali paslinkti piką 40 procentų, o nulį – keturiomis valandomis.',
+    'Genetics, liver health, medication, what you ate, sleep and tiredness matter too — the app knows none of these. Only a certified breathalyser or a blood test gives an exact value.':
+        'Reikšmės turi ir genetika, kepenų sveikata, vaistai, ką valgei, miegas ir nuovargis – nieko iš to programėlė nežino. Tikslią reikšmę duoda tik patikrintas alkotesteris arba kraujo tyrimas.',
+    'The number is still useful. If the app reads consistently a little high or low for you, it is off in the same direction every evening, so over time you learn what a given value means for you. In Profile you can also show the uncertainty of the elimination rate: you then see a range instead of a single number.':
+        'Vis dėlto skaičius naudingas. Jei programėlė tau nuolat rodo šiek tiek per daug ar per mažai, ji kiekvieną vakarą klysta ta pačia kryptimi, tad ilgainiui išmoksti, ką tam tikra reikšmė reiškia būtent tau. Profilyje gali parodyti ir skaidymo greičio neapibrėžtį: tada vietoj vieno skaičiaus matysi intervalą.',
+    'Tips':
+        'Patarimai',
+    'Favourite drink in one tap':
+        'Mėgstamas gėrimas vienu palietimu',
+    'Set a favourite in Profile and the Live button logs it with a single tap.':
+        'Nustatyk mėgstamą gėrimą Profilyje, ir ekrano Tiesiogiai mygtukas jį įrašys vienu palietimu.',
+    'Widget':
+        'Valdiklis',
+    'Add it to your Lock Screen or Home Screen: one tap logs your favourite. While there is alcohol in your system, it also shows your level and which way it is going.':
+        'Pridėk jį prie užrakinimo ar pradžios ekrano: vienas palietimas įrašo tavo mėgstamą gėrimą. Kol organizme yra alkoholio, jis rodo ir tavo lygį bei jo kryptį.',
+    'How do I add it?':
+        'Kaip jį pridėti?',
+    'Siri':
+        'Siri',
+    'Say “Hey Siri, LogMyDrink now” and Siri logs your favourite, then tells you where your peak is heading.':
+        'Pasakyk „Hey Siri, LogMyDrink now“, ir Siri įrašys tavo mėgstamą gėrimą bei pasakys, kur link eina tavo pikas.',
+    'Looking back':
+        'Žvilgsnis atgal',
+    '“Yesterday” at the top of Live takes you to the previous day in one tap; the History tab shows your patterns over weeks, months and years.':
+        '„Vakar“ ekrano Tiesiogiai viršuje vienu palietimu nuveda į ankstesnę dieną; skirtukas Istorija rodo tavo įpročius per savaites, mėnesius ir metus.',
+    'Logging later':
+        'Įrašymas vėliau',
+    'If you log a drink after the fact, set the time back with the − and + buttons; a missed day can be filled in from the Day view in History.':
+        'Jei gėrimą įrašai vėliau, atsuk laiką atgal mygtukais − ir +; praleistą dieną gali papildyti Istorijos dienos rodinyje.',
+    'One tap and done':
+        'Vienas palietimas – ir viskas',
+    'Your favourite from the Lock Screen':
+        'Mėgstamas gėrimas iš užrakinimo ekrano',
+    'Say it, don’t type it':
+        'Pasakyk, nerašyk',
+    'See your patterns':
+        'Pažiūrėk savo įpročius',
+    'Set what you drink most often and log it with a single tap.':
+        'Nustatyk, ką geri dažniausiai, ir įrašyk tai vienu palietimu.',
+    'One tap on the widget logs your favourite, no searching for the app. In the evening it shows your level too.':
+        'Vienas palietimas valdiklyje įrašo tavo mėgstamą gėrimą be programėlės paieškos. Vakare jis rodo ir tavo lygį.',
+    '“Hey Siri, LogMyDrink now” — Siri logs your favourite and tells you where your peak is heading.':
+        '„Hey Siri, LogMyDrink now“ – Siri įrašys tavo mėgstamą gėrimą ir pasakys, kur link eina tavo pikas.',
+    'History shows how much and how high you drink over weeks, months and years, and which way it is changing.':
+        'Istorija rodo, kiek ir kaip aukštai geri per savaites, mėnesius ir metus ir kuria kryptimi tai keičiasi.',
+    'Set favourite':
+        'Nustatyti mėgstamą',
+    'Add widget':
+        'Pridėti valdiklį',
+    'Got it':
+        'Supratau',
+    'Open History':
+        'Atidaryti istoriją',
+    'Later':
+        'Vėliau',
+    'Don’t show again':
+        'Daugiau nerodyti',
+    'Lock Screen':
+        'Užrakinimo ekranas',
+    'Home Screen':
+        'Pradžios ekranas',
+    'Where':
+        'Kur',
+    'Lock your phone, then touch and hold the Lock Screen.':
+        'Užrakink „iPhone“ ir palaikyk pirštą ant užrakinimo ekrano.',
+    'Tap Customize, then Lock Screen, then the widget row under the clock.':
+        'Paliesk Tinkinti, tada Užrakinimo ekranas, o paskui valdiklių eilutę po laikrodžiu.',
+    'Choose LogMyDrink, then tap Done.':
+        'Pasirink LogMyDrink ir paliesk Atlikta.',
+    'Touch and hold an empty area of the Home Screen until the icons jiggle.':
+        'Palaikyk pirštą tuščioje pradžios ekrano vietoje, kol piktogramos ims kraipytis.',
+    'Tap Edit, then Add Widget.':
+        'Paliesk Redaguoti, tada Pridėti valdiklį.',
+    'Search for LogMyDrink, pick a size and tap Add Widget.':
+        'Surask LogMyDrink, pasirink dydį ir paliesk Pridėti valdiklį.',
+    'A tap on the widget opens the app and logs your favourite drink. While there is alcohol in your system, it also shows your level and which way it is going.':
+        'Palietus valdiklį atsidaro programėlė ir įrašomas tavo mėgstamas gėrimas. Kol organizme yra alkoholio, jis rodo ir tavo lygį bei jo kryptį.',
+    'Add the widget':
+        'Pridėti valdiklį',
+    'Show tips':
+        'Rodyti patarimus',
+    'One tip a day at most, when you open the app — never while there is alcohol in your system.':
+        'Ne daugiau kaip vienas patarimas per dieną atidarant programėlę – niekada, kol organizme yra alkoholio.',
 }

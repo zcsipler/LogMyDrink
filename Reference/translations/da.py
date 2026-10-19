@@ -86,16 +86,9 @@ TRANSLATIONS = {
 
     # --- TodayView ---
     "Profile": "Profil",
-    "estimated level": "skønnet niveau",
-    "estimated range": "skønnet interval",
     "Drinks": "Drinks",
     "Units": "Genstande",
     "Drinks this session": "Drinks i denne session",
-    "This is an estimate, not a measurement.": "Dette er et skøn, ikke en måling.",
-    "Actual values vary considerably between individuals. Never use this to decide whether you "
-    "can drive.":
-        "De faktiske værdier varierer betydeligt fra person til person. Brug aldrig dette til "
-        "at afgøre, om du kan køre bil.",
     "Add drink": "Tilføj drink",
 
     # --- Editing an already logged drink ---
@@ -370,4 +363,138 @@ TRANSLATIONS = {
     "Concentration": "Koncentration",
     "Leave the rate to the frequency question unless you have a measurement to match it against.":
         "Lad hastigheden følge spørgsmålet om hyppighed, medmindre du har en måling at holde den op imod.",
+
+    # --- How it works, estimate badge, launch tips ---
+    'Estimate, not a measurement. Never use this to decide whether you can drive.':
+        'Skøn, ikke måling. Brug aldrig dette til at afgøre, om du kan køre.',
+    'Estimated range, not a measurement. Never use this to decide whether you can drive.':
+        'Skønnet interval, ikke måling. Brug aldrig dette til at afgøre, om du kan køre.',
+    'How does the app calculate this?':
+        'Hvordan regner appen?',
+    'approximately %@ %@':
+        'cirka %@ %@',
+    'How it works':
+        'Sådan virker det',
+    'Never use this to decide whether you can drive. The app estimates, it does not measure, and your actual level can differ considerably.':
+        'Brug aldrig dette til at afgøre, om du kan køre. Appen skønner, den måler ikke, og dit faktiske niveau kan afvige betydeligt.',
+    'Why this app exists':
+        'Derfor findes appen',
+    'LogMyDrink helps you drink more mindfully and stay in control. The decision happens before the next glass, so the app shows you in advance where another drink would take your level, and when it would peak.':
+        'LogMyDrink hjælper dig med at drikke mere bevidst og bevare kontrollen. Beslutningen træffes før næste glas, så appen viser dig på forhånd, hvor endnu en drink ville bringe dit niveau hen, og hvornår det ville toppe.',
+    'But it is not only about tonight. Every drink you log goes into your History, so over months and years you can see how much, how often and how high you drink. Your patterns emerge from it, and so does the direction they are moving in — whether things are getting better or worse.':
+        'Men det handler ikke kun om i aften. Hver drink, du registrerer, havner i din historik, så over måneder og år kan du se, hvor meget, hvor ofte og hvor højt du drikker. Dine mønstre træder frem, og det samme gør retningen, de bevæger sig i – om det går bedre eller værre.',
+    'How it calculates':
+        'Sådan regner den',
+    'The estimate builds on the Widmark method, used to estimate blood alcohol since the 1930s; the app runs a refined version of it.':
+        'Skønnet bygger på Widmarks metode, som er brugt til at skønne alkoholpromillen siden 1930’erne; appen bruger en forfinet udgave af den.',
+    'From your weight, height, age and sex it works out how much water your body holds, because that is where alcohol spreads. It follows every drink separately: how much alcohol it had, how fast you drank it, and how much you had eaten, because that sets how quickly it is absorbed.':
+        'Ud fra din vægt, højde, alder og køn regner den ud, hvor meget vand din krop indeholder, for det er her, alkoholen fordeler sig. Den følger hver drink for sig: hvor meget alkohol den indeholdt, hvor hurtigt du drak den, og hvor meget du havde spist, for det afgør, hvor hurtigt den optages.',
+    'Meanwhile your liver breaks down a roughly constant amount every hour; how much in your case is estimated from how often you drink. The result is a curve, minute by minute: where you are now, where you are heading, and when you will be clear.':
+        'Imens nedbryder leveren en nogenlunde konstant mængde hver time; hvor meget hos dig, skønnes ud fra, hvor ofte du drikker. Resultatet er en kurve, minut for minut: hvor du er nu, hvor du er på vej hen, og hvornår du er nede på nul.',
+    'Details':
+        'Detaljer',
+    'Body water':
+        'Kropsvæske',
+    'The Watson formula (1980), from weight, height, age and sex. The female formula has no age term — a property of the formula, not a bug. The distribution volume is body water divided by 0.85, the water content of blood.':
+        'Watsons formel (1980) ud fra vægt, højde, alder og køn. Formlen for kvinder har ikke alder med – en egenskab ved formlen, ikke en fejl. Fordelingsvolumenet er kropsvæsken divideret med 0,85, blodets vandindhold.',
+    'Absorption':
+        'Optagelse',
+    'Every drink has its own “stomach”. On an empty stomach half of the alcohol is absorbed in about 7 minutes, on a full one in about 21. A drink you sip enters the stomach evenly over the time you drink it.':
+        'Hver drink har sin egen ”mave”. På tom mave optages halvdelen af alkoholen på cirka 7 minutter, på fuld mave på cirka 21. En drink, du nipper til, når jævnt ned i maven, mens du drikker den.',
+    'Gives a lower peak and an earlier clear time. Surprising, but measured: with food the stomach breaks down part of the alcohol before it is absorbed (the app uses 5, 10 and 15 percent), and what never got in does not need to be broken down.':
+        'Giver en lavere top og et tidligere nulpunkt. Overraskende, men målt: med mad nedbryder maven en del af alkoholen, før den optages (appen regner med 5, 10 og 15 procent), og det, der aldrig kom ind, skal ikke nedbrydes.',
+    'Elimination':
+        'Nedbrydning',
+    'About 0.15 ‰ per hour (published range 0.10–0.25), higher in regular drinkers as liver enzymes adapt. Close to zero it slows down (Michaelis–Menten kinetics), so the curve tapers off instead of stopping abruptly.':
+        'Cirka 0,15 ‰ i timen (publiceret interval 0,10–0,25), højere hos dem, der drikker regelmæssigt, fordi leverens enzymer tilpasser sig. Tæt på nul går det langsommere (Michaelis-Menten-kinetik), så kurven flader ud i stedet for at stoppe brat.',
+    'Computation':
+        'Beregning',
+    'The curve comes from a numerical simulation at one-minute resolution.':
+        'Kurven kommer fra en numerisk simulering med et minuts opløsning.',
+    'Why it is only an estimate':
+        'Derfor er det kun et skøn',
+    'The app measures nothing. What it shows is the output of a model using average values, and reality can differ. The biggest unknown is how fast you break alcohol down: within the plausible range, that alone can move the peak by 40 percent and the clear time by four hours on the same evening.':
+        'Appen måler ingenting. Det, den viser, er resultatet af en model med gennemsnitsværdier, og virkeligheden kan afvige. Den største ubekendte er, hvor hurtigt du nedbryder alkohol: inden for det plausible interval kan det alene flytte toppen 40 procent og nulpunktet fire timer samme aften.',
+    'Genetics, liver health, medication, what you ate, sleep and tiredness matter too — the app knows none of these. Only a certified breathalyser or a blood test gives an exact value.':
+        'Gener, leverens tilstand, medicin, hvad du har spist, søvn og træthed spiller også ind – intet af det kender appen. Kun et godkendt alkometer eller en blodprøve giver en nøjagtig værdi.',
+    'The number is still useful. If the app reads consistently a little high or low for you, it is off in the same direction every evening, so over time you learn what a given value means for you. In Profile you can also show the uncertainty of the elimination rate: you then see a range instead of a single number.':
+        'Tallet er alligevel nyttigt. Hvis appen hos dig konsekvent viser lidt for højt eller lavt, tager den fejl i samme retning hver aften, så med tiden lærer du, hvad en given værdi betyder for dig. Under Profil kan du også vise usikkerheden på nedbrydningshastigheden: så ser du et interval i stedet for ét tal.',
+    'Tips':
+        'Tips',
+    'Favourite drink in one tap':
+        'Favoritdrink med ét tryk',
+    'Set a favourite in Profile and the Live button logs it with a single tap.':
+        'Vælg en favorit under Profil, så registrerer knappen på Live den med ét tryk.',
+    'Widget':
+        'Widget',
+    'Add it to your Lock Screen or Home Screen: one tap logs your favourite. While there is alcohol in your system, it also shows your level and which way it is going.':
+        'Føj den til låseskærmen eller hjemmeskærmen: ét tryk registrerer din favorit. Så længe der er alkohol i kroppen, viser den også dit niveau og retningen.',
+    'How do I add it?':
+        'Hvordan tilføjer jeg den?',
+    'Siri':
+        'Siri',
+    'Say “Hey Siri, LogMyDrink now” and Siri logs your favourite, then tells you where your peak is heading.':
+        'Sig ”Hey Siri, LogMyDrink now”, så registrerer Siri din favorit og fortæller, hvor din top er på vej hen.',
+    'Looking back':
+        'Se tilbage',
+    '“Yesterday” at the top of Live takes you to the previous day in one tap; the History tab shows your patterns over weeks, months and years.':
+        '”I går” øverst på Live fører dig til dagen før med ét tryk; fanen Historik viser dine mønstre over uger, måneder og år.',
+    'Logging later':
+        'Registrér bagefter',
+    'If you log a drink after the fact, set the time back with the − and + buttons; a missed day can be filled in from the Day view in History.':
+        'Hvis du registrerer en drink bagefter, så stil tiden tilbage med knapperne − og +; en glemt dag kan udfyldes fra dagsvisningen i Historik.',
+    'One tap and done':
+        'Ét tryk, så er det klaret',
+    'Your favourite from the Lock Screen':
+        'Din favorit fra låseskærmen',
+    'Say it, don’t type it':
+        'Sig det, skriv det ikke',
+    'See your patterns':
+        'Se dine mønstre',
+    'Set what you drink most often and log it with a single tap.':
+        'Angiv, hvad du oftest drikker, og registrér det med ét tryk.',
+    'One tap on the widget logs your favourite, no searching for the app. In the evening it shows your level too.':
+        'Ét tryk på widgetten registrerer din favorit, uden at du skal lede efter appen. Om aftenen viser den også dit niveau.',
+    '“Hey Siri, LogMyDrink now” — Siri logs your favourite and tells you where your peak is heading.':
+        '”Hey Siri, LogMyDrink now” – Siri registrerer din favorit og fortæller, hvor din top er på vej hen.',
+    'History shows how much and how high you drink over weeks, months and years, and which way it is changing.':
+        'Historik viser, hvor meget og hvor højt du drikker over uger, måneder og år, og hvilken vej det går.',
+    'Set favourite':
+        'Vælg favorit',
+    'Add widget':
+        'Tilføj widget',
+    'Got it':
+        'Forstået',
+    'Open History':
+        'Åbn Historik',
+    'Later':
+        'Senere',
+    'Don’t show again':
+        'Vis ikke igen',
+    'Lock Screen':
+        'Låseskærm',
+    'Home Screen':
+        'Hjemmeskærm',
+    'Where':
+        'Hvor',
+    'Lock your phone, then touch and hold the Lock Screen.':
+        'Lås din iPhone, og hold derefter fingeren på låseskærmen.',
+    'Tap Customize, then Lock Screen, then the widget row under the clock.':
+        'Tryk på Tilpas, derefter på Låseskærm og så på widgetrækken under uret.',
+    'Choose LogMyDrink, then tap Done.':
+        'Vælg LogMyDrink, og tryk på OK.',
+    'Touch and hold an empty area of the Home Screen until the icons jiggle.':
+        'Hold fingeren på et tomt område af hjemmeskærmen, til symbolerne begynder at vrikke.',
+    'Tap Edit, then Add Widget.':
+        'Tryk på Rediger og derefter på Tilføj widget.',
+    'Search for LogMyDrink, pick a size and tap Add Widget.':
+        'Søg efter LogMyDrink, vælg en størrelse, og tryk på Tilføj widget.',
+    'A tap on the widget opens the app and logs your favourite drink. While there is alcohol in your system, it also shows your level and which way it is going.':
+        'Et tryk på widgetten åbner appen og registrerer din favoritdrink. Så længe der er alkohol i kroppen, viser den også dit niveau og retningen.',
+    'Add the widget':
+        'Tilføj widgetten',
+    'Show tips':
+        'Vis tips',
+    'One tip a day at most, when you open the app — never while there is alcohol in your system.':
+        'Højst ét tip om dagen, når du åbner appen – aldrig så længe der er alkohol i kroppen.',
 }

@@ -89,16 +89,9 @@ TRANSLATIONS = {
 
     # --- TodayView ---
     "Profile": "Profil",
-    "estimated level": "livell stmat",
-    "estimated range": "firxa stmata",
     "Drinks": "Xarbiet",
     "Units": "Unitajiet",
     "Drinks this session": "Xarbiet f'din is-sessjoni",
-    "This is an estimate, not a measurement.": "Din hi stima, mhux kejl.",
-    "Actual values vary considerably between individuals. Never use this to decide whether you "
-    "can drive.":
-        "Il-valuri reali jvarjaw ħafna minn persuna għal oħra. Qatt tuża dan biex tiddeċiedi "
-        "jekk tistax issuq.",
     "Add drink": "Żid xarba",
 
     # --- Editing an already logged drink ---
@@ -375,4 +368,138 @@ TRANSLATIONS = {
     "Concentration": "Konċentrazzjoni",
     "Leave the rate to the frequency question unless you have a measurement to match it against.":
         "Ħalli r-rata f'idejn il-mistoqsija dwar kemm-il darba tixrob, sakemm ma jkollokx kejl biex tqabbilha miegħu.",
+
+    # --- How it works, estimate badge, launch tips ---
+    'Estimate, not a measurement. Never use this to decide whether you can drive.':
+        'Stima, mhux kejl. Qatt tuża dan biex tiddeċiedi jekk tistax issuq.',
+    'Estimated range, not a measurement. Never use this to decide whether you can drive.':
+        'Firxa stmata, mhux kejl. Qatt tuża dan biex tiddeċiedi jekk tistax issuq.',
+    'How does the app calculate this?':
+        'Kif tikkalkula l-app?',
+    'approximately %@ %@':
+        'madwar %@ %@',
+    'How it works':
+        'Kif taħdem',
+    'Never use this to decide whether you can drive. The app estimates, it does not measure, and your actual level can differ considerably.':
+        'Qatt tuża dan biex tiddeċiedi jekk tistax issuq. L-app tistma, ma tkejjilx, u l-livell reali tiegħek jista’ jkun differenti ħafna.',
+    'Why this app exists':
+        'Għaliex teżisti din l-app',
+    'LogMyDrink helps you drink more mindfully and stay in control. The decision happens before the next glass, so the app shows you in advance where another drink would take your level, and when it would peak.':
+        'LogMyDrink tgħinek tixrob b’mod aktar konxju u żżomm il-kontroll. Id-deċiżjoni tittieħed qabel it-tazza li jmiss, għalhekk l-app turik minn qabel fejn xarba oħra tieħu l-livell tiegħek u meta jilħaq il-quċċata.',
+    'But it is not only about tonight. Every drink you log goes into your History, so over months and years you can see how much, how often and how high you drink. Your patterns emerge from it, and so does the direction they are moving in — whether things are getting better or worse.':
+        'Iżda mhux biss dwar illejla. Kull xarba li tirreġistra tmur fl-istorja tiegħek, u għalhekk matul xhur u snin tara kemm, kemm-il darba u kemm għoli tixrob. Minn hemm joħorġu x-xejriet tiegħek, u wkoll id-direzzjoni li qed jieħdu – jekk l-affarijiet qed jitjiebu jew jiggrava.',
+    'How it calculates':
+        'Kif tikkalkula',
+    'The estimate builds on the Widmark method, used to estimate blood alcohol since the 1930s; the app runs a refined version of it.':
+        'L-istima hija bbażata fuq il-metodu ta’ Widmark, użat mis-snin tletin biex jiġi stmat l-alkoħol fid-demm; l-app tuża verżjoni rfinata tiegħu.',
+    'From your weight, height, age and sex it works out how much water your body holds, because that is where alcohol spreads. It follows every drink separately: how much alcohol it had, how fast you drank it, and how much you had eaten, because that sets how quickly it is absorbed.':
+        'Mill-piż, it-tul, l-età u s-sess tiegħek tikkalkula kemm fih ilma ġismek, għax hemm jinfirex l-alkoħol. Issegwi kull xarba għaliha: kemm kien fiha alkoħol, kemm xrobtha malajr u kemm kont kilt, għax dan jiddetermina kemm tiġi assorbita malajr.',
+    'Meanwhile your liver breaks down a roughly constant amount every hour; how much in your case is estimated from how often you drink. The result is a curve, minute by minute: where you are now, where you are heading, and when you will be clear.':
+        'Sadanittant il-fwied ikisser kull siegħa ammont bejn wieħed u ieħor kostanti; tiegħek jiġi stmat minn kemm-il darba tixrob. Ir-riżultat huwa kurva, minuta b’minuta: fejn int issa, lejn fejn sejjer u meta terġa’ tkun fuq żero.',
+    'Details':
+        'Dettalji',
+    'Body water':
+        'Ilma tal-ġisem',
+    'The Watson formula (1980), from weight, height, age and sex. The female formula has no age term — a property of the formula, not a bug. The distribution volume is body water divided by 0.85, the water content of blood.':
+        'Il-formula ta’ Watson (1980), mill-piż, it-tul, l-età u s-sess. Il-formula għan-nisa m’għandhiex età – karatteristika tal-formula, mhux żball. Il-volum tad-distribuzzjoni huwa l-ilma tal-ġisem diviż b’0.85, il-kontenut ta’ ilma fid-demm.',
+    'Absorption':
+        'Assorbiment',
+    'Every drink has its own “stomach”. On an empty stomach half of the alcohol is absorbed in about 7 minutes, on a full one in about 21. A drink you sip enters the stomach evenly over the time you drink it.':
+        'Kull xarba għandha l-“istonku” tagħha. Fuq stonku vojt nofs l-alkoħol jiġi assorbit f’madwar 7 minuti, fuq stonku mimli f’madwar 21. Xarba li tixrobha bil-mod tidħol fl-istonku b’mod uniformi waqt li tixrobha.',
+    'Gives a lower peak and an earlier clear time. Surprising, but measured: with food the stomach breaks down part of the alcohol before it is absorbed (the app uses 5, 10 and 15 percent), and what never got in does not need to be broken down.':
+        'Jagħti quċċata aktar baxxa u żero aktar kmieni. Sorprendenti, iżda mkejjel: bl-ikel l-istonku jkisser parti mill-alkoħol qabel jiġi assorbit (l-app tuża 5, 10 u 15 fil-mija), u dak li qatt ma daħal m’hemmx għalfejn jitkisser.',
+    'Elimination':
+        'Eliminazzjoni',
+    'About 0.15 ‰ per hour (published range 0.10–0.25), higher in regular drinkers as liver enzymes adapt. Close to zero it slows down (Michaelis–Menten kinetics), so the curve tapers off instead of stopping abruptly.':
+        'Madwar 0.15 ‰ fis-siegħa (firxa ppubblikata 0.10–0.25), aktar f’min jixrob regolarment għax l-enzimi tal-fwied jadattaw. Qrib iż-żero tonqos (kinetika ta’ Michaelis-Menten), u għalhekk il-kurva tinżel bil-mod minflok ma tieqaf f’daqqa.',
+    'Computation':
+        'Kalkolu',
+    'The curve comes from a numerical simulation at one-minute resolution.':
+        'Il-kurva ġejja minn simulazzjoni numerika b’riżoluzzjoni ta’ minuta.',
+    'Why it is only an estimate':
+        'Għaliex hija biss stima',
+    'The app measures nothing. What it shows is the output of a model using average values, and reality can differ. The biggest unknown is how fast you break alcohol down: within the plausible range, that alone can move the peak by 40 percent and the clear time by four hours on the same evening.':
+        'L-app ma tkejjel xejn. Dak li turi huwa r-riżultat ta’ mudell b’valuri medji, u r-realtà tista’ tkun differenti. L-akbar mhux magħruf huwa kemm tkisser l-alkoħol malajr: fil-firxa plawżibbli, dan waħdu jista’ jċaqlaq il-quċċata b’40 fil-mija u ż-żero b’erba’ sigħat fl-istess serata.',
+    'Genetics, liver health, medication, what you ate, sleep and tiredness matter too — the app knows none of these. Only a certified breathalyser or a blood test gives an exact value.':
+        'Jgħoddu wkoll il-ġenetika, is-saħħa tal-fwied, il-mediċini, x’kilt, l-irqad u l-għeja – l-app ma taf xejn minn dawn. Valur eżatt jagħtih biss breathalyser iċċertifikat jew test tad-demm.',
+    'The number is still useful. If the app reads consistently a little high or low for you, it is off in the same direction every evening, so over time you learn what a given value means for you. In Profile you can also show the uncertainty of the elimination rate: you then see a range instead of a single number.':
+        'In-numru xorta huwa utli. Jekk l-app turi lilek b’mod konsistenti ftit wisq jew ftit wisq ftit, tiżbalja fl-istess direzzjoni kull filgħaxija, u għalhekk maż-żmien titgħallem xi jfisser valur partikolari għalik. Fil-Profil tista’ wkoll turi l-inċertezza tar-rata tal-eliminazzjoni: imbagħad tara firxa minflok numru wieħed.',
+    'Tips':
+        'Pariri',
+    'Favourite drink in one tap':
+        'Xarba favorita b’tektika waħda',
+    'Set a favourite in Profile and the Live button logs it with a single tap.':
+        'Agħżel favorita fil-Profil u l-buttuna f’Dirett tirreġistraha b’tektika waħda.',
+    'Widget':
+        'Widget',
+    'Add it to your Lock Screen or Home Screen: one tap logs your favourite. While there is alcohol in your system, it also shows your level and which way it is going.':
+        'Żidu mal-Lock Screen jew mal-Home Screen: tektika waħda tirreġistra l-favorita tiegħek. Sakemm ikun hemm alkoħol f’ġismek, juri wkoll il-livell tiegħek u d-direzzjoni tiegħu.',
+    'How do I add it?':
+        'Kif inżidu?',
+    'Siri':
+        'Siri',
+    'Say “Hey Siri, LogMyDrink now” and Siri logs your favourite, then tells you where your peak is heading.':
+        'Għid “Hey Siri, LogMyDrink now” u Siri tirreġistra l-favorita tiegħek u tgħidlek lejn fejn sejra l-quċċata tiegħek.',
+    'Looking back':
+        'Ħarsa lura',
+    '“Yesterday” at the top of Live takes you to the previous day in one tap; the History tab shows your patterns over weeks, months and years.':
+        '“Ilbieraħ” fil-quċċata ta’ Dirett jeħdok għall-ġurnata ta’ qabel b’tektika waħda; it-tab Storja turi x-xejriet tiegħek fuq ġimgħat, xhur u snin.',
+    'Logging later':
+        'Reġistrazzjoni wara',
+    'If you log a drink after the fact, set the time back with the − and + buttons; a missed day can be filled in from the Day view in History.':
+        'Jekk tirreġistra xarba wara, ressaq il-ħin lura bil-buttuni − u +; ġurnata li qbiżt tista’ timliha mill-veduta Jum fl-Istorja.',
+    'One tap and done':
+        'Tektika waħda u lest',
+    'Your favourite from the Lock Screen':
+        'Il-favorita tiegħek mil-Lock Screen',
+    'Say it, don’t type it':
+        'Għidha, tiktibhiex',
+    'See your patterns':
+        'Ara x-xejriet tiegħek',
+    'Set what you drink most often and log it with a single tap.':
+        'Agħżel x’tixrob l-aktar spiss u rreġistrah b’tektika waħda.',
+    'One tap on the widget logs your favourite, no searching for the app. In the evening it shows your level too.':
+        'Tektika waħda fuq il-widget tirreġistra l-favorita tiegħek, mingħajr ma tfittex l-app. Filgħaxija juri wkoll il-livell tiegħek.',
+    '“Hey Siri, LogMyDrink now” — Siri logs your favourite and tells you where your peak is heading.':
+        '“Hey Siri, LogMyDrink now” – Siri tirreġistra l-favorita tiegħek u tgħidlek lejn fejn sejra l-quċċata tiegħek.',
+    'History shows how much and how high you drink over weeks, months and years, and which way it is changing.':
+        'L-Istorja turi kemm u kemm għoli tixrob fuq ġimgħat, xhur u snin, u f’liema direzzjoni qed tinbidel.',
+    'Set favourite':
+        'Agħżel favorita',
+    'Add widget':
+        'Żid widget',
+    'Got it':
+        'Fhimt',
+    'Open History':
+        'Iftaħ l-Istorja',
+    'Later':
+        'Aktar tard',
+    'Don’t show again':
+        'Turihx aktar',
+    'Lock Screen':
+        'Lock Screen',
+    'Home Screen':
+        'Home Screen',
+    'Where':
+        'Fejn',
+    'Lock your phone, then touch and hold the Lock Screen.':
+        'Sakkar l-iPhone, imbagħad żomm subgħajk fuq il-Lock Screen.',
+    'Tap Customize, then Lock Screen, then the widget row under the clock.':
+        'Agħfas Customize, imbagħad Lock Screen, u mbagħad ir-ringiela tal-widgets taħt l-arloġġ.',
+    'Choose LogMyDrink, then tap Done.':
+        'Agħżel LogMyDrink, imbagħad agħfas Done.',
+    'Touch and hold an empty area of the Home Screen until the icons jiggle.':
+        'Żomm subgħajk fuq post vojt tal-Home Screen sakemm l-ikoni jibdew jitħawdu.',
+    'Tap Edit, then Add Widget.':
+        'Agħfas Edit, imbagħad Add Widget.',
+    'Search for LogMyDrink, pick a size and tap Add Widget.':
+        'Fittex LogMyDrink, agħżel daqs u agħfas Add Widget.',
+    'A tap on the widget opens the app and logs your favourite drink. While there is alcohol in your system, it also shows your level and which way it is going.':
+        'Tektika fuq il-widget tiftaħ l-app u tirreġistra x-xarba favorita tiegħek. Sakemm ikun hemm alkoħol f’ġismek, juri wkoll il-livell tiegħek u d-direzzjoni tiegħu.',
+    'Add the widget':
+        'Żid il-widget',
+    'Show tips':
+        'Uri pariri',
+    'One tip a day at most, when you open the app — never while there is alcohol in your system.':
+        'L-aktar parir wieħed kuljum, meta tiftaħ l-app – qatt sakemm ikun hemm alkoħol f’ġismek.',
 }

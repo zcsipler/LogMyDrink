@@ -86,16 +86,9 @@ TRANSLATIONS = {
 
     # --- TodayView ---
     "Profile": "Профил",
-    "estimated level": "прогнозно ниво",
-    "estimated range": "прогнозен диапазон",
     "Drinks": "Напитки",
     "Units": "Единици",
     "Drinks this session": "Напитки в тази сесия",
-    "This is an estimate, not a measurement.": "Това е оценка, а не измерване.",
-    "Actual values vary considerably between individuals. Never use this to decide whether you "
-    "can drive.":
-        "Действителните стойности се различават значително при отделните хора. Никога не "
-        "използвай това, за да решиш дали можеш да шофираш.",
     "Add drink": "Добави напитка",
 
     # --- Editing an already logged drink ---
@@ -371,4 +364,138 @@ TRANSLATIONS = {
     "Concentration": "Концентрация",
     "Leave the rate to the frequency question unless you have a measurement to match it against.":
         "Остави скоростта на въпроса за честотата, освен ако нямаш измерване, с което да я сравниш.",
+
+    # --- How it works, estimate badge, launch tips ---
+    'Estimate, not a measurement. Never use this to decide whether you can drive.':
+        'Оценка, не измерване. Никога не решавай по това дали можеш да шофираш.',
+    'Estimated range, not a measurement. Never use this to decide whether you can drive.':
+        'Оценен диапазон, не измерване. Никога не решавай по това дали можеш да шофираш.',
+    'How does the app calculate this?':
+        'Как изчислява приложението?',
+    'approximately %@ %@':
+        'приблизително %@ %@',
+    'How it works':
+        'Как работи',
+    'Never use this to decide whether you can drive. The app estimates, it does not measure, and your actual level can differ considerably.':
+        'Никога не решавай по това дали можеш да шофираш. Приложението оценява, а не измерва, и действителното ти ниво може да се различава значително.',
+    'Why this app exists':
+        'Защо съществува това приложение',
+    'LogMyDrink helps you drink more mindfully and stay in control. The decision happens before the next glass, so the app shows you in advance where another drink would take your level, and when it would peak.':
+        'LogMyDrink ти помага да пиеш по-осъзнато и да запазиш контрола. Решението се взема преди следващата чаша, затова приложението ти показва предварително докъде би стигнало нивото ти с още една напитка и кога би достигнало върха си.',
+    'But it is not only about tonight. Every drink you log goes into your History, so over months and years you can see how much, how often and how high you drink. Your patterns emerge from it, and so does the direction they are moving in — whether things are getting better or worse.':
+        'Но не става дума само за тази вечер. Всяка въведена напитка отива в историята, така че с месеци и години виждаш колко, колко често и колко високо пиеш. От това изпъкват навиците ти, а също и посоката, в която се променят – дали нещата се подобряват или влошават.',
+    'How it calculates':
+        'Как изчислява',
+    'The estimate builds on the Widmark method, used to estimate blood alcohol since the 1930s; the app runs a refined version of it.':
+        'Оценката се основава на метода на Видмарк, с който алкохолът в кръвта се оценява от 30-те години на XX век; приложението използва негова усъвършенствана версия.',
+    'From your weight, height, age and sex it works out how much water your body holds, because that is where alcohol spreads. It follows every drink separately: how much alcohol it had, how fast you drank it, and how much you had eaten, because that sets how quickly it is absorbed.':
+        'От теглото, ръста, възрастта и пола ти изчислява колко вода има в тялото ти, защото именно в нея се разпределя алкохолът. Следи всяка напитка поотделно: колко алкохол е съдържала, колко бързо си я изпил и колко си ял преди това, защото от това зависи скоростта на усвояване.',
+    'Meanwhile your liver breaks down a roughly constant amount every hour; how much in your case is estimated from how often you drink. The result is a curve, minute by minute: where you are now, where you are heading, and when you will be clear.':
+        'Междувременно черният дроб разгражда всеки час приблизително постоянно количество; твоето се оценява според това колко често пиеш. Резултатът е крива минута по минута: къде си сега, накъде вървиш и кога отново ще си на нула.',
+    'Details':
+        'Подробности',
+    'Body water':
+        'Телесна вода',
+    'The Watson formula (1980), from weight, height, age and sex. The female formula has no age term — a property of the formula, not a bug. The distribution volume is body water divided by 0.85, the water content of blood.':
+        'Формулата на Уотсън (1980) по тегло, ръст, възраст и пол. Във формулата за жени няма възраст – това е особеност на формулата, а не грешка. Обемът на разпределение е телесната вода, разделена на 0,85 – водното съдържание на кръвта.',
+    'Absorption':
+        'Усвояване',
+    'Every drink has its own “stomach”. On an empty stomach half of the alcohol is absorbed in about 7 minutes, on a full one in about 21. A drink you sip enters the stomach evenly over the time you drink it.':
+        'Всяка напитка има свой „стомах“. На празен стомах половината алкохол се усвоява за около 7 минути, на пълен – за около 21. Напитка, която отпиваш, постъпва в стомаха равномерно през цялото време на пиене.',
+    'Gives a lower peak and an earlier clear time. Surprising, but measured: with food the stomach breaks down part of the alcohol before it is absorbed (the app uses 5, 10 and 15 percent), and what never got in does not need to be broken down.':
+        'Дава по-нисък връх и по-ранна нула. Изненадващо, но измерено: с храна стомахът разгражда част от алкохола още преди усвояването (приложението използва 5, 10 и 15 процента), а онова, което изобщо не е влязло, не е нужно да се разгражда.',
+    'Elimination':
+        'Разграждане',
+    'About 0.15 ‰ per hour (published range 0.10–0.25), higher in regular drinkers as liver enzymes adapt. Close to zero it slows down (Michaelis–Menten kinetics), so the curve tapers off instead of stopping abruptly.':
+        'Около 0,15 ‰ на час (публикуван диапазон 0,10–0,25), повече при редовно пиещите, защото чернодробните ензими се адаптират. Близо до нулата се забавя (кинетика на Михаелис–Ментен), затова кривата плавно затихва, вместо да прекъсне рязко.',
+    'Computation':
+        'Изчисление',
+    'The curve comes from a numerical simulation at one-minute resolution.':
+        'Кривата е резултат от числена симулация с резолюция от една минута.',
+    'Why it is only an estimate':
+        'Защо е само оценка',
+    'The app measures nothing. What it shows is the output of a model using average values, and reality can differ. The biggest unknown is how fast you break alcohol down: within the plausible range, that alone can move the peak by 40 percent and the clear time by four hours on the same evening.':
+        'Приложението не измерва нищо. Показва резултата от модел със средни стойности, а реалността може да е различна. Най-голямото неизвестно е колко бързо разграждаш алкохола: в правдоподобния диапазон само то може да измести върха с 40 процента, а нулата – с четири часа в рамките на една вечер.',
+    'Genetics, liver health, medication, what you ate, sleep and tiredness matter too — the app knows none of these. Only a certified breathalyser or a blood test gives an exact value.':
+        'Значение имат и гените, здравето на черния дроб, лекарствата, храната, сънят и умората – приложението не знае нищо от това. Точна стойност дава само сертифициран дрегер или кръвен тест.',
+    'The number is still useful. If the app reads consistently a little high or low for you, it is off in the same direction every evening, so over time you learn what a given value means for you. In Profile you can also show the uncertainty of the elimination rate: you then see a range instead of a single number.':
+        'Числото все пак е полезно. Ако приложението при теб постоянно показва малко повече или по-малко, то греши в една и съща посока всяка вечер, така че с времето научаваш какво означава дадена стойност за теб. В Профил можеш да покажеш и несигурността на скоростта на разграждане: тогава ще виждаш диапазон вместо едно число.',
+    'Tips':
+        'Съвети',
+    'Favourite drink in one tap':
+        'Любима напитка с едно докосване',
+    'Set a favourite in Profile and the Live button logs it with a single tap.':
+        'Задай любима напитка в Профил и бутонът на екрана На живо ще я въвежда с едно докосване.',
+    'Widget':
+        'Уиджет',
+    'Add it to your Lock Screen or Home Screen: one tap logs your favourite. While there is alcohol in your system, it also shows your level and which way it is going.':
+        'Добави го на заключения или началния екран: едно докосване въвежда любимата ти напитка. Докато имаш алкохол в тялото, показва и нивото ти и посоката му.',
+    'How do I add it?':
+        'Как да го добавя?',
+    'Siri':
+        'Siri',
+    'Say “Hey Siri, LogMyDrink now” and Siri logs your favourite, then tells you where your peak is heading.':
+        'Кажи „Hey Siri, LogMyDrink now“ и Siri ще въведе любимата ти напитка и ще ти каже накъде отива върхът ти.',
+    'Looking back':
+        'Поглед назад',
+    '“Yesterday” at the top of Live takes you to the previous day in one tap; the History tab shows your patterns over weeks, months and years.':
+        '„Вчера“ в горната част на На живо те отвежда към предишния ден с едно докосване; разделът История показва навиците ти за седмици, месеци и години.',
+    'Logging later':
+        'Въвеждане по-късно',
+    'If you log a drink after the fact, set the time back with the − and + buttons; a missed day can be filled in from the Day view in History.':
+        'Ако въвеждаш напитка по-късно, върни часа назад с бутоните − и +; пропуснат ден може да се допълни от изгледа Ден в Историята.',
+    'One tap and done':
+        'Едно докосване и готово',
+    'Your favourite from the Lock Screen':
+        'Любимата ти напитка от заключения екран',
+    'Say it, don’t type it':
+        'Кажи го, не го пиши',
+    'See your patterns':
+        'Виж навиците си',
+    'Set what you drink most often and log it with a single tap.':
+        'Задай какво пиеш най-често и го въвеждай с едно докосване.',
+    'One tap on the widget logs your favourite, no searching for the app. In the evening it shows your level too.':
+        'Едно докосване на уиджета въвежда любимата ти напитка, без да търсиш приложението. Вечер показва и нивото ти.',
+    '“Hey Siri, LogMyDrink now” — Siri logs your favourite and tells you where your peak is heading.':
+        '„Hey Siri, LogMyDrink now“ – Siri въвежда любимата ти напитка и ти казва накъде отива върхът ти.',
+    'History shows how much and how high you drink over weeks, months and years, and which way it is changing.':
+        'Историята показва колко и колко високо пиеш за седмици, месеци и години и в каква посока се променя това.',
+    'Set favourite':
+        'Задай любима',
+    'Add widget':
+        'Добави уиджет',
+    'Got it':
+        'Ясно',
+    'Open History':
+        'Отвори историята',
+    'Later':
+        'По-късно',
+    'Don’t show again':
+        'Не показвай повече',
+    'Lock Screen':
+        'Заключен екран',
+    'Home Screen':
+        'Начален екран',
+    'Where':
+        'Къде',
+    'Lock your phone, then touch and hold the Lock Screen.':
+        'Заключи iPhone и след това задръж пръст върху заключения екран.',
+    'Tap Customize, then Lock Screen, then the widget row under the clock.':
+        'Докосни „Персонализиране“, после „Заключен екран“ и накрая реда с уиджети под часовника.',
+    'Choose LogMyDrink, then tap Done.':
+        'Избери LogMyDrink и докосни „Готово“.',
+    'Touch and hold an empty area of the Home Screen until the icons jiggle.':
+        'Задръж пръст върху празно място на началния екран, докато иконките започнат да се клатят.',
+    'Tap Edit, then Add Widget.':
+        'Докосни „Редактиране“, после „Добавяне на уиджет“.',
+    'Search for LogMyDrink, pick a size and tap Add Widget.':
+        'Потърси LogMyDrink, избери размер и докосни „Добавяне на уиджет“.',
+    'A tap on the widget opens the app and logs your favourite drink. While there is alcohol in your system, it also shows your level and which way it is going.':
+        'Докосване на уиджета отваря приложението и въвежда любимата ти напитка. Докато имаш алкохол в тялото, показва и нивото ти и посоката му.',
+    'Add the widget':
+        'Добави уиджета',
+    'Show tips':
+        'Показвай съвети',
+    'One tip a day at most, when you open the app — never while there is alcohol in your system.':
+        'Най-много един съвет на ден при отваряне на приложението – никога, докато имаш алкохол в тялото.',
 }

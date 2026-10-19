@@ -43,6 +43,7 @@ struct ProfileView: View {
 
     // MARK: Sub-pages
 
+    @ViewBuilder
     private var pagesSection: some View {
         Section {
             NavigationLink {
@@ -59,6 +60,19 @@ struct ProfileView: View {
                 AdvancedSettingsView(store: store)
             } label: {
                 Label { Text("Advanced") } icon: { Image(systemName: "slider.horizontal.3") }
+            }
+        }
+        .listRowBackground(Theme.surface)
+        .tint(Theme.calm)
+
+        // Its own section, apart from the settings pages: it is not a
+        // setting, and the Live badge is the main way in. This is the
+        // second, for whoever looks for "about" where iOS apps keep it.
+        Section {
+            NavigationLink {
+                HowItWorksView()
+            } label: {
+                Label { Text("How it works") } icon: { Image(systemName: "info.circle") }
             }
         }
         .listRowBackground(Theme.surface)
@@ -218,6 +232,7 @@ struct DisplaySettingsView: View {
             }
             .listRowBackground(Theme.surface)
             LanguageSection()
+            TipsSection()
         }
         .profilePage(title: "Display & language", store: store)
     }
@@ -400,6 +415,11 @@ struct AdvancedSettingsView: View {
                     Text(verbatim: experiment.title)
                 }
                 .tint(Theme.calm)
+            }
+            Button {
+                TipLedger().reset()
+            } label: {
+                Text(verbatim: "Reset launch tips")
             }
         } header: {
             Text(verbatim: "Experiments")

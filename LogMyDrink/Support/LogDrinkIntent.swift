@@ -37,6 +37,9 @@ struct LogDrinkIntent: AppIntent {
         store.tick()
         store.refreshFromStore()
 
+        // The launch tip about Siri has done its job once Siri has been used.
+        TipLedger().markSiriUsed()
+
         guard let offer = store.quickAddOffer else {
             return .result(dialog: "There is no usual drink yet. Log one in the app first, and it will be remembered.")
         }

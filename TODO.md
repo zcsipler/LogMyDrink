@@ -106,10 +106,6 @@ az egész app hitelességét.
 
 ### Live képernyő
 
-- **A disclaimer a tabsáv alá szorult.** A „This is an estimate, not a
-  measurement" a tab bar mögött dereng — a 2. fejezet szerint ez a
-  képernyő része, nem apró betű. Vagy a hero alá költözik, vagy a tartalom
-  kap akkora alsó insetet, hogy kigördülhessen a sáv alól.
 - **A „Beer added / Undo" toast a stat-sorra ül**, a STARTED / DRINKS /
   GRAMS félig takarva. A toast a kapszula fölött, a tartalom *fölé*
   lebegjen, vagy a stat-sor mozduljon el.
@@ -139,15 +135,19 @@ az egész app hitelességét.
 
 ### Tájékoztatás
 
-- **Részletesebb tájékoztató képernyők**: első indításkor mi ez és mi nem
-  (nem verdikt, 2.), és a tudományos magyarázó képernyő (Widmark,
-  Watson, Michaelis–Menten, felszívódási állandók; a tartalom a `CLAUDE.md`
-  4. fejezetében már megvan). App Store-érv is (9.).
-- **A számítást bemutató, sok információt megosztó képernyő** — Zoltán
-  kérése (2026. október, külön szálon). Legyen benne, miért hoz a teli
-  gyomor alacsonyabb csúcsot *és* korábbi kiürülést (5.21): ez az, amit a
-  felhasználó magától fordítva vár, és ha nincs elmagyarázva, hibának
-  látja.
+- **A „Hogyan működik” szövegeinek magyar nyelvi átnézése** (5.27) — a
+  tartalom jóvá van hagyva, a helyesírás és a nyelvtan nem. Külön szálon,
+  a Claude Docs „LogMyDrink – tájékoztató szövegek” dokumentumából; a
+  javítás a `Reference/translations/hu.py`-ba megy. Ugyanott a nyitott
+  kérdések: forráslista a Részletek alján (Widmark 1932, Watson 1980,
+  Jones & Jönsson 1994), és hogy a „Miért van ez az app” Zoltán hangján
+  szól-e.
+- **A widget-útmutató képei** (5.27): ma SF Symbol ikonok állnak a lépések
+  mellett; valódi képernyőképek vagy rajzok jöhetnek a helyükre.
+- **Első indításos képernyő** (mi ez és mi nem, 2.) — a vezetési
+  figyelmeztetés a Live kék kártyáján és a „Hogyan működik” tetején van
+  (5.27); hogy egy első indításos képernyő kell-e még, App Review előtt
+  érdemes eldönteni.
 - **A három gyomorállapot definíciója a választóban vagy a súgójában.**
   A bemenet értéke ezen múlik, és sehol nincs leírva. Zoltán
   megfogalmazása (2026. október): *üres* — reggel, evés előtt, vagy az
@@ -157,9 +157,6 @@ az egész app hitelességét.
   pont a kísérleti irodalom két szélsőségét fedi le (éjszakai koplalás
   vs. teljes étkezés), tehát a paraméterek erre az értelmezésre vannak
   belőve (5.21).
-- **Widget és Siri felfedezhetősége** (5.15): a `WidgetCenter.
-  getCurrentConfigurations` alapján elvethető kártya a három lépéssel, amíg
-  a widget nincs kitéve; `SiriTipView` a kapszula alatt.
 
 ### Megjelenés
 

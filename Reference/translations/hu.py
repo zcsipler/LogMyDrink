@@ -84,14 +84,9 @@ TRANSLATIONS = {
 
     # --- TodayView ---
     "Profile": "Profil",
-    "estimated level": "becsült szint",
-    "estimated range": "becsült tartomány",
     "Drinks": "Italok",
     "Units": "Egység",
     "Drinks this session": "Az alkalom italai",
-    "This is an estimate, not a measurement.": "Ez egy becslés, nem mérés.",
-    "Actual values vary considerably between individuals. Never use this to decide whether you can drive.":
-        "A tényleges érték egyénenként jelentősen eltérhet. Soha ne használd annak eldöntésére, hogy vezethetsz-e.",
     "Add drink": "Ital hozzáadása",
 
     # --- Editing an already logged drink ---
@@ -349,4 +344,138 @@ TRANSLATIONS = {
     "Concentration": "Koncentráció",
     "Leave the rate to the frequency question unless you have a measurement to match it against.":
         "A sebességet hagyd a gyakorisági kérdésre, hacsak nincs mért értéked, amihez igazítanád.",
+
+    # --- How it works, estimate badge, launch tips ---
+    'Estimate, not a measurement. Never use this to decide whether you can drive.':
+        'Becslés, nem mérés. Soha ne ez alapján döntsd el, hogy vezethetsz-e.',
+    'Estimated range, not a measurement. Never use this to decide whether you can drive.':
+        'Becsült tartomány, nem mérés. Soha ne ez alapján döntsd el, hogy vezethetsz-e.',
+    'How does the app calculate this?':
+        'Hogyan számol az app?',
+    'approximately %@ %@':
+        'körülbelül %@ %@',
+    'How it works':
+        'Hogyan működik',
+    'Never use this to decide whether you can drive. The app estimates, it does not measure, and your actual level can differ considerably.':
+        'Soha ne ez alapján döntsd el, hogy vezethetsz-e. Az app nem mér, hanem becsül, és a valódi érték ettől jelentősen eltérhet.',
+    'Why this app exists':
+        'Miért van ez az app',
+    'LogMyDrink helps you drink more mindfully and stay in control. The decision happens before the next glass, so the app shows you in advance where another drink would take your level, and when it would peak.':
+        'A LogMyDrink abban segít, hogy tudatosabban igyál, és kézben tartsd az italozást. A döntés a következő pohár előtt születik, ezért az app előre megmutatja, hová vinné a szintedet egy újabb ital, és mikor érné el a csúcsot.',
+    'But it is not only about tonight. Every drink you log goes into your History, so over months and years you can see how much, how often and how high you drink. Your patterns emerge from it, and so does the direction they are moving in — whether things are getting better or worse.':
+        'De nem csak az estéről szól. Minden felvitt ital az Előzménybe kerül, így hónapok és évek távlatából is látod, mennyit, milyen gyakran és milyen magasra iszol. Ebből kirajzolódnak a mintáid, és az is, merre változnak: javul-e a helyzet, vagy romlik.',
+    'How it calculates':
+        'Hogyan számol',
+    'The estimate builds on the Widmark method, used to estimate blood alcohol since the 1930s; the app runs a refined version of it.':
+        'A becslés alapja a Widmark-módszer, amellyel az 1930-as évek óta becsülik a véralkoholszintet; az app ennek egy továbbfejlesztett változatát használja.',
+    'From your weight, height, age and sex it works out how much water your body holds, because that is where alcohol spreads. It follows every drink separately: how much alcohol it had, how fast you drank it, and how much you had eaten, because that sets how quickly it is absorbed.':
+        'A testsúlyodból, magasságodból, korodból és nemedből kiszámolja, mennyi víz van a szervezetedben, mert az alkohol ebben oszlik el. Minden italt külön követ: mennyi alkohol volt benne, milyen gyorsan ittad meg, és mennyit ettél előtte, mert ettől függ, milyen gyorsan szívódik fel.',
+    'Meanwhile your liver breaks down a roughly constant amount every hour; how much in your case is estimated from how often you drink. The result is a curve, minute by minute: where you are now, where you are heading, and when you will be clear.':
+        'A máj közben óránként nagyjából állandó mennyiséget bont le; hogy nálad mennyit, azt az ivási gyakoriságodból becsüli. Ebből percről percre kirajzolódik egy görbe: hol tartasz most, merre tartasz, és mikorra ürül ki a szervezetedből az alkohol.',
+    'Details':
+        'Részletek',
+    'Body water':
+        'Testvíz',
+    'The Watson formula (1980), from weight, height, age and sex. The female formula has no age term — a property of the formula, not a bug. The distribution volume is body water divided by 0.85, the water content of blood.':
+        'A Watson-képlet (1980) a testsúly, a magasság, a kor és a nem alapján. A női képletben nincs életkor – ez a képlet sajátossága, nem hiba. Az eloszlási térfogat a testvíz osztva 0,85-tel, ennyi a vér víztartalma.',
+    'Absorption':
+        'Felszívódás',
+    'Every drink has its own “stomach”. On an empty stomach half of the alcohol is absorbed in about 7 minutes, on a full one in about 21. A drink you sip enters the stomach evenly over the time you drink it.':
+        'Minden italnak saját „gyomra” van. Éhgyomorra az alkohol fele kb. 7 perc alatt szívódik fel, teli gyomorra kb. 21 perc alatt. A kortyolgatott ital egyenletesen, az ivás ideje alatt jut a gyomorba.',
+    'Gives a lower peak and an earlier clear time. Surprising, but measured: with food the stomach breaks down part of the alcohol before it is absorbed (the app uses 5, 10 and 15 percent), and what never got in does not need to be broken down.':
+        'Alacsonyabb csúcsot és korábbi kiürülést ad. Meglepő, de mért tény: étel mellett a gyomor a felszívódás előtt lebontja az alkohol egy részét (az app 5, 10 és 15 százalékkal számol), és amit a szervezet fel sem vett, azt nem kell lebontania.',
+    'Elimination':
+        'Lebontás',
+    'About 0.15 ‰ per hour (published range 0.10–0.25), higher in regular drinkers as liver enzymes adapt. Close to zero it slows down (Michaelis–Menten kinetics), so the curve tapers off instead of stopping abruptly.':
+        'Óránként kb. 0,15 ‰ (az irodalmi tartomány 0,10–0,25), rendszeresen ivóknál több, mert a máj enzimei alkalmazkodnak. Nullához közel a lebontás lelassul (Michaelis–Menten-kinetika), így a görbe nem törik meg hirtelen, hanem fokozatosan kifut.',
+    'Computation':
+        'Számítás',
+    'The curve comes from a numerical simulation at one-minute resolution.':
+        'A görbe numerikus szimulációból készül, percenkénti felbontásban.',
+    'Why it is only an estimate':
+        'Miért csak becslés',
+    'The app measures nothing. What it shows is the output of a model using average values, and reality can differ. The biggest unknown is how fast you break alcohol down: within the plausible range, that alone can move the peak by 40 percent and the clear time by four hours on the same evening.':
+        'Az app semmit nem mér. Amit mutat, az egy átlagos értékekkel dolgozó modell eredménye, és a valóság ettől eltérhet. A legnagyobb bizonytalanság a lebontás sebessége: a reális tartományon belül ez önmagában 40 százalékot is mozdíthat a csúcson, és négy órát a kiürülésen ugyanazon az estén.',
+    'Genetics, liver health, medication, what you ate, sleep and tiredness matter too — the app knows none of these. Only a certified breathalyser or a blood test gives an exact value.':
+        'A genetika, a máj állapota, a gyógyszerek, az elfogyasztott étel, az alvás és a fáradtság is számít – ezeket az app nem ismeri. Pontos értéket csak hitelesített szonda vagy vérvizsgálat ad.',
+    'The number is still useful. If the app reads consistently a little high or low for you, it is off in the same direction every evening, so over time you learn what a given value means for you. In Profile you can also show the uncertainty of the elimination rate: you then see a range instead of a single number.':
+        'A szám ettől még hasznos. Ha az app nálad következetesen kicsit többet vagy kevesebbet mutat, minden este ugyanabba az irányba téved, így idővel megtanulod, nálad mit jelent egy adott érték. A Profilban a lebontási sebesség bizonytalanságát is megjelenítheted: ilyenkor egy szám helyett tartományt látsz.',
+    'Tips':
+        'Tippek',
+    'Favourite drink in one tap':
+        'Kedvenc ital egy koppintással',
+    'Set a favourite in Profile and the Live button logs it with a single tap.':
+        'Állíts be kedvencet a Profilban, és az Élő képernyő gombja egyetlen koppintással felviszi.',
+    'Widget':
+        'Widget',
+    'Add it to your Lock Screen or Home Screen: one tap logs your favourite. While there is alcohol in your system, it also shows your level and which way it is going.':
+        'Tedd ki a zárolási képernyőre vagy a főképernyőre: egy koppintás, és a kedvenced bekerül. Amíg alkohol van a szervezetedben, a szintedet és annak irányát is mutatja.',
+    'How do I add it?':
+        'Hogyan tehetem ki?',
+    'Siri':
+        'Siri',
+    'Say “Hey Siri, LogMyDrink now” and Siri logs your favourite, then tells you where your peak is heading.':
+        'Mondd: „Hey Siri, LogMyDrink now”, és Siri felviszi a kedvencedet, majd megmondja, hová tart a csúcs.',
+    'Looking back':
+        'Visszanézés',
+    '“Yesterday” at the top of Live takes you to the previous day in one tap; the History tab shows your patterns over weeks, months and years.':
+        'Az Élő képernyő tetején a „Tegnap” gomb egy koppintással az előző napra visz; az Előzmény fülön hetekre, hónapokra és évekre visszamenőleg látod a mintáidat.',
+    'Logging later':
+        'Utólagos felvitel',
+    'If you log a drink after the fact, set the time back with the − and + buttons; a missed day can be filled in from the Day view in History.':
+        'Ha egy italt utólag viszel fel, az időt a − és + gombokkal állítsd vissza; egy kimaradt napot az Előzmény Nap nézetében pótolhatsz.',
+    'One tap and done':
+        'Egy koppintás, és kész',
+    'Your favourite from the Lock Screen':
+        'A kedvenced a zárolási képernyőről',
+    'Say it, don’t type it':
+        'Mondd ki, ne gépeld',
+    'See your patterns':
+        'Nézd meg a mintáidat',
+    'Set what you drink most often and log it with a single tap.':
+        'Állítsd be, mit iszol a leggyakrabban, és egyetlen koppintással felviheted.',
+    'One tap on the widget logs your favourite, no searching for the app. In the evening it shows your level too.':
+        'Egy koppintás a widgeten, és a kedvenced bekerül, az app keresgélése nélkül. Este a szintedet is mutatja.',
+    '“Hey Siri, LogMyDrink now” — Siri logs your favourite and tells you where your peak is heading.':
+        '„Hey Siri, LogMyDrink now” – Siri felviszi a kedvencedet, és megmondja, hová tart a csúcs.',
+    'History shows how much and how high you drink over weeks, months and years, and which way it is changing.':
+        'Az Előzményben hetekre, hónapokra és évekre látod, mennyit és milyen magasra iszol, és merre változik.',
+    'Set favourite':
+        'Kedvenc beállítása',
+    'Add widget':
+        'Widget hozzáadása',
+    'Got it':
+        'Értem',
+    'Open History':
+        'Előzmény megnyitása',
+    'Later':
+        'Később',
+    'Don’t show again':
+        'Ne mutasd többé',
+    'Lock Screen':
+        'Zárolási képernyő',
+    'Home Screen':
+        'Főképernyő',
+    'Where':
+        'Hová',
+    'Lock your phone, then touch and hold the Lock Screen.':
+        'Zárold le a telefont, majd tartsd nyomva az ujjad a zárolási képernyőn.',
+    'Tap Customize, then Lock Screen, then the widget row under the clock.':
+        'Koppints a Testreszabás, majd a Zárolási képernyő elemre, végül az óra alatti widgetsorra.',
+    'Choose LogMyDrink, then tap Done.':
+        'Válaszd a LogMyDrinket, majd koppints a Kész gombra.',
+    'Touch and hold an empty area of the Home Screen until the icons jiggle.':
+        'Tartsd nyomva az ujjad a főképernyő egy üres részén, amíg az ikonok remegni nem kezdenek.',
+    'Tap Edit, then Add Widget.':
+        'Koppints a Szerkesztés, majd a Widget hozzáadása elemre.',
+    'Search for LogMyDrink, pick a size and tap Add Widget.':
+        'Keresd meg a LogMyDrinket, válassz méretet, és koppints a Widget hozzáadása gombra.',
+    'A tap on the widget opens the app and logs your favourite drink. While there is alcohol in your system, it also shows your level and which way it is going.':
+        'A widgetre koppintva megnyílik az app, és felviszi a kedvenc italodat. Amíg alkohol van a szervezetedben, a szintedet és annak irányát is mutatja.',
+    'Add the widget':
+        'Widget kitétele',
+    'Show tips':
+        'Tippek mutatása',
+    'One tip a day at most, when you open the app — never while there is alcohol in your system.':
+        'Naponta legfeljebb egy tipp, az app megnyitásakor – soha, amíg alkohol van a szervezetedben.',
 }

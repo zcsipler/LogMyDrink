@@ -23,6 +23,7 @@ struct LiveView: View {
     var onShowYesterday: () -> Void = {}
 
     @State private var showsAddDrink = false
+    @State private var showsHowItWorks = false
     @State private var editingDrink: Drink?
     @State private var openRowID: UUID?
 
@@ -85,6 +86,7 @@ struct LiveView: View {
         }
         .onReceive(clock) { _ in store.tick() }
         .sheet(isPresented: $showsAddDrink) { AddDrinkSheet(store: store) }
+        .sheet(isPresented: $showsHowItWorks) { HowItWorksSheet() }
         .sheet(item: $editingDrink) { drink in
             AddDrinkSheet(store: store, editing: drink, session: store.sessionOwning(drink.id))
         }
@@ -185,8 +187,6 @@ struct LiveView: View {
                     } else {
                         emptyState
                     }
-
-                    disclaimer
                 }
             }
             .padding(.horizontal, 20)
@@ -217,13 +217,12 @@ struct LiveView: View {
     /// The level now — from the running occasion's band, which is also what
     /// the widget shows (5.15). Zero on a day whose curve has already run out.
     private var hero: some View {
-        VStack(spacing: 6) {
-            BACReadout(store.currentRange, unit: store.unit, limit: store.limit, size: 48)
+        VStack(spacing: 14) {
+            BACReadout(store.currentRange, unit: store.unit, limit: store.limit, size: 48, approximate: true)
 
-            (store.currentRange.isPoint ? Text("estimated level") : Text("estimated range"))
-                .font(.system(size: 11, weight: .medium, design: .rounded))
-                .textCase(.uppercase)
-                .foregroundStyle(Theme.secondaryText)
+            EstimateCard(isRange: !store.currentRange.isPoint) {
+                showsHowItWorks = true
+            }
         }
     }
 
@@ -254,21 +253,6 @@ struct LiveView: View {
         .padding(.vertical, 54)
         .background(Theme.surface.opacity(0.5), in: RoundedRectangle(cornerRadius: 18))
         .padding(.top, 40)
-    }
-
-    // MARK: Disclaimer
-
-    private var disclaimer: some View {
-        VStack(spacing: 6) {
-            Text("This is an estimate, not a measurement.")
-                .font(.system(size: 11, weight: .semibold, design: .rounded))
-                .foregroundStyle(Theme.secondaryText)
-            Text("Actual values vary considerably between individuals. Never use this to decide whether you can drive.")
-                .font(.system(size: 11, design: .rounded))
-                .foregroundStyle(Theme.secondaryText.opacity(0.75))
-                .multilineTextAlignment(.center)
-        }
-        .padding(.horizontal, 10)
     }
 
     // The add controls live in `QuickAddBar`.

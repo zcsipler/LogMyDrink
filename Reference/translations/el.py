@@ -89,16 +89,9 @@ TRANSLATIONS = {
 
     # --- TodayView ---
     "Profile": "Προφίλ",
-    "estimated level": "εκτιμώμενο επίπεδο",
-    "estimated range": "εκτιμώμενο εύρος",
     "Drinks": "Ποτά",
     "Units": "Μονάδες",
     "Drinks this session": "Ποτά αυτή τη βραδιά",
-    "This is an estimate, not a measurement.": "Αυτό είναι εκτίμηση, όχι μέτρηση.",
-    "Actual values vary considerably between individuals. Never use this to decide whether you "
-    "can drive.":
-        "Οι πραγματικές τιμές διαφέρουν σημαντικά από άτομο σε άτομο. Μη χρησιμοποιείς ποτέ "
-        "αυτό για να αποφασίσεις αν μπορείς να οδηγήσεις.",
     "Add drink": "Προσθήκη ποτού",
 
     # --- Editing an already logged drink ---
@@ -377,4 +370,138 @@ TRANSLATIONS = {
     "Concentration": "Συγκέντρωση",
     "Leave the rate to the frequency question unless you have a measurement to match it against.":
         "Άφησε τον ρυθμό στην ερώτηση συχνότητας, εκτός αν έχεις μέτρηση για να τον συγκρίνεις.",
+
+    # --- How it works, estimate badge, launch tips ---
+    'Estimate, not a measurement. Never use this to decide whether you can drive.':
+        'Εκτίμηση, όχι μέτρηση. Μην αποφασίζεις ποτέ με βάση αυτό αν μπορείς να οδηγήσεις.',
+    'Estimated range, not a measurement. Never use this to decide whether you can drive.':
+        'Εκτιμώμενο εύρος, όχι μέτρηση. Μην αποφασίζεις ποτέ με βάση αυτό αν μπορείς να οδηγήσεις.',
+    'How does the app calculate this?':
+        'Πώς υπολογίζει η εφαρμογή;',
+    'approximately %@ %@':
+        'περίπου %@ %@',
+    'How it works':
+        'Πώς λειτουργεί',
+    'Never use this to decide whether you can drive. The app estimates, it does not measure, and your actual level can differ considerably.':
+        'Μην αποφασίζεις ποτέ με βάση αυτό αν μπορείς να οδηγήσεις. Η εφαρμογή εκτιμά, δεν μετρά, και το πραγματικό σου επίπεδο μπορεί να διαφέρει σημαντικά.',
+    'Why this app exists':
+        'Γιατί υπάρχει αυτή η εφαρμογή',
+    'LogMyDrink helps you drink more mindfully and stay in control. The decision happens before the next glass, so the app shows you in advance where another drink would take your level, and when it would peak.':
+        'Το LogMyDrink σε βοηθά να πίνεις πιο συνειδητά και να διατηρείς τον έλεγχο. Η απόφαση παίρνεται πριν από το επόμενο ποτήρι, γι’ αυτό η εφαρμογή σού δείχνει από πριν πού θα πήγαινε το επίπεδό σου με ένα ακόμη ποτό και πότε θα έφτανε στην κορύφωση.',
+    'But it is not only about tonight. Every drink you log goes into your History, so over months and years you can see how much, how often and how high you drink. Your patterns emerge from it, and so does the direction they are moving in — whether things are getting better or worse.':
+        'Δεν αφορά όμως μόνο την αποψινή βραδιά. Κάθε ποτό που καταγράφεις μπαίνει στο ιστορικό, οπότε μέσα σε μήνες και χρόνια βλέπεις πόσο, πόσο συχνά και πόσο ψηλά πίνεις. Από εκεί αναδύονται τα μοτίβα σου, αλλά και η κατεύθυνση προς την οποία κινούνται – αν τα πράγματα βελτιώνονται ή χειροτερεύουν.',
+    'How it calculates':
+        'Πώς υπολογίζει',
+    'The estimate builds on the Widmark method, used to estimate blood alcohol since the 1930s; the app runs a refined version of it.':
+        'Η εκτίμηση βασίζεται στη μέθοδο Widmark, που χρησιμοποιείται από τη δεκαετία του 1930 για την εκτίμηση του αλκοόλ στο αίμα· η εφαρμογή χρησιμοποιεί μια βελτιωμένη εκδοχή της.',
+    'From your weight, height, age and sex it works out how much water your body holds, because that is where alcohol spreads. It follows every drink separately: how much alcohol it had, how fast you drank it, and how much you had eaten, because that sets how quickly it is absorbed.':
+        'Από το βάρος, το ύψος, την ηλικία και το φύλο σου υπολογίζει πόσο νερό περιέχει το σώμα σου, γιατί εκεί κατανέμεται το αλκοόλ. Παρακολουθεί κάθε ποτό χωριστά: πόσο αλκοόλ είχε, πόσο γρήγορα το ήπιες και πόσο είχες φάει, γιατί αυτό καθορίζει πόσο γρήγορα απορροφάται.',
+    'Meanwhile your liver breaks down a roughly constant amount every hour; how much in your case is estimated from how often you drink. The result is a curve, minute by minute: where you are now, where you are heading, and when you will be clear.':
+        'Στο μεταξύ, το συκώτι διασπά κάθε ώρα μια περίπου σταθερή ποσότητα· η δική σου εκτιμάται από το πόσο συχνά πίνεις. Το αποτέλεσμα είναι μια καμπύλη, λεπτό προς λεπτό: πού βρίσκεσαι τώρα, πού πας και πότε θα είσαι πάλι στο μηδέν.',
+    'Details':
+        'Λεπτομέρειες',
+    'Body water':
+        'Νερό σώματος',
+    'The Watson formula (1980), from weight, height, age and sex. The female formula has no age term — a property of the formula, not a bug. The distribution volume is body water divided by 0.85, the water content of blood.':
+        'Ο τύπος του Watson (1980), από βάρος, ύψος, ηλικία και φύλο. Ο τύπος για γυναίκες δεν περιέχει ηλικία – είναι ιδιότητα του τύπου, όχι σφάλμα. Ο όγκος κατανομής είναι το νερό του σώματος διαιρεμένο με 0,85, την περιεκτικότητα του αίματος σε νερό.',
+    'Absorption':
+        'Απορρόφηση',
+    'Every drink has its own “stomach”. On an empty stomach half of the alcohol is absorbed in about 7 minutes, on a full one in about 21. A drink you sip enters the stomach evenly over the time you drink it.':
+        'Κάθε ποτό έχει το δικό του «στομάχι». Με άδειο στομάχι το μισό αλκοόλ απορροφάται σε περίπου 7 λεπτά, με γεμάτο σε περίπου 21. Ένα ποτό που πίνεις γουλιά γουλιά φτάνει στο στομάχι ομοιόμορφα όσο το πίνεις.',
+    'Gives a lower peak and an earlier clear time. Surprising, but measured: with food the stomach breaks down part of the alcohol before it is absorbed (the app uses 5, 10 and 15 percent), and what never got in does not need to be broken down.':
+        'Δίνει χαμηλότερη κορύφωση και νωρίτερο μηδενισμό. Παράξενο, αλλά μετρημένο: με φαγητό, το στομάχι διασπά μέρος του αλκοόλ πριν απορροφηθεί (η εφαρμογή χρησιμοποιεί 5, 10 και 15 τοις εκατό), και ό,τι δεν μπήκε ποτέ δεν χρειάζεται να διασπαστεί.',
+    'Elimination':
+        'Αποβολή',
+    'About 0.15 ‰ per hour (published range 0.10–0.25), higher in regular drinkers as liver enzymes adapt. Close to zero it slows down (Michaelis–Menten kinetics), so the curve tapers off instead of stopping abruptly.':
+        'Περίπου 0,15 ‰ την ώρα (δημοσιευμένο εύρος 0,10–0,25), περισσότερο σε όσους πίνουν τακτικά, επειδή τα ένζυμα του ήπατος προσαρμόζονται. Κοντά στο μηδέν επιβραδύνεται (κινητική Michaelis–Menten), οπότε η καμπύλη εξασθενεί σταδιακά αντί να σταματά απότομα.',
+    'Computation':
+        'Υπολογισμός',
+    'The curve comes from a numerical simulation at one-minute resolution.':
+        'Η καμπύλη προκύπτει από αριθμητική προσομοίωση με ανάλυση ενός λεπτού.',
+    'Why it is only an estimate':
+        'Γιατί είναι μόνο εκτίμηση',
+    'The app measures nothing. What it shows is the output of a model using average values, and reality can differ. The biggest unknown is how fast you break alcohol down: within the plausible range, that alone can move the peak by 40 percent and the clear time by four hours on the same evening.':
+        'Η εφαρμογή δεν μετρά τίποτα. Αυτό που δείχνει είναι το αποτέλεσμα ενός μοντέλου με μέσες τιμές, και η πραγματικότητα μπορεί να διαφέρει. Ο μεγαλύτερος άγνωστος είναι πόσο γρήγορα διασπάς το αλκοόλ: μέσα στο εύλογο εύρος, μόνο αυτό μπορεί να μετακινήσει την κορύφωση κατά 40 τοις εκατό και τον μηδενισμό κατά τέσσερις ώρες την ίδια βραδιά.',
+    'Genetics, liver health, medication, what you ate, sleep and tiredness matter too — the app knows none of these. Only a certified breathalyser or a blood test gives an exact value.':
+        'Μετράνε επίσης η γενετική, η υγεία του ήπατος, τα φάρμακα, τι έφαγες, ο ύπνος και η κούραση – η εφαρμογή δεν γνωρίζει τίποτα από αυτά. Ακριβή τιμή δίνει μόνο πιστοποιημένο αλκοτέστ ή εξέταση αίματος.',
+    'The number is still useful. If the app reads consistently a little high or low for you, it is off in the same direction every evening, so over time you learn what a given value means for you. In Profile you can also show the uncertainty of the elimination rate: you then see a range instead of a single number.':
+        'Ο αριθμός παραμένει χρήσιμος. Αν η εφαρμογή δείχνει σε σένα σταθερά λίγο παραπάνω ή λίγο λιγότερο, κάνει λάθος προς την ίδια κατεύθυνση κάθε βράδυ, οπότε με τον καιρό μαθαίνεις τι σημαίνει μια τιμή για σένα. Στο Προφίλ μπορείς επίσης να εμφανίσεις την αβεβαιότητα του ρυθμού αποβολής: τότε βλέπεις εύρος αντί για έναν αριθμό.',
+    'Tips':
+        'Συμβουλές',
+    'Favourite drink in one tap':
+        'Αγαπημένο ποτό με ένα πάτημα',
+    'Set a favourite in Profile and the Live button logs it with a single tap.':
+        'Όρισε ένα αγαπημένο στο Προφίλ και το κουμπί στο Ζωντανά θα το καταγράφει με ένα μόνο πάτημα.',
+    'Widget':
+        'Widget',
+    'Add it to your Lock Screen or Home Screen: one tap logs your favourite. While there is alcohol in your system, it also shows your level and which way it is going.':
+        'Πρόσθεσέ το στην οθόνη κλειδώματος ή στην αρχική οθόνη: ένα πάτημα καταγράφει το αγαπημένο σου. Όσο υπάρχει αλκοόλ στον οργανισμό σου, δείχνει και το επίπεδό σου και την κατεύθυνσή του.',
+    'How do I add it?':
+        'Πώς το προσθέτω;',
+    'Siri':
+        'Siri',
+    'Say “Hey Siri, LogMyDrink now” and Siri logs your favourite, then tells you where your peak is heading.':
+        'Πες «Hey Siri, LogMyDrink now» και η Siri καταγράφει το αγαπημένο σου και σου λέει πού πάει η κορύφωσή σου.',
+    'Looking back':
+        'Ματιά προς τα πίσω',
+    '“Yesterday” at the top of Live takes you to the previous day in one tap; the History tab shows your patterns over weeks, months and years.':
+        'Το «Χθες» στο πάνω μέρος του Ζωντανά σε πηγαίνει στην προηγούμενη μέρα με ένα πάτημα· η καρτέλα Ιστορικό δείχνει τα μοτίβα σου σε εβδομάδες, μήνες και χρόνια.',
+    'Logging later':
+        'Καταγραφή αργότερα',
+    'If you log a drink after the fact, set the time back with the − and + buttons; a missed day can be filled in from the Day view in History.':
+        'Αν καταγράφεις ένα ποτό εκ των υστέρων, γύρνα την ώρα πίσω με τα κουμπιά − και +· μια ξεχασμένη μέρα συμπληρώνεται από την προβολή Ημέρα του Ιστορικού.',
+    'One tap and done':
+        'Ένα πάτημα και τέλος',
+    'Your favourite from the Lock Screen':
+        'Το αγαπημένο σου από την οθόνη κλειδώματος',
+    'Say it, don’t type it':
+        'Πες το, μην το πληκτρολογείς',
+    'See your patterns':
+        'Δες τα μοτίβα σου',
+    'Set what you drink most often and log it with a single tap.':
+        'Όρισε τι πίνεις πιο συχνά και κατέγραψέ το με ένα μόνο πάτημα.',
+    'One tap on the widget logs your favourite, no searching for the app. In the evening it shows your level too.':
+        'Ένα πάτημα στο widget καταγράφει το αγαπημένο σου, χωρίς να ψάχνεις την εφαρμογή. Το βράδυ δείχνει και το επίπεδό σου.',
+    '“Hey Siri, LogMyDrink now” — Siri logs your favourite and tells you where your peak is heading.':
+        '«Hey Siri, LogMyDrink now» – η Siri καταγράφει το αγαπημένο σου και σου λέει πού πάει η κορύφωσή σου.',
+    'History shows how much and how high you drink over weeks, months and years, and which way it is changing.':
+        'Το Ιστορικό δείχνει πόσο και πόσο ψηλά πίνεις σε εβδομάδες, μήνες και χρόνια, και προς τα πού αλλάζει.',
+    'Set favourite':
+        'Όρισε αγαπημένο',
+    'Add widget':
+        'Προσθήκη widget',
+    'Got it':
+        'Κατάλαβα',
+    'Open History':
+        'Άνοιγμα Ιστορικού',
+    'Later':
+        'Αργότερα',
+    'Don’t show again':
+        'Να μην εμφανιστεί ξανά',
+    'Lock Screen':
+        'Οθόνη κλειδώματος',
+    'Home Screen':
+        'Αρχική οθόνη',
+    'Where':
+        'Πού',
+    'Lock your phone, then touch and hold the Lock Screen.':
+        'Κλείδωσε το iPhone και μετά άγγιξε παρατεταμένα την οθόνη κλειδώματος.',
+    'Tap Customize, then Lock Screen, then the widget row under the clock.':
+        'Πάτησε «Προσαρμογή», μετά «Οθόνη κλειδώματος» και έπειτα τη σειρά widget κάτω από το ρολόι.',
+    'Choose LogMyDrink, then tap Done.':
+        'Διάλεξε LogMyDrink και πάτησε «Τέλος».',
+    'Touch and hold an empty area of the Home Screen until the icons jiggle.':
+        'Άγγιξε παρατεταμένα ένα κενό σημείο της αρχικής οθόνης μέχρι να αρχίσουν να κουνιούνται τα εικονίδια.',
+    'Tap Edit, then Add Widget.':
+        'Πάτησε «Επεξεργασία» και μετά «Προσθήκη widget».',
+    'Search for LogMyDrink, pick a size and tap Add Widget.':
+        'Αναζήτησε LogMyDrink, διάλεξε μέγεθος και πάτησε «Προσθήκη widget».',
+    'A tap on the widget opens the app and logs your favourite drink. While there is alcohol in your system, it also shows your level and which way it is going.':
+        'Ένα πάτημα στο widget ανοίγει την εφαρμογή και καταγράφει το αγαπημένο σου ποτό. Όσο υπάρχει αλκοόλ στον οργανισμό σου, δείχνει και το επίπεδό σου και την κατεύθυνσή του.',
+    'Add the widget':
+        'Προσθήκη του widget',
+    'Show tips':
+        'Εμφάνιση συμβουλών',
+    'One tip a day at most, when you open the app — never while there is alcohol in your system.':
+        'Το πολύ μία συμβουλή την ημέρα, όταν ανοίγεις την εφαρμογή – ποτέ όσο υπάρχει αλκοόλ στον οργανισμό σου.',
 }
