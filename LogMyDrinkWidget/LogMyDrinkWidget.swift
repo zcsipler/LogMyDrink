@@ -180,20 +180,36 @@ struct QuickAddWidgetView: View {
         .containerBackground(.clear, for: .widget)
     }
 
+    /// Each line stays one line and shrinks instead of wrapping. Without
+    /// this the title broke into "Log My / Drink" whenever the slot was a
+    /// little narrower than its natural width, and the caption fell off the
+    /// bottom. It showed up only days after adding the widget: until the
+    /// app's first timeline reload the Lock Screen keeps the gallery's
+    /// rendering, and only the reload lays it out in its real slot.
     private var rectangularButton: some View {
-        HStack(spacing: 8) {
-            DrinkIcon(name: entry.icon, size: 20, weight: .semibold)
+        HStack(spacing: Self.iconSpacing) {
+            DrinkIcon(name: entry.icon, size: Self.rectangularIconSize, weight: .semibold)
             VStack(alignment: .leading, spacing: 1) {
                 Text(verbatim: "Log My Drink")
                     .font(.headline)
+                    .layoutPriority(1)
                 Text("Your usual, one tap")
                     .font(.caption)
                     .opacity(0.8)
             }
             Spacer(minLength: 0)
         }
+        .lineLimit(1)
+        .minimumScaleFactor(Self.rectangularMinimumScale)
         .containerBackground(.clear, for: .widget)
     }
+
+    /// Shared by both rectangular layouts, so the button looks the same with
+    /// and without a reading. The icon gives a little (it was 20); the text
+    /// gives the rest by shrinking.
+    private static let rectangularIconSize: CGFloat = 18
+    private static let iconSpacing: CGFloat = 6
+    private static let rectangularMinimumScale: CGFloat = 0.65
 
     private var smallButton: some View {
         VStack(spacing: 10) {
@@ -273,11 +289,12 @@ struct QuickAddWidgetView: View {
 
     /// The button's own header, then the figures where its caption was.
     private func rectangularReading(_ reading: Reading) -> some View {
-        HStack(spacing: 8) {
-            DrinkIcon(name: entry.icon, size: 20, weight: .semibold)
+        HStack(spacing: Self.iconSpacing) {
+            DrinkIcon(name: entry.icon, size: Self.rectangularIconSize, weight: .semibold)
             VStack(alignment: .leading, spacing: 1) {
                 Text(verbatim: "Log My Drink")
                     .font(.headline)
+                    .layoutPriority(1)
                 levelLine(reading, size: 15)
                 peakLine(reading)
                     .font(.caption)
@@ -287,7 +304,7 @@ struct QuickAddWidgetView: View {
             Spacer(minLength: 0)
         }
         .lineLimit(1)
-        .minimumScaleFactor(0.8)
+        .minimumScaleFactor(Self.rectangularMinimumScale)
         .containerBackground(.clear, for: .widget)
     }
 
