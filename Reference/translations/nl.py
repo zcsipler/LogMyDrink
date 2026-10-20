@@ -35,7 +35,7 @@ TRANSLATIONS = {
     "A few times a month": "Een paar keer per maand",
     "Several times a week": "Meerdere keren per week",
     "Almost daily": "Bijna dagelijks",
-    "A few occasions a year": "Een paar gelegenheden per jaar",
+    "A few occasions a year": "Een paar keer per jaar",
     "Social drinking": "Sociaal drinken",
     "Weekly routine": "Wekelijkse routine",
     "Daily or nearly daily": "Dagelijks of bijna dagelijks",
@@ -68,7 +68,7 @@ TRANSLATIONS = {
     "No past sessions yet": "Nog geen eerdere sessies",
     "A session appears here once it has ended — when your level has cleared and a few hours "
     "have passed.":
-        "Een sessie verschijnt hier zodra hij is afgelopen — wanneer je niveau weer op nul "
+        "Een sessie verschijnt hier zodra hij is afgelopen – wanneer je niveau weer op nul "
         "staat en er een paar uur voorbij zijn.",
     "%@ drinks": "%@ drankjes",
     "peak": "piek",
@@ -88,7 +88,7 @@ TRANSLATIONS = {
     "Profile": "Profiel",
     "Drinks": "Drankjes",
     "Units": "Eenheden",
-    "Drinks this session": "Drankjes deze sessie",
+    "Drinks this session": "Drankjes in deze sessie",
     "Add drink": "Drankje toevoegen",
 
     # --- Editing an already logged drink ---
@@ -102,11 +102,11 @@ TRANSLATIONS = {
     "How fast": "Hoe snel",
     "In one go": "In één keer",
     "Counts as a single swallow — the steepest possible rise.":
-        "Telt als één slok — de steilst mogelijke stijging.",
+        "Telt als één slok – de steilst mogelijke stijging.",
     "A quick drink. The level climbs fast.": "Snel gedronken. Het niveau stijgt snel.",
     "A normal pace.": "Een normaal tempo.",
     "Nursed slowly. Much gentler climb for the same alcohol.":
-        "Langzaam opgedronken. Veel vlakkere stijging bij dezelfde hoeveelheid alcohol.",
+        "Langzaam gedronken.Veel vlakkere stijging bij dezelfde hoeveelheid alcohol.",
 
     # --- AddDrinkSheet ---
     "Cancel": "Annuleren",
@@ -150,7 +150,7 @@ TRANSLATIONS = {
     "affect the result.":
         "Het totale lichaamswater komt uit de Watson-vergelijkingen, die het volume bepalen "
         "waarin alcohol zich verdeelt. De vergelijking voor vrouwen bevat geen leeftijd, dus "
-        "die wijzigen heeft geen invloed op het resultaat.",
+        "als je die wijzigt, verandert het resultaat niet.",
     "Drinking frequency": "Drinkfrequentie",
     "How often do you drink?": "Hoe vaak drink je?",
     "This is how we estimate your elimination rate. Regular drinking induces the liver's CYP2E1 pathway, so frequent drinkers clear alcohol faster. It is the weakest point of the model, which is why you can set under Display & language how much of that uncertainty the app shows you.":
@@ -172,34 +172,34 @@ TRANSLATIONS = {
     "Elimination rate": "Afbraaksnelheid",
     "How fast your liver clears alcohol once it has been absorbed — the slope of the falling "
     "side of the curve.":
-        "Hoe snel je lever alcohol afbreekt zodra die is opgenomen — de helling van de dalende "
+        "Hoe snel je lever alcohol afbreekt zodra die is opgenomen – de helling van de dalende "
         "kant van de curve.",
     "Alcohol leaves at a roughly fixed amount per hour rather than a percentage, because the "
     "enzyme that breaks it down already runs at full capacity at almost any level. That is why "
     "rules of thumb like “one drink an hour” exist at all.":
         "Alcohol verdwijnt met een ongeveer vaste hoeveelheid per uur in plaats van met een "
         "percentage, omdat het enzym dat het afbreekt bij vrijwel elk niveau al op volle "
-        "capaciteit draait. Daarom bestaan vuistregels als “één drankje per uur” überhaupt.",
+        "capaciteit draait. Daarom bestaan vuistregels als ‘één drankje per uur’ überhaupt.",
     "At this setting, %@ takes about %@ to clear. Almost everyone falls between %@ per hour.":
         "Met deze instelling duurt het bij %@ ongeveer %@ voordat je weer op nul bent. Bijna "
         "iedereen zit tussen %@ per uur.",
-    "How to find yours": "Hoe je die van jou vindt",
-    "With a breathalyser": "Met een blaastest",
+    "How to find yours": "Zo vind je die van jou",
+    "With a breathalyser": "Met een alcoholtester",
     "Blow twice, at least an hour apart, on the falling side — two hours or more after your "
     "last drink, with nothing in between. Subtract the second reading from the first and "
     "divide by the hours between them.":
-        "Blaas twee keer, met minstens een uur ertussen, op de dalende kant — twee uur of "
-        "langer na je laatste drankje, zonder iets ertussendoor. Trek de tweede meting van de "
+        "Blaas twee keer, met minstens een uur ertussen, op de dalende kant – twee uur of "
+        "langer na je laatste drankje, zonder tussendoor iets te drinken. Trek de tweede meting van de "
         "eerste af en deel door het aantal uren ertussen.",
     "For example %@ and %@ two hours later works out to %@ per hour.":
-        "Bijvoorbeeld %@ en twee uur later %@ komt neer op %@ per uur.",
-    "Without one": "Zonder",
+        "Een meting van %@ en twee uur later %@ komt bijvoorbeeld neer op %@ per uur.",
+    "Without one": "Zonder alcoholtester",
     "The app tells you when it expects you to clear. If you are reliably back to normal well "
     "before that, your rate is higher than the setting — nudge it up a step and watch for a "
     "few sessions. If it takes longer than predicted, nudge it down.":
         "De app vertelt je wanneer hij verwacht dat je weer op nul bent. Ben je steevast ruim "
-        "daarvoor weer normaal, dan ligt je snelheid hoger dan de instelling — zet hem een "
-        "stap omhoog en let er een paar sessies op. Duurt het langer dan voorspeld, zet hem "
+        "daarvoor weer normaal, dan ligt je snelheid hoger dan de instelling – zet hem een "
+        "stap omhoog en kijk een paar sessies hoe het gaat. Duurt het langer dan voorspeld, zet hem "
         "dan een stap omlaag.",
     "What moves it": "Wat hem beïnvloedt",
     "Regular drinking raises it: the liver enzyme that does the work is induced by use. It "
@@ -211,17 +211,17 @@ TRANSLATIONS = {
     "Uncertainty": "Onzekerheid",
     "At zero every figure is a single number — the app's best estimate. Above zero the same "
     "figures are shown as ranges, and the band on the chart widens to match.":
-        "Op nul is elk cijfer één getal — de beste schatting van de app. Boven nul worden "
+        "Op nul is elk cijfer één getal – de beste schatting van de app. Boven nul worden "
         "dezelfde cijfers als bereiken getoond, en de band op de grafiek wordt navenant "
         "breder.",
     "A single number is easier to learn against: over time you find out what your own 0.6 "
     "feels like. A range is the more literal answer, because the rate really is uncertain. "
     "Both are defensible — this is your call.":
-        "Tegen één getal leer je jezelf makkelijker afzetten: na verloop van tijd weet je hoe "
-        "jouw eigen 0,6 voelt. Een bereik is het letterlijkere antwoord, want de snelheid is "
-        "werkelijk onzeker. Beide zijn te verdedigen — dit is jouw keuze.",
+        "Met één getal leer je makkelijker: na verloop van tijd weet je hoe jouw eigen 0,6 "
+        "voelt. Een bereik is het letterlijkere antwoord, want de snelheid is werkelijk "
+        "onzeker. Beide zijn te verdedigen – het is jouw keuze.",
     "The spread suggested by your drinking frequency is ± %@ per hour.":
-        "De spreiding die je drinkfrequentie suggereert is ± %@ per uur.",
+        "De spreiding die je drinkfrequentie doet vermoeden, is ± %@ per uur.",
     "Rate": "Snelheid",
     "Range": "Bereik",
     "Advanced": "Geavanceerd",
@@ -237,7 +237,7 @@ TRANSLATIONS = {
     "before records": "vóór de registratie",
     "See further back": "Verder terugkijken",
     "Weeks, months and years side by side — and every evening older than seven days.": "Weken, maanden en jaren naast elkaar – en elke avond ouder dan zeven dagen.",
-    "Everything you have logged is already saved. Unlocking only shows it.": "Alles wat je hebt ingevoerd is al opgeslagen. Ontgrendelen laat het alleen zien.",
+    "Everything you have logged is already saved. Unlocking only shows it.": "Alles wat je hebt vastgelegd, is al opgeslagen. Ontgrendelen laat het alleen zien.",
     "Coming soon": "Binnenkort",
     "Today": "Vandaag",
     "Day": "Dag",
@@ -246,7 +246,7 @@ TRANSLATIONS = {
     "Trend": "Trend",
     "day": "dag",
     "Smoothing": "Afvlakking",
-    "%@ sessions": "%@ gelegenheden",
+    "%@ sessions": "%@ sessies",
     "No data before %@": "Geen gegevens vóór %@",
     "vs.": "t.o.v.",
     "Grams": "Gram",
@@ -287,7 +287,7 @@ TRANSLATIONS = {
     "One tap on the Live screen logs this, with the projected peak on the button. How full "
     "your stomach is comes from the drink before it, and can be corrected straight after.":
         "Eén tik op het Live-scherm legt dit vast, met de verwachte piek op de knop. Hoe vol "
-        "je maag is komt van het drankje ervoor, en kun je er meteen na corrigeren.",
+        "je maag is, wordt overgenomen van het vorige drankje en kun je meteen daarna corrigeren.",
     "Peak %@": "Piek %@",
     "%@ added": "%@ toegevoegd",
     "Save": "Bewaren",
@@ -296,11 +296,11 @@ TRANSLATIONS = {
     # --- DataTransferSection: backup and restore ---
     "Backup": "Back-up",
     "Export a backup": "Back-up exporteren",
-    "Import a backup": "Een back-up importeren",
+    "Import a backup": "Back-up importeren",
     "A backup holds every person, occasion and drink. Importing adds what is missing — it "
     "never changes or removes anything already here.":
-        "Een back-up bevat elke persoon, gelegenheid en elk drankje. Importeren voegt toe wat "
-        "ontbreekt — het verandert of verwijdert nooit iets wat er al staat.",
+        "Een back-up bevat elke persoon, sessie en elk drankje. Importeren voegt toe wat "
+        "ontbreekt – het verandert of verwijdert nooit iets wat er al staat.",
     "Import this backup?": "Deze back-up importeren?",
     "Import": "Importeren",
     "Everything in this backup is already here.": "Alles in deze back-up staat er al.",
@@ -311,8 +311,8 @@ TRANSLATIONS = {
     "Language": "Taal",
     "Opens this app in Settings, where “Preferred Language” sets the app's own language — the "
     "system's stays as it is. iOS restarts the app when you change it.":
-        "Opent deze app in Instellingen, waar “Voorkeurstaal” de taal van de app zelf instelt "
-        "— die van het systeem blijft zoals hij is. iOS start de app opnieuw wanneer je dit "
+        "Opent deze app in Instellingen, waar ‘Voorkeurstaal’ de taal van de app zelf instelt "
+        "– die van het systeem blijft zoals hij is. iOS start de app opnieuw wanneer je dit "
         "wijzigt.",
 
     # --- DataArchive: why a file could not be read ---
@@ -325,8 +325,8 @@ TRANSLATIONS = {
 
     # --- History: months known only by total (MonthlyTotal) ---
     'Adds %@ occasions, %@ drinks and %@ monthly totals. Nothing already here is changed or removed.':
-        'Voegt %@ gelegenheden, %@ drankjes en %@ maandtotalen toe. Er wordt niets veranderd of verwijderd wat er al staat.',
-    'Added %@ occasions, %@ drinks and %@ monthly totals.': '%@ gelegenheden, %@ drankjes en %@ maandtotalen toegevoegd.',
+        'Voegt %@ sessies, %@ drankjes en %@ maandtotalen toe. Er wordt niets veranderd of verwijderd wat er al staat.',
+    'Added %@ occasions, %@ drinks and %@ monthly totals.': '%@ sessies, %@ drankjes en %@ maandtotalen toegevoegd.',
     'months as totals': 'maanden alleen als totaal',
     'by month only': 'alleen per maand',
     'monthly total': 'maandtotaal',
@@ -338,8 +338,8 @@ TRANSLATIONS = {
     'Remove %@?': '%@ verwijderen?',
     'Remove': 'Verwijderen',
     'Deletes %@ occasions, %@ drinks and %@ monthly totals. This cannot be undone.':
-        'Wist %@ gelegenheden, %@ drankjes en %@ maandtotalen. Dit kan niet ongedaan worden gemaakt.',
-    'Deletes %@ occasions and %@ drinks. This cannot be undone.': 'Wist %@ gelegenheden en %@ drankjes. Dit kan niet ongedaan worden gemaakt.',
+        'Wist %@ sessies, %@ drankjes en %@ maandtotalen. Dit kan niet ongedaan worden gemaakt.',
+    'Deletes %@ occasions and %@ drinks. This cannot be undone.': 'Wist %@ sessies en %@ drankjes. Dit kan niet ongedaan worden gemaakt.',
 
     # --- PeopleView ---
     'Swipe left on a guest to remove them with everything recorded under them. You cannot be removed.':
@@ -348,16 +348,16 @@ TRANSLATIONS = {
     'Owner': 'Eigenaar',
     'Everyone this app records. Switch, add, or remove someone.': 'Iedereen die deze app registreert. Wissel, voeg toe of verwijder iemand.',
     # --- Day window (5.22) ---
-    "Carried over from the night before": 'Overgedragen van de avond ervoor',
+    "Carried over from the night before": 'Overgebleven van de avond ervoor',
     # --- History, second card (5.24) ---
     'Calories': 'Calorieën',
-    'Sessions': 'Gelegenheden',
-    'Per session': 'Per gelegenheid',
+    'Sessions': 'Sessies',
+    'Per session': 'Per sessie',
     'Under the influence': 'Onder invloed',
     '%@ of the time': '%@ van de tijd',
-    'Days over limit': 'Dagen boven de grens',
-    'Longest sober run': 'Langste nuchtere reeks',
-    'Favourite drink': 'Favoriete drankje',
+    'Days over limit': 'Dagen boven je limiet',
+    'Longest sober run': 'Langste droge periode',
+    'Favourite drink': 'Favoriet drankje',
 
     # --- Profile sub-pages (5.26) ---
     "Display & language": "Weergave en taal",
@@ -372,7 +372,7 @@ TRANSLATIONS = {
     'Estimated range, not a measurement. Never use this to decide whether you can drive.':
         'Geschat bereik, geen meting. Gebruik dit nooit om te beslissen of je kunt rijden.',
     'How does the app calculate this?':
-        'Hoe rekent de app?',
+        'Hoe berekent de app dit?',
     'approximately %@ %@':
         'ongeveer %@ %@',
     'How it works':
@@ -388,7 +388,7 @@ TRANSLATIONS = {
     'How it calculates':
         'Zo rekent de app',
     'The estimate builds on the Widmark method, used to estimate blood alcohol since the 1930s; the app runs a refined version of it.':
-        'De schatting is gebaseerd op de methode van Widmark, die sinds de jaren dertig wordt gebruikt om het bloedalcohol te schatten; de app gebruikt een verfijnde versie ervan.',
+        'De schatting is gebaseerd op de methode van Widmark, die sinds de jaren dertig wordt gebruikt om het bloedalcoholgehalte te schatten; de app gebruikt een verfijnde versie ervan.',
     'From your weight, height, age and sex it works out how much water your body holds, because that is where alcohol spreads. It follows every drink separately: how much alcohol it had, how fast you drank it, and how much you had eaten, because that sets how quickly it is absorbed.':
         'Uit je gewicht, lengte, leeftijd en geslacht berekent hij hoeveel water je lichaam bevat, want daarin verdeelt alcohol zich. Hij volgt elk drankje apart: hoeveel alcohol erin zat, hoe snel je het dronk en hoeveel je had gegeten, want dat bepaalt hoe snel het wordt opgenomen.',
     'Meanwhile your liver breaks down a roughly constant amount every hour; how much in your case is estimated from how often you drink. The result is a curve, minute by minute: where you are now, where you are heading, and when you will be clear.':
@@ -408,7 +408,7 @@ TRANSLATIONS = {
     'Elimination':
         'Afbraak',
     'About 0.15 ‰ per hour (published range 0.10–0.25), higher in regular drinkers as liver enzymes adapt. Close to zero it slows down (Michaelis–Menten kinetics), so the curve tapers off instead of stopping abruptly.':
-        'Ongeveer 0,15 ‰ per uur (gepubliceerd bereik 0,10–0,25), hoger bij regelmatige drinkers doordat leverenzymen zich aanpassen. Dicht bij nul vertraagt het (Michaelis-Menten-kinetiek), zodat de curve geleidelijk afloopt in plaats van abrupt te stoppen.',
+        'Ongeveer 0,15 ‰ per uur (gepubliceerd bereik 0,10–0,25), hoger bij regelmatige drinkers doordat leverenzymen zich aanpassen. Dicht bij nul vertraagt de afbraak (Michaelis-Menten-kinetiek), zodat de curve geleidelijk afloopt in plaats van abrupt te stoppen.',
     'Computation':
         'Berekening',
     'The curve comes from a numerical simulation at one-minute resolution.':
@@ -418,25 +418,25 @@ TRANSLATIONS = {
     'The app measures nothing. What it shows is the output of a model using average values, and reality can differ. The biggest unknown is how fast you break alcohol down: within the plausible range, that alone can move the peak by 40 percent and the clear time by four hours on the same evening.':
         'De app meet niets. Wat hij toont, is de uitkomst van een model met gemiddelde waarden, en de werkelijkheid kan afwijken. De grootste onbekende is hoe snel je alcohol afbreekt: binnen het aannemelijke bereik kan dat alleen al de piek 40 procent en het nulpunt vier uur verschuiven op dezelfde avond.',
     'Genetics, liver health, medication, what you ate, sleep and tiredness matter too — the app knows none of these. Only a certified breathalyser or a blood test gives an exact value.':
-        'Ook erfelijkheid, levergezondheid, medicijnen, wat je hebt gegeten, slaap en vermoeidheid spelen mee – de app weet daar niets van. Alleen een geijkte blaastest of een bloedtest geeft een exacte waarde.',
+        'Ook erfelijkheid, levergezondheid, medicijnen, wat je hebt gegeten, slaap en vermoeidheid spelen mee – de app weet daar niets van. Alleen een geijkte alcoholtester of een bloedtest geeft een exacte waarde.',
     'The number is still useful. If the app reads consistently a little high or low for you, it is off in the same direction every evening, so over time you learn what a given value means for you. In Profile you can also show the uncertainty of the elimination rate: you then see a range instead of a single number.':
         'Het getal is toch nuttig. Zit de app bij jou steeds wat te hoog of te laag, dan zit hij er elke avond in dezelfde richting naast, zodat je na verloop van tijd leert wat een bepaalde waarde voor jou betekent. In Profiel kun je ook de onzekerheid van de afbraaksnelheid tonen: je ziet dan een bereik in plaats van één getal.',
     'Tips':
         'Tips',
     'Favourite drink in one tap':
-        'Favoriete drankje met één tik',
+        'Favoriet drankje met één tik',
     'Set a favourite in Profile and the Live button logs it with a single tap.':
         'Stel in Profiel een favoriet in, en de knop op Live legt hem met één tik vast.',
     'Widget':
         'Widget',
     'Add it to your Lock Screen or Home Screen: one tap logs your favourite. While there is alcohol in your system, it also shows your level and which way it is going.':
-        'Zet hem op je toegangsscherm of beginscherm: één tik legt je favoriet vast. Zolang er alcohol in je lichaam is, toont hij ook je niveau en de richting.',
+        'Zet hem op je toegangsscherm of beginscherm: één tik legt je favoriet vast. Zolang er alcohol in je lichaam is, toont hij ook je niveau en welke kant het op gaat.',
     'How do I add it?':
         'Hoe voeg ik hem toe?',
     'Siri':
         'Siri',
     'Say “Hey Siri, LogMyDrink now” and Siri logs your favourite, then tells you where your peak is heading.':
-        'Zeg ‘Hé Siri, LogMyDrink now’ en Siri legt je favoriet vast en vertelt waar je piek naartoe gaat.',
+        'Zeg ‘Hey Siri, LogMyDrink now’ en Siri legt je favoriet vast en vertelt waar je piek naartoe gaat. (Het commando werkt in het Engels.)',
     'Looking back':
         'Terugkijken',
     '“Yesterday” at the top of Live takes you to the previous day in one tap; the History tab shows your patterns over weeks, months and years.':
@@ -444,7 +444,7 @@ TRANSLATIONS = {
     'Logging later':
         'Achteraf vastleggen',
     'If you log a drink after the fact, set the time back with the − and + buttons; a missed day can be filled in from the Day view in History.':
-        'Leg je een drankje achteraf vast, zet de tijd dan terug met de knoppen − en +; een vergeten dag kun je aanvullen vanuit de dagweergave in Geschiedenis.',
+        'Leg je een drankje achteraf vast, zet de tijd dan terug met de knoppen − en +; een vergeten dag kun je aanvullen vanuit de weergave Dag in Geschiedenis.',
     'One tap and done':
         'Eén tik en klaar',
     'Your favourite from the Lock Screen':
@@ -456,9 +456,9 @@ TRANSLATIONS = {
     'Set what you drink most often and log it with a single tap.':
         'Stel in wat je het vaakst drinkt en leg het met één tik vast.',
     'One tap on the widget logs your favourite, no searching for the app. In the evening it shows your level too.':
-        'Eén tik op de widget legt je favoriet vast, zonder de app te zoeken. ’s Avonds toont hij ook je niveau.',
+        'Eén tik op de widget legt je favoriet vast, zonder dat je de app hoeft te zoeken. ’s Avonds toont hij ook je niveau.',
     '“Hey Siri, LogMyDrink now” — Siri logs your favourite and tells you where your peak is heading.':
-        '‘Hé Siri, LogMyDrink now’ – Siri legt je favoriet vast en vertelt waar je piek naartoe gaat.',
+        '‘Hey Siri, LogMyDrink now’ – Siri legt je favoriet vast en vertelt waar je piek naartoe gaat.',
     'History shows how much and how high you drink over weeks, months and years, and which way it is changing.':
         'Geschiedenis laat zien hoeveel en hoe hoog je drinkt over weken, maanden en jaren, en welke kant het op gaat.',
     'Set favourite':
@@ -484,17 +484,17 @@ TRANSLATIONS = {
     'Choose LogMyDrink, then tap Done.':
         'Kies LogMyDrink en tik op ‘Gereed’.',
     'Touch and hold an empty area of the Home Screen until the icons jiggle.':
-        'Houd je vinger op een lege plek van het beginscherm tot de symbolen gaan wiebelen.',
+        'Houd je vinger op een lege plek van het beginscherm totdat de apps gaan bewegen.',
     'Tap Edit, then Add Widget.':
         'Tik op ‘Wijzig’ en dan op ‘Voeg widget toe’.',
     'Search for LogMyDrink, pick a size and tap Add Widget.':
         'Zoek LogMyDrink, kies een formaat en tik op ‘Voeg widget toe’.',
     'A tap on the widget opens the app and logs your favourite drink. While there is alcohol in your system, it also shows your level and which way it is going.':
-        'Een tik op de widget opent de app en legt je favoriete drankje vast. Zolang er alcohol in je lichaam is, toont hij ook je niveau en de richting.',
+        'Een tik op de widget opent de app en legt je favoriete drankje vast. Zolang er alcohol in je lichaam is, toont hij ook je niveau en welke kant het op gaat.',
     'Add the widget':
         'Widget toevoegen',
     'Show tips':
-        'Toon tips',
+        'Tips tonen',
     'One tip a day at most, when you open the app — never while there is alcohol in your system.':
         'Hooguit één tip per dag, bij het openen van de app – nooit zolang er alcohol in je lichaam is.',
 }

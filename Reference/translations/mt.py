@@ -8,13 +8,13 @@ in make_catalog.py is the act of vouching for it.
 
 TRANSLATIONS = {
     # --- BACUnit ---
-    "Per mille": "Per mille",
-    "Percent": "Perċentwali",
+    "Per mille": "Fil-elf",
+    "Percent": "Fil-mija",
 
     # --- DrinkCatalog: drink types ---
     "Beer": "Birra",
     "Wine": "Inbid",
-    "Champagne": "Frizzanti",
+    "Champagne": "Xampanja",
     "Shot": "Shot",
     "Cocktail": "Kokteil",
     "Custom": "Personalizzat",
@@ -54,7 +54,7 @@ TRANSLATIONS = {
 
     # --- BACChartView ---
     "Expected peak around %@": "Quċċata mistennija madwar %@",
-    "Peaked around %@": "Laħqet il-quċċata madwar %@",
+    "Peaked around %@": "Il-quċċata kienet madwar %@",
     "No active session": "L-ebda sessjoni attiva",
     "Still rising": "Għadu tiela'",
     "YOUR LIMIT %@": "IL-LIMITU TIEGĦEK %@",
@@ -77,8 +77,8 @@ TRANSLATIONS = {
     "Started": "Bdiet",
     "Lasted": "Damet",
     "Duration": "Tul",
-    "Sober around": "Sober madwar",
-    "Sober at": "Sober",
+    "Sober around": "Bla alkoħol madwar",
+    "Sober at": "Bla alkoħol",
     "Remaining": "Fadal",
     "next day": "l-għada",
     "previous day": "il-jum ta' qabel",
@@ -99,7 +99,7 @@ TRANSLATIONS = {
     "Save changes": "Issejvja l-bidliet",
     "With this": "B'din",
     "Delete": "Ħassar",
-    "tap to edit · swipe to delete": "agħfas biex timmodifika · iżżerżaq biex tħassar",
+    "tap to edit · swipe to delete": "agħfas biex timmodifika · swajpja biex tħassar",
 
     # --- Drinking pace ---
     "How fast": "Kemm malajr",
@@ -109,16 +109,16 @@ TRANSLATIONS = {
     "A quick drink. The level climbs fast.": "Xarba mgħaġġla. Il-livell jitla' malajr.",
     "A normal pace.": "Pass normali.",
     "Nursed slowly. Much gentler climb for the same alcohol.":
-        "Mixrub bil-mod. Tlugħ ħafna aktar ħafif għall-istess alkoħol.",
+        "Mixruba bil-mod. Tlugħ ħafna aktar ħafif għall-istess alkoħol.",
 
     # --- AddDrinkSheet ---
     "Cancel": "Ikkanċella",
     "Now": "Issa",
     "Projected peak": "Quċċata prevista",
-    "Peak at": "Quċċata fi",
+    "Peak at": "Ħin tal-quċċata",
     "Clears": "Jgħaddi",
-    "This would cross your limit": "Din taqbeż il-limitu tiegħek",
-    "Around %@, for up to %@.": "Madwar %@, sa %@.",
+    "This would cross your limit": "Din kienet taqbeż il-limitu tiegħek",
+    "Around %@, for up to %@.": "Madwar %@, għal sa %@.",
     "This might cross your limit": "Din tista' taqbeż il-limitu tiegħek",
     "With slower metabolism yes, with faster no. That's the uncertainty of the estimate.":
         "B'metaboliżmu aktar bil-mod iva, b'wieħed aktar mgħaġġel le. Dik hi l-inċertezza "
@@ -162,7 +162,7 @@ TRANSLATIONS = {
     "Your own reference number, not a legal limit. The app tells you when a planned drink "
     "would take you past it, and for how long you would stay above.":
         "In-numru ta' referenza tiegħek stess, mhux limitu legali. L-app tgħidlek meta xarba "
-        "ppjanata tieħdok lil hinn minnu, u għal kemm żmien tibqa' 'l fuq minnu.",
+        "ppjanata kienet taqbżu, u għal kemm żmien kont tibqa' 'il fuq minnu.",
     "Calculated values": "Valuri kkalkulati",
     "Total body water": "Ilma totali tal-ġisem",
     "Distribution volume": "Volum ta' distribuzzjoni",
@@ -170,7 +170,7 @@ TRANSLATIONS = {
     "The Widmark factor is typically around 0.68 for men and 0.55 for women. If yours is far "
     "from that, it is worth checking the values above.":
         "Il-fattur Widmark normalment ikun madwar 0.68 għall-irġiel u 0.55 għan-nisa. Jekk "
-        "tiegħek hu 'l bogħod minn hekk, ta' min tiċċekkja l-valuri ta' fuq.",
+        "tiegħek hu 'il bogħod minn hekk, ta' min tiċċekkja l-valuri ta' fuq.",
     "Elimination rate": "Rata ta' eliminazzjoni",
     "How fast your liver clears alcohol once it has been absorbed — the slope of the falling "
     "side of the curve.":
@@ -180,19 +180,19 @@ TRANSLATIONS = {
     "enzyme that breaks it down already runs at full capacity at almost any level. That is why "
     "rules of thumb like “one drink an hour” exist at all.":
         "L-alkoħol jitlaq b'ammont bejn wieħed u ieħor fiss kull siegħa, u mhux bħala "
-        "perċentwali, għax l-enzima li tkissru diġà taħdem bl-aqwa kapaċità tagħha kważi "
+        "perċentwali, għax l-enzima li tkissru diġà taħdem b'kapaċità sħiħa kważi "
         "f'kull livell. Huwa għalhekk li jeżistu regoli prattiċi bħal “xarba waħda "
         "fis-siegħa”.",
     "At this setting, %@ takes about %@ to clear. Almost everyone falls between %@ per hour.":
-        "B'dan l-issettjar, %@ jieħu madwar %@ biex jgħaddi. Kważi kulħadd jaqa' bejn %@ "
-        "fis-siegħa.",
-    "How to find yours": "Kif issib tiegħek",
+        "B'dan l-issettjar, %@ jieħu madwar %@ biex jgħaddi. Għal kważi kulħadd hija bejn "
+        "%@ fis-siegħa.",
+    "How to find yours": "Kif issib ir-rata tiegħek",
     "With a breathalyser": "B'test tan-nifs",
     "Blow twice, at least an hour apart, on the falling side — two hours or more after your "
     "last drink, with nothing in between. Subtract the second reading from the first and "
     "divide by the hours between them.":
         "Onfoħ darbtejn, tal-anqas siegħa bejn waħda u oħra, fuq in-naħa niżla — sagħtejn jew "
-        "aktar wara l-aħħar xarba, mingħajr xejn bejniethom. Naqqas it-tieni qari mill-ewwel "
+        "aktar wara l-aħħar xarba, mingħajr ma tixrob xejn bejniethom. Naqqas it-tieni qari mill-ewwel "
         "wieħed u aqsam bis-sigħat ta' bejniethom.",
     "For example %@ and %@ two hours later works out to %@ per hour.":
         "Ngħidu aħna, %@ u %@ sagħtejn wara jagħtu %@ fis-siegħa.",
@@ -202,8 +202,8 @@ TRANSLATIONS = {
     "few sessions. If it takes longer than predicted, nudge it down.":
         "L-app tgħidlek meta tistenna li l-livell tiegħek jgħaddi. Jekk b'mod konsistenti "
         "terġa' lura għan-normal sew qabel dak il-ħin, ir-rata tiegħek hi ogħla mill-issettjar "
-        "— għollieha pass wieħed u osserva għal ftit sessjonijiet. Jekk tieħu aktar milli "
-        "mbassar, baxxiha.",
+        "— għolliha pass wieħed u osserva għal ftit sessjonijiet. Jekk tieħu aktar milli "
+        "kien imbassar, baxxiha.",
     "What moves it": "X'jibdilha",
     "Regular drinking raises it: the liver enzyme that does the work is induced by use. It "
     "also runs slightly higher in women on average, and lower on an empty stomach or with "
@@ -214,7 +214,7 @@ TRANSLATIONS = {
     "Uncertainty": "Inċertezza",
     "At zero every figure is a single number — the app's best estimate. Above zero the same "
     "figures are shown as ranges, and the band on the chart widens to match.":
-        "Fuq żero kull ċifra hi numru wieħed — l-aħjar stima tal-app. 'Il fuq minn żero "
+        "Fiż-żero kull ċifra hi numru wieħed — l-aħjar stima tal-app. 'Il fuq minn żero "
         "l-istess ċifri jintwerew bħala firxiet, u l-faxxa fuq il-graff titwessa' biex taqbel.",
     "A single number is easier to learn against: over time you find out what your own 0.6 "
     "feels like. A range is the more literal answer, because the rate really is uncertain. "
@@ -239,7 +239,7 @@ TRANSLATIONS = {
     "before records": "qabel bdew ir-rekords",
     "See further back": "Ara iktar lura",
     "Weeks, months and years side by side — and every evening older than seven days.": "Ġimgħat, xhur u snin ħdejn xulxin – u kull lejla eqdem minn sebat ijiem.",
-    "Everything you have logged is already saved. Unlocking only shows it.": "Kulma rreġistrajt huwa diġà salvat. L-iftuħ juri biss dan.",
+    "Everything you have logged is already saved. Unlocking only shows it.": "Kulma rreġistrajt huwa diġà maħżun. L-iftuħ juri biss dan.",
     "Coming soon": "Dalwaqt",
     "Today": "Illum",
     "Day": "Jum",
@@ -247,8 +247,8 @@ TRANSLATIONS = {
     "No drinks on this day": "L-ebda xorb f'dan il-jum",
     "Trend": "Xejra",
     "day": "jum",
-    "Smoothing": "Tlaħliħ",
-    "%@ sessions": "%@ okkażjonijiet",
+    "Smoothing": "Twittija",
+    "%@ sessions": "%@ sessjonijiet",
     "No data before %@": "L-ebda data qabel %@",
     "vs.": "kontra",
     "Grams": "Grammi",
@@ -272,24 +272,24 @@ TRANSLATIONS = {
     "Their own limit and the finer settings can be changed later on the Profile tab, while "
     "they are the selected person.":
         "Il-limitu tagħhom u l-issettjar aktar dettaljat jistgħu jinbidlu aktar tard fit-tab "
-        "Profil, waqt li huma l-persuna magħżula.",
+        "Profil, sakemm tkun magħżula dik il-persuna.",
 
     # --- FavouriteDrinkSection and QuickAddBar: the one-tap usual ---
     "Quick add": "Żieda mgħaġġla",
     "Choose a favourite drink": "Agħżel xarba favorita",
     "Pick the drink you usually order, and a button on the Live screen will log it in one tap.":
         "Agħżel ix-xarba li normalment tordna, u buttuna fuq l-iskrin Dirett tirreġistraha "
-        "b'daqqa waħda.",
+        "b'tektika waħda.",
     "This is your quick-add drink": "Din hi x-xarba tiegħek għaż-żieda mgħaġġla",
     "Set as my quick-add drink": "Agħmilha x-xarba tiegħi għaż-żieda mgħaġġla",
-    "This is now your usual": "Din issa hi s-soltu tiegħek",
+    "This is now your usual": "Din issa hi x-xarba tas-soltu tiegħek",
     "Remove favourite": "Neħħi l-favorita",
     "Always add this one": "Dejjem żid din",
     "Logs it straight away, without opening anything.":
-        "Jirreġistrah mill-ewwel, mingħajr ma jiftaħ xejn.",
+        "Jirreġistraha mill-ewwel, mingħajr ma jiftaħ xejn.",
     "One tap on the Live screen logs this, with the projected peak on the button. How full "
     "your stomach is comes from the drink before it, and can be corrected straight after.":
-        "Daqqa waħda fuq l-iskrin Dirett tirreġistra din, bil-quċċata prevista fuq il-buttuna. "
+        "Tektika waħda fuq l-iskrin Dirett tirreġistra din, bil-quċċata prevista fuq il-buttuna. "
         "Kemm hu mimli l-istonku tiegħek jittieħed mix-xarba ta' qabel, u jista' jiġi kkoreġut "
         "mill-ewwel wara.",
     "Peak %@": "Quċċata %@",
@@ -354,12 +354,12 @@ TRANSLATIONS = {
     "Carried over from the night before": "Miġjub mil-lejla ta' qabel",
     # --- History, second card (5.24) ---
     'Calories': 'Kaloriji',
-    'Sessions': 'Okkażjonijiet',
-    'Per session': 'Għal kull okkażjoni',
-    'Under the influence': 'Taħt l-influwenza',
+    'Sessions': 'Sessjonijiet',
+    'Per session': 'Għal kull sessjoni',
+    'Under the influence': 'Taħt l-effett tal-alkoħol',
     '%@ of the time': '%@ tal-ħin',
     'Days over limit': "Jiem 'il fuq mil-limitu",
-    'Longest sober run': 'L-itwal sensiela sobrija',
+    'Longest sober run': 'L-itwal sensiela bla alkoħol',
     'Favourite drink': 'Xarba favorita',
 
     # --- Profile sub-pages (5.26) ---
@@ -375,7 +375,7 @@ TRANSLATIONS = {
     'Estimated range, not a measurement. Never use this to decide whether you can drive.':
         'Firxa stmata, mhux kejl. Qatt tuża dan biex tiddeċiedi jekk tistax issuq.',
     'How does the app calculate this?':
-        'Kif tikkalkula l-app?',
+        'Kif tikkalkulah l-app?',
     'approximately %@ %@':
         'madwar %@ %@',
     'How it works':
@@ -387,7 +387,7 @@ TRANSLATIONS = {
     'LogMyDrink helps you drink more mindfully and stay in control. The decision happens before the next glass, so the app shows you in advance where another drink would take your level, and when it would peak.':
         'LogMyDrink tgħinek tixrob b’mod aktar konxju u żżomm il-kontroll. Id-deċiżjoni tittieħed qabel it-tazza li jmiss, għalhekk l-app turik minn qabel fejn xarba oħra tieħu l-livell tiegħek u meta jilħaq il-quċċata.',
     'But it is not only about tonight. Every drink you log goes into your History, so over months and years you can see how much, how often and how high you drink. Your patterns emerge from it, and so does the direction they are moving in — whether things are getting better or worse.':
-        'Iżda mhux biss dwar illejla. Kull xarba li tirreġistra tmur fl-istorja tiegħek, u għalhekk matul xhur u snin tara kemm, kemm-il darba u kemm għoli tixrob. Minn hemm joħorġu x-xejriet tiegħek, u wkoll id-direzzjoni li qed jieħdu – jekk l-affarijiet qed jitjiebu jew jiggrava.',
+        'Iżda mhix kwistjoni tal-lejla biss. Kull xarba li tirreġistra tmur fl-Istorja tiegħek, u għalhekk matul xhur u snin tara kemm tixrob, kemm-il darba u kemm jogħla l-livell tiegħek. Minn hemm joħorġu x-xejriet tiegħek, u wkoll id-direzzjoni li qed jieħdu – jekk l-affarijiet qed jitjiebu jew jiggravaw.',
     'How it calculates':
         'Kif tikkalkula',
     'The estimate builds on the Widmark method, used to estimate blood alcohol since the 1930s; the app runs a refined version of it.':
@@ -395,23 +395,23 @@ TRANSLATIONS = {
     'From your weight, height, age and sex it works out how much water your body holds, because that is where alcohol spreads. It follows every drink separately: how much alcohol it had, how fast you drank it, and how much you had eaten, because that sets how quickly it is absorbed.':
         'Mill-piż, it-tul, l-età u s-sess tiegħek tikkalkula kemm fih ilma ġismek, għax hemm jinfirex l-alkoħol. Issegwi kull xarba għaliha: kemm kien fiha alkoħol, kemm xrobtha malajr u kemm kont kilt, għax dan jiddetermina kemm tiġi assorbita malajr.',
     'Meanwhile your liver breaks down a roughly constant amount every hour; how much in your case is estimated from how often you drink. The result is a curve, minute by minute: where you are now, where you are heading, and when you will be clear.':
-        'Sadanittant il-fwied ikisser kull siegħa ammont bejn wieħed u ieħor kostanti; tiegħek jiġi stmat minn kemm-il darba tixrob. Ir-riżultat huwa kurva, minuta b’minuta: fejn int issa, lejn fejn sejjer u meta terġa’ tkun fuq żero.',
+        'Sadanittant il-fwied ikisser kull siegħa ammont bejn wieħed u ieħor kostanti; l-ammont tiegħek jiġi stmat minn kemm-il darba tixrob. Ir-riżultat huwa kurva, minuta b’minuta: fejn int issa, lejn fejn sejjer u meta terġa’ tasal għal żero.',
     'Details':
         'Dettalji',
     'Body water':
         'Ilma tal-ġisem',
     'The Watson formula (1980), from weight, height, age and sex. The female formula has no age term — a property of the formula, not a bug. The distribution volume is body water divided by 0.85, the water content of blood.':
-        'Il-formula ta’ Watson (1980), mill-piż, it-tul, l-età u s-sess. Il-formula għan-nisa m’għandhiex età – karatteristika tal-formula, mhux żball. Il-volum tad-distribuzzjoni huwa l-ilma tal-ġisem diviż b’0.85, il-kontenut ta’ ilma fid-demm.',
+        'Il-formula ta’ Watson (1980), mill-piż, it-tul, l-età u s-sess. Il-formula għan-nisa m’għandhiex terminu tal-età – karatteristika tal-formula, mhux żball. Il-volum tad-distribuzzjoni huwa l-ilma tal-ġisem diviż b’0.85, il-kontenut ta’ ilma fid-demm.',
     'Absorption':
         'Assorbiment',
     'Every drink has its own “stomach”. On an empty stomach half of the alcohol is absorbed in about 7 minutes, on a full one in about 21. A drink you sip enters the stomach evenly over the time you drink it.':
         'Kull xarba għandha l-“istonku” tagħha. Fuq stonku vojt nofs l-alkoħol jiġi assorbit f’madwar 7 minuti, fuq stonku mimli f’madwar 21. Xarba li tixrobha bil-mod tidħol fl-istonku b’mod uniformi waqt li tixrobha.',
     'Gives a lower peak and an earlier clear time. Surprising, but measured: with food the stomach breaks down part of the alcohol before it is absorbed (the app uses 5, 10 and 15 percent), and what never got in does not need to be broken down.':
-        'Jagħti quċċata aktar baxxa u żero aktar kmieni. Sorprendenti, iżda mkejjel: bl-ikel l-istonku jkisser parti mill-alkoħol qabel jiġi assorbit (l-app tuża 5, 10 u 15 fil-mija), u dak li qatt ma daħal m’hemmx għalfejn jitkisser.',
+        'Jagħti quċċata aktar baxxa u l-alkoħol jgħaddi aktar kmieni. Sorprendenti, iżda mkejjel: bl-ikel l-istonku jkisser parti mill-alkoħol qabel jiġi assorbit (l-app tuża 5, 10 u 15 fil-mija), u dak li qatt ma daħal m’hemmx għalfejn jitkisser.',
     'Elimination':
         'Eliminazzjoni',
     'About 0.15 ‰ per hour (published range 0.10–0.25), higher in regular drinkers as liver enzymes adapt. Close to zero it slows down (Michaelis–Menten kinetics), so the curve tapers off instead of stopping abruptly.':
-        'Madwar 0.15 ‰ fis-siegħa (firxa ppubblikata 0.10–0.25), aktar f’min jixrob regolarment għax l-enzimi tal-fwied jadattaw. Qrib iż-żero tonqos (kinetika ta’ Michaelis-Menten), u għalhekk il-kurva tinżel bil-mod minflok ma tieqaf f’daqqa.',
+        'Madwar 0.15 ‰ fis-siegħa (firxa ppubblikata 0.10–0.25), ogħla f’min jixrob regolarment għax l-enzimi tal-fwied jadattaw. Qrib iż-żero tonqos (kinetika ta’ Michaelis–Menten), u għalhekk il-kurva tinżel bil-mod minflok ma tieqaf f’daqqa.',
     'Computation':
         'Kalkolu',
     'The curve comes from a numerical simulation at one-minute resolution.':
@@ -419,17 +419,17 @@ TRANSLATIONS = {
     'Why it is only an estimate':
         'Għaliex hija biss stima',
     'The app measures nothing. What it shows is the output of a model using average values, and reality can differ. The biggest unknown is how fast you break alcohol down: within the plausible range, that alone can move the peak by 40 percent and the clear time by four hours on the same evening.':
-        'L-app ma tkejjel xejn. Dak li turi huwa r-riżultat ta’ mudell b’valuri medji, u r-realtà tista’ tkun differenti. L-akbar mhux magħruf huwa kemm tkisser l-alkoħol malajr: fil-firxa plawżibbli, dan waħdu jista’ jċaqlaq il-quċċata b’40 fil-mija u ż-żero b’erba’ sigħat fl-istess serata.',
+        'L-app ma tkejjel xejn. Dak li turi huwa r-riżultat ta’ mudell b’valuri medji, u r-realtà tista’ tkun differenti. L-akbar inċertezza hija kemm tkisser l-alkoħol malajr: fil-firxa plawżibbli, dan waħdu jista’ jċaqlaq il-quċċata b’40 fil-mija u l-ħin meta jgħaddi l-alkoħol b’erba’ sigħat fl-istess serata.',
     'Genetics, liver health, medication, what you ate, sleep and tiredness matter too — the app knows none of these. Only a certified breathalyser or a blood test gives an exact value.':
-        'Jgħoddu wkoll il-ġenetika, is-saħħa tal-fwied, il-mediċini, x’kilt, l-irqad u l-għeja – l-app ma taf xejn minn dawn. Valur eżatt jagħtih biss breathalyser iċċertifikat jew test tad-demm.',
+        'Jgħoddu wkoll il-ġenetika, is-saħħa tal-fwied, il-mediċini, x’kilt, l-irqad u l-għeja – l-app ma taf xejn minn dawn. Valur eżatt jagħtih biss apparat iċċertifikat tat-test tan-nifs jew test tad-demm.',
     'The number is still useful. If the app reads consistently a little high or low for you, it is off in the same direction every evening, so over time you learn what a given value means for you. In Profile you can also show the uncertainty of the elimination rate: you then see a range instead of a single number.':
-        'In-numru xorta huwa utli. Jekk l-app turi lilek b’mod konsistenti ftit wisq jew ftit wisq ftit, tiżbalja fl-istess direzzjoni kull filgħaxija, u għalhekk maż-żmien titgħallem xi jfisser valur partikolari għalik. Fil-Profil tista’ wkoll turi l-inċertezza tar-rata tal-eliminazzjoni: imbagħad tara firxa minflok numru wieħed.',
+        'In-numru xorta huwa utli. Jekk l-app tagħtik b’mod konsistenti valur ftit għoli jew ftit baxx, tiżbalja fl-istess direzzjoni kull filgħaxija, u għalhekk maż-żmien titgħallem xi jfisser valur partikolari għalik. Fil-Profil tista’ wkoll turi l-inċertezza tar-rata tal-eliminazzjoni: imbagħad tara firxa minflok numru wieħed.',
     'Tips':
         'Pariri',
     'Favourite drink in one tap':
         'Xarba favorita b’tektika waħda',
     'Set a favourite in Profile and the Live button logs it with a single tap.':
-        'Agħżel favorita fil-Profil u l-buttuna f’Dirett tirreġistraha b’tektika waħda.',
+        'Agħżel favorita fil-Profil u l-buttuna fuq l-iskrin Dirett tirreġistraha b’tektika waħda.',
     'Widget':
         'Widget',
     'Add it to your Lock Screen or Home Screen: one tap logs your favourite. While there is alcohol in your system, it also shows your level and which way it is going.':
@@ -439,11 +439,11 @@ TRANSLATIONS = {
     'Siri':
         'Siri',
     'Say “Hey Siri, LogMyDrink now” and Siri logs your favourite, then tells you where your peak is heading.':
-        'Għid “Hey Siri, LogMyDrink now” u Siri tirreġistra l-favorita tiegħek u tgħidlek lejn fejn sejra l-quċċata tiegħek.',
+        'Għid “Hey Siri, LogMyDrink now” u Siri tirreġistra l-favorita tiegħek u tgħidlek lejn fejn sejra l-quċċata tiegħek. (Il-kmand jaħdem bl-Ingliż.)',
     'Looking back':
         'Ħarsa lura',
     '“Yesterday” at the top of Live takes you to the previous day in one tap; the History tab shows your patterns over weeks, months and years.':
-        '“Ilbieraħ” fil-quċċata ta’ Dirett jeħdok għall-ġurnata ta’ qabel b’tektika waħda; it-tab Storja turi x-xejriet tiegħek fuq ġimgħat, xhur u snin.',
+        '“Ilbieraħ” fin-naħa ta’ fuq tal-iskrin Dirett jeħdok għall-ġurnata ta’ qabel b’tektika waħda; it-tab Storja turi x-xejriet tiegħek matul ġimgħat, xhur u snin.',
     'Logging later':
         'Reġistrazzjoni wara',
     'If you log a drink after the fact, set the time back with the − and + buttons; a missed day can be filled in from the Day view in History.':
@@ -463,7 +463,7 @@ TRANSLATIONS = {
     '“Hey Siri, LogMyDrink now” — Siri logs your favourite and tells you where your peak is heading.':
         '“Hey Siri, LogMyDrink now” – Siri tirreġistra l-favorita tiegħek u tgħidlek lejn fejn sejra l-quċċata tiegħek.',
     'History shows how much and how high you drink over weeks, months and years, and which way it is changing.':
-        'L-Istorja turi kemm u kemm għoli tixrob fuq ġimgħat, xhur u snin, u f’liema direzzjoni qed tinbidel.',
+        'L-Istorja turi kemm tixrob u kemm jogħla l-livell tiegħek matul ġimgħat, xhur u snin, u f’liema direzzjoni qed tinbidel.',
     'Set favourite':
         'Agħżel favorita',
     'Add widget':
@@ -481,13 +481,13 @@ TRANSLATIONS = {
     'Where':
         'Fejn',
     'Lock your phone, then touch and hold the Lock Screen.':
-        'Sakkar l-iPhone, imbagħad żomm subgħajk fuq il-Lock Screen.',
+        'Sakkar it-telefon, imbagħad żomm subgħajk fuq il-Lock Screen.',
     'Tap Customize, then Lock Screen, then the widget row under the clock.':
         'Agħfas Customize, imbagħad Lock Screen, u mbagħad ir-ringiela tal-widgets taħt l-arloġġ.',
     'Choose LogMyDrink, then tap Done.':
         'Agħżel LogMyDrink, imbagħad agħfas Done.',
     'Touch and hold an empty area of the Home Screen until the icons jiggle.':
-        'Żomm subgħajk fuq post vojt tal-Home Screen sakemm l-ikoni jibdew jitħawdu.',
+        'Żomm subgħajk fuq post vojt tal-Home Screen sakemm l-ikoni jibdew jitriegħdu.',
     'Tap Edit, then Add Widget.':
         'Agħfas Edit, imbagħad Add Widget.',
     'Search for LogMyDrink, pick a size and tap Add Widget.':
@@ -499,5 +499,5 @@ TRANSLATIONS = {
     'Show tips':
         'Uri pariri',
     'One tip a day at most, when you open the app — never while there is alcohol in your system.':
-        'L-aktar parir wieħed kuljum, meta tiftaħ l-app – qatt sakemm ikun hemm alkoħol f’ġismek.',
+        'L-aktar parir wieħed kuljum, meta tiftaħ l-app – imma qatt waqt li jkun hemm alkoħol f’ġismek.',
 }

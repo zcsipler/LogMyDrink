@@ -16,8 +16,8 @@ TRANSLATIONS = {
     "Wine": "Víno",
     "Champagne": "Šumivé víno",
     "Shot": "Poldeci",
-    "Cocktail": "Koktail",
-    "Custom": "Vlastné",
+    "Cocktail": "Kokteil",
+    "Custom": "Vlastný",
 
     # --- DrinkCatalog: stomach state ---
     "Empty stomach": "Prázdny žalúdok",
@@ -60,7 +60,7 @@ TRANSLATIONS = {
 
     # --- Live screen: the day with nothing on it ---
     "Live": "Naživo",
-    "Nothing logged today": "Dnes nič zaznamenané",
+    "Nothing logged today": "Dnes nič nezaznamenané",
     "Add a drink when you have one.": "Pridaj nápoj vždy, keď si nejaký dáš.",
 
     # --- Tabs and history ---
@@ -68,11 +68,11 @@ TRANSLATIONS = {
     "No past sessions yet": "Zatiaľ žiadne minulé posedenia",
     "A session appears here once it has ended — when your level has cleared and a few hours "
     "have passed.":
-        "Posedenie sa tu objaví, keď sa skončí — keď alkohol vyprchá a uplynie niekoľko hodín.",
+        "Posedenie sa tu objaví, keď sa skončí – keď alkohol vyprchá a uplynie niekoľko hodín.",
     "%@ drinks": "Nápoje: %@",
     "peak": "vrchol",
     "Started": "Začiatok",
-    "Lasted": "Trvanie",
+    "Lasted": "Trvalo",
     "Duration": "Trvanie",
     "Sober around": "Triezvy cca",
     "Sober at": "Triezvy",
@@ -81,7 +81,7 @@ TRANSLATIONS = {
     "previous day": "predchádzajúci deň",
     "%@ days later": "o %@ dni neskôr",
     "%@ days earlier": "o %@ dni skôr",
-    "Calculated with your profile at the time": "Vypočítané s tvojím vtedajším profilom",
+    "Calculated with your profile at the time": "Vypočítané podľa tvojho vtedajšieho profilu",
 
     # --- TodayView ---
     "Profile": "Profil",
@@ -94,14 +94,14 @@ TRANSLATIONS = {
     "Edit drink": "Upraviť nápoj",
     "Save changes": "Uložiť zmeny",
     "With this": "S týmto nápojom",
-    "Delete": "Odstrániť",
-    "tap to edit · swipe to delete": "ťuknutím upravíš · potiahnutím odstrániš",
+    "Delete": "Vymazať",
+    "tap to edit · swipe to delete": "klepnutím upravíš · potiahnutím vymažeš",
 
     # --- Drinking pace ---
     "How fast": "Ako rýchlo",
     "In one go": "Naraz",
     "Counts as a single swallow — the steepest possible rise.":
-        "Počíta sa ako jeden dúšok — najstrmší možný nárast.",
+        "Počíta sa ako jeden dúšok – najstrmší možný nárast.",
     "A quick drink. The level climbs fast.": "Rýchlo vypitý nápoj. Hladina stúpa rýchlo.",
     "A normal pace.": "Bežné tempo.",
     "Nursed slowly. Much gentler climb for the same alcohol.":
@@ -147,7 +147,7 @@ TRANSLATIONS = {
     "distributes into. The female equation does not include age, so changing it will not "
     "affect the result.":
         "Celková telesná voda vychádza z Watsonových rovníc, ktoré určujú objem, v ktorom sa "
-        "alkohol distribuuje. Ženská rovnica nezahŕňa vek, takže jeho zmena výsledok "
+        "alkohol distribuuje. Rovnica pre ženy nezahŕňa vek, takže jeho zmena výsledok "
         "neovplyvní.",
     "Drinking frequency": "Frekvencia pitia",
     "How often do you drink?": "Ako často piješ?",
@@ -169,7 +169,7 @@ TRANSLATIONS = {
     "Elimination rate": "Rýchlosť odbúravania",
     "How fast your liver clears alcohol once it has been absorbed — the slope of the falling "
     "side of the curve.":
-        "Ako rýchlo tvoja pečeň odbúrava alkohol po jeho vstrebaní — sklon klesajúcej časti "
+        "Ako rýchlo tvoja pečeň odbúrava alkohol po jeho vstrebaní – sklon klesajúcej časti "
         "krivky.",
     "Alcohol leaves at a roughly fixed amount per hour rather than a percentage, because the "
     "enzyme that breaks it down already runs at full capacity at almost any level. That is why "
@@ -185,7 +185,7 @@ TRANSLATIONS = {
     "Blow twice, at least an hour apart, on the falling side — two hours or more after your "
     "last drink, with nothing in between. Subtract the second reading from the first and "
     "divide by the hours between them.":
-        "Fúkni dvakrát, s odstupom aspoň jednej hodiny, na klesajúcej strane — dve alebo viac "
+        "Fúkni dvakrát, s odstupom aspoň jednej hodiny, na klesajúcej strane – dve alebo viac "
         "hodín po poslednom nápoji a medzitým nič nepi. Od prvej hodnoty odčítaj druhú a vydeľ "
         "počtom hodín medzi nimi.",
     "For example %@ and %@ two hours later works out to %@ per hour.":
@@ -195,7 +195,7 @@ TRANSLATIONS = {
     "before that, your rate is higher than the setting — nudge it up a step and watch for a "
     "few sessions. If it takes longer than predicted, nudge it down.":
         "Aplikácia ti povie, kedy podľa nej alkohol vyprchá. Ak si spoľahlivo v normále "
-        "výrazne skôr, tvoja rýchlosť je vyššia než nastavená — posuň ju o krok nahor a sleduj "
+        "výrazne skôr, tvoja rýchlosť je vyššia než nastavená – posuň ju o krok nahor a sleduj "
         "to počas niekoľkých posedení. Ak to trvá dlhšie, než predpovedá, posuň ju nadol.",
     "What moves it": "Čo ju ovplyvňuje",
     "Regular drinking raises it: the liver enzyme that does the work is induced by use. It "
@@ -207,13 +207,13 @@ TRANSLATIONS = {
     "Uncertainty": "Neistota",
     "At zero every figure is a single number — the app's best estimate. Above zero the same "
     "figures are shown as ranges, and the band on the chart widens to match.":
-        "Pri nule je každý údaj jediné číslo — najlepší odhad aplikácie. Nad nulou sa tie isté "
+        "Pri nule je každý údaj jediné číslo – najlepší odhad aplikácie. Nad nulou sa tie isté "
         "údaje zobrazujú ako rozpätia a pás v grafe sa tomu úmerne rozšíri.",
     "A single number is easier to learn against: over time you find out what your own 0.6 "
     "feels like. A range is the more literal answer, because the rate really is uncertain. "
     "Both are defensible — this is your call.":
-        "Jediné číslo sa lepšie učí: časom zistíš, ako sa cítiš pri svojich 0,6. Rozpätie je "
-        "doslovnejšia odpoveď, pretože rýchlosť je naozaj neistá. Oboje sa dá obhájiť — "
+        "Podľa jediného čísla sa to ľahšie naučíš: časom zistíš, ako sa cítiš pri svojich 0,6. Rozpätie je "
+        "doslovnejšia odpoveď, pretože rýchlosť je naozaj neistá. Oboje sa dá obhájiť – "
         "rozhodnutie je na tebe.",
     "The spread suggested by your drinking frequency is ± %@ per hour.":
         "Rozptyl, ktorý vyplýva z tvojej frekvencie pitia, je ± %@ za hodinu.",
@@ -232,7 +232,7 @@ TRANSLATIONS = {
     "before records": "pred začiatkom záznamov",
     "See further back": "Pozrieť sa ďalej do minulosti",
     "Weeks, months and years side by side — and every evening older than seven days.": "Týždne, mesiace a roky vedľa seba – a každý večer starší ako sedem dní.",
-    "Everything you have logged is already saved. Unlocking only shows it.": "Všetko, čo ste zaznamenali, je už uložené. Odomknutie to len zobrazí.",
+    "Everything you have logged is already saved. Unlocking only shows it.": "Všetko, čo si zaznamenal, je už uložené. Odomknutie to len zobrazí.",
     "Coming soon": "Už čoskoro",
     "Today": "Dnes",
     "Day": "Deň",
@@ -241,7 +241,7 @@ TRANSLATIONS = {
     "Trend": "Trend",
     "day": "deň",
     "Smoothing": "Vyhladenie",
-    "%@ sessions": "%@ príležitostí",
+    "%@ sessions": "Posedenia: %@",
     "No data before %@": "Žiadne údaje pred %@",
     "vs.": "oproti",
     "Grams": "Gramy",
@@ -272,7 +272,7 @@ TRANSLATIONS = {
     "Choose a favourite drink": "Vyber si obľúbený nápoj",
     "Pick the drink you usually order, and a button on the Live screen will log it in one tap.":
         "Vyber si nápoj, ktorý si zvyčajne dávaš, a tlačidlo na obrazovke Naživo ho zaznamená "
-        "jedným ťuknutím.",
+        "jedným klepnutím.",
     "This is your quick-add drink": "Toto je tvoj nápoj na rýchle pridanie",
     "Set as my quick-add drink": "Nastaviť ako môj nápoj na rýchle pridanie",
     "This is now your usual": "Toto je odteraz tvoj obvyklý nápoj",
@@ -282,7 +282,7 @@ TRANSLATIONS = {
         "Zaznamená ho okamžite, bez otvárania čohokoľvek.",
     "One tap on the Live screen logs this, with the projected peak on the button. How full "
     "your stomach is comes from the drink before it, and can be corrected straight after.":
-        "Jedno ťuknutie na obrazovke Naživo ho zaznamená, na tlačidle je predpokladaný vrchol. "
+        "Jedno klepnutie na obrazovke Naživo ho zaznamená, na tlačidle je predpokladaný vrchol. "
         "Plnosť žalúdka sa prevezme z predchádzajúceho nápoja a hneď potom sa dá opraviť.",
     "Peak %@": "Vrchol %@",
     "%@ added": "Pridané: %@",
@@ -295,7 +295,7 @@ TRANSLATIONS = {
     "Import a backup": "Importovať zálohu",
     "A backup holds every person, occasion and drink. Importing adds what is missing — it "
     "never changes or removes anything already here.":
-        "Záloha obsahuje všetky osoby, posedenia a nápoje. Import doplní to, čo chýba — nikdy "
+        "Záloha obsahuje všetky osoby, posedenia a nápoje. Import doplní to, čo chýba – nikdy "
         "nezmení ani neodstráni nič, čo tu už je.",
     "Import this backup?": "Importovať túto zálohu?",
     "Import": "Importovať",
@@ -308,7 +308,7 @@ TRANSLATIONS = {
     "Opens this app in Settings, where “Preferred Language” sets the app's own language — the "
     "system's stays as it is. iOS restarts the app when you change it.":
         "Otvorí túto aplikáciu v Nastaveniach, kde položka „Preferovaný jazyk“ nastaví jazyk "
-        "samotnej aplikácie — jazyk systému zostane nezmenený. iOS po zmene aplikáciu "
+        "samotnej aplikácie – jazyk systému zostane nezmenený. iOS po zmene aplikáciu "
         "reštartuje.",
 
     # --- DataArchive: why a file could not be read ---
@@ -322,7 +322,7 @@ TRANSLATIONS = {
     # --- History: months known only by total (MonthlyTotal) ---
     'Adds %@ occasions, %@ drinks and %@ monthly totals. Nothing already here is changed or removed.':
         'Doplní: posedenia (%@), nápoje (%@), mesačné súčty (%@). Nič, čo tu už je, sa nezmení ani neodstráni.',
-    'Added %@ occasions, %@ drinks and %@ monthly totals.': 'Doplnené: %@ posedení, %@ nápojov a %@ mesačných súčtov.',
+    'Added %@ occasions, %@ drinks and %@ monthly totals.': 'Doplnené posedenia (%@), nápoje (%@) a mesačné súčty (%@).',
     'months as totals': 'mesiacov len ako súčet',
     'by month only': 'len po mesiacoch',
     'monthly total': 'mesačný súčet',
@@ -347,12 +347,12 @@ TRANSLATIONS = {
     "Carried over from the night before": 'Prenesené z predchádzajúceho večera',
     # --- History, second card (5.24) ---
     'Calories': 'Kalórie',
-    'Sessions': 'Príležitosti',
-    'Per session': 'Na príležitosť',
+    'Sessions': 'Posedenia',
+    'Per session': 'Na posedenie',
     'Under the influence': 'Pod vplyvom',
     '%@ of the time': '%@ času',
     'Days over limit': 'Dni nad limitom',
-    'Longest sober run': 'Najdlhšia triezva séria',
+    'Longest sober run': 'Najdlhšia séria bez alkoholu',
     'Favourite drink': 'Obľúbený nápoj',
 
     # --- Profile sub-pages (5.26) ---
@@ -368,7 +368,7 @@ TRANSLATIONS = {
     'Estimated range, not a measurement. Never use this to decide whether you can drive.':
         'Odhadované rozpätie, nie meranie. Nikdy podľa toho nerozhoduj, či môžeš šoférovať.',
     'How does the app calculate this?':
-        'Ako aplikácia počíta?',
+        'Ako to aplikácia počíta?',
     'approximately %@ %@':
         'približne %@ %@',
     'How it works':
@@ -380,15 +380,15 @@ TRANSLATIONS = {
     'LogMyDrink helps you drink more mindfully and stay in control. The decision happens before the next glass, so the app shows you in advance where another drink would take your level, and when it would peak.':
         'LogMyDrink ti pomáha piť vedomejšie a mať pitie pod kontrolou. Rozhodnutie padá pred ďalším pohárom, preto ti aplikácia vopred ukáže, kam by tvoju hladinu dostal ďalší nápoj a kedy by vyvrcholila.',
     'But it is not only about tonight. Every drink you log goes into your History, so over months and years you can see how much, how often and how high you drink. Your patterns emerge from it, and so does the direction they are moving in — whether things are getting better or worse.':
-        'Nejde však len o dnešný večer. Každý zapísaný nápoj sa uloží do histórie, takže počas mesiacov a rokov vidíš, koľko, ako často a ako vysoko piješ. Vynoria sa z toho tvoje vzorce aj smer, ktorým sa menia – či sa veci zlepšujú, alebo zhoršujú.',
+        'Nejde však len o dnešný večer. Každý zapísaný nápoj sa uloží do Histórie, takže počas mesiacov a rokov vidíš, koľko, ako často a do akej hladiny piješ. Vynoria sa z toho tvoje vzorce aj smer, ktorým sa menia – či sa veci zlepšujú, alebo zhoršujú.',
     'How it calculates':
-        'Ako počíta',
+        'Ako aplikácia počíta',
     'The estimate builds on the Widmark method, used to estimate blood alcohol since the 1930s; the app runs a refined version of it.':
         'Odhad vychádza z Widmarkovej metódy, ktorou sa hladina alkoholu v krvi odhaduje od 30. rokov 20. storočia; aplikácia používa jej vylepšenú verziu.',
     'From your weight, height, age and sex it works out how much water your body holds, because that is where alcohol spreads. It follows every drink separately: how much alcohol it had, how fast you drank it, and how much you had eaten, because that sets how quickly it is absorbed.':
         'Z tvojej hmotnosti, výšky, veku a pohlavia vypočíta, koľko vody tvoje telo obsahuje, pretože v nej sa alkohol rozptýli. Každý nápoj sleduje zvlášť: koľko alkoholu obsahoval, ako rýchlo si ho vypil a koľko si predtým zjedol, lebo od toho závisí rýchlosť vstrebávania.',
     'Meanwhile your liver breaks down a roughly constant amount every hour; how much in your case is estimated from how often you drink. The result is a curve, minute by minute: where you are now, where you are heading, and when you will be clear.':
-        'Medzitým pečeň každú hodinu odbúra zhruba stále množstvo; tvoje sa odhaduje podľa toho, ako často piješ. Výsledkom je krivka minútu po minúte: kde si teraz, kam smeruješ a kedy budeš opäť na nule.',
+        'Medzitým pečeň každú hodinu odbúra zhruba stále množstvo; koľko je to u teba, sa odhaduje podľa toho, ako často piješ. Výsledkom je krivka minútu po minúte: kde si teraz, kam smeruješ a kedy budeš opäť na nule.',
     'Details':
         'Podrobnosti',
     'Body water':
@@ -420,29 +420,29 @@ TRANSLATIONS = {
     'Tips':
         'Tipy',
     'Favourite drink in one tap':
-        'Obľúbený nápoj jedným ťuknutím',
+        'Obľúbený nápoj jedným klepnutím',
     'Set a favourite in Profile and the Live button logs it with a single tap.':
-        'Nastav si v Profile obľúbený nápoj a tlačidlo na obrazovke Naživo ho zapíše jedným ťuknutím.',
+        'Nastav si v Profile obľúbený nápoj a tlačidlo na obrazovke Naživo ho zapíše jedným klepnutím.',
     'Widget':
         'Widget',
     'Add it to your Lock Screen or Home Screen: one tap logs your favourite. While there is alcohol in your system, it also shows your level and which way it is going.':
-        'Pridaj ho na zamknutú obrazovku alebo na plochu: jedno ťuknutie zapíše tvoj obľúbený nápoj. Kým máš v tele alkohol, ukazuje aj tvoju hladinu a jej smer.',
+        'Pridaj ho na zamknutú obrazovku alebo na plochu: jedno klepnutie zapíše tvoj obľúbený nápoj. Kým máš v tele alkohol, ukazuje aj tvoju hladinu a jej smer.',
     'How do I add it?':
         'Ako ho pridám?',
     'Siri':
         'Siri',
     'Say “Hey Siri, LogMyDrink now” and Siri logs your favourite, then tells you where your peak is heading.':
-        'Povedz „Hey Siri, LogMyDrink now“ a Siri zapíše tvoj obľúbený nápoj a povie ti, kam smeruje tvoj vrchol.',
+        'Povedz „Hey Siri, LogMyDrink now“ a Siri zapíše tvoj obľúbený nápoj a povie ti, kam smeruje tvoj vrchol. (Príkaz funguje v angličtine.)',
     'Looking back':
         'Pohľad späť',
     '“Yesterday” at the top of Live takes you to the previous day in one tap; the History tab shows your patterns over weeks, months and years.':
-        '„Včera“ hore na obrazovke Naživo ťa jedným ťuknutím prenesie na predchádzajúci deň; karta História ukazuje tvoje vzorce za týždne, mesiace a roky.',
+        '„Včera“ hore na obrazovke Naživo ťa jedným klepnutím prenesie na predchádzajúci deň; karta História ukazuje tvoje vzorce za týždne, mesiace a roky.',
     'Logging later':
-        'Zápis dodatočne',
+        'Dodatočný zápis',
     'If you log a drink after the fact, set the time back with the − and + buttons; a missed day can be filled in from the Day view in History.':
         'Keď zapisuješ nápoj dodatočne, posuň čas späť tlačidlami − a +; vynechaný deň môžeš doplniť v zobrazení Deň v Histórii.',
     'One tap and done':
-        'Jedno ťuknutie a hotovo',
+        'Jedno klepnutie a hotovo',
     'Your favourite from the Lock Screen':
         'Obľúbený nápoj zo zamknutej obrazovky',
     'Say it, don’t type it':
@@ -450,13 +450,13 @@ TRANSLATIONS = {
     'See your patterns':
         'Pozri sa na svoje vzorce',
     'Set what you drink most often and log it with a single tap.':
-        'Nastav, čo piješ najčastejšie, a zapisuj to jedným ťuknutím.',
+        'Nastav, čo piješ najčastejšie, a zapisuj to jedným klepnutím.',
     'One tap on the widget logs your favourite, no searching for the app. In the evening it shows your level too.':
-        'Jedno ťuknutie na widget zapíše tvoj obľúbený nápoj, bez hľadania aplikácie. Večer ukazuje aj tvoju hladinu.',
+        'Jedno klepnutie na widget zapíše tvoj obľúbený nápoj, bez hľadania aplikácie. Večer ukazuje aj tvoju hladinu.',
     '“Hey Siri, LogMyDrink now” — Siri logs your favourite and tells you where your peak is heading.':
         '„Hey Siri, LogMyDrink now“ – Siri zapíše tvoj obľúbený nápoj a povie ti, kam smeruje tvoj vrchol.',
     'History shows how much and how high you drink over weeks, months and years, and which way it is changing.':
-        'História ukazuje, koľko a ako vysoko piješ za týždne, mesiace a roky, a ktorým smerom sa to mení.',
+        'História ukazuje, koľko a do akej hladiny piješ za týždne, mesiace a roky, a ktorým smerom sa to mení.',
     'Set favourite':
         'Nastaviť obľúbený',
     'Add widget':
@@ -464,7 +464,7 @@ TRANSLATIONS = {
     'Got it':
         'Rozumiem',
     'Open History':
-        'Otvoriť históriu',
+        'Otvoriť Históriu',
     'Don’t show again':
         'Už nezobrazovať',
     'Lock Screen':
@@ -474,19 +474,19 @@ TRANSLATIONS = {
     'Where':
         'Kam',
     'Lock your phone, then touch and hold the Lock Screen.':
-        'Zamkni iPhone a potom podrž prst na zamknutej obrazovke.',
+        'Zamkni iPhone a potom sa dotkni zamknutej obrazovky a podrž ju.',
     'Tap Customize, then Lock Screen, then the widget row under the clock.':
-        'Ťukni na Prispôsobiť, potom na Zamknutá obrazovka a nakoniec na riadok widgetov pod hodinami.',
+        'Klepni na Prispôsobiť, potom na Zamknutá obrazovka a nakoniec na riadok widgetov pod hodinami.',
     'Choose LogMyDrink, then tap Done.':
-        'Vyber LogMyDrink a ťukni na Hotovo.',
+        'Vyber LogMyDrink a klepni na Hotovo.',
     'Touch and hold an empty area of the Home Screen until the icons jiggle.':
-        'Podrž prst na prázdnom mieste plochy, kým sa ikony nezačnú triasť.',
+        'Stlač a podrž prázdne miesto na ploche, kým sa ikony nezačnú triasť.',
     'Tap Edit, then Add Widget.':
-        'Ťukni na Upraviť a potom na Pridať widget.',
+        'Klepni na Upraviť a potom na Pridať widget.',
     'Search for LogMyDrink, pick a size and tap Add Widget.':
-        'Vyhľadaj LogMyDrink, vyber veľkosť a ťukni na Pridať widget.',
+        'Vyhľadaj LogMyDrink, vyber veľkosť a klepni na Pridať widget.',
     'A tap on the widget opens the app and logs your favourite drink. While there is alcohol in your system, it also shows your level and which way it is going.':
-        'Ťuknutie na widget otvorí aplikáciu a zapíše tvoj obľúbený nápoj. Kým máš v tele alkohol, ukazuje aj tvoju hladinu a jej smer.',
+        'Klepnutie na widget otvorí aplikáciu a zapíše tvoj obľúbený nápoj. Kým máš v tele alkohol, ukazuje aj tvoju hladinu a jej smer.',
     'Add the widget':
         'Pridať widget',
     'Show tips':

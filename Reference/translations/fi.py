@@ -30,7 +30,7 @@ TRANSLATIONS = {
         "Nopea imeytyminen, korkeampi ja aikaisempi huippu.",
     "Moderate absorption.": "Kohtalainen imeytyminen.",
     "Slow absorption, lower and later peak.":
-        "Hidas imeytyminen, matalampi ja myöhäisempi huippu.",
+        "Hidas imeytyminen, matalampi ja myöhempi huippu.",
 
     # --- DrinkingFrequency ---
     "Rarely": "Harvoin",
@@ -67,7 +67,7 @@ TRANSLATIONS = {
 
     # --- Tabs and history ---
     "History": "Historia",
-    "No past sessions yet": "Ei vielä menneitä juomakertoja",
+    "No past sessions yet": "Ei vielä aiempia juomakertoja",
     "A session appears here once it has ended — when your level has cleared and a few hours "
     "have passed.":
         "Juomakerta ilmestyy tähän, kun se on päättynyt – kun tasosi on nollautunut ja muutama "
@@ -77,8 +77,8 @@ TRANSLATIONS = {
     "Started": "Alkoi",
     "Lasted": "Kesto",
     "Duration": "Kesto",
-    "Sober around": "Selvä noin",
-    "Sober at": "Selvä",
+    "Sober around": "Selvin päin noin",
+    "Sober at": "Selvin päin",
     "Remaining": "Jäljellä",
     "next day": "seuraavana päivänä",
     "previous day": "edellisenä päivänä",
@@ -89,8 +89,8 @@ TRANSLATIONS = {
     # --- TodayView ---
     "Profile": "Profiili",
     "Drinks": "Juomat",
-    "Units": "Yksiköt",
-    "Drinks this session": "Juomat tällä juomakerralla",
+    "Units": "Annokset",
+    "Drinks this session": "Tämän juomakerran juomat",
     "Add drink": "Lisää juoma",
 
     # --- Editing an already logged drink ---
@@ -105,10 +105,10 @@ TRANSLATIONS = {
     "In one go": "Kerralla",
     "Counts as a single swallow — the steepest possible rise.":
         "Lasketaan yhdeksi kulaukseksi – jyrkin mahdollinen nousu.",
-    "A quick drink. The level climbs fast.": "Nopea juoma. Taso nousee nopeasti.",
+    "A quick drink. The level climbs fast.": "Nopeasti juotu. Taso nousee nopeasti.",
     "A normal pace.": "Tavallinen tahti.",
     "Nursed slowly. Much gentler climb for the same alcohol.":
-        "Juotu hitaasti pitkän aikaa. Paljon loivempi nousu samalla alkoholimäärällä.",
+        "Siemailtu hitaasti. Paljon loivempi nousu samalla alkoholimäärällä.",
 
     # --- AddDrinkSheet ---
     "Cancel": "Peruuta",
@@ -159,7 +159,7 @@ TRANSLATIONS = {
     "Your limit": "Rajasi",
     "Your own reference number, not a legal limit. The app tells you when a planned drink "
     "would take you past it, and for how long you would stay above.":
-        "Oma viitearvosi, ei laillinen raja. Sovellus kertoo, milloin suunniteltu juoma veisi "
+        "Oma viitearvosi, ei lakisääteinen raja. Sovellus kertoo, jos suunniteltu juoma veisi "
         "sinut sen yli ja kuinka kauan pysyisit sen yläpuolella.",
     "Calculated values": "Lasketut arvot",
     "Total body water": "Kehon kokonaisvesimäärä",
@@ -179,28 +179,28 @@ TRANSLATIONS = {
     "rules of thumb like “one drink an hour” exist at all.":
         "Alkoholi poistuu suunnilleen kiinteänä määränä tunnissa eikä prosenttiosuutena, koska "
         "sitä hajottava entsyymi toimii jo täydellä teholla lähes millä tahansa tasolla. Juuri "
-        "siksi nyrkkisäännöt kuten ”yksi annos tunnissa” ovat ylipäätään olemassa.",
+        "siksi nyrkkisäännöt, kuten ”yksi annos tunnissa”, ovat ylipäätään olemassa.",
     "At this setting, %@ takes about %@ to clear. Almost everyone falls between %@ per hour.":
-        "Tällä asetuksella %@ nollautuu noin ajassa %@. Lähes kaikki osuvat välille %@ "
-        "tunnissa.",
+        "Tällä asetuksella tason %@ poistuminen kestää noin %@. Lähes kaikilla nopeus on "
+        "välillä %@ tunnissa.",
     "How to find yours": "Näin löydät omasi",
     "With a breathalyser": "Alkometrillä",
     "Blow twice, at least an hour apart, on the falling side — two hours or more after your "
     "last drink, with nothing in between. Subtract the second reading from the first and "
     "divide by the hours between them.":
-        "Puhalla kahdesti vähintään tunnin välein laskevalla puolella – kaksi tuntia tai "
-        "enemmän viimeisen juoman jälkeen, eikä mitään siinä välissä. Vähennä jälkimmäinen "
-        "lukema ensimmäisestä ja jaa niiden väliin jääneillä tunneilla.",
+        "Puhalla kahdesti vähintään tunnin välein tason laskiessa – vähintään kaksi tuntia "
+        "viimeisen juoman jälkeen, äläkä juo välillä mitään. Vähennä jälkimmäinen lukema "
+        "ensimmäisestä ja jaa erotus mittausten välisillä tunneilla.",
     "For example %@ and %@ two hours later works out to %@ per hour.":
-        "Esimerkiksi %@ ja %@ kaksi tuntia myöhemmin tarkoittaa %@ tunnissa.",
-    "Without one": "Ilman sitä",
+        "Esimerkiksi %@ ja kaksi tuntia myöhemmin %@ tekee %@ tunnissa.",
+    "Without one": "Ilman alkometriä",
     "The app tells you when it expects you to clear. If you are reliably back to normal well "
     "before that, your rate is higher than the setting — nudge it up a step and watch for a "
     "few sessions. If it takes longer than predicted, nudge it down.":
-        "Sovellus kertoo, milloin tasosi arviolta nollautuu. Jos olet luotettavasti taas "
-        "normaalissa selvästi ennen sitä, palamisnopeutesi on asetusta suurempi – nosta sitä "
-        "yksi pykälä ja seuraa muutaman juomakerran ajan. Jos se kestää ennustettua kauemmin, "
-        "laske sitä.",
+        "Sovellus kertoo, milloin tasosi arviolta nollautuu. Jos olet toistuvasti normaalissa "
+        "kunnossa selvästi ennen sitä, palamisnopeutesi on asetusta suurempi – nosta sitä "
+        "pykälän verran ja seuraa tilannetta muutaman juomakerran ajan. Jos nollautuminen "
+        "kestää ennustettua kauemmin, laske sitä.",
     "What moves it": "Mikä siihen vaikuttaa",
     "Regular drinking raises it: the liver enzyme that does the work is induced by use. It "
     "also runs slightly higher in women on average, and lower on an empty stomach or with "
@@ -234,7 +234,7 @@ TRANSLATIONS = {
     "Sober days": "Alkoholittomat päivät",
     "Change": "Muutos",
     "before records": "ennen kirjausten alkua",
-    "See further back": "Katso kauemmas taakse",
+    "See further back": "Katso kauemmas taaksepäin",
     "Weeks, months and years side by side — and every evening older than seven days.": "Viikot, kuukaudet ja vuodet rinnakkain – ja jokainen yli seitsemän päivää vanha ilta.",
     "Everything you have logged is already saved. Unlocking only shows it.": "Kaikki kirjaamasi on jo tallennettu. Avaaminen vain näyttää sen.",
     "Coming soon": "Tulossa pian",
@@ -248,8 +248,8 @@ TRANSLATIONS = {
     "%@ sessions": "%@ kertaa",
     "No data before %@": "Ei tietoja ennen %@",
     "vs.": "vrt.",
-    "Grams": "Grammaa",
-    "Grams of alcohol": "Grammaa alkoholia",
+    "Grams": "Grammat",
+    "Grams of alcohol": "Alkoholigrammat",
     "Standard units": "Vakioannokset",
     "Unit size": "Annoksen koko",
     "Automatic": "Automaattinen",
@@ -274,7 +274,7 @@ TRANSLATIONS = {
     "Quick add": "Pikalisäys",
     "Choose a favourite drink": "Valitse suosikkijuoma",
     "Pick the drink you usually order, and a button on the Live screen will log it in one tap.":
-        "Valitse juoma, jonka yleensä tilaat, niin Live-näytön painike kirjaa sen yhdellä "
+        "Valitse juoma, jonka yleensä tilaat, niin Live-näkymän painike kirjaa sen yhdellä "
         "napautuksella.",
     "This is your quick-add drink": "Tämä on pikalisäysjuomasi",
     "Set as my quick-add drink": "Aseta pikalisäysjuomakseni",
@@ -284,7 +284,7 @@ TRANSLATIONS = {
     "Logs it straight away, without opening anything.": "Kirjaa sen heti avaamatta mitään.",
     "One tap on the Live screen logs this, with the projected peak on the button. How full "
     "your stomach is comes from the drink before it, and can be corrected straight after.":
-        "Yksi napautus Live-näytöllä kirjaa tämän, ja painikkeessa näkyy ennustettu huippu. "
+        "Yksi napautus Live-näkymässä kirjaa tämän, ja painikkeessa näkyy ennustettu huippu. "
         "Vatsan täyteys periytyy sitä edeltäneestä juomasta, ja sen voi korjata heti "
         "jälkeenpäin.",
     "Peak %@": "Huippu %@",
@@ -299,7 +299,7 @@ TRANSLATIONS = {
     "A backup holds every person, occasion and drink. Importing adds what is missing — it "
     "never changes or removes anything already here.":
         "Varmuuskopio sisältää kaikki henkilöt, juomakerrat ja juomat. Tuonti lisää sen, mikä "
-        "puuttuu – se ei koskaan muuta tai poista mitään, mikä on jo tallennettu.",
+        "puuttuu – se ei koskaan muuta eikä poista mitään, mikä on jo tallennettu.",
     "Import this backup?": "Tuodaanko tämä varmuuskopio?",
     "Import": "Tuo",
     "Everything in this backup is already here.":
@@ -332,7 +332,7 @@ TRANSLATIONS = {
     'monthly total': 'kuukausisumma',
     'No daily records for this day': 'Tältä päivältä ei ole päiväkohtaisia merkintöjä',
     'Monthly total: %@': 'Kuukausisumma: %@',
-    'A dry month': 'Kuiva kuukausi',
+    'A dry month': 'Tipaton kuukausi',
 
     # --- RemovePersonSection ---
     'Remove %@?': 'Poistetaanko %@?',
@@ -355,9 +355,9 @@ TRANSLATIONS = {
     'Per session': 'Kertaa kohden',
     'Under the influence': 'Vaikutuksen alaisena',
     '%@ of the time': '%@ ajasta',
-    'Days over limit': 'Päivät rajan yli',
+    'Days over limit': 'Rajan ylittäneet päivät',
     'Longest sober run': 'Pisin raitis jakso',
-    'Favourite drink': 'Lempijuoma',
+    'Favourite drink': 'Suosikkijuoma',
 
     # --- Profile sub-pages (5.26) ---
     "Display & language": "Esitystapa ja kieli",
@@ -372,7 +372,7 @@ TRANSLATIONS = {
     'Estimated range, not a measurement. Never use this to decide whether you can drive.':
         'Arvioitu vaihteluväli, ei mittaus. Älä koskaan päätä tämän perusteella, voitko ajaa.',
     'How does the app calculate this?':
-        'Miten sovellus laskee?',
+        'Miten sovellus laskee tämän?',
     'approximately %@ %@':
         'noin %@ %@',
     'How it works':
@@ -384,7 +384,7 @@ TRANSLATIONS = {
     'LogMyDrink helps you drink more mindfully and stay in control. The decision happens before the next glass, so the app shows you in advance where another drink would take your level, and when it would peak.':
         'LogMyDrink auttaa sinua juomaan tietoisemmin ja pitämään juomisen hallinnassa. Päätös tehdään ennen seuraavaa lasia, joten sovellus näyttää etukäteen, mihin uusi juoma veisi tasosi ja milloin se olisi huipussaan.',
     'But it is not only about tonight. Every drink you log goes into your History, so over months and years you can see how much, how often and how high you drink. Your patterns emerge from it, and so does the direction they are moving in — whether things are getting better or worse.':
-        'Kyse ei ole vain tästä illasta. Jokainen kirjaamasi juoma tallentuu historiaan, joten kuukausien ja vuosien mittaan näet, kuinka paljon, kuinka usein ja kuinka korkealle juot. Siitä erottuvat tapasi – ja myös suunta, johon ne muuttuvat, paremmaksi tai huonommaksi.',
+        'Kyse ei kuitenkaan ole vain tästä illasta. Jokainen kirjaamasi juoma tallentuu Historiaan, joten kuukausien ja vuosien mittaan näet, kuinka paljon ja kuinka usein juot ja kuinka korkealle tasosi nousee. Siitä erottuvat tapasi – ja myös se, mihin suuntaan ne ovat menossa: paremmaksi vai huonommaksi.',
     'How it calculates':
         'Näin se laskee',
     'The estimate builds on the Widmark method, used to estimate blood alcohol since the 1930s; the app runs a refined version of it.':
@@ -398,13 +398,13 @@ TRANSLATIONS = {
     'Body water':
         'Kehon vesi',
     'The Watson formula (1980), from weight, height, age and sex. The female formula has no age term — a property of the formula, not a bug. The distribution volume is body water divided by 0.85, the water content of blood.':
-        'Watsonin kaava (1980) painosta, pituudesta, iästä ja sukupuolesta. Naisten kaavassa ei ole ikää – se on kaavan ominaisuus, ei virhe. Jakautumistilavuus on kehon vesi jaettuna luvulla 0,85, veren vesipitoisuudella.',
+        'Watsonin kaava (1980) painon, pituuden, iän ja sukupuolen perusteella. Naisten kaavassa ei ole ikää – se on kaavan ominaisuus, ei virhe. Jakautumistilavuus on kehon vesi jaettuna luvulla 0,85, veren vesipitoisuudella.',
     'Absorption':
         'Imeytyminen',
     'Every drink has its own “stomach”. On an empty stomach half of the alcohol is absorbed in about 7 minutes, on a full one in about 21. A drink you sip enters the stomach evenly over the time you drink it.':
         'Jokaisella juomalla on oma ”vatsansa”. Tyhjään vatsaan puolet alkoholista imeytyy noin 7 minuutissa, täyteen vatsaan noin 21 minuutissa. Siemailtu juoma kulkeutuu vatsaan tasaisesti koko juomisen ajan.',
     'Gives a lower peak and an earlier clear time. Surprising, but measured: with food the stomach breaks down part of the alcohol before it is absorbed (the app uses 5, 10 and 15 percent), and what never got in does not need to be broken down.':
-        'Antaa matalamman huipun ja aikaisemman nollan. Yllättävää, mutta mitattua: ruoan kanssa vatsa hajottaa osan alkoholista ennen imeytymistä (sovellus käyttää 5, 10 ja 15 prosenttia), eikä sitä, mikä ei koskaan päässyt vereen, tarvitse poistaa.',
+        'Antaa matalamman huipun, ja taso nollautuu aiemmin. Yllättävää, mutta mitattua: ruoan kanssa vatsa hajottaa osan alkoholista ennen imeytymistä (sovellus käyttää 5, 10 ja 15 prosenttia), eikä sitä, mikä ei koskaan päässyt vereen, tarvitse poistaa.',
     'Elimination':
         'Palaminen',
     'About 0.15 ‰ per hour (published range 0.10–0.25), higher in regular drinkers as liver enzymes adapt. Close to zero it slows down (Michaelis–Menten kinetics), so the curve tapers off instead of stopping abruptly.':
@@ -416,9 +416,9 @@ TRANSLATIONS = {
     'Why it is only an estimate':
         'Miksi tämä on vain arvio',
     'The app measures nothing. What it shows is the output of a model using average values, and reality can differ. The biggest unknown is how fast you break alcohol down: within the plausible range, that alone can move the peak by 40 percent and the clear time by four hours on the same evening.':
-        'Sovellus ei mittaa mitään. Se näyttää keskiarvoihin perustuvan mallin tuloksen, ja todellisuus voi poiketa siitä. Suurin tuntematon on, kuinka nopeasti alkoholi sinulla palaa: uskottavan vaihteluvälin sisällä pelkästään se voi siirtää huippua 40 prosenttia ja nollaa neljä tuntia saman illan aikana.',
+        'Sovellus ei mittaa mitään. Se näyttää keskiarvoihin perustuvan mallin tuloksen, ja todellisuus voi poiketa siitä. Suurin tuntematon on, kuinka nopeasti alkoholi sinulla palaa: uskottavan vaihteluvälin sisällä pelkästään se voi siirtää huippua 40 prosenttia ja nollautumishetkeä neljä tuntia saman illan aikana.',
     'Genetics, liver health, medication, what you ate, sleep and tiredness matter too — the app knows none of these. Only a certified breathalyser or a blood test gives an exact value.':
-        'Myös perimä, maksan kunto, lääkkeet, syömäsi ruoka, uni ja väsymys vaikuttavat – sovellus ei tiedä niistä mitään. Tarkan arvon antaa vain kalibroitu alkometri tai verikoe.',
+        'Myös perimä, maksan kunto, lääkkeet, syömäsi ruoka, uni ja väsymys vaikuttavat – sovellus ei tiedä niistä mitään. Tarkan arvon antaa vain sertifioitu alkometri tai verikoe.',
     'The number is still useful. If the app reads consistently a little high or low for you, it is off in the same direction every evening, so over time you learn what a given value means for you. In Profile you can also show the uncertainty of the elimination rate: you then see a range instead of a single number.':
         'Luku on silti hyödyllinen. Jos sovellus näyttää sinulle johdonmukaisesti vähän liikaa tai liian vähän, se erehtyy joka ilta samaan suuntaan, joten opit ajan mittaan, mitä tietty arvo sinulle tarkoittaa. Profiilissa voit myös näyttää palamisnopeuden epävarmuuden: näet silloin vaihteluvälin yhden luvun sijaan.',
     'Tips':
@@ -428,43 +428,43 @@ TRANSLATIONS = {
     'Set a favourite in Profile and the Live button logs it with a single tap.':
         'Valitse suosikki Profiilissa, niin Live-näkymän painike kirjaa sen yhdellä napautuksella.',
     'Widget':
-        'Widget',
+        'Widgetti',
     'Add it to your Lock Screen or Home Screen: one tap logs your favourite. While there is alcohol in your system, it also shows your level and which way it is going.':
-        'Lisää se lukitusnäyttöön tai Koti-valikkoon: yksi napautus kirjaa suosikkisi. Kun kehossasi on alkoholia, se näyttää myös tasosi ja sen suunnan.',
+        'Lisää se lukittuun näyttöön tai Koti-valikkoon: yksi napautus kirjaa suosikkisi. Kun kehossasi on alkoholia, se näyttää myös tasosi ja sen suunnan.',
     'How do I add it?':
         'Miten lisään sen?',
     'Siri':
         'Siri',
     'Say “Hey Siri, LogMyDrink now” and Siri logs your favourite, then tells you where your peak is heading.':
-        'Sano ”Hei Siri, LogMyDrink now”, niin Siri kirjaa suosikkisi ja kertoo, mihin huippusi on menossa.',
+        'Sano ”Hey Siri, LogMyDrink now”, niin Siri kirjaa suosikkisi ja kertoo, mihin huippusi on nousemassa. (Komento toimii englanniksi.)',
     'Looking back':
-        'Taaksepäin katsominen',
+        'Katse taaksepäin',
     '“Yesterday” at the top of Live takes you to the previous day in one tap; the History tab shows your patterns over weeks, months and years.':
         'Live-näkymän yläreunan ”Eilen” vie edelliseen päivään yhdellä napautuksella; Historia-välilehti näyttää tapasi viikkojen, kuukausien ja vuosien ajalta.',
     'Logging later':
         'Kirjaaminen jälkikäteen',
     'If you log a drink after the fact, set the time back with the − and + buttons; a missed day can be filled in from the Day view in History.':
-        'Jos kirjaat juoman jälkikäteen, siirrä aikaa taaksepäin − ja + -painikkeilla; väliin jääneen päivän voit täydentää Historian päivänäkymästä.',
+        'Jos kirjaat juoman jälkikäteen, siirrä aikaa taaksepäin painikkeilla − ja +; väliin jääneen päivän voit täydentää Historian Päivä-näkymässä.',
     'One tap and done':
         'Yksi napautus ja valmista',
     'Your favourite from the Lock Screen':
-        'Suosikkisi lukitusnäytöltä',
+        'Suosikkisi lukitulta näytöltä',
     'Say it, don’t type it':
         'Sano se, älä kirjoita',
     'See your patterns':
-        'Katso tapojasi',
+        'Tarkastele tapojasi',
     'Set what you drink most often and log it with a single tap.':
         'Valitse, mitä juot useimmin, ja kirjaa se yhdellä napautuksella.',
     'One tap on the widget logs your favourite, no searching for the app. In the evening it shows your level too.':
         'Yksi napautus widgetissä kirjaa suosikkisi etsimättä sovellusta. Illalla se näyttää myös tasosi.',
     '“Hey Siri, LogMyDrink now” — Siri logs your favourite and tells you where your peak is heading.':
-        '”Hei Siri, LogMyDrink now” – Siri kirjaa suosikkisi ja kertoo, mihin huippusi on menossa.',
+        '”Hey Siri, LogMyDrink now” – Siri kirjaa suosikkisi ja kertoo, mihin huippusi on nousemassa.',
     'History shows how much and how high you drink over weeks, months and years, and which way it is changing.':
-        'Historia näyttää, kuinka paljon ja kuinka korkealle juot viikkojen, kuukausien ja vuosien aikana, ja mihin suuntaan se muuttuu.',
+        'Historia näyttää, kuinka paljon juot ja kuinka korkealle tasosi nousee viikkojen, kuukausien ja vuosien aikana, ja mihin suuntaan se muuttuu.',
     'Set favourite':
         'Valitse suosikki',
     'Add widget':
-        'Lisää widget',
+        'Lisää widgetti',
     'Got it':
         'Selvä',
     'Open History':
@@ -472,29 +472,29 @@ TRANSLATIONS = {
     'Don’t show again':
         'Älä näytä uudelleen',
     'Lock Screen':
-        'Lukitusnäyttö',
+        'Lukittu näyttö',
     'Home Screen':
         'Koti-valikko',
     'Where':
         'Minne',
     'Lock your phone, then touch and hold the Lock Screen.':
-        'Lukitse iPhone ja pidä sitten sormea lukitusnäytöllä.',
+        'Lukitse iPhone ja pidä sitten lukittua näyttöä painettuna.',
     'Tap Customize, then Lock Screen, then the widget row under the clock.':
-        'Napauta Muokkaa, sitten Lukitusnäyttö ja lopuksi kellon alla olevaa widget-riviä.',
+        'Napauta Muokkaa, sitten Lukittu näyttö ja lopuksi kellon alla olevaa widgettiriviä.',
     'Choose LogMyDrink, then tap Done.':
         'Valitse LogMyDrink ja napauta Valmis.',
     'Touch and hold an empty area of the Home Screen until the icons jiggle.':
-        'Pidä sormea Koti-valikon tyhjällä kohdalla, kunnes symbolit alkavat heilua.',
+        'Pidä Koti-valikon tyhjää kohtaa painettuna, kunnes apit alkavat heilua.',
     'Tap Edit, then Add Widget.':
-        'Napauta Muokkaa ja sitten Lisää widget.',
+        'Napauta Muokkaa ja sitten Lisää widgetti.',
     'Search for LogMyDrink, pick a size and tap Add Widget.':
-        'Hae LogMyDrink, valitse koko ja napauta Lisää widget.',
+        'Hae LogMyDrink, valitse koko ja napauta Lisää widgetti.',
     'A tap on the widget opens the app and logs your favourite drink. While there is alcohol in your system, it also shows your level and which way it is going.':
         'Widgetin napautus avaa sovelluksen ja kirjaa suosikkijuomasi. Kun kehossasi on alkoholia, se näyttää myös tasosi ja sen suunnan.',
     'Add the widget':
-        'Lisää widget',
+        'Lisää widgetti',
     'Show tips':
         'Näytä vinkit',
     'One tip a day at most, when you open the app — never while there is alcohol in your system.':
-        'Enintään yksi vinkki päivässä sovellusta avatessa – ei koskaan, kun kehossasi on alkoholia.',
+        'Enintään yksi vinkki päivässä, kun avaat sovelluksen – ei koskaan, kun kehossasi on alkoholia.',
 }

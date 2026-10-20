@@ -21,10 +21,10 @@ TRANSLATIONS = {
 
     # --- DrinkCatalog: stomach state ---
     "Empty stomach": "Tom mave",
-    "Moderately full": "Delvist fyldt",
+    "Moderately full": "Halvfuld mave",
     "Full stomach": "Fuld mave",
     "Empty": "Tom",
-    "Moderate": "Middel",
+    "Moderate": "Halvfuld",
     "Full": "Fuld",
     "Fast absorption, higher and earlier peak.": "Hurtig optagelse, højere og tidligere top.",
     "Moderate absorption.": "Moderat optagelse.",
@@ -68,7 +68,7 @@ TRANSLATIONS = {
     "No past sessions yet": "Ingen tidligere sessioner endnu",
     "A session appears here once it has ended — when your level has cleared and a few hours "
     "have passed.":
-        "En session vises her, når den er slut — når dit niveau er nede på nul, og der er gået "
+        "En session vises her, når den er slut – når dit niveau er nede på nul, og der er gået "
         "et par timer.",
     "%@ drinks": "%@ drinks",
     "peak": "top",
@@ -96,13 +96,13 @@ TRANSLATIONS = {
     "Save changes": "Gem ændringer",
     "With this": "Med denne",
     "Delete": "Slet",
-    "tap to edit · swipe to delete": "tryk for at redigere · stryg for at slette",
+    "tap to edit · swipe to delete": "tryk for at redigere · skub for at slette",
 
     # --- Drinking pace ---
     "How fast": "Hvor hurtigt",
     "In one go": "På én gang",
     "Counts as a single swallow — the steepest possible rise.":
-        "Tæller som en enkelt slurk — den stejlest mulige stigning.",
+        "Tæller som en enkelt slurk – den stejlest mulige stigning.",
     "A quick drink. The level climbs fast.": "En hurtig drink. Niveauet stiger hurtigt.",
     "A normal pace.": "Et normalt tempo.",
     "Nursed slowly. Much gentler climb for the same alcohol.":
@@ -114,7 +114,7 @@ TRANSLATIONS = {
     "Projected peak": "Forventet top",
     "Peak at": "Top kl.",
     "Clears": "Alkoholfri",
-    "This would cross your limit": "Dette vil overskride din grænse",
+    "This would cross your limit": "Dette ville overskride din grænse",
     "Around %@, for up to %@.": "Omkring %@, i op til %@.",
     "This might cross your limit": "Dette kan overskride din grænse",
     "With slower metabolism yes, with faster no. That's the uncertainty of the estimate.":
@@ -126,7 +126,7 @@ TRANSLATIONS = {
     "%@ g alcohol": "%@ g alkohol",
     "Stomach": "Mave",
     "When": "Hvornår",
-    "Done": "Færdig",
+    "Done": "OK",
     "Add": "Tilføj",
 
     # --- ProfileSheet ---
@@ -157,8 +157,8 @@ TRANSLATIONS = {
     "Your limit": "Din grænse",
     "Your own reference number, not a legal limit. The app tells you when a planned drink "
     "would take you past it, and for how long you would stay above.":
-        "Dit eget referencetal, ikke en lovbestemt grænse. Appen fortæller dig, hvornår en "
-        "planlagt drink vil føre dig over den, og hvor længe du vil ligge over.",
+        "Dit eget referencetal, ikke en lovbestemt grænse. Appen siger til, hvis en planlagt "
+        "drink ville føre dig over den, og hvor længe du ville ligge over.",
     "Calculated values": "Beregnede værdier",
     "Total body water": "Samlet kropsvand",
     "Distribution volume": "Fordelingsvolumen",
@@ -170,14 +170,14 @@ TRANSLATIONS = {
     "Elimination rate": "Forbrændingshastighed",
     "How fast your liver clears alcohol once it has been absorbed — the slope of the falling "
     "side of the curve.":
-        "Hvor hurtigt din lever nedbryder alkohol, når den først er optaget — hældningen på "
+        "Hvor hurtigt din lever nedbryder alkohol, når den først er optaget – hældningen på "
         "kurvens faldende side.",
     "Alcohol leaves at a roughly fixed amount per hour rather than a percentage, because the "
     "enzyme that breaks it down already runs at full capacity at almost any level. That is why "
     "rules of thumb like “one drink an hour” exist at all.":
         "Alkohol forsvinder med en nogenlunde fast mængde i timen frem for med en procentdel, "
         "fordi det enzym, der nedbryder den, allerede kører for fuld kraft ved næsten alle "
-        "niveauer. Det er derfor, tommelfingerregler som »én genstand i timen« overhovedet "
+        "niveauer. Det er derfor, tommelfingerregler som ”én genstand i timen” overhovedet "
         "findes.",
     "At this setting, %@ takes about %@ to clear. Almost everyone falls between %@ per hour.":
         "Ved denne indstilling tager %@ omkring %@ at nedbryde. Næsten alle ligger mellem %@ i "
@@ -187,20 +187,20 @@ TRANSLATIONS = {
     "Blow twice, at least an hour apart, on the falling side — two hours or more after your "
     "last drink, with nothing in between. Subtract the second reading from the first and "
     "divide by the hours between them.":
-        "Pust to gange med mindst en times mellemrum på den faldende side — to timer eller "
-        "mere efter din sidste drink, uden noget ind imellem. Træk den anden måling fra den "
+        "Pust to gange med mindst en times mellemrum på den faldende side – to timer eller "
+        "mere efter din sidste drink, uden at drikke noget ind imellem. Træk den anden måling fra den "
         "første, og divider med antallet af timer imellem dem.",
     "For example %@ and %@ two hours later works out to %@ per hour.":
         "For eksempel giver %@ og %@ to timer senere %@ i timen.",
-    "Without one": "Uden den",
+    "Without one": "Uden alkometer",
     "The app tells you when it expects you to clear. If you are reliably back to normal well "
     "before that, your rate is higher than the setting — nudge it up a step and watch for a "
     "few sessions. If it takes longer than predicted, nudge it down.":
         "Appen fortæller dig, hvornår den forventer, at du er alkoholfri. Hvis du konsekvent "
-        "er tilbage til normal et godt stykke før det, er din hastighed højere end "
-        "indstillingen — skru den et trin op, og hold øje i et par sessioner. Tager det "
+        "er normal igen et godt stykke før det, er din hastighed højere end "
+        "indstillingen – skru den et trin op, og hold øje med det i et par sessioner. Tager det "
         "længere end forudsagt, så skru den ned.",
-    "What moves it": "Hvad påvirker den",
+    "What moves it": "Hvad der påvirker den",
     "Regular drinking raises it: the liver enzyme that does the work is induced by use. It "
     "also runs slightly higher in women on average, and lower on an empty stomach or with "
     "liver trouble.":
@@ -210,14 +210,14 @@ TRANSLATIONS = {
     "Uncertainty": "Usikkerhed",
     "At zero every figure is a single number — the app's best estimate. Above zero the same "
     "figures are shown as ranges, and the band on the chart widens to match.":
-        "Ved nul er hvert tal et enkelt tal — appens bedste skøn. Over nul vises de samme tal "
+        "Ved nul er hvert tal et enkelt tal – appens bedste skøn. Over nul vises de samme tal "
         "som intervaller, og båndet på grafen bliver tilsvarende bredere.",
     "A single number is easier to learn against: over time you find out what your own 0.6 "
     "feels like. A range is the more literal answer, because the rate really is uncertain. "
     "Both are defensible — this is your call.":
         "Et enkelt tal er nemmere at lære af: med tiden finder du ud af, hvordan din egen 0,6 "
         "føles. Et interval er det mere bogstavelige svar, for hastigheden er reelt usikker. "
-        "Begge dele kan forsvares — det er dit valg.",
+        "Begge dele kan forsvares – det er dit valg.",
     "The spread suggested by your drinking frequency is ± %@ per hour.":
         "Spredningen, som din drikkefrekvens peger på, er ± %@ i timen.",
     "Rate": "Hastighed",
@@ -244,7 +244,7 @@ TRANSLATIONS = {
     "Trend": "Tendens",
     "day": "dag",
     "Smoothing": "Udjævning",
-    "%@ sessions": "%@ lejligheder",
+    "%@ sessions": "%@ sessioner",
     "No data before %@": "Ingen data før %@",
     "vs.": "ift.",
     "Grams": "Gram",
@@ -266,26 +266,26 @@ TRANSLATIONS = {
         "Alle fire ændrer kurven, så ingen af dem kan gættes for en anden person.",
     "Their own limit and the finer settings can be changed later on the Profile tab, while "
     "they are the selected person.":
-        "Deres egen grænse og de finere indstillinger kan ændres senere under fanen Profil, "
-        "mens de er den valgte person.",
+        "Personens egen grænse og de finere indstillinger kan ændres senere under fanen "
+        "Profil, mens personen er valgt.",
 
     # --- FavouriteDrinkSection and QuickAddBar: the one-tap usual ---
     "Quick add": "Hurtigvalg",
-    "Choose a favourite drink": "Vælg en yndlingsdrink",
+    "Choose a favourite drink": "Vælg en favoritdrink",
     "Pick the drink you usually order, and a button on the Live screen will log it in one tap.":
         "Vælg den drink, du plejer at bestille, så registrerer en knap på Live-skærmen den med "
         "ét tryk.",
     "This is your quick-add drink": "Dette er din hurtigvalg-drink",
     "Set as my quick-add drink": "Vælg som min hurtigvalg-drink",
     "This is now your usual": "Dette er nu din faste drink",
-    "Remove favourite": "Fjern yndlingsdrink",
+    "Remove favourite": "Fjern favorit",
     "Always add this one": "Tilføj altid denne",
     "Logs it straight away, without opening anything.":
         "Registrerer den med det samme, uden at åbne noget.",
     "One tap on the Live screen logs this, with the projected peak on the button. How full "
     "your stomach is comes from the drink before it, and can be corrected straight after.":
         "Ét tryk på Live-skærmen registrerer den, med den forventede top på knappen. Hvor fuld "
-        "din mave er, kommer fra den foregående drink og kan rettes lige efter.",
+        "din mave er, overtages fra den foregående drink og kan rettes lige efter.",
     "Peak %@": "Top %@",
     "%@ added": "%@ tilføjet",
     "Save": "Gem",
@@ -298,7 +298,7 @@ TRANSLATIONS = {
     "A backup holds every person, occasion and drink. Importing adds what is missing — it "
     "never changes or removes anything already here.":
         "En sikkerhedskopi indeholder alle personer, sessioner og drinks. Import tilføjer det, "
-        "der mangler — den ændrer eller fjerner aldrig noget, der allerede er her.",
+        "der mangler – den ændrer eller fjerner aldrig noget, der allerede er her.",
     "Import this backup?": "Vil du importere denne sikkerhedskopi?",
     "Import": "Importer",
     "Everything in this backup is already here.":
@@ -310,8 +310,8 @@ TRANSLATIONS = {
     "Language": "Sprog",
     "Opens this app in Settings, where “Preferred Language” sets the app's own language — the "
     "system's stays as it is. iOS restarts the app when you change it.":
-        "Åbner denne app i Indstillinger, hvor »Foretrukket sprog« bestemmer appens eget sprog "
-        "— systemets forbliver, som det er. iOS genstarter appen, når du ændrer det.",
+        "Åbner denne app i Indstillinger, hvor ”Foretrukket sprog” bestemmer appens eget sprog "
+        "– systemets forbliver, som det er. iOS genstarter appen, når du ændrer det.",
 
     # --- DataArchive: why a file could not be read ---
     "Could not import": "Kunne ikke importere",
@@ -324,7 +324,7 @@ TRANSLATIONS = {
     # --- History: months known only by total (MonthlyTotal) ---
     'Adds %@ occasions, %@ drinks and %@ monthly totals. Nothing already here is changed or removed.':
         'Tilføjer %@ sessioner, %@ drinks og %@ månedstotaler. Intet af det, der allerede er her, ændres eller fjernes.',
-    'Added %@ occasions, %@ drinks and %@ monthly totals.': 'Tilføjede %@ sessioner, %@ drinks og %@ månedstotaler.',
+    'Added %@ occasions, %@ drinks and %@ monthly totals.': '%@ sessioner, %@ drinks og %@ månedstotaler er tilføjet.',
     'months as totals': 'måneder kun som totaler',
     'by month only': 'kun pr. måned',
     'monthly total': 'månedstotal',
@@ -341,7 +341,7 @@ TRANSLATIONS = {
 
     # --- PeopleView ---
     'Swipe left on a guest to remove them with everything recorded under them. You cannot be removed.':
-        'Stryg til venstre på en gæst for at fjerne dem med alt, der er registreret under dem. Du kan ikke fjernes.',
+        'Skub til venstre på en gæst for at fjerne vedkommende med alt, der er registreret under vedkommende. Du kan ikke fjernes.',
     'People': 'Personer',
     'Owner': 'Ejer',
     'Everyone this app records. Switch, add, or remove someone.': 'Alle, som denne app registrerer. Skift, tilføj eller fjern nogen.',
@@ -349,13 +349,13 @@ TRANSLATIONS = {
     "Carried over from the night before": 'Overført fra aftenen før',
     # --- History, second card (5.24) ---
     'Calories': 'Kalorier',
-    'Sessions': 'Anledninger',
-    'Per session': 'Pr. anledning',
+    'Sessions': 'Sessioner',
+    'Per session': 'Pr. session',
     'Under the influence': 'Påvirket',
     '%@ of the time': '%@ af tiden',
     'Days over limit': 'Dage over grænsen',
-    'Longest sober run': 'Længste ædru periode',
-    'Favourite drink': 'Yndlingsdrik',
+    'Longest sober run': 'Længste periode uden alkohol',
+    'Favourite drink': 'Favoritdrink',
 
     # --- Profile sub-pages (5.26) ---
     "Display & language": "Visning og sprog",
@@ -370,7 +370,7 @@ TRANSLATIONS = {
     'Estimated range, not a measurement. Never use this to decide whether you can drive.':
         'Skønnet interval, ikke måling. Brug aldrig dette til at afgøre, om du kan køre.',
     'How does the app calculate this?':
-        'Hvordan regner appen?',
+        'Hvordan beregner appen det?',
     'approximately %@ %@':
         'cirka %@ %@',
     'How it works':
@@ -394,9 +394,9 @@ TRANSLATIONS = {
     'Details':
         'Detaljer',
     'Body water':
-        'Kropsvæske',
+        'Kropsvand',
     'The Watson formula (1980), from weight, height, age and sex. The female formula has no age term — a property of the formula, not a bug. The distribution volume is body water divided by 0.85, the water content of blood.':
-        'Watsons formel (1980) ud fra vægt, højde, alder og køn. Formlen for kvinder har ikke alder med – en egenskab ved formlen, ikke en fejl. Fordelingsvolumenet er kropsvæsken divideret med 0,85, blodets vandindhold.',
+        'Watsons formel (1980) ud fra vægt, højde, alder og køn. Formlen for kvinder har ikke alder med – en egenskab ved formlen, ikke en fejl. Fordelingsvolumenet er kropsvandet divideret med 0,85, blodets vandindhold.',
     'Absorption':
         'Optagelse',
     'Every drink has its own “stomach”. On an empty stomach half of the alcohol is absorbed in about 7 minutes, on a full one in about 21. A drink you sip enters the stomach evenly over the time you drink it.':
@@ -418,7 +418,7 @@ TRANSLATIONS = {
     'Genetics, liver health, medication, what you ate, sleep and tiredness matter too — the app knows none of these. Only a certified breathalyser or a blood test gives an exact value.':
         'Gener, leverens tilstand, medicin, hvad du har spist, søvn og træthed spiller også ind – intet af det kender appen. Kun et godkendt alkometer eller en blodprøve giver en nøjagtig værdi.',
     'The number is still useful. If the app reads consistently a little high or low for you, it is off in the same direction every evening, so over time you learn what a given value means for you. In Profile you can also show the uncertainty of the elimination rate: you then see a range instead of a single number.':
-        'Tallet er alligevel nyttigt. Hvis appen hos dig konsekvent viser lidt for højt eller lavt, tager den fejl i samme retning hver aften, så med tiden lærer du, hvad en given værdi betyder for dig. Under Profil kan du også vise usikkerheden på nedbrydningshastigheden: så ser du et interval i stedet for ét tal.',
+        'Tallet er alligevel nyttigt. Hvis appen hos dig konsekvent viser lidt for højt eller lavt, tager den fejl i samme retning hver aften, så med tiden lærer du, hvad en given værdi betyder for dig. Under Profil kan du også vise usikkerheden på forbrændingshastigheden: så ser du et interval i stedet for ét tal.',
     'Tips':
         'Tips',
     'Favourite drink in one tap':
@@ -428,21 +428,21 @@ TRANSLATIONS = {
     'Widget':
         'Widget',
     'Add it to your Lock Screen or Home Screen: one tap logs your favourite. While there is alcohol in your system, it also shows your level and which way it is going.':
-        'Føj den til låseskærmen eller hjemmeskærmen: ét tryk registrerer din favorit. Så længe der er alkohol i kroppen, viser den også dit niveau og retningen.',
+        'Føj den til låseskærmen eller hjemmeskærmen: ét tryk registrerer din favorit. Så længe der er alkohol i kroppen, viser den også dit niveau, og hvilken vej det går.',
     'How do I add it?':
         'Hvordan tilføjer jeg den?',
     'Siri':
         'Siri',
     'Say “Hey Siri, LogMyDrink now” and Siri logs your favourite, then tells you where your peak is heading.':
-        'Sig ”Hey Siri, LogMyDrink now”, så registrerer Siri din favorit og fortæller, hvor din top er på vej hen.',
+        'Sig ”Hey Siri, LogMyDrink now”, så registrerer Siri din favorit og fortæller, hvor din top er på vej hen. (Kommandoen virker på engelsk.)',
     'Looking back':
         'Se tilbage',
     '“Yesterday” at the top of Live takes you to the previous day in one tap; the History tab shows your patterns over weeks, months and years.':
         '”I går” øverst på Live fører dig til dagen før med ét tryk; fanen Historik viser dine mønstre over uger, måneder og år.',
     'Logging later':
-        'Registrér bagefter',
+        'Registrering bagefter',
     'If you log a drink after the fact, set the time back with the − and + buttons; a missed day can be filled in from the Day view in History.':
-        'Hvis du registrerer en drink bagefter, så stil tiden tilbage med knapperne − og +; en glemt dag kan udfyldes fra dagsvisningen i Historik.',
+        'Hvis du registrerer en drink bagefter, så stil tiden tilbage med knapperne − og +; en glemt dag kan udfyldes fra visningen Dag i Historik.',
     'One tap and done':
         'Ét tryk, så er det klaret',
     'Your favourite from the Lock Screen':
@@ -452,7 +452,7 @@ TRANSLATIONS = {
     'See your patterns':
         'Se dine mønstre',
     'Set what you drink most often and log it with a single tap.':
-        'Angiv, hvad du oftest drikker, og registrér det med ét tryk.',
+        'Angiv, hvad du oftest drikker, og registrer det med ét tryk.',
     'One tap on the widget logs your favourite, no searching for the app. In the evening it shows your level too.':
         'Ét tryk på widgetten registrerer din favorit, uden at du skal lede efter appen. Om aftenen viser den også dit niveau.',
     '“Hey Siri, LogMyDrink now” — Siri logs your favourite and tells you where your peak is heading.':
@@ -482,13 +482,13 @@ TRANSLATIONS = {
     'Choose LogMyDrink, then tap Done.':
         'Vælg LogMyDrink, og tryk på OK.',
     'Touch and hold an empty area of the Home Screen until the icons jiggle.':
-        'Hold fingeren på et tomt område af hjemmeskærmen, til symbolerne begynder at vrikke.',
+        'Hold fingeren på et tomt område af hjemmeskærmen, indtil dine apps begynder at ryste.',
     'Tap Edit, then Add Widget.':
         'Tryk på Rediger og derefter på Tilføj widget.',
     'Search for LogMyDrink, pick a size and tap Add Widget.':
         'Søg efter LogMyDrink, vælg en størrelse, og tryk på Tilføj widget.',
     'A tap on the widget opens the app and logs your favourite drink. While there is alcohol in your system, it also shows your level and which way it is going.':
-        'Et tryk på widgetten åbner appen og registrerer din favoritdrink. Så længe der er alkohol i kroppen, viser den også dit niveau og retningen.',
+        'Et tryk på widgetten åbner appen og registrerer din favoritdrink. Så længe der er alkohol i kroppen, viser den også dit niveau, og hvilken vej det går.',
     'Add the widget':
         'Tilføj widgetten',
     'Show tips':

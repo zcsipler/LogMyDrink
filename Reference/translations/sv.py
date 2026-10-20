@@ -68,7 +68,7 @@ TRANSLATIONS = {
     "No past sessions yet": "Inga tidigare tillfällen än",
     "A session appears here once it has ended — when your level has cleared and a few hours "
     "have passed.":
-        "Ett tillfälle dyker upp här när det har avslutats — när din nivå har nått noll och "
+        "Ett tillfälle dyker upp här när det har avslutats – när din nivå har nått noll och "
         "några timmar har gått.",
     "%@ drinks": "%@ drycker",
     "peak": "topp",
@@ -102,7 +102,7 @@ TRANSLATIONS = {
     "How fast": "Hur snabbt",
     "In one go": "I ett svep",
     "Counts as a single swallow — the steepest possible rise.":
-        "Räknas som en enda klunk — den brantaste möjliga stigningen.",
+        "Räknas som en enda klunk – den brantaste möjliga stigningen.",
     "A quick drink. The level climbs fast.": "En snabb dryck. Nivån stiger snabbt.",
     "A normal pace.": "Ett normalt tempo.",
     "Nursed slowly. Much gentler climb for the same alcohol.":
@@ -114,9 +114,9 @@ TRANSLATIONS = {
     "Projected peak": "Beräknad topp",
     "Peak at": "Topp kl.",
     "Clears": "Når noll",
-    "This would cross your limit": "Det här skulle passera din gräns",
+    "This would cross your limit": "Det här skulle överskrida din gräns",
     "Around %@, for up to %@.": "Omkring %@, i upp till %@.",
-    "This might cross your limit": "Det här kan passera din gräns",
+    "This might cross your limit": "Det här kan överskrida din gräns",
     "With slower metabolism yes, with faster no. That's the uncertainty of the estimate.":
         "Med långsammare ämnesomsättning ja, med snabbare nej. Det är osäkerheten i "
         "uppskattningen.",
@@ -149,8 +149,8 @@ TRANSLATIONS = {
     "distributes into. The female equation does not include age, so changing it will not "
     "affect the result.":
         "Totalt kroppsvatten kommer från Watson-ekvationerna, som anger volymen som alkoholen "
-        "fördelar sig i. Ekvationen för kvinnor innehåller inte ålder, så att ändra den "
-        "påverkar inte resultatet.",
+        "fördelar sig i. Ekvationen för kvinnor innehåller inte ålder, så det påverkar "
+        "inte resultatet om du ändrar den.",
     "Drinking frequency": "Dryckesfrekvens",
     "How often do you drink?": "Hur ofta dricker du?",
     "This is how we estimate your elimination rate. Regular drinking induces the liver's CYP2E1 pathway, so frequent drinkers clear alcohol faster. It is the weakest point of the model, which is why you can set under Display & language how much of that uncertainty the app shows you.":
@@ -158,8 +158,8 @@ TRANSLATIONS = {
     "Your limit": "Din gräns",
     "Your own reference number, not a legal limit. The app tells you when a planned drink "
     "would take you past it, and for how long you would stay above.":
-        "Ditt eget referensvärde, inte en laglig gräns. Appen talar om när en planerad dryck "
-        "skulle ta dig förbi den, och hur länge du skulle ligga över.",
+        "Ditt eget referensvärde, inte en lagstadgad gräns. Appen säger till om en planerad "
+        "dryck skulle ta dig över den, och hur länge du skulle ligga över.",
     "Calculated values": "Beräknade värden",
     "Total body water": "Totalt kroppsvatten",
     "Distribution volume": "Distributionsvolym",
@@ -171,7 +171,7 @@ TRANSLATIONS = {
     "Elimination rate": "Förbränningshastighet",
     "How fast your liver clears alcohol once it has been absorbed — the slope of the falling "
     "side of the curve.":
-        "Hur snabbt levern bryter ner alkohol när den väl har tagits upp — lutningen på "
+        "Hur snabbt levern bryter ner alkohol när den väl har tagits upp – lutningen på "
         "kurvans fallande sida.",
     "Alcohol leaves at a roughly fixed amount per hour rather than a percentage, because the "
     "enzyme that breaks it down already runs at full capacity at almost any level. That is why "
@@ -180,26 +180,26 @@ TRANSLATIONS = {
         "eftersom enzymet som bryter ner den redan går för full kapacitet vid nästan varje "
         "nivå. Det är därför tumregler som ”en dryck i timmen” finns över huvud taget.",
     "At this setting, %@ takes about %@ to clear. Almost everyone falls between %@ per hour.":
-        "Med den här inställningen tar %@ ungefär %@ att nå noll. Nästan alla ligger mellan %@ "
+        "Med den här inställningen tar %@ ungefär %@ att brytas ned. Nästan alla ligger mellan %@ "
         "per timme.",
     "How to find yours": "Så hittar du din",
     "With a breathalyser": "Med en alkometer",
     "Blow twice, at least an hour apart, on the falling side — two hours or more after your "
     "last drink, with nothing in between. Subtract the second reading from the first and "
     "divide by the hours between them.":
-        "Blås två gånger, med minst en timme emellan, på den fallande sidan — två timmar eller "
-        "mer efter din sista dryck, utan något däremellan. Dra det andra värdet från det "
+        "Blås två gånger, med minst en timme emellan, på den fallande sidan – två timmar eller "
+        "mer efter din sista dryck, utan att dricka något däremellan. Dra det andra värdet från det "
         "första och dela med antalet timmar mellan dem.",
     "For example %@ and %@ two hours later works out to %@ per hour.":
-        "Till exempel %@ och %@ två timmar senare blir %@ per timme.",
-    "Without one": "Utan den",
+        "Till exempel ger %@ och %@ två timmar senare %@ per timme.",
+    "Without one": "Utan alkometer",
     "The app tells you when it expects you to clear. If you are reliably back to normal well "
     "before that, your rate is higher than the setting — nudge it up a step and watch for a "
     "few sessions. If it takes longer than predicted, nudge it down.":
-        "Appen talar om när den räknar med att du är nere på noll. Om du tillförlitligt är "
-        "tillbaka till det normala en bra stund före det är din hastighet högre än "
-        "inställningen — höj den ett steg och följ det under några tillfällen. Om det tar "
-        "längre tid än beräknat, sänk den ett steg.",
+        "Appen talar om när den räknar med att du är nere på noll. Om du gång på gång är "
+        "tillbaka i normalt skick en bra stund innan dess är din hastighet högre än "
+        "inställningen – höj den ett steg och se hur det blir under några tillfällen. Om det "
+        "tar längre tid än beräknat, sänk den ett steg.",
     "What moves it": "Vad som påverkar den",
     "Regular drinking raises it: the liver enzyme that does the work is induced by use. It "
     "also runs slightly higher in women on average, and lower on an empty stomach or with "
@@ -210,14 +210,14 @@ TRANSLATIONS = {
     "Uncertainty": "Osäkerhet",
     "At zero every figure is a single number — the app's best estimate. Above zero the same "
     "figures are shown as ranges, and the band on the chart widens to match.":
-        "Vid noll är varje siffra ett enda tal — appens bästa uppskattning. Över noll visas "
+        "Vid noll är varje siffra ett enda tal – appens bästa uppskattning. Över noll visas "
         "samma siffror som intervall, och bandet i diagrammet breddas på motsvarande sätt.",
     "A single number is easier to learn against: over time you find out what your own 0.6 "
     "feels like. A range is the more literal answer, because the rate really is uncertain. "
     "Both are defensible — this is your call.":
         "Ett enda tal är lättare att lära sig av: med tiden får du reda på hur din egen 0,6 "
         "känns. Ett intervall är det mer bokstavliga svaret, eftersom hastigheten verkligen är "
-        "osäker. Båda går att försvara — det här är ditt val.",
+        "osäker. Båda går att försvara – det här är ditt val.",
     "The spread suggested by your drinking frequency is ± %@ per hour.":
         "Spridningen som din dryckesfrekvens antyder är ± %@ per timme.",
     "Rate": "Hastighet",
@@ -235,12 +235,12 @@ TRANSLATIONS = {
     "before records": "före registreringen började",
     "See further back": "Se längre tillbaka",
     "Weeks, months and years side by side — and every evening older than seven days.": "Veckor, månader och år sida vid sida – och varje kväll äldre än sju dagar.",
-    "Everything you have logged is already saved. Unlocking only shows it.": "Allt du har loggat är redan sparat. Att låsa upp visar det bara.",
+    "Everything you have logged is already saved. Unlocking only shows it.": "Allt du har loggat är redan sparat. Upplåsningen gör bara att det visas.",
     "Coming soon": "Kommer snart",
     "Today": "Idag",
     "Day": "Dag",
     "Yesterday": "Igår",
-    "No drinks on this day": "Inga drinkar denna dag",
+    "No drinks on this day": "Inga drycker den här dagen",
     "Trend": "Trend",
     "day": "dag",
     "Smoothing": "Utjämning",
@@ -254,7 +254,7 @@ TRANSLATIONS = {
     "Automatic": "Automatisk",
     "UK": "Storbritannien",
     "Nordic countries": "Nordiska länder",
-    "US standard drink": "Amerikansk standarddrink",
+    "US standard drink": "Amerikanskt standardglas",
     "WHO, most of Europe": "WHO, större delen av Europa",
     "Period": "Period",
     "Switch person": "Byt person",
@@ -266,8 +266,8 @@ TRANSLATIONS = {
         "Alla fyra påverkar kurvan, så ingen av dem går att gissa åt någon annan.",
     "Their own limit and the finer settings can be changed later on the Profile tab, while "
     "they are the selected person.":
-        "Deras egen gräns och de finare inställningarna kan ändras senare under fliken Profil, "
-        "när de är den valda personen.",
+        "Personens egen gräns och de finare inställningarna kan ändras senare under fliken "
+        "Profil, medan personen är vald.",
 
     # --- FavouriteDrinkSection and QuickAddBar: the one-tap usual ---
     "Quick add": "Snabbval",
@@ -298,7 +298,7 @@ TRANSLATIONS = {
     "A backup holds every person, occasion and drink. Importing adds what is missing — it "
     "never changes or removes anything already here.":
         "En säkerhetskopia innehåller alla personer, tillfällen och drycker. En import lägger "
-        "till det som saknas — den ändrar eller tar aldrig bort något som redan finns här.",
+        "till det som saknas – den ändrar eller tar aldrig bort något som redan finns här.",
     "Import this backup?": "Importera den här säkerhetskopian?",
     "Import": "Importera",
     "Everything in this backup is already here.":
@@ -311,7 +311,7 @@ TRANSLATIONS = {
     "Opens this app in Settings, where “Preferred Language” sets the app's own language — the "
     "system's stays as it is. iOS restarts the app when you change it.":
         "Öppnar den här appen i Inställningar, där ”Föredraget språk” ställer in appens eget "
-        "språk — systemets förblir som det är. iOS startar om appen när du ändrar det.",
+        "språk – systemets förblir som det är. iOS startar om appen när du ändrar det.",
 
     # --- DataArchive: why a file could not be read ---
     "Could not import": "Kunde inte importera",
@@ -346,7 +346,7 @@ TRANSLATIONS = {
     'Owner': 'Ägare',
     'Everyone this app records. Switch, add, or remove someone.': 'Alla som den här appen registrerar. Byt, lägg till eller ta bort någon.',
     # --- Day window (5.22) ---
-    "Carried over from the night before": 'Överfört från kvällen innan',
+    "Carried over from the night before": 'Kvar från kvällen innan',
     # --- History, second card (5.24) ---
     'Calories': 'Kalorier',
     'Sessions': 'Tillfällen',
@@ -370,7 +370,7 @@ TRANSLATIONS = {
     'Estimated range, not a measurement. Never use this to decide whether you can drive.':
         'Uppskattat intervall, inte mätning. Använd aldrig detta för att avgöra om du kan köra.',
     'How does the app calculate this?':
-        'Hur räknar appen?',
+        'Hur beräknar appen detta?',
     'approximately %@ %@':
         'ungefär %@ %@',
     'How it works':
@@ -380,7 +380,7 @@ TRANSLATIONS = {
     'Why this app exists':
         'Därför finns appen',
     'LogMyDrink helps you drink more mindfully and stay in control. The decision happens before the next glass, so the app shows you in advance where another drink would take your level, and when it would peak.':
-        'LogMyDrink hjälper dig att dricka mer medvetet och behålla kontrollen. Beslutet fattas före nästa glas, så appen visar i förväg vart ytterligare en drink skulle ta din nivå och när den skulle nå sin topp.',
+        'LogMyDrink hjälper dig att dricka mer medvetet och behålla kontrollen. Beslutet fattas före nästa glas, så appen visar i förväg vart ytterligare en dryck skulle ta din nivå och när den skulle nå sin topp.',
     'But it is not only about tonight. Every drink you log goes into your History, so over months and years you can see how much, how often and how high you drink. Your patterns emerge from it, and so does the direction they are moving in — whether things are getting better or worse.':
         'Men det handlar inte bara om i kväll. Varje dryck du loggar hamnar i din historik, så över månader och år ser du hur mycket, hur ofta och hur högt du dricker. Dina mönster växer fram, och även vilket håll de rör sig åt – om det blir bättre eller sämre.',
     'How it calculates':
@@ -402,11 +402,11 @@ TRANSLATIONS = {
     'Every drink has its own “stomach”. On an empty stomach half of the alcohol is absorbed in about 7 minutes, on a full one in about 21. A drink you sip enters the stomach evenly over the time you drink it.':
         'Varje dryck har sin egen ”mage”. På fastande mage tas hälften av alkoholen upp på cirka 7 minuter, på full mage på cirka 21. En dryck du smuttar på når magen jämnt under tiden du dricker den.',
     'Gives a lower peak and an earlier clear time. Surprising, but measured: with food the stomach breaks down part of the alcohol before it is absorbed (the app uses 5, 10 and 15 percent), and what never got in does not need to be broken down.':
-        'Ger en lägre topp och tidigare nolla. Överraskande, men uppmätt: med mat bryter magen ned en del av alkoholen innan den tas upp (appen räknar med 5, 10 och 15 procent), och det som aldrig kom in behöver inte brytas ned.',
+        'Ger en lägre topp och gör att du når noll tidigare.Överraskande, men uppmätt: med mat bryter magen ned en del av alkoholen innan den tas upp (appen räknar med 5, 10 och 15 procent), och det som aldrig kom in behöver inte brytas ned.',
     'Elimination':
         'Nedbrytning',
     'About 0.15 ‰ per hour (published range 0.10–0.25), higher in regular drinkers as liver enzymes adapt. Close to zero it slows down (Michaelis–Menten kinetics), so the curve tapers off instead of stopping abruptly.':
-        'Cirka 0,15 ‰ per timme (publicerat intervall 0,10–0,25), högre hos den som dricker regelbundet eftersom leverns enzymer anpassar sig. Nära noll saktar den in (Michaelis–Menten-kinetik), så kurvan planar ut i stället för att tvärstanna.',
+        'Cirka 0,15 ‰ per timme (publicerat intervall 0,10–0,25), högre hos den som dricker regelbundet eftersom leverns enzymer anpassar sig. Nära noll saktar nedbrytningen in (Michaelis–Menten-kinetik), så kurvan planar ut i stället för att tvärstanna.',
     'Computation':
         'Beräkning',
     'The curve comes from a numerical simulation at one-minute resolution.':
@@ -414,11 +414,11 @@ TRANSLATIONS = {
     'Why it is only an estimate':
         'Därför är det bara en uppskattning',
     'The app measures nothing. What it shows is the output of a model using average values, and reality can differ. The biggest unknown is how fast you break alcohol down: within the plausible range, that alone can move the peak by 40 percent and the clear time by four hours on the same evening.':
-        'Appen mäter ingenting. Det den visar är resultatet av en modell med genomsnittsvärden, och verkligheten kan skilja sig. Den största okända faktorn är hur snabbt du bryter ned alkohol: inom det rimliga intervallet kan den ensam flytta toppen 40 procent och nollan fyra timmar samma kväll.',
+        'Appen mäter ingenting. Det den visar är resultatet av en modell med genomsnittsvärden, och verkligheten kan skilja sig. Den största okända faktorn är hur snabbt du bryter ned alkohol: inom det rimliga intervallet kan den ensam flytta toppen med 40 procent och tidpunkten då du når noll med fyra timmar samma kväll.',
     'Genetics, liver health, medication, what you ate, sleep and tiredness matter too — the app knows none of these. Only a certified breathalyser or a blood test gives an exact value.':
-        'Även gener, leverns hälsa, läkemedel, vad du ätit, sömn och trötthet spelar in – inget av det känner appen till. Bara en kalibrerad alkomätare eller ett blodprov ger ett exakt värde.',
+        'Även gener, leverns hälsa, läkemedel, vad du ätit, sömn och trötthet spelar in – inget av det känner appen till. Bara en kalibrerad alkometer eller ett blodprov ger ett exakt värde.',
     'The number is still useful. If the app reads consistently a little high or low for you, it is off in the same direction every evening, so over time you learn what a given value means for you. In Profile you can also show the uncertainty of the elimination rate: you then see a range instead of a single number.':
-        'Siffran är ändå användbar. Om appen hos dig konsekvent visar lite för högt eller lågt, slår den fel åt samma håll varje kväll, så med tiden lär du dig vad ett visst värde betyder för dig. I Profil kan du också visa osäkerheten i nedbrytningstakten: då ser du ett intervall i stället för en enda siffra.',
+        'Siffran är ändå användbar. Om appen hos dig konsekvent visar lite för högt eller lågt, slår den fel åt samma håll varje kväll, så med tiden lär du dig vad ett visst värde betyder för dig. I Profil kan du också visa osäkerheten i förbränningshastigheten: då ser du ett intervall i stället för en enda siffra.',
     'Tips':
         'Tips',
     'Favourite drink in one tap':
@@ -434,7 +434,7 @@ TRANSLATIONS = {
     'Siri':
         'Siri',
     'Say “Hey Siri, LogMyDrink now” and Siri logs your favourite, then tells you where your peak is heading.':
-        'Säg ”Hej Siri, LogMyDrink now” så loggar Siri din favorit och berättar vart din topp är på väg.',
+        'Säg ”Hey Siri, LogMyDrink now” så loggar Siri din favorit och berättar vart din topp är på väg. (Kommandot fungerar på engelska.)',
     'Looking back':
         'Se tillbaka',
     '“Yesterday” at the top of Live takes you to the previous day in one tap; the History tab shows your patterns over weeks, months and years.':
@@ -442,7 +442,7 @@ TRANSLATIONS = {
     'Logging later':
         'Logga i efterhand',
     'If you log a drink after the fact, set the time back with the − and + buttons; a missed day can be filled in from the Day view in History.':
-        'Om du loggar en dryck i efterhand, ställ tillbaka tiden med knapparna − och +; en missad dag kan fyllas i från dagsvyn i Historik.',
+        'Om du loggar en dryck i efterhand, ställ tillbaka tiden med knapparna − och +; en missad dag kan fyllas i från vyn Dag i Historik.',
     'One tap and done':
         'Ett tryck och klart',
     'Your favourite from the Lock Screen':
@@ -456,7 +456,7 @@ TRANSLATIONS = {
     'One tap on the widget logs your favourite, no searching for the app. In the evening it shows your level too.':
         'Ett tryck på widgeten loggar din favorit, utan att leta efter appen. På kvällen visar den även din nivå.',
     '“Hey Siri, LogMyDrink now” — Siri logs your favourite and tells you where your peak is heading.':
-        '”Hej Siri, LogMyDrink now” – Siri loggar din favorit och berättar vart din topp är på väg.',
+        '”Hey Siri, LogMyDrink now” – Siri loggar din favorit och berättar vart din topp är på väg.',
     'History shows how much and how high you drink over weeks, months and years, and which way it is changing.':
         'Historik visar hur mycket och hur högt du dricker över veckor, månader och år, och åt vilket håll det går.',
     'Set favourite':
@@ -482,9 +482,9 @@ TRANSLATIONS = {
     'Choose LogMyDrink, then tap Done.':
         'Välj LogMyDrink och tryck på Klar.',
     'Touch and hold an empty area of the Home Screen until the icons jiggle.':
-        'Håll fingret på ett tomt område på hemskärmen tills symbolerna börjar vicka.',
+        'Håll fingret på ett tomt område på hemskärmen tills apparna börjar vibrera.',
     'Tap Edit, then Add Widget.':
-        'Tryck på Redigera och sedan på Lägg till widget.',
+        'Tryck på Ändra och sedan på Lägg till widget.',
     'Search for LogMyDrink, pick a size and tap Add Widget.':
         'Sök efter LogMyDrink, välj en storlek och tryck på Lägg till widget.',
     'A tap on the widget opens the app and logs your favourite drink. While there is alcohol in your system, it also shows your level and which way it is going.':

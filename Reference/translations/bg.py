@@ -14,7 +14,7 @@ TRANSLATIONS = {
     # --- DrinkCatalog: drink types ---
     "Beer": "Бира",
     "Wine": "Вино",
-    "Champagne": "Пенливо",
+    "Champagne": "Пенливо вино",
     "Shot": "Шот",
     "Cocktail": "Коктейл",
     "Custom": "По избор",
@@ -41,7 +41,7 @@ TRANSLATIONS = {
     "Daily or nearly daily": "Всеки ден или почти всеки ден",
 
     # --- BACChartView: chart axis and series labels (VoiceOver reads these) ---
-    "Time": "Час",
+    "Time": "Време",
     "Level": "Ниво",
     "Lower": "Долна",
     "Upper": "Горна",
@@ -68,7 +68,7 @@ TRANSLATIONS = {
     "No past sessions yet": "Все още няма минали сесии",
     "A session appears here once it has ended — when your level has cleared and a few hours "
     "have passed.":
-        "Сесията се появява тук, след като приключи — когато нивото ти се изчисти и минат "
+        "Сесията се появява тук, след като приключи – когато нивото ти спадне до нула и минат "
         "няколко часа.",
     "%@ drinks": "Напитки: %@",
     "peak": "пик",
@@ -76,7 +76,7 @@ TRANSLATIONS = {
     "Lasted": "Продължи",
     "Duration": "Продължителност",
     "Sober around": "Трезв прибл.",
-    "Sober at": "Трезв",
+    "Sober at": "Трезв в",
     "Remaining": "Остават",
     "next day": "следващия ден",
     "previous day": "предишния ден",
@@ -102,11 +102,11 @@ TRANSLATIONS = {
     "How fast": "Колко бързо",
     "In one go": "Наведнъж",
     "Counts as a single swallow — the steepest possible rise.":
-        "Брои се като една глътка — възможно най-стръмното покачване.",
+        "Брои се като една глътка – възможно най-стръмното покачване.",
     "A quick drink. The level climbs fast.": "Бързо изпита напитка. Нивото се покачва бързо.",
     "A normal pace.": "Нормално темпо.",
     "Nursed slowly. Much gentler climb for the same alcohol.":
-        "Изпита бавно. Много по-плавно покачване при същия алкохол.",
+        "Изпита бавно. Много по-плавно покачване при същото количество алкохол.",
 
     # --- AddDrinkSheet ---
     "Cancel": "Отказ",
@@ -114,11 +114,11 @@ TRANSLATIONS = {
     "Projected peak": "Прогнозен пик",
     "Peak at": "Пик в",
     "Clears": "Изчиства се",
-    "This would cross your limit": "Това би преминало лимита ти",
-    "Around %@, for up to %@.": "Около %@, в продължение на до %@.",
-    "This might cross your limit": "Това може да премине лимита ти",
+    "This would cross your limit": "Това би надхвърлило лимита ти",
+    "Around %@, for up to %@.": "Около %@, за най-много %@.",
+    "This might cross your limit": "Това може да надхвърли лимита ти",
     "With slower metabolism yes, with faster no. That's the uncertainty of the estimate.":
-        "При по-бавен метаболизъм — да, при по-бърз — не. Това е несигурността на оценката.",
+        "При по-бавен метаболизъм – да, при по-бърз – не. Това е несигурността на оценката.",
     "Type": "Вид",
     "Amount": "Количество",
     "Strength": "Градус",
@@ -134,7 +134,7 @@ TRANSLATIONS = {
     "Female": "Жена",
     "Sex": "Пол",
     "Weight": "Тегло",
-    "Height": "Височина",
+    "Height": "Ръст",
     "Age": "Възраст",
     "kg": "кг",
     "cm": "см",
@@ -142,35 +142,35 @@ TRANSLATIONS = {
     "Body": "Тяло",
     "Total body water comes from the Watson equations, which set the volume alcohol "
     "distributes into.":
-        "Общата телесна вода идва от уравненията на Watson, които определят обема, в който се "
+        "Общата телесна вода идва от уравненията на Уотсън, които определят обема, в който се "
         "разпределя алкохолът.",
     "Total body water comes from the Watson equations, which set the volume alcohol "
     "distributes into. The female equation does not include age, so changing it will not "
     "affect the result.":
-        "Общата телесна вода идва от уравненията на Watson, които определят обема, в който се "
+        "Общата телесна вода идва от уравненията на Уотсън, които определят обема, в който се "
         "разпределя алкохолът. Женското уравнение не включва възрастта, затова промяната ѝ "
         "няма да повлияе на резултата.",
     "Drinking frequency": "Честота на пиене",
     "How often do you drink?": "Колко често пиеш?",
     "This is how we estimate your elimination rate. Regular drinking induces the liver's CYP2E1 pathway, so frequent drinkers clear alcohol faster. It is the weakest point of the model, which is why you can set under Display & language how much of that uncertainty the app shows you.":
-        "Така оценяваме скоростта ти на елиминиране. Редовното пиене индуцира чернодробния път CYP2E1, затова честите консуматори изчистват алкохола по-бързо. Това е най-слабото място на модела и затова в „Показване и език“ можеш да зададеш колко от тази несигурност да ти показва приложението.",
+        "Така оценяваме скоростта ти на разграждане. Редовното пиене индуцира чернодробния път CYP2E1, затова честите консуматори изчистват алкохола по-бързо. Това е най-слабото място на модела и затова в „Показване и език“ можеш да зададеш колко от тази несигурност да ти показва приложението.",
     "Your limit": "Твоят лимит",
     "Your own reference number, not a legal limit. The app tells you when a planned drink "
     "would take you past it, and for how long you would stay above.":
         "Твоя собствена отправна стойност, а не законова граница. Приложението ти казва кога "
-        "планирана напитка би те извела над нея и колко време ще останеш отгоре.",
+        "планирана напитка би те извела над нея и за колко време.",
     "Calculated values": "Изчислени стойности",
     "Total body water": "Обща телесна вода",
     "Distribution volume": "Обем на разпределение",
-    "Widmark factor": "Фактор на Widmark",
+    "Widmark factor": "Фактор на Видмарк",
     "The Widmark factor is typically around 0.68 for men and 0.55 for women. If yours is far "
     "from that, it is worth checking the values above.":
-        "Факторът на Widmark обикновено е около 0,68 при мъжете и 0,55 при жените. Ако твоят е "
+        "Факторът на Видмарк обикновено е около 0,68 при мъжете и 0,55 при жените. Ако твоят е "
         "далеч от това, си струва да провериш стойностите по-горе.",
-    "Elimination rate": "Скорост на елиминиране",
+    "Elimination rate": "Скорост на разграждане",
     "How fast your liver clears alcohol once it has been absorbed — the slope of the falling "
     "side of the curve.":
-        "Колко бързо черният ти дроб изчиства алкохола, след като той е усвоен — наклонът на "
+        "Колко бързо черният ти дроб изчиства алкохола, след като той е усвоен – наклонът на "
         "спадащата част от кривата.",
     "Alcohol leaves at a roughly fixed amount per hour rather than a percentage, because the "
     "enzyme that breaks it down already runs at full capacity at almost any level. That is why "
@@ -185,9 +185,9 @@ TRANSLATIONS = {
     "Blow twice, at least an hour apart, on the falling side — two hours or more after your "
     "last drink, with nothing in between. Subtract the second reading from the first and "
     "divide by the hours between them.":
-        "Духни два пъти, с поне час разлика, в спадащата част — два или повече часа след "
-        "последната напитка и без нищо междувременно. Извади второто отчитане от първото и "
-        "раздели на часовете между тях.",
+        "Духни два пъти, с поне час разлика, в спадащата част – два или повече часа след "
+        "последната напитка, без да пиеш нищо междувременно. Извади второто показание от "
+        "първото и раздели на броя часове между тях.",
     "For example %@ and %@ two hours later works out to %@ per hour.":
         "Например %@ и %@ два часа по-късно дават %@ на час.",
     "Without one": "Без алкотестер",
@@ -195,7 +195,7 @@ TRANSLATIONS = {
     "before that, your rate is higher than the setting — nudge it up a step and watch for a "
     "few sessions. If it takes longer than predicted, nudge it down.":
         "Приложението ти казва кога очаква нивото ти да се изчисти. Ако редовно се връщаш към "
-        "нормалното доста преди това, скоростта ти е по-висока от настройката — вдигни я с "
+        "нормалното доста преди това, скоростта ти е по-висока от настройката – вдигни я с "
         "една стъпка и наблюдавай няколко сесии. Ако отнема повече от предвиденото, свали я с "
         "една стъпка.",
     "What moves it": "Какво я променя",
@@ -208,7 +208,7 @@ TRANSLATIONS = {
     "Uncertainty": "Несигурност",
     "At zero every figure is a single number — the app's best estimate. Above zero the same "
     "figures are shown as ranges, and the band on the chart widens to match.":
-        "При нула всяка стойност е едно число — най-добрата преценка на приложението. Над нула "
+        "При нула всяка стойност е едно число – най-добрата оценка на приложението. Над нула "
         "същите стойности се показват като диапазони, а лентата на графиката се разширява "
         "съответно.",
     "A single number is easier to learn against: over time you find out what your own 0.6 "
@@ -216,7 +216,7 @@ TRANSLATIONS = {
     "Both are defensible — this is your call.":
         "С едно число се учиш по-лесно: с времето разбираш как се усещат твоите собствени 0,6. "
         "Диапазонът е по-буквалният отговор, защото скоростта наистина е несигурна. И двете са "
-        "защитими — решението е твое.",
+        "защитими – решението е твое.",
     "The spread suggested by your drinking frequency is ± %@ per hour.":
         "Разсейването, което честотата ти на пиене подсказва, е ± %@ на час.",
     "Rate": "Скорост",
@@ -233,9 +233,9 @@ TRANSLATIONS = {
     "Change": "Промяна",
     "before records": "преди началото на записите",
     "See further back": "Виж по-назад",
-    "Weeks, months and years side by side — and every evening older than seven days.": "Седмици, месеци и години една до друга – и всяка вечер, по-стара от седем дни.",
+    "Weeks, months and years side by side — and every evening older than seven days.": "Седмици, месеци и години едни до други – и всяка вечер, по-стара от седем дни.",
     "Everything you have logged is already saved. Unlocking only shows it.": "Всичко, което си записал, вече е запазено. Отключването само го показва.",
-    "Coming soon": "Очаквайте скоро",
+    "Coming soon": "Очаквай скоро",
     "Today": "Днес",
     "Day": "Ден",
     "Yesterday": "Вчера",
@@ -243,7 +243,7 @@ TRANSLATIONS = {
     "Trend": "Тенденция",
     "day": "ден",
     "Smoothing": "Изглаждане",
-    "%@ sessions": "%@ случая",
+    "%@ sessions": "Сесии: %@",
     "No data before %@": "Няма данни преди %@",
     "vs.": "спрямо",
     "Grams": "Грамове",
@@ -284,7 +284,7 @@ TRANSLATIONS = {
         "Записва я веднага, без да отваря нищо.",
     "One tap on the Live screen logs this, with the projected peak on the button. How full "
     "your stomach is comes from the drink before it, and can be corrected straight after.":
-        "Едно докосване на екрана „На живо“ я записва, а прогнозният пик стои на бутона. Колко "
+        "Едно докосване на екрана „На живо“ я записва, а на бутона се вижда прогнозният пик. Колко "
         "пълен е стомахът ти се взема от предишната напитка и може да се коригира веднага след "
         "това.",
     "Peak %@": "Пик %@",
@@ -298,8 +298,8 @@ TRANSLATIONS = {
     "Import a backup": "Импортирай резервно копие",
     "A backup holds every person, occasion and drink. Importing adds what is missing — it "
     "never changes or removes anything already here.":
-        "Резервното копие съдържа всеки човек, всяка сесия и всяка напитка. Импортирането "
-        "добавя липсващото — то никога не променя и не премахва нищо от вече наличното.",
+        "Резервното копие съдържа всички хора, сесии и напитки. Импортирането "
+        "добавя липсващото – то никога не променя и не премахва нищо от вече наличното.",
     "Import this backup?": "Да се импортира ли това резервно копие?",
     "Import": "Импортирай",
     "Everything in this backup is already here.": "Всичко от това резервно копие вече е тук.",
@@ -311,7 +311,7 @@ TRANSLATIONS = {
     "Opens this app in Settings, where “Preferred Language” sets the app's own language — the "
     "system's stays as it is. iOS restarts the app when you change it.":
         "Отваря това приложение в Настройки, където „Предпочитан език“ задава езика на самото "
-        "приложение — системният остава непроменен. iOS рестартира приложението, когато го "
+        "приложение – системният остава непроменен. iOS рестартира приложението, когато го "
         "смениш.",
 
     # --- DataArchive: why a file could not be read ---
@@ -324,8 +324,8 @@ TRANSLATIONS = {
 
     # --- History: months known only by total (MonthlyTotal) ---
     'Adds %@ occasions, %@ drinks and %@ monthly totals. Nothing already here is changed or removed.':
-        'Ще добави сесии: %@, напитки: %@ и месечни суми: %@. Нищо, което вече е тук, не се променя и не се премахва.',
-    'Added %@ occasions, %@ drinks and %@ monthly totals.': 'Добавени: %@ сесии, %@ напитки и %@ месечни суми.',
+        'Ще бъдат добавени – сесии: %@, напитки: %@, месечни суми: %@. Нищо, което вече е тук, няма да бъде променено или премахнато.',
+    'Added %@ occasions, %@ drinks and %@ monthly totals.': 'Добавени – сесии: %@, напитки: %@, месечни суми: %@.',
     'months as totals': 'месеца само като суми',
     'by month only': 'само по месеци',
     'monthly total': 'месечна сума',
@@ -335,7 +335,7 @@ TRANSLATIONS = {
 
     # --- RemovePersonSection ---
     'Remove %@?': 'Да се премахне ли %@?',
-    'Remove': 'Премахване',
+    'Remove': 'Премахни',
     'Deletes %@ occasions, %@ drinks and %@ monthly totals. This cannot be undone.':
         'Изтрива сесии: %@, напитки: %@ и месечни суми: %@. Това не може да бъде отменено.',
     'Deletes %@ occasions and %@ drinks. This cannot be undone.': 'Изтрива сесии: %@ и напитки: %@. Това не може да бъде отменено.',
@@ -350,12 +350,12 @@ TRANSLATIONS = {
     "Carried over from the night before": 'Пренесено от предната вечер',
     # --- History, second card (5.24) ---
     'Calories': 'Калории',
-    'Sessions': 'Поводи',
-    'Per session': 'На повод',
+    'Sessions': 'Сесии',
+    'Per session': 'На сесия',
     'Under the influence': 'Под влияние',
     '%@ of the time': '%@ от времето',
     'Days over limit': 'Дни над лимита',
-    'Longest sober run': 'Най-дълга трезва серия',
+    'Longest sober run': 'Най-дълъг период без алкохол',
     'Favourite drink': 'Любима напитка',
 
     # --- Profile sub-pages (5.26) ---
@@ -371,7 +371,7 @@ TRANSLATIONS = {
     'Estimated range, not a measurement. Never use this to decide whether you can drive.':
         'Оценен диапазон, не измерване. Никога не решавай по това дали можеш да шофираш.',
     'How does the app calculate this?':
-        'Как изчислява приложението?',
+        'Как приложението изчислява това?',
     'approximately %@ %@':
         'приблизително %@ %@',
     'How it works':
@@ -381,9 +381,9 @@ TRANSLATIONS = {
     'Why this app exists':
         'Защо съществува това приложение',
     'LogMyDrink helps you drink more mindfully and stay in control. The decision happens before the next glass, so the app shows you in advance where another drink would take your level, and when it would peak.':
-        'LogMyDrink ти помага да пиеш по-осъзнато и да запазиш контрола. Решението се взема преди следващата чаша, затова приложението ти показва предварително докъде би стигнало нивото ти с още една напитка и кога би достигнало върха си.',
+        'LogMyDrink ти помага да пиеш по-осъзнато и да запазиш контрола. Решението се взема преди следващата чаша, затова приложението ти показва предварително докъде би стигнало нивото ти с още една напитка и кога би достигнало пика си.',
     'But it is not only about tonight. Every drink you log goes into your History, so over months and years you can see how much, how often and how high you drink. Your patterns emerge from it, and so does the direction they are moving in — whether things are getting better or worse.':
-        'Но не става дума само за тази вечер. Всяка въведена напитка отива в историята, така че с месеци и години виждаш колко, колко често и колко високо пиеш. От това изпъкват навиците ти, а също и посоката, в която се променят – дали нещата се подобряват или влошават.',
+        'Но не става дума само за тази вечер. Всяка записана напитка отива в „История“, така че през месеците и годините виждаш колко, колко често и до какво ниво пиеш. От това изпъкват навиците ти, а също и посоката, в която се променят – дали нещата се подобряват или влошават.',
     'How it calculates':
         'Как изчислява',
     'The estimate builds on the Widmark method, used to estimate blood alcohol since the 1930s; the app runs a refined version of it.':
@@ -403,7 +403,7 @@ TRANSLATIONS = {
     'Every drink has its own “stomach”. On an empty stomach half of the alcohol is absorbed in about 7 minutes, on a full one in about 21. A drink you sip enters the stomach evenly over the time you drink it.':
         'Всяка напитка има свой „стомах“. На празен стомах половината алкохол се усвоява за около 7 минути, на пълен – за около 21. Напитка, която отпиваш, постъпва в стомаха равномерно през цялото време на пиене.',
     'Gives a lower peak and an earlier clear time. Surprising, but measured: with food the stomach breaks down part of the alcohol before it is absorbed (the app uses 5, 10 and 15 percent), and what never got in does not need to be broken down.':
-        'Дава по-нисък връх и по-ранна нула. Изненадващо, но измерено: с храна стомахът разгражда част от алкохола още преди усвояването (приложението използва 5, 10 и 15 процента), а онова, което изобщо не е влязло, не е нужно да се разгражда.',
+        'Дава по-нисък пик и по-ранна нула. Изненадващо, но измерено: с храна стомахът разгражда част от алкохола още преди усвояването (приложението използва 5, 10 и 15 процента), а онова, което изобщо не е влязло, не е нужно да се разгражда.',
     'Elimination':
         'Разграждане',
     'About 0.15 ‰ per hour (published range 0.10–0.25), higher in regular drinkers as liver enzymes adapt. Close to zero it slows down (Michaelis–Menten kinetics), so the curve tapers off instead of stopping abruptly.':
@@ -411,59 +411,59 @@ TRANSLATIONS = {
     'Computation':
         'Изчисление',
     'The curve comes from a numerical simulation at one-minute resolution.':
-        'Кривата е резултат от числена симулация с резолюция от една минута.',
+        'Кривата е резултат от числена симулация със стъпка от една минута.',
     'Why it is only an estimate':
         'Защо е само оценка',
     'The app measures nothing. What it shows is the output of a model using average values, and reality can differ. The biggest unknown is how fast you break alcohol down: within the plausible range, that alone can move the peak by 40 percent and the clear time by four hours on the same evening.':
-        'Приложението не измерва нищо. Показва резултата от модел със средни стойности, а реалността може да е различна. Най-голямото неизвестно е колко бързо разграждаш алкохола: в правдоподобния диапазон само то може да измести върха с 40 процента, а нулата – с четири часа в рамките на една вечер.',
+        'Приложението не измерва нищо. Показва резултата от модел със средни стойности, а реалността може да е различна. Най-голямото неизвестно е колко бързо разграждаш алкохола: в правдоподобния диапазон само то може да измести пика с 40 процента, а нулата – с четири часа в рамките на една вечер.',
     'Genetics, liver health, medication, what you ate, sleep and tiredness matter too — the app knows none of these. Only a certified breathalyser or a blood test gives an exact value.':
-        'Значение имат и гените, здравето на черния дроб, лекарствата, храната, сънят и умората – приложението не знае нищо от това. Точна стойност дава само сертифициран дрегер или кръвен тест.',
+        'Значение имат и гените, здравето на черния дроб, лекарствата, храната, сънят и умората – приложението не знае нищо от това. Точна стойност дава само сертифициран алкотестер или кръвен тест.',
     'The number is still useful. If the app reads consistently a little high or low for you, it is off in the same direction every evening, so over time you learn what a given value means for you. In Profile you can also show the uncertainty of the elimination rate: you then see a range instead of a single number.':
-        'Числото все пак е полезно. Ако приложението при теб постоянно показва малко повече или по-малко, то греши в една и съща посока всяка вечер, така че с времето научаваш какво означава дадена стойност за теб. В Профил можеш да покажеш и несигурността на скоростта на разграждане: тогава ще виждаш диапазон вместо едно число.',
+        'Числото все пак е полезно. Ако приложението при теб постоянно показва малко повече или по-малко, то греши в една и съща посока всяка вечер, така че с времето научаваш какво означава дадена стойност за теб. В „Профил“ можеш да покажеш и несигурността на скоростта на разграждане: тогава ще виждаш диапазон вместо едно число.',
     'Tips':
         'Съвети',
     'Favourite drink in one tap':
         'Любима напитка с едно докосване',
     'Set a favourite in Profile and the Live button logs it with a single tap.':
-        'Задай любима напитка в Профил и бутонът на екрана На живо ще я въвежда с едно докосване.',
+        'Задай любима напитка в „Профил“ и бутонът на екрана „На живо“ ще я записва с едно докосване.',
     'Widget':
-        'Уиджет',
+        'Инструмент',
     'Add it to your Lock Screen or Home Screen: one tap logs your favourite. While there is alcohol in your system, it also shows your level and which way it is going.':
-        'Добави го на заключения или началния екран: едно докосване въвежда любимата ти напитка. Докато имаш алкохол в тялото, показва и нивото ти и посоката му.',
+        'Добави го на Заключен екран или Начален екран: едно докосване записва любимата ти напитка. Докато имаш алкохол в тялото, показва и нивото ти, и посоката му.',
     'How do I add it?':
         'Как да го добавя?',
     'Siri':
         'Siri',
     'Say “Hey Siri, LogMyDrink now” and Siri logs your favourite, then tells you where your peak is heading.':
-        'Кажи „Hey Siri, LogMyDrink now“ и Siri ще въведе любимата ти напитка и ще ти каже накъде отива върхът ти.',
+        'Кажи „Hey Siri, LogMyDrink now“ и Siri ще запише любимата ти напитка, а после ще ти каже какъв пик да очакваш. (Командата работи на английски.)',
     'Looking back':
         'Поглед назад',
     '“Yesterday” at the top of Live takes you to the previous day in one tap; the History tab shows your patterns over weeks, months and years.':
-        '„Вчера“ в горната част на На живо те отвежда към предишния ден с едно докосване; разделът История показва навиците ти за седмици, месеци и години.',
+        '„Вчера“ в горната част на „На живо“ те отвежда към предишния ден с едно докосване; разделът „История“ показва навиците ти по седмици, месеци и години.',
     'Logging later':
-        'Въвеждане по-късно',
+        'Записване по-късно',
     'If you log a drink after the fact, set the time back with the − and + buttons; a missed day can be filled in from the Day view in History.':
-        'Ако въвеждаш напитка по-късно, върни часа назад с бутоните − и +; пропуснат ден може да се допълни от изгледа Ден в Историята.',
+        'Ако записваш напитка по-късно, върни часа назад с бутоните − и +; пропуснат ден може да се допълни от изгледа „Ден“ в „История“.',
     'One tap and done':
         'Едно докосване и готово',
     'Your favourite from the Lock Screen':
-        'Любимата ти напитка от заключения екран',
+        'Любимата ти напитка от Заключен екран',
     'Say it, don’t type it':
         'Кажи го, не го пиши',
     'See your patterns':
         'Виж навиците си',
     'Set what you drink most often and log it with a single tap.':
-        'Задай какво пиеш най-често и го въвеждай с едно докосване.',
+        'Задай какво пиеш най-често и го записвай с едно докосване.',
     'One tap on the widget logs your favourite, no searching for the app. In the evening it shows your level too.':
-        'Едно докосване на уиджета въвежда любимата ти напитка, без да търсиш приложението. Вечер показва и нивото ти.',
+        'Едно докосване на инструмента записва любимата ти напитка, без да търсиш приложението. Вечер показва и нивото ти.',
     '“Hey Siri, LogMyDrink now” — Siri logs your favourite and tells you where your peak is heading.':
-        '„Hey Siri, LogMyDrink now“ – Siri въвежда любимата ти напитка и ти казва накъде отива върхът ти.',
+        '„Hey Siri, LogMyDrink now“ – Siri записва любимата ти напитка и ти казва какъв пик да очакваш.',
     'History shows how much and how high you drink over weeks, months and years, and which way it is changing.':
-        'Историята показва колко и колко високо пиеш за седмици, месеци и години и в каква посока се променя това.',
+        '„История“ показва колко и до какво ниво пиеш по седмици, месеци и години и в каква посока се променя това.',
     'Set favourite':
         'Задай любима',
     'Add widget':
-        'Добави уиджет',
+        'Добави инструмент',
     'Got it':
         'Ясно',
     'Open History':
@@ -477,21 +477,21 @@ TRANSLATIONS = {
     'Where':
         'Къде',
     'Lock your phone, then touch and hold the Lock Screen.':
-        'Заключи iPhone и след това задръж пръст върху заключения екран.',
+        'Заключи iPhone, след това докосни и задръж Заключен екран.',
     'Tap Customize, then Lock Screen, then the widget row under the clock.':
-        'Докосни „Персонализиране“, после „Заключен екран“ и накрая реда с уиджети под часовника.',
+        'Докосни „Персонализиране“, после „Заключен екран“ и накрая реда с инструменти под часовника.',
     'Choose LogMyDrink, then tap Done.':
         'Избери LogMyDrink и докосни „Готово“.',
     'Touch and hold an empty area of the Home Screen until the icons jiggle.':
-        'Задръж пръст върху празно място на началния екран, докато иконките започнат да се клатят.',
+        'Докосни и задръж празно място на Начален екран, докато иконките започнат да се клатят.',
     'Tap Edit, then Add Widget.':
-        'Докосни „Редактиране“, после „Добавяне на уиджет“.',
+        'Докосни „Редактиране“, после „Добави инструмент“.',
     'Search for LogMyDrink, pick a size and tap Add Widget.':
-        'Потърси LogMyDrink, избери размер и докосни „Добавяне на уиджет“.',
+        'Потърси LogMyDrink, избери размер и докосни „Добави инструмент“.',
     'A tap on the widget opens the app and logs your favourite drink. While there is alcohol in your system, it also shows your level and which way it is going.':
-        'Докосване на уиджета отваря приложението и въвежда любимата ти напитка. Докато имаш алкохол в тялото, показва и нивото ти и посоката му.',
+        'Докосване на инструмента отваря приложението и записва любимата ти напитка. Докато имаш алкохол в тялото, показва и нивото ти, и посоката му.',
     'Add the widget':
-        'Добави уиджета',
+        'Добави инструмента',
     'Show tips':
         'Показвай съвети',
     'One tip a day at most, when you open the app — never while there is alcohol in your system.':

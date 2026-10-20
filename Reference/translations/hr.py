@@ -15,7 +15,7 @@ TRANSLATIONS = {
     "Beer": "Pivo",
     "Wine": "Vino",
     "Champagne": "Pjenušac",
-    "Shot": "Šot",
+    "Shot": "Žestica",
     "Cocktail": "Koktel",
     "Custom": "Prilagođeno",
 
@@ -24,7 +24,7 @@ TRANSLATIONS = {
     "Moderately full": "Umjereno pun",
     "Full stomach": "Pun želudac",
     "Empty": "Prazan",
-    "Moderate": "Umjereno",
+    "Moderate": "Umjereno pun",
     "Full": "Pun",
     "Fast absorption, higher and earlier peak.": "Brza apsorpcija, viši i raniji vrhunac.",
     "Moderate absorption.": "Umjerena apsorpcija.",
@@ -68,7 +68,7 @@ TRANSLATIONS = {
     "No past sessions yet": "Još nema prošlih sesija",
     "A session appears here once it has ended — when your level has cleared and a few hours "
     "have passed.":
-        "Sesija se ovdje pojavljuje nakon što završi — kad ti razina padne na nulu i prođe "
+        "Sesija se ovdje pojavljuje nakon što završi – kad ti razina padne na nulu i prođe "
         "nekoliko sati.",
     "%@ drinks": "Pića: %@",
     "peak": "vrhunac",
@@ -76,7 +76,7 @@ TRANSLATIONS = {
     "Lasted": "Trajalo",
     "Duration": "Trajanje",
     "Sober around": "Trijezan pribl.",
-    "Sober at": "Trijezan",
+    "Sober at": "Trijezan u",
     "Remaining": "Preostalo",
     "next day": "sljedeći dan",
     "previous day": "prethodni dan",
@@ -102,11 +102,11 @@ TRANSLATIONS = {
     "How fast": "Koliko brzo",
     "In one go": "Naiskap",
     "Counts as a single swallow — the steepest possible rise.":
-        "Računa se kao jedan gutljaj — najstrmiji mogući porast.",
-    "A quick drink. The level climbs fast.": "Brzo popijeno piće. Razina raste brzo.",
+        "Računa se kao jedan gutljaj – najstrmiji mogući porast.",
+    "A quick drink. The level climbs fast.": "Brzo popijeno piće. Razina brzo raste.",
     "A normal pace.": "Uobičajen tempo.",
     "Nursed slowly. Much gentler climb for the same alcohol.":
-        "Polako ispijano. Mnogo blaži porast za istu količinu alkohola.",
+        "Polako pijuckano. Mnogo blaži porast za istu količinu alkohola.",
 
     # --- AddDrinkSheet ---
     "Cancel": "Odustani",
@@ -118,7 +118,7 @@ TRANSLATIONS = {
     "Around %@, for up to %@.": "Oko %@, u trajanju do %@.",
     "This might cross your limit": "Ovo bi moglo prijeći tvoju granicu",
     "With slower metabolism yes, with faster no. That's the uncertainty of the estimate.":
-        "Uz sporiji metabolizam da, uz brži ne. To je neizvjesnost procjene.",
+        "Uz sporiji metabolizam da, uz brži ne. To je nesigurnost procjene.",
     "Type": "Vrsta",
     "Amount": "Količina",
     "Strength": "Jačina",
@@ -153,7 +153,7 @@ TRANSLATIONS = {
     "Drinking frequency": "Učestalost pijenja",
     "How often do you drink?": "Koliko često piješ?",
     "This is how we estimate your elimination rate. Regular drinking induces the liver's CYP2E1 pathway, so frequent drinkers clear alcohol faster. It is the weakest point of the model, which is why you can set under Display & language how much of that uncertainty the app shows you.":
-        "Ovako procjenjujemo tvoju brzinu eliminacije. Redovito pijenje potiče jetreni put CYP2E1, pa redoviti konzumenti brže razgrađuju alkohol. To je najslabija točka modela, zbog čega pod Prikaz i jezik možeš postaviti koliko ti te neizvjesnosti aplikacija prikazuje.",
+        "Ovako procjenjujemo tvoju brzinu razgradnje. Redovito pijenje potiče jetreni put CYP2E1, pa redoviti konzumenti brže razgrađuju alkohol. To je najslabija točka modela, zbog čega u odjeljku Prikaz i jezik možeš postaviti koliko ti te nesigurnosti aplikacija prikazuje.",
     "Your limit": "Tvoja granica",
     "Your own reference number, not a legal limit. The app tells you when a planned drink "
     "would take you past it, and for how long you would stay above.":
@@ -161,58 +161,58 @@ TRANSLATIONS = {
         "te planirano piće odvelo preko nje i koliko dugo bi razina ostala iznad.",
     "Calculated values": "Izračunate vrijednosti",
     "Total body water": "Ukupna tjelesna voda",
-    "Distribution volume": "Volumen distribucije",
+    "Distribution volume": "Volumen raspodjele",
     "Widmark factor": "Widmarkov faktor",
     "The Widmark factor is typically around 0.68 for men and 0.55 for women. If yours is far "
     "from that, it is worth checking the values above.":
         "Widmarkov faktor obično iznosi oko 0,68 za muškarce i 0,55 za žene. Ako je tvoj "
-        "daleko od toga, vrijedi provjeriti vrijednosti iznad.",
-    "Elimination rate": "Brzina eliminacije",
+        "daleko od toga, vrijedi provjeriti gornje vrijednosti.",
+    "Elimination rate": "Brzina razgradnje",
     "How fast your liver clears alcohol once it has been absorbed — the slope of the falling "
     "side of the curve.":
-        "Koliko brzo tvoja jetra razgrađuje alkohol nakon što se apsorbira — nagib silazne "
+        "Koliko brzo tvoja jetra razgrađuju alkohol nakon što se apsorbira – nagib silazne "
         "strane krivulje.",
     "Alcohol leaves at a roughly fixed amount per hour rather than a percentage, because the "
     "enzyme that breaks it down already runs at full capacity at almost any level. That is why "
     "rules of thumb like “one drink an hour” exist at all.":
-        "Alkohol se razgrađuje otprilike stalnom količinom na sat, a ne u postotku, jer enzim "
+        "Alkohol se razgrađuje u otprilike stalnoj količini na sat, a ne u postotku, jer enzim "
         "koji ga razgrađuje već radi punim kapacitetom pri gotovo svakoj razini. Zato uopće i "
         "postoje pravila poput „jedno piće na sat”.",
     "At this setting, %@ takes about %@ to clear. Almost everyone falls between %@ per hour.":
         "Pri ovoj postavci %@ pada na nulu za otprilike %@. Gotovo svi su između %@ na sat.",
     "How to find yours": "Kako pronaći svoju",
-    "With a breathalyser": "Uz alkotest",
+    "With a breathalyser": "S alkometrom",
     "Blow twice, at least an hour apart, on the falling side — two hours or more after your "
     "last drink, with nothing in between. Subtract the second reading from the first and "
     "divide by the hours between them.":
-        "Puhni dvaput, s razmakom od najmanje sat vremena, na silaznoj strani — dva sata ili "
-        "više nakon zadnjeg pića, bez ičega u međuvremenu. Oduzmi drugo očitanje od prvog i "
+        "Puhni dvaput, s razmakom od najmanje sat vremena, na silaznoj strani – dva sata ili "
+        "više nakon zadnjeg pića, a da u međuvremenu ništa ne popiješ. Oduzmi drugo očitanje od prvog i "
         "podijeli s brojem sati između njih.",
     "For example %@ and %@ two hours later works out to %@ per hour.":
         "Na primjer, %@ i %@ dva sata poslije daje %@ na sat.",
-    "Without one": "Bez alkotesta",
+    "Without one": "Bez alkometra",
     "The app tells you when it expects you to clear. If you are reliably back to normal well "
     "before that, your rate is higher than the setting — nudge it up a step and watch for a "
     "few sessions. If it takes longer than predicted, nudge it down.":
-        "Aplikacija ti govori kad očekuje da ćeš pasti na nulu. Ako se pouzdano vratiš u "
-        "normalu znatno prije toga, tvoja je brzina veća od postavke — pomakni je stupanj gore "
+        "Aplikacija ti govori kad očekuje da ćeš biti na nuli. Ako se pouzdano osjećaš "
+        "normalno znatno prije toga, tvoja je brzina veća od postavke – pomakni je stupanj gore "
         "i prati nekoliko sesija. Ako traje dulje od predviđenog, pomakni je stupanj dolje.",
     "What moves it": "Što na nju utječe",
     "Regular drinking raises it: the liver enzyme that does the work is induced by use. It "
     "also runs slightly higher in women on average, and lower on an empty stomach or with "
     "liver trouble.":
-        "Redovito pijenje je povećava: jetreni enzim koji obavlja posao potiče se upotrebom. U "
+        "Raste s redovitim pijenjem: jetreni enzim koji obavlja posao potiče se upotrebom. U "
         "prosjeku je nešto viša i kod žena, a niža na prazan želudac ili uz bolest jetre.",
-    "Uncertainty": "Neizvjesnost",
+    "Uncertainty": "Nesigurnost",
     "At zero every figure is a single number — the app's best estimate. Above zero the same "
     "figures are shown as ranges, and the band on the chart widens to match.":
-        "Na nuli je svaka brojka jedan broj — najbolja procjena aplikacije. Iznad nule iste se "
+        "Na nuli je svaka brojka jedan broj – najbolja procjena aplikacije. Iznad nule iste se "
         "brojke prikazuju kao rasponi, a pojas na grafikonu proširuje se u skladu s tim.",
     "A single number is easier to learn against: over time you find out what your own 0.6 "
     "feels like. A range is the more literal answer, because the rate really is uncertain. "
     "Both are defensible — this is your call.":
-        "Jedan broj je lakše naučiti: s vremenom otkriješ kako se osjećaš na svojih 0,6. "
-        "Raspon je doslovniji odgovor, jer je brzina doista neizvjesna. Oboje je opravdano — "
+        "Uz jedan broj lakše je učiti: s vremenom otkriješ kako se osjećaš na svojih 0,6. "
+        "Raspon je doslovniji odgovor jer je brzina doista nesigurna. Oboje je opravdano – "
         "odluka je tvoja.",
     "The spread suggested by your drinking frequency is ± %@ per hour.":
         "Raspon koji proizlazi iz tvoje učestalosti pijenja iznosi ± %@ na sat.",
@@ -230,7 +230,7 @@ TRANSLATIONS = {
     "Change": "Promjena",
     "before records": "prije početka bilježenja",
     "See further back": "Pogledaj dalje unatrag",
-    "Weeks, months and years side by side — and every evening older than seven days.": "Tjedni, mjeseci i godine jedni uz druge – i svaka večer starija od sedam dana.",
+    "Weeks, months and years side by side — and every evening older than seven days.": "Tjedni, mjeseci i godine jedno uz drugo – i svaka večer starija od sedam dana.",
     "Everything you have logged is already saved. Unlocking only shows it.": "Sve što si zabilježio već je spremljeno. Otključavanje to samo prikazuje.",
     "Coming soon": "Uskoro",
     "Today": "Danas",
@@ -240,7 +240,7 @@ TRANSLATIONS = {
     "Trend": "Trend",
     "day": "dan",
     "Smoothing": "Izglađivanje",
-    "%@ sessions": "%@ prilika",
+    "%@ sessions": "Sesije: %@",
     "No data before %@": "Nema podataka prije %@",
     "vs.": "u odnosu na",
     "Grams": "Grami",
@@ -263,8 +263,8 @@ TRANSLATIONS = {
         "drugog.",
     "Their own limit and the finer settings can be changed later on the Profile tab, while "
     "they are the selected person.":
-        "Vlastitu granicu i finije postavke možeš promijeniti poslije na kartici Profil, dok "
-        "je ta osoba odabrana.",
+        "Granicu te osobe i detaljnije postavke možeš kasnije promijeniti na kartici Profil "
+        "dok je ta osoba odabrana.",
 
     # --- FavouriteDrinkSection and QuickAddBar: the one-tap usual ---
     "Quick add": "Brzi unos",
@@ -295,7 +295,7 @@ TRANSLATIONS = {
     "Import a backup": "Uvezi sigurnosnu kopiju",
     "A backup holds every person, occasion and drink. Importing adds what is missing — it "
     "never changes or removes anything already here.":
-        "Sigurnosna kopija sadrži svaku osobu, sesiju i piće. Uvoz dodaje ono što nedostaje — "
+        "Sigurnosna kopija sadrži sve osobe, sesije i pića. Uvoz dodaje ono što nedostaje – "
         "nikad ne mijenja ni ne uklanja ono što je već ovdje.",
     "Import this backup?": "Uvesti ovu sigurnosnu kopiju?",
     "Import": "Uvezi",
@@ -308,23 +308,23 @@ TRANSLATIONS = {
     "Opens this app in Settings, where “Preferred Language” sets the app's own language — the "
     "system's stays as it is. iOS restarts the app when you change it.":
         "Otvara ovu aplikaciju u Postavkama, gdje „Željeni jezik” određuje jezik same "
-        "aplikacije — sistemski ostaje kakav jest. iOS ponovno pokreće aplikaciju kad ga "
+        "aplikacije – jezik sustava ostaje nepromijenjen. iOS ponovno pokreće aplikaciju kad ga "
         "promijeniš.",
 
     # --- DataArchive: why a file could not be read ---
     "Could not import": "Uvoz nije uspio",
     "This file is not a LogMyDrink backup, or it is damaged.":
-        "Ova datoteka nije LogMyDrink sigurnosna kopija ili je oštećena.",
+        "Ova datoteka nije sigurnosna kopija aplikacije LogMyDrink ili je oštećena.",
     "This backup was made by a newer version of LogMyDrink. Update the app and try again.":
         "Ova sigurnosna kopija napravljena je novijom verzijom aplikacije LogMyDrink. Ažuriraj "
         "aplikaciju i pokušaj ponovno.",
 
     # --- History: months known only by total (MonthlyTotal) ---
     'Adds %@ occasions, %@ drinks and %@ monthly totals. Nothing already here is changed or removed.':
-        'Dodaje — sesije: %@, pića: %@, mjesečni zbrojevi: %@. Ništa što je već ovdje ne mijenja se niti uklanja.',
-    'Added %@ occasions, %@ drinks and %@ monthly totals.': 'Dodano: %@ sesija, %@ pića i %@ mjesečnih zbrojeva.',
+        'Dodat će se – sesije: %@, pića: %@, mjesečni zbrojevi: %@. Ništa što je već ovdje neće se promijeniti ni ukloniti.',
+    'Added %@ occasions, %@ drinks and %@ monthly totals.': 'Dodano – sesije: %@, pića: %@, mjesečni zbrojevi: %@.',
     'months as totals': 'mjeseci samo kao zbroj',
-    'by month only': 'samo po mjesecu',
+    'by month only': 'samo po mjesecima',
     'monthly total': 'mjesečni zbroj',
     'No daily records for this day': 'Za ovaj dan nema dnevnih zapisa',
     'Monthly total: %@': 'Mjesečni zbroj: %@',
@@ -339,7 +339,7 @@ TRANSLATIONS = {
 
     # --- PeopleView ---
     'Swipe left on a guest to remove them with everything recorded under them. You cannot be removed.':
-        'Povuci ulijevo na gostu da ga ukloniš sa svime što je zabilježeno pod njim. Tebe se ne može ukloniti.',
+        'Povuci gosta ulijevo da ga ukloniš zajedno sa svime što je za njega zabilježeno. Tebe se ne može ukloniti.',
     'People': 'Osobe',
     'Owner': 'Vlasnik',
     'Everyone this app records. Switch, add, or remove someone.': 'Svi koje ova aplikacija bilježi. Prebaci, dodaj ili ukloni nekoga.',
@@ -347,12 +347,12 @@ TRANSLATIONS = {
     "Carried over from the night before": 'Preneseno iz prethodne večeri',
     # --- History, second card (5.24) ---
     'Calories': 'Kalorije',
-    'Sessions': 'Prigode',
-    'Per session': 'Po prigodi',
+    'Sessions': 'Sesije',
+    'Per session': 'Po sesiji',
     'Under the influence': 'Pod utjecajem',
     '%@ of the time': '%@ vremena',
     'Days over limit': 'Dani iznad granice',
-    'Longest sober run': 'Najduži trijezni niz',
+    'Longest sober run': 'Najduži niz bez alkohola',
     'Favourite drink': 'Omiljeno piće',
 
     # --- Profile sub-pages (5.26) ---
@@ -368,7 +368,7 @@ TRANSLATIONS = {
     'Estimated range, not a measurement. Never use this to decide whether you can drive.':
         'Procijenjeni raspon, ne mjerenje. Nikad na temelju ovoga ne odlučuj smiješ li voziti.',
     'How does the app calculate this?':
-        'Kako aplikacija računa?',
+        'Kako aplikacija to izračunava?',
     'approximately %@ %@':
         'otprilike %@ %@',
     'How it works':
@@ -380,7 +380,7 @@ TRANSLATIONS = {
     'LogMyDrink helps you drink more mindfully and stay in control. The decision happens before the next glass, so the app shows you in advance where another drink would take your level, and when it would peak.':
         'LogMyDrink ti pomaže piti svjesnije i zadržati kontrolu. Odluka se donosi prije sljedeće čaše, pa ti aplikacija unaprijed pokazuje kamo bi tvoju razinu odvelo još jedno piće i kada bi dosegla vrhunac.',
     'But it is not only about tonight. Every drink you log goes into your History, so over months and years you can see how much, how often and how high you drink. Your patterns emerge from it, and so does the direction they are moving in — whether things are getting better or worse.':
-        'No ne radi se samo o večeras. Svako uneseno piće ide u povijest, pa kroz mjesece i godine vidiš koliko, koliko često i koliko visoko piješ. Iz toga se iscrtavaju tvoji obrasci, ali i smjer u kojem se mijenjaju – idu li stvari nabolje ili nagore.',
+        'No ne radi se samo o ovoj večeri. Svako zabilježeno piće ide u Povijest, pa kroz mjesece i godine vidiš koliko, koliko često i do koje razine piješ. Iz toga se iscrtavaju tvoji obrasci, ali i smjer u kojem se mijenjaju – idu li stvari nabolje ili nagore.',
     'How it calculates':
         'Kako računa',
     'The estimate builds on the Widmark method, used to estimate blood alcohol since the 1930s; the app runs a refined version of it.':
@@ -414,7 +414,7 @@ TRANSLATIONS = {
     'The app measures nothing. What it shows is the output of a model using average values, and reality can differ. The biggest unknown is how fast you break alcohol down: within the plausible range, that alone can move the peak by 40 percent and the clear time by four hours on the same evening.':
         'Aplikacija ništa ne mjeri. Prikazuje rezultat modela s prosječnim vrijednostima, a stvarnost se može razlikovati. Najveća je nepoznanica koliko brzo razgrađuješ alkohol: unutar vjerojatnog raspona samo to iste večeri može pomaknuti vrhunac za 40 posto, a nulu za četiri sata.',
     'Genetics, liver health, medication, what you ate, sleep and tiredness matter too — the app knows none of these. Only a certified breathalyser or a blood test gives an exact value.':
-        'Važni su i geni, zdravlje jetre, lijekovi, što si jeo, san i umor – ništa od toga aplikacija ne zna. Točnu vrijednost daje samo ovjereni alkotest ili krvna pretraga.',
+        'Važni su i geni, zdravlje jetre, lijekovi, što si jeo, san i umor – ništa od toga aplikacija ne zna. Točnu vrijednost daje samo ovjereni alkometar ili krvna pretraga.',
     'The number is still useful. If the app reads consistently a little high or low for you, it is off in the same direction every evening, so over time you learn what a given value means for you. In Profile you can also show the uncertainty of the elimination rate: you then see a range instead of a single number.':
         'Broj je ipak koristan. Ako ti aplikacija dosljedno pokazuje malo previše ili premalo, svake večeri griješi u istom smjeru, pa s vremenom naučiš što određena vrijednost znači za tebe. U Profilu možeš prikazati i nesigurnost brzine razgradnje: tada umjesto jednog broja vidiš raspon.',
     'Tips':
@@ -422,25 +422,25 @@ TRANSLATIONS = {
     'Favourite drink in one tap':
         'Omiljeno piće jednim dodirom',
     'Set a favourite in Profile and the Live button logs it with a single tap.':
-        'Postavi omiljeno piće u Profilu i gumb na zaslonu Uživo unijet će ga jednim dodirom.',
+        'Postavi omiljeno piće u Profilu i gumb na zaslonu Uživo zabilježit će ga jednim dodirom.',
     'Widget':
         'Widget',
     'Add it to your Lock Screen or Home Screen: one tap logs your favourite. While there is alcohol in your system, it also shows your level and which way it is going.':
-        'Dodaj ga na zaključani ili početni zaslon: jedan dodir unosi tvoje omiljeno piće. Dok imaš alkohola u tijelu, prikazuje i tvoju razinu i njezin smjer.',
+        'Dodaj ga na zaključani ili početni zaslon: jedan dodir bilježi tvoje omiljeno piće. Dok imaš alkohola u tijelu, prikazuje i tvoju razinu i njezin smjer.',
     'How do I add it?':
         'Kako ga dodati?',
     'Siri':
         'Siri',
     'Say “Hey Siri, LogMyDrink now” and Siri logs your favourite, then tells you where your peak is heading.':
-        'Reci „Hey Siri, LogMyDrink now” i Siri će unijeti tvoje omiljeno piće te reći kamo ide tvoj vrhunac.',
+        'Reci „Hey Siri, LogMyDrink now” i Siri će zabilježiti tvoje omiljeno piće te ti reći kakav vrhunac možeš očekivati. (Naredba radi na engleskom.)',
     'Looking back':
         'Pogled unatrag',
     '“Yesterday” at the top of Live takes you to the previous day in one tap; the History tab shows your patterns over weeks, months and years.':
-        '„Jučer” na vrhu zaslona Uživo jednim te dodirom vodi na prethodni dan; kartica Povijest prikazuje tvoje obrasce kroz tjedne, mjesece i godine.',
+        '„Jučer” na vrhu zaslona Uživo te jednim dodirom vodi na prethodni dan; kartica Povijest prikazuje tvoje obrasce kroz tjedne, mjesece i godine.',
     'Logging later':
-        'Naknadni unos',
+        'Naknadno bilježenje',
     'If you log a drink after the fact, set the time back with the − and + buttons; a missed day can be filled in from the Day view in History.':
-        'Ako piće unosiš naknadno, vrati vrijeme gumbima − i +; propušteni dan možeš dopuniti u prikazu Dan u Povijesti.',
+        'Ako piće bilježiš naknadno, vrati vrijeme unatrag gumbima − i +; propušteni dan možeš dopuniti u prikazu Dan u Povijesti.',
     'One tap and done':
         'Jedan dodir i gotovo',
     'Your favourite from the Lock Screen':
@@ -450,13 +450,13 @@ TRANSLATIONS = {
     'See your patterns':
         'Pogledaj svoje obrasce',
     'Set what you drink most often and log it with a single tap.':
-        'Postavi što najčešće piješ i unesi to jednim dodirom.',
+        'Postavi što najčešće piješ i bilježi to jednim dodirom.',
     'One tap on the widget logs your favourite, no searching for the app. In the evening it shows your level too.':
-        'Jedan dodir widgeta unosi tvoje omiljeno piće, bez traženja aplikacije. Navečer prikazuje i tvoju razinu.',
+        'Jedan dodir widgeta bilježi tvoje omiljeno piće, bez traženja aplikacije. Navečer prikazuje i tvoju razinu.',
     '“Hey Siri, LogMyDrink now” — Siri logs your favourite and tells you where your peak is heading.':
-        '„Hey Siri, LogMyDrink now” – Siri unosi tvoje omiljeno piće i kaže kamo ide tvoj vrhunac.',
+        '„Hey Siri, LogMyDrink now” – Siri bilježi tvoje omiljeno piće i kaže ti kakav vrhunac možeš očekivati.',
     'History shows how much and how high you drink over weeks, months and years, and which way it is changing.':
-        'Povijest prikazuje koliko i koliko visoko piješ kroz tjedne, mjesece i godine te u kojem se smjeru to mijenja.',
+        'Povijest prikazuje koliko i do koje razine piješ kroz tjedne, mjesece i godine te u kojem se smjeru to mijenja.',
     'Set favourite':
         'Postavi omiljeno',
     'Add widget':
@@ -464,7 +464,7 @@ TRANSLATIONS = {
     'Got it':
         'Razumijem',
     'Open History':
-        'Otvori povijest',
+        'Otvori Povijest',
     'Don’t show again':
         'Ne prikazuj više',
     'Lock Screen':
@@ -474,19 +474,19 @@ TRANSLATIONS = {
     'Where':
         'Gdje',
     'Lock your phone, then touch and hold the Lock Screen.':
-        'Zaključaj iPhone pa zadrži prst na zaključanom zaslonu.',
+        'Zaključaj iPhone, zatim dodirni i drži zaključani zaslon.',
     'Tap Customize, then Lock Screen, then the widget row under the clock.':
         'Dodirni Prilagodi, zatim Zaključani zaslon pa red widgeta ispod sata.',
     'Choose LogMyDrink, then tap Done.':
-        'Odaberi LogMyDrink i dodirni Gotovo.',
+        'Odaberi LogMyDrink i dodirni U redu.',
     'Touch and hold an empty area of the Home Screen until the icons jiggle.':
-        'Zadrži prst na praznom dijelu početnog zaslona dok se ikone ne počnu tresti.',
+        'Dodirni i drži prazan dio početnog zaslona dok ikone ne počnu titrati.',
     'Tap Edit, then Add Widget.':
         'Dodirni Uredi pa Dodaj widget.',
     'Search for LogMyDrink, pick a size and tap Add Widget.':
         'Potraži LogMyDrink, odaberi veličinu i dodirni Dodaj widget.',
     'A tap on the widget opens the app and logs your favourite drink. While there is alcohol in your system, it also shows your level and which way it is going.':
-        'Dodir widgeta otvara aplikaciju i unosi tvoje omiljeno piće. Dok imaš alkohola u tijelu, prikazuje i tvoju razinu i njezin smjer.',
+        'Dodir widgeta otvara aplikaciju i bilježi tvoje omiljeno piće. Dok imaš alkohola u tijelu, prikazuje i tvoju razinu i njezin smjer.',
     'Add the widget':
         'Dodaj widget',
     'Show tips':

@@ -14,7 +14,7 @@ TRANSLATIONS = {
     # --- DrinkCatalog: drink types ---
     "Beer": "Beoir",
     "Wine": "Fíon",
-    "Champagne": "Súilíneach",
+    "Champagne": "Seaimpéin",
     "Shot": "Shot",
     "Cocktail": "Manglam",
     "Custom": "Saincheaptha",
@@ -32,13 +32,13 @@ TRANSLATIONS = {
     "Slow absorption, lower and later peak.": "Ionsú mall, buaic níos ísle agus níos déanaí.",
 
     # --- DrinkingFrequency ---
-    "Rarely": "Is annamh",
+    "Rarely": "Go hannamh",
     "A few times a month": "Cúpla uair sa mhí",
     "Several times a week": "Roinnt uaireanta sa tseachtain",
     "Almost daily": "Beagnach gach lá",
     "A few occasions a year": "Cúpla ócáid sa bhliain",
     "Social drinking": "Ól sóisialta",
-    "Weekly routine": "Gnás seachtainiúil",
+    "Weekly routine": "Gnáthamh seachtainiúil",
     "Daily or nearly daily": "Gach lá nó beagnach gach lá",
 
     # --- BACChartView: chart axis and series labels (VoiceOver reads these) ---
@@ -61,7 +61,7 @@ TRANSLATIONS = {
 
     # --- Live screen: the day with nothing on it ---
     "Live": "Beo",
-    "Nothing logged today": "Níor logáladh aon rud inniu",
+    "Nothing logged today": "Níor cláraíodh aon rud inniu",
     "Add a drink when you have one.": "Cuir deoch leis nuair a bhíonn ceann agat.",
 
     # --- Tabs and history ---
@@ -69,7 +69,7 @@ TRANSLATIONS = {
     "No past sessions yet": "Níl aon seisiún caite ann fós",
     "A session appears here once it has ended — when your level has cleared and a few hours "
     "have passed.":
-        "Taispeántar seisiún anseo a luaithe atá deireadh leis — nuair atá do leibhéal glanta "
+        "Taispeántar seisiún anseo a luaithe is a bhíonn deireadh leis — nuair atá do leibhéal glanta "
         "agus cúpla uair an chloig imithe thart.",
     "%@ drinks": "Deochanna: %@",
     "peak": "buaic",
@@ -97,7 +97,7 @@ TRANSLATIONS = {
     "Save changes": "Sábháil na hathruithe",
     "With this": "Leis an gceann seo",
     "Delete": "Scrios",
-    "tap to edit · swipe to delete": "tapáil chun eagrú · svaidhpeáil chun scriosadh",
+    "tap to edit · swipe to delete": "tapáil le cur in eagar · svaidhpeáil le scriosadh",
 
     # --- Drinking pace ---
     "How fast": "Cé chomh tapa",
@@ -155,7 +155,7 @@ TRANSLATIONS = {
     "Drinking frequency": "Minicíocht óil",
     "How often do you drink?": "Cé chomh minic a ólann tú?",
     "This is how we estimate your elimination rate. Regular drinking induces the liver's CYP2E1 pathway, so frequent drinkers clear alcohol faster. It is the weakest point of the model, which is why you can set under Display & language how much of that uncertainty the app shows you.":
-        "Seo mar a dhéanaimid do ráta glanta a mheas. Spreagann ól rialta conair CYP2E1 an ae, agus mar sin glanann daoine a ólann go minic alcól níos tapúla. Seo an pointe is laige sa tsamhail, agus sin an fáth gur féidir leat a shocrú faoi Taispeáint agus teanga cé mhéad den éiginnteacht sin a thaispeánann an aip duit.",
+        "Seo mar a dhéanaimid do ráta glanta a mheas. Spreagann ól rialta conair CYP2E1 an ae, agus mar sin glanann daoine a ólann go minic alcól níos tapúla. Seo an pointe is laige sa tsamhail, agus sin an fáth gur féidir leat a shocrú sa rannán Taispeáint agus teanga cé mhéad den éiginnteacht sin a thaispeánann an aip duit.",
     "Your limit": "Do theorainn",
     "Your own reference number, not a legal limit. The app tells you when a planned drink "
     "would take you past it, and for how long you would stay above.":
@@ -182,25 +182,25 @@ TRANSLATIONS = {
         "beagnach aon leibhéal. Sin an fáth a bhfuil rialacha ordóige ar nós “deoch amháin san "
         "uair” ann ar chor ar bith.",
     "At this setting, %@ takes about %@ to clear. Almost everyone falls between %@ per hour.":
-        "Leis an socrú seo, glanann %@ i gceann thart ar %@. Titeann beagnach gach duine idir "
+        "Leis an socrú seo, glanann %@ i gceann thart ar %@. Bíonn beagnach gach duine idir "
         "%@ in aghaidh na huaire.",
     "How to find yours": "Conas do cheann féin a aimsiú",
-    "With a breathalyser": "Le hanálaitheoir",
+    "With a breathalyser": "Le hanáileadán",
     "Blow twice, at least an hour apart, on the falling side — two hours or more after your "
     "last drink, with nothing in between. Subtract the second reading from the first and "
     "divide by the hours between them.":
         "Séid faoi dhó, uair an chloig ar a laghad eatarthu, ar an taobh íslitheach — dhá uair "
-        "an chloig nó níos mó tar éis do dheoch dheireanach, gan aon rud eatarthu. Bain an "
+        "an chloig nó níos mó ón deoch dheireanach, gan aon rud a ól eatarthu. Bain an "
         "dara léamh ón gcéad cheann agus roinn ar líon na n-uaireanta eatarthu.",
     "For example %@ and %@ two hours later works out to %@ per hour.":
         "Mar shampla, %@ agus ansin %@ dhá uair an chloig ina dhiaidh sin: sin %@ in aghaidh "
         "na huaire.",
-    "Without one": "Gan ceann",
+    "Without one": "Gan anáileadán",
     "The app tells you when it expects you to clear. If you are reliably back to normal well "
     "before that, your rate is higher than the setting — nudge it up a step and watch for a "
     "few sessions. If it takes longer than predicted, nudge it down.":
         "Insíonn an aip duit cathain a bhfuil sí ag súil go nglanfaidh tú. Má bhíonn tú ar ais "
-        "mar is gnách go hiontaofa i bhfad roimhe sin, tá do ráta níos airde ná an socrú — "
+        "i do ghnáthstaid go seasta i bhfad roimhe sin, tá do ráta níos airde ná an socrú — "
         "ardaigh céim amháin é agus coinnigh súil air ar feadh cúpla seisiún. Má thógann sé "
         "níos faide ná mar a tuaradh, ísligh céim amháin é.",
     "What moves it": "Cad a athraíonn é",
@@ -239,7 +239,7 @@ TRANSLATIONS = {
     "before records": "roimh thús na dtaifead",
     "See further back": "Féach níos faide siar",
     "Weeks, months and years side by side — and every evening older than seven days.": "Seachtainí, míonna agus blianta taobh le taobh – agus gach oíche níos sine ná seacht lá.",
-    "Everything you have logged is already saved. Unlocking only shows it.": "Tá gach rud a logáil tú sábháilte cheana féin. Ní dhéanann an díghlasáil ach é a thaispeáint.",
+    "Everything you have logged is already saved. Unlocking only shows it.": "Tá gach rud a chláraigh tú sábháilte cheana féin. Ní dhéanann an díghlasáil ach é a thaispeáint.",
     "Coming soon": "Ag teacht go luath",
     "Today": "Inniu",
     "Day": "Lá",
@@ -247,8 +247,8 @@ TRANSLATIONS = {
     "No drinks on this day": "Gan deochanna an lá seo",
     "Trend": "Treocht",
     "day": "lá",
-    "Smoothing": "Smúdáil",
-    "%@ sessions": "%@ ócáid",
+    "Smoothing": "Mínú",
+    "%@ sessions": "%@ seisiún",
     "No data before %@": "Gan sonraí roimh %@",
     "vs.": "i gcomparáid le",
     "Grams": "Graim",
@@ -272,13 +272,13 @@ TRANSLATIONS = {
     "Their own limit and the finer settings can be changed later on the Profile tab, while "
     "they are the selected person.":
         "Is féidir a dteorainn féin agus na socruithe míne a athrú níos déanaí ar an gcluaisín "
-        "Próifíl, fad is iad an duine roghnaithe.",
+        "Próifíl, fad is atá an duine sin roghnaithe.",
 
     # --- FavouriteDrinkSection and QuickAddBar: the one-tap usual ---
     "Quick add": "Mearchur",
-    "Choose a favourite drink": "Roghnaigh deoch is fearr leat",
+    "Choose a favourite drink": "Roghnaigh an deoch is fearr leat",
     "Pick the drink you usually order, and a button on the Live screen will log it in one tap.":
-        "Roghnaigh an deoch a ordaíonn tú de ghnáth, agus logálfaidh cnaipe ar an scáileán Beo "
+        "Roghnaigh an deoch a ordaíonn tú de ghnáth, agus cláróidh cnaipe ar an scáileán Beo "
         "í le tapáil amháin.",
     "This is your quick-add drink": "Seo do dheoch mhearchuir",
     "Set as my quick-add drink": "Socraigh mar mo dheoch mhearchuir",
@@ -286,11 +286,11 @@ TRANSLATIONS = {
     "Remove favourite": "Bain an deoch is fearr leat",
     "Always add this one": "Cuir an ceann seo leis i gcónaí",
     "Logs it straight away, without opening anything.":
-        "Logálann sé láithreach é, gan aon rud a oscailt.",
+        "Cláraíonn sé láithreach é, gan aon rud a oscailt.",
     "One tap on the Live screen logs this, with the projected peak on the button. How full "
     "your stomach is comes from the drink before it, and can be corrected straight after.":
-        "Logálann tapáil amháin ar an scáileán Beo é seo, agus an bhuaic mheasta ar an "
-        "gcnaipe. Tagann an méid atá i do ghoile ón deoch roimhe, agus is féidir é a cheartú "
+        "Cláraíonn tapáil amháin ar an scáileán Beo é seo, agus an bhuaic mheasta ar an "
+        "gcnaipe. Tagann cé chomh lán is atá do ghoile ón deoch roimhe, agus is féidir é a cheartú "
         "díreach ina dhiaidh sin.",
     "Peak %@": "Buaic %@",
     "%@ added": "%@ curtha leis",
@@ -316,7 +316,7 @@ TRANSLATIONS = {
     "Language": "Teanga",
     "Opens this app in Settings, where “Preferred Language” sets the app's own language — the "
     "system's stays as it is. iOS restarts the app when you change it.":
-        "Osclaíonn sé seo an aip seo sna Socruithe, áit a socraíonn “Teanga Roghnaithe” teanga "
+        "Osclaíonn sé an aip seo in Settings, áit a shocraíonn “Preferred Language” teanga "
         "na haipe féin — fanann teanga an chórais mar atá. Atosaíonn iOS an aip nuair a "
         "athraíonn tú í.",
 
@@ -340,7 +340,7 @@ TRANSLATIONS = {
     'A dry month': 'Mí thirim',
 
     # --- RemovePersonSection ---
-    'Remove %@?': 'Bain %@?',
+    'Remove %@?': '%@ a bhaint?',
     'Remove': 'Bain',
     'Deletes %@ occasions, %@ drinks and %@ monthly totals. This cannot be undone.':
         'Scriosann sé %@ ócáid, %@ deoch agus %@ iomlán míosúil. Ní féidir é seo a chealú.',
@@ -351,13 +351,13 @@ TRANSLATIONS = {
         'Svaidhpeáil ar chlé ar aoi chun é a bhaint le gach rud a taifeadadh faoi. Ní féidir tusa a bhaint.',
     'People': 'Daoine',
     'Owner': 'Úinéir',
-    'Everyone this app records. Switch, add, or remove someone.': 'Gach duine a thaifeadann an aip seo. Athraigh, cuir leis nó bain duine.',
+    'Everyone this app records. Switch, add, or remove someone.': 'Gach duine atá á thaifeadadh ag an aip seo. Athraigh, cuir leis nó bain duine.',
     # --- Day window (5.22) ---
     "Carried over from the night before": 'Tugtha anall ón oíche roimhe',
     # --- History, second card (5.24) ---
     'Calories': 'Calraí',
-    'Sessions': 'Ócáidí',
-    'Per session': 'In aghaidh na hócáide',
+    'Sessions': 'Seisiúin',
+    'Per session': 'In aghaidh an tseisiúin',
     'Under the influence': 'Faoi thionchar',
     '%@ of the time': '%@ den am',
     'Days over limit': 'Laethanta os cionn na teorann',
@@ -369,7 +369,7 @@ TRANSLATIONS = {
     "Data": "Sonraí",
     "Concentration": "Tiúchan",
     "Leave the rate to the frequency question unless you have a measurement to match it against.":
-        "Fág an ráta faoin gceist faoi mhinicíocht, mura bhfuil tomhas agat le hé a chur i gcomparáid leis.",
+        "Fág an ráta faoin gceist faoi mhinicíocht, mura bhfuil tomhas agat lena chur i gcomparáid leis.",
 
     # --- How it works, estimate badge, launch tips ---
     'Estimate, not a measurement. Never use this to decide whether you can drive.':
@@ -389,29 +389,29 @@ TRANSLATIONS = {
     'LogMyDrink helps you drink more mindfully and stay in control. The decision happens before the next glass, so the app shows you in advance where another drink would take your level, and when it would peak.':
         'Cabhraíonn LogMyDrink leat ól ar bhealach níos feasaí agus smacht a choinneáil. Déantar an cinneadh roimh an gcéad ghloine eile, mar sin taispeánann an aip roimh ré cá dtabharfadh deoch eile do leibhéal agus cathain a bheadh sé ag a bhuaic.',
     'But it is not only about tonight. Every drink you log goes into your History, so over months and years you can see how much, how often and how high you drink. Your patterns emerge from it, and so does the direction they are moving in — whether things are getting better or worse.':
-        'Ach ní bhaineann sé leis an oíche anocht amháin. Téann gach deoch a chláraíonn tú isteach i do Stair, mar sin thar mhíonna agus bhlianta feiceann tú cé mhéad, cé chomh minic agus cé chomh hard a ólann tú. Tagann do phatrúin chun solais as sin, chomh maith leis an treo ina bhfuil siad ag bogadh – an bhfuil cúrsaí ag feabhsú nó ag dul in olcas.',
+        'Ach ní bhaineann sé leis an oíche anocht amháin. Téann gach deoch a chláraíonn tú isteach i do Stair, mar sin thar mhíonna agus bhlianta feiceann tú cé mhéad a ólann tú, cé chomh minic agus cé chomh hard is a théann do leibhéal. Tagann do phatrúin chun solais as sin, chomh maith leis an treo ina bhfuil siad ag bogadh – an bhfuil cúrsaí ag feabhsú nó ag dul in olcas.',
     'How it calculates':
         'Conas a ríomhann sí',
     'The estimate builds on the Widmark method, used to estimate blood alcohol since the 1930s; the app runs a refined version of it.':
-        'Tá an meastachán bunaithe ar mhodh Widmark, a úsáidtear ó na 1930idí chun alcól san fhuil a mheas; úsáideann an aip leagan scagtha de.',
+        'Tá an meastachán bunaithe ar mhodh Widmark, a úsáidtear ó na 1930idí chun alcól san fhuil a mheas; úsáideann an aip leagan beachtaithe de.',
     'From your weight, height, age and sex it works out how much water your body holds, because that is where alcohol spreads. It follows every drink separately: how much alcohol it had, how fast you drank it, and how much you had eaten, because that sets how quickly it is absorbed.':
         'Ó do mheáchan, d’airde, d’aois agus do ghnéas ríomhann sí cé mhéad uisce atá i do chorp, mar is ann a scaipeann an t-alcól. Leanann sí gach deoch ar leith: cé mhéad alcóil a bhí inti, cé chomh tapa a d’ól tú í agus cé mhéad a bhí ite agat, mar socraíonn sé sin cé chomh tapa a ionsúitear í.',
     'Meanwhile your liver breaks down a roughly constant amount every hour; how much in your case is estimated from how often you drink. The result is a curve, minute by minute: where you are now, where you are heading, and when you will be clear.':
-        'Idir an dá linn, briseann d’ae síos méid atá thart ar sheasmhach gach uair an chloig; meastar do mhéid féin ón minicíocht a ólann tú. Is é an toradh cuar, nóiméad ar nóiméad: cá bhfuil tú anois, cá bhfuil tú ag dul agus cathain a bheidh tú ar ais ag nialas.',
+        'Idir an dá linn, briseann d’ae síos méid atá thart ar sheasmhach gach uair an chloig; meastar do mhéid féin as cé chomh minic a ólann tú. Is é an toradh cuar, nóiméad ar nóiméad: cá bhfuil tú anois, cá bhfuil tú ag dul agus cathain a bheidh tú ar ais ag nialas.',
     'Details':
         'Sonraí',
     'Body water':
         'Uisce coirp',
     'The Watson formula (1980), from weight, height, age and sex. The female formula has no age term — a property of the formula, not a bug. The distribution volume is body water divided by 0.85, the water content of blood.':
-        'Foirmle Watson (1980), ó mheáchan, airde, aois agus gnéas. Níl aois i bhfoirmle na mban – airí den fhoirmle é sin, ní fabht. Is é an toirt dáilte an t-uisce coirp roinnte ar 0.85, cion uisce na fola.',
+        'Foirmle Watson (1980), ó mheáchan, airde, aois agus gnéas. Níl aois i bhfoirmle na mban – airí den fhoirmle é sin, ní fabht. Is é an toirt dáileacháin an t-uisce coirp roinnte ar 0.85, cion uisce na fola.',
     'Absorption':
         'Ionsú',
     'Every drink has its own “stomach”. On an empty stomach half of the alcohol is absorbed in about 7 minutes, on a full one in about 21. A drink you sip enters the stomach evenly over the time you drink it.':
-        'Tá a “goile” féin ag gach deoch. Ar ghoile folamh ionsúitear leath an alcóil i thart ar 7 nóiméad, ar ghoile lán i thart ar 21. Téann deoch a bhíonn tú a sú isteach sa ghoile go cothrom fad is atá tú á hól.',
+        'Tá a “goile” féin ag gach deoch. Ar ghoile folamh ionsúitear leath an alcóil i gceann thart ar 7 nóiméad, ar ghoile lán i gceann thart ar 21. Má ólann tú deoch ina bolgaimí beaga, téann sí isteach sa ghoile go cothrom fad is atá tú á hól.',
     'Gives a lower peak and an earlier clear time. Surprising, but measured: with food the stomach breaks down part of the alcohol before it is absorbed (the app uses 5, 10 and 15 percent), and what never got in does not need to be broken down.':
-        'Tugann sé buaic níos ísle agus nialas níos luaithe. Ionadh, ach tomhaiste: le bia briseann an goile cuid den alcól síos sula n-ionsúitear é (úsáideann an aip 5, 10 agus 15 faoin gcéad), agus ní gá an méid nár tháinig isteach riamh a bhriseadh síos.',
+        'Tugann sé buaic níos ísle agus am glanta níos luaithe. Is ionadh é, ach tá sé tomhaiste: le bia briseann an goile cuid den alcól síos sula n-ionsúitear é (úsáideann an aip 5, 10 agus 15 faoin gcéad), agus ní gá an méid nár tháinig isteach riamh a bhriseadh síos.',
     'Elimination':
-        'Díothú',
+        'Glanadh',
     'About 0.15 ‰ per hour (published range 0.10–0.25), higher in regular drinkers as liver enzymes adapt. Close to zero it slows down (Michaelis–Menten kinetics), so the curve tapers off instead of stopping abruptly.':
         'Thart ar 0.15 ‰ san uair (raon foilsithe 0.10–0.25), níos airde i measc daoine a ólann go rialta toisc go n-oiriúnaíonn einsímí an ae. Gar do nialas moillíonn sé (cinéitic Michaelis–Menten), mar sin éiríonn an cuar níos réidhe in ionad stopadh go tobann.',
     'Computation':
@@ -421,17 +421,17 @@ TRANSLATIONS = {
     'Why it is only an estimate':
         'Cén fáth nach bhfuil ann ach meastachán',
     'The app measures nothing. What it shows is the output of a model using average values, and reality can differ. The biggest unknown is how fast you break alcohol down: within the plausible range, that alone can move the peak by 40 percent and the clear time by four hours on the same evening.':
-        'Ní thomhaiseann an aip aon rud. Is é an rud a thaispeánann sí toradh múnla a úsáideann meánluachanna, agus d’fhéadfadh an réaltacht a bheith difriúil. Is é an rud is mó nach eol cé chomh tapa a bhriseann tú alcól síos: laistigh den raon sochreidte, d’fhéadfadh sé sin leis féin an bhuaic a bhogadh 40 faoin gcéad agus an nialas ceithre huaire an chloig ar an oíche chéanna.',
+        'Ní thomhaiseann an aip aon rud. Is é an rud a thaispeánann sí toradh múnla a úsáideann meánluachanna, agus d’fhéadfadh an réaltacht a bheith difriúil. Is é an rud is mó nach eol ná cé chomh tapa a bhriseann tú alcól síos: laistigh den raon sochreidte, d’fhéadfadh sé sin leis féin an bhuaic a bhogadh 40 faoin gcéad agus an t-am glanta a bhogadh ceithre huaire an chloig ar an oíche chéanna.',
     'Genetics, liver health, medication, what you ate, sleep and tiredness matter too — the app knows none of these. Only a certified breathalyser or a blood test gives an exact value.':
         'Bíonn tionchar ag géineolaíocht, sláinte an ae, cógais, an bia a d’ith tú, codladh agus tuirse freisin – níl aon cheann díobh sin ar eolas ag an aip. Ní thugann ach anáileadán deimhnithe nó tástáil fola luach beacht.',
     'The number is still useful. If the app reads consistently a little high or low for you, it is off in the same direction every evening, so over time you learn what a given value means for you. In Profile you can also show the uncertainty of the elimination rate: you then see a range instead of a single number.':
-        'Tá an uimhir úsáideach mar sin féin. Má léann an aip beagán ró-ard nó ró-íseal duit go comhsheasmhach, bíonn sí mícheart sa treo céanna gach oíche, mar sin le himeacht ama foghlaimíonn tú cad a chiallaíonn luach áirithe duitse. I bPróifíl is féidir leat éiginnteacht an ráta díothaithe a thaispeáint freisin: feicfidh tú raon ansin in ionad uimhir amháin.',
+        'Tá an uimhir úsáideach mar sin féin. Má léann an aip beagán ró-ard nó ró-íseal duit go comhsheasmhach, bíonn sí mícheart sa treo céanna gach oíche, mar sin le himeacht ama foghlaimíonn tú cad a chiallaíonn luach áirithe duitse. I bPróifíl is féidir leat éiginnteacht an ráta glanta a thaispeáint freisin: feicfidh tú raon ansin in ionad uimhir amháin.',
     'Tips':
         'Leideanna',
     'Favourite drink in one tap':
-        'Deoch is fearr leat le tapáil amháin',
+        'An deoch is fearr leat le tapáil amháin',
     'Set a favourite in Profile and the Live button logs it with a single tap.':
-        'Socraigh deoch is fearr leat i bPróifíl agus cláróidh an cnaipe ar Beo í le tapáil amháin.',
+        'Socraigh deoch is fearr leat i bPróifíl agus cláróidh an cnaipe ar an scáileán Beo í le tapáil amháin.',
     'Widget':
         'Giuirléid',
     'Add it to your Lock Screen or Home Screen: one tap logs your favourite. While there is alcohol in your system, it also shows your level and which way it is going.':
@@ -441,15 +441,15 @@ TRANSLATIONS = {
     'Siri':
         'Siri',
     'Say “Hey Siri, LogMyDrink now” and Siri logs your favourite, then tells you where your peak is heading.':
-        'Abair “Hey Siri, LogMyDrink now” agus cláróidh Siri an deoch is fearr leat, agus inseoidh sí duit cá bhfuil do bhuaic ag dul.',
+        'Abair “Hey Siri, LogMyDrink now” agus cláróidh Siri an deoch is fearr leat, agus inseoidh sí duit cá bhfuil do bhuaic ag dul. (Oibríonn an t-ordú i mBéarla.)',
     'Looking back':
         'Ag féachaint siar',
     '“Yesterday” at the top of Live takes you to the previous day in one tap; the History tab shows your patterns over weeks, months and years.':
-        'Tugann “Inné” ag barr Beo chuig an lá roimhe tú le tapáil amháin; taispeánann an cluaisín Stair do phatrúin thar sheachtainí, mhíonna agus bhlianta.',
+        'Tugann “Inné” ag barr an scáileáin Beo chuig an lá roimhe tú le tapáil amháin; taispeánann an cluaisín Stair do phatrúin thar sheachtainí, mhíonna agus bhlianta.',
     'Logging later':
         'Clárú níos déanaí',
     'If you log a drink after the fact, set the time back with the − and + buttons; a missed day can be filled in from the Day view in History.':
-        'Má chláraíonn tú deoch ina dhiaidh sin, cuir an t-am siar leis na cnaipí − agus +; is féidir lá a cailleadh a líonadh ón amharc Lá sa Stair.',
+        'Má chláraíonn tú deoch níos déanaí, cuir an t-am siar leis na cnaipí − agus +; is féidir lá a cailleadh a líonadh ón amharc Lá sa Stair.',
     'One tap and done':
         'Tapáil amháin agus déanta',
     'Your favourite from the Lock Screen':
@@ -459,13 +459,13 @@ TRANSLATIONS = {
     'See your patterns':
         'Féach ar do phatrúin',
     'Set what you drink most often and log it with a single tap.':
-        'Socraigh cad a ólann tú is minice agus cláraigh é le tapáil amháin.',
+        'Socraigh an deoch is minice a ólann tú agus cláraigh í le tapáil amháin.',
     'One tap on the widget logs your favourite, no searching for the app. In the evening it shows your level too.':
         'Cláraíonn tapáil amháin ar an ngiuirléid an deoch is fearr leat, gan an aip a chuardach. San oíche taispeánann sí do leibhéal freisin.',
     '“Hey Siri, LogMyDrink now” — Siri logs your favourite and tells you where your peak is heading.':
         '“Hey Siri, LogMyDrink now” – cláraíonn Siri an deoch is fearr leat agus insíonn sí duit cá bhfuil do bhuaic ag dul.',
     'History shows how much and how high you drink over weeks, months and years, and which way it is changing.':
-        'Taispeánann an Stair cé mhéad agus cé chomh hard a ólann tú thar sheachtainí, mhíonna agus bhlianta, agus cén treo ina bhfuil sé ag athrú.',
+        'Taispeánann an Stair cé mhéad a ólann tú agus cé chomh hard is a théann do leibhéal thar sheachtainí, mhíonna agus bhlianta, agus cén treo ina bhfuil sé ag athrú.',
     'Set favourite':
         'Socraigh an ceann is fearr leat',
     'Add widget':
@@ -483,7 +483,7 @@ TRANSLATIONS = {
     'Where':
         'Cá háit',
     'Lock your phone, then touch and hold the Lock Screen.':
-        'Glasáil do iPhone, ansin coinnigh do mhéar ar an Scáileán Glasála.',
+        'Glasáil d’fhón, ansin coinnigh do mhéar ar an Scáileán Glasála.',
     'Tap Customize, then Lock Screen, then the widget row under the clock.':
         'Tapáil Customize, ansin Lock Screen, ansin an tsraith giuirléidí faoin gclog.',
     'Choose LogMyDrink, then tap Done.':
@@ -501,5 +501,5 @@ TRANSLATIONS = {
     'Show tips':
         'Taispeáin leideanna',
     'One tip a day at most, when you open the app — never while there is alcohol in your system.':
-        'Leid amháin sa lá ar a mhéad, nuair a osclaíonn tú an aip – riamh fad is atá alcól i do chorp.',
+        'Leid amháin sa lá ar a mhéad, nuair a osclaíonn tú an aip – ach ní fad is atá alcól i do chorp.',
 }

@@ -24,7 +24,7 @@ TRANSLATIONS = {
     "Moderately full": "Vidēji pilns",
     "Full stomach": "Pilns kuņģis",
     "Empty": "Tukšs",
-    "Moderate": "Vidēji",
+    "Moderate": "Vidējs",
     "Full": "Pilns",
     "Fast absorption, higher and earlier peak.":
         "Ātra uzsūkšanās, augstāks un agrāks maksimums.",
@@ -46,8 +46,8 @@ TRANSLATIONS = {
     "Level": "Līmenis",
     "Lower": "Zemākais",
     "Upper": "Augstākais",
-    "Lower estimate": "Zemākais novērtējums",
-    "Upper estimate": "Augstākais novērtējums",
+    "Lower estimate": "Zemākā aplēse",
+    "Upper estimate": "Augstākā aplēse",
     "Personal limit": "Personīgā robeža",
     "Drink": "Dzēriens",
 
@@ -69,7 +69,7 @@ TRANSLATIONS = {
     "No past sessions yet": "Vēl nav iepriekšējo reižu",
     "A session appears here once it has ended — when your level has cleared and a few hours "
     "have passed.":
-        "Reize šeit parādās, kad tā ir beigusies — kad tavs līmenis ir nokrities līdz nullei "
+        "Reize šeit parādās, kad tā ir beigusies – kad tavs līmenis ir nokrities līdz nullei "
         "un pagājušas dažas stundas.",
     "%@ drinks": "Dzērieni: %@",
     "peak": "maksimums",
@@ -101,13 +101,13 @@ TRANSLATIONS = {
 
     # --- Drinking pace ---
     "How fast": "Cik ātri",
-    "In one go": "Vienā paņēmienā",
+    "In one go": "Vienā rāvienā",
     "Counts as a single swallow — the steepest possible rise.":
-        "Tiek uzskatīts par vienu malku — visstraujākais iespējamais kāpums.",
+        "Tiek uzskatīts par vienu malku – visstraujākais iespējamais kāpums.",
     "A quick drink. The level climbs fast.": "Ātri izdzerts. Līmenis strauji kāpj.",
     "A normal pace.": "Parasts temps.",
     "Nursed slowly. Much gentler climb for the same alcohol.":
-        "Lēni izbaudīts. Daudz maigāks kāpums pie tāda paša alkohola daudzuma.",
+        "Lēni izbaudīts. Daudz lēzenāks kāpums ar tādu pašu alkohola daudzumu.",
 
     # --- AddDrinkSheet ---
     "Cancel": "Atcelt",
@@ -116,10 +116,10 @@ TRANSLATIONS = {
     "Peak at": "Maksimums plkst.",
     "Clears": "Izvadīts",
     "This would cross your limit": "Šis pārsniegtu tavu robežu",
-    "Around %@, for up to %@.": "Aptuveni %@, līdz pat %@.",
+    "Around %@, for up to %@.": "Aptuveni %@, ne ilgāk kā %@.",
     "This might cross your limit": "Šis varētu pārsniegt tavu robežu",
     "With slower metabolism yes, with faster no. That's the uncertainty of the estimate.":
-        "Ar lēnāku vielmaiņu — jā, ar ātrāku — nē. Tāda ir šī novērtējuma nenoteiktība.",
+        "Ar lēnāku vielmaiņu – jā, ar ātrāku – nē. Tāda ir šīs aplēses nenoteiktība.",
     "Type": "Veids",
     "Amount": "Daudzums",
     "Strength": "Stiprums",
@@ -143,18 +143,18 @@ TRANSLATIONS = {
     "Body": "Ķermenis",
     "Total body water comes from the Watson equations, which set the volume alcohol "
     "distributes into.":
-        "Kopējais ķermeņa ūdens tiek aprēķināts pēc Watson vienādojumiem, kas nosaka tilpumu, "
+        "Kopējais ķermeņa ūdens tiek aprēķināts pēc Vatsona vienādojumiem, kas nosaka tilpumu, "
         "kurā alkohols izkliedējas.",
     "Total body water comes from the Watson equations, which set the volume alcohol "
     "distributes into. The female equation does not include age, so changing it will not "
     "affect the result.":
-        "Kopējais ķermeņa ūdens tiek aprēķināts pēc Watson vienādojumiem, kas nosaka tilpumu, "
+        "Kopējais ķermeņa ūdens tiek aprēķināts pēc Vatsona vienādojumiem, kas nosaka tilpumu, "
         "kurā alkohols izkliedējas. Sieviešu vienādojumā vecums netiek izmantots, tāpēc tā "
         "maiņa rezultātu neietekmēs.",
     "Drinking frequency": "Dzeršanas biežums",
     "How often do you drink?": "Cik bieži tu dzer?",
     "This is how we estimate your elimination rate. Regular drinking induces the liver's CYP2E1 pathway, so frequent drinkers clear alcohol faster. It is the weakest point of the model, which is why you can set under Display & language how much of that uncertainty the app shows you.":
-        "Šādi mēs novērtējam tavu izvadīšanas ātrumu. Regulāra dzeršana inducē aknu CYP2E1 ceļu, tāpēc biežiem dzērājiem alkohols tiek izvadīts ātrāk. Tas ir modeļa vājākais punkts, un tieši tāpēc sadaļā Attēlojums un valoda tu vari norādīt, cik daudz no šīs nenoteiktības lietotne tev rāda.",
+        "Šādi mēs aplēšam tavu izvadīšanas ātrumu. Regulāra dzeršana inducē aknu CYP2E1 ceļu, tāpēc tiem, kas dzer bieži, alkohols tiek izvadīts ātrāk. Tas ir modeļa vājākais punkts, un tieši tāpēc sadaļā Attēlojums un valoda tu vari norādīt, cik daudz no šīs nenoteiktības lietotne tev rāda.",
     "Your limit": "Tava robeža",
     "Your own reference number, not a legal limit. The app tells you when a planned drink "
     "would take you past it, and for how long you would stay above.":
@@ -163,15 +163,15 @@ TRANSLATIONS = {
     "Calculated values": "Aprēķinātās vērtības",
     "Total body water": "Kopējais ķermeņa ūdens",
     "Distribution volume": "Izkliedes tilpums",
-    "Widmark factor": "Widmark faktors",
+    "Widmark factor": "Vidmarka faktors",
     "The Widmark factor is typically around 0.68 for men and 0.55 for women. If yours is far "
     "from that, it is worth checking the values above.":
-        "Widmark faktors vīriešiem parasti ir ap 0,68, sievietēm — ap 0,55. Ja tavējais no tā "
+        "Vidmarka faktors vīriešiem parasti ir ap 0,68, sievietēm – ap 0,55. Ja tavējais no tā "
         "stipri atšķiras, ir vērts pārbaudīt augstāk norādītās vērtības.",
     "Elimination rate": "Izvadīšanas ātrums",
     "How fast your liver clears alcohol once it has been absorbed — the slope of the falling "
     "side of the curve.":
-        "Cik ātri tavas aknas izvada alkoholu pēc tā uzsūkšanās — līknes krītošās daļas "
+        "Cik ātri tavas aknas izvada alkoholu pēc tā uzsūkšanās – līknes krītošās daļas "
         "slīpums.",
     "Alcohol leaves at a roughly fixed amount per hour rather than a percentage, because the "
     "enzyme that breaks it down already runs at full capacity at almost any level. That is why "
@@ -187,7 +187,7 @@ TRANSLATIONS = {
     "Blow twice, at least an hour apart, on the falling side — two hours or more after your "
     "last drink, with nothing in between. Subtract the second reading from the first and "
     "divide by the hours between them.":
-        "Izpūt divreiz ar vismaz stundas starplaiku līknes krītošajā daļā — divas vai vairāk "
+        "Iepūt divreiz ar vismaz stundas starplaiku līknes krītošajā daļā – divas vai vairāk "
         "stundas pēc pēdējā dzēriena, neko pa vidu nedzerot. Atņem otro rādījumu no pirmā un "
         "izdali ar stundu skaitu starp tiem.",
     "For example %@ and %@ two hours later works out to %@ per hour.":
@@ -197,7 +197,7 @@ TRANSLATIONS = {
     "before that, your rate is higher than the setting — nudge it up a step and watch for a "
     "few sessions. If it takes longer than predicted, nudge it down.":
         "Lietotne norāda, kad paredz, ka alkohols būs izvadīts. Ja tu regulāri esi atpakaļ "
-        "normā krietni ātrāk, tavs ātrums ir lielāks nekā iestatījumā — palielini to par vienu "
+        "normā krietni ātrāk, tavs ātrums ir lielāks nekā iestatījumā – palielini to par vienu "
         "soli un novēro dažas reizes. Ja tas prasa ilgāk, nekā prognozēts, samazini to.",
     "What moves it": "Kas to ietekmē",
     "Regular drinking raises it: the liver enzyme that does the work is induced by use. It "
@@ -205,11 +205,11 @@ TRANSLATIONS = {
     "liver trouble.":
         "Regulāra dzeršana to paaugstina: aknu enzīmu, kas veic šo darbu, inducē pati "
         "lietošana. Sievietēm tas vidēji ir nedaudz augstāks, bet tukšā dūšā vai ar aknu "
-        "problēmām — zemāks.",
+        "problēmām – zemāks.",
     "Uncertainty": "Nenoteiktība",
     "At zero every figure is a single number — the app's best estimate. Above zero the same "
     "figures are shown as ranges, and the band on the chart widens to match.":
-        "Pie nulles katrs rādītājs ir viens skaitlis — lietotnes labākais novērtējums. Virs "
+        "Pie nulles katrs rādītājs ir viens skaitlis – lietotnes labākā aplēse. Virs "
         "nulles tie paši rādītāji tiek rādīti kā diapazoni, un josla diagrammā attiecīgi "
         "paplašinās.",
     "A single number is easier to learn against: over time you find out what your own 0.6 "
@@ -217,7 +217,7 @@ TRANSLATIONS = {
     "Both are defensible — this is your call.":
         "Pēc viena skaitļa ir vieglāk mācīties: laika gaitā tu uzzini, kā jūties tieši pie "
         "savām 0,6. Diapazons ir burtiskāka atbilde, jo ātrums tiešām ir nenoteikts. Abi "
-        "varianti ir pamatoti — izvēle ir tava.",
+        "varianti ir pamatoti – izvēle ir tava.",
     "The spread suggested by your drinking frequency is ± %@ per hour.":
         "Izkliede, ko norāda tavs dzeršanas biežums, ir ± %@ stundā.",
     "Rate": "Ātrums",
@@ -233,9 +233,9 @@ TRANSLATIONS = {
     "Sober days": "Dienas bez alkohola",
     "Change": "Izmaiņas",
     "before records": "pirms ierakstu sākuma",
-    "See further back": "Skatīt tālāk atpakaļ",
+    "See further back": "Skaties tālāk pagātnē",
     "Weeks, months and years side by side — and every evening older than seven days.": "Nedēļas, mēneši un gadi blakus – un katrs vakars, vecāks par septiņām dienām.",
-    "Everything you have logged is already saved. Unlocking only shows it.": "Viss, ko esi ierakstījis, jau ir saglabāts. Atbloķēšana to tikai parāda.",
+    "Everything you have logged is already saved. Unlocking only shows it.": "Viss, ko esi pierakstījis, jau ir saglabāts. Atbloķēšana to tikai parāda.",
     "Coming soon": "Drīzumā",
     "Today": "Šodien",
     "Day": "Diena",
@@ -266,19 +266,19 @@ TRANSLATIONS = {
         "Visi četri maina līkni, tāpēc nevienu no tiem nevar uzminēt cita cilvēka vietā.",
     "Their own limit and the finer settings can be changed later on the Profile tab, while "
     "they are the selected person.":
-        "Viņu pašu robežu un smalkākos iestatījumus vēlāk var mainīt cilnē Profils, kamēr viņi "
+        "Šīs personas robežu un smalkākos iestatījumus vēlāk var mainīt cilnē Profils, kamēr tā "
         "ir izvēlētā persona.",
 
     # --- FavouriteDrinkSection and QuickAddBar: the one-tap usual ---
     "Quick add": "Ātrā pievienošana",
-    "Choose a favourite drink": "Izvēlies iecienītāko dzērienu",
+    "Choose a favourite drink": "Izvēlies iecienīto dzērienu",
     "Pick the drink you usually order, and a button on the Live screen will log it in one tap.":
         "Izvēlies dzērienu, ko parasti pasūti, un poga ekrānā Šobrīd to pierakstīs ar vienu "
         "pieskārienu.",
     "This is your quick-add drink": "Šis ir tavs ātrās pievienošanas dzēriens",
     "Set as my quick-add drink": "Iestatīt kā ātrās pievienošanas dzērienu",
     "This is now your usual": "Tagad šis ir tavs ierastais",
-    "Remove favourite": "Noņemt iecienītāko",
+    "Remove favourite": "Noņemt iecienīto",
     "Always add this one": "Vienmēr pievienot šo",
     "Logs it straight away, without opening anything.": "Pieraksta to uzreiz, neko neatverot.",
     "One tap on the Live screen logs this, with the projected peak on the button. How full "
@@ -287,7 +287,7 @@ TRANSLATIONS = {
         "prognozētais maksimums. Kuņģa pildījums tiek pārņemts no iepriekšējā dzēriena, un to "
         "var izlabot uzreiz pēc tam.",
     "Peak %@": "Maksimums %@",
-    "%@ added": "%@ pievienots",
+    "%@ added": "Pievienots: %@",
     "Save": "Saglabāt",
     "Undo": "Atsaukt",
 
@@ -297,7 +297,7 @@ TRANSLATIONS = {
     "Import a backup": "Importēt dublējumu",
     "A backup holds every person, occasion and drink. Importing adds what is missing — it "
     "never changes or removes anything already here.":
-        "Dublējumā ir visas personas, reizes un dzērieni. Importēšana pievieno trūkstošo — tā "
+        "Dublējumā ir visas personas, reizes un dzērieni. Importēšana pievieno trūkstošo – tā "
         "nekad nemaina un nedzēš neko no jau esošā.",
     "Import this backup?": "Importēt šo dublējumu?",
     "Import": "Importēt",
@@ -309,8 +309,8 @@ TRANSLATIONS = {
     "Language": "Valoda",
     "Opens this app in Settings, where “Preferred Language” sets the app's own language — the "
     "system's stays as it is. iOS restarts the app when you change it.":
-        "Atver šo lietotni sadaļā Iestatījumi, kur „Vēlamā valoda“ nosaka pašas lietotnes "
-        "valodu — sistēmas valoda paliek nemainīga. Kad to maini, iOS lietotni restartē.",
+        "Atver šīs lietotnes sadaļu lietotnē Settings, kur „Preferred Language“ nosaka pašas "
+        "lietotnes valodu – sistēmas valoda paliek nemainīga. Kad to maini, iOS lietotni restartē.",
 
     # --- DataArchive: why a file could not be read ---
     "Could not import": "Neizdevās importēt",
@@ -323,13 +323,13 @@ TRANSLATIONS = {
     # --- History: months known only by total (MonthlyTotal) ---
     'Adds %@ occasions, %@ drinks and %@ monthly totals. Nothing already here is changed or removed.':
         'Tiks pievienotas reizes: %@, dzērieni: %@ un mēneša kopsummas: %@. Nekas no jau esošā netiek mainīts vai dzēsts.',
-    'Added %@ occasions, %@ drinks and %@ monthly totals.': 'Pievienots: %@ reizes, %@ dzērieni un %@ mēneša kopsummas.',
+    'Added %@ occasions, %@ drinks and %@ monthly totals.': 'Pievienotas reizes: %@, dzērieni: %@ un mēneša kopsummas: %@.',
     'months as totals': 'mēneši tikai kā kopsummas',
     'by month only': 'tikai pa mēnešiem',
     'monthly total': 'mēneša kopsumma',
     'No daily records for this day': 'Par šo dienu nav dienas ierakstu',
     'Monthly total: %@': 'Mēneša kopsumma: %@',
-    'A dry month': 'Sauss mēnesis',
+    'A dry month': 'Mēnesis bez alkohola',
 
     # --- RemovePersonSection ---
     'Remove %@?': 'Vai noņemt %@?',
@@ -340,7 +340,7 @@ TRANSLATIONS = {
 
     # --- PeopleView ---
     'Swipe left on a guest to remove them with everything recorded under them. You cannot be removed.':
-        'Pavelc pa kreisi uz viesa, lai noņemtu viņu ar visu, kas ierakstīts zem viņa. Tevi noņemt nevar.',
+        'Pavelc pa kreisi uz viesa, lai noņemtu viņu kopā ar visu, kas par viņu ierakstīts. Tevi noņemt nevar.',
     'People': 'Personas',
     'Owner': 'Īpašnieks',
     'Everyone this app records. Switch, add, or remove someone.': 'Visi, ko šī lietotne ieraksta. Pārslēdz, pievieno vai noņem kādu.',
@@ -353,7 +353,7 @@ TRANSLATIONS = {
     'Under the influence': 'Reibumā',
     '%@ of the time': '%@ laika',
     'Days over limit': 'Dienas virs robežas',
-    'Longest sober run': 'Garākā skaidrā sērija',
+    'Longest sober run': 'Garākais periods bez alkohola',
     'Favourite drink': 'Iecienītākais dzēriens',
 
     # --- Profile sub-pages (5.26) ---
@@ -369,7 +369,7 @@ TRANSLATIONS = {
     'Estimated range, not a measurement. Never use this to decide whether you can drive.':
         'Aplēstais diapazons, nevis mērījums. Nekad neizlem pēc šī, vai drīksti vadīt auto.',
     'How does the app calculate this?':
-        'Kā lietotne aprēķina?',
+        'Kā lietotne to aprēķina?',
     'approximately %@ %@':
         'aptuveni %@ %@',
     'How it works':
@@ -377,11 +377,11 @@ TRANSLATIONS = {
     'Never use this to decide whether you can drive. The app estimates, it does not measure, and your actual level can differ considerably.':
         'Nekad neizlem pēc šī, vai drīksti vadīt auto. Lietotne aplēš, nevis mēra, un tavs patiesais līmenis var būtiski atšķirties.',
     'Why this app exists':
-        'Kāpēc šī lietotne',
+        'Kāpēc radīta šī lietotne',
     'LogMyDrink helps you drink more mindfully and stay in control. The decision happens before the next glass, so the app shows you in advance where another drink would take your level, and when it would peak.':
         'LogMyDrink palīdz dzert apzinātāk un saglabāt kontroli. Lēmums tiek pieņemts pirms nākamās glāzes, tāpēc lietotne iepriekš parāda, kur tavu līmeni aizvestu vēl viens dzēriens un kad tas sasniegtu maksimumu.',
     'But it is not only about tonight. Every drink you log goes into your History, so over months and years you can see how much, how often and how high you drink. Your patterns emerge from it, and so does the direction they are moving in — whether things are getting better or worse.':
-        'Taču runa nav tikai par šo vakaru. Katrs pievienotais dzēriens nonāk vēsturē, tāpēc mēnešu un gadu gaitā redzi, cik daudz, cik bieži un cik augstu tu dzer. No tā izkristalizējas tavi paradumi un arī virziens, kurā tie mainās – vai situācija uzlabojas vai pasliktinās.',
+        'Taču runa nav tikai par šo vakaru. Katrs pierakstītais dzēriens nonāk cilnē Vēsture, tāpēc mēnešu un gadu gaitā redzi, cik daudz, cik bieži un cik augstu tu dzer. No tā izkristalizējas tavi paradumi un arī virziens, kurā tie mainās – vai situācija uzlabojas vai pasliktinās.',
     'How it calculates':
         'Kā tā aprēķina',
     'The estimate builds on the Widmark method, used to estimate blood alcohol since the 1930s; the app runs a refined version of it.':
@@ -403,7 +403,7 @@ TRANSLATIONS = {
     'Gives a lower peak and an earlier clear time. Surprising, but measured: with food the stomach breaks down part of the alcohol before it is absorbed (the app uses 5, 10 and 15 percent), and what never got in does not need to be broken down.':
         'Dod zemāku maksimumu un agrāku nulli. Pārsteidzoši, bet izmērīti: ar ēdienu kuņģis daļu alkohola noārda pirms uzsūkšanās (lietotne rēķina ar 5, 10 un 15 procentiem), un to, kas nekad nenonāca asinīs, nav jānoārda.',
     'Elimination':
-        'Noārdīšana',
+        'Izvadīšana',
     'About 0.15 ‰ per hour (published range 0.10–0.25), higher in regular drinkers as liver enzymes adapt. Close to zero it slows down (Michaelis–Menten kinetics), so the curve tapers off instead of stopping abruptly.':
         'Aptuveni 0,15 ‰ stundā (publicētais diapazons 0,10–0,25), regulāri dzerošiem vairāk, jo aknu enzīmi pielāgojas. Tuvu nullei tā palēninās (Mihaelisa–Mentenas kinētika), tāpēc līkne pakāpeniski izlīdzinās, nevis pēkšņi pārtrūkst.',
     'Computation':
@@ -415,33 +415,33 @@ TRANSLATIONS = {
     'The app measures nothing. What it shows is the output of a model using average values, and reality can differ. The biggest unknown is how fast you break alcohol down: within the plausible range, that alone can move the peak by 40 percent and the clear time by four hours on the same evening.':
         'Lietotne neko nemēra. Tā rāda modeļa rezultātu ar vidējām vērtībām, un realitāte var atšķirties. Lielākais nezināmais ir tas, cik ātri tu noārdi alkoholu: ticamā diapazona robežās tas viens pats vienā vakarā var pārbīdīt maksimumu par 40 procentiem un nulli par četrām stundām.',
     'Genetics, liver health, medication, what you ate, sleep and tiredness matter too — the app knows none of these. Only a certified breathalyser or a blood test gives an exact value.':
-        'Nozīme ir arī ģenētikai, aknu veselībai, zālēm, apēstajam, miegam un nogurumam – neko no tā lietotne nezina. Precīzu vērtību dod tikai verificēts alkometrs vai asins analīze.',
+        'Nozīme ir arī ģenētikai, aknu veselībai, zālēm, apēstajam, miegam un nogurumam – neko no tā lietotne nezina. Precīzu vērtību dod tikai sertificēts alkometrs vai asins analīze.',
     'The number is still useful. If the app reads consistently a little high or low for you, it is off in the same direction every evening, so over time you learn what a given value means for you. In Profile you can also show the uncertainty of the elimination rate: you then see a range instead of a single number.':
-        'Skaitlis tomēr ir noderīgs. Ja lietotne tev konsekventi rāda nedaudz par daudz vai par maz, tā katru vakaru kļūdās vienā virzienā, tāpēc laika gaitā tu iemācies, ko konkrēta vērtība nozīmē tieši tev. Profilā vari parādīt arī noārdīšanas ātruma nenoteiktību: tad viena skaitļa vietā redzēsi diapazonu.',
+        'Skaitlis tomēr ir noderīgs. Ja lietotne tev konsekventi rāda nedaudz par daudz vai par maz, tā katru vakaru kļūdās vienā virzienā, tāpēc laika gaitā tu iemācies, ko konkrēta vērtība nozīmē tieši tev. Cilnē Profils vari parādīt arī izvadīšanas ātruma nenoteiktību: tad viena skaitļa vietā redzēsi diapazonu.',
     'Tips':
         'Padomi',
     'Favourite drink in one tap':
         'Iecienītais dzēriens ar vienu pieskārienu',
     'Set a favourite in Profile and the Live button logs it with a single tap.':
-        'Iestati iecienīto dzērienu Profilā, un poga ekrānā Šobrīd to pievienos ar vienu pieskārienu.',
+        'Iestati iecienīto dzērienu cilnē Profils, un poga ekrānā Šobrīd to pierakstīs ar vienu pieskārienu.',
     'Widget':
         'Logrīks',
     'Add it to your Lock Screen or Home Screen: one tap logs your favourite. While there is alcohol in your system, it also shows your level and which way it is going.':
-        'Pievieno to bloķēšanas ekrānam vai sākuma ekrānam: viens pieskāriens pievieno tavu iecienīto dzērienu. Kamēr organismā ir alkohols, tas rāda arī tavu līmeni un tā virzienu.',
+        'Pievieno to bloķēšanas ekrānam vai sākuma ekrānam: viens pieskāriens pieraksta tavu iecienīto dzērienu. Kamēr organismā ir alkohols, tas rāda arī tavu līmeni un tā virzienu.',
     'How do I add it?':
         'Kā to pievienot?',
     'Siri':
         'Siri',
     'Say “Hey Siri, LogMyDrink now” and Siri logs your favourite, then tells you where your peak is heading.':
-        'Saki „Hey Siri, LogMyDrink now“, un Siri pievienos tavu iecienīto dzērienu un pateiks, uz kurieni virzās tavs maksimums.',
+        'Saki „Hey Siri, LogMyDrink now“, un Siri pierakstīs tavu iecienīto dzērienu un pateiks, uz kurieni virzās tavs maksimums. (Komanda darbojas angļu valodā.)',
     'Looking back':
         'Atskats',
     '“Yesterday” at the top of Live takes you to the previous day in one tap; the History tab shows your patterns over weeks, months and years.':
         '„Vakar“ ekrāna Šobrīd augšā ar vienu pieskārienu aizved uz iepriekšējo dienu; cilnē Vēsture redzami tavi paradumi nedēļu, mēnešu un gadu griezumā.',
     'Logging later':
-        'Pievienošana vēlāk',
+        'Pierakstīšana vēlāk',
     'If you log a drink after the fact, set the time back with the − and + buttons; a missed day can be filled in from the Day view in History.':
-        'Ja dzērienu pievieno vēlāk, pagriez laiku atpakaļ ar pogām − un +; izlaistu dienu vari papildināt Vēstures dienas skatā.',
+        'Ja dzērienu pieraksti vēlāk, pārbīdi laiku atpakaļ ar pogām − un +; izlaistu dienu vari aizpildīt cilnes Vēsture skatā Diena.',
     'One tap and done':
         'Viens pieskāriens, un gatavs',
     'Your favourite from the Lock Screen':
@@ -451,11 +451,11 @@ TRANSLATIONS = {
     'See your patterns':
         'Apskati savus paradumus',
     'Set what you drink most often and log it with a single tap.':
-        'Iestati, ko dzer visbiežāk, un pievieno to ar vienu pieskārienu.',
+        'Iestati, ko dzer visbiežāk, un pieraksti to ar vienu pieskārienu.',
     'One tap on the widget logs your favourite, no searching for the app. In the evening it shows your level too.':
-        'Viens pieskāriens logrīkam pievieno tavu iecienīto dzērienu, nemeklējot lietotni. Vakarā tas rāda arī tavu līmeni.',
+        'Viens pieskāriens logrīkam pieraksta tavu iecienīto dzērienu, nemeklējot lietotni. Vakarā tas rāda arī tavu līmeni.',
     '“Hey Siri, LogMyDrink now” — Siri logs your favourite and tells you where your peak is heading.':
-        '„Hey Siri, LogMyDrink now“ – Siri pievienos tavu iecienīto dzērienu un pateiks, uz kurieni virzās tavs maksimums.',
+        '„Hey Siri, LogMyDrink now“ – Siri pierakstīs tavu iecienīto dzērienu un pateiks, uz kurieni virzās tavs maksimums.',
     'History shows how much and how high you drink over weeks, months and years, and which way it is changing.':
         'Vēsture rāda, cik daudz un cik augstu tu dzer nedēļu, mēnešu un gadu laikā un kurā virzienā tas mainās.',
     'Set favourite':
@@ -465,7 +465,7 @@ TRANSLATIONS = {
     'Got it':
         'Skaidrs',
     'Open History':
-        'Atvērt vēsturi',
+        'Atvērt Vēsturi',
     'Don’t show again':
         'Vairs nerādīt',
     'Lock Screen':
@@ -475,23 +475,23 @@ TRANSLATIONS = {
     'Where':
         'Kur',
     'Lock your phone, then touch and hold the Lock Screen.':
-        'Bloķē iPhone un tad turi pirkstu uz bloķēšanas ekrāna.',
+        'Bloķē tālruni, pēc tam pieskaries bloķēšanas ekrānam un turi.',
     'Tap Customize, then Lock Screen, then the widget row under the clock.':
-        'Pieskaries Pielāgot, tad Bloķēšanas ekrāns un pēc tam logrīku rindai zem pulksteņa.',
+        'Pieskaries Customize, tad Lock Screen un pēc tam logrīku rindai zem pulksteņa.',
     'Choose LogMyDrink, then tap Done.':
-        'Izvēlies LogMyDrink un pieskaries Gatavs.',
+        'Izvēlies LogMyDrink un pieskaries Done.',
     'Touch and hold an empty area of the Home Screen until the icons jiggle.':
-        'Turi pirkstu uz tukšas sākuma ekrāna vietas, līdz ikonas sāk kustēties.',
+        'Pieskaries tukšai sākuma ekrāna vietai un turi, līdz ikonas sāk kustēties.',
     'Tap Edit, then Add Widget.':
-        'Pieskaries Rediģēt un pēc tam Pievienot logrīku.',
+        'Pieskaries Edit, pēc tam Add Widget.',
     'Search for LogMyDrink, pick a size and tap Add Widget.':
-        'Meklē LogMyDrink, izvēlies izmēru un pieskaries Pievienot logrīku.',
+        'Meklē LogMyDrink, izvēlies izmēru un pieskaries Add Widget.',
     'A tap on the widget opens the app and logs your favourite drink. While there is alcohol in your system, it also shows your level and which way it is going.':
-        'Pieskāriens logrīkam atver lietotni un pievieno tavu iecienīto dzērienu. Kamēr organismā ir alkohols, tas rāda arī tavu līmeni un tā virzienu.',
+        'Pieskāriens logrīkam atver lietotni un pieraksta tavu iecienīto dzērienu. Kamēr organismā ir alkohols, tas rāda arī tavu līmeni un tā virzienu.',
     'Add the widget':
         'Pievienot logrīku',
     'Show tips':
         'Rādīt padomus',
     'One tip a day at most, when you open the app — never while there is alcohol in your system.':
-        'Ne vairāk kā viens padoms dienā, atverot lietotni, – nekad, kamēr organismā ir alkohols.',
+        'Ne vairāk kā viens padoms dienā, atverot lietotni – nekad, kamēr organismā ir alkohols.',
 }

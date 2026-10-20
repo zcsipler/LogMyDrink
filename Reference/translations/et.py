@@ -68,8 +68,8 @@ TRANSLATIONS = {
     "No past sessions yet": "Varasemaid joomiskordi veel pole",
     "A session appears here once it has ended — when your level has cleared and a few hours "
     "have passed.":
-        "Joomiskord ilmub siia siis, kui see on lõppenud — kui su tase on kadunud ja paar "
-        "tundi möödunud.",
+        "Joomiskord ilmub siia siis, kui see on lõppenud – kui su tase on langenud nulli ja "
+        "möödunud on paar tundi.",
     "%@ drinks": "Joogid: %@",
     "peak": "tipp",
     "Started": "Algas",
@@ -88,7 +88,7 @@ TRANSLATIONS = {
     "Profile": "Profiil",
     "Drinks": "Joogid",
     "Units": "Ühikud",
-    "Drinks this session": "Selle korra joogid",
+    "Drinks this session": "Selle joomiskorra joogid",
     "Add drink": "Lisa jook",
 
     # --- Editing an already logged drink ---
@@ -96,24 +96,24 @@ TRANSLATIONS = {
     "Save changes": "Salvesta muudatused",
     "With this": "Selle joogiga",
     "Delete": "Kustuta",
-    "tap to edit · swipe to delete": "puuduta muutmiseks · nipsa kustutamiseks",
+    "tap to edit · swipe to delete": "puuduta muutmiseks · libista kustutamiseks",
 
     # --- Drinking pace ---
     "How fast": "Kui kiiresti",
-    "In one go": "Ühe korraga",
+    "In one go": "Ühe hooga",
     "Counts as a single swallow — the steepest possible rise.":
-        "Loeb üheks sõõmuks — järsim võimalik tõus.",
-    "A quick drink. The level climbs fast.": "Kiire jook. Tase tõuseb kiiresti.",
+        "Loetakse üheks sõõmuks – järsim võimalik tõus.",
+    "A quick drink. The level climbs fast.": "Kiiresti joodud. Tase tõuseb kiiresti.",
     "A normal pace.": "Tavaline tempo.",
     "Nursed slowly. Much gentler climb for the same alcohol.":
-        "Aeglaselt nauditud. Sama alkoholikoguse juures palju laugem tõus.",
+        "Aeglaselt lonksutatud. Sama alkoholikoguse juures palju laugem tõus.",
 
     # --- AddDrinkSheet ---
     "Cancel": "Loobu",
     "Now": "Praegu",
     "Projected peak": "Prognoositav tipp",
     "Peak at": "Tipp kell",
-    "Clears": "Kaob",
+    "Clears": "Nullis",
     "This would cross your limit": "See ületaks su piiri",
     "Around %@, for up to %@.": "Umbes %@, kuni %@ vältel.",
     "This might cross your limit": "See võib su piiri ületada",
@@ -153,7 +153,7 @@ TRANSLATIONS = {
     "Drinking frequency": "Joomise sagedus",
     "How often do you drink?": "Kui tihti sa jood?",
     "This is how we estimate your elimination rate. Regular drinking induces the liver's CYP2E1 pathway, so frequent drinkers clear alcohol faster. It is the weakest point of the model, which is why you can set under Display & language how much of that uncertainty the app shows you.":
-        "Nii me sinu lagundamiskiirust hindamegi. Regulaarne joomine aktiveerib maksa CYP2E1 raja, seega lagundavad sagedased joojad alkoholi kiiremini. See on mudeli nõrgim koht ja just seepärast saad jaotises „Kuva ja keel“ määrata, kui palju sellest ebakindlusest rakendus sulle näitab.",
+        "Nii me sinu lagundamiskiirust hindamegi. Regulaarne joomine aktiveerib maksa CYP2E1-raja, seega lagundavad sagedased joojad alkoholi kiiremini. See on mudeli nõrgim koht ja just seepärast saad jaotises „Kuva ja keel“ määrata, kui palju sellest ebakindlusest rakendus sulle näitab.",
     "Your limit": "Sinu piir",
     "Your own reference number, not a legal limit. The app tells you when a planned drink "
     "would take you past it, and for how long you would stay above.":
@@ -170,35 +170,35 @@ TRANSLATIONS = {
     "Elimination rate": "Lagundamiskiirus",
     "How fast your liver clears alcohol once it has been absorbed — the slope of the falling "
     "side of the curve.":
-        "Kui kiiresti su maks alkoholi lagundab, kui see on juba imendunud — kõvera langeva "
-        "poole kalle.",
+        "Kui kiiresti su maks juba imendunud alkoholi lagundab – kõvera langeva poole "
+        "kalle.",
     "Alcohol leaves at a roughly fixed amount per hour rather than a percentage, because the "
     "enzyme that breaks it down already runs at full capacity at almost any level. That is why "
     "rules of thumb like “one drink an hour” exist at all.":
-        "Alkohol lahkub kehast pigem ligikaudu püsiva koguse kaupa tunnis kui protsendina, "
+        "Alkohol väljub kehast ligikaudu püsiva kogusena tunnis, mitte protsendina, "
         "sest ensüüm, mis seda lagundab, töötab peaaegu igal tasemel juba täisvõimsusel. Just "
         "seepärast on üldse olemas rusikareeglid nagu „üks jook tunnis“.",
     "At this setting, %@ takes about %@ to clear. Almost everyone falls between %@ per hour.":
-        "Selle seade juures kulub %@ kadumiseks umbes %@. Peaaegu kõik jäävad vahemikku %@ "
-        "tunnis.",
+        "Selle seadega kulub taseme %@ nulli langemiseks umbes %@. Peaaegu kõigil on see "
+        "vahemikus %@ tunnis.",
     "How to find yours": "Kuidas enda oma leida",
     "With a breathalyser": "Alkomeetriga",
     "Blow twice, at least an hour apart, on the falling side — two hours or more after your "
     "last drink, with nothing in between. Subtract the second reading from the first and "
     "divide by the hours between them.":
-        "Puhu kaks korda, vähemalt tunniajase vahega, langeval poolel — kaks tundi või rohkem "
-        "pärast viimast jooki, ilma et vahepeal midagi juurde võtaksid. Lahuta teine näit "
-        "esimesest ja jaga nendevaheliste tundide arvuga.",
+        "Puhu kaks korda vähemalt tunnise vahega, kui tase juba langeb – kaks tundi või rohkem "
+        "pärast viimast jooki, ilma vahepeal midagi joomata. Lahuta teine näit esimesest ja "
+        "jaga mõõtmistevaheliste tundide arvuga.",
     "For example %@ and %@ two hours later works out to %@ per hour.":
-        "Näiteks %@ ja %@ kaks tundi hiljem teeb %@ tunnis.",
+        "Näiteks %@ ja kaks tundi hiljem %@ annab %@ tunnis.",
     "Without one": "Ilma alkomeetrita",
     "The app tells you when it expects you to clear. If you are reliably back to normal well "
     "before that, your rate is higher than the setting — nudge it up a step and watch for a "
     "few sessions. If it takes longer than predicted, nudge it down.":
-        "Rakendus ütleb, millal ta eeldab sinu taseme kadumist. Kui oled kindlalt tavapärane "
-        "juba tükk aega enne seda, on su kiirus seadest suurem — nihuta seda samm võrra "
-        "ülespoole ja jälgi paari joomiskorra jooksul. Kui kadumine võtab ennustatust kauem, "
-        "nihuta seda allapoole.",
+        "Rakendus näitab, millal su tase eeldatavasti nulli jõuab. Kui oled korduvalt juba "
+        "tükk aega enne seda taas tavapärases seisundis, on su kiirus seadistatust suurem – "
+        "nihuta seda samm ülespoole ja jälgi paari joomiskorra jooksul. Kui see võtab "
+        "ennustatust kauem, nihuta seda allapoole.",
     "What moves it": "Mis seda mõjutab",
     "Regular drinking raises it: the liver enzyme that does the work is induced by use. It "
     "also runs slightly higher in women on average, and lower on an empty stomach or with "
@@ -209,14 +209,14 @@ TRANSLATIONS = {
     "Uncertainty": "Ebakindlus",
     "At zero every figure is a single number — the app's best estimate. Above zero the same "
     "figures are shown as ranges, and the band on the chart widens to match.":
-        "Nulli juures on iga näit üks arv — rakenduse parim hinnang. Nullist ülalpool "
+        "Nulli juures on iga näit üks arv – rakenduse parim hinnang. Nullist ülalpool "
         "näidatakse samu näite vahemikena ja graafiku riba laieneb vastavalt.",
     "A single number is easier to learn against: over time you find out what your own 0.6 "
     "feels like. A range is the more literal answer, because the rate really is uncertain. "
     "Both are defensible — this is your call.":
-        "Üksiku arvu järgi on lihtsam õppida: aja jooksul saad teada, milline tundub sinu enda "
-        "0,6. Vahemik on otsesem vastus, sest kiirus ongi ebakindel. Mõlemad on põhjendatud — "
-        "see on sinu valik.",
+        "Üksiku arvu järgi on lihtsam õppida: aja jooksul saad teada, kuidas sinu enda 0,6 "
+        "tundub. Vahemik on otsesem vastus, sest kiirus ongi ebakindel. Mõlemad on "
+        "põhjendatud – see on sinu valik.",
     "The spread suggested by your drinking frequency is ± %@ per hour.":
         "Sinu joomise sagedusest tulenev hajuvus on ± %@ tunnis.",
     "Rate": "Kiirus",
@@ -245,9 +245,9 @@ TRANSLATIONS = {
     "Smoothing": "Silumine",
     "%@ sessions": "%@ korda",
     "No data before %@": "Andmed puuduvad enne %@",
-    "vs.": "võrreldes",
-    "Grams": "Grammi",
-    "Grams of alcohol": "Grammi alkoholi",
+    "vs.": "vs",
+    "Grams": "Grammid",
+    "Grams of alcohol": "Alkohol grammides",
     "Standard units": "Standardühikud",
     "Unit size": "Ühiku suurus",
     "Automatic": "Automaatne",
@@ -265,25 +265,25 @@ TRANSLATIONS = {
         "Kõik neli muudavad kõverat, nii et ühtegi neist ei saa kellegi teise eest ära arvata.",
     "Their own limit and the finer settings can be changed later on the Profile tab, while "
     "they are the selected person.":
-        "Tema enda piiri ja peenemaid seadeid saab hiljem muuta Profiili vahekaardil, kui tema "
+        "Tema enda piiri ja täpsemaid seadeid saab hiljem muuta Profiili vahekaardil, kui tema "
         "on valitud inimene.",
 
     # --- FavouriteDrinkSection and QuickAddBar: the one-tap usual ---
     "Quick add": "Kiirlisamine",
     "Choose a favourite drink": "Vali lemmikjook",
     "Pick the drink you usually order, and a button on the Live screen will log it in one tap.":
-        "Vali jook, mida tavaliselt tellid, ja Hetkeseisu ekraanil olev nupp salvestab selle "
+        "Vali jook, mida tavaliselt tellid, ja Hetkeseisu ekraanil olev nupp lisab selle "
         "ühe puudutusega.",
     "This is your quick-add drink": "See on sinu kiirlisamise jook",
     "Set as my quick-add drink": "Määra kiirlisamise joogiks",
-    "This is now your usual": "See on nüüd sinu tavaline",
+    "This is now your usual": "See on nüüd sinu tavajook",
     "Remove favourite": "Eemalda lemmik",
     "Always add this one": "Lisa alati see",
     "Logs it straight away, without opening anything.":
-        "Salvestab selle kohe, ilma midagi avamata.",
+        "Lisab selle kohe, ilma midagi avamata.",
     "One tap on the Live screen logs this, with the projected peak on the button. How full "
     "your stomach is comes from the drink before it, and can be corrected straight after.":
-        "Üks puudutus Hetkeseisu ekraanil salvestab selle ja nupul on näha prognoositav tipp. "
+        "Üks puudutus Hetkeseisu ekraanil lisab selle ja nupul on näha prognoositav tipp. "
         "Kõhutäius võetakse eelmiselt joogilt ja seda saab kohe pärast parandada.",
     "Peak %@": "Tipp %@",
     "%@ added": "%@ lisatud",
@@ -297,7 +297,7 @@ TRANSLATIONS = {
     "A backup holds every person, occasion and drink. Importing adds what is missing — it "
     "never changes or removes anything already here.":
         "Varukoopia sisaldab kõiki inimesi, joomiskordi ja jooke. Importimine lisab selle, mis "
-        "puudub — see ei muuda ega eemalda kunagi midagi, mis siin juba on.",
+        "puudub – see ei muuda ega eemalda kunagi midagi, mis siin juba on.",
     "Import this backup?": "Kas importida see varukoopia?",
     "Import": "Impordi",
     "Everything in this backup is already here.": "Kõik selles varukoopias on juba siin.",
@@ -308,8 +308,9 @@ TRANSLATIONS = {
     "Language": "Keel",
     "Opens this app in Settings, where “Preferred Language” sets the app's own language — the "
     "system's stays as it is. iOS restarts the app when you change it.":
-        "Avab selle rakenduse Seadetes, kus „Eelistatud keel“ määrab rakenduse enda keele — "
-        "süsteemi oma jääb samaks. iOS käivitab rakenduse muutmise järel uuesti.",
+        "Avab selle rakenduse lehe rakenduses Settings, kus valik „Preferred Language“ määrab "
+        "rakenduse enda keele – süsteemi keel jääb samaks. Kui keelt muudad, taaskäivitab iOS "
+        "rakenduse.",
 
     # --- DataArchive: why a file could not be read ---
     "Could not import": "Importimine ebaõnnestus",
@@ -326,7 +327,7 @@ TRANSLATIONS = {
     'months as totals': 'kuud ainult summana',
     'by month only': 'ainult kuu kaupa',
     'monthly total': 'kuusumma',
-    'No daily records for this day': 'Selle päeva kohta pole päevaseid kirjeid',
+    'No daily records for this day': 'Selle päeva kohta pole päevapõhiseid kirjeid',
     'Monthly total: %@': 'Kuusumma: %@',
     'A dry month': 'Kuiv kuu',
 
@@ -339,12 +340,12 @@ TRANSLATIONS = {
 
     # --- PeopleView ---
     'Swipe left on a guest to remove them with everything recorded under them. You cannot be removed.':
-        'Libista külalise real vasakule, et ta koos kõige tema all salvestatuga eemaldada. Sind eemaldada ei saa.',
+        'Libista külalise real vasakule, et ta koos kõige tema nimele salvestatuga eemaldada. Sind eemaldada ei saa.',
     'People': 'Inimesed',
     'Owner': 'Omanik',
-    'Everyone this app records. Switch, add, or remove someone.': 'Kõik, keda see rakendus salvestab. Vaheta, lisa või eemalda keegi.',
+    'Everyone this app records. Switch, add, or remove someone.': 'Kõik, kelle andmeid see rakendus talletab. Vaheta, lisa või eemalda keegi.',
     # --- Day window (5.22) ---
-    "Carried over from the night before": 'Üle kandunud eelmisest õhtust',
+    "Carried over from the night before": 'Eelmiselt õhtult üle kantud',
     # --- History, second card (5.24) ---
     'Calories': 'Kalorid',
     'Sessions': 'Korrad',
@@ -368,39 +369,39 @@ TRANSLATIONS = {
     'Estimated range, not a measurement. Never use this to decide whether you can drive.':
         'Hinnanguline vahemik, mitte mõõtmine. Ära kunagi otsusta selle põhjal, kas võid autot juhtida.',
     'How does the app calculate this?':
-        'Kuidas äpp arvutab?',
+        'Kuidas rakendus seda arvutab?',
     'approximately %@ %@':
         'umbes %@ %@',
     'How it works':
         'Kuidas see töötab',
     'Never use this to decide whether you can drive. The app estimates, it does not measure, and your actual level can differ considerably.':
-        'Ära kunagi otsusta selle põhjal, kas võid autot juhtida. Äpp hindab, mitte ei mõõda, ja sinu tegelik tase võib märkimisväärselt erineda.',
+        'Ära kunagi otsusta selle põhjal, kas võid autot juhtida. Rakendus hindab, mitte ei mõõda, ja sinu tegelik tase võib märkimisväärselt erineda.',
     'Why this app exists':
-        'Miks see äpp olemas on',
+        'Miks see rakendus on olemas',
     'LogMyDrink helps you drink more mindfully and stay in control. The decision happens before the next glass, so the app shows you in advance where another drink would take your level, and when it would peak.':
-        'LogMyDrink aitab sul teadlikumalt juua ja kontrolli säilitada. Otsus sünnib enne järgmist klaasi, seega näitab äpp ette, kuhu järgmine jook su taseme viiks ja millal see haripunkti jõuaks.',
+        'LogMyDrink aitab sul teadlikumalt juua ja kontrolli säilitada. Otsus sünnib enne järgmist klaasi, seega näitab rakendus ette, kuhu järgmine jook su taseme viiks ja millal see tipu saavutaks.',
     'But it is not only about tonight. Every drink you log goes into your History, so over months and years you can see how much, how often and how high you drink. Your patterns emerge from it, and so does the direction they are moving in — whether things are getting better or worse.':
-        'Kuid see ei puuduta ainult tänast õhtut. Iga sisestatud jook läheb sinu ajalukku, nii et kuude ja aastate jooksul näed, kui palju, kui sageli ja kui kõrgele sa jood. Sellest joonistuvad välja sinu mustrid ning ka suund, kuhu need liiguvad – kas asjad lähevad paremaks või halvemaks.',
+        'Kuid see ei puuduta ainult tänast õhtut. Iga lisatud jook läheb sinu Ajalukku, nii et kuude ja aastate jooksul näed, kui palju ja kui sageli sa jood ning kui kõrgele su tase tõuseb. Sellest joonistuvad välja sinu mustrid ning ka suund, kuhu need liiguvad – kas asjad lähevad paremaks või halvemaks.',
     'How it calculates':
         'Kuidas see arvutab',
     'The estimate builds on the Widmark method, used to estimate blood alcohol since the 1930s; the app runs a refined version of it.':
-        'Hinnang põhineb Widmarki meetodil, millega on vere alkoholisisaldust hinnatud alates 1930. aastatest; äpp kasutab selle täiustatud versiooni.',
+        'Hinnang põhineb Widmarki meetodil, millega on vere alkoholisisaldust hinnatud alates 1930. aastatest; rakendus kasutab selle täiustatud versiooni.',
     'From your weight, height, age and sex it works out how much water your body holds, because that is where alcohol spreads. It follows every drink separately: how much alcohol it had, how fast you drank it, and how much you had eaten, because that sets how quickly it is absorbed.':
         'Sinu kaalu, pikkuse, vanuse ja soo põhjal arvutab see, kui palju vett su kehas on, sest alkohol jaotub just sinna. Iga jooki jälgitakse eraldi: kui palju alkoholi selles oli, kui kiiresti sa selle jõid ja kui palju olid söönud, sest see määrab imendumise kiiruse.',
     'Meanwhile your liver breaks down a roughly constant amount every hour; how much in your case is estimated from how often you drink. The result is a curve, minute by minute: where you are now, where you are heading, and when you will be clear.':
-        'Samal ajal lagundab maks igas tunnis umbes ühesuguse koguse; sinu kogus hinnatakse selle põhjal, kui sageli sa jood. Tulemuseks on kõver minut minuti haaval: kus sa praegu oled, kuhu liigud ja millal oled taas nullis.',
+        'Samal ajal lagundab maks igas tunnis umbes ühesuguse koguse; sinu puhul hinnatakse seda kogust selle põhjal, kui sageli sa jood. Tulemuseks on kõver minut minuti haaval: kus sa praegu oled, kuhu liigud ja millal oled taas nullis.',
     'Details':
         'Üksikasjad',
     'Body water':
         'Keha vesi',
     'The Watson formula (1980), from weight, height, age and sex. The female formula has no age term — a property of the formula, not a bug. The distribution volume is body water divided by 0.85, the water content of blood.':
-        'Watsoni valem (1980) kaalu, pikkuse, vanuse ja soo põhjal. Naiste valemis vanust ei ole – see on valemi omadus, mitte viga. Jaotusruumala on keha vesi jagatud 0,85-ga, vere veesisaldusega.',
+        'Watsoni valem (1980) kaalu, pikkuse, vanuse ja soo põhjal. Naiste valemis vanust ei ole – see on valemi omadus, mitte viga. Jaotusruumala on keha vesi jagatud 0,85-ga ehk vere veesisaldusega.',
     'Absorption':
         'Imendumine',
     'Every drink has its own “stomach”. On an empty stomach half of the alcohol is absorbed in about 7 minutes, on a full one in about 21. A drink you sip enters the stomach evenly over the time you drink it.':
         'Igal joogil on oma „magu“. Tühja kõhuga imendub pool alkoholist umbes 7 minutiga, täis kõhuga umbes 21 minutiga. Lonksuhaaval joodud jook jõuab makku ühtlaselt kogu joomise aja jooksul.',
     'Gives a lower peak and an earlier clear time. Surprising, but measured: with food the stomach breaks down part of the alcohol before it is absorbed (the app uses 5, 10 and 15 percent), and what never got in does not need to be broken down.':
-        'Annab madalama haripunkti ja varasema nulli. Üllatav, kuid mõõdetud: toiduga lagundab magu osa alkoholist enne imendumist (äpp arvestab 5, 10 ja 15 protsendiga) ja seda, mis kunagi verre ei jõudnud, ei pea lagundama.',
+        'Tipp on madalam ja nulli jõutakse varem. Üllatav, kuid mõõdetud: toiduga lagundab magu osa alkoholist enne imendumist (rakendus arvestab 5, 10 ja 15 protsendiga) ja seda, mis kunagi verre ei jõudnud, ei pea lagundama.',
     'Elimination':
         'Lagundamine',
     'About 0.15 ‰ per hour (published range 0.10–0.25), higher in regular drinkers as liver enzymes adapt. Close to zero it slows down (Michaelis–Menten kinetics), so the curve tapers off instead of stopping abruptly.':
@@ -412,11 +413,11 @@ TRANSLATIONS = {
     'Why it is only an estimate':
         'Miks see on vaid hinnang',
     'The app measures nothing. What it shows is the output of a model using average values, and reality can differ. The biggest unknown is how fast you break alcohol down: within the plausible range, that alone can move the peak by 40 percent and the clear time by four hours on the same evening.':
-        'Äpp ei mõõda midagi. See näitab keskmistel väärtustel põhineva mudeli tulemust ja tegelikkus võib erineda. Suurim tundmatu on see, kui kiiresti sa alkoholi lagundad: usutava vahemiku piires võib see üksi nihutada haripunkti 40 protsenti ja nulli neli tundi samal õhtul.',
+        'Rakendus ei mõõda midagi. See näitab keskmistel väärtustel põhineva mudeli tulemust ja tegelikkus võib erineda. Suurim tundmatu on see, kui kiiresti sa alkoholi lagundad: usutava vahemiku piires võib see üksi nihutada samal õhtul tippu 40 protsendi ja nulli jõudmise aega nelja tunni võrra.',
     'Genetics, liver health, medication, what you ate, sleep and tiredness matter too — the app knows none of these. Only a certified breathalyser or a blood test gives an exact value.':
-        'Oma osa on ka geenidel, maksa tervisel, ravimitel, söödud toidul, unel ja väsimusel – mitte ühestki neist äpp ei tea. Täpse väärtuse annab ainult taadeldud alkomeeter või vereanalüüs.',
+        'Oma osa on ka geenidel, maksa tervisel, ravimitel, söödud toidul, unel ja väsimusel – mitte ühestki neist rakendus ei tea. Täpse väärtuse annab ainult taadeldud alkomeeter või vereanalüüs.',
     'The number is still useful. If the app reads consistently a little high or low for you, it is off in the same direction every evening, so over time you learn what a given value means for you. In Profile you can also show the uncertainty of the elimination rate: you then see a range instead of a single number.':
-        'Number on siiski kasulik. Kui äpp näitab sinu puhul järjekindlalt veidi liiga palju või vähe, eksib see igal õhtul samas suunas, nii et aja jooksul õpid, mida konkreetne väärtus sinu jaoks tähendab. Profiilis saad näidata ka lagundamiskiiruse ebakindlust: siis näed ühe numbri asemel vahemikku.',
+        'Arv on siiski kasulik. Kui rakendus näitab sinu puhul järjekindlalt veidi liiga palju või vähe, eksib see igal õhtul samas suunas, nii et aja jooksul õpid, mida konkreetne väärtus sinu jaoks tähendab. Profiilis saad näidata ka lagundamiskiiruse ebakindlust: siis näed ühe arvu asemel vahemikku.',
     'Tips':
         'Nõuanded',
     'Favourite drink in one tap':
@@ -426,25 +427,25 @@ TRANSLATIONS = {
     'Widget':
         'Vidin',
     'Add it to your Lock Screen or Home Screen: one tap logs your favourite. While there is alcohol in your system, it also shows your level and which way it is going.':
-        'Lisa see lukustuskuvale või avakuvale: üks puudutus lisab sinu lemmiku. Kuni su kehas on alkoholi, näitab see ka sinu taset ja selle suunda.',
+        'Lisa see Lock Screen-kuvale või Home Screen-kuvasse: üks puudutus lisab sinu lemmiku. Kuni su kehas on alkoholi, näitab see ka sinu taset ja selle suunda.',
     'How do I add it?':
         'Kuidas seda lisada?',
     'Siri':
         'Siri',
     'Say “Hey Siri, LogMyDrink now” and Siri logs your favourite, then tells you where your peak is heading.':
-        'Ütle „Hey Siri, LogMyDrink now“ ja Siri lisab sinu lemmiku ning ütleb, kuhu su haripunkt liigub.',
+        'Ütle „Hey Siri, LogMyDrink now“ ja Siri lisab sinu lemmiku ning ütleb, kuhu su tipp liigub. (Käsk toimib inglise keeles.)',
     'Looking back':
         'Tagasivaade',
     '“Yesterday” at the top of Live takes you to the previous day in one tap; the History tab shows your patterns over weeks, months and years.':
-        'Hetkeseisu ülaosas olev „Eile“ viib ühe puudutusega eelmisse päeva; vahekaart Ajalugu näitab sinu mustreid nädalate, kuude ja aastate lõikes.',
+        'Hetkeseisu ülaosas olev „Eile“ viib ühe puudutusega eelmisele päevale; vahekaart Ajalugu näitab sinu mustreid nädalate, kuude ja aastate lõikes.',
     'Logging later':
-        'Hilisem sisestamine',
+        'Hilisem lisamine',
     'If you log a drink after the fact, set the time back with the − and + buttons; a missed day can be filled in from the Day view in History.':
-        'Kui sisestad joogi hiljem, keera aega tagasi nuppudega − ja +; vahele jäänud päeva saad täiendada Ajaloo päevavaates.',
+        'Kui lisad joogi tagantjärele, sea aeg nuppudega − ja + tagasi; vahele jäänud päeva saad täiendada Ajaloo vaates Päev.',
     'One tap and done':
         'Üks puudutus ja valmis',
     'Your favourite from the Lock Screen':
-        'Sinu lemmik lukustuskuvalt',
+        'Sinu lemmik Lock Screen-kuvalt',
     'Say it, don’t type it':
         'Ütle, ära trüki',
     'See your patterns':
@@ -452,11 +453,11 @@ TRANSLATIONS = {
     'Set what you drink most often and log it with a single tap.':
         'Määra, mida sa kõige sagedamini jood, ja lisa see ühe puudutusega.',
     'One tap on the widget logs your favourite, no searching for the app. In the evening it shows your level too.':
-        'Üks puudutus vidinal lisab sinu lemmiku, äppi otsimata. Õhtul näitab see ka sinu taset.',
+        'Üks puudutus vidinal lisab sinu lemmiku, rakendust otsimata. Õhtul näitab see ka sinu taset.',
     '“Hey Siri, LogMyDrink now” — Siri logs your favourite and tells you where your peak is heading.':
-        '„Hey Siri, LogMyDrink now“ – Siri lisab sinu lemmiku ja ütleb, kuhu su haripunkt liigub.',
+        '„Hey Siri, LogMyDrink now“ – Siri lisab sinu lemmiku ja ütleb, kuhu su tipp liigub.',
     'History shows how much and how high you drink over weeks, months and years, and which way it is changing.':
-        'Ajalugu näitab, kui palju ja kui kõrgele sa nädalate, kuude ja aastate jooksul jood ning kuhu see muutub.',
+        'Ajalugu näitab, kui palju sa nädalate, kuude ja aastate jooksul jood ja kui kõrgele su tase tõuseb ning mis suunas see muutub.',
     'Set favourite':
         'Määra lemmik',
     'Add widget':
@@ -464,33 +465,33 @@ TRANSLATIONS = {
     'Got it':
         'Selge',
     'Open History':
-        'Ava ajalugu',
+        'Ava Ajalugu',
     'Don’t show again':
         'Ära enam näita',
     'Lock Screen':
-        'Lukustuskuva',
+        'Lock Screen-kuva',
     'Home Screen':
-        'Avakuva',
+        'Home Screen-kuva',
     'Where':
         'Kuhu',
     'Lock your phone, then touch and hold the Lock Screen.':
-        'Lukusta iPhone ja hoia siis sõrme lukustuskuval.',
+        'Lukusta iPhone ning seejärel puuduta ja hoia Lock Screen-kuva.',
     'Tap Customize, then Lock Screen, then the widget row under the clock.':
-        'Puuduta valikut Kohanda, siis Lukustuskuva ja seejärel kella all olevat vidinarida.',
+        'Puuduta valikut Customize, siis Lock Screen ja seejärel kella all olevat vidinarida.',
     'Choose LogMyDrink, then tap Done.':
-        'Vali LogMyDrink ja puuduta Valmis.',
+        'Vali LogMyDrink ja puuduta valikut Done.',
     'Touch and hold an empty area of the Home Screen until the icons jiggle.':
-        'Hoia sõrme avakuva tühjal kohal, kuni ikoonid hakkavad värisema.',
+        'Puuduta ja hoia Home Screen-kuva tühja kohta, kuni ikoonid hakkavad värisema.',
     'Tap Edit, then Add Widget.':
-        'Puuduta Muuda ja seejärel Lisa vidin.',
+        'Puuduta valikut Edit ja seejärel Add Widget.',
     'Search for LogMyDrink, pick a size and tap Add Widget.':
-        'Otsi LogMyDrink, vali suurus ja puuduta Lisa vidin.',
+        'Otsi rakendust LogMyDrink, vali suurus ja puuduta valikut Add Widget.',
     'A tap on the widget opens the app and logs your favourite drink. While there is alcohol in your system, it also shows your level and which way it is going.':
-        'Vidina puudutus avab äpi ja lisab sinu lemmikjoogi. Kuni su kehas on alkoholi, näitab see ka sinu taset ja selle suunda.',
+        'Vidina puudutus avab rakenduse ja lisab sinu lemmikjoogi. Kuni su kehas on alkoholi, näitab see ka sinu taset ja selle suunda.',
     'Add the widget':
         'Lisa vidin',
     'Show tips':
         'Näita nõuandeid',
     'One tip a day at most, when you open the app — never while there is alcohol in your system.':
-        'Kõige rohkem üks nõuanne päevas äpi avamisel – mitte kunagi, kui su kehas on alkoholi.',
+        'Kõige rohkem üks nõuanne päevas rakenduse avamisel – mitte kunagi, kui su kehas on alkoholi.',
 }
