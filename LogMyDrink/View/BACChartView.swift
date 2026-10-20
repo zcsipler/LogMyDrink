@@ -174,7 +174,14 @@ struct BACChartView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
             header
-            chart
+            VStack(alignment: .leading, spacing: 2) {
+                // The axis numbers are bare to keep them narrow; the unit sits
+                // once above them, as Health does with "BPM".
+                Text(verbatim: unit.suffix)
+                    .font(.system(size: 10, weight: .medium, design: .rounded))
+                    .foregroundStyle(Theme.secondaryText)
+                chart
+            }
             if showsRange {
                 rangeLegend
             }

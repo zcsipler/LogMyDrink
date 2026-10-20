@@ -1784,6 +1784,31 @@ már meglévő tegező hangnemet követi. Az iOS-menüpontok nevei (Testreszabá
 Widget hozzáadása…) a rendszer fordításait próbálják követni — a
 kevésbé ismert nyelveken (máltai, ír) angolul maradtak, ahogy ott az iOS is.
 
+### 5.28 A szám neve és mértékegysége: véralkoholszint, ‰ / %
+
+2026. október 20., Zoltán kérdése nyomán: a felület sehol nem mondta ki, *minek*
+a mértéke a nagy szám, a „BAC” egyszer sem szerepelt, a chart y-tengelyén
+csupasz számok álltak, és a ‰ / % jelentését sem magyarázta semmi. Zoltán
+döntései, kérdésenként:
+
+- **A Live hero fölött nincs felirat.** Egy kör kitett egy kis
+  „Véralkoholszint” címkét a nagy szám fölé; Zoltán visszavette: értékes helyet
+  foglal, és a reviewer arcába tolja a témát. Az 1.4.3 kifejezetten a
+  szoftveres „BAC calculator” appokról szól (2., 9.), ezért a „BAC” szó
+  **egyszer**, kifejtve szerepel, a „Hogyan működik” lapon; a megnevezés a
+  magyarázó szövegeké, nem a főképernyőé.
+- **A chart y-tengelye fölött egy kis ‰ / % jel** (`BACChartView.body`), a
+  Health „BPM” mintájára; a tengely számai csupaszok maradnak, hogy keskenyek
+  legyenek.
+- **„Mit mutat a szám” szakasz a „Hogyan működik” elején**, közvetlenül a
+  vezetési figyelmeztetés után: a szám a véralkoholszint (BAC) becslése;
+  ezrelékben gramm alkohol literenként, százalékban 100 ml-enként, tehát
+  0,5 ‰ = 0,05 százalék; hol lehet váltani; a görbe ugyanezt mutatja. A
+  Profil Display & language lapján a ‰ / % kapcsoló szekciója lábjegyzetben
+  ugyanezt mondja. A szövegekben a „%” jel helyett a szó áll (7.).
+
+Öt új kulcs mind a 24 nyelven; a magyar átnézendő a többi új szöveggel együtt.
+
 ## 6. Validáció
 
 A `Reference/bac_model.py` a numerikus referencia. A Swift tesztek konkrét

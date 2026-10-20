@@ -476,4 +476,16 @@ TRANSLATIONS = {
         'Tippek mutatása',
     'One tip a day at most, when you open the app — never while there is alcohol in your system.':
         'Naponta legfeljebb egy tipp, az app megnyitásakor – soha, amíg alkohol van a szervezetedben.',
+
+    # --- Blood alcohol: label, axis unit, explanation (5.28) ---
+    'What the number shows':
+        'Mit mutat a szám',
+    'The number is an estimate of your blood alcohol concentration, BAC for short: how much alcohol there is in your blood.':
+        'A szám a véralkoholszinted becslése (angolul BAC, blood alcohol concentration): azt mutatja, mennyi alkohol van a véredben.',
+    'In per mille (‰) it is grams of alcohol per litre of blood: 0.5 ‰ means half a gram in every litre. In percent it is grams per 100 millilitres, so the same level is a tenth of the number: 0.5 ‰ is 0.05 percent. You can switch between the two in Profile, under Display & language.':
+        'Ezrelékben (‰) azt jelenti, hány gramm alkohol van egy liter vérben: 0,5 ‰ literenként fél gramm. Százalékban 100 milliliterre számolunk, ezért ugyanaz a szint tizedakkora szám: 0,5 ‰ = 0,05 százalék. A kettő között a Profil fül Megjelenítés és nyelv lapján válthatsz.',
+    'The curve shows the same level over time, minute by minute.':
+        'A görbe ugyanezt a szintet mutatja, percről percre.',
+    'Per mille (‰) is grams of alcohol per litre of blood, percent is grams per 100 millilitres: 0.5 ‰ is 0.05 percent.':
+        'Az ezrelék (‰) azt mutatja, hány gramm alkohol van egy liter vérben, a százalék azt, hogy 100 milliliterben: 0,5 ‰ = 0,05 százalék.',
 }

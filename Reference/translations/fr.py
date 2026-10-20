@@ -504,4 +504,16 @@ TRANSLATIONS = {
         'Afficher les astuces',
     'One tip a day at most, when you open the app — never while there is alcohol in your system.':
         'Une astuce par jour au maximum, à l’ouverture de l’app – jamais tant qu’il y a de l’alcool dans ton organisme.',
+
+    # --- Blood alcohol: label, axis unit, explanation (5.28) ---
+    'What the number shows':
+        'Ce que montre le chiffre',
+    'The number is an estimate of your blood alcohol concentration, BAC for short: how much alcohol there is in your blood.':
+        'Le chiffre est une estimation de ton alcoolémie (en anglais BAC, blood alcohol concentration) : la quantité d’alcool dans ton sang.',
+    'In per mille (‰) it is grams of alcohol per litre of blood: 0.5 ‰ means half a gram in every litre. In percent it is grams per 100 millilitres, so the same level is a tenth of the number: 0.5 ‰ is 0.05 percent. You can switch between the two in Profile, under Display & language.':
+        'En pour mille (‰), ce sont des grammes d’alcool par litre de sang : 0,5 ‰ signifie un demi-gramme dans chaque litre. En pour cent, ce sont des grammes pour 100 millilitres, le même taux donne donc un chiffre dix fois plus petit : 0,5 ‰ correspond à 0,05 pour cent. Tu peux passer de l’un à l’autre dans Profil › Affichage et langue.',
+    'The curve shows the same level over time, minute by minute.':
+        'La courbe montre ce même taux dans le temps, minute par minute.',
+    'Per mille (‰) is grams of alcohol per litre of blood, percent is grams per 100 millilitres: 0.5 ‰ is 0.05 percent.':
+        'Le pour mille (‰) correspond aux grammes d’alcool par litre de sang, le pour cent aux grammes pour 100 millilitres : 0,5 ‰ correspond à 0,05 pour cent.',
 }

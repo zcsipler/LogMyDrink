@@ -100,6 +100,7 @@ struct HowItWorksView: View {
         ScrollView {
             VStack(alignment: .leading, spacing: 28) {
                 drivingWarning
+                number
                 purpose
                 calculation
                 estimate
@@ -130,6 +131,16 @@ struct HowItWorksView: View {
         .frame(maxWidth: .infinity, alignment: .leading)
         .background(Theme.alarm.opacity(0.12), in: RoundedRectangle(cornerRadius: 14))
         .overlay(RoundedRectangle(cornerRadius: 14).strokeBorder(Theme.alarm.opacity(0.5), lineWidth: 1))
+    }
+
+    /// What the figure is and what its unit means. Everything else on the
+    /// page builds on it, and nowhere else does the app say it.
+    private var number: some View {
+        section(Text("What the number shows")) {
+            paragraph(Text("The number is an estimate of your blood alcohol concentration, BAC for short: how much alcohol there is in your blood."))
+            paragraph(Text("In per mille (‰) it is grams of alcohol per litre of blood: 0.5 ‰ means half a gram in every litre. In percent it is grams per 100 millilitres, so the same level is a tenth of the number: 0.5 ‰ is 0.05 percent. You can switch between the two in Profile, under Display & language."))
+            paragraph(Text("The curve shows the same level over time, minute by minute."))
+        }
     }
 
     private var purpose: some View {

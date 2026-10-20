@@ -493,4 +493,16 @@ TRANSLATIONS = {
         'Zobrazovat tipy',
     'One tip a day at most, when you open the app — never while there is alcohol in your system.':
         'Nejvýš jeden tip denně při otevření aplikace – nikdy, dokud máš v těle alkohol.',
+
+    # --- Blood alcohol: label, axis unit, explanation (5.28) ---
+    'What the number shows':
+        'Co číslo ukazuje',
+    'The number is an estimate of your blood alcohol concentration, BAC for short: how much alcohol there is in your blood.':
+        'Číslo je odhad koncentrace alkoholu ve tvé krvi (anglicky BAC, blood alcohol concentration): kolik alkoholu máš v krvi.',
+    'In per mille (‰) it is grams of alcohol per litre of blood: 0.5 ‰ means half a gram in every litre. In percent it is grams per 100 millilitres, so the same level is a tenth of the number: 0.5 ‰ is 0.05 percent. You can switch between the two in Profile, under Display & language.':
+        'V promilích (‰) jde o gramy alkoholu na litr krve: 0,5 ‰ znamená půl gramu v každém litru. V procentech jde o gramy na 100 mililitrů, takže stejná hladina dává desetkrát menší číslo: 0,5 ‰ je 0,05 procenta. Přepnout můžeš v části Profil › Zobrazení a jazyk.',
+    'The curve shows the same level over time, minute by minute.':
+        'Křivka ukazuje stejnou hladinu v čase, minutu po minutě.',
+    'Per mille (‰) is grams of alcohol per litre of blood, percent is grams per 100 millilitres: 0.5 ‰ is 0.05 percent.':
+        'Promile (‰) jsou gramy alkoholu na litr krve, procenta gramy na 100 mililitrů: 0,5 ‰ je 0,05 procenta.',
 }

@@ -499,4 +499,16 @@ TRANSLATIONS = {
         'Rodyti patarimus',
     'One tip a day at most, when you open the app — never while there is alcohol in your system.':
         'Ne daugiau kaip vienas patarimas per dieną atidarant programėlę – niekada, kol organizme yra alkoholio.',
+
+    # --- Blood alcohol: label, axis unit, explanation (5.28) ---
+    'What the number shows':
+        'Ką rodo skaičius',
+    'The number is an estimate of your blood alcohol concentration, BAC for short: how much alcohol there is in your blood.':
+        'Skaičius yra tavo alkoholio koncentracijos kraujyje įvertis (angliškai BAC, blood alcohol concentration): kiek alkoholio yra tavo kraujyje.',
+    'In per mille (‰) it is grams of alcohol per litre of blood: 0.5 ‰ means half a gram in every litre. In percent it is grams per 100 millilitres, so the same level is a tenth of the number: 0.5 ‰ is 0.05 percent. You can switch between the two in Profile, under Display & language.':
+        'Promilėmis (‰) tai gramai alkoholio litre kraujo: 0,5 ‰ reiškia pusę gramo kiekviename litre. Procentais tai gramai 100 mililitrų, todėl tas pats lygis yra dešimt kartų mažesnis skaičius: 0,5 ‰ yra 0,05 procento. Tarp jų gali perjungti skiltyje Profilis › Rodymas ir kalba.',
+    'The curve shows the same level over time, minute by minute.':
+        'Kreivė rodo tą patį lygį laike, minutė po minutės.',
+    'Per mille (‰) is grams of alcohol per litre of blood, percent is grams per 100 millilitres: 0.5 ‰ is 0.05 percent.':
+        'Promilė (‰) – tai gramai alkoholio litre kraujo, procentas – gramai 100 mililitrų: 0,5 ‰ yra 0,05 procento.',
 }

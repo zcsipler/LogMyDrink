@@ -499,4 +499,16 @@ TRANSLATIONS = {
         'Afișează sfaturi',
     'One tip a day at most, when you open the app — never while there is alcohol in your system.':
         'Cel mult un sfat pe zi, la deschiderea aplicației — niciodată cât timp ai alcool în organism.',
+
+    # --- Blood alcohol: label, axis unit, explanation (5.28) ---
+    'What the number shows':
+        'Ce arată numărul',
+    'The number is an estimate of your blood alcohol concentration, BAC for short: how much alcohol there is in your blood.':
+        'Numărul este o estimare a alcoolemiei tale (în engleză BAC, blood alcohol concentration): cât alcool ai în sânge.',
+    'In per mille (‰) it is grams of alcohol per litre of blood: 0.5 ‰ means half a gram in every litre. In percent it is grams per 100 millilitres, so the same level is a tenth of the number: 0.5 ‰ is 0.05 percent. You can switch between the two in Profile, under Display & language.':
+        'În promile (‰) înseamnă grame de alcool la litrul de sânge: 0,5 ‰ înseamnă o jumătate de gram în fiecare litru. În procente înseamnă grame la 100 de mililitri, deci același nivel dă un număr de zece ori mai mic: 0,5 ‰ înseamnă 0,05 la sută. Poți comuta între ele în Profil › Afișare și limbă.',
+    'The curve shows the same level over time, minute by minute.':
+        'Curba arată același nivel în timp, minut cu minut.',
+    'Per mille (‰) is grams of alcohol per litre of blood, percent is grams per 100 millilitres: 0.5 ‰ is 0.05 percent.':
+        'Promilele (‰) sunt grame de alcool la litrul de sânge, procentele grame la 100 de mililitri: 0,5 ‰ înseamnă 0,05 la sută.',
 }

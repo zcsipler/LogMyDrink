@@ -294,6 +294,8 @@ struct DisplaySettingsView: View {
                     Text("Unit size")
                 }
             }
+        } footer: {
+            Text("Per mille (‰) is grams of alcohol per litre of blood, percent is grams per 100 millilitres: 0.5 ‰ is 0.05 percent.")
         }
         .listRowBackground(Theme.surface)
     }

@@ -497,4 +497,16 @@ TRANSLATIONS = {
         'Tips tonen',
     'One tip a day at most, when you open the app — never while there is alcohol in your system.':
         'Hooguit één tip per dag, bij het openen van de app – nooit zolang er alcohol in je lichaam is.',
+
+    # --- Blood alcohol: label, axis unit, explanation (5.28) ---
+    'What the number shows':
+        'Wat het getal laat zien',
+    'The number is an estimate of your blood alcohol concentration, BAC for short: how much alcohol there is in your blood.':
+        'Het getal is een schatting van je bloedalcoholgehalte (in het Engels BAC, blood alcohol concentration): hoeveel alcohol er in je bloed zit.',
+    'In per mille (‰) it is grams of alcohol per litre of blood: 0.5 ‰ means half a gram in every litre. In percent it is grams per 100 millilitres, so the same level is a tenth of the number: 0.5 ‰ is 0.05 percent. You can switch between the two in Profile, under Display & language.':
+        'In promille (‰) is het gram alcohol per liter bloed: 0,5 ‰ betekent een halve gram in elke liter. In procent is het gram per 100 milliliter, dus hetzelfde niveau geeft een tien keer kleiner getal: 0,5 ‰ is 0,05 procent. Je wisselt tussen de twee via Profiel › Weergave en taal.',
+    'The curve shows the same level over time, minute by minute.':
+        'De curve toont hetzelfde niveau in de tijd, minuut voor minuut.',
+    'Per mille (‰) is grams of alcohol per litre of blood, percent is grams per 100 millilitres: 0.5 ‰ is 0.05 percent.':
+        'Promille (‰) is gram alcohol per liter bloed, procent is gram per 100 milliliter: 0,5 ‰ is 0,05 procent.',
 }

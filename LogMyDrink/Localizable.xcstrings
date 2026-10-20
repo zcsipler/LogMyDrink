@@ -18477,6 +18477,155 @@
         }
       }
     },
+    "In per mille (‰) it is grams of alcohol per litre of blood: 0.5 ‰ means half a gram in every litre. In percent it is grams per 100 millilitres, so the same level is a tenth of the number: 0.5 ‰ is 0.05 percent. You can switch between the two in Profile, under Display & language." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "bg" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "В промили (‰) това са грамове алкохол на литър кръв: 0,5 ‰ означава половин грам във всеки литър. В проценти това са грамове на 100 милилитра, така че същото ниво е десет пъти по-малко число: 0,5 ‰ са 0,05 процента. Можеш да превключваш между двете в Профил › Показване и език."
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "V promilích (‰) jde o gramy alkoholu na litr krve: 0,5 ‰ znamená půl gramu v každém litru. V procentech jde o gramy na 100 mililitrů, takže stejná hladina dává desetkrát menší číslo: 0,5 ‰ je 0,05 procenta. Přepnout můžeš v části Profil › Zobrazení a jazyk."
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "I promille (‰) er det gram alkohol pr. liter blod: 0,5 ‰ betyder et halvt gram i hver liter. I procent er det gram pr. 100 milliliter, så det samme niveau giver et tal, der er ti gange mindre: 0,5 ‰ svarer til 0,05 procent. Du kan skifte mellem de to under Profil › Visning og sprog."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "In Promille (‰) sind es Gramm Alkohol pro Liter Blut: 0,5 ‰ bedeutet ein halbes Gramm in jedem Liter. In Prozent sind es Gramm pro 100 Milliliter, derselbe Wert ist also ein Zehntel so groß: 0,5 ‰ sind 0,05 Prozent. Umschalten kannst du unter Profil › Anzeige & Sprache."
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Σε τοις χιλίοις (‰) είναι γραμμάρια αλκοόλ ανά λίτρο αίματος: 0,5 ‰ σημαίνει μισό γραμμάριο σε κάθε λίτρο. Σε τοις εκατό είναι γραμμάρια ανά 100 χιλιοστόλιτρα, οπότε το ίδιο επίπεδο δίνει δέκα φορές μικρότερο αριθμό: 0,5 ‰ ισοδυναμεί με 0,05 τοις εκατό. Μπορείς να αλλάξεις μεταξύ τους στο Προφίλ › Εμφάνιση και γλώσσα."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "In per mille (‰) it is grams of alcohol per litre of blood: 0.5 ‰ means half a gram in every litre. In percent it is grams per 100 millilitres, so the same level is a tenth of the number: 0.5 ‰ is 0.05 percent. You can switch between the two in Profile, under Display & language."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "En tanto por mil (‰) son gramos de alcohol por litro de sangre: 0,5 ‰ significa medio gramo en cada litro. En porcentaje son gramos por cada 100 mililitros, así que el mismo nivel da una cifra diez veces menor: 0,5 ‰ equivale a 0,05 por ciento. Puedes cambiar entre ambos en Perfil › Visualización e idioma."
+          }
+        },
+        "et" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Promillides (‰) on see grammides alkoholi liitri vere kohta: 0,5 ‰ tähendab pool grammi igas liitris. Protsentides on see grammides 100 milliliitri kohta, nii et sama tase on kümme korda väiksem number: 0,5 ‰ on 0,05 protsenti. Nende vahel saad valida jaotises Profiil › Kuva ja keel."
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Promilleina (‰) se on grammaa alkoholia litrassa verta: 0,5 ‰ tarkoittaa puolta grammaa jokaisessa litrassa. Prosentteina se on grammaa 100 millilitrassa, joten sama taso on kymmenesosa luvusta: 0,5 ‰ on 0,05 prosenttia. Voit vaihtaa näiden välillä kohdassa Profiili › Esitystapa ja kieli."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "En pour mille (‰), ce sont des grammes d’alcool par litre de sang : 0,5 ‰ signifie un demi-gramme dans chaque litre. En pour cent, ce sont des grammes pour 100 millilitres, le même taux donne donc un chiffre dix fois plus petit : 0,5 ‰ correspond à 0,05 pour cent. Tu peux passer de l’un à l’autre dans Profil › Affichage et langue."
+          }
+        },
+        "ga" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "In aghaidh an mhíle (‰), is gráim alcóil in aghaidh an lítir fola atá ann: ciallaíonn 0.5 ‰ leathghram i ngach lítear. Mar chéatadán, is gráim in aghaidh 100 millilítear atá ann, mar sin is uimhir deich n-uaire níos lú é an leibhéal céanna: is ionann 0.5 ‰ agus 0.05 faoin gcéad. Is féidir leat aistriú eatarthu in Próifíl › Taispeáint agus teanga."
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "U promilima (‰) to su grami alkohola po litri krvi: 0,5 ‰ znači pola grama u svakoj litri. U postocima to su grami na 100 mililitara, pa ista razina daje deset puta manji broj: 0,5 ‰ je 0,05 posto. Između njih možeš prebaciti u Profil › Prikaz i jezik."
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ezrelékben (‰) azt jelenti, hány gramm alkohol van egy liter vérben: 0,5 ‰ literenként fél gramm. Százalékban 100 milliliterre számolunk, ezért ugyanaz a szint tizedakkora szám: 0,5 ‰ = 0,05 százalék. A kettő között a Profil fül Megjelenítés és nyelv lapján válthatsz."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "In per mille (‰) sono grammi di alcol per litro di sangue: 0,5 ‰ significa mezzo grammo in ogni litro. In percentuale sono grammi per 100 millilitri, quindi lo stesso livello dà un numero dieci volte più piccolo: 0,5 ‰ corrisponde a 0,05 per cento. Puoi passare dall’uno all’altro in Profilo › Visualizzazione e lingua."
+          }
+        },
+        "lt" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Promilėmis (‰) tai gramai alkoholio litre kraujo: 0,5 ‰ reiškia pusę gramo kiekviename litre. Procentais tai gramai 100 mililitrų, todėl tas pats lygis yra dešimt kartų mažesnis skaičius: 0,5 ‰ yra 0,05 procento. Tarp jų gali perjungti skiltyje Profilis › Rodymas ir kalba."
+          }
+        },
+        "lv" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Promilēs (‰) tie ir grami alkohola uz litru asiņu: 0,5 ‰ nozīmē pusgramu katrā litrā. Procentos tie ir grami uz 100 mililitriem, tāpēc tas pats līmenis ir desmit reizes mazāks skaitlis: 0,5 ‰ ir 0,05 procenti. Starp abiem vari pārslēgties sadaļā Profils › Attēlojums un valoda."
+          }
+        },
+        "mt" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "F’kull elf (‰) huma grammi ta’ alkoħol għal kull litru ta’ demm: 0.5 ‰ tfisser nofs gramm f’kull litru. F’perċentwal huma grammi għal kull 100 millilitru, għalhekk l-istess livell jagħti numru għaxar darbiet iżgħar: 0.5 ‰ huwa 0.05 fil-mija. Tista’ taqleb bejniethom f’Profil › Wiri u lingwa."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "In promille (‰) is het gram alcohol per liter bloed: 0,5 ‰ betekent een halve gram in elke liter. In procent is het gram per 100 milliliter, dus hetzelfde niveau geeft een tien keer kleiner getal: 0,5 ‰ is 0,05 procent. Je wisselt tussen de twee via Profiel › Weergave en taal."
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "W promilach (‰) to gramy alkoholu na litr krwi: 0,5 ‰ oznacza pół grama w każdym litrze. W procentach to gramy na 100 mililitrów, więc ten sam poziom daje dziesięć razy mniejszą liczbę: 0,5 ‰ to 0,05 procent. Przełączysz je w Profil › Wyświetlanie i język."
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Em por mil (‰) são gramas de álcool por litro de sangue: 0,5 ‰ significa meio grama em cada litro. Em percentagem são gramas por 100 mililitros, por isso o mesmo nível dá um número dez vezes menor: 0,5 ‰ equivale a 0,05 por cento. Podes alternar entre os dois em Perfil › Apresentação e idioma."
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "În promile (‰) înseamnă grame de alcool la litrul de sânge: 0,5 ‰ înseamnă o jumătate de gram în fiecare litru. În procente înseamnă grame la 100 de mililitri, deci același nivel dă un număr de zece ori mai mic: 0,5 ‰ înseamnă 0,05 la sută. Poți comuta între ele în Profil › Afișare și limbă."
+          }
+        },
+        "sk" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "V promile (‰) ide o gramy alkoholu na liter krvi: 0,5 ‰ znamená pol gramu v každom litri. V percentách ide o gramy na 100 mililitrov, takže rovnaká hladina dáva desaťkrát menšie číslo: 0,5 ‰ je 0,05 percenta. Prepnúť môžeš v časti Profil › Zobrazenie a jazyk."
+          }
+        },
+        "sl" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "V promilih (‰) so to grami alkohola na liter krvi: 0,5 ‰ pomeni pol grama v vsakem litru. V odstotkih so to grami na 100 mililitrov, zato ista raven da desetkrat manjše število: 0,5 ‰ je 0,05 odstotka. Preklopiš lahko v razdelku Profil › Prikaz in jezik."
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "I promille (‰) är det gram alkohol per liter blod: 0,5 ‰ betyder ett halvt gram i varje liter. I procent är det gram per 100 milliliter, så samma nivå ger en tio gånger mindre siffra: 0,5 ‰ motsvarar 0,05 procent. Du växlar mellan dem under Profil › Visning och språk."
+          }
+        }
+      }
+    },
     "Language" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -25476,6 +25625,155 @@
           "stringUnit" : {
             "state" : "needs_review",
             "value" : "Promille"
+          }
+        }
+      }
+    },
+    "Per mille (‰) is grams of alcohol per litre of blood, percent is grams per 100 millilitres: 0.5 ‰ is 0.05 percent." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "bg" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Промилът (‰) е грамове алкохол на литър кръв, процентът — грамове на 100 милилитра: 0,5 ‰ са 0,05 процента."
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Promile (‰) jsou gramy alkoholu na litr krve, procenta gramy na 100 mililitrů: 0,5 ‰ je 0,05 procenta."
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Promille (‰) er gram alkohol pr. liter blod, procent er gram pr. 100 milliliter: 0,5 ‰ svarer til 0,05 procent."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Promille (‰) sind Gramm Alkohol pro Liter Blut, Prozent sind Gramm pro 100 Milliliter: 0,5 ‰ sind 0,05 Prozent."
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Το τοις χιλίοις (‰) είναι γραμμάρια αλκοόλ ανά λίτρο αίματος, το τοις εκατό γραμμάρια ανά 100 χιλιοστόλιτρα: 0,5 ‰ ισοδυναμεί με 0,05 τοις εκατό."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Per mille (‰) is grams of alcohol per litre of blood, percent is grams per 100 millilitres: 0.5 ‰ is 0.05 percent."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "El tanto por mil (‰) son gramos de alcohol por litro de sangre; el porcentaje, gramos por cada 100 mililitros: 0,5 ‰ equivale a 0,05 por ciento."
+          }
+        },
+        "et" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Promill (‰) on grammid alkoholi liitri vere kohta, protsent grammid 100 milliliitri kohta: 0,5 ‰ on 0,05 protsenti."
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Promille (‰) on grammaa alkoholia litrassa verta, prosentti grammaa 100 millilitrassa: 0,5 ‰ on 0,05 prosenttia."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Le pour mille (‰) correspond aux grammes d’alcool par litre de sang, le pour cent aux grammes pour 100 millilitres : 0,5 ‰ correspond à 0,05 pour cent."
+          }
+        },
+        "ga" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Is gráim alcóil in aghaidh an lítir fola atá i gceist le ‰, agus gráim in aghaidh 100 millilítear le céatadán: is ionann 0.5 ‰ agus 0.05 faoin gcéad."
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Promil (‰) su grami alkohola po litri krvi, postotak grami na 100 mililitara: 0,5 ‰ je 0,05 posto."
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Az ezrelék (‰) azt mutatja, hány gramm alkohol van egy liter vérben, a százalék azt, hogy 100 milliliterben: 0,5 ‰ = 0,05 százalék."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Il per mille (‰) indica i grammi di alcol per litro di sangue, la percentuale i grammi per 100 millilitri: 0,5 ‰ corrisponde a 0,05 per cento."
+          }
+        },
+        "lt" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Promilė (‰) – tai gramai alkoholio litre kraujo, procentas – gramai 100 mililitrų: 0,5 ‰ yra 0,05 procento."
+          }
+        },
+        "lv" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Promile (‰) ir grami alkohola uz litru asiņu, procenti – grami uz 100 mililitriem: 0,5 ‰ ir 0,05 procenti."
+          }
+        },
+        "mt" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Il-‰ huma grammi ta’ alkoħol għal kull litru ta’ demm, il-perċentwal grammi għal kull 100 millilitru: 0.5 ‰ huwa 0.05 fil-mija."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Promille (‰) is gram alcohol per liter bloed, procent is gram per 100 milliliter: 0,5 ‰ is 0,05 procent."
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Promil (‰) to gramy alkoholu na litr krwi, procent – gramy na 100 mililitrów: 0,5 ‰ to 0,05 procent."
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "O por mil (‰) indica gramas de álcool por litro de sangue, a percentagem gramas por 100 mililitros: 0,5 ‰ equivale a 0,05 por cento."
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Promilele (‰) sunt grame de alcool la litrul de sânge, procentele grame la 100 de mililitri: 0,5 ‰ înseamnă 0,05 la sută."
+          }
+        },
+        "sk" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Promile (‰) sú gramy alkoholu na liter krvi, percentá gramy na 100 mililitrov: 0,5 ‰ je 0,05 percenta."
+          }
+        },
+        "sl" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Promil (‰) pomeni grame alkohola na liter krvi, odstotek grame na 100 mililitrov: 0,5 ‰ je 0,05 odstotka."
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Promille (‰) är gram alkohol per liter blod, procent är gram per 100 milliliter: 0,5 ‰ motsvarar 0,05 procent."
           }
         }
       }
@@ -33377,6 +33675,155 @@
         }
       }
     },
+    "The curve shows the same level over time, minute by minute." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "bg" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Кривата показва същото ниво във времето, минута по минута."
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Křivka ukazuje stejnou hladinu v čase, minutu po minutě."
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Kurven viser det samme niveau over tid, minut for minut."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Die Kurve zeigt denselben Wert im Zeitverlauf, Minute für Minute."
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Η καμπύλη δείχνει το ίδιο επίπεδο στον χρόνο, λεπτό προς λεπτό."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The curve shows the same level over time, minute by minute."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "La curva muestra ese mismo nivel a lo largo del tiempo, minuto a minuto."
+          }
+        },
+        "et" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Kõver näitab sama taset ajas, minut minuti haaval."
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Käyrä näyttää saman tason ajan mittaan, minuutti minuutilta."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "La courbe montre ce même taux dans le temps, minute par minute."
+          }
+        },
+        "ga" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Taispeánann an cuar an leibhéal céanna le himeacht ama, nóiméad ar nóiméad."
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Krivulja prikazuje istu razinu kroz vrijeme, minutu po minutu."
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A görbe ugyanezt a szintet mutatja, percről percre."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "La curva mostra lo stesso livello nel tempo, minuto per minuto."
+          }
+        },
+        "lt" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Kreivė rodo tą patį lygį laike, minutė po minutės."
+          }
+        },
+        "lv" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Līkne rāda to pašu līmeni laikā, minūti pa minūtei."
+          }
+        },
+        "mt" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Il-kurva turi l-istess livell maż-żmien, minuta b’minuta."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "De curve toont hetzelfde niveau in de tijd, minuut voor minuut."
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Krzywa pokazuje ten sam poziom w czasie, minuta po minucie."
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "A curva mostra esse mesmo nível ao longo do tempo, minuto a minuto."
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Curba arată același nivel în timp, minut cu minut."
+          }
+        },
+        "sk" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Krivka ukazuje rovnakú hladinu v čase, minútu po minúte."
+          }
+        },
+        "sl" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Krivulja kaže isto raven skozi čas, minuto za minuto."
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Kurvan visar samma nivå över tid, minut för minut."
+          }
+        }
+      }
+    },
     "The estimate builds on the Widmark method, used to estimate blood alcohol since the 1930s; the app runs a refined version of it." : {
       "extractionState" : "manual",
       "localizations" : {
@@ -33522,6 +33969,155 @@
           "stringUnit" : {
             "state" : "needs_review",
             "value" : "Uppskattningen bygger på Widmarks metod, som har använts för att uppskatta alkoholhalten i blodet sedan 1930-talet; appen använder en förfinad version av den."
+          }
+        }
+      }
+    },
+    "The number is an estimate of your blood alcohol concentration, BAC for short: how much alcohol there is in your blood." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "bg" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Числото е оценка на концентрацията на алкохол в кръвта ти (на английски BAC, blood alcohol concentration): колко алкохол има в кръвта ти."
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Číslo je odhad koncentrace alkoholu ve tvé krvi (anglicky BAC, blood alcohol concentration): kolik alkoholu máš v krvi."
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Tallet er et skøn over din alkoholkoncentration i blodet (på engelsk BAC, blood alcohol concentration): hvor meget alkohol der er i dit blod."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Die Zahl ist eine Schätzung deiner Blutalkoholkonzentration (englisch BAC, blood alcohol concentration): wie viel Alkohol in deinem Blut ist."
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Ο αριθμός είναι μια εκτίμηση της συγκέντρωσης αλκοόλ στο αίμα σου (στα αγγλικά BAC, blood alcohol concentration): πόσο αλκοόλ έχεις στο αίμα σου."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The number is an estimate of your blood alcohol concentration, BAC for short: how much alcohol there is in your blood."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "La cifra es una estimación de tu alcoholemia (en inglés BAC, blood alcohol concentration): cuánto alcohol hay en tu sangre."
+          }
+        },
+        "et" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Number on hinnang sinu vere alkoholisisaldusele (inglise keeles BAC, blood alcohol concentration): kui palju alkoholi on sinu veres."
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Luku on arvio veresi alkoholipitoisuudesta (englanniksi BAC, blood alcohol concentration): kuinka paljon alkoholia veressäsi on."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Le chiffre est une estimation de ton alcoolémie (en anglais BAC, blood alcohol concentration) : la quantité d’alcool dans ton sang."
+          }
+        },
+        "ga" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Is meastachán í an uimhir ar an tiúchan alcóil i d’fhuil (BAC i mBéarla, blood alcohol concentration): an méid alcóil atá i d’fhuil."
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Broj je procjena koncentracije alkohola u tvojoj krvi (engleski BAC, blood alcohol concentration): koliko alkohola imaš u krvi."
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A szám a véralkoholszinted becslése (angolul BAC, blood alcohol concentration): azt mutatja, mennyi alkohol van a véredben."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Il numero è una stima del tuo tasso alcolemico (in inglese BAC, blood alcohol concentration): quanto alcol c’è nel tuo sangue."
+          }
+        },
+        "lt" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Skaičius yra tavo alkoholio koncentracijos kraujyje įvertis (angliškai BAC, blood alcohol concentration): kiek alkoholio yra tavo kraujyje."
+          }
+        },
+        "lv" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Skaitlis ir tavas alkohola koncentrācijas asinīs aplēse (angliski BAC, blood alcohol concentration): cik daudz alkohola ir tavās asinīs."
+          }
+        },
+        "mt" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "In-numru huwa stima tal-konċentrazzjoni tal-alkoħol fid-demm tiegħek (bl-Ingliż BAC, blood alcohol concentration): kemm hemm alkoħol fid-demm tiegħek."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Het getal is een schatting van je bloedalcoholgehalte (in het Engels BAC, blood alcohol concentration): hoeveel alcohol er in je bloed zit."
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Liczba to szacowane stężenie alkoholu we krwi (po angielsku BAC, blood alcohol concentration): ile alkoholu masz we krwi."
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "O número é uma estimativa da tua taxa de alcoolemia (em inglês BAC, blood alcohol concentration): quanto álcool tens no sangue."
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Numărul este o estimare a alcoolemiei tale (în engleză BAC, blood alcohol concentration): cât alcool ai în sânge."
+          }
+        },
+        "sk" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Číslo je odhad koncentrácie alkoholu v tvojej krvi (po anglicky BAC, blood alcohol concentration): koľko alkoholu máš v krvi."
+          }
+        },
+        "sl" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Število je ocena koncentracije alkohola v tvoji krvi (angleško BAC, blood alcohol concentration): koliko alkohola imaš v krvi."
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Siffran är en uppskattning av din alkoholkoncentration i blodet (på engelska BAC, blood alcohol concentration): hur mycket alkohol det finns i ditt blod."
           }
         }
       }
@@ -38588,6 +39184,155 @@
           "stringUnit" : {
             "state" : "needs_review",
             "value" : "Vad som påverkar den"
+          }
+        }
+      }
+    },
+    "What the number shows" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "bg" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Какво показва числото"
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Co číslo ukazuje"
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Hvad tallet viser"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Was die Zahl zeigt"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Τι δείχνει ο αριθμός"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "What the number shows"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Qué muestra la cifra"
+          }
+        },
+        "et" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Mida number näitab"
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Mitä luku näyttää"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Ce que montre le chiffre"
+          }
+        },
+        "ga" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Cad a thaispeánann an uimhir"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Što broj pokazuje"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mit mutat a szám"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Cosa mostra il numero"
+          }
+        },
+        "lt" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Ką rodo skaičius"
+          }
+        },
+        "lv" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Ko rāda skaitlis"
+          }
+        },
+        "mt" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "X’juri n-numru"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Wat het getal laat zien"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Co pokazuje liczba"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "O que o número mostra"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Ce arată numărul"
+          }
+        },
+        "sk" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Čo číslo ukazuje"
+          }
+        },
+        "sl" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Kaj kaže število"
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Vad siffran visar"
           }
         }
       }

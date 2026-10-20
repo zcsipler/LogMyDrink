@@ -502,4 +502,16 @@ TRANSLATIONS = {
         'Εμφάνιση συμβουλών',
     'One tip a day at most, when you open the app — never while there is alcohol in your system.':
         'Το πολύ μία συμβουλή την ημέρα, όταν ανοίγεις την εφαρμογή — ποτέ όσο υπάρχει αλκοόλ στον οργανισμό σου.',
+
+    # --- Blood alcohol: label, axis unit, explanation (5.28) ---
+    'What the number shows':
+        'Τι δείχνει ο αριθμός',
+    'The number is an estimate of your blood alcohol concentration, BAC for short: how much alcohol there is in your blood.':
+        'Ο αριθμός είναι μια εκτίμηση της συγκέντρωσης αλκοόλ στο αίμα σου (στα αγγλικά BAC, blood alcohol concentration): πόσο αλκοόλ έχεις στο αίμα σου.',
+    'In per mille (‰) it is grams of alcohol per litre of blood: 0.5 ‰ means half a gram in every litre. In percent it is grams per 100 millilitres, so the same level is a tenth of the number: 0.5 ‰ is 0.05 percent. You can switch between the two in Profile, under Display & language.':
+        'Σε τοις χιλίοις (‰) είναι γραμμάρια αλκοόλ ανά λίτρο αίματος: 0,5 ‰ σημαίνει μισό γραμμάριο σε κάθε λίτρο. Σε τοις εκατό είναι γραμμάρια ανά 100 χιλιοστόλιτρα, οπότε το ίδιο επίπεδο δίνει δέκα φορές μικρότερο αριθμό: 0,5 ‰ ισοδυναμεί με 0,05 τοις εκατό. Μπορείς να αλλάξεις μεταξύ τους στο Προφίλ › Εμφάνιση και γλώσσα.',
+    'The curve shows the same level over time, minute by minute.':
+        'Η καμπύλη δείχνει το ίδιο επίπεδο στον χρόνο, λεπτό προς λεπτό.',
+    'Per mille (‰) is grams of alcohol per litre of blood, percent is grams per 100 millilitres: 0.5 ‰ is 0.05 percent.':
+        'Το τοις χιλίοις (‰) είναι γραμμάρια αλκοόλ ανά λίτρο αίματος, το τοις εκατό γραμμάρια ανά 100 χιλιοστόλιτρα: 0,5 ‰ ισοδυναμεί με 0,05 τοις εκατό.',
 }

@@ -502,4 +502,16 @@ TRANSLATIONS = {
         'Taispeáin leideanna',
     'One tip a day at most, when you open the app — never while there is alcohol in your system.':
         'Leid amháin sa lá ar a mhéad, nuair a osclaíonn tú an aip – ach ní fad is atá alcól i do chorp.',
+
+    # --- Blood alcohol: label, axis unit, explanation (5.28) ---
+    'What the number shows':
+        'Cad a thaispeánann an uimhir',
+    'The number is an estimate of your blood alcohol concentration, BAC for short: how much alcohol there is in your blood.':
+        'Is meastachán í an uimhir ar an tiúchan alcóil i d’fhuil (BAC i mBéarla, blood alcohol concentration): an méid alcóil atá i d’fhuil.',
+    'In per mille (‰) it is grams of alcohol per litre of blood: 0.5 ‰ means half a gram in every litre. In percent it is grams per 100 millilitres, so the same level is a tenth of the number: 0.5 ‰ is 0.05 percent. You can switch between the two in Profile, under Display & language.':
+        'In aghaidh an mhíle (‰), is gráim alcóil in aghaidh an lítir fola atá ann: ciallaíonn 0.5 ‰ leathghram i ngach lítear. Mar chéatadán, is gráim in aghaidh 100 millilítear atá ann, mar sin is uimhir deich n-uaire níos lú é an leibhéal céanna: is ionann 0.5 ‰ agus 0.05 faoin gcéad. Is féidir leat aistriú eatarthu in Próifíl › Taispeáint agus teanga.',
+    'The curve shows the same level over time, minute by minute.':
+        'Taispeánann an cuar an leibhéal céanna le himeacht ama, nóiméad ar nóiméad.',
+    'Per mille (‰) is grams of alcohol per litre of blood, percent is grams per 100 millilitres: 0.5 ‰ is 0.05 percent.':
+        'Is gráim alcóil in aghaidh an lítir fola atá i gceist le ‰, agus gráim in aghaidh 100 millilítear le céatadán: is ionann 0.5 ‰ agus 0.05 faoin gcéad.',
 }
