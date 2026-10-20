@@ -469,8 +469,6 @@ TRANSLATIONS = {
         'Begrepen',
     'Open History':
         'Geschiedenis openen',
-    'Later':
-        'Later',
     'Don’t show again':
         'Niet meer tonen',
     'Lock Screen':

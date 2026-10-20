@@ -471,8 +471,6 @@ TRANSLATIONS = {
         'Am înțeles',
     'Open History':
         'Deschide istoricul',
-    'Later':
-        'Mai târziu',
     'Don’t show again':
         'Nu mai afișa',
     'Lock Screen':

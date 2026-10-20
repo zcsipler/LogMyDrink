@@ -465,8 +465,6 @@ TRANSLATIONS = {
         'Razumijem',
     'Open History':
         'Otvori povijest',
-    'Later':
-        'Kasnije',
     'Don’t show again':
         'Ne prikazuj više',
     'Lock Screen':

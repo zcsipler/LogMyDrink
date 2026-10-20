@@ -469,8 +469,6 @@ TRANSLATIONS = {
         'Ho capito',
     'Open History':
         'Apri la cronologia',
-    'Later':
-        'Più tardi',
     'Don’t show again':
         'Non mostrare più',
     'Lock Screen':

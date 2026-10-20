@@ -474,8 +474,6 @@ TRANSLATIONS = {
         'Tuigim',
     'Open History':
         'Oscail an Stair',
-    'Later':
-        'Níos déanaí',
     'Don’t show again':
         'Ná taispeáin arís',
     'Lock Screen':

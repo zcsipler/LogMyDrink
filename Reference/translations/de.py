@@ -476,8 +476,6 @@ TRANSLATIONS = {
         'Verstanden',
     'Open History':
         'Verlauf öffnen',
-    'Later':
-        'Später',
     'Don’t show again':
         'Nicht mehr anzeigen',
     'Lock Screen':

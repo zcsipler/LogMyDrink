@@ -2463,7 +2463,7 @@
         "hu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "A widgetre koppintva megnyílik az app, és felviszi a kedvenc italodat. Amíg alkohol van a szervezetedben, a szintedet és annak irányát is mutatja."
+            "value" : "A widgetre koppintva megnyílik az app, és felviszi a kedvenc italodat. Amíg alkohol van a szervezetedben, a szintedet is mutatja, és azt, hogy emelkedik vagy csökken."
           }
         },
         "it" : {
@@ -2612,7 +2612,7 @@
         "hu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Óránként kb. 0,15 ‰ (az irodalmi tartomány 0,10–0,25), rendszeresen ivóknál több, mert a máj enzimei alkalmazkodnak. Nullához közel a lebontás lelassul (Michaelis–Menten-kinetika), így a görbe nem törik meg hirtelen, hanem fokozatosan kifut."
+            "value" : "Óránként kb. 0,15 ‰ (a szakirodalomban 0,10–0,25). Rendszeresen ivóknál gyorsabb, mert a máj enzimei alkalmazkodnak. Nullához közeledve lelassul (Michaelis–Menten-kinetika), így a görbe nem ér hirtelen véget, hanem fokozatosan lecseng."
           }
         },
         "it" : {
@@ -3357,7 +3357,7 @@
         "hu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Tedd ki a zárolási képernyőre vagy a főképernyőre: egy koppintás, és a kedvenced bekerül. Amíg alkohol van a szervezetedben, a szintedet és annak irányát is mutatja."
+            "value" : "Add hozzá a zárolási képernyőhöz vagy a főképernyőhöz: egy koppintással felviheted a kedvencedet. Amíg alkohol van a szervezetedben, a widget a szintedet is mutatja, és azt, hogy emelkedik vagy csökken."
           }
         },
         "it" : {
@@ -3655,7 +3655,7 @@
         "hu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Widget kitétele"
+            "value" : "Widget hozzáadása"
           }
         },
         "it" : {
@@ -6635,7 +6635,7 @@
         "hu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "De nem csak az estéről szól. Minden felvitt ital az Előzménybe kerül, így hónapok és évek távlatából is látod, mennyit, milyen gyakran és milyen magasra iszol. Ebből kirajzolódnak a mintáid, és az is, merre változnak: javul-e a helyzet, vagy romlik."
+            "value" : "De nem csak a mai estéről szól. Minden felvitt ital bekerül az Előzménybe, így hónapok, évek távlatában is látod, mennyit, milyen gyakran és milyen magas szintig iszol. Ebből kirajzolódnak a szokásaid, és az is, merre tartanak: javul-e a helyzet, vagy romlik."
           }
         },
         "it" : {
@@ -12893,7 +12893,7 @@
         "hu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Minden italnak saját „gyomra” van. Éhgyomorra az alkohol fele kb. 7 perc alatt szívódik fel, teli gyomorra kb. 21 perc alatt. A kortyolgatott ital egyenletesen, az ivás ideje alatt jut a gyomorba."
+            "value" : "Minden italnak saját „gyomra” van. Éhgyomorra az alkohol fele kb. 7, teli gyomorra kb. 21 perc alatt szívódik fel. A kortyolgatott ital az ivás teljes ideje alatt egyenletesen jut a gyomorba."
           }
         },
         "it" : {
@@ -14532,7 +14532,7 @@
         "hu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "A testsúlyodból, magasságodból, korodból és nemedből kiszámolja, mennyi víz van a szervezetedben, mert az alkohol ebben oszlik el. Minden italt külön követ: mennyi alkohol volt benne, milyen gyorsan ittad meg, és mennyit ettél előtte, mert ettől függ, milyen gyorsan szívódik fel."
+            "value" : "A testsúlyodból, a magasságodból, az életkorodból és a nemedből kiszámolja, mennyi víz van a szervezetedben, mert az alkohol ebben oszlik el. Minden italt külön követ nyomon: mennyi alkohol volt benne, milyen gyorsan ittad meg, és mennyit ettél előtte, mert ettől függ, milyen gyorsan szívódik fel."
           }
         },
         "it" : {
@@ -14979,7 +14979,7 @@
         "hu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "A genetika, a máj állapota, a gyógyszerek, az elfogyasztott étel, az alvás és a fáradtság is számít – ezeket az app nem ismeri. Pontos értéket csak hitelesített szonda vagy vérvizsgálat ad."
+            "value" : "Számít a genetika, a máj állapota és a gyógyszerek is, valamint az, hogy mit ettél, mennyit aludtál és mennyire vagy fáradt – ezek közül az app egyiket sem ismeri. Pontos értéket csak hitelesített alkoholszonda vagy vérvizsgálat ad."
           }
         },
         "it" : {
@@ -15128,7 +15128,7 @@
         "hu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Alacsonyabb csúcsot és korábbi kiürülést ad. Meglepő, de mért tény: étel mellett a gyomor a felszívódás előtt lebontja az alkohol egy részét (az app 5, 10 és 15 százalékkal számol), és amit a szervezet fel sem vett, azt nem kell lebontania."
+            "value" : "Alacsonyabb csúcs és korábbi kiürülés. Meglepő, de mérésekkel igazolt: étel mellett a gyomor az alkohol egy részét már a felszívódás előtt lebontja (az app 5, 10 és 15 százalékkal számol), és ami be sem jutott, azt nem is kell lebontani."
           }
         },
         "it" : {
@@ -15277,7 +15277,7 @@
         "hu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Értem"
+            "value" : "Rendben"
           }
         },
         "it" : {
@@ -16022,7 +16022,7 @@
         "hu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Az Előzményben hetekre, hónapokra és évekre látod, mennyit és milyen magasra iszol, és merre változik."
+            "value" : "Az Előzményben heti, havi és éves bontásban látod, mennyit és milyen magas szintig iszol, és azt is, milyen irányba változik."
           }
         },
         "it" : {
@@ -16469,7 +16469,7 @@
         "hu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Hogyan tehetem ki?"
+            "value" : "Hogyan adhatom hozzá?"
           }
         },
         "it" : {
@@ -16618,7 +16618,7 @@
         "hu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Hogyan számol az app?"
+            "value" : "Hogyan számolja ki ezt az app?"
           }
         },
         "it" : {
@@ -17214,7 +17214,7 @@
         "hu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Hogyan működik"
+            "value" : "Hogyan működik?"
           }
         },
         "it" : {
@@ -17661,7 +17661,7 @@
         "hu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ha egy italt utólag viszel fel, az időt a − és + gombokkal állítsd vissza; egy kimaradt napot az Előzmény Nap nézetében pótolhatsz."
+            "value" : "Ha egy italt utólag viszel fel, a − és + gombokkal állítsd vissza az időpontot; egy kimaradt napot az Előzmény fül Nap nézetében pótolhatsz."
           }
         },
         "it" : {
@@ -18775,155 +18775,6 @@
         }
       }
     },
-    "Later" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "bg" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "По-късно"
-          }
-        },
-        "cs" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Později"
-          }
-        },
-        "da" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Senere"
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Später"
-          }
-        },
-        "el" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Αργότερα"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Later"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Más tarde"
-          }
-        },
-        "et" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Hiljem"
-          }
-        },
-        "fi" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Myöhemmin"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Plus tard"
-          }
-        },
-        "ga" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Níos déanaí"
-          }
-        },
-        "hr" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Kasnije"
-          }
-        },
-        "hu" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Később"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Più tardi"
-          }
-        },
-        "lt" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Vėliau"
-          }
-        },
-        "lv" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Vēlāk"
-          }
-        },
-        "mt" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Aktar tard"
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Later"
-          }
-        },
-        "pl" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Później"
-          }
-        },
-        "pt" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Mais tarde"
-          }
-        },
-        "ro" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Mai târziu"
-          }
-        },
-        "sk" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Neskôr"
-          }
-        },
-        "sl" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Pozneje"
-          }
-        },
-        "sv" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Senare"
-          }
-        }
-      }
-    },
     "Leave the rate to the frequency question unless you have a measurement to match it against." : {
       "extractionState" : "manual",
       "localizations" : {
@@ -19598,7 +19449,7 @@
         "hu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Zárold le a telefont, majd tartsd nyomva az ujjad a zárolási képernyőn."
+            "value" : "Zárold le a telefont, majd tartsd nyomva a zárolási képernyőt."
           }
         },
         "it" : {
@@ -19747,7 +19598,7 @@
         "hu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "A LogMyDrink abban segít, hogy tudatosabban igyál, és kézben tartsd az italozást. A döntés a következő pohár előtt születik, ezért az app előre megmutatja, hová vinné a szintedet egy újabb ital, és mikor érné el a csúcsot."
+            "value" : "A LogMyDrink abban segít, hogy tudatosabban igyál, és kézben tartsd az ivást. A döntés a következő pohár előtt születik meg, ezért az app előre megmutatja, hová emelné a szintedet egy újabb ital, és mikor tetőzne."
           }
         },
         "it" : {
@@ -20343,7 +20194,7 @@
         "hu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Visszanézés"
+            "value" : "Visszatekintés"
           }
         },
         "it" : {
@@ -20939,7 +20790,7 @@
         "hu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "A máj közben óránként nagyjából állandó mennyiséget bont le; hogy nálad mennyit, azt az ivási gyakoriságodból becsüli. Ebből percről percre kirajzolódik egy görbe: hol tartasz most, merre tartasz, és mikorra ürül ki a szervezetedből az alkohol."
+            "value" : "Közben a májad óránként nagyjából állandó mennyiséget bont le; hogy nálad mennyit, azt az app abból becsüli, milyen gyakran iszol. Az eredmény egy percről percre számolt görbe: hol tartasz most, merre haladsz, és mikorra ürül ki teljesen az alkohol."
           }
         },
         "it" : {
@@ -22131,7 +21982,7 @@
         "hu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Soha ne ez alapján döntsd el, hogy vezethetsz-e. Az app nem mér, hanem becsül, és a valódi érték ettől jelentősen eltérhet."
+            "value" : "Soha ne ez alapján döntsd el, hogy vezethetsz-e. Az app nem mér, hanem becsül, és a tényleges szinted jelentősen eltérhet a becsülttől."
           }
         },
         "it" : {
@@ -24217,7 +24068,7 @@
         "hu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Egy koppintás a widgeten, és a kedvenced bekerül, az app keresgélése nélkül. Este a szintedet is mutatja."
+            "value" : "Egy koppintás a widgeten, és a kedvenced már fel is került – nem kell keresgélned az appot. Este a widget a szintedet is mutatja."
           }
         },
         "it" : {
@@ -28538,7 +28389,7 @@
         "hu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Mondd: „Hey Siri, LogMyDrink now”, és Siri felviszi a kedvencedet, majd megmondja, hová tart a csúcs."
+            "value" : "Mondd: „Hey Siri, LogMyDrink now”, és Siri felviszi a kedvencedet, majd megmondja, mekkora csúcsra számíthatsz. (A parancs angolul működik.)"
           }
         },
         "it" : {
@@ -28985,7 +28836,7 @@
         "hu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nézd meg a mintáidat"
+            "value" : "Nézd meg a szokásaidat"
           }
         },
         "it" : {
@@ -29283,7 +29134,7 @@
         "hu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Állíts be kedvencet a Profilban, és az Élő képernyő gombja egyetlen koppintással felviszi."
+            "value" : "Állíts be egy kedvencet a Profilban, és az Élő képernyő gombjával egyetlen koppintással felviheted."
           }
         },
         "it" : {
@@ -32859,7 +32710,7 @@
         "hu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "A Watson-képlet (1980) a testsúly, a magasság, a kor és a nem alapján. A női képletben nincs életkor – ez a képlet sajátossága, nem hiba. Az eloszlási térfogat a testvíz osztva 0,85-tel, ennyi a vér víztartalma."
+            "value" : "A Watson-képlet (1980), a testsúly, a magasság, az életkor és a nem alapján. A női képletben nem szerepel az életkor – ez a képlet sajátossága, nem hiba. Az eloszlási térfogat a testvíz 0,85-tel elosztva, ennyi a vér víztartalma."
           }
         },
         "it" : {
@@ -33157,7 +33008,7 @@
         "hu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Az app semmit nem mér. Amit mutat, az egy átlagos értékekkel dolgozó modell eredménye, és a valóság ettől eltérhet. A legnagyobb bizonytalanság a lebontás sebessége: a reális tartományon belül ez önmagában 40 százalékot is mozdíthat a csúcson, és négy órát a kiürülésen ugyanazon az estén."
+            "value" : "Az app semmit sem mér. Amit mutat, az egy átlagos értékekkel számoló modell eredménye, és a valóság ettől eltérhet. A legnagyobb bizonytalanság az, hogy milyen gyorsan bontod le az alkoholt: a reális tartományon belül ez önmagában is akár 40 százalékkal megváltoztathatja ugyanannak az estének a csúcsát, a kiürülést pedig négy órával tolhatja el."
           }
         },
         "it" : {
@@ -33455,7 +33306,7 @@
         "hu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "A görbe numerikus szimulációból készül, percenkénti felbontásban."
+            "value" : "A görbe percenkénti felbontású numerikus szimulációból adódik."
           }
         },
         "it" : {
@@ -33604,7 +33455,7 @@
         "hu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "A becslés alapja a Widmark-módszer, amellyel az 1930-as évek óta becsülik a véralkoholszintet; az app ennek egy továbbfejlesztett változatát használja."
+            "value" : "A becslés a Widmark-módszeren alapul, amellyel az 1930-as évek óta számítják a véralkoholszintet; az app ennek egy továbbfejlesztett változatával dolgozik."
           }
         },
         "it" : {
@@ -33753,7 +33604,7 @@
         "hu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "A szám ettől még hasznos. Ha az app nálad következetesen kicsit többet vagy kevesebbet mutat, minden este ugyanabba az irányba téved, így idővel megtanulod, nálad mit jelent egy adott érték. A Profilban a lebontási sebesség bizonytalanságát is megjelenítheted: ilyenkor egy szám helyett tartományt látsz."
+            "value" : "A szám ettől még hasznos. Ha az app nálad következetesen kicsit többet vagy kevesebbet mutat, akkor minden este ugyanabba az irányba téved, így idővel megtanulod, mit jelent nálad egy adott érték. A Profilban a lebontási sebesség bizonytalanságát is megjelenítheted: ilyenkor egyetlen szám helyett tartományt látsz."
           }
         },
         "it" : {
@@ -36137,7 +35988,7 @@
         "hu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Tartsd nyomva az ujjad a főképernyő egy üres részén, amíg az ikonok remegni nem kezdenek."
+            "value" : "Tartsd nyomva a főképernyő egy üres részét, amíg az ikonok remegni nem kezdenek."
           }
         },
         "it" : {
@@ -39266,7 +39117,7 @@
         "hu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Miért van ez az app"
+            "value" : "Miért készült ez az app"
           }
         },
         "it" : {
@@ -43736,7 +43587,7 @@
         "hu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "„Hey Siri, LogMyDrink now” – Siri felviszi a kedvencedet, és megmondja, hová tart a csúcs."
+            "value" : "„Hey Siri, LogMyDrink now” – Siri felviszi a kedvencedet, és megmondja, mekkora csúcsra számíthatsz."
           }
         },
         "it" : {
@@ -43885,7 +43736,7 @@
         "hu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Az Élő képernyő tetején a „Tegnap” gomb egy koppintással az előző napra visz; az Előzmény fülön hetekre, hónapokra és évekre visszamenőleg látod a mintáidat."
+            "value" : "Az Élő képernyő tetején a „Tegnap” gomb egy koppintással az előző napra visz; az Előzmény fülön heti, havi és éves bontásban látod a szokásaidat."
           }
         },
         "it" : {

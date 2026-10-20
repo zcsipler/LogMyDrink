@@ -468,8 +468,6 @@ TRANSLATIONS = {
         'Percebi',
     'Open History':
         'Abrir histórico',
-    'Later':
-        'Mais tarde',
     'Don’t show again':
         'Não mostrar novamente',
     'Lock Screen':

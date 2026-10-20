@@ -473,8 +473,6 @@ TRANSLATIONS = {
         'Rozumiem',
     'Open History':
         'Otwórz historię',
-    'Later':
-        'Później',
     'Don’t show again':
         'Nie pokazuj więcej',
     'Lock Screen':

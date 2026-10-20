@@ -469,8 +469,6 @@ TRANSLATIONS = {
         'Selvä',
     'Open History':
         'Avaa Historia',
-    'Later':
-        'Myöhemmin',
     'Don’t show again':
         'Älä näytä uudelleen',
     'Lock Screen':

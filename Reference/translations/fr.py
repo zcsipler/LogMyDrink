@@ -476,8 +476,6 @@ TRANSLATIONS = {
         'Compris',
     'Open History':
         'Ouvrir l’historique',
-    'Later':
-        'Plus tard',
     'Don’t show again':
         'Ne plus afficher',
     'Lock Screen':

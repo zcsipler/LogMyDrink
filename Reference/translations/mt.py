@@ -472,8 +472,6 @@ TRANSLATIONS = {
         'Fhimt',
     'Open History':
         'Iftaħ l-Istorja',
-    'Later':
-        'Aktar tard',
     'Don’t show again':
         'Turihx aktar',
     'Lock Screen':

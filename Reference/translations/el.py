@@ -474,8 +474,6 @@ TRANSLATIONS = {
         'Κατάλαβα',
     'Open History':
         'Άνοιγμα Ιστορικού',
-    'Later':
-        'Αργότερα',
     'Don’t show again':
         'Να μην εμφανιστεί ξανά',
     'Lock Screen':

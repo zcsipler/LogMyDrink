@@ -465,8 +465,6 @@ TRANSLATIONS = {
         'Selge',
     'Open History':
         'Ava ajalugu',
-    'Later':
-        'Hiljem',
     'Don’t show again':
         'Ära enam näita',
     'Lock Screen':

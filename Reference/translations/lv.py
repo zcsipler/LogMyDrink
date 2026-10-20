@@ -466,8 +466,6 @@ TRANSLATIONS = {
         'Skaidrs',
     'Open History':
         'Atvērt vēsturi',
-    'Later':
-        'Vēlāk',
     'Don’t show again':
         'Vairs nerādīt',
     'Lock Screen':

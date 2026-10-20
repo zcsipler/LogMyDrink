@@ -468,8 +468,6 @@ TRANSLATIONS = {
         'Ясно',
     'Open History':
         'Отвори историята',
-    'Later':
-        'По-късно',
     'Don’t show again':
         'Не показвай повече',
     'Lock Screen':

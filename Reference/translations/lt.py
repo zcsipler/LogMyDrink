@@ -471,8 +471,6 @@ TRANSLATIONS = {
         'Supratau',
     'Open History':
         'Atidaryti istoriją',
-    'Later':
-        'Vėliau',
     'Don’t show again':
         'Daugiau nerodyti',
     'Lock Screen':

@@ -467,8 +467,6 @@ TRANSLATIONS = {
         'Uppfattat',
     'Open History':
         'Öppna Historik',
-    'Later':
-        'Senare',
     'Don’t show again':
         'Visa inte igen',
     'Lock Screen':
