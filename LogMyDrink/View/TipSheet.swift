@@ -2,9 +2,10 @@ import SwiftUI
 
 /// One feature tip, offered at launch (`FeatureTip`, `TipLedger`).
 ///
-/// A sheet at a medium detent rather than an alert: it has a picture, three
+/// A sheet sized to its content rather than an alert: it has a picture, two
 /// choices and, for the widget, a guide to push onto — an alert has room for
-/// none of that. Swiping it down is the same as "Later".
+/// none of that. Swiping it down means "later": the tip comes back another
+/// day until its feature is used or "Don't show again" is tapped.
 struct TipSheet: View {
     let tip: FeatureTip
     /// The primary button, for the tips whose action leaves this sheet
@@ -14,18 +15,48 @@ struct TipSheet: View {
     let onDismissForGood: (FeatureTip) -> Void
 
     @Environment(\.dismiss) private var dismiss
-    @State private var detent: PresentationDetent = .medium
+    /// The sheet is as tall as its content — no empty band between the
+    /// text and the buttons. Measured, then used as the first detent.
+    @State private var contentHeight: CGFloat = 340
+    @State private var detent: PresentationDetent = .height(340)
     @State private var showsGuide = false
+
+    /// Known, so the hairline at the top can follow the sheet's corners.
+    private static let cornerRadius: CGFloat = 28
 
     var body: some View {
         NavigationStack {
+            content
+                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
+                .background(Theme.surface)
+                .navigationDestination(isPresented: $showsGuide) { WidgetGuideView() }
+        }
+        .presentationDetents([.height(contentHeight), .large], selection: $detent)
+        .presentationDragIndicator(.visible)
+        .presentationCornerRadius(Self.cornerRadius)
+        .presentationBackground(Theme.surface)
+        // The app is near-black everywhere; a lighter sheet with a thin
+        // light edge at the top keeps it from melting into the screen behind.
+        .overlay {
+            RoundedRectangle(cornerRadius: Self.cornerRadius, style: .continuous)
+                .strokeBorder(Color.white.opacity(0.14), lineWidth: 1)
+                .mask(
+                    LinearGradient(colors: [.white, .white.opacity(0)],
+                                   startPoint: .top, endPoint: .init(x: 0.5, y: 0.35))
+                )
+                .ignoresSafeArea()
+                .allowsHitTesting(false)
+        }
+        .preferredColorScheme(.dark)
+    }
+
+    private var content: some View {
             VStack(spacing: 18) {
                 Image(systemName: tip.icon)
                     .font(.system(size: 34, weight: .light))
                     .foregroundStyle(Theme.calm)
                     .frame(width: 72, height: 72)
                     .background(Theme.calm.opacity(0.12), in: Circle())
-                    .padding(.top, 8)
 
                 VStack(spacing: 8) {
                     Text(tip.title)
@@ -40,17 +71,8 @@ struct TipSheet: View {
                 }
                 .padding(.horizontal, 12)
 
-                Spacer(minLength: 0)
-
                 VStack(spacing: 6) {
                     primaryButton
-
-                    Button { dismiss() } label: {
-                        Text("Later")
-                            .frame(maxWidth: .infinity)
-                            .padding(.vertical, 10)
-                    }
-                    .foregroundStyle(Theme.primaryText)
 
                     Button {
                         onDismissForGood(tip)
@@ -62,16 +84,20 @@ struct TipSheet: View {
                     }
                     .foregroundStyle(Theme.secondaryText)
                 }
+                .padding(.top, 6)
             }
             .padding(.horizontal, 24)
-            .padding(.bottom, 12)
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .background(Theme.background)
-            .navigationDestination(isPresented: $showsGuide) { WidgetGuideView() }
-        }
-        .presentationDetents([.medium, .large], selection: $detent)
-        .presentationDragIndicator(.visible)
-        .preferredColorScheme(.dark)
+            // Clear of the drag indicator at the top.
+            .padding(.top, 36)
+            .padding(.bottom, 8)
+            .fixedSize(horizontal: false, vertical: true)
+            .onGeometryChange(for: CGFloat.self) { $0.size.height } action: { height in
+                let fitted = ceil(height)
+                guard abs(fitted - contentHeight) > 0.5 else { return }
+                let wasFitted = detent != .large
+                contentHeight = fitted
+                if wasFitted { detent = .height(fitted) }
+            }
     }
 
     @ViewBuilder

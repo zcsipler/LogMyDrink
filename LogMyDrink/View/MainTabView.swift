@@ -153,8 +153,9 @@ extension MainTabView {
         case .history:
             selection = .history
         case .siri:
-            // "Got it": nothing to open, and nothing more to say.
-            TipLedger().dismiss(.siri)
+            // "Got it" is "later": the tip drops out on its own once Siri
+            // is used; "Don't show again" is the way to turn it off for good.
+            break
         case .widget:
             break // handled inside the sheet
         }
