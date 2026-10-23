@@ -34,6 +34,10 @@ import BACKit
 /// A tap snaps to the nearest bar with something in it, within a thumb's
 /// width. A month's bars are a few points wide, and asking anyone to land on
 /// one exactly is asking them to miss.
+///
+/// Holding a finger on the chart and sliding it sideways walks the selection
+/// from bar to bar, with a haptic tick at each — the way to pick one of
+/// several neighbouring bars without aiming.
 struct HistoryChartView: View {
 
     enum Metric {
@@ -290,18 +294,52 @@ struct HistoryChartView: View {
                         let x = location.x - geometry[plotFrame].origin.x
                         tapped(atPlotX: x, proxy: proxy)
                     }
+                    .gesture(scrubGesture(proxy: proxy, geometry: geometry))
             }
         }
+        .sensoryFeedback(.selection, trigger: scrubbedBarID)
         .frame(height: 190)
         // A new window means new bars; a selection from the old one would
         // point at a date that is no longer on screen.
         .onChange(of: window) { selectedBarID = nil }
     }
 
-    /// The bar whose centre is nearest the tap, if any lies within `hitSlop`.
+    /// Hold, then slide: the selection follows the finger and jumps to
+    /// whichever drawn bar is nearest, with no slop limit — under a scrub
+    /// there is always a bar selected, so a month's thin bars can be walked
+    /// one by one instead of aimed at. The hold comes first so a vertical
+    /// swipe across the chart still scrolls the page. Lifting the finger
+    /// leaves the last bar selected, so its value can be read afterwards.
+    private func scrubGesture(proxy: ChartProxy, geometry: GeometryProxy) -> some Gesture {
+        LongPressGesture(minimumDuration: Self.scrubHoldDuration)
+            .sequenced(before: DragGesture(minimumDistance: 0))
+            .onChanged { state in
+                // The drag reports nil for the instant the hold succeeds;
+                // with `minimumDistance: 0` its first sample follows at once.
+                guard case .second(true, let drag?) = state,
+                      let plotFrame = proxy.plotFrame else { return }
+                let x = drag.location.x - geometry[plotFrame].origin.x
+                guard let nearest = nearestBar(toPlotX: x, proxy: proxy) else { return }
+                if scrubbedBarID != nearest.bar.id {
+                    scrubbedBarID = nearest.bar.id
+                    selectedBarID = nearest.bar.id
+                }
+            }
+            .onEnded { _ in
+                scrubbedBarID = nil
+            }
+    }
+
+    /// How long a press must last before sliding moves the selection.
+    private static let scrubHoldDuration: Double = 0.25
+
+    /// The bar the current scrub is on; drives the haptic tick per bar.
+    @State private var scrubbedBarID: HistoryBar.ID?
+
+    /// The drawn bar whose centre is nearest a plot x, and how far it is.
     /// Only bars with something drawn count — a dry day has nothing to read.
-    private func tapped(atPlotX x: CGFloat, proxy: ChartProxy) {
-        let nearest = window.bars
+    private func nearestBar(toPlotX x: CGFloat, proxy: ChartProxy) -> (bar: HistoryBar, distance: CGFloat)? {
+        window.bars
             .filter { value($0) != nil }
             .compactMap { bar -> (bar: HistoryBar, distance: CGFloat)? in
                 let plot = plotInterval(bar.interval)
@@ -310,6 +348,11 @@ struct HistoryChartView: View {
                 return (bar, abs(barX - x))
             }
             .min { $0.distance < $1.distance }
+    }
+
+    /// The bar whose centre is nearest the tap, if any lies within `hitSlop`.
+    private func tapped(atPlotX x: CGFloat, proxy: ChartProxy) {
+        let nearest = nearestBar(toPlotX: x, proxy: proxy)
 
         withAnimation(.easeOut(duration: 0.15)) {
             if let nearest, nearest.distance <= Self.hitSlop {

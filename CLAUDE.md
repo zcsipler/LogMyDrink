@@ -917,7 +917,13 @@ tengely felírja, miben), színe az 5.14 szerint. A csúcs-chart oszlopa a nap
 legmagasabb szintje (a sáv közepe; a buborék tartományt ír, ha a sáv széles,
 5.8), rajta a saját határ szaggatott vonala. Koppintásra az oszlop fölött a
 pontos érték; a találat a legközelebbi ivós oszlopra pattan 16 pont tűréssel,
-mert a hónap oszlopai pár pont szélesek. Az Év hónapcímkéi a locale
+mert a hónap oszlopai pár pont szélesek. **Nyomva tartva és oldalra húzva**
+(2026. október 23.) a kijelölés oszlopról oszlopra ugrik az ujj alatt — mindig
+a legközelebbi ivós oszlopra, tűréshatár nélkül —, oszloponként egy
+`.selection` haptikával; elengedés után a kijelölés marad. Zoltán kérése: a
+hónap egymás melletti vékony oszlopait koppintással szinte lehetetlen volt
+eltalálni. A tartás (0,25 s) azért kell, hogy a chart fölötti függőleges
+húzás továbbra is görgesse a lapot. Az Év hónapcímkéi a locale
 rövidítéséből jönnek, három betűre vágva — egy betű nem volt olvasható.
 
 **A mutató-kártya** első sora négy szám: mennyiség, italok, „Sober days"
