@@ -102,6 +102,10 @@ final class DrinkingSession {
     var cachedCenterSoberAt: Date?
     var cachedTotalUnits: Double?
     var cachedEngineVersion: Int?
+    /// The uncertainty the cached figures were drawn with. Nil for a cache
+    /// written before the uncertainty became a display setting, which drew
+    /// with the snapshot's own value.
+    var cachedUncertainty: Double?
 
     /// The per-day figures (`DaySummary`), JSON-encoded. A blob rather than a
     /// second entity: one session touches one or two days, the data is a few
@@ -139,6 +143,26 @@ final class DrinkingSession {
             beta: beta,
             betaUncertainty: betaUncertainty
         )
+    }
+
+    /// The uncertainty figures of this session are **shown** with: the
+    /// person's current setting, not the snapshot's.
+    ///
+    /// The uncertainty is a way of looking at the numbers — a point or a
+    /// range — like the unit, so it applies to every evening at once. Turning
+    /// it off has to clear the band from the history too, not only from
+    /// tonight. Where an occasion *ends* still comes from the snapshot
+    /// (`profile`): a display choice must never merge or split evenings.
+    var displayUncertainty: Double {
+        person?.betaUncertainty ?? betaUncertainty
+    }
+
+    /// The snapshot with `displayUncertainty` — what every figure and band of
+    /// this session is drawn from. Boundaries use `profile`.
+    var displayProfile: BodyProfile {
+        var shown = profile
+        shown.betaUncertainty = displayUncertainty
+        return shown
     }
 
     /// Overwrites the snapshot. Only legitimate while the occasion is still
@@ -215,7 +239,10 @@ final class DrinkingSession {
             // curve whose slow branch clears has a middle one that clears
             // earlier, so this pair can only mean "old", and the backfill
             // fills it in like any other stale summary.
-            !(cachedSoberAt != nil && cachedCenterSoberAt == nil)
+            !(cachedSoberAt != nil && cachedCenterSoberAt == nil),
+            // Drawn with another uncertainty than the one now shown: the
+            // user moved the slider since.
+            (cachedUncertainty ?? betaUncertainty) == displayUncertainty
         else { return nil }
 
         let days = cachedDaysData.flatMap { try? JSONDecoder().decode([DaySummary].self, from: $0) } ?? []
@@ -229,7 +256,9 @@ final class DrinkingSession {
         )
     }
 
-    func store(_ summary: SessionSummary) {
+    /// `uncertainty` is the one the summary's figures were drawn with.
+    func store(_ summary: SessionSummary, uncertainty: Double) {
+        cachedUncertainty = uncertainty
         cachedPeakLow = summary.peakRange.lowerBound
         cachedPeakHigh = summary.peakRange.upperBound
         cachedSoberAt = summary.soberAt
@@ -261,11 +290,20 @@ extension SessionSummary {
     /// The summary of a computed band — the one place the per-day split is
     /// worked out, for the store's cache and for a row drawing itself while
     /// the cache is stale.
-    static func make(drinks: [Drink], band: BACBand, calendar: Calendar = .current) -> SessionSummary {
+    ///
+    /// `band` is the displayed one; `boundary`, when the snapshot's own
+    /// uncertainty differs from the displayed one, is the band the occasion's
+    /// end is taken from (see `DrinkingSession.displayUncertainty`).
+    static func make(
+        drinks: [Drink],
+        band: BACBand,
+        boundary: BACBand? = nil,
+        calendar: Calendar = .current
+    ) -> SessionSummary {
         let ordered = drinks.sorted { $0.consumedAt < $1.consumedAt }
         return SessionSummary(
             peakRange: band.peakRange ?? 0...0,
-            soberAt: band.soberRange()?.upperBound,
+            soberAt: (boundary ?? band).soberRange()?.upperBound,
             centerSoberAt: band.center.soberDate(),
             totalUnits: ordered.reduce(0) { $0 + $1.standardUnits },
             drinkCount: ordered.count,

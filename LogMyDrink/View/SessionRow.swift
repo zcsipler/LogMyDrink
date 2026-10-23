@@ -20,7 +20,7 @@ struct SessionRow: View {
         let drinks = session.sortedDrinks
         let band = drinks.isEmpty
             ? BACBand.empty
-            : BACEngine().simulateBand(profile: session.profile, drinks: drinks)
+            : BACEngine().simulateBand(profile: session.displayProfile, drinks: drinks)
 
         return SessionSummary.make(drinks: drinks, band: band)
     }

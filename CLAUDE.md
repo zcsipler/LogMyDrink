@@ -408,10 +408,23 @@ A szórás a nullás alapbeálláson is látszik ott, ahol **változtat a dönt�
 - **a háromállapotú figyelmeztetés** (5.2) — az „átlépheted" a sávból él.
 
 A `DrinkingFrequency` ezért **csak a bétát állítja**, a bizonytalanságot nem — a
-javasolt szórást a csúszka mellett szövegként ajánlja fel. A
-`Physiology.legacyBetaUncertainty` (0,03) külön konstans: egy régi, még
-`betaUncertainty` nélkül írt pillanatkép azt a számot jelentette, és egy tárolt
-alkalom nem írhatja át magát (5.5).
+javasolt szórást a csúszka mellett szövegként ajánlja fel. A csúszka lépése
+0,01 g/L — pontosan a kijelzett utolsó számjegy (0,01 ‰ / 0,001 %); a korábbi
+0,005-ös lépésnél az első egy-két húzás nem látszott a számon.
+
+**A bizonytalanság megjelenítési beállítás, nem a pillanatkép része.** Mint a
+‰/%, egyszerre hat minden estére: a múltbeli chartok, csúcsok és a history is
+a személy **mostani** `betaUncertainty`-jével rajzolódik
+(`DrinkingSession.displayProfile` = pillanatkép + mostani szórás). Aki
+kikapcsolja, annak a régi estéiről is eltűnik a sáv. **Az alkalom határa**
+(`endedAt`, a lassú ág kiürülése, a split/merge) viszont továbbra is a tárolt
+pillanatképből (`profile`) jön: egy nézet-beállítás nem olvaszthat össze és nem
+vághat szét esteket. A cache ezért megjegyzi, milyen szórással rajzolt
+(`cachedUncertainty`); ha a csúszka elmozdul, a `summary` elavulttá válik, és a
+háttér-backfill újraszámolja (a határt nem mozdítva). Egyező szórásnál ez egy
+szimuláció, eltérőnél kettő. A `Physiology.legacyBetaUncertainty` (0,03) a
+régi pillanatképek határához marad meg: egy tárolt alkalom határa nem írhatja
+át magát (5.5).
 
 ### 5.9 Ivási tempó — az emelkedés hitelessége, nem a csúcs pontossága
 

@@ -217,4 +217,32 @@ struct HistoryInfluenceSliceTests {
         #expect(slow.timeIntervalSince(middle) > 3600)
         #expect(session.historyOccasions().compactMap(\.influence).last?.end == middle)
     }
+
+    @Test("Turning the range off clears the band from a past evening too, without moving where it ended")
+    func uncertaintyIsADisplaySetting() throws {
+        let store = try makeStore()
+        store.person.betaUncertainty = 0.04
+        let twoDaysAgo = Calendar.current.date(byAdding: .day, value: -2, to: .now)!
+        let start = Calendar.current.date(bySettingHour: 18, minute: 0, second: 0, of: twoDaysAgo)!
+        for i in 0..<4 {
+            store.add(.beer(at: start.addingTimeInterval(Double(i) * 1800)))
+        }
+        let session = try #require(store.sessions(overlapping: DrinkingDay.containing(start).range).first)
+        let endedAt = try #require(session.endedAt)
+        let wide = try #require(session.summary?.peakRange)
+        #expect(wide.upperBound - wide.lowerBound > 0.01)
+
+        var profile = store.profile
+        profile.betaUncertainty = 0
+        store.profile = profile
+
+        // The snapshot keeps its own value; only the way it is shown changed.
+        #expect(session.betaUncertainty == 0.04)
+        #expect(session.displayProfile.betaUncertainty == 0)
+        #expect(session.endedAt == endedAt)
+        // Drawn with the old spread, so stale until the backfill redraws it.
+        #expect(session.summary == nil)
+        let peak = try #require(session.chartModel(unit: .perMille).band.peakRange)
+        #expect(peak.upperBound - peak.lowerBound < 1e-9)
+    }
 }

@@ -148,9 +148,11 @@ extension DrinkingSession {
     ///
     /// Not the current profile: that is the whole point of storing the
     /// snapshot. Changing your weight today must not redraw last month.
+    /// The uncertainty is the exception — it is how figures are shown, not
+    /// who you were (`displayProfile`).
     func chartModel(unit: BACUnit, engine: BACEngine = BACEngine()) -> BACChartModel {
         let drinks = sortedDrinks
-        let band = drinks.isEmpty ? BACBand.empty : engine.simulateBand(profile: profile, drinks: drinks)
+        let band = drinks.isEmpty ? BACBand.empty : engine.simulateBand(profile: displayProfile, drinks: drinks)
         return BACChartModel(
             band: band,
             drinks: drinks,

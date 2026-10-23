@@ -81,7 +81,7 @@ final class SessionStore {
         for occasion in sessions(overlapping: day.range) {
             let all = occasion.sortedDrinks
             guard !all.isEmpty else { continue }
-            let occasionBand = occasion === session ? band : engine.simulateBand(profile: occasion.profile, drinks: all)
+            let occasionBand = occasion === session ? band : engine.simulateBand(profile: occasion.displayProfile, drinks: all)
             bands.append(occasionBand)
             drinks += all.filter { day.contains($0.consumedAt) }
             limit = occasion.limit
@@ -288,6 +288,7 @@ final class SessionStore {
     var profile: BodyProfile {
         get { person.profile }
         set {
+            let uncertaintyChanged = newValue.betaUncertainty != person.betaUncertainty
             person.apply(newValue)
             // The running occasion follows the current profile: a correction
             // made mid-evening should fix the curve you are looking at. A
@@ -299,6 +300,10 @@ final class SessionStore {
             }
             save()
             rebuild()
+            // Except the uncertainty, which is how every evening is shown
+            // (`DrinkingSession.displayUncertainty`): every cached figure of
+            // this person is now stale and is redrawn in the background.
+            if uncertaintyChanged { backfillStaleSummaries() }
         }
     }
 
@@ -465,6 +470,10 @@ final class SessionStore {
     @ObservationIgnored
     private var backfill: Task<Void, Never>?
 
+    /// Set when a backfill was asked for while one was already running.
+    @ObservationIgnored
+    private var backfillAgain = false
+
     /// How many sessions one round of the backfill simulates before it
     /// writes them back and saves.
     ///
@@ -501,10 +510,21 @@ final class SessionStore {
     /// stretch of the curve, and only with every clearing time fresh is it
     /// safe to decide that from the cache.
     private func backfillStaleSummaries() {
-        guard backfill == nil else { return }
+        // Already running: it fetched its list before this call, so whatever
+        // went stale since (the uncertainty slider moved) needs another pass.
+        guard backfill == nil else {
+            backfillAgain = true
+            return
+        }
 
         backfill = Task { @MainActor [weak self] in
-            defer { self?.backfill = nil }
+            defer {
+                self?.backfill = nil
+                if self?.backfillAgain == true {
+                    self?.backfillAgain = false
+                    self?.backfillStaleSummaries()
+                }
+            }
             guard let self else { return }
 
             // Fetched inside the task, so nothing that is not `Sendable`
@@ -528,21 +548,34 @@ final class SessionStore {
                 let work: [(target: DrinkingSession, input: BackfillInput)] = batch.compactMap {
                     let drinks = $0.sortedDrinks
                     guard !drinks.isEmpty else { return nil }
-                    return ($0, BackfillInput(profile: $0.profile, drinks: drinks))
+                    return ($0, BackfillInput(
+                        profile: $0.profile, shown: $0.displayProfile, drinks: drinks
+                    ))
                 }
                 guard !work.isEmpty else { continue }
 
+                // Boundary band from the snapshot, displayed band from the
+                // current uncertainty — the second only when they differ
+                // (see `summarize`).
                 let inputs = work.map(\.input)
                 let bands = await Task.detached(priority: .utility) {
-                    inputs.map { engine.simulateBand(profile: $0.profile, drinks: $0.drinks) }
+                    inputs.map { input -> (boundary: BACBand, shown: BACBand?) in
+                        let boundary = engine.simulateBand(profile: input.profile, drinks: input.drinks)
+                        let shown = input.shown == input.profile
+                            ? nil
+                            : engine.simulateBand(profile: input.shown, drinks: input.drinks)
+                        return (boundary, shown)
+                    }
                 }.value
 
                 // A session can be deleted while the batch is away — its
                 // person removed, its last drink taken out — and writing to
                 // a deleted model is a crash, not a no-op.
                 for (item, band) in zip(work, bands) where !item.target.isDeleted {
-                    let summary = SessionSummary.make(drinks: item.input.drinks, band: band)
-                    item.target.store(summary)
+                    let summary = band.shown.map {
+                        SessionSummary.make(drinks: item.input.drinks, band: $0, boundary: band.boundary)
+                    } ?? SessionSummary.make(drinks: item.input.drinks, band: band.boundary)
+                    item.target.store(summary, uncertainty: item.input.shown.betaUncertainty)
                     item.target.endedAt = summary.soberAt
                 }
                 save()
@@ -560,7 +593,10 @@ final class SessionStore {
     /// What one simulation needs, lifted off the model so it can leave the
     /// main actor.
     private struct BackfillInput: Sendable {
+        /// The snapshot: where the occasion ends.
         let profile: BodyProfile
+        /// The snapshot with the uncertainty now shown: the figures.
+        let shown: BodyProfile
         let drinks: [Drink]
     }
 
@@ -824,10 +860,25 @@ final class SessionStore {
     private func finalize(_ target: DrinkingSession, drinks: [Drink]) {
         guard let first = drinks.first else { return }
         target.startedAt = first.consumedAt
-        let band = engine.simulateBand(profile: target.profile, drinks: drinks)
-        let summary = SessionSummary.make(drinks: drinks, band: band)
+        let summary = Self.summarize(
+            drinks: drinks, boundary: target.profile, shown: target.displayProfile, engine: engine
+        )
         target.endedAt = summary.soberAt
-        target.store(summary)
+        target.store(summary, uncertainty: target.displayUncertainty)
+    }
+
+    /// The summary of one session: figures from the displayed profile, the
+    /// clearing time (and so `endedAt`) from the snapshot. One simulation
+    /// when the two agree, which is the ordinary case.
+    private static func summarize(
+        drinks: [Drink], boundary: BodyProfile, shown: BodyProfile, engine: BACEngine
+    ) -> SessionSummary {
+        let boundaryBand = engine.simulateBand(profile: boundary, drinks: drinks)
+        guard shown != boundary else {
+            return SessionSummary.make(drinks: drinks, band: boundaryBand)
+        }
+        let shownBand = engine.simulateBand(profile: shown, drinks: drinks)
+        return SessionSummary.make(drinks: drinks, band: shownBand, boundary: boundaryBand)
     }
 
     // MARK: Derived values
@@ -1218,7 +1269,7 @@ final class SessionStore {
 
         init(holder: DrinkingSession) {
             consumed = holder.sortedDrinks
-            profile = holder.profile
+            profile = holder.displayProfile
             limit = holder.limit
         }
 
@@ -1245,9 +1296,12 @@ final class SessionStore {
         if let holder = sessionCovering(date) {
             setting = ProjectionSetting(holder: holder)
         } else {
+            // Frozen body, shown with today's uncertainty — as every figure is.
+            var shown = profileApplicable(at: date)
+            shown.betaUncertainty = person.betaUncertainty
             setting = ProjectionSetting(
                 consumed: [],
-                profile: profileApplicable(at: date),
+                profile: shown,
                 limit: person.limit
             )
         }
@@ -1368,7 +1422,7 @@ final class SessionStore {
         session = fetchRunningSession()
         let drinks = session?.sortedDrinks ?? []
         if let session, !drinks.isEmpty {
-            band = engine.simulateBand(profile: session.profile, drinks: drinks)
+            band = engine.simulateBand(profile: session.displayProfile, drinks: drinks)
         } else {
             band = .empty
         }

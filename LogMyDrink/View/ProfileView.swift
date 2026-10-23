@@ -517,7 +517,10 @@ private struct UncertaintyControl: View {
             Slider(
                 value: Binding(get: { value }, set: { draft = $0 }),
                 in: 0...0.06,
-                step: 0.005,
+                // One step = the last displayed digit (0.01 ‰ / 0.001 %).
+                // A finer step moved the value without changing the label,
+                // so the first notch or two looked like they did nothing.
+                step: 0.01,
                 onEditingChanged: { editing in
                     guard !editing, let draft else { return }
                     store.profile.betaUncertainty = draft
