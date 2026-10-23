@@ -60,6 +60,10 @@ struct DayContentView: View {
                 stat("Drinks", Text(verbatim: drinks.count.formatted()))
                 divider
                 stat(store.amountFormat.shortLabel, Text(verbatim: store.amountFormat.format(standardUnits: totalUnits)))
+                divider
+                // The same figure the week, month and year cards add up
+                // (5.24), so a day reads against them.
+                stat("Calories", Text(verbatim: "\(kilocalories.formatted(.number.precision(.fractionLength(0)))) kcal"))
             }
 
             if let sober = model.soberAt {
@@ -104,6 +108,10 @@ struct DayContentView: View {
 
     private var totalUnits: Double {
         drinks.reduce(0) { $0 + $1.standardUnits }
+    }
+
+    private var kilocalories: Double {
+        drinks.reduce(0) { $0 + DrinkCatalog.kilocalories(for: $1) }
     }
 
     private var divider: some View {

@@ -558,8 +558,10 @@ struct HistoryView: View {
                 cell("Sessions") {
                     Text(verbatim: window.sessions.formatted())
                 }
+                // The title does not name the unit, so the figure must:
+                // "38 g" or "3.8 units", never a bare number.
                 cell("Per session") {
-                    Text(verbatim: window.unitsPerSession.map { store.amountFormat.format(standardUnits: $0) } ?? "—")
+                    Text(verbatim: window.unitsPerSession.map { perSessionText($0) } ?? "—")
                 }
                 cell("Under the influence", footnote: influenceShare(window)) {
                     Text(verbatim: influenceText(window))
@@ -588,6 +590,19 @@ struct HistoryView: View {
         }
         .padding(.vertical, 4)
         .background(Theme.surface, in: RoundedRectangle(cornerRadius: 16))
+    }
+
+    /// An amount that carries its unit: grams with the symbol, units with
+    /// the setting's own word, lower-cased to sit after a number.
+    private func perSessionText(_ standardUnits: Double) -> String {
+        let format = store.amountFormat
+        switch format.unit {
+        case .grams:
+            return format.formatted(standardUnits: standardUnits)
+        case .standardUnits:
+            let word = String(localized: format.shortLabel).lowercased()
+            return "\(format.format(standardUnits: standardUnits)) \(word)"
+        }
     }
 
     /// Days and hours over a week or more, hours and minutes under a day.
