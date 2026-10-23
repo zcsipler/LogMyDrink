@@ -228,8 +228,6 @@ TRANSLATIONS = {
     "Advanced": "Išplėstiniai nustatymai",
 
     # --- PersonSwitcher / FeatureFlags: more than one person (11.5) ---
-    "Multiple people": "Keli žmonės",
-    "History trends": "Istorijos tendencijos",
     "Week": "Savaitė",
     "Month": "Mėnuo",
     "Year": "Metai",
@@ -240,6 +238,11 @@ TRANSLATIONS = {
     "Weeks, months and years side by side — and every evening older than seven days.": "Savaitės, mėnesiai ir metai vienas šalia kito – ir kiekvienas vakaras, senesnis nei septynios dienos.",
     "Everything you have logged is already saved. Unlocking only shows it.": "Viskas, ką įrašei, jau išsaugota. Atrakinimas tik tai parodo.",
     "Coming soon": "Netrukus",
+    "Back up and restore": "Atsarginė kopija ir atkūrimas",
+    "Log for friends too": "Įrašyk ir draugams",
+    "Switch to someone else in one tap and log their drinks with their own body and limit — each person gets their own curve and history.": "Vienu palietimu persijunk į kitą žmogų ir įrašyk jo gėrimus pagal jo kūną ir ribą – kiekvienas turi savo kreivę ir istoriją.",
+    "Save everything to a file, and read a backup back in — on this phone or on a new one.": "Išsaugok viską faile ir įkelk atsarginę kopiją atgal – šiame telefone arba naujame.",
+    "Backup and restore are part of Pro.": "Atsarginė kopija ir atkūrimas yra Pro dalis.",
     "Today": "Šiandien",
     "Day": "Diena",
     "Yesterday": "Vakar",
@@ -431,8 +434,8 @@ TRANSLATIONS = {
         'Nustatyk mėgstamą gėrimą skirtuke „Profilis“, ir ekrano „Tiesiogiai“ mygtukas jį įrašys vienu palietimu.',
     'Widget':
         'Valdiklis',
-    'Add it to your Lock Screen or Home Screen: one tap logs your favourite. While there is alcohol in your system, it also shows your level and which way it is going.':
-        'Pridėk jį prie užrakinimo ar pradžios ekrano: vienas palietimas įrašo tavo mėgstamą gėrimą. Kol organizme yra alkoholio, jis rodo ir tavo lygį bei jo kryptį.',
+    'Add it to your Lock Screen or Home Screen: one tap logs your favourite. With Pro, it also shows your level and which way it is going while there is alcohol in your system.':
+        'Pridėk jį prie užrakinimo ar pradžios ekrano: vienas palietimas įrašo tavo mėgstamą gėrimą. Su Pro, kol organizme yra alkoholio, jis rodo ir tavo lygį bei jo kryptį.',
     'How do I add it?':
         'Kaip jį pridėti?',
     'Siri':
@@ -491,8 +494,8 @@ TRANSLATIONS = {
         'Paliesk „Edit“, tada „Add Widget“.',
     'Search for LogMyDrink, pick a size and tap Add Widget.':
         'Surask „LogMyDrink“, pasirink dydį ir paliesk „Add Widget“.',
-    'A tap on the widget opens the app and logs your favourite drink. While there is alcohol in your system, it also shows your level and which way it is going.':
-        'Palietus valdiklį atsidaro programėlė ir įrašomas tavo mėgstamas gėrimas. Kol organizme yra alkoholio, jis rodo ir tavo lygį bei jo kryptį.',
+    'A tap on the widget opens the app and logs your favourite drink. With Pro, it also shows your level and which way it is going while there is alcohol in your system.':
+        'Palietus valdiklį atsidaro programėlė ir įrašomas tavo mėgstamas gėrimas. Su Pro, kol organizme yra alkoholio, jis rodo ir tavo lygį bei jo kryptį.',
     'Add the widget':
         'Pridėti valdiklį',
     'Show tips':

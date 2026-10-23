@@ -132,11 +132,15 @@ final class SessionStore {
         restoreActivePerson()
         refreshFromStore()
         observeRemoteChanges()
+        observeEntitlement()
     }
 
     deinit {
         if let remoteChangeObserver {
             NotificationCenter.default.removeObserver(remoteChangeObserver)
+        }
+        if let entitlementObserver {
+            NotificationCenter.default.removeObserver(entitlementObserver)
         }
     }
 
@@ -1391,6 +1395,25 @@ final class SessionStore {
         }
     }
 
+    /// Same lifetime rules as `remoteChangeObserver`.
+    @ObservationIgnored
+    nonisolated(unsafe) private var entitlementObserver: (any NSObjectProtocol)?
+
+    /// Pro starting or ending changes what the widget may show, and nothing
+    /// else here: the views follow `FeatureFlags` through observation, the
+    /// widget only through the snapshot.
+    private func observeEntitlement() {
+        entitlementObserver = NotificationCenter.default.addObserver(
+            forName: .proEntitlementDidChange,
+            object: nil,
+            queue: nil
+        ) { [weak self] _ in
+            Task { @MainActor [weak self] in
+                self?.publishWidgetSnapshot()
+            }
+        }
+    }
+
     /// Collapses a burst of notifications into one refresh.
     ///
     /// A sync posts one notification per batch, and a first sync posts many.
@@ -1430,7 +1453,17 @@ final class SessionStore {
     }
 
     /// The widget sees the world through this and nothing else (5.15).
+    ///
+    /// Without Pro the widget gets an empty snapshot whatever is on the
+    /// curve, and so stays the plain quick-add button: the button is free,
+    /// the level on it is Pro (`ProFeature.widgetLevel`).
     private func publishWidgetSnapshot() {
+        guard FeatureFlags.shared.widgetLevel else {
+            WidgetBridge.publish(snapshot: .empty(
+                limit: person.limit, unit: settings.unit, amountUnit: settings.amountUnit
+            ))
+            return
+        }
         WidgetBridge.publish(snapshot: WidgetSnapshot.make(
             band: band,
             drinks: drinks,

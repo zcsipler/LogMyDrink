@@ -2,65 +2,77 @@ import Foundation
 import Observation
 
 /// What this *build* is provisioned for — as opposed to what the user has
-/// bought, which is `FeatureFlags`.
+/// bought, which is `FeatureFlags.isPro`.
 ///
-/// Deliberately not a `Feature`. `FeatureFlags.isEnabled` falls through to
-/// `isPurchased`, so anything listed there becomes a paid feature the moment
-/// StoreKit lands. Syncing is not something anyone buys; it is something the
-/// target either carries an entitlement for or does not.
+/// A compile-time constant rather than a debug toggle: flipping a switch at
+/// runtime cannot conjure an entitlement, and the store is opened once at
+/// launch, before any switch could be read.
 ///
-/// A compile-time constant rather than a debug toggle, for the same reason:
-/// flipping a switch at runtime cannot conjure an entitlement, and the store is
-/// opened once at launch, before any switch could be read.
+/// Not a `ProFeature`: sync is free (5.29). It carries data, not a view of
+/// it — without Pro the history beyond seven days stays locked on every
+/// device it syncs to — and a free user who changes phones keeps everything.
 enum BuildCapabilities {
 
     /// Whether to open the store with CloudKit mirroring.
     ///
     /// **On since October 2026**, when the paid Apple Developer Program
-    /// membership arrived and the target got its iCloud capability. This is
-    /// the only line to change: with it off the app opens a local store and
-    /// behaves exactly as it did before any of the sync work — nothing gated,
-    /// nothing hidden, `LogMyDrinkApp.makeContainer` and the remote-change
-    /// observer in `SessionStore` simply idle. Turning it on requires the
-    /// iCloud capability on the target (a Personal Team cannot add it, and
-    /// Xcode does not even list it). See 5.17 in CLAUDE.md for the checklist.
+    /// membership arrived and the target got its iCloud capability. With it
+    /// off the app opens a local store and behaves exactly as it did before
+    /// any of the sync work — nothing gated, nothing hidden,
+    /// `LogMyDrinkApp.makeContainer` and the remote-change observer in
+    /// `SessionStore` simply idle. Turning it on requires the iCloud
+    /// capability on the target (a Personal Team cannot add it, and Xcode
+    /// does not even list it). See 5.17 in CLAUDE.md for the checklist.
     static let cloudSync = true
 }
 
-/// A feature that can be switched off.
+/// What a Pro subscription unlocks.
 ///
-/// The set is deliberately short, and the Live screen will never be in it: the
-/// running session is what the app is for, and it stays free and always
-/// reachable. Everything that could one day sit behind a purchase goes here.
-enum Feature: String, CaseIterable, Identifiable {
-
-    /// Recording drinks for more than one person, and switching between them.
-    case multiPerson
+/// There is one thing to buy — Pro — and this is the list of what it opens.
+/// A new paid feature is a new case here and nothing else: the entitlement
+/// is a single yes or no (`FeatureFlags.isPro`), so no feature can be
+/// bought, trialled or lost on its own.
+///
+/// What is **not** here is free, and stays free: the Live screen, adding,
+/// editing and deleting drinks, the last seven days of history, quick add
+/// from the capsule, from Siri and from the widget's button, and iCloud
+/// sync. Logging is what the app is for, and the paid side lives on what has
+/// been logged.
+enum ProFeature: String, CaseIterable, Identifiable {
 
     /// History beyond the free window: the week / month / year views, and
     /// the detail of any day older than `FeatureFlags.freeHistoryWindowDays`.
     ///
     /// Gates the *view*, never the record. Every session is stored for
-    /// everyone regardless of this flag, so buying it later reveals the whole
-    /// past, not only what was logged from that day on.
-    case historyTrends
+    /// everyone, so subscribing later reveals the whole past, not only what
+    /// was logged from that day on.
+    case fullHistory
+
+    /// Recording drinks for more than one person, and switching between them.
+    case multiPerson
+
+    /// The level, its direction and the coming crest on the widget. The
+    /// button itself is free: without Pro the widget is the plain quick-add
+    /// button it always was when nothing was on the curve.
+    case widgetLevel
+
+    /// Exporting a backup to a file, and importing one.
+    ///
+    /// Pro, unlike sync, because a file is a view of the data: an export
+    /// holds every evening back to the first, readable by any spreadsheet,
+    /// which would be the full history handed out for free in another app.
+    case dataTransfer
 
     var id: String { rawValue }
-
-    var title: LocalizedStringResource {
-        switch self {
-        case .multiPerson: "Multiple people"
-        case .historyTrends: "History trends"
-        }
-    }
 }
 
 /// Something built but not yet believed in: on the device it did not read
 /// well, and it is kept off the menu until the concept has had another pass.
 ///
-/// Not a `Feature`, because a feature falls through to `isPurchased` and
-/// would go on sale the day StoreKit lands. An experiment can only be
-/// switched on by hand, in a debug build; in release it does not exist.
+/// Not a `ProFeature`, because a Pro feature unlocks with the subscription
+/// and would go on sale the day StoreKit lands. An experiment can only be
+/// switched on by hand, in a debug build; in release it does not exist —
+/// not for free users, not for Pro.
 enum Experiment: String, CaseIterable, Identifiable {
 
     /// The Trend segment of the History screen: the whole recorded span on
@@ -76,17 +88,24 @@ enum Experiment: String, CaseIterable, Identifiable {
     }
 }
 
+extension Notification.Name {
+
+    /// Posted on the main actor when `FeatureFlags.isPro` flips. For whoever
+    /// publishes outside SwiftUI's observation — the widget snapshot — and
+    /// so has to be told rather than re-rendered.
+    static let proEntitlementDidChange = Notification.Name("logmydrink.proEntitlementDidChange")
+}
+
 /// The one place that decides what is switched on.
 ///
-/// The views ask, they never decide — `if flags.multiPerson`. That is the
-/// entire point: when StoreKit arrives, the entitlement lookup goes into
-/// `isPurchased` and no view changes.
+/// The views ask, they never decide — `if flags.multiPerson`. When StoreKit
+/// arrives, the entitlement lookup goes into `isSubscribed` and no view
+/// changes.
 ///
 /// What a flag must **not** gate is the schema. A model behind a flag would
 /// need the same migration the moment the flag went on, and would hide
 /// existing rows the moment it went off — two shapes of the database to keep
-/// alive, for no gain. Migrations run for everyone; the flag hides UI. See
-/// 11.5 in CLAUDE.md.
+/// alive, for no gain. Migrations run for everyone; the flag hides UI (5.18).
 @Observable
 @MainActor
 final class FeatureFlags {
@@ -95,24 +114,36 @@ final class FeatureFlags {
 
     private init() {
         #if DEBUG
-        overrides = Self.loadOverrides()
+        simulatesPro = UserDefaults.standard.bool(forKey: Self.simulatedProKey)
         experiments = Self.loadExperiments()
+        // The per-feature overrides this replaced. Nothing reads them.
+        UserDefaults.standard.removeObject(forKey: "logmydrink.featureFlags.debug.v1")
         #endif
     }
 
-    // MARK: Asking
+    // MARK: Pro
 
-    func isEnabled(_ feature: Feature) -> Bool {
+    /// Whether this user has Pro. One answer for every Pro feature.
+    var isPro: Bool {
         #if DEBUG
-        if let override = overrides[feature] { return override }
+        if simulatesPro { return true }
         #endif
-        return isPurchased(feature)
+        return isSubscribed
+    }
+
+    /// Asked by feature, although today every feature has the same answer,
+    /// so that a call site says what it is gating — and so that a feature
+    /// could one day move between free and Pro without touching the views.
+    func isEnabled(_ feature: ProFeature) -> Bool {
+        isPro
     }
 
     /// Named accessors, because `flags.multiPerson` reads better at a call
     /// site inside a view body than a lookup does.
+    var fullHistory: Bool { isEnabled(.fullHistory) }
     var multiPerson: Bool { isEnabled(.multiPerson) }
-    var historyTrends: Bool { isEnabled(.historyTrends) }
+    var widgetLevel: Bool { isEnabled(.widgetLevel) }
+    var dataTransfer: Bool { isEnabled(.dataTransfer) }
 
     // MARK: Experiments
 
@@ -131,9 +162,9 @@ final class FeatureFlags {
     // MARK: The free history window
 
     /// How many drinking days back, today included, history stays open
-    /// without `historyTrends`. Seven: long enough to feel what the history is
-    /// worth, short enough that after a few weeks there is visibly something
-    /// behind the lock.
+    /// without Pro. Seven: long enough to feel what the history is worth,
+    /// short enough that after a few weeks there is visibly something behind
+    /// the lock.
     nonisolated static let freeHistoryWindowDays = 7
 
     /// Whether this day's history may be shown in full.
@@ -141,7 +172,7 @@ final class FeatureFlags {
     /// The one question a history view asks. Today is always inside the window
     /// — the current day is the Live screen's territory and is never gated.
     func canShowHistory(for day: DrinkingDay, at now: Date = .now) -> Bool {
-        historyTrends || Self.isWithinFreeWindow(day, at: now)
+        fullHistory || Self.isWithinFreeWindow(day, at: now)
     }
 
     /// The window rule on its own, without the entitlement, so it can be
@@ -156,31 +187,33 @@ final class FeatureFlags {
         day.daysAgo(from: now, calendar: calendar) < freeHistoryWindowDays
     }
 
-    // MARK: Entitlements
+    // MARK: Entitlement
     //
-    // Always false: nothing has been bought, because nothing can be yet. When
-    // StoreKit lands, this is the only method that changes.
+    // Always false: nothing can be bought yet. When StoreKit lands this
+    // becomes the subscription's state (a one-month free trial included), it
+    // posts `proEntitlementDidChange` when it flips, and nothing else in this
+    // file changes.
 
-    private func isPurchased(_ feature: Feature) -> Bool { false }
+    private var isSubscribed: Bool { false }
 
-    // MARK: Debug overrides
+    // MARK: Debug
     //
-    // Debug builds only. A flag you cannot turn on by hand is a flag nobody
-    // tests, but a release build must not carry a switch that hands out paid
-    // features.
+    // Debug builds only. One switch, the way a user sees it: Pro or not. A
+    // release build must not carry a switch that hands out Pro.
 
     #if DEBUG
-    private static let storageKey = "logmydrink.featureFlags.debug.v1"
+    private static let simulatedProKey = "logmydrink.pro.debug.simulated"
 
-    private var overrides: [Feature: Bool] = [:]
+    private(set) var simulatesPro = false
 
-    /// `nil` clears the override and lets the entitlement decide again.
-    func setOverride(_ value: Bool?, for feature: Feature) {
-        overrides[feature] = value
-        persistOverrides()
+    func setSimulatesPro(_ value: Bool) {
+        let wasPro = isPro
+        simulatesPro = value
+        UserDefaults.standard.set(value, forKey: Self.simulatedProKey)
+        if isPro != wasPro {
+            NotificationCenter.default.post(name: .proEntitlementDidChange, object: self)
+        }
     }
-
-    func override(for feature: Feature) -> Bool? { overrides[feature] }
 
     private static let experimentsKey = "logmydrink.experiments.debug.v1"
 
@@ -197,19 +230,6 @@ final class FeatureFlags {
         return raw.reduce(into: [:]) { result, pair in
             guard let experiment = Experiment(rawValue: pair.key) else { return }
             result[experiment] = pair.value
-        }
-    }
-
-    private func persistOverrides() {
-        let raw = Dictionary(uniqueKeysWithValues: overrides.map { ($0.key.rawValue, $0.value) })
-        UserDefaults.standard.set(raw, forKey: Self.storageKey)
-    }
-
-    private static func loadOverrides() -> [Feature: Bool] {
-        let raw = UserDefaults.standard.dictionary(forKey: storageKey) as? [String: Bool] ?? [:]
-        return raw.reduce(into: [:]) { result, pair in
-            guard let feature = Feature(rawValue: pair.key) else { return }
-            result[feature] = pair.value
         }
     }
     #endif

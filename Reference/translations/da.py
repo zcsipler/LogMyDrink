@@ -225,8 +225,6 @@ TRANSLATIONS = {
     "Advanced": "Avanceret",
 
     # --- PersonSwitcher / FeatureFlags: more than one person (11.5) ---
-    "Multiple people": "Flere personer",
-    "History trends": "Tendenser i historikken",
     "Week": "Uge",
     "Month": "Måned",
     "Year": "År",
@@ -237,6 +235,11 @@ TRANSLATIONS = {
     "Weeks, months and years side by side — and every evening older than seven days.": "Uger, måneder og år side om side – og hver aften ældre end syv dage.",
     "Everything you have logged is already saved. Unlocking only shows it.": "Alt, du har registreret, er allerede gemt. At låse op viser det blot.",
     "Coming soon": "Kommer snart",
+    "Back up and restore": "Sikkerhedskopi og gendannelse",
+    "Log for friends too": "Registrér også for venner",
+    "Switch to someone else in one tap and log their drinks with their own body and limit — each person gets their own curve and history.": "Skift til en anden med ét tryk, og registrér deres drinks med deres egen krop og grænse – hver person får sin egen kurve og historik.",
+    "Save everything to a file, and read a backup back in — on this phone or on a new one.": "Gem alt i en fil, og indlæs en sikkerhedskopi igen – på denne telefon eller på en ny.",
+    "Backup and restore are part of Pro.": "Sikkerhedskopi og gendannelse er en del af Pro.",
     "Today": "I dag",
     "Day": "Dag",
     "Yesterday": "I går",
@@ -427,8 +430,8 @@ TRANSLATIONS = {
         'Vælg en favorit under Profil, så registrerer knappen på Live den med ét tryk.',
     'Widget':
         'Widget',
-    'Add it to your Lock Screen or Home Screen: one tap logs your favourite. While there is alcohol in your system, it also shows your level and which way it is going.':
-        'Føj den til låseskærmen eller hjemmeskærmen: ét tryk registrerer din favorit. Så længe der er alkohol i kroppen, viser den også dit niveau, og hvilken vej det går.',
+    'Add it to your Lock Screen or Home Screen: one tap logs your favourite. With Pro, it also shows your level and which way it is going while there is alcohol in your system.':
+        'Føj den til låseskærmen eller hjemmeskærmen: ét tryk registrerer din favorit. Med Pro viser den også dit niveau, og hvilken vej det går, så længe der er alkohol i kroppen.',
     'How do I add it?':
         'Hvordan tilføjer jeg den?',
     'Siri':
@@ -487,8 +490,8 @@ TRANSLATIONS = {
         'Tryk på Rediger og derefter på Tilføj widget.',
     'Search for LogMyDrink, pick a size and tap Add Widget.':
         'Søg efter LogMyDrink, vælg en størrelse, og tryk på Tilføj widget.',
-    'A tap on the widget opens the app and logs your favourite drink. While there is alcohol in your system, it also shows your level and which way it is going.':
-        'Et tryk på widgetten åbner appen og registrerer din favoritdrink. Så længe der er alkohol i kroppen, viser den også dit niveau, og hvilken vej det går.',
+    'A tap on the widget opens the app and logs your favourite drink. With Pro, it also shows your level and which way it is going while there is alcohol in your system.':
+        'Et tryk på widgetten åbner appen og registrerer din favoritdrink. Med Pro viser den også dit niveau, og hvilken vej det går, så længe der er alkohol i kroppen.',
     'Add the widget':
         'Tilføj widgetten',
     'Show tips':

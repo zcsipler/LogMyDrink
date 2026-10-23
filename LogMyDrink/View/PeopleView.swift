@@ -150,16 +150,36 @@ struct PeopleView: View {
 struct PeopleSection: View {
     let store: SessionStore
 
+    @State private var showsPaywall = false
+
+    /// Without Pro the row stays, with a lock, and opens the Pro sheet: a
+    /// missing row would not tell anyone the feature exists (5.29).
+    private var isLocked: Bool { !FeatureFlags.shared.multiPerson }
+
     var body: some View {
         Section {
-            NavigationLink {
-                PeopleView(store: store)
-            } label: {
-                HStack {
-                    Label { Text("People") } icon: { Image(systemName: "person.2") }
-                    Spacer()
-                    Text(verbatim: store.people.count.formatted(.number))
-                        .foregroundStyle(Theme.secondaryText)
+            if isLocked {
+                Button {
+                    showsPaywall = true
+                } label: {
+                    HStack {
+                        Label { Text("People") } icon: { Image(systemName: "person.2") }
+                        Spacer()
+                        Image(systemName: "lock.fill")
+                            .font(.footnote)
+                            .foregroundStyle(Theme.secondaryText)
+                    }
+                }
+            } else {
+                NavigationLink {
+                    PeopleView(store: store)
+                } label: {
+                    HStack {
+                        Label { Text("People") } icon: { Image(systemName: "person.2") }
+                        Spacer()
+                        Text(verbatim: store.people.count.formatted(.number))
+                            .foregroundStyle(Theme.secondaryText)
+                    }
                 }
             }
         } footer: {
@@ -167,6 +187,7 @@ struct PeopleSection: View {
         }
         .listRowBackground(Theme.surface)
         .tint(Theme.calm)
+        .sheet(isPresented: $showsPaywall) { ProPaywallSheet(topic: .people) }
     }
 }
 

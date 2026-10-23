@@ -123,7 +123,7 @@ struct HistoryView: View {
                 trend: HistoryTrend.make(days: days, halfLife: HistoryTrend.halfLife(forVisibleDays: visibleDays)),
                 oldestOffset: 0,
                 sessionsInWindow: [],
-                isLocked: !flags.historyTrends,
+                isLocked: !flags.fullHistory,
                 recordsBegan: recordsBegan
             )
         }
@@ -151,7 +151,7 @@ struct HistoryView: View {
             trend: nil,
             oldestOffset: HistoryWindow.oldestOffset(for: range, days: days, now: now),
             sessionsInWindow: inWindow,
-            isLocked: !flags.historyTrends && !window.isWithinFreeWindow(at: now),
+            isLocked: !flags.fullHistory && !window.isWithinFreeWindow(at: now),
             recordsBegan: recordsBegan
         )
     }
@@ -215,13 +215,11 @@ struct HistoryView: View {
             // Whose history this is has to be visible here too, or the list
             // silently becomes somebody else's.
             .toolbar {
-                if flags.multiPerson {
-                    ToolbarItem(placement: .topBarTrailing) {
-                        PersonSwitcher(store: store)
-                    }
+                ToolbarItem(placement: .topBarTrailing) {
+                    PersonSwitcher(store: store)
                 }
             }
-            .sheet(isPresented: $showsPaywall) { HistoryPaywallSheet() }
+            .sheet(isPresented: $showsPaywall) { ProPaywallSheet(topic: .history) }
             .sheet(item: $editingDrink) { drink in
                 AddDrinkSheet(store: store, editing: drink, session: store.sessionOwning(drink.id))
             }

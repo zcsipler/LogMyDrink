@@ -231,8 +231,6 @@ TRANSLATIONS = {
     "Advanced": "Erweitert",
 
     # --- PersonSwitcher / FeatureFlags: more than one person (11.5) ---
-    "Multiple people": "Mehrere Personen",
-    "History trends": "Verlaufstrends",
     "Week": "Woche",
     "Month": "Monat",
     "Year": "Jahr",
@@ -243,6 +241,11 @@ TRANSLATIONS = {
     "Weeks, months and years side by side — and every evening older than seven days.": "Wochen, Monate und Jahre nebeneinander – und jeder Abend, der älter als sieben Tage ist.",
     "Everything you have logged is already saved. Unlocking only shows it.": "Alles, was du bisher eingetragen hast, ist bereits gespeichert. Das Freischalten zeigt es nur an.",
     "Coming soon": "Bald verfügbar",
+    "Back up and restore": "Sichern und wiederherstellen",
+    "Log for friends too": "Auch für Freunde eintragen",
+    "Switch to someone else in one tap and log their drinks with their own body and limit — each person gets their own curve and history.": "Wechsle mit einem Tippen zu jemand anderem und trage seine Getränke mit seinem eigenen Körper und Limit ein – jede Person bekommt ihre eigene Kurve und ihren eigenen Verlauf.",
+    "Save everything to a file, and read a backup back in — on this phone or on a new one.": "Speichere alles in einer Datei und lies eine Sicherung wieder ein – auf diesem Telefon oder auf einem neuen.",
+    "Backup and restore are part of Pro.": "Sichern und Wiederherstellen sind Teil von Pro.",
     "Today": "Heute",
     "Day": "Tag",
     "Yesterday": "Gestern",
@@ -436,8 +439,8 @@ TRANSLATIONS = {
         'Lege im Profil ein Lieblingsgetränk fest, und die Taste auf „Live“ trägt es mit einem einzigen Tippen ein.',
     'Widget':
         'Widget',
-    'Add it to your Lock Screen or Home Screen: one tap logs your favourite. While there is alcohol in your system, it also shows your level and which way it is going.':
-        'Füge es deinem Sperrbildschirm oder Home-Bildschirm hinzu: Ein Tippen trägt dein Lieblingsgetränk ein. Solange Alkohol in deinem Körper ist, zeigt es auch deinen Alkoholspiegel und wohin er sich bewegt.',
+    'Add it to your Lock Screen or Home Screen: one tap logs your favourite. With Pro, it also shows your level and which way it is going while there is alcohol in your system.':
+        'Füge es deinem Sperrbildschirm oder Home-Bildschirm hinzu: Ein Tippen trägt dein Lieblingsgetränk ein. Mit Pro zeigt es, solange Alkohol in deinem Körper ist, auch deinen Alkoholspiegel und wohin er sich bewegt.',
     'How do I add it?':
         'Wie füge ich es hinzu?',
     'Siri':
@@ -496,8 +499,8 @@ TRANSLATIONS = {
         'Tippe auf „Bearbeiten“ und dann auf „Widget hinzufügen“.',
     'Search for LogMyDrink, pick a size and tap Add Widget.':
         'Suche nach LogMyDrink, wähle eine Größe und tippe auf „Widget hinzufügen“.',
-    'A tap on the widget opens the app and logs your favourite drink. While there is alcohol in your system, it also shows your level and which way it is going.':
-        'Ein Tippen auf das Widget öffnet die App und trägt dein Lieblingsgetränk ein. Solange Alkohol in deinem Körper ist, zeigt es auch deinen Alkoholspiegel und wohin er sich bewegt.',
+    'A tap on the widget opens the app and logs your favourite drink. With Pro, it also shows your level and which way it is going while there is alcohol in your system.':
+        'Ein Tippen auf das Widget öffnet die App und trägt dein Lieblingsgetränk ein. Mit Pro zeigt es, solange Alkohol in deinem Körper ist, auch deinen Alkoholspiegel und wohin er sich bewegt.',
     'Add the widget':
         'Widget hinzufügen',
     'Show tips':

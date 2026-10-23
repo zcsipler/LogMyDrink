@@ -210,8 +210,6 @@ TRANSLATIONS = {
     "Advanced": "Haladó beállítások",
 
     # --- PersonSwitcher / FeatureFlags: more than one person (11.5) ---
-    "Multiple people": "Több személy",
-    "History trends": "Előzmény-trendek",
     "Week": "Hét",
     "Month": "Hónap",
     "Year": "Év",
@@ -222,6 +220,11 @@ TRANSLATIONS = {
     "Weeks, months and years side by side — and every evening older than seven days.": "Hetek, hónapok és évek egymás mellett – és minden hét napnál régebbi este.",
     "Everything you have logged is already saved. Unlocking only shows it.": "Minden, amit eddig felvittél, már el van mentve. A feloldás csak megmutatja.",
     "Coming soon": "Hamarosan",
+    "Back up and restore": "Mentés és visszatöltés",
+    "Log for friends too": "Vezesd a barátaidét is",
+    "Switch to someone else in one tap and log their drinks with their own body and limit — each person gets their own curve and history.": "Egy koppintással válts át valaki másra, és vidd fel az italait a saját testadataival és határával – mindenkinek saját görbéje és előzménye lesz.",
+    "Save everything to a file, and read a backup back in — on this phone or on a new one.": "Ments el mindent egy fájlba, és töltsd vissza – ezen a telefonon vagy egy újon.",
+    "Backup and restore are part of Pro.": "A mentés és a visszatöltés a Pro része.",
     "Today": "Ma",
     "Day": "Nap",
     "Yesterday": "Tegnap",
@@ -408,8 +411,8 @@ TRANSLATIONS = {
         'Állíts be egy kedvencet a Profilban, és az Élő képernyő gombjával egyetlen koppintással felviheted.',
     'Widget':
         'Widget',
-    'Add it to your Lock Screen or Home Screen: one tap logs your favourite. While there is alcohol in your system, it also shows your level and which way it is going.':
-        'Add hozzá a zárolási képernyőhöz vagy a főképernyőhöz: egy koppintással felviheted a kedvencedet. Amíg alkohol van a szervezetedben, a widget a szintedet is mutatja, és azt, hogy emelkedik vagy csökken.',
+    'Add it to your Lock Screen or Home Screen: one tap logs your favourite. With Pro, it also shows your level and which way it is going while there is alcohol in your system.':
+        'Add hozzá a zárolási képernyőhöz vagy a főképernyőhöz: egy koppintással felviheted a kedvencedet. Pro-val a szintedet is mutatja, amíg alkohol van a szervezetedben, és azt is, hogy emelkedik vagy csökken.',
     'How do I add it?':
         'Hogyan adhatom hozzá?',
     'Siri':
@@ -468,8 +471,8 @@ TRANSLATIONS = {
         'Koppints a Szerkesztés, majd a Widget hozzáadása elemre.',
     'Search for LogMyDrink, pick a size and tap Add Widget.':
         'Keresd meg a LogMyDrinket, válassz méretet, és koppints a Widget hozzáadása gombra.',
-    'A tap on the widget opens the app and logs your favourite drink. While there is alcohol in your system, it also shows your level and which way it is going.':
-        'A widgetre koppintva megnyílik az app, és felviszi a kedvenc italodat. Amíg alkohol van a szervezetedben, a szintedet is mutatja, és azt, hogy emelkedik vagy csökken.',
+    'A tap on the widget opens the app and logs your favourite drink. With Pro, it also shows your level and which way it is going while there is alcohol in your system.':
+        'A widgetre koppintva megnyílik az app, és felviszi a kedvenc italodat. Pro-val a szintedet is mutatja, amíg alkohol van a szervezetedben, és azt is, hogy emelkedik vagy csökken.',
     'Add the widget':
         'Widget hozzáadása',
     'Show tips':

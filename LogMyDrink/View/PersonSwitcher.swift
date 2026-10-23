@@ -8,14 +8,28 @@ import BACKit
 /// recording someone else's evening until it is changed back. It took the
 /// corner where "End session" used to sit — see `Occasions` for why that
 /// button is gone rather than moved.
+///
+/// Shown without Pro too (`ProFeature.multiPerson`, 5.29), so that the
+/// feature is seen where it would be used: the menu then lists only whoever
+/// can still be chosen, and "Add person" opens the Pro sheet. "Whoever can
+/// still be chosen" is the owner — and, when Pro has lapsed with a guest
+/// selected, that guest too, so the way back to yourself is never locked.
 struct PersonSwitcher: View {
     let store: SessionStore
 
     @State private var showsAddPerson = false
+    @State private var showsPaywall = false
+
+    private var isLocked: Bool { !FeatureFlags.shared.multiPerson }
+
+    private var choices: [Person] {
+        guard isLocked else { return store.people }
+        return store.people.filter { $0.isOwner || $0.id == store.person.id }
+    }
 
     var body: some View {
         Menu {
-            ForEach(store.people) { candidate in
+            ForEach(choices) { candidate in
                 Button {
                     store.activate(candidate)
                 } label: {
@@ -30,9 +44,13 @@ struct PersonSwitcher: View {
             Divider()
 
             Button {
-                showsAddPerson = true
+                if isLocked { showsPaywall = true } else { showsAddPerson = true }
             } label: {
-                Label { Text("Add person") } icon: { Image(systemName: "person.badge.plus") }
+                Label {
+                    Text("Add person")
+                } icon: {
+                    Image(systemName: isLocked ? "lock.fill" : "person.badge.plus")
+                }
             }
         } label: {
             chip
@@ -41,6 +59,7 @@ struct PersonSwitcher: View {
         .sheet(isPresented: $showsAddPerson) {
             AddPersonSheet(store: store)
         }
+        .sheet(isPresented: $showsPaywall) { ProPaywallSheet(topic: .people) }
     }
 
     @ViewBuilder

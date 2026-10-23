@@ -83,7 +83,7 @@ final class Person {
     // which it will, because this side syncs and `AppSettings` deliberately
     // does not.
     //
-    // Not behind `Feature.multiPerson` or any other flag: a flag must never
+    // Not behind `ProFeature.multiPerson` or any other flag: a flag must never
     // gate the schema (11.5). Flat fields rather than one encoded blob, for the
     // reason `DrinkingSession` flattens its snapshot — CloudKit prefers
     // scalars, and a diff then shows what actually changed.

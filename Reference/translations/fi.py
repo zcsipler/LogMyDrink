@@ -226,8 +226,6 @@ TRANSLATIONS = {
     "Advanced": "Lisäasetukset",
 
     # --- PersonSwitcher / FeatureFlags: more than one person (11.5) ---
-    "Multiple people": "Useita henkilöitä",
-    "History trends": "Historian trendit",
     "Week": "Viikko",
     "Month": "Kuukausi",
     "Year": "Vuosi",
@@ -238,6 +236,11 @@ TRANSLATIONS = {
     "Weeks, months and years side by side — and every evening older than seven days.": "Viikot, kuukaudet ja vuodet rinnakkain – ja jokainen yli seitsemän päivää vanha ilta.",
     "Everything you have logged is already saved. Unlocking only shows it.": "Kaikki kirjaamasi on jo tallennettu. Avaaminen vain näyttää sen.",
     "Coming soon": "Tulossa pian",
+    "Back up and restore": "Varmuuskopiointi ja palautus",
+    "Log for friends too": "Kirjaa myös ystäville",
+    "Switch to someone else in one tap and log their drinks with their own body and limit — each person gets their own curve and history.": "Vaihda toiseen henkilöön yhdellä napautuksella ja kirjaa hänen juomansa hänen omalla kehollaan ja rajallaan – jokaisella on oma käyränsä ja historiansa.",
+    "Save everything to a file, and read a backup back in — on this phone or on a new one.": "Tallenna kaikki tiedostoon ja lue varmuuskopio takaisin – tähän puhelimeen tai uuteen.",
+    "Backup and restore are part of Pro.": "Varmuuskopiointi ja palautus kuuluvat Pro-versioon.",
     "Today": "Tänään",
     "Day": "Päivä",
     "Yesterday": "Eilen",
@@ -429,8 +432,8 @@ TRANSLATIONS = {
         'Valitse suosikki Profiilissa, niin Live-näkymän painike kirjaa sen yhdellä napautuksella.',
     'Widget':
         'Widgetti',
-    'Add it to your Lock Screen or Home Screen: one tap logs your favourite. While there is alcohol in your system, it also shows your level and which way it is going.':
-        'Lisää se lukittuun näyttöön tai Koti-valikkoon: yksi napautus kirjaa suosikkisi. Kun kehossasi on alkoholia, se näyttää myös tasosi ja sen suunnan.',
+    'Add it to your Lock Screen or Home Screen: one tap logs your favourite. With Pro, it also shows your level and which way it is going while there is alcohol in your system.':
+        'Lisää se lukittuun näyttöön tai Koti-valikkoon: yksi napautus kirjaa suosikkisi. Pro-versiossa se näyttää myös tasosi ja sen suunnan, kun kehossasi on alkoholia.',
     'How do I add it?':
         'Miten lisään sen?',
     'Siri':
@@ -489,8 +492,8 @@ TRANSLATIONS = {
         'Napauta Muokkaa ja sitten Lisää widgetti.',
     'Search for LogMyDrink, pick a size and tap Add Widget.':
         'Hae LogMyDrink, valitse koko ja napauta Lisää widgetti.',
-    'A tap on the widget opens the app and logs your favourite drink. While there is alcohol in your system, it also shows your level and which way it is going.':
-        'Widgetin napautus avaa sovelluksen ja kirjaa suosikkijuomasi. Kun kehossasi on alkoholia, se näyttää myös tasosi ja sen suunnan.',
+    'A tap on the widget opens the app and logs your favourite drink. With Pro, it also shows your level and which way it is going while there is alcohol in your system.':
+        'Widgetin napautus avaa sovelluksen ja kirjaa suosikkijuomasi. Pro-versiossa se näyttää myös tasosi ja sen suunnan, kun kehossasi on alkoholia.',
     'Add the widget':
         'Lisää widgetti',
     'Show tips':

@@ -189,7 +189,7 @@ struct HowItWorksView: View {
             featureRow(icon: "hand.tap", Text("Favourite drink in one tap"), Text("Set a favourite in Profile and the Live button logs it with a single tap."))
 
             VStack(alignment: .leading, spacing: 8) {
-                featureRow(icon: "rectangle.on.rectangle", Text("Widget"), Text("Add it to your Lock Screen or Home Screen: one tap logs your favourite. While there is alcohol in your system, it also shows your level and which way it is going."))
+                featureRow(icon: "rectangle.on.rectangle", Text("Widget"), Text("Add it to your Lock Screen or Home Screen: one tap logs your favourite. With Pro, it also shows your level and which way it is going while there is alcohol in your system."))
                 NavigationLink {
                     WidgetGuideView()
                 } label: {

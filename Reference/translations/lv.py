@@ -225,8 +225,6 @@ TRANSLATIONS = {
     "Advanced": "Papildu",
 
     # --- PersonSwitcher / FeatureFlags: more than one person (11.5) ---
-    "Multiple people": "Vairākas personas",
-    "History trends": "Vēstures tendences",
     "Week": "Nedēļa",
     "Month": "Mēnesis",
     "Year": "Gads",
@@ -237,6 +235,11 @@ TRANSLATIONS = {
     "Weeks, months and years side by side — and every evening older than seven days.": "Nedēļas, mēneši un gadi blakus – un katrs vakars, vecāks par septiņām dienām.",
     "Everything you have logged is already saved. Unlocking only shows it.": "Viss, ko esi pierakstījis, jau ir saglabāts. Atbloķēšana to tikai parāda.",
     "Coming soon": "Drīzumā",
+    "Back up and restore": "Dublēšana un atjaunošana",
+    "Log for friends too": "Pieraksti arī draugiem",
+    "Switch to someone else in one tap and log their drinks with their own body and limit — each person gets their own curve and history.": "Ar vienu pieskārienu pārslēdzies uz citu cilvēku un pieraksti viņa dzērienus ar viņa ķermeni un robežu – katram ir sava līkne un vēsture.",
+    "Save everything to a file, and read a backup back in — on this phone or on a new one.": "Saglabā visu failā un ielādē dublējumu atpakaļ – šajā tālrunī vai jaunā.",
+    "Backup and restore are part of Pro.": "Dublēšana un atjaunošana ir daļa no Pro.",
     "Today": "Šodien",
     "Day": "Diena",
     "Yesterday": "Vakar",
@@ -426,8 +429,8 @@ TRANSLATIONS = {
         'Iestati iecienīto dzērienu cilnē Profils, un poga ekrānā Šobrīd to pierakstīs ar vienu pieskārienu.',
     'Widget':
         'Logrīks',
-    'Add it to your Lock Screen or Home Screen: one tap logs your favourite. While there is alcohol in your system, it also shows your level and which way it is going.':
-        'Pievieno to bloķēšanas ekrānam vai sākuma ekrānam: viens pieskāriens pieraksta tavu iecienīto dzērienu. Kamēr organismā ir alkohols, tas rāda arī tavu līmeni un tā virzienu.',
+    'Add it to your Lock Screen or Home Screen: one tap logs your favourite. With Pro, it also shows your level and which way it is going while there is alcohol in your system.':
+        'Pievieno to bloķēšanas ekrānam vai sākuma ekrānam: viens pieskāriens pieraksta tavu iecienīto dzērienu. Ar Pro, kamēr organismā ir alkohols, tas rāda arī tavu līmeni un tā virzienu.',
     'How do I add it?':
         'Kā to pievienot?',
     'Siri':
@@ -486,8 +489,8 @@ TRANSLATIONS = {
         'Pieskaries Edit, pēc tam Add Widget.',
     'Search for LogMyDrink, pick a size and tap Add Widget.':
         'Meklē LogMyDrink, izvēlies izmēru un pieskaries Add Widget.',
-    'A tap on the widget opens the app and logs your favourite drink. While there is alcohol in your system, it also shows your level and which way it is going.':
-        'Pieskāriens logrīkam atver lietotni un pieraksta tavu iecienīto dzērienu. Kamēr organismā ir alkohols, tas rāda arī tavu līmeni un tā virzienu.',
+    'A tap on the widget opens the app and logs your favourite drink. With Pro, it also shows your level and which way it is going while there is alcohol in your system.':
+        'Pieskāriens logrīkam atver lietotni un pieraksta tavu iecienīto dzērienu. Ar Pro, kamēr organismā ir alkohols, tas rāda arī tavu līmeni un tā virzienu.',
     'Add the widget':
         'Pievienot logrīku',
     'Show tips':

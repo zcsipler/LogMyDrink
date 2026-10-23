@@ -51,8 +51,10 @@ sem indítható.
 - **Demo vs. in-app purchase az első feltöltésnél.** Két út: (a) egyszerre
   megy fel az ingyenes Live és a fizetős Előzmény, StoreKittel; (b) először
   csak az alap grafikon, a fizetős funkciók később, marketing mellé.
-  A (b) olcsóbb és gyorsabb az App Review-n, de a `Feature.historyTrends`
-  mögötti kód akkor is a bundle-ben van — release-ben kikapcsolva.
+  A (b) olcsóbb és gyorsabb az App Review-n, de a Pro mögötti kód
+  (`ProFeature`, CLAUDE.md 5.29) akkor is a bundle-ben van — release-ben
+  kikapcsolva. *2026. október 23.: a modell előfizetés egy hónap
+  próbaidővel; a Pro tartalma eldöntve (5.29).*
 - **EU-s App Store először?** Összefügg a 9. fejezet 1.4.3-as
   kockázatával: EU-ban a DMA-s alternatív terjesztés a kiskapu, ha az Apple
   elutasít. Ha EU-first, a 24 nyelv (7.) érv; ha globális, az angol
@@ -180,7 +182,7 @@ az egész app hitelességét.
 
 ## 3. Élesítés után — a fizetős kör és a bővítések
 
-### Előzmény (fizetős, `Feature.historyTrends`)
+### Előzmény (Pro, `ProFeature.fullHistory`)
 
 - **Görgethető idővonal a Live-on — kipróbálva, elvetve (2026. október 9).**
   Egy kör megépült (12 órás lépték konstansban, napokban betöltve, a
@@ -235,8 +237,19 @@ az egész app hitelességét.
   helyett (5.16).
 - **Ital nélkül maradt alkalom törlése** a `SessionStore`-ban (5.16) — ma
   az aggregátor szűri ki, az adatbázisban marad.
-- **StoreKit a `FeatureFlags` mögé** (5.19): az `isPurchased` ma mindig
-  hamis; a paywall gombja release-ben „Coming soon".
+- **StoreKit a `FeatureFlags` mögé** (5.19, 5.29): az `isSubscribed` ma
+  mindig hamis; a paywall gombja release-ben „Coming soon". Egy
+  auto-renewable előfizetés (havi / éves?) egy hónapos introductory
+  offerrel; `Transaction.currentEntitlements` + `Transaction.updates`
+  figyelése, flipkor `proEntitlementDidChange`. Ugyanebben a körben:
+  - **a `ProPaywallSheet` igazi tartalommal**: ár, próbaidő, mit nyit a
+    Pro (a 5.29 táblája), visszaállítás (Restore Purchases — kötelező);
+  - **mi történik lejáratkor** a felhasználó szemével: egy vendég
+    személy, akire épp váltva van (a váltó eltűnik — a tulajdonosra kell
+    visszaállni), és egy egyszeri „a Pro lejárt, az adataid megvannak"
+    üzenet;
+  - **a widget-tipp** (`FeatureTips`) és a „Hogyan működik" Pro-jelölése
+    vizuálisan is (ma csak a szöveg mondja: „With Pro…").
 - **Józan napok streak** — visszafogottan, „eddig eljutottál", nem
   „elvesztetted".
 

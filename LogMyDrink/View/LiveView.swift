@@ -169,9 +169,7 @@ struct LiveView: View {
                 HStack {
                     yesterdayButton
                     Spacer()
-                    if FeatureFlags.shared.multiPerson {
-                        PersonSwitcher(store: store)
-                    }
+                    PersonSwitcher(store: store)
                 }
 
                 VStack(spacing: 26) {

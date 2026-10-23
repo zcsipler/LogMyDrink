@@ -161,7 +161,7 @@ struct WidgetGuideView: View {
                     }
                 }
 
-                Text("A tap on the widget opens the app and logs your favourite drink. While there is alcohol in your system, it also shows your level and which way it is going.")
+                Text("A tap on the widget opens the app and logs your favourite drink. With Pro, it also shows your level and which way it is going while there is alcohol in your system.")
                     .font(.system(size: 14, design: .rounded))
                     .foregroundStyle(Theme.secondaryText)
                     .fixedSize(horizontal: false, vertical: true)

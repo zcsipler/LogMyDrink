@@ -227,8 +227,6 @@ TRANSLATIONS = {
     "Advanced": "Avansat",
 
     # --- PersonSwitcher / FeatureFlags: more than one person (11.5) ---
-    "Multiple people": "Mai multe persoane",
-    "History trends": "Tendințe ale istoricului",
     "Week": "Săptămână",
     "Month": "Lună",
     "Year": "An",
@@ -239,6 +237,11 @@ TRANSLATIONS = {
     "Weeks, months and years side by side — and every evening older than seven days.": "Săptămâni, luni și ani în paralel — și fiecare seară mai veche de șapte zile.",
     "Everything you have logged is already saved. Unlocking only shows it.": "Tot ce ai înregistrat este deja salvat. Deblocarea doar îl afișează.",
     "Coming soon": "În curând",
+    "Back up and restore": "Backup și restaurare",
+    "Log for friends too": "Înregistrează și pentru prieteni",
+    "Switch to someone else in one tap and log their drinks with their own body and limit — each person gets their own curve and history.": "Comută la altcineva cu o atingere și înregistrează-i băuturile cu propriul corp și propria limită – fiecare are curba și istoricul său.",
+    "Save everything to a file, and read a backup back in — on this phone or on a new one.": "Salvează totul într-un fișier și încarcă din nou un backup – pe acest telefon sau pe unul nou.",
+    "Backup and restore are part of Pro.": "Backupul și restaurarea fac parte din Pro.",
     "Today": "Astăzi",
     "Day": "Zi",
     "Yesterday": "Ieri",
@@ -431,8 +434,8 @@ TRANSLATIONS = {
         'Setează o băutură preferată în Profil, iar butonul de pe ecranul Live o înregistrează dintr-o singură atingere.',
     'Widget':
         'Widget',
-    'Add it to your Lock Screen or Home Screen: one tap logs your favourite. While there is alcohol in your system, it also shows your level and which way it is going.':
-        'Adaugă-l pe ecranul de blocare sau pe ecranul principal: o atingere înregistrează băutura preferată. Cât timp ai alcool în organism, arată și nivelul tău și dacă urcă sau coboară.',
+    'Add it to your Lock Screen or Home Screen: one tap logs your favourite. With Pro, it also shows your level and which way it is going while there is alcohol in your system.':
+        'Adaugă-l pe ecranul de blocare sau pe ecranul principal: o atingere înregistrează băutura preferată. Cu Pro, cât timp ai alcool în organism, arată și nivelul tău și dacă urcă sau coboară.',
     'How do I add it?':
         'Cum îl adaug?',
     'Siri':
@@ -491,8 +494,8 @@ TRANSLATIONS = {
         'Atinge Editați, apoi Adăugați widget.',
     'Search for LogMyDrink, pick a size and tap Add Widget.':
         'Caută LogMyDrink, alege o dimensiune și atinge Adăugați widget.',
-    'A tap on the widget opens the app and logs your favourite drink. While there is alcohol in your system, it also shows your level and which way it is going.':
-        'O atingere pe widget deschide aplicația și înregistrează băutura preferată. Cât timp ai alcool în organism, arată și nivelul tău și dacă urcă sau coboară.',
+    'A tap on the widget opens the app and logs your favourite drink. With Pro, it also shows your level and which way it is going while there is alcohol in your system.':
+        'O atingere pe widget deschide aplicația și înregistrează băutura preferată. Cu Pro, cât timp ai alcool în organism, arată și nivelul tău și dacă urcă sau coboară.',
     'Add the widget':
         'Adaugă widgetul',
     'Show tips':

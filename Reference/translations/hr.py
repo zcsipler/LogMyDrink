@@ -221,8 +221,6 @@ TRANSLATIONS = {
     "Advanced": "Napredno",
 
     # --- PersonSwitcher / FeatureFlags: more than one person (11.5) ---
-    "Multiple people": "Više osoba",
-    "History trends": "Trendovi povijesti",
     "Week": "Tjedan",
     "Month": "Mjesec",
     "Year": "Godina",
@@ -233,6 +231,11 @@ TRANSLATIONS = {
     "Weeks, months and years side by side — and every evening older than seven days.": "Tjedni, mjeseci i godine jedno uz drugo – i svaka večer starija od sedam dana.",
     "Everything you have logged is already saved. Unlocking only shows it.": "Sve što si zabilježio već je spremljeno. Otključavanje to samo prikazuje.",
     "Coming soon": "Uskoro",
+    "Back up and restore": "Sigurnosna kopija i vraćanje",
+    "Log for friends too": "Bilježi i za prijatelje",
+    "Switch to someone else in one tap and log their drinks with their own body and limit — each person gets their own curve and history.": "Jednim dodirom prebaci se na nekog drugog i bilježi njegova pića s njegovim tijelom i granicom – svaka osoba ima svoju krivulju i povijest.",
+    "Save everything to a file, and read a backup back in — on this phone or on a new one.": "Spremi sve u datoteku i učitaj sigurnosnu kopiju natrag – na ovom telefonu ili na novom.",
+    "Backup and restore are part of Pro.": "Sigurnosna kopija i vraćanje dio su Pro verzije.",
     "Today": "Danas",
     "Day": "Dan",
     "Yesterday": "Jučer",
@@ -425,8 +428,8 @@ TRANSLATIONS = {
         'Postavi omiljeno piće u Profilu i gumb na zaslonu Uživo zabilježit će ga jednim dodirom.',
     'Widget':
         'Widget',
-    'Add it to your Lock Screen or Home Screen: one tap logs your favourite. While there is alcohol in your system, it also shows your level and which way it is going.':
-        'Dodaj ga na zaključani ili početni zaslon: jedan dodir bilježi tvoje omiljeno piće. Dok imaš alkohola u tijelu, prikazuje i tvoju razinu i njezin smjer.',
+    'Add it to your Lock Screen or Home Screen: one tap logs your favourite. With Pro, it also shows your level and which way it is going while there is alcohol in your system.':
+        'Dodaj ga na zaključani ili početni zaslon: jedan dodir bilježi tvoje omiljeno piće. S Pro verzijom, dok imaš alkohola u tijelu, prikazuje i tvoju razinu i njezin smjer.',
     'How do I add it?':
         'Kako ga dodati?',
     'Siri':
@@ -485,8 +488,8 @@ TRANSLATIONS = {
         'Dodirni Uredi pa Dodaj widget.',
     'Search for LogMyDrink, pick a size and tap Add Widget.':
         'Potraži LogMyDrink, odaberi veličinu i dodirni Dodaj widget.',
-    'A tap on the widget opens the app and logs your favourite drink. While there is alcohol in your system, it also shows your level and which way it is going.':
-        'Dodir widgeta otvara aplikaciju i bilježi tvoje omiljeno piće. Dok imaš alkohola u tijelu, prikazuje i tvoju razinu i njezin smjer.',
+    'A tap on the widget opens the app and logs your favourite drink. With Pro, it also shows your level and which way it is going while there is alcohol in your system.':
+        'Dodir widgeta otvara aplikaciju i bilježi tvoje omiljeno piće. S Pro verzijom, dok imaš alkohola u tijelu, prikazuje i tvoju razinu i njezin smjer.',
     'Add the widget':
         'Dodaj widget',
     'Show tips':

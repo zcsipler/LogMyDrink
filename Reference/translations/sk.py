@@ -222,8 +222,6 @@ TRANSLATIONS = {
     "Advanced": "Rozšírené",
 
     # --- PersonSwitcher / FeatureFlags: more than one person (11.5) ---
-    "Multiple people": "Viac osôb",
-    "History trends": "Trendy v histórii",
     "Week": "Týždeň",
     "Month": "Mesiac",
     "Year": "Rok",
@@ -234,6 +232,11 @@ TRANSLATIONS = {
     "Weeks, months and years side by side — and every evening older than seven days.": "Týždne, mesiace a roky vedľa seba – a každý večer starší ako sedem dní.",
     "Everything you have logged is already saved. Unlocking only shows it.": "Všetko, čo si zaznamenal, je už uložené. Odomknutie to len zobrazí.",
     "Coming soon": "Už čoskoro",
+    "Back up and restore": "Záloha a obnovenie",
+    "Log for friends too": "Zapisuj aj za priateľov",
+    "Switch to someone else in one tap and log their drinks with their own body and limit — each person gets their own curve and history.": "Jedným klepnutím prepni na niekoho iného a zapisuj jeho nápoje s jeho vlastným telom a limitom – každý má svoju krivku aj históriu.",
+    "Save everything to a file, and read a backup back in — on this phone or on a new one.": "Ulož všetko do súboru a načítaj zálohu späť – na tomto telefóne alebo na novom.",
+    "Backup and restore are part of Pro.": "Záloha a obnovenie sú súčasťou Pro.",
     "Today": "Dnes",
     "Day": "Deň",
     "Yesterday": "Včera",
@@ -425,8 +428,8 @@ TRANSLATIONS = {
         'Nastav si v Profile obľúbený nápoj a tlačidlo na obrazovke Naživo ho zapíše jedným klepnutím.',
     'Widget':
         'Widget',
-    'Add it to your Lock Screen or Home Screen: one tap logs your favourite. While there is alcohol in your system, it also shows your level and which way it is going.':
-        'Pridaj ho na zamknutú obrazovku alebo na plochu: jedno klepnutie zapíše tvoj obľúbený nápoj. Kým máš v tele alkohol, ukazuje aj tvoju hladinu a jej smer.',
+    'Add it to your Lock Screen or Home Screen: one tap logs your favourite. With Pro, it also shows your level and which way it is going while there is alcohol in your system.':
+        'Pridaj ho na zamknutú obrazovku alebo na plochu: jedno klepnutie zapíše tvoj obľúbený nápoj. S Pro, kým máš v tele alkohol, ukazuje aj tvoju hladinu a jej smer.',
     'How do I add it?':
         'Ako ho pridám?',
     'Siri':
@@ -485,8 +488,8 @@ TRANSLATIONS = {
         'Klepni na Upraviť a potom na Pridať widget.',
     'Search for LogMyDrink, pick a size and tap Add Widget.':
         'Vyhľadaj LogMyDrink, vyber veľkosť a klepni na Pridať widget.',
-    'A tap on the widget opens the app and logs your favourite drink. While there is alcohol in your system, it also shows your level and which way it is going.':
-        'Klepnutie na widget otvorí aplikáciu a zapíše tvoj obľúbený nápoj. Kým máš v tele alkohol, ukazuje aj tvoju hladinu a jej smer.',
+    'A tap on the widget opens the app and logs your favourite drink. With Pro, it also shows your level and which way it is going while there is alcohol in your system.':
+        'Klepnutie na widget otvorí aplikáciu a zapíše tvoj obľúbený nápoj. S Pro, kým máš v tele alkohol, ukazuje aj tvoju hladinu a jej smer.',
     'Add the widget':
         'Pridať widget',
     'Show tips':

@@ -22,30 +22,46 @@ struct DataTransferSection: View {
     @State private var outcome: ArchiveImport.Outcome?
     @State private var failure: ArchiveError?
 
+    @State private var showsPaywall = false
+
+    private var flags: FeatureFlags { .shared }
+
+    /// Both directions are Pro (`ProFeature.dataTransfer`). The rows stay on
+    /// the screen without it, with a lock: a missing row would not tell
+    /// anyone that backup exists.
+    private var isLocked: Bool { !flags.dataTransfer }
+
     var body: some View {
         Section {
             Button {
+                guard !isLocked else { showsPaywall = true; return }
                 // Built at the moment of tapping, not held in state: an archive
                 // made when the screen appeared would be stale by the time
                 // somebody exported it after logging a drink.
                 document = ArchiveDocument(archive: store.archive())
                 showsExporter = true
             } label: {
-                Label("Export a backup", systemImage: "square.and.arrow.up")
+                row("Export a backup", systemImage: "square.and.arrow.up")
             }
 
             Button {
+                guard !isLocked else { showsPaywall = true; return }
                 showsImporter = true
             } label: {
-                Label("Import a backup", systemImage: "square.and.arrow.down")
+                row("Import a backup", systemImage: "square.and.arrow.down")
             }
         } header: {
             Text("Backup")
         } footer: {
-            Text("A backup holds every person, occasion and drink. Importing adds what is missing — it never changes or removes anything already here.")
+            if isLocked {
+                Text("Backup and restore are part of Pro.")
+            } else {
+                Text("A backup holds every person, occasion and drink. Importing adds what is missing — it never changes or removes anything already here.")
+            }
         }
         .listRowBackground(Theme.surface)
         .tint(Theme.calm)
+        .sheet(isPresented: $showsPaywall) { ProPaywallSheet(topic: .backup) }
         .fileExporter(
             isPresented: $showsExporter,
             document: document,
@@ -124,6 +140,18 @@ struct DataTransferSection: View {
     }
 
     // MARK: Helpers
+
+    private func row(_ title: LocalizedStringKey, systemImage: String) -> some View {
+        HStack {
+            Label(title, systemImage: systemImage)
+            if isLocked {
+                Spacer()
+                Image(systemName: "lock.fill")
+                    .font(.footnote)
+                    .foregroundStyle(Theme.secondaryText)
+            }
+        }
+    }
 
     /// An optional as a presentation binding: showing while it holds something,
     /// and clearing it when the alert is dismissed. Without the clear, the same

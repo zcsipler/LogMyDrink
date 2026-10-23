@@ -224,8 +224,6 @@ TRANSLATIONS = {
     "Advanced": "Täpsemad seaded",
 
     # --- PersonSwitcher / FeatureFlags: more than one person (11.5) ---
-    "Multiple people": "Mitu inimest",
-    "History trends": "Ajaloo suundumused",
     "Week": "Nädal",
     "Month": "Kuu",
     "Year": "Aasta",
@@ -236,6 +234,11 @@ TRANSLATIONS = {
     "Weeks, months and years side by side — and every evening older than seven days.": "Nädalad, kuud ja aastad kõrvuti – ja iga üle seitsme päeva vanune õhtu.",
     "Everything you have logged is already saved. Unlocking only shows it.": "Kõik, mille oled kirja pannud, on juba salvestatud. Avamine ainult näitab seda.",
     "Coming soon": "Peagi",
+    "Back up and restore": "Varundus ja taastamine",
+    "Log for friends too": "Lisa ka sõpradele",
+    "Switch to someone else in one tap and log their drinks with their own body and limit — each person gets their own curve and history.": "Vaheta ühe puudutusega teisele inimesele ja lisa tema joogid tema enda keha ja piiriga – igaühel on oma kõver ja ajalugu.",
+    "Save everything to a file, and read a backup back in — on this phone or on a new one.": "Salvesta kõik faili ja loe varukoopia tagasi – selles telefonis või uues.",
+    "Backup and restore are part of Pro.": "Varundus ja taastamine on osa Pro-st.",
     "Today": "Täna",
     "Day": "Päev",
     "Yesterday": "Eile",
@@ -426,8 +429,8 @@ TRANSLATIONS = {
         'Vali Profiilis lemmik ja Hetkeseisu nupp lisab selle ühe puudutusega.',
     'Widget':
         'Vidin',
-    'Add it to your Lock Screen or Home Screen: one tap logs your favourite. While there is alcohol in your system, it also shows your level and which way it is going.':
-        'Lisa see Lock Screen-kuvale või Home Screen-kuvasse: üks puudutus lisab sinu lemmiku. Kuni su kehas on alkoholi, näitab see ka sinu taset ja selle suunda.',
+    'Add it to your Lock Screen or Home Screen: one tap logs your favourite. With Pro, it also shows your level and which way it is going while there is alcohol in your system.':
+        'Lisa see Lock Screen-kuvale või Home Screen-kuvasse: üks puudutus lisab sinu lemmiku. Pro-ga näitab see ka sinu taset ja selle suunda, kuni su kehas on alkoholi.',
     'How do I add it?':
         'Kuidas seda lisada?',
     'Siri':
@@ -486,8 +489,8 @@ TRANSLATIONS = {
         'Puuduta valikut Edit ja seejärel Add Widget.',
     'Search for LogMyDrink, pick a size and tap Add Widget.':
         'Otsi rakendust LogMyDrink, vali suurus ja puuduta valikut Add Widget.',
-    'A tap on the widget opens the app and logs your favourite drink. While there is alcohol in your system, it also shows your level and which way it is going.':
-        'Vidina puudutus avab rakenduse ja lisab sinu lemmikjoogi. Kuni su kehas on alkoholi, näitab see ka sinu taset ja selle suunda.',
+    'A tap on the widget opens the app and logs your favourite drink. With Pro, it also shows your level and which way it is going while there is alcohol in your system.':
+        'Vidina puudutus avab rakenduse ja lisab sinu lemmikjoogi. Pro-ga näitab see ka sinu taset ja selle suunda, kuni su kehas on alkoholi.',
     'Add the widget':
         'Lisa vidin',
     'Show tips':

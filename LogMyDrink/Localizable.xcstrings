@@ -2385,151 +2385,151 @@
         }
       }
     },
-    "A tap on the widget opens the app and logs your favourite drink. While there is alcohol in your system, it also shows your level and which way it is going." : {
+    "A tap on the widget opens the app and logs your favourite drink. With Pro, it also shows your level and which way it is going while there is alcohol in your system." : {
       "extractionState" : "manual",
       "localizations" : {
         "bg" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Докосване на инструмента отваря приложението и записва любимата ти напитка. Докато имаш алкохол в тялото, показва и нивото ти, и посоката му."
+            "value" : "Докосване на инструмента отваря приложението и записва любимата ти напитка. С Pro, докато имаш алкохол в тялото, показва и нивото ти, и посоката му."
           }
         },
         "cs" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Klepnutí na widget otevře aplikaci a zapíše tvůj oblíbený nápoj. Dokud máš v těle alkohol, ukazuje i tvou hladinu a její směr."
+            "value" : "Klepnutí na widget otevře aplikaci a zapíše tvůj oblíbený nápoj. S Pro ukazuje, dokud máš v těle alkohol, i tvou hladinu a její směr."
           }
         },
         "da" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Et tryk på widgetten åbner appen og registrerer din favoritdrink. Så længe der er alkohol i kroppen, viser den også dit niveau, og hvilken vej det går."
+            "value" : "Et tryk på widgetten åbner appen og registrerer din favoritdrink. Med Pro viser den også dit niveau, og hvilken vej det går, så længe der er alkohol i kroppen."
           }
         },
         "de" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Ein Tippen auf das Widget öffnet die App und trägt dein Lieblingsgetränk ein. Solange Alkohol in deinem Körper ist, zeigt es auch deinen Alkoholspiegel und wohin er sich bewegt."
+            "value" : "Ein Tippen auf das Widget öffnet die App und trägt dein Lieblingsgetränk ein. Mit Pro zeigt es, solange Alkohol in deinem Körper ist, auch deinen Alkoholspiegel und wohin er sich bewegt."
           }
         },
         "el" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Ένα πάτημα στο widget ανοίγει την εφαρμογή και καταγράφει το αγαπημένο σου ποτό. Όσο υπάρχει αλκοόλ στον οργανισμό σου, δείχνει και το επίπεδό σου και αν ανεβαίνει ή πέφτει."
+            "value" : "Ένα πάτημα στο widget ανοίγει την εφαρμογή και καταγράφει το αγαπημένο σου ποτό. Με το Pro, όσο υπάρχει αλκοόλ στον οργανισμό σου, δείχνει και το επίπεδό σου και αν ανεβαίνει ή πέφτει."
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "A tap on the widget opens the app and logs your favourite drink. While there is alcohol in your system, it also shows your level and which way it is going."
+            "value" : "A tap on the widget opens the app and logs your favourite drink. With Pro, it also shows your level and which way it is going while there is alcohol in your system."
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Un toque en el widget abre la app y registra tu bebida favorita. Mientras haya alcohol en tu cuerpo, muestra también tu nivel y hacia dónde va."
+            "value" : "Un toque en el widget abre la app y registra tu bebida favorita. Con Pro, mientras haya alcohol en tu cuerpo, muestra también tu nivel y hacia dónde va."
           }
         },
         "et" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Vidina puudutus avab rakenduse ja lisab sinu lemmikjoogi. Kuni su kehas on alkoholi, näitab see ka sinu taset ja selle suunda."
+            "value" : "Vidina puudutus avab rakenduse ja lisab sinu lemmikjoogi. Pro-ga näitab see ka sinu taset ja selle suunda, kuni su kehas on alkoholi."
           }
         },
         "fi" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Widgetin napautus avaa sovelluksen ja kirjaa suosikkijuomasi. Kun kehossasi on alkoholia, se näyttää myös tasosi ja sen suunnan."
+            "value" : "Widgetin napautus avaa sovelluksen ja kirjaa suosikkijuomasi. Pro-versiossa se näyttää myös tasosi ja sen suunnan, kun kehossasi on alkoholia."
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Un toucher sur le widget ouvre l’app et enregistre ta boisson favorite. Tant qu’il y a de l’alcool dans ton organisme, il affiche aussi ton taux et sa direction."
+            "value" : "Un toucher sur le widget ouvre l’app et enregistre ta boisson favorite. Avec Pro, tant qu’il y a de l’alcool dans ton organisme, il affiche aussi ton taux et sa direction."
           }
         },
         "ga" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Osclaíonn tapáil ar an ngiuirléid an aip agus cláraíonn sí an deoch is fearr leat. Fad is atá alcól i do chorp, taispeánann sí do leibhéal agus a threo freisin."
+            "value" : "Osclaíonn tapáil ar an ngiuirléid an aip agus cláraíonn sí an deoch is fearr leat. Le Pro, fad is atá alcól i do chorp, taispeánann sí do leibhéal agus a threo freisin."
           }
         },
         "hr" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Dodir widgeta otvara aplikaciju i bilježi tvoje omiljeno piće. Dok imaš alkohola u tijelu, prikazuje i tvoju razinu i njezin smjer."
+            "value" : "Dodir widgeta otvara aplikaciju i bilježi tvoje omiljeno piće. S Pro verzijom, dok imaš alkohola u tijelu, prikazuje i tvoju razinu i njezin smjer."
           }
         },
         "hu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "A widgetre koppintva megnyílik az app, és felviszi a kedvenc italodat. Amíg alkohol van a szervezetedben, a szintedet is mutatja, és azt, hogy emelkedik vagy csökken."
+            "value" : "A widgetre koppintva megnyílik az app, és felviszi a kedvenc italodat. Pro-val a szintedet is mutatja, amíg alkohol van a szervezetedben, és azt is, hogy emelkedik vagy csökken."
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Un tocco sul widget apre l’app e registra il tuo drink preferito. Finché c’è alcol nel tuo corpo, mostra anche il livello e la sua direzione."
+            "value" : "Un tocco sul widget apre l’app e registra il tuo drink preferito. Con Pro, finché c’è alcol nel tuo corpo, mostra anche il livello e la sua direzione."
           }
         },
         "lt" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Palietus valdiklį atsidaro programėlė ir įrašomas tavo mėgstamas gėrimas. Kol organizme yra alkoholio, jis rodo ir tavo lygį bei jo kryptį."
+            "value" : "Palietus valdiklį atsidaro programėlė ir įrašomas tavo mėgstamas gėrimas. Su Pro, kol organizme yra alkoholio, jis rodo ir tavo lygį bei jo kryptį."
           }
         },
         "lv" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Pieskāriens logrīkam atver lietotni un pieraksta tavu iecienīto dzērienu. Kamēr organismā ir alkohols, tas rāda arī tavu līmeni un tā virzienu."
+            "value" : "Pieskāriens logrīkam atver lietotni un pieraksta tavu iecienīto dzērienu. Ar Pro, kamēr organismā ir alkohols, tas rāda arī tavu līmeni un tā virzienu."
           }
         },
         "mt" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Tektika fuq il-widget tiftaħ l-app u tirreġistra x-xarba favorita tiegħek. Sakemm ikun hemm alkoħol f’ġismek, juri wkoll il-livell tiegħek u d-direzzjoni tiegħu."
+            "value" : "Tektika fuq il-widget tiftaħ l-app u tirreġistra x-xarba favorita tiegħek. Bil-Pro, sakemm ikun hemm alkoħol f’ġismek, juri wkoll il-livell tiegħek u d-direzzjoni tiegħu."
           }
         },
         "nl" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Een tik op de widget opent de app en legt je favoriete drankje vast. Zolang er alcohol in je lichaam is, toont hij ook je niveau en welke kant het op gaat."
+            "value" : "Een tik op de widget opent de app en legt je favoriete drankje vast. Met Pro toont hij, zolang er alcohol in je lichaam is, ook je niveau en welke kant het op gaat."
           }
         },
         "pl" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Stuknięcie w widżet otwiera aplikację i zapisuje ulubiony napój. Dopóki masz alkohol w organizmie, pokazuje też twój poziom i jego kierunek."
+            "value" : "Stuknięcie w widżet otwiera aplikację i zapisuje ulubiony napój. Z Pro, dopóki masz alkohol w organizmie, pokazuje też twój poziom i jego kierunek."
           }
         },
         "pt" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Um toque no widget abre a app e regista a tua bebida favorita. Enquanto houver álcool no organismo, mostra também o teu nível e se está a subir ou a descer."
+            "value" : "Um toque no widget abre a app e regista a tua bebida favorita. Com o Pro, enquanto houver álcool no organismo, mostra também o teu nível e se está a subir ou a descer."
           }
         },
         "ro" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "O atingere pe widget deschide aplicația și înregistrează băutura preferată. Cât timp ai alcool în organism, arată și nivelul tău și dacă urcă sau coboară."
+            "value" : "O atingere pe widget deschide aplicația și înregistrează băutura preferată. Cu Pro, cât timp ai alcool în organism, arată și nivelul tău și dacă urcă sau coboară."
           }
         },
         "sk" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Klepnutie na widget otvorí aplikáciu a zapíše tvoj obľúbený nápoj. Kým máš v tele alkohol, ukazuje aj tvoju hladinu a jej smer."
+            "value" : "Klepnutie na widget otvorí aplikáciu a zapíše tvoj obľúbený nápoj. S Pro, kým máš v tele alkohol, ukazuje aj tvoju hladinu a jej smer."
           }
         },
         "sl" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Dotik gradnika odpre aplikacijo in zabeleži tvojo najljubšo pijačo. Dokler imaš v telesu alkohol, prikazuje tudi tvojo raven in njeno smer."
+            "value" : "Dotik gradnika odpre aplikacijo in zabeleži tvojo najljubšo pijačo. S Pro, dokler imaš v telesu alkohol, prikazuje tudi tvojo raven in njeno smer."
           }
         },
         "sv" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Ett tryck på widgeten öppnar appen och loggar din favoritdryck. Så länge det finns alkohol i kroppen visar den också din nivå och vart den är på väg."
+            "value" : "Ett tryck på widgeten öppnar appen och loggar din favoritdryck. Med Pro visar den också din nivå och vart den är på väg, så länge det finns alkohol i kroppen."
           }
         }
       }
@@ -3279,151 +3279,151 @@
         }
       }
     },
-    "Add it to your Lock Screen or Home Screen: one tap logs your favourite. While there is alcohol in your system, it also shows your level and which way it is going." : {
+    "Add it to your Lock Screen or Home Screen: one tap logs your favourite. With Pro, it also shows your level and which way it is going while there is alcohol in your system." : {
       "extractionState" : "manual",
       "localizations" : {
         "bg" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Добави го на Заключен екран или Начален екран: едно докосване записва любимата ти напитка. Докато имаш алкохол в тялото, показва и нивото ти, и посоката му."
+            "value" : "Добави го на Заключен екран или Начален екран: едно докосване записва любимата ти напитка. С Pro, докато имаш алкохол в тялото, показва и нивото ти, и посоката му."
           }
         },
         "cs" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Přidej ho na zamčenou obrazovku nebo na plochu: jedno klepnutí zapíše tvůj oblíbený nápoj. Dokud máš v těle alkohol, ukazuje i tvou hladinu a její směr."
+            "value" : "Přidej ho na zamčenou obrazovku nebo na plochu: jedno klepnutí zapíše tvůj oblíbený nápoj. S Pro ukazuje, dokud máš v těle alkohol, i tvou hladinu a její směr."
           }
         },
         "da" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Føj den til låseskærmen eller hjemmeskærmen: ét tryk registrerer din favorit. Så længe der er alkohol i kroppen, viser den også dit niveau, og hvilken vej det går."
+            "value" : "Føj den til låseskærmen eller hjemmeskærmen: ét tryk registrerer din favorit. Med Pro viser den også dit niveau, og hvilken vej det går, så længe der er alkohol i kroppen."
           }
         },
         "de" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Füge es deinem Sperrbildschirm oder Home-Bildschirm hinzu: Ein Tippen trägt dein Lieblingsgetränk ein. Solange Alkohol in deinem Körper ist, zeigt es auch deinen Alkoholspiegel und wohin er sich bewegt."
+            "value" : "Füge es deinem Sperrbildschirm oder Home-Bildschirm hinzu: Ein Tippen trägt dein Lieblingsgetränk ein. Mit Pro zeigt es, solange Alkohol in deinem Körper ist, auch deinen Alkoholspiegel und wohin er sich bewegt."
           }
         },
         "el" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Πρόσθεσέ το στην οθόνη κλειδώματος ή στην οθόνη Αφετηρίας: ένα πάτημα καταγράφει το αγαπημένο σου. Όσο υπάρχει αλκοόλ στον οργανισμό σου, δείχνει και το επίπεδό σου και αν ανεβαίνει ή πέφτει."
+            "value" : "Πρόσθεσέ το στην οθόνη κλειδώματος ή στην οθόνη Αφετηρίας: ένα πάτημα καταγράφει το αγαπημένο σου. Με το Pro, όσο υπάρχει αλκοόλ στον οργανισμό σου, δείχνει και το επίπεδό σου και αν ανεβαίνει ή πέφτει."
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Add it to your Lock Screen or Home Screen: one tap logs your favourite. While there is alcohol in your system, it also shows your level and which way it is going."
+            "value" : "Add it to your Lock Screen or Home Screen: one tap logs your favourite. With Pro, it also shows your level and which way it is going while there is alcohol in your system."
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Añádelo a la pantalla de bloqueo o a la pantalla de inicio: un toque registra tu favorita. Mientras haya alcohol en tu cuerpo, muestra también tu nivel y hacia dónde va."
+            "value" : "Añádelo a la pantalla de bloqueo o a la pantalla de inicio: un toque registra tu favorita. Con Pro, mientras haya alcohol en tu cuerpo, muestra también tu nivel y hacia dónde va."
           }
         },
         "et" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Lisa see Lock Screen-kuvale või Home Screen-kuvasse: üks puudutus lisab sinu lemmiku. Kuni su kehas on alkoholi, näitab see ka sinu taset ja selle suunda."
+            "value" : "Lisa see Lock Screen-kuvale või Home Screen-kuvasse: üks puudutus lisab sinu lemmiku. Pro-ga näitab see ka sinu taset ja selle suunda, kuni su kehas on alkoholi."
           }
         },
         "fi" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Lisää se lukittuun näyttöön tai Koti-valikkoon: yksi napautus kirjaa suosikkisi. Kun kehossasi on alkoholia, se näyttää myös tasosi ja sen suunnan."
+            "value" : "Lisää se lukittuun näyttöön tai Koti-valikkoon: yksi napautus kirjaa suosikkisi. Pro-versiossa se näyttää myös tasosi ja sen suunnan, kun kehossasi on alkoholia."
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Ajoute-le à l’écran verrouillé ou à l’écran d’accueil : un toucher enregistre ta favorite. Tant qu’il y a de l’alcool dans ton organisme, il affiche aussi ton taux et sa direction."
+            "value" : "Ajoute-le à l’écran verrouillé ou à l’écran d’accueil : un toucher enregistre ta favorite. Avec Pro, tant qu’il y a de l’alcool dans ton organisme, il affiche aussi ton taux et sa direction."
           }
         },
         "ga" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Cuir le do Scáileán Glasála nó le do Scáileán Baile í: cláraíonn tapáil amháin an deoch is fearr leat. Fad is atá alcól i do chorp, taispeánann sí do leibhéal agus a threo freisin."
+            "value" : "Cuir le do Scáileán Glasála nó le do Scáileán Baile í: cláraíonn tapáil amháin an deoch is fearr leat. Le Pro, fad is atá alcól i do chorp, taispeánann sí do leibhéal agus a threo freisin."
           }
         },
         "hr" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Dodaj ga na zaključani ili početni zaslon: jedan dodir bilježi tvoje omiljeno piće. Dok imaš alkohola u tijelu, prikazuje i tvoju razinu i njezin smjer."
+            "value" : "Dodaj ga na zaključani ili početni zaslon: jedan dodir bilježi tvoje omiljeno piće. S Pro verzijom, dok imaš alkohola u tijelu, prikazuje i tvoju razinu i njezin smjer."
           }
         },
         "hu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Add hozzá a zárolási képernyőhöz vagy a főképernyőhöz: egy koppintással felviheted a kedvencedet. Amíg alkohol van a szervezetedben, a widget a szintedet is mutatja, és azt, hogy emelkedik vagy csökken."
+            "value" : "Add hozzá a zárolási képernyőhöz vagy a főképernyőhöz: egy koppintással felviheted a kedvencedet. Pro-val a szintedet is mutatja, amíg alkohol van a szervezetedben, és azt is, hogy emelkedik vagy csökken."
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Aggiungilo alla schermata di blocco o alla schermata Home: un tocco registra il tuo preferito. Finché c’è alcol nel tuo corpo, mostra anche il livello e la sua direzione."
+            "value" : "Aggiungilo alla schermata di blocco o alla schermata Home: un tocco registra il tuo preferito. Con Pro, finché c’è alcol nel tuo corpo, mostra anche il livello e la sua direzione."
           }
         },
         "lt" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Pridėk jį prie užrakinimo ar pradžios ekrano: vienas palietimas įrašo tavo mėgstamą gėrimą. Kol organizme yra alkoholio, jis rodo ir tavo lygį bei jo kryptį."
+            "value" : "Pridėk jį prie užrakinimo ar pradžios ekrano: vienas palietimas įrašo tavo mėgstamą gėrimą. Su Pro, kol organizme yra alkoholio, jis rodo ir tavo lygį bei jo kryptį."
           }
         },
         "lv" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Pievieno to bloķēšanas ekrānam vai sākuma ekrānam: viens pieskāriens pieraksta tavu iecienīto dzērienu. Kamēr organismā ir alkohols, tas rāda arī tavu līmeni un tā virzienu."
+            "value" : "Pievieno to bloķēšanas ekrānam vai sākuma ekrānam: viens pieskāriens pieraksta tavu iecienīto dzērienu. Ar Pro, kamēr organismā ir alkohols, tas rāda arī tavu līmeni un tā virzienu."
           }
         },
         "mt" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Żidu mal-Lock Screen jew mal-Home Screen: tektika waħda tirreġistra l-favorita tiegħek. Sakemm ikun hemm alkoħol f’ġismek, juri wkoll il-livell tiegħek u d-direzzjoni tiegħu."
+            "value" : "Żidu mal-Lock Screen jew mal-Home Screen: tektika waħda tirreġistra l-favorita tiegħek. Bil-Pro, sakemm ikun hemm alkoħol f’ġismek, juri wkoll il-livell tiegħek u d-direzzjoni tiegħu."
           }
         },
         "nl" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Zet hem op je toegangsscherm of beginscherm: één tik legt je favoriet vast. Zolang er alcohol in je lichaam is, toont hij ook je niveau en welke kant het op gaat."
+            "value" : "Zet hem op je toegangsscherm of beginscherm: één tik legt je favoriet vast. Met Pro toont hij, zolang er alcohol in je lichaam is, ook je niveau en welke kant het op gaat."
           }
         },
         "pl" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Dodaj go do ekranu blokady lub ekranu początkowego: jedno stuknięcie zapisuje ulubiony napój. Dopóki masz alkohol w organizmie, pokazuje też twój poziom i jego kierunek."
+            "value" : "Dodaj go do ekranu blokady lub ekranu początkowego: jedno stuknięcie zapisuje ulubiony napój. Z Pro, dopóki masz alkohol w organizmie, pokazuje też twój poziom i jego kierunek."
           }
         },
         "pt" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Adiciona-o ao ecrã bloqueado ou ao Ecrã principal: um toque regista a tua favorita. Enquanto houver álcool no organismo, mostra também o teu nível e se está a subir ou a descer."
+            "value" : "Adiciona-o ao ecrã bloqueado ou ao Ecrã principal: um toque regista a tua favorita. Com o Pro, enquanto houver álcool no organismo, mostra também o teu nível e se está a subir ou a descer."
           }
         },
         "ro" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Adaugă-l pe ecranul de blocare sau pe ecranul principal: o atingere înregistrează băutura preferată. Cât timp ai alcool în organism, arată și nivelul tău și dacă urcă sau coboară."
+            "value" : "Adaugă-l pe ecranul de blocare sau pe ecranul principal: o atingere înregistrează băutura preferată. Cu Pro, cât timp ai alcool în organism, arată și nivelul tău și dacă urcă sau coboară."
           }
         },
         "sk" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Pridaj ho na zamknutú obrazovku alebo na plochu: jedno klepnutie zapíše tvoj obľúbený nápoj. Kým máš v tele alkohol, ukazuje aj tvoju hladinu a jej smer."
+            "value" : "Pridaj ho na zamknutú obrazovku alebo na plochu: jedno klepnutie zapíše tvoj obľúbený nápoj. S Pro, kým máš v tele alkohol, ukazuje aj tvoju hladinu a jej smer."
           }
         },
         "sl" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Dodaj ga na zaklenjeni ali domači zaslon: en dotik zabeleži tvojo najljubšo pijačo. Dokler imaš v telesu alkohol, prikazuje tudi tvojo raven in njeno smer."
+            "value" : "Dodaj ga na zaklenjeni ali domači zaslon: en dotik zabeleži tvojo najljubšo pijačo. S Pro, dokler imaš v telesu alkohol, prikazuje tudi tvojo raven in njeno smer."
           }
         },
         "sv" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Lägg den på låsskärmen eller hemskärmen: ett tryck loggar din favorit. Så länge det finns alkohol i kroppen visar den också din nivå och vart den är på väg."
+            "value" : "Lägg den på låsskärmen eller hemskärmen: ett tryck loggar din favorit. Med Pro visar den också din nivå och vart den är på väg, så länge det finns alkohol i kroppen."
           }
         }
       }
@@ -5812,6 +5812,155 @@
         }
       }
     },
+    "Back up and restore" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "bg" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Резервно копие и възстановяване"
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Záloha a obnovení"
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Sikkerhedskopi og gendannelse"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Sichern und wiederherstellen"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Αντίγραφο ασφαλείας και επαναφορά"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Back up and restore"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Copia de seguridad y restauración"
+          }
+        },
+        "et" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Varundus ja taastamine"
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Varmuuskopiointi ja palautus"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Sauvegarder et restaurer"
+          }
+        },
+        "ga" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Cúltaca agus athchóiriú"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Sigurnosna kopija i vraćanje"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mentés és visszatöltés"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Backup e ripristino"
+          }
+        },
+        "lt" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Atsarginė kopija ir atkūrimas"
+          }
+        },
+        "lv" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Dublēšana un atjaunošana"
+          }
+        },
+        "mt" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Backup u restore"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Back-up en herstel"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Kopia zapasowa i przywracanie"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Cópia de segurança e restauro"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Backup și restaurare"
+          }
+        },
+        "sk" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Záloha a obnovenie"
+          }
+        },
+        "sl" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Varnostna kopija in obnovitev"
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Säkerhetskopiera och återställ"
+          }
+        }
+      }
+    },
     "Backup" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -5957,6 +6106,155 @@
           "stringUnit" : {
             "state" : "needs_review",
             "value" : "Säkerhetskopia"
+          }
+        }
+      }
+    },
+    "Backup and restore are part of Pro." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "bg" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Резервното копие и възстановяването са част от Pro."
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Záloha a obnovení jsou součástí Pro."
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Sikkerhedskopi og gendannelse er en del af Pro."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Sichern und Wiederherstellen sind Teil von Pro."
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Το αντίγραφο ασφαλείας και η επαναφορά είναι μέρος του Pro."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Backup and restore are part of Pro."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "La copia de seguridad y la restauración forman parte de Pro."
+          }
+        },
+        "et" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Varundus ja taastamine on osa Pro-st."
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Varmuuskopiointi ja palautus kuuluvat Pro-versioon."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "La sauvegarde et la restauration font partie de Pro."
+          }
+        },
+        "ga" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Is cuid de Pro iad cúltaca agus athchóiriú."
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Sigurnosna kopija i vraćanje dio su Pro verzije."
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A mentés és a visszatöltés a Pro része."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Backup e ripristino fanno parte di Pro."
+          }
+        },
+        "lt" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Atsarginė kopija ir atkūrimas yra Pro dalis."
+          }
+        },
+        "lv" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Dublēšana un atjaunošana ir daļa no Pro."
+          }
+        },
+        "mt" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Il-backup u r-restore huma parti mill-Pro."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Back-up en herstel horen bij Pro."
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Kopia zapasowa i przywracanie są częścią Pro."
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "A cópia de segurança e o restauro fazem parte do Pro."
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Backupul și restaurarea fac parte din Pro."
+          }
+        },
+        "sk" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Záloha a obnovenie sú súčasťou Pro."
+          }
+        },
+        "sl" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Varnostna kopija in obnovitev sta del Pro."
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Säkerhetskopiering och återställning ingår i Pro."
           }
         }
       }
@@ -16093,155 +16391,6 @@
         }
       }
     },
-    "History trends" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "bg" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Тенденции в историята"
-          }
-        },
-        "cs" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Trendy v historii"
-          }
-        },
-        "da" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Tendenser i historikken"
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Verlaufstrends"
-          }
-        },
-        "el" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Τάσεις ιστορικού"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "History trends"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Tendencias del historial"
-          }
-        },
-        "et" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Ajaloo suundumused"
-          }
-        },
-        "fi" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Historian trendit"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Tendances de l’historique"
-          }
-        },
-        "ga" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Treochtaí staire"
-          }
-        },
-        "hr" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Trendovi povijesti"
-          }
-        },
-        "hu" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Előzmény-trendek"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Tendenze della cronologia"
-          }
-        },
-        "lt" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Istorijos tendencijos"
-          }
-        },
-        "lv" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Vēstures tendences"
-          }
-        },
-        "mt" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Xejriet tal-istorja"
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Trends in geschiedenis"
-          }
-        },
-        "pl" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Trendy w historii"
-          }
-        },
-        "pt" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Tendências do histórico"
-          }
-        },
-        "ro" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Tendințe ale istoricului"
-          }
-        },
-        "sk" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Trendy v histórii"
-          }
-        },
-        "sl" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Trendi zgodovine"
-          }
-        },
-        "sv" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Trender i historiken"
-          }
-        }
-      }
-    },
     "Home Screen" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -19669,6 +19818,155 @@
         }
       }
     },
+    "Log for friends too" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "bg" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Записвай и за приятели"
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Zapisuj i za přátele"
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Registrér også for venner"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Auch für Freunde eintragen"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Κατέγραψε και για φίλους"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Log for friends too"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Registra también para amigos"
+          }
+        },
+        "et" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Lisa ka sõpradele"
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Kirjaa myös ystäville"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Enregistre aussi pour tes amis"
+          }
+        },
+        "ga" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Cláraigh do chairde freisin"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Bilježi i za prijatelje"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vezesd a barátaidét is"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Registra anche per gli amici"
+          }
+        },
+        "lt" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Įrašyk ir draugams"
+          }
+        },
+        "lv" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Pieraksti arī draugiem"
+          }
+        },
+        "mt" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Irreġistra għall-ħbieb ukoll"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Log ook voor vrienden"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Zapisuj też za znajomych"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Regista também para amigos"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Înregistrează și pentru prieteni"
+          }
+        },
+        "sk" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Zapisuj aj za priateľov"
+          }
+        },
+        "sl" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Beleži tudi za prijatelje"
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Logga för vänner också"
+          }
+        }
+      }
+    },
     "LogMyDrink helps you drink more mindfully and stay in control. The decision happens before the next glass, so the app shows you in advance where another drink would take your level, and when it would peak." : {
       "extractionState" : "manual",
       "localizations" : {
@@ -21751,155 +22049,6 @@
           "stringUnit" : {
             "state" : "needs_review",
             "value" : "Månadssumma: %@"
-          }
-        }
-      }
-    },
-    "Multiple people" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "bg" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Няколко души"
-          }
-        },
-        "cs" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Více osob"
-          }
-        },
-        "da" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Flere personer"
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Mehrere Personen"
-          }
-        },
-        "el" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Πολλά άτομα"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Multiple people"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Varias personas"
-          }
-        },
-        "et" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Mitu inimest"
-          }
-        },
-        "fi" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Useita henkilöitä"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Plusieurs personnes"
-          }
-        },
-        "ga" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Roinnt daoine"
-          }
-        },
-        "hr" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Više osoba"
-          }
-        },
-        "hu" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Több személy"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Più persone"
-          }
-        },
-        "lt" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Keli žmonės"
-          }
-        },
-        "lv" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Vairākas personas"
-          }
-        },
-        "mt" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Diversi persuni"
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Meerdere personen"
-          }
-        },
-        "pl" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Wiele osób"
-          }
-        },
-        "pt" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Várias pessoas"
-          }
-        },
-        "ro" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Mai multe persoane"
-          }
-        },
-        "sk" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Viac osôb"
-          }
-        },
-        "sl" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Več oseb"
-          }
-        },
-        "sv" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Flera personer"
           }
         }
       }
@@ -28460,6 +28609,155 @@
         }
       }
     },
+    "Save everything to a file, and read a backup back in — on this phone or on a new one." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "bg" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Запази всичко във файл и зареди резервно копие обратно – на този телефон или на нов."
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Ulož všechno do souboru a načti zálohu zpět – na tomhle telefonu nebo na novém."
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Gem alt i en fil, og indlæs en sikkerhedskopi igen – på denne telefon eller på en ny."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Speichere alles in einer Datei und lies eine Sicherung wieder ein – auf diesem Telefon oder auf einem neuen."
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Αποθήκευσε τα πάντα σε ένα αρχείο και φόρτωσε ξανά ένα αντίγραφο ασφαλείας – σε αυτό το τηλέφωνο ή σε ένα καινούργιο."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Save everything to a file, and read a backup back in — on this phone or on a new one."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Guarda todo en un archivo y vuelve a cargar una copia de seguridad, en este teléfono o en uno nuevo."
+          }
+        },
+        "et" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Salvesta kõik faili ja loe varukoopia tagasi – selles telefonis või uues."
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Tallenna kaikki tiedostoon ja lue varmuuskopio takaisin – tähän puhelimeen tai uuteen."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Enregistre tout dans un fichier et recharge une sauvegarde, sur ce téléphone ou sur un nouveau."
+          }
+        },
+        "ga" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Sábháil gach rud i gcomhad, agus léigh cúltaca isteach arís – ar an bhfón seo nó ar cheann nua."
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Spremi sve u datoteku i učitaj sigurnosnu kopiju natrag – na ovom telefonu ili na novom."
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ments el mindent egy fájlba, és töltsd vissza – ezen a telefonon vagy egy újon."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Salva tutto in un file e ricarica un backup, su questo telefono o su uno nuovo."
+          }
+        },
+        "lt" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Išsaugok viską faile ir įkelk atsarginę kopiją atgal – šiame telefone arba naujame."
+          }
+        },
+        "lv" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Saglabā visu failā un ielādē dublējumu atpakaļ – šajā tālrunī vai jaunā."
+          }
+        },
+        "mt" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Issejvja kollox f’fajl, u erġa’ ttella’ backup – fuq dan it-telefon jew fuq wieħed ġdid."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Bewaar alles in een bestand en lees een back-up weer in – op deze telefoon of op een nieuwe."
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Zapisz wszystko w pliku i wczytaj kopię zapasową z powrotem – na tym telefonie albo na nowym."
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Guarda tudo num ficheiro e volta a carregar uma cópia de segurança, neste telemóvel ou num novo."
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Salvează totul într-un fișier și încarcă din nou un backup – pe acest telefon sau pe unul nou."
+          }
+        },
+        "sk" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Ulož všetko do súboru a načítaj zálohu späť – na tomto telefóne alebo na novom."
+          }
+        },
+        "sl" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Shrani vse v datoteko in naloži varnostno kopijo nazaj – na tem telefonu ali na novem."
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Spara allt i en fil och läs in en säkerhetskopia igen – på den här telefonen eller på en ny."
+          }
+        }
+      }
+    },
     "Say it, don’t type it" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -32628,6 +32926,155 @@
           "stringUnit" : {
             "state" : "needs_review",
             "value" : "Byt person"
+          }
+        }
+      }
+    },
+    "Switch to someone else in one tap and log their drinks with their own body and limit — each person gets their own curve and history." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "bg" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Превключи към друг човек с едно докосване и записвай напитките му с неговите собствени данни и граница – всеки получава своя крива и история."
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Jedním klepnutím přepni na někoho jiného a zapisuj jeho nápoje s jeho vlastním tělem a limitem – každý má svou křivku i historii."
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Skift til en anden med ét tryk, og registrér deres drinks med deres egen krop og grænse – hver person får sin egen kurve og historik."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Wechsle mit einem Tippen zu jemand anderem und trage seine Getränke mit seinem eigenen Körper und Limit ein – jede Person bekommt ihre eigene Kurve und ihren eigenen Verlauf."
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Άλλαξε σε κάποιον άλλον με ένα πάτημα και κατέγραψε τα ποτά του με το δικό του σώμα και όριο – κάθε άτομο έχει τη δική του καμπύλη και ιστορικό."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Switch to someone else in one tap and log their drinks with their own body and limit — each person gets their own curve and history."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Cambia a otra persona con un toque y registra sus bebidas con su propio cuerpo y límite: cada persona tiene su propia curva e historial."
+          }
+        },
+        "et" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Vaheta ühe puudutusega teisele inimesele ja lisa tema joogid tema enda keha ja piiriga – igaühel on oma kõver ja ajalugu."
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Vaihda toiseen henkilöön yhdellä napautuksella ja kirjaa hänen juomansa hänen omalla kehollaan ja rajallaan – jokaisella on oma käyränsä ja historiansa."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Passe à quelqu’un d’autre d’un toucher et enregistre ses boissons avec son propre corps et sa propre limite : chacun a sa courbe et son historique."
+          }
+        },
+        "ga" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Athraigh go duine eile le tapáil amháin agus cláraigh a gcuid deochanna lena gcorp agus lena dteorainn féin – faigheann gach duine a chuar agus a stair féin."
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Jednim dodirom prebaci se na nekog drugog i bilježi njegova pića s njegovim tijelom i granicom – svaka osoba ima svoju krivulju i povijest."
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Egy koppintással válts át valaki másra, és vidd fel az italait a saját testadataival és határával – mindenkinek saját görbéje és előzménye lesz."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Passa a un’altra persona con un tocco e registra i suoi drink con il suo corpo e il suo limite: ognuno ha la propria curva e la propria cronologia."
+          }
+        },
+        "lt" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Vienu palietimu persijunk į kitą žmogų ir įrašyk jo gėrimus pagal jo kūną ir ribą – kiekvienas turi savo kreivę ir istoriją."
+          }
+        },
+        "lv" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Ar vienu pieskārienu pārslēdzies uz citu cilvēku un pieraksti viņa dzērienus ar viņa ķermeni un robežu – katram ir sava līkne un vēsture."
+          }
+        },
+        "mt" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Aqleb għal xi ħadd ieħor b’tektika waħda u rreġistra x-xorb tiegħu bil-ġisem u l-limitu tiegħu – kull persuna jkollha l-kurva u l-istorja tagħha."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Wissel met één tik naar iemand anders en leg zijn drankjes vast met zijn eigen lichaam en limiet – iedereen krijgt een eigen curve en geschiedenis."
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Jednym stuknięciem przełącz się na kogoś innego i zapisuj jego napoje z jego własnym ciałem i limitem – każdy ma swoją krzywą i historię."
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Muda para outra pessoa com um toque e regista as bebidas dela com o corpo e o limite dela – cada pessoa tem a sua curva e o seu histórico."
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Comută la altcineva cu o atingere și înregistrează-i băuturile cu propriul corp și propria limită – fiecare are curba și istoricul său."
+          }
+        },
+        "sk" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Jedným klepnutím prepni na niekoho iného a zapisuj jeho nápoje s jeho vlastným telom a limitom – každý má svoju krivku aj históriu."
+          }
+        },
+        "sl" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Z enim dotikom preklopi na nekoga drugega in beleži njegove pijače z njegovim telesom in mejo – vsak ima svojo krivuljo in zgodovino."
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Byt till någon annan med ett tryck och logga deras drycker med deras egen kropp och gräns – varje person får sin egen kurva och historik."
           }
         }
       }

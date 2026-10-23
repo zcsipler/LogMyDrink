@@ -227,8 +227,6 @@ TRANSLATIONS = {
     "Advanced": "Geavanceerd",
 
     # --- PersonSwitcher / FeatureFlags: more than one person (11.5) ---
-    "Multiple people": "Meerdere personen",
-    "History trends": "Trends in geschiedenis",
     "Week": "Week",
     "Month": "Maand",
     "Year": "Jaar",
@@ -239,6 +237,11 @@ TRANSLATIONS = {
     "Weeks, months and years side by side — and every evening older than seven days.": "Weken, maanden en jaren naast elkaar – en elke avond ouder dan zeven dagen.",
     "Everything you have logged is already saved. Unlocking only shows it.": "Alles wat je hebt vastgelegd, is al opgeslagen. Ontgrendelen laat het alleen zien.",
     "Coming soon": "Binnenkort",
+    "Back up and restore": "Back-up en herstel",
+    "Log for friends too": "Log ook voor vrienden",
+    "Switch to someone else in one tap and log their drinks with their own body and limit — each person gets their own curve and history.": "Wissel met één tik naar iemand anders en leg zijn drankjes vast met zijn eigen lichaam en limiet – iedereen krijgt een eigen curve en geschiedenis.",
+    "Save everything to a file, and read a backup back in — on this phone or on a new one.": "Bewaar alles in een bestand en lees een back-up weer in – op deze telefoon of op een nieuwe.",
+    "Backup and restore are part of Pro.": "Back-up en herstel horen bij Pro.",
     "Today": "Vandaag",
     "Day": "Dag",
     "Yesterday": "Gisteren",
@@ -429,8 +432,8 @@ TRANSLATIONS = {
         'Stel in Profiel een favoriet in, en de knop op Live legt hem met één tik vast.',
     'Widget':
         'Widget',
-    'Add it to your Lock Screen or Home Screen: one tap logs your favourite. While there is alcohol in your system, it also shows your level and which way it is going.':
-        'Zet hem op je toegangsscherm of beginscherm: één tik legt je favoriet vast. Zolang er alcohol in je lichaam is, toont hij ook je niveau en welke kant het op gaat.',
+    'Add it to your Lock Screen or Home Screen: one tap logs your favourite. With Pro, it also shows your level and which way it is going while there is alcohol in your system.':
+        'Zet hem op je toegangsscherm of beginscherm: één tik legt je favoriet vast. Met Pro toont hij, zolang er alcohol in je lichaam is, ook je niveau en welke kant het op gaat.',
     'How do I add it?':
         'Hoe voeg ik hem toe?',
     'Siri':
@@ -489,8 +492,8 @@ TRANSLATIONS = {
         'Tik op ‘Wijzig’ en dan op ‘Voeg widget toe’.',
     'Search for LogMyDrink, pick a size and tap Add Widget.':
         'Zoek LogMyDrink, kies een formaat en tik op ‘Voeg widget toe’.',
-    'A tap on the widget opens the app and logs your favourite drink. While there is alcohol in your system, it also shows your level and which way it is going.':
-        'Een tik op de widget opent de app en legt je favoriete drankje vast. Zolang er alcohol in je lichaam is, toont hij ook je niveau en welke kant het op gaat.',
+    'A tap on the widget opens the app and logs your favourite drink. With Pro, it also shows your level and which way it is going while there is alcohol in your system.':
+        'Een tik op de widget opent de app en legt je favoriete drankje vast. Met Pro toont hij, zolang er alcohol in je lichaam is, ook je niveau en welke kant het op gaat.',
     'Add the widget':
         'Widget toevoegen',
     'Show tips':

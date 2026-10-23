@@ -224,8 +224,6 @@ TRANSLATIONS = {
     "Advanced": "Разширени",
 
     # --- PersonSwitcher / FeatureFlags: more than one person (11.5) ---
-    "Multiple people": "Няколко души",
-    "History trends": "Тенденции в историята",
     "Week": "Седмица",
     "Month": "Месец",
     "Year": "Година",
@@ -236,6 +234,11 @@ TRANSLATIONS = {
     "Weeks, months and years side by side — and every evening older than seven days.": "Седмици, месеци и години едни до други – и всяка вечер, по-стара от седем дни.",
     "Everything you have logged is already saved. Unlocking only shows it.": "Всичко, което си записал, вече е запазено. Отключването само го показва.",
     "Coming soon": "Очаквай скоро",
+    "Back up and restore": "Резервно копие и възстановяване",
+    "Log for friends too": "Записвай и за приятели",
+    "Switch to someone else in one tap and log their drinks with their own body and limit — each person gets their own curve and history.": "Превключи към друг човек с едно докосване и записвай напитките му с неговите собствени данни и граница – всеки получава своя крива и история.",
+    "Save everything to a file, and read a backup back in — on this phone or on a new one.": "Запази всичко във файл и зареди резервно копие обратно – на този телефон или на нов.",
+    "Backup and restore are part of Pro.": "Резервното копие и възстановяването са част от Pro.",
     "Today": "Днес",
     "Day": "Ден",
     "Yesterday": "Вчера",
@@ -428,8 +431,8 @@ TRANSLATIONS = {
         'Задай любима напитка в „Профил“ и бутонът на екрана „На живо“ ще я записва с едно докосване.',
     'Widget':
         'Инструмент',
-    'Add it to your Lock Screen or Home Screen: one tap logs your favourite. While there is alcohol in your system, it also shows your level and which way it is going.':
-        'Добави го на Заключен екран или Начален екран: едно докосване записва любимата ти напитка. Докато имаш алкохол в тялото, показва и нивото ти, и посоката му.',
+    'Add it to your Lock Screen or Home Screen: one tap logs your favourite. With Pro, it also shows your level and which way it is going while there is alcohol in your system.':
+        'Добави го на Заключен екран или Начален екран: едно докосване записва любимата ти напитка. С Pro, докато имаш алкохол в тялото, показва и нивото ти, и посоката му.',
     'How do I add it?':
         'Как да го добавя?',
     'Siri':
@@ -488,8 +491,8 @@ TRANSLATIONS = {
         'Докосни „Редактиране“, после „Добави инструмент“.',
     'Search for LogMyDrink, pick a size and tap Add Widget.':
         'Потърси LogMyDrink, избери размер и докосни „Добави инструмент“.',
-    'A tap on the widget opens the app and logs your favourite drink. While there is alcohol in your system, it also shows your level and which way it is going.':
-        'Докосване на инструмента отваря приложението и записва любимата ти напитка. Докато имаш алкохол в тялото, показва и нивото ти, и посоката му.',
+    'A tap on the widget opens the app and logs your favourite drink. With Pro, it also shows your level and which way it is going while there is alcohol in your system.':
+        'Докосване на инструмента отваря приложението и записва любимата ти напитка. С Pro, докато имаш алкохол в тялото, показва и нивото ти, и посоката му.',
     'Add the widget':
         'Добави инструмента',
     'Show tips':

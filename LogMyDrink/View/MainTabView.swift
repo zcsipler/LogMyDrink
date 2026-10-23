@@ -26,6 +26,14 @@ struct MainTabView: View {
     /// The launch tip, when there is one to offer (`TipLedger`).
     @State private var tip: FeatureTip?
 
+    #if DEBUG
+    /// `-debugPaywall history|people|backup` as a launch argument opens that
+    /// Pro sheet at launch — the simulator cannot be tapped from the command
+    /// line, and this is how the sheet gets a screenshot (CLAUDE.md 6.).
+    @State private var debugPaywall: ProPaywallSheet.Topic? = UserDefaults.standard
+        .string(forKey: "debugPaywall").flatMap(ProPaywallSheet.Topic.init(rawValue:))
+    #endif
+
     enum Tab: Hashable {
         case history, live, profile
     }
@@ -98,6 +106,9 @@ struct MainTabView: View {
             selection = .live
             quickAddRequest = QuickAddRequest()
         }
+        #if DEBUG
+        .sheet(item: $debugPaywall) { ProPaywallSheet(topic: $0) }
+        #endif
     }
 }
 

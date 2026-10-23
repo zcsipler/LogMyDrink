@@ -229,8 +229,6 @@ TRANSLATIONS = {
     "Advanced": "Ardroghanna",
 
     # --- PersonSwitcher / FeatureFlags: more than one person (11.5) ---
-    "Multiple people": "Roinnt daoine",
-    "History trends": "Treochtaí staire",
     "Week": "Seachtain",
     "Month": "Mí",
     "Year": "Bliain",
@@ -241,6 +239,11 @@ TRANSLATIONS = {
     "Weeks, months and years side by side — and every evening older than seven days.": "Seachtainí, míonna agus blianta taobh le taobh – agus gach oíche níos sine ná seacht lá.",
     "Everything you have logged is already saved. Unlocking only shows it.": "Tá gach rud a chláraigh tú sábháilte cheana féin. Ní dhéanann an díghlasáil ach é a thaispeáint.",
     "Coming soon": "Ag teacht go luath",
+    "Back up and restore": "Cúltaca agus athchóiriú",
+    "Log for friends too": "Cláraigh do chairde freisin",
+    "Switch to someone else in one tap and log their drinks with their own body and limit — each person gets their own curve and history.": "Athraigh go duine eile le tapáil amháin agus cláraigh a gcuid deochanna lena gcorp agus lena dteorainn féin – faigheann gach duine a chuar agus a stair féin.",
+    "Save everything to a file, and read a backup back in — on this phone or on a new one.": "Sábháil gach rud i gcomhad, agus léigh cúltaca isteach arís – ar an bhfón seo nó ar cheann nua.",
+    "Backup and restore are part of Pro.": "Is cuid de Pro iad cúltaca agus athchóiriú.",
     "Today": "Inniu",
     "Day": "Lá",
     "Yesterday": "Inné",
@@ -434,8 +437,8 @@ TRANSLATIONS = {
         'Socraigh deoch is fearr leat i bPróifíl agus cláróidh an cnaipe ar an scáileán Beo í le tapáil amháin.',
     'Widget':
         'Giuirléid',
-    'Add it to your Lock Screen or Home Screen: one tap logs your favourite. While there is alcohol in your system, it also shows your level and which way it is going.':
-        'Cuir le do Scáileán Glasála nó le do Scáileán Baile í: cláraíonn tapáil amháin an deoch is fearr leat. Fad is atá alcól i do chorp, taispeánann sí do leibhéal agus a threo freisin.',
+    'Add it to your Lock Screen or Home Screen: one tap logs your favourite. With Pro, it also shows your level and which way it is going while there is alcohol in your system.':
+        'Cuir le do Scáileán Glasála nó le do Scáileán Baile í: cláraíonn tapáil amháin an deoch is fearr leat. Le Pro, fad is atá alcól i do chorp, taispeánann sí do leibhéal agus a threo freisin.',
     'How do I add it?':
         'Conas a chuirim leis í?',
     'Siri':
@@ -494,8 +497,8 @@ TRANSLATIONS = {
         'Tapáil Edit, ansin Add Widget.',
     'Search for LogMyDrink, pick a size and tap Add Widget.':
         'Cuardaigh LogMyDrink, roghnaigh méid agus tapáil Add Widget.',
-    'A tap on the widget opens the app and logs your favourite drink. While there is alcohol in your system, it also shows your level and which way it is going.':
-        'Osclaíonn tapáil ar an ngiuirléid an aip agus cláraíonn sí an deoch is fearr leat. Fad is atá alcól i do chorp, taispeánann sí do leibhéal agus a threo freisin.',
+    'A tap on the widget opens the app and logs your favourite drink. With Pro, it also shows your level and which way it is going while there is alcohol in your system.':
+        'Osclaíonn tapáil ar an ngiuirléid an aip agus cláraíonn sí an deoch is fearr leat. Le Pro, fad is atá alcól i do chorp, taispeánann sí do leibhéal agus a threo freisin.',
     'Add the widget':
         'Cuir an ghiuirléid leis',
     'Show tips':

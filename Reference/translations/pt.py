@@ -225,8 +225,6 @@ TRANSLATIONS = {
     "Advanced": "Avançado",
 
     # --- PersonSwitcher / FeatureFlags: more than one person (11.5) ---
-    "Multiple people": "Várias pessoas",
-    "History trends": "Tendências do histórico",
     "Week": "Semana",
     "Month": "Mês",
     "Year": "Ano",
@@ -237,6 +235,11 @@ TRANSLATIONS = {
     "Weeks, months and years side by side — and every evening older than seven days.": "Semanas, meses e anos lado a lado — e todas as noites com mais de sete dias.",
     "Everything you have logged is already saved. Unlocking only shows it.": "Tudo o que registaste já está guardado. Desbloquear apenas o torna visível.",
     "Coming soon": "Em breve",
+    "Back up and restore": "Cópia de segurança e restauro",
+    "Log for friends too": "Regista também para amigos",
+    "Switch to someone else in one tap and log their drinks with their own body and limit — each person gets their own curve and history.": "Muda para outra pessoa com um toque e regista as bebidas dela com o corpo e o limite dela – cada pessoa tem a sua curva e o seu histórico.",
+    "Save everything to a file, and read a backup back in — on this phone or on a new one.": "Guarda tudo num ficheiro e volta a carregar uma cópia de segurança, neste telemóvel ou num novo.",
+    "Backup and restore are part of Pro.": "A cópia de segurança e o restauro fazem parte do Pro.",
     "Today": "Hoje",
     "Day": "Dia",
     "Yesterday": "Ontem",
@@ -428,8 +431,8 @@ TRANSLATIONS = {
         'Define uma favorita em Perfil e o botão do ecrã Em direto regista-a com um único toque.',
     'Widget':
         'Widget',
-    'Add it to your Lock Screen or Home Screen: one tap logs your favourite. While there is alcohol in your system, it also shows your level and which way it is going.':
-        'Adiciona-o ao ecrã bloqueado ou ao Ecrã principal: um toque regista a tua favorita. Enquanto houver álcool no organismo, mostra também o teu nível e se está a subir ou a descer.',
+    'Add it to your Lock Screen or Home Screen: one tap logs your favourite. With Pro, it also shows your level and which way it is going while there is alcohol in your system.':
+        'Adiciona-o ao ecrã bloqueado ou ao Ecrã principal: um toque regista a tua favorita. Com o Pro, enquanto houver álcool no organismo, mostra também o teu nível e se está a subir ou a descer.',
     'How do I add it?':
         'Como o adiciono?',
     'Siri':
@@ -488,8 +491,8 @@ TRANSLATIONS = {
         'Toca em Editar e depois em Adicionar widget.',
     'Search for LogMyDrink, pick a size and tap Add Widget.':
         'Procura LogMyDrink, escolhe um tamanho e toca em Adicionar widget.',
-    'A tap on the widget opens the app and logs your favourite drink. While there is alcohol in your system, it also shows your level and which way it is going.':
-        'Um toque no widget abre a app e regista a tua bebida favorita. Enquanto houver álcool no organismo, mostra também o teu nível e se está a subir ou a descer.',
+    'A tap on the widget opens the app and logs your favourite drink. With Pro, it also shows your level and which way it is going while there is alcohol in your system.':
+        'Um toque no widget abre a app e regista a tua bebida favorita. Com o Pro, enquanto houver álcool no organismo, mostra também o teu nível e se está a subir ou a descer.',
     'Add the widget':
         'Adicionar o widget',
     'Show tips':

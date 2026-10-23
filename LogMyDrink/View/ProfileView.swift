@@ -205,7 +205,7 @@ extension View {
             .navigationTitle(Text(title))
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
-                if showsPerson && FeatureFlags.shared.multiPerson {
+                if showsPerson {
                     ToolbarItem(placement: .topBarTrailing) {
                         PersonSwitcher(store: store)
                     }
@@ -326,9 +326,7 @@ struct DataSettingsView: View {
 
     var body: some View {
         Form {
-            if FeatureFlags.shared.multiPerson {
-                PeopleSection(store: store)
-            }
+            PeopleSection(store: store)
             DataTransferSection(store: store)
         }
         .profilePage(title: "Data", store: store, showsPerson: false)
@@ -392,19 +390,17 @@ struct AdvancedSettingsView: View {
     @ViewBuilder
     private var developerSection: some View {
         Section {
-            ForEach(Feature.allCases) { feature in
-                Toggle(isOn: Binding(
-                    get: { flags.isEnabled(feature) },
-                    set: { flags.setOverride($0, for: feature) }
-                )) {
-                    Text(feature.title)
-                }
-                .tint(Theme.calm)
+            Toggle(isOn: Binding(
+                get: { flags.simulatesPro },
+                set: { flags.setSimulatesPro($0) }
+            )) {
+                Text(verbatim: "Simulate Pro")
             }
+            .tint(Theme.calm)
         } header: {
             Text(verbatim: "Developer")
         } footer: {
-            Text(verbatim: "Feature flags. Off in release builds until a purchase unlocks them; this switch only exists in debug.")
+            Text(verbatim: "Unlocks everything Pro opens: full history, multiple people, the level on the widget, backup. Off in release builds until a subscription unlocks it; this switch only exists in debug.")
         }
         .listRowBackground(Theme.surface)
 

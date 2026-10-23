@@ -140,7 +140,7 @@ LogMyDrink/
 │       ├── HistoryView.swift        nap / hét / hónap / év, lapozás, chart, alkalom-lista, lakat
 │       ├── HistoryChartView.swift   oszlopok mennyiségre és csúcsra
 │       ├── HistoryTrendChartView.swift  görgethető, csippenthető trendgörbe, közös zoom
-│       ├── HistoryPaywallSheet.swift  mi van a lakat mögött, és hogy az adat már megvan
+│       ├── ProPaywallSheet.swift  mi van a lakat mögött (Előzmény / mentés), és hogy az adat már megvan
 │       ├── HistoryJumpSheet.swift   ugrás tetszőleges hétre / hónapra / évre a fejlécről
 │       ├── SessionRow.swift         egy alkalom sora, lakatolt változattal
 │       ├── SessionDetailView.swift  navigációs keret egy múltbeli alkalomhoz
@@ -814,7 +814,10 @@ amiket a rendszer nyelve formáz. A típus a widgetben saját másolatként ford
 (`LogMyDrinkWidget/WidgetSnapshot.swift`), mint a bridge többi konstansa; a
 `version` mező bump-ol, ha a mezők változnak, és a régi extension sima gombot
 mutat, nem zagyvaságot. Készüléken kipróbálva. Teszt: `WidgetSnapshotTests`
-(5).
+(5). **A szint kijelzése Pro (2026. október 23., `ProFeature.widgetLevel`,
+5.29):** Pro nélkül a `publishWidgetSnapshot` üres snapshotot ír, és a widget
+a sima gomb marad — a gomb maga ingyenes. A Pro be- és kikapcsolása
+(`proEntitlementDidChange`) újra kiírja a snapshotot.
 
 **Az iOS nem enged widgetet programból kitenni** — se Lock Screenre, se Home
 Screenre, se Control Centerbe —, és a widgetgalériába mutató link sincs. A
@@ -946,7 +949,7 @@ a változás az előző ablakhoz, alatta halványan, hogy melyikhez („vs. Sep
 8–14"): egy „+239 %" magában vádnak hangzik, viszonyítási alappal
 összehasonlításnak.
 
-**Lakat — `Feature.historyTrends`, ingyenes ablakkal.** Az utolsó
+**Lakat — `ProFeature.fullHistory`, ingyenes ablakkal.** Az utolsó
 `FeatureFlags.freeHistoryWindowDays` (7) ivási nap — a mai is beleértve —
 ingyenes, ami régebbi, lakat mögé kerül, az alkalom-sorokra is. A nézet egy
 kérdést tesz fel: `flags.canShowHistory(for: DrinkingDay)`; az
@@ -954,9 +957,9 @@ kérdést tesz fel: `flags.canShowHistory(for: DrinkingDay)`; az
 egyetlen ingyenes ablak, konstrukció szerint. A flag a UI-t takarja, az adat
 mindenkinél íródik (5.18 mintájára): aki fél év után fizet, a teljes fél évet
 látja — a paywall mondja is ki. A mutatók és a két chart együtt homályosodnak,
-rajta egy gomb a `HistoryPaywallSheet`-re; a 7 napnál régebbi alkalom-sor
-dátuma látszik, a csúcsa nem. StoreKit nélkül a gomb debugban a flag
-override-ját állítja, release-ben „Coming soon".
+rajta egy gomb a `ProPaywallSheet`-re (`topic: .history`); a 7 napnál régebbi alkalom-sor
+dátuma látszik, a csúcsa nem. StoreKit nélkül a gomb debugban a szimulált
+Pro-t kapcsolja be, release-ben „Coming soon" (5.29).
 
 **Ugrás tetszőleges időszakra: a fejléc dátuma gomb** (`HistoryJumpSheet`), a
 Naptár app mintájára. A chevronok maradnak a szomszédos oldalra — a kettő nem
@@ -1141,7 +1144,12 @@ függetlenül megírható, és mire a szinkron bekapcsol, van védőháló és
 ellenőrzési eszköz (két készülékről exportálva a fájlok összevethetők). Nem
 csak az Apple ID váltás miatt: az iCloud nem biztonsági mentés (a felhasználó
 törölheti, és nincs kuka), a lokális ágon ez az egyetlen átviteli mód, egy
-elrontott migráció után ez a visszaút, és adathordozhatóság (GDPR 20. cikk).
+elrontott migráció után ez a visszaút, és adathordozhatóság. **2026. október
+23. óta mindkét irány Pro** (`ProFeature.dataTransfer`, 5.29): ingyenesen a
+két sor lakattal látszik, és a `ProPaywallSheet`-re visz (`topic: .backup`).
+*A GDPR 20. cikkére itt korábban érvként hivatkoztunk — az az adatkezelőnek
+szól, nekünk pedig nincs szerverünk, az adat a felhasználó telefonján és
+iCloudján van; jogilag nem néztük meg, de nem ez tartja ingyenesen.*
 Fájlok: `DataArchive`, `ArchiveExport`, `ArchiveImport`,
 `Support/ArchiveDocument.swift`, `View/DataTransferSection.swift`.
 
@@ -1253,25 +1261,37 @@ tartani, előtte exportál.
 **Tesztek:** `PersonMigrationTests`, `SessionRoutingTests`,
 `ActivePersonTests` a `LogMyDrinkTests/` alatt — a teszt targetben futnak (10.).
 
-### 5.19 Háromféle kapcsoló: Feature, Experiment, BuildCapability
+### 5.19 Háromféle kapcsoló: ProFeature, Experiment, BuildCapability
 
 `Support/FeatureFlags.swift` az egyetlen hely, ami eldönti, mi van bekapcsolva;
 a nézetek csak kérdeznek (`flags.multiPerson`, `flags.canShowHistory(for:)`).
 Három fajta van, és nem cserélhetők fel:
 
-- **`Feature`** — amit a felhasználó *megvásárol*. Release-ben az
-  `isPurchased`-re esik (ma mindig hamis, StoreKit nincs mögötte — ez az
-  egyetlen hely, ahova a jogosultság-lekérdezés majd bekerül), debugban a
-  Profil „Developer" szekciójában kapcsolható. Ma: `multiPerson` (5.18),
-  `historyTrends` (5.16). Az alapfunkció a Live, az mindig ingyenes. A flag a
-  UI-t takarja, az adat mindenkinél íródik.
+- **`ProFeature`** — amit a Pro előfizetés kinyit. **Egy jogosultság van**
+  (`FeatureFlags.isPro`), nem funkciónként külön vásárlás: a lista csak azt
+  mondja meg, mi tartozik a Pro-hoz, és egy új fizetős funkció egy új `case`,
+  semmi más. Release-ben az `isSubscribed`-ra esik (ma mindig hamis — ez az
+  egyetlen hely, ahová a StoreKit bekerül, és flipkor
+  `proEntitlementDidChange`-et posztol); debugban a Profil → Advanced →
+  Developer **egyetlen „Simulate Pro" kapcsolója** (Zoltán döntése: úgy, ahogy
+  a felhasználó látja, Pro van vagy nincs). A nézetek funkció szerint
+  kérdeznek (`flags.fullHistory`, `flags.dataTransfer`), hogy a hívás helye
+  kimondja, mit zár, és hogy egy funkció később nézetváltoztatás nélkül
+  mozoghasson ingyenes és Pro között. Ma: `fullHistory` (5.16),
+  `multiPerson` (5.18), `widgetLevel` (5.15), `dataTransfer` (5.17). Mi van benne és miért: 5.29. A flag
+  a UI-t takarja, az adat mindenkinél íródik. *(2026. október 23-ig
+  `Feature` volt, funkciónként külön debug-felülírással; a „History trends"
+  kapcsoló így úgy viselkedett, mintha az lenne a fizetős mód.)*
 - **`Experiment`** — ami megépült, de nem elég jó a menübe. Release-ben nem
-  létezik. Szándékosan nem `Feature`: az `isPurchased`-re esne, és a StoreKit
-  megérkezésekor eladóvá válna. Ma: `trendSegment`.
+  létezik, Pro-val sem. Szándékosan nem `ProFeature`: az előfizetéssel
+  nyílna ki, és a StoreKit megérkezésekor eladóvá válna. Ma: `trendSegment`
+  (5.16) — Zoltán döntése, hogy fizetős állapotban se legyen elérhető, amíg
+  az újragondolás meg nem történt.
 - **`BuildCapabilities`** — fordítási idejű konstans, amit a target
-  entitlementje vagy hordoz, vagy nem. Ma: `cloudSync` (5.17). Nem `Feature`,
-  mert a szinkront nem veszi meg senki; nem futásidejű, mert kapcsoló nem tud
-  entitlementet előállítani, és a store egyszer nyílik meg induláskor.
+  entitlementje vagy hordoz, vagy nem. Ma: `cloudSync` (5.17) — és ez az
+  egyetlen kapcsolója, mert a szinkron ingyenes (5.29). Nem `ProFeature`,
+  mert a szinkront nem veszi meg senki; nem futásidejű, mert kapcsoló nem tud entitlementet előállítani, és a store
+  egyszer nyílik meg induláskor.
 
 ### 5.20 Az ital ideje és tempója: két léptető egymás mellett
 
@@ -1828,6 +1848,91 @@ döntései, kérdésenként:
 
 Öt új kulcs mind a 24 nyelven; a magyar átnézendő a többi új szöveggel együtt.
 
+### 5.29 Mi ingyenes és mi Pro
+
+2026. október 23., Zoltán döntései kérdésenként végigvéve, az in-app
+purchase előkészítéseként. **A modell: előfizetés, egy hónap ingyenes
+próbaidővel** (az App Store-ban próbaidő csak előfizetésen van, egyszeri
+vásárláson nincs).
+
+| Ingyenes | Pro |
+|---|---|
+| Live, felvitel, szerkesztés, törlés, visszamenőleg is | Előzmény a 7 napos ablakon túl (Hét / Hónap / Év, régebbi napok) |
+| Az utolsó 7 nap Előzménye | Több személy |
+| Gyors felvitel: kapszula, Siri (a visszamondott csúccsal), widget-gomb | A szint, a nyíl és a csúcs a widgeten |
+| iCloud-szinkron | JSON export és import |
+
+A Trend szegmens egyik oszlopban sincs: kísérlet, csak debugban (5.19).
+
+**A widget — a dilemma és a feloldása.** Zoltán kérdése: a widget annyira
+erős, hogy ingyenesen az első benyomást viszi, fizetősen a legjobb csali.
+Az érvek, ahogy végigmentünk rajtuk:
+
+- Ingyenesen tartva: a fizetős oldal a rögzített adatból él, és ivás közben
+  a plusz lépés (feloldás, app, kapszula) nem ellenállás, hanem felejtés —
+  a zárolt képernyőn ülő gomb emlékeztet. *Az első kör ezt túlozta („ha a
+  rögzítést fizetőssé teszed, kevesebb lesz az adat"); Zoltán helyesen
+  javította: nem a rögzítés lenne fizetős, csak ez az egyszerű módja.*
+- Pro-ként tartva: **próbaidővel** a veszteségtől való idegenkedés dolgozik
+  — megszokja, és a próbaidő végén elveszíti. Ezt Zoltán hozta be, és ebből
+  derült ki, hogy **egy hetes próbaidőnél az Előzmény Pro láthatatlan**: az
+  ingyenes ablak is 7 nap, egy friss felhasználónak nincs régebbi adata.
+  Egy hónapos próbaidőnél viszont 3–4 hét adat gyűlik, a Hét és a Hónap
+  nézet maga is húz.
+- **A döntés: a gomb ingyenes, a kijelzés Pro.** A próbaidő alatt megszokja,
+  hogy a zárolt képernyőn látja a szintjét és hová tart; utána ez hiányzik,
+  a gyors rögzítés viszont megmarad, tehát nem esik ki a logolásból, és az
+  Előzmény a lakat mögött tovább gyűlik.
+
+**Siri teljesen ingyenes**: a visszamondott csúcs ugyanaz, amit a Live
+ingyen mutat, és hangparancsként kevésbé látványos marketingpont.
+
+**Az iCloud ingyenes, a JSON Pro — és a kettő ugyanabból az elvből.** Egy
+körig az iCloud is Pro volt; Zoltán vette vissza, és az érve a kettőt
+együtt dönti el: **a Pro a hozzáférés az adathoz, nem az adat tárolása.**
+
+- A szinkron adatot visz, nem nézetet: Pro nélkül a 7 napon túli Előzmény
+  minden készüléken lakat mögött marad, a szinkron tehát semmit nem ad oda
+  ingyen — viszont aki telefont vált, mindent megtart, és ha később
+  előfizet, a teljes múlt ott van. Mellékhaszna: nem kell a store-t futás
+  közben újranyitni Pro indulásakor és lejáratakor, ami a legnehezebb
+  darab lett volna (a store egyszer nyílik, ott dől el a tükrözés, 5.17).
+- A JSON viszont nézet: egy ingyenes export évekre visszamenőleg kiadná az
+  összes estét egy fájlban, amit bármi feldolgoz — az Előzmény ingyen, csak
+  nem az app megjelenítésével. Ezért export **és** import is Pro. *Az én
+  javaslatom az volt, hogy az import maradjon ingyenes, mert egy lejárt
+  előfizetés után vissza nem tölthető mentés „túszként tartott adat"
+  érzést kelthet; Zoltán ellenérve, hogy a legtöbb appban ilyen funkció
+  eleve nincs, és az adatbiztonságot a — most ingyenes — szinkron és a
+  készülékmentés adja. Ha a visszajelzések mégis ezt hozzák, az import
+  irányonként visszavihető ingyenesbe (`DataTransferSection.isLocked`).*
+
+**A zárak láthatók maradnak.** Ami Pro, az ingyenesen sem tűnik el, hanem
+lakattal ott van, ahol használnák, és a Pro-lapra visz: az Előzmény régebbi
+oldalai és sorai, a mentés két sora, és **a személyváltó chip mindhárom
+tabon** (Zoltán kérése). Ingyenesen a chip menüje csak a tulajdonost
+listázza, alatta a lakatos „Add person" a Pro-lapra visz; a Data lapon a
+People sor lakattal. Ha a Pro egy vendégre váltott állapotban jár le, a
+menüben az a vendég is ott marad, hogy a visszaút magadhoz soha ne legyen
+zárva (`PersonSwitcher.choices`).
+
+**A Pro-lap (`ProPaywallSheet`)** egy lap minden zárhoz, `topic` szerint más
+szöveggel (`.history`, `.people`, `.backup`), mert egy dolgot lehet
+megvenni. A `TipSheet` mintájára épül: a magassága a mért tartalom (nincs
+üres sáv), világosabb felület, felül halvány fény-perem, hogy ne olvadjon
+bele a majdnem fekete képernyőbe — az első változat `.medium` detenttel,
+`Theme.background`-on ült, és Zoltán szerint túl magas és összefolyó volt.
+Release-ben ma a gomb helyén „Coming soon"; a StoreKit-körben ugyanez a lap
+kap árat, próbaidőt és a vásárlás-visszaállítást, a gomb pedig az Apple
+saját fizetési lapját nyitja (`TODO.md`).
+
+**A szövegek követik:** a „Hogyan működik" widget-sora és a widget-útmutató
+eddig azt ígérte, hogy a widget mutatja a szintet; mostantól „With Pro, it
+also shows…" — különben egy ingyenes felhasználónak olyat ígérnének, ami
+nincs. A két debug-cím („Multiple people", „History trends") kikerült a
+katalógusból, három új kulcs jött a mentés lakatjához; mind a 24 nyelven, a
+magyar átnézendő.
+
 ## 6. Validáció
 
 A `Reference/bac_model.py` a numerikus referencia. A Swift tesztek konkrét
@@ -1904,6 +2009,11 @@ Zoltánnak visszaellenőriznie.
   `/tmp/lmd-dd/Build/Products/Debug-iphonesimulator/LogMyDrink.app`-pal,
   `simctl launch … dev.zcsipler.logmydrink`, és
   `xcrun simctl io <id> screenshot .claude-screens/<név>.png`.
+- **A Pro-lap képernyőképe:** a szimulátort parancssorból nem lehet
+  koppintani (és az Xcode 27-ben nincs Simulator.app, amit kattintani
+  lehetne), ezért debugban a `-debugPaywall history|people|backup` indítási
+  argumentum megnyitja a lapot: `simctl launch <id> dev.zcsipler.logmydrink
+  -debugPaywall people`.
 - **`.claude-screens/`** a repó gyökerében, `.gitignore`-ban: munkaképek. Ami
   végleges (pl. App Store), azt külön, követett mappába másoljuk.
 - **Ami továbbra is Zoltáné:** a valódi iPhone (CloudKit, widget a zárolt

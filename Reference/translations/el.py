@@ -229,8 +229,6 @@ TRANSLATIONS = {
     "Advanced": "Για προχωρημένους",
 
     # --- PersonSwitcher / FeatureFlags: more than one person (11.5) ---
-    "Multiple people": "Πολλά άτομα",
-    "History trends": "Τάσεις ιστορικού",
     "Week": "Εβδομάδα",
     "Month": "Μήνας",
     "Year": "Έτος",
@@ -241,6 +239,11 @@ TRANSLATIONS = {
     "Weeks, months and years side by side — and every evening older than seven days.": "Εβδομάδες, μήνες και χρόνια το ένα δίπλα στο άλλο — και κάθε βραδιά παλαιότερη από επτά ημέρες.",
     "Everything you have logged is already saved. Unlocking only shows it.": "Όλα όσα έχεις καταγράψει είναι ήδη αποθηκευμένα. Το ξεκλείδωμα απλώς τα εμφανίζει.",
     "Coming soon": "Σύντομα",
+    "Back up and restore": "Αντίγραφο ασφαλείας και επαναφορά",
+    "Log for friends too": "Κατέγραψε και για φίλους",
+    "Switch to someone else in one tap and log their drinks with their own body and limit — each person gets their own curve and history.": "Άλλαξε σε κάποιον άλλον με ένα πάτημα και κατέγραψε τα ποτά του με το δικό του σώμα και όριο – κάθε άτομο έχει τη δική του καμπύλη και ιστορικό.",
+    "Save everything to a file, and read a backup back in — on this phone or on a new one.": "Αποθήκευσε τα πάντα σε ένα αρχείο και φόρτωσε ξανά ένα αντίγραφο ασφαλείας – σε αυτό το τηλέφωνο ή σε ένα καινούργιο.",
+    "Backup and restore are part of Pro.": "Το αντίγραφο ασφαλείας και η επαναφορά είναι μέρος του Pro.",
     "Today": "Σήμερα",
     "Day": "Ημέρα",
     "Yesterday": "Χθες",
@@ -434,8 +437,8 @@ TRANSLATIONS = {
         'Όρισε ένα αγαπημένο στο Προφίλ και το κουμπί στην οθόνη «Ζωντανά» θα το καταγράφει με ένα μόνο πάτημα.',
     'Widget':
         'Widget',
-    'Add it to your Lock Screen or Home Screen: one tap logs your favourite. While there is alcohol in your system, it also shows your level and which way it is going.':
-        'Πρόσθεσέ το στην οθόνη κλειδώματος ή στην οθόνη Αφετηρίας: ένα πάτημα καταγράφει το αγαπημένο σου. Όσο υπάρχει αλκοόλ στον οργανισμό σου, δείχνει και το επίπεδό σου και αν ανεβαίνει ή πέφτει.',
+    'Add it to your Lock Screen or Home Screen: one tap logs your favourite. With Pro, it also shows your level and which way it is going while there is alcohol in your system.':
+        'Πρόσθεσέ το στην οθόνη κλειδώματος ή στην οθόνη Αφετηρίας: ένα πάτημα καταγράφει το αγαπημένο σου. Με το Pro, όσο υπάρχει αλκοόλ στον οργανισμό σου, δείχνει και το επίπεδό σου και αν ανεβαίνει ή πέφτει.',
     'How do I add it?':
         'Πώς το προσθέτω;',
     'Siri':
@@ -494,8 +497,8 @@ TRANSLATIONS = {
         'Πάτησε «Επεξεργασία» και μετά «Προσθήκη widget».',
     'Search for LogMyDrink, pick a size and tap Add Widget.':
         'Αναζήτησε το LogMyDrink, διάλεξε μέγεθος και πάτησε «Προσθήκη widget».',
-    'A tap on the widget opens the app and logs your favourite drink. While there is alcohol in your system, it also shows your level and which way it is going.':
-        'Ένα πάτημα στο widget ανοίγει την εφαρμογή και καταγράφει το αγαπημένο σου ποτό. Όσο υπάρχει αλκοόλ στον οργανισμό σου, δείχνει και το επίπεδό σου και αν ανεβαίνει ή πέφτει.',
+    'A tap on the widget opens the app and logs your favourite drink. With Pro, it also shows your level and which way it is going while there is alcohol in your system.':
+        'Ένα πάτημα στο widget ανοίγει την εφαρμογή και καταγράφει το αγαπημένο σου ποτό. Με το Pro, όσο υπάρχει αλκοόλ στον οργανισμό σου, δείχνει και το επίπεδό σου και αν ανεβαίνει ή πέφτει.',
     'Add the widget':
         'Προσθήκη του widget',
     'Show tips':

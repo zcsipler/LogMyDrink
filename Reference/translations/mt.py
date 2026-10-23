@@ -229,8 +229,6 @@ TRANSLATIONS = {
     "Advanced": "Avvanzat",
 
     # --- PersonSwitcher / FeatureFlags: more than one person (11.5) ---
-    "Multiple people": "Diversi persuni",
-    "History trends": "Xejriet tal-istorja",
     "Week": "Ġimgħa",
     "Month": "Xahar",
     "Year": "Sena",
@@ -241,6 +239,11 @@ TRANSLATIONS = {
     "Weeks, months and years side by side — and every evening older than seven days.": "Ġimgħat, xhur u snin ħdejn xulxin – u kull lejla eqdem minn sebat ijiem.",
     "Everything you have logged is already saved. Unlocking only shows it.": "Kulma rreġistrajt huwa diġà maħżun. L-iftuħ juri biss dan.",
     "Coming soon": "Dalwaqt",
+    "Back up and restore": "Backup u restore",
+    "Log for friends too": "Irreġistra għall-ħbieb ukoll",
+    "Switch to someone else in one tap and log their drinks with their own body and limit — each person gets their own curve and history.": "Aqleb għal xi ħadd ieħor b’tektika waħda u rreġistra x-xorb tiegħu bil-ġisem u l-limitu tiegħu – kull persuna jkollha l-kurva u l-istorja tagħha.",
+    "Save everything to a file, and read a backup back in — on this phone or on a new one.": "Issejvja kollox f’fajl, u erġa’ ttella’ backup – fuq dan it-telefon jew fuq wieħed ġdid.",
+    "Backup and restore are part of Pro.": "Il-backup u r-restore huma parti mill-Pro.",
     "Today": "Illum",
     "Day": "Jum",
     "Yesterday": "Ilbieraħ",
@@ -432,8 +435,8 @@ TRANSLATIONS = {
         'Agħżel favorita fil-Profil u l-buttuna fuq l-iskrin Dirett tirreġistraha b’tektika waħda.',
     'Widget':
         'Widget',
-    'Add it to your Lock Screen or Home Screen: one tap logs your favourite. While there is alcohol in your system, it also shows your level and which way it is going.':
-        'Żidu mal-Lock Screen jew mal-Home Screen: tektika waħda tirreġistra l-favorita tiegħek. Sakemm ikun hemm alkoħol f’ġismek, juri wkoll il-livell tiegħek u d-direzzjoni tiegħu.',
+    'Add it to your Lock Screen or Home Screen: one tap logs your favourite. With Pro, it also shows your level and which way it is going while there is alcohol in your system.':
+        'Żidu mal-Lock Screen jew mal-Home Screen: tektika waħda tirreġistra l-favorita tiegħek. Bil-Pro, sakemm ikun hemm alkoħol f’ġismek, juri wkoll il-livell tiegħek u d-direzzjoni tiegħu.',
     'How do I add it?':
         'Kif inżidu?',
     'Siri':
@@ -492,8 +495,8 @@ TRANSLATIONS = {
         'Agħfas Edit, imbagħad Add Widget.',
     'Search for LogMyDrink, pick a size and tap Add Widget.':
         'Fittex LogMyDrink, agħżel daqs u agħfas Add Widget.',
-    'A tap on the widget opens the app and logs your favourite drink. While there is alcohol in your system, it also shows your level and which way it is going.':
-        'Tektika fuq il-widget tiftaħ l-app u tirreġistra x-xarba favorita tiegħek. Sakemm ikun hemm alkoħol f’ġismek, juri wkoll il-livell tiegħek u d-direzzjoni tiegħu.',
+    'A tap on the widget opens the app and logs your favourite drink. With Pro, it also shows your level and which way it is going while there is alcohol in your system.':
+        'Tektika fuq il-widget tiftaħ l-app u tirreġistra x-xarba favorita tiegħek. Bil-Pro, sakemm ikun hemm alkoħol f’ġismek, juri wkoll il-livell tiegħek u d-direzzjoni tiegħu.',
     'Add the widget':
         'Żid il-widget',
     'Show tips':
