@@ -26,6 +26,11 @@ struct LogMyDrinkApp: App {
         // and not lazily, because Siri can launch the app in the background
         // and run the intent before any view has been built.
         AppDependencyManager.shared.add(dependency: store)
+
+        // At launch, not when the Pro sheet first opens: a renewal, a refund
+        // or an offer code redeemed in the App Store arrives as a
+        // transaction update whether or not anyone is looking at a paywall.
+        ProStore.shared.start()
     }
 
     var body: some Scene {

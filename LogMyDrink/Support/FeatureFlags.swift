@@ -98,9 +98,8 @@ extension Notification.Name {
 
 /// The one place that decides what is switched on.
 ///
-/// The views ask, they never decide — `if flags.multiPerson`. When StoreKit
-/// arrives, the entitlement lookup goes into `isSubscribed` and no view
-/// changes.
+/// The views ask, they never decide — `if flags.multiPerson`. The
+/// entitlement itself comes from `ProStore` through `setSubscribed`.
 ///
 /// What a flag must **not** gate is the schema. A model behind a flag would
 /// need the same migration the moment the flag went on, and would hide
@@ -189,12 +188,28 @@ final class FeatureFlags {
 
     // MARK: Entitlement
     //
-    // Always false: nothing can be bought yet. When StoreKit lands this
-    // becomes the subscription's state (a one-month free trial included), it
-    // posts `proEntitlementDidChange` when it flips, and nothing else in this
-    // file changes.
+    // The subscription's state, as `ProStore` last read it from StoreKit
+    // (free trial and billing grace period included). Remembered between
+    // launches because StoreKit answers asynchronously: without it every cold
+    // start would show the locks for a moment, and rewrite the widget
+    // snapshot twice, before the answer arrived. The remembered value is only
+    // a head start — `ProStore.start()` replaces it on every launch.
 
-    private var isSubscribed: Bool { false }
+    private static let subscribedKey = "logmydrink.pro.subscribed"
+
+    private var isSubscribed = UserDefaults.standard.bool(forKey: FeatureFlags.subscribedKey)
+
+    /// Called by `ProStore` only. Posts `proEntitlementDidChange` when what
+    /// the user sees changes — a simulated Pro in debug can hide a flip.
+    func setSubscribed(_ value: Bool) {
+        guard value != isSubscribed else { return }
+        let wasPro = isPro
+        isSubscribed = value
+        UserDefaults.standard.set(value, forKey: Self.subscribedKey)
+        if isPro != wasPro {
+            NotificationCenter.default.post(name: .proEntitlementDidChange, object: self)
+        }
+    }
 
     // MARK: Debug
     //

@@ -86,6 +86,9 @@ struct MainTabView: View {
                 store.tick()
                 store.refreshFromStore()
                 Task { await offerTip() }
+                // A subscription that ran out while the app slept locks
+                // here, not at the next launch.
+                Task { await ProStore.shared.refreshEntitlement() }
             }
         }
         // A cold launch does not always pass through `onChange` above.

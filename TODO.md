@@ -237,13 +237,33 @@ az egész app hitelességét.
   helyett (5.16).
 - **Ital nélkül maradt alkalom törlése** a `SessionStore`-ban (5.16) — ma
   az aggregátor szűri ki, az adatbázisban marad.
+- **StoreKit — megépítve 2026. október 23-án (CLAUDE.md 5.30)**, ami
+  még hátra van: **az App Store Connectben** a Privacy Policy URL
+  (`https://zcsipler.github.io/logmydrink-site/privacy/`), a Support URL
+  (`…/logmydrink-site/support/`) és az App Privacy kérdőív („Data Not
+  Collected") — az oldalak 2026. október 25. óta élnek, a Pro-lapon a link
+  megvan; a két termék és
+  az egy hónapos introductory offer felvitele az App Store Connectben,
+  ugyanazokkal az azonosítókkal; „Manage subscription" sor a Profilban
+  (`manageSubscriptionsSheet`); a vásárlás végigpróbálása Xcode-ból
+  (⌘R, a scheme a helyi StoreKit-fájllal indul) és valódi készüléken
+  sandbox-fiókkal. A régi terv:
 - **StoreKit a `FeatureFlags` mögé** (5.19, 5.29): az `isSubscribed` ma
   mindig hamis; a paywall gombja release-ben „Coming soon". Egy
-  auto-renewable előfizetés (havi / éves?) egy hónapos introductory
-  offerrel; `Transaction.currentEntitlements` + `Transaction.updates`
+  előfizetés-csoport, havi 3,99 $ és éves 24,99 $, mindkettő egy hónapos
+  introductory offerrel (CLAUDE.md 5.30); `Transaction.currentEntitlements` + `Transaction.updates`
   figyelése, flipkor `proEntitlementDidChange`. Ugyanebben a körben:
   - **a `ProPaywallSheet` igazi tartalommal**: ár, próbaidő, mit nyit a
     Pro (a 5.29 táblája), visszaállítás (Restore Purchases — kötelező);
+  - **„Kód beváltása" gomb** a Pro-lapon (`offerCodeRedemption`, 5.30);
+  - **Adózás, az első eladás előtt (Zoltán):** adószám és közösségi
+    adószám a NAV-tól (magánszemélyként); egy egyszeri egyeztetés
+    szakértővel, hogy adószámos magánszemély vagy mellékállású egyéni
+    vállalkozó (átalányadó) a jobb; negyedéves adóelőleg, ÁFA-bevallás
+    (65) és összesítő nyilatkozat az Apple felé végzett szolgáltatásról;
+  - **App Store Connect:** Small Business Program kérelem az első eladás
+    előtt; a két termék és az introductory offer felvitele; egy
+    StoreKit Configuration fájl a szimulátoros teszthez;
   - **mi történik lejáratkor** a felhasználó szemével: egy vendég
     személy, akire épp váltva van (a váltó eltűnik — a tulajdonosra kell
     visszaállni), és egy egyszeri „a Pro lejárt, az adataid megvannak"

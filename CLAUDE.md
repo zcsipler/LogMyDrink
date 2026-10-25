@@ -1933,6 +1933,94 @@ nincs. A két debug-cím („Multiple people", „History trends") kikerült a
 katalógusból, három új kulcs jött a mentés lakatjához; mind a 24 nyelven, a
 magyar átnézendő.
 
+### 5.30 Ár, próbaidő és ajánlati kódok
+
+2026. október 23., Zoltán döntései kérdésenként végigvéve, a StoreKit-kör
+előtt. Cél: ne legyen elriasztó („ennyit megér"), de sok felhasználónál
+valódi bevételt hozzon. *Az első kör 2,99 $ / 19,99 $ volt; Zoltán még
+aznap feljebb vitte, hogy egy magyar havi előfizetőn kerek ~1000 Ft
+maradjon. A döntő érv: árat később emelni nehéz (a meglévő előfizetőket az
+Apple értesíti, nagyobb emelésnél el is kell fogadniuk), csökkenteni könnyű.*
+
+| | Ár (USD, ebből számol minden ország; az igazi ár az App Store Connectben él, a `.storekit` fájl csak a helyi teszt másolata) | Megjegyzés |
+|---|---|---|
+| Havi | **3,99 $** | a piaci 3–5 $ alatti-közép; egy magyar vásárlásnál (~1490 Ft) ÁFA és jutalék után ~1000 Ft marad |
+| Éves | **24,99 $** | ~48 % kedvezmény; kommunikálva: „kb. 2 $ havonta" — a havi ár főleg horgony |
+| Próbaidő | **1 hónap ingyen, mindkettőn** | introductory offer, előfizetés-csoportonként egyszer |
+| Lifetime | **most nincs** | később döntünk, ha látjuk, hogyan fogy az előfizetés |
+
+Egy előfizetés-csoport, két termék (havi, éves) — így a váltás köztük a
+rendszeré (upgrade / downgrade), és a próbaidő is csoportonként egyszer jár.
+**A próbaidő mindkettőn**, mert az üzenet így egyszerű, és az egy hónap az,
+ami alatt a Hét / Hónap nézet egyáltalán láthatóvá válik (5.29).
+
+**Pénzügyi tudnivalók, amik a döntést alakították:** az Apple Small Business
+Programjában (évi 1 M $ bevétel alatt) a jutalék 15 %, nem 30 % — a
+kérelmet az első eladás előtt be kell adni. Az ár ÁFÁ-t tartalmaz
+(Magyarországon 27 %), tehát egy magyar vásárlóból kevesebb marad, mint egy
+amerikaiból. Ez a szám még a fejlesztő saját jövedelemadója **előtt**
+van: az ÁFÁ-t az Apple fizeti be, de az Apple utalása Magyarországon
+jövedelem (SZJA, szocho, helyzettől függően TB) — az alanyi ÁFA-mentesség
+20 milliós határa csak az ÁFÁ-ra vonatkozik. A forma (magánszemély vagy a
+családi Bt.) és a teendők sorrendje a `TODO.md`-ben.
+
+**Ajánlati kódok (Offer Codes) — erre van az Apple megoldása.** A régi
+IAP promo kódokat az Apple 2026. március 26-án megszüntette; helyettük az
+előfizetéshez offer code-ot lehet létrehozni az App Store Connectben:
+
+- **Ingyenes Pro adott embereknek:** „Free" típus, 3 nap–1 év. Egyszer
+  használatos kódként (az Apple generál, személyenként egy) vagy egyedi
+  kódként (pl. `BARATOK2026`, beváltási limittel).
+- **Kedvezmény:** „Pay as you go" (pl. 3 hónapig fél áron) vagy „Pay up
+  front" (pl. az első év egyben kedvezményesen).
+- Célozható új, meglévő vagy lejárt előfizetőre.
+- **Az ingyenes időszak után az előfizetés automatikusan fizetősre vált**,
+  ha a felhasználó nem mondja le. Az Apple beváltáskor kiírja, de a kódot
+  kísérő üzenetben is mondjuk ki — különben becsapásnak érződik.
+- Később hasznos: **win-back offer** (iOS 18+) a lemondottaknak, az Apple
+  maga ajánlja fel.
+
+**„Kód beváltása" gomb a Pro-lapon** (`ProPaywallSheet`), az Apple saját
+beváltó lapjával (`offerCodeRedemption`) — ott keresi, ahol a Pro-t
+megveszi. Link / App Store-os beváltás emellett is működik.
+
+**Megépítve (2026. október 23.) — `Support/ProStore.swift`.** Egy
+`@Observable` singleton: a két termék (`dev.zcsipler.logmydrink.pro.yearly`
+/ `.monthly`) betöltése, a próbaidő-jogosultság
+(`isEligibleForIntroOffer`), vásárlás, visszaállítás (`AppStore.sync`), és
+a jogosultság olvasása `Transaction.currentEntitlements`-ből (próbaidő és
+billing grace period is Pro; lejárt és visszatérített nem). Indításkor
+`ProStore.shared.start()` figyeli a `Transaction.updates`-t (megújulás,
+refund, App Store-ban beváltott kód, Ask to Buy), előtérbe kerüléskor újraolvas.
+Az eredményt a `FeatureFlags.setSubscribed` kapja — a flags továbbra is az
+egyetlen döntéshely (5.19), a `proEntitlementDidChange` innen is posztol. Az
+utolsó ismert állapot `UserDefaults`-ban marad, hogy hidegindításkor ne
+villanjanak fel a lakatok. **A magyar szövegek (2026. október 25.)** kimondják, miről szól az app: az
+Előzmény-lakat címe „Hogyan alakul az alkoholfogyasztásod?" — Zoltán szerint
+a téma megnevezése nélkül (pl. „Nézz vissza messzebbre") furán hatottak.
+**A Pro-lap**: éves (előválasztva, „Save x %",
+„About … a month") és havi sor, gomb („Start my free month" / „Subscribe" a
+jogosultság szerint), alatta a megújulási feltételek, „Restore purchases",
+„Redeem code" (`offerCodeRedemption`), „Terms of Use" (az Apple standard
+EULA-ja) és „Privacy Policy". **Az adatvédelmi nyilatkozat és a
+támogatási oldal** (2026. október 25.) egy külön, publikus repóban él
+(`zcsipler/logmydrink-site`, GitHub Pages, a Macen
+`Projects/LogMyDrink/site/`): `https://zcsipler.github.io/logmydrink-site/privacy/`
+és `…/support/`, angolul elöl, alatta magyarul (nemzetközi app), kapcsolat
+`logmydrink.app@gmail.com`. A lényege: nincs szerverünk, az adat a
+készüléken és a felhasználó saját iCloudjában van, nincs analitika, reklám,
+követés; a fizetés az Apple-é. Debugban, ha a
+termékek nem töltődnek (parancssorból indítva), az 5.30 árai állnak be
+mintának, és a gomb a szimulált Pro-t kapcsolja. **Helyi StoreKit:**
+`LogMyDrinkTests/LogMyDrink.storekit`, a scheme Run actionje hivatkozik rá,
+a `ProStoreTests` (4) `SKTestSession`-nel használja. Két tudnivaló: (1) a
+StoreKit-tesztek párhuzamos szimulátor-klónokban végtelenül várnak, ezért a
+tesztcél `parallelizable = NO` (a teljes suite így 26 s, gyorsabb, mint
+párhuzamosan volt); (2) magyar régiójú Macen a helyi StoreKit a „24.99"-et
+`price`-ként 24-nek olvassa (a `displayPrice` helyes) — ezért a helyi
+teszten a „havonta kb." és a „Save" szám hamis (2,00 $, 33 %); az App
+Store-ból jövő ár nem érintett.
+
 ## 6. Validáció
 
 A `Reference/bac_model.py` a numerikus referencia. A Swift tesztek konkrét
