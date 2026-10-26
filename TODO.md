@@ -237,14 +237,10 @@ az egész app hitelességét.
   helyett (5.16).
 - **Ital nélkül maradt alkalom törlése** a `SessionStore`-ban (5.16) — ma
   az aggregátor szűri ki, az adatbázisban marad.
-- **StoreKit — megépítve 2026. október 23-án (CLAUDE.md 5.30)**, ami
-  még hátra van: **az App Store Connectben** a Privacy Policy URL
-  (`https://zcsipler.github.io/logmydrink-site/privacy/`), a Support URL
-  (`…/logmydrink-site/support/`) és az App Privacy kérdőív („Data Not
-  Collected") — az oldalak 2026. október 25. óta élnek, a Pro-lapon a link
-  megvan; a két termék és
-  az egy hónapos introductory offer felvitele az App Store Connectben,
-  ugyanazokkal az azonosítókkal; „Manage subscription" sor a Profilban
+- **StoreKit — megépítve 2026. október 23-án (CLAUDE.md 5.30).** Az App
+  Store Connect oldala 2026. október 26-án kész (a két termék, a próbaidő,
+  a Privacy és Support URL, az App Privacy, a szövegek — CLAUDE.md 10.,
+  „Az első beküldés állapota"). Ami még hátra van: „Manage subscription" sor a Profilban
   (`manageSubscriptionsSheet`); a vásárlás végigpróbálása Xcode-ból
   (⌘R, a scheme a helyi StoreKit-fájllal indul) és valódi készüléken
   sandbox-fiókkal. A régi terv:
@@ -261,6 +257,8 @@ az egész app hitelességét.
     szakértővel, hogy adószámos magánszemély vagy mellékállású egyéni
     vállalkozó (átalányadó) a jobb; negyedéves adóelőleg, ÁFA-bevallás
     (65) és összesítő nyilatkozat az Apple felé végzett szolgáltatásról;
+    és: az amerikai eladásokból az Apple 30 %-ot levon (nincs
+    USA–Magyarország adóegyezmény 2024 óta) — beszámítható-e itthon;
   - **App Store Connect:** Small Business Program kérelem az első eladás
     előtt; a két termék és az introductory offer felvitele; egy
     StoreKit Configuration fájl a szimulátoros teszthez;

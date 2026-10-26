@@ -2261,6 +2261,79 @@ App Store Connectben a „LogMyDrink" app-rekord lefoglalva (`TODO.md`).
 
 Az app **fordul és fut** szimulátoron, iPhone-ra telepítve van kipróbálva.
 
+### Az első beküldés állapota (2026. október 26.)
+
+Cél: a 1.0 Pro-val, **kézi kiadással** (Manual release) review-ra, hogy
+kiderüljön, beengedi-e az Apple (9.); a jogi formáról (magánszemély /
+e.v. / Bt.) Zoltán a kiadás előtt dönt. A bankszámla és az adóűrlap
+később cserélhető; Bt.-nél a fejlesztői fiókot szervezetire kell váltani
+(D-U-N-S, Apple Support).
+
+**Kész az App Store Connectben:**
+
+- **Előfizetések** (5.30): „LogMyDrink Pro" csoport (megjelenített név
+  EN/HU), 1. szint Pro Yearly 24,99 $, 2. szint Pro Monthly 3,99 $, 175
+  ország; mindkettőn 1 hónap ingyenes introductory offer (2026. okt. 25.,
+  lejárat nélkül); név + leírás angolul és magyarul („Pro – éves / havi");
+  review-képernyőkép a Pro-lapról mindkettőn. Állapot „Prepare for
+  Submission" — az első előfizetés csak egy app-verzióval együtt mehet.
+- **Business:** a frissített Developer Program License Agreement és a
+  Paid Apps Agreement elfogadva; bankszámla (GRANIT, EUR) feldolgozás
+  alatt; **W-8BEN beküldve magánszemélyként, egyezményes kedvezmény
+  nélkül** — az USA 2024. január 1-jével felmondta a magyar–amerikai
+  adóegyezményt, tehát az amerikai eladásokból 30 % levonás jár (a
+  magyar beszámíthatóság nyitott kérdés, `TODO.md`). A Paid Apps
+  Agreement „Pending User Info", amíg a bank és az adóűrlap nem aktív —
+  enélkül a termékek sandboxban (és így a reviewernél) sem töltődnek be.
+- **DSA:** kereskedőként, a lakcímmel, `logmydrink.app@gmail.com`-mal.
+  Igazolásnak a lakcímkártya előlapja + saját angol fordítás egy PDF-ben
+  (`Projects/LogMyDrink/AppStore/`, a repón kívül), nyelvként English —
+  magyart az Apple nem kínál. Ellenőrzés alatt; amíg tart, az app az
+  EU-ban nem jelenne meg. Ha visszadobják: NAV angol nyelvű
+  jövedelemigazolás (állami adóhatósági irat).
+- **App Information:** alcím EN „Drink tracker with a forecast", HU
+  „Italnapló előrejelzéssel"; kategória Health & Fitness + Lifestyle (a
+  Lifestyle miatt hét közel-keleti országban nem árusítható — alkoholos
+  appnál mindegy); korhatár 18+ (Korea 19+; alkohol „frequent",
+  „Health or Wellness Topics" igen, orvosi információ nem); harmadik fél
+  tartalma nincs; nem szabályozott orvostechnikai eszköz.
+- **App Privacy:** „Data Not Collected", közzétéve; Privacy Policy URL.
+- **1.0 verzió, angol és magyar lokalizáció:** promóciós szöveg, leírás
+  (benne a Pro feltételei és a „ne ez alapján dönts a vezetésről"),
+  kulcsszavak, Support / Marketing URL, copyright; App Review Notes (a
+  pozicionálás: fogyasztáscsökkentés, nincs vezetési verdikt; az út a
+  Pro-laphoz), kapcsolattartó (a telefonszám még hiányzik), „Sign-in
+  required" kikapcsolva, **Manual release**.
+
+**A build:** a `MARKETING_VERSION` 0.1 volt az app targeten (a widget és
+az App Store Connect 1.0) — eltérő verzióval a feltöltés elbukik, most
+1.0; és `INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO`, hogy az
+export compliance ne kérdezzen buildenként. Az archív parancssorból
+elkészült (1.0 (1), Organizerben). **A feltöltés parancssorból nem
+megy** („No Accounts with App Store Connect Access" — a parancssori
+`xcodebuild` nem látja Zoltán App Store Connect-bejelentkezését), az
+Organizerben Zoltánnak kell. Ott „unable to authenticate" jött, és a Mac
+App Store sem engedett belépni: a Mac `akd` folyamata (AuthKit, az Apple
+ID-bejelentkezéseké) péntek óta futott, és a SIP miatt programból nem
+indítható újra — **a Mac újraindítása** a következő lépés.
+
+**Hátravan, sorrendben:** a build feltöltése és a verzióhoz csatolása;
+**6,9 hüvelykes képernyőképek** (iPhone 18 Pro Max szimulátor,
+debug-only indítási argumentumokkal a tabhoz / szegmenshez és egy
+kitalált estével a „You" profilon — a demo „Demo" néven és a mai napon
+szélsőséges estével szerepel, áruházi képnek nem jó); a kapcsolattartó
+telefonszáma; **a CloudKit-séma kitelepítése Productionbe** (a TestFlight
+és az App Store build a Production környezetet használja, telepítés
+nélkül ott nem szinkronizál; visszavonhatatlan, mezőt törölni utána nem
+lehet); Small Business Program; végül az **Add for Review** — azt Zoltán
+nyomja meg.
+
+**Tanulság:** a `simctl spawn <id> defaults write` a szimulátor saját
+beállításaiba ír, nem az app konténerébe, és az app törlése nem viszi el
+— egy korábbi teszt `logmydrink.tips.firstSeen` = 2026-01-01 értéke így
+egy friss telepítésen is tippet dobott fel. Takarítás: `simctl spawn <id>
+defaults delete dev.zcsipler.logmydrink`.
+
 Utolsó commit: lásd `git log`; ez a fejezet 2026. október 9-én, a „görbe
 adja az alkalmat" körrel (5.22) frissült, október 18-án pedig a Macen futó
 fordítással és tesztekkel (6.).
